@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Integrations3 as Integrations3Block } from "./integrations-3";
 
 export default {
-  title: "Integrations",
-} satisfies StoryDefault;
+  title: "Marketing/Integrations",
+} satisfies Meta;
 
-export const Integrations3: Story = () => <Integrations3Block />;
+export const ScatteredLogos: StoryFn = () => <Integrations3Block />;

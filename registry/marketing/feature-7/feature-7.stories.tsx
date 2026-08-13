@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Feature7 as Feature7Block } from "./feature-7";
 
 export default {
-  title: "Features",
-} satisfies StoryDefault;
+  title: "Marketing/Features",
+} satisfies Meta;
 
-export const Feature7: Story = () => <Feature7Block />;
+export const ScreenshotHighlights: StoryFn = () => <Feature7Block />;

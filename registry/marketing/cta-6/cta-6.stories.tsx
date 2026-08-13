@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Cta6 as Cta6Block } from "./cta-6";
 
 export default {
-  title: "CTA",
-} satisfies StoryDefault;
+  title: "Marketing/CTA",
+} satisfies Meta;
 
-export const Cta6: Story = () => <Cta6Block />;
+export const CopyableCommand: StoryFn = () => <Cta6Block />;

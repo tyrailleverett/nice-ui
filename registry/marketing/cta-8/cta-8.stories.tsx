@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Cta8 as Cta8Block } from "./cta-8";
 
 export default {
-  title: "CTA",
-} satisfies StoryDefault;
+  title: "Marketing/CTA",
+} satisfies Meta;
 
-export const Cta8: Story = () => <Cta8Block />;
+export const SerifFloatingIcons: StoryFn = () => <Cta8Block />;

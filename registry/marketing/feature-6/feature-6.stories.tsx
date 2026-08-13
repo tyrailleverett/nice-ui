@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Feature6 as Feature6Block } from "./feature-6";
 
 export default {
-  title: "Features",
-} satisfies StoryDefault;
+  title: "Marketing/Features",
+} satisfies Meta;
 
-export const Feature6: Story = () => <Feature6Block />;
+export const StickyScrollNav: StoryFn = () => <Feature6Block />;

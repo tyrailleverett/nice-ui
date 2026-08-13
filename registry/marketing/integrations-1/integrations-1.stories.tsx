@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Integrations1 as Integrations1Block } from "./integrations-1";
 
 export default {
-  title: "Integrations",
-} satisfies StoryDefault;
+  title: "Marketing/Integrations",
+} satisfies Meta;
 
-export const Integrations1: Story = () => <Integrations1Block />;
+export const FourCardTray: StoryFn = () => <Integrations1Block />;

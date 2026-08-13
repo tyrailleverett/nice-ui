@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Pricing1 as Pricing1Block } from "./pricing-1";
 
 export default {
-  title: "Pricing",
-} satisfies StoryDefault;
+  title: "Marketing/Pricing",
+} satisfies Meta;
 
-export const Pricing1: Story = () => <Pricing1Block />;
+export const ThreeTiers: StoryFn = () => <Pricing1Block />;

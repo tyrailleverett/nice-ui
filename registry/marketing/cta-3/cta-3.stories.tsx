@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Cta3 as Cta3Block } from "./cta-3";
 
 export default {
-  title: "CTA",
-} satisfies StoryDefault;
+  title: "Marketing/CTA",
+} satisfies Meta;
 
-export const Cta3: Story = () => <Cta3Block />;
+export const FramedDashedCenter: StoryFn = () => <Cta3Block />;

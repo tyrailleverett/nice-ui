@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Hero5 as Hero5Block } from "./hero-5";
 
 export default {
-  title: "Hero",
-} satisfies StoryDefault;
+  title: "Marketing/Hero",
+} satisfies Meta;
 
-export const Hero5: Story = () => <Hero5Block />;
+export const CenteredHoverLogos: StoryFn = () => <Hero5Block />;

@@ -1,12 +1,12 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Logo } from "@/components/logo";
 
 import { Header1 as Header1Block } from "./header-1";
 
 export default {
-  title: "Header",
-} satisfies StoryDefault;
+  title: "Marketing/Header",
+} satisfies Meta;
 
 const navLinks = [
   { href: "#", label: "Features" },
@@ -14,7 +14,7 @@ const navLinks = [
   { href: "#", label: "About" },
 ];
 
-export const Header1: Story = () => (
+export const CompactSticky: StoryFn = () => (
   <div className="min-h-[150vh]">
     <Header1Block
       getStarted={{ href: "#", label: "Get Started" }}

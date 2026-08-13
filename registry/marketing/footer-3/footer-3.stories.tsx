@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import {
   FacebookIcon,
@@ -8,8 +8,8 @@ import {
 } from "./footer-3";
 
 export default {
-  title: "Footer",
-} satisfies StoryDefault;
+  title: "Marketing/Footer",
+} satisfies Meta;
 
 const columns = [
   {
@@ -57,4 +57,4 @@ const columns = [
   },
 ];
 
-export const Footer3: Story = () => <Footer3Block columns={columns} />;
+export const SocialCards: StoryFn = () => <Footer3Block columns={columns} />;

@@ -73,7 +73,7 @@ export function Cta5({
   return (
     <section
       className={cn(
-        "relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-6 border-x bg-secondary/80 px-2 py-8 md:px-4 dark:bg-secondary/40",
+        "relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-6 border-x px-2 py-8 md:px-4",
         className
       )}
     >

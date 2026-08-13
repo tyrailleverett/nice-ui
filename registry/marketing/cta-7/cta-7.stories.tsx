@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Cta7 as Cta7Block } from "./cta-7";
 
 export default {
-  title: "CTA",
-} satisfies StoryDefault;
+  title: "Marketing/CTA",
+} satisfies Meta;
 
-export const Cta7: Story = () => <Cta7Block />;
+export const GitHubActivityCards: StoryFn = () => <Cta7Block />;

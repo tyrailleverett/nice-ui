@@ -27,6 +27,6 @@
     },
     "strictNullChecks": true
   },
-  "include": ["src", "registry"],
+  "include": ["src", "registry", ".storybook/preview.ts"],
   "exclude": ["node_modules", "**/*.stories.tsx"]
 }

@@ -12,6 +12,8 @@ dist
 dist-ssr
 build
 *.local
+storybook-static
+*storybook.log
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +26,6 @@ build
 *.njsproj
 *.sln
 *.sw?
+
+*storybook.log
+storybook-static

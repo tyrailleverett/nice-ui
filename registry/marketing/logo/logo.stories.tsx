@@ -1,16 +1,20 @@
-import type { Story } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Logo, LogoIcon } from "./logo";
 
-export const Wordmark: Story = () => (
+export default {
+  title: "Marketing/Logo",
+} satisfies Meta;
+
+export const Wordmark: StoryFn = () => (
   <Logo aria-label="Nice UI" className="h-6 w-auto" />
 );
 
-export const Icon: Story = () => (
+export const Icon: StoryFn = () => (
   <LogoIcon aria-label="Nice UI" className="size-8" />
 );
 
-export const Sizes: Story = () => (
+export const Sizes: StoryFn = () => (
   <div className="flex flex-col gap-8">
     <div className="flex items-center gap-6">
       <Logo aria-hidden="true" className="h-4 w-auto" />

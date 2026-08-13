@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import {
   FacebookIcon,
@@ -9,8 +9,8 @@ import {
 } from "./footer-4";
 
 export default {
-  title: "Footer",
-} satisfies StoryDefault;
+  title: "Marketing/Footer",
+} satisfies Meta;
 
 const groups = [
   {
@@ -69,6 +69,6 @@ const socialLinks = [
   { href: "#", icon: <XIcon />, label: "X" },
 ];
 
-export const Footer4: Story = () => (
+export const StoreBadges: StoryFn = () => (
   <Footer4Block groups={groups} socialLinks={socialLinks} />
 );

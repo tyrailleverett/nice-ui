@@ -4,7 +4,7 @@
 @import "@fontsource-variable/geist";
 
 @source "../registry";
-@source "../.ladle";
+@source "../.storybook";
 
 @custom-variant dark (&:is(.dark *));
 

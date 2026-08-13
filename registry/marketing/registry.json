@@ -17,7 +17,7 @@
     {
       "name": "hero-1",
       "type": "registry:block",
-      "title": "Hero 1",
+      "title": "Centered Screenshot",
       "description": "Centered marketing hero with announcement pill, dual CTAs, faded side rules, and a framed screenshot.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -36,7 +36,7 @@
     {
       "name": "hero-2",
       "type": "registry:block",
-      "title": "Hero 2",
+      "title": "Left Offset Screenshot",
       "description": "Left-aligned marketing hero with announcement pill, dual CTAs, and an offset masked screenshot.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -51,7 +51,7 @@
     {
       "name": "hero-3",
       "type": "registry:block",
-      "title": "Hero 3",
+      "title": "Split Skewed Screenshot",
       "description": "Split marketing hero with copy, logos, dual CTAs, and a skewed product screenshot.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -66,7 +66,7 @@
     {
       "name": "hero-4",
       "type": "registry:block",
-      "title": "Hero 4",
+      "title": "Split Headline Media",
       "description": "Two-column marketing hero with nested screenshot, photographic backdrop, and logo row.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -81,7 +81,7 @@
     {
       "name": "hero-5",
       "type": "registry:block",
-      "title": "Hero 5",
+      "title": "Centered Hover Logos",
       "description": "Centered marketing hero with announcement, nested screenshot, and a hover-reveal logo grid.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -149,7 +149,7 @@
     {
       "name": "cta-1",
       "type": "registry:block",
-      "title": "CTA 1",
+      "title": "Split Headline Actions",
       "description": "Split marketing call to action with headline, buttons, and full-width dividers.",
       "registryDependencies": [
         "button",
@@ -166,7 +166,7 @@
     {
       "name": "cta-2",
       "type": "registry:block",
-      "title": "CTA 2",
+      "title": "Stacked Tinted Bar",
       "description": "Stacked marketing call to action with supporting copy and a tinted button bar.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -184,7 +184,7 @@
     {
       "name": "cta-3",
       "type": "registry:block",
-      "title": "CTA 3",
+      "title": "Framed Dashed Center",
       "description": "Framed marketing call to action with corner marks, dashed center line, and dual buttons.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "tyrailleverett/nice-ui/decor-icon"],
@@ -199,7 +199,7 @@
     {
       "name": "cta-4",
       "type": "registry:block",
-      "title": "CTA 4",
+      "title": "Rounded Card",
       "description": "Card-style marketing call to action with rounded frame and dual buttons.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -214,7 +214,7 @@
     {
       "name": "cta-5",
       "type": "registry:block",
-      "title": "CTA 5",
+      "title": "Newsletter Avatars",
       "description": "Newsletter marketing call to action with email field, subscribe button, and avatars.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -233,7 +233,7 @@
     {
       "name": "cta-6",
       "type": "registry:block",
-      "title": "CTA 6",
+      "title": "Copyable Command",
       "description": "Grid-framed marketing call to action with install headline and copyable command.",
       "files": [
         {
@@ -246,7 +246,7 @@
     {
       "name": "cta-7",
       "type": "registry:block",
-      "title": "CTA 7",
+      "title": "GitHub Activity Cards",
       "description": "Open-source marketing call to action with GitHub button and floating activity cards.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -261,7 +261,7 @@
     {
       "name": "cta-8",
       "type": "registry:block",
-      "title": "CTA 8",
+      "title": "Serif Floating Icons",
       "description": "Serif headline marketing call to action with floating tool icons and dual buttons.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -276,7 +276,7 @@
     {
       "name": "cta-9",
       "type": "registry:block",
-      "title": "CTA 9",
+      "title": "Newsletter Grid Card",
       "description": "Grid-card marketing call to action with combined email field and join button.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "input-group"],
@@ -291,7 +291,7 @@
     {
       "name": "cta-10",
       "type": "registry:block",
-      "title": "CTA 10",
+      "title": "Display Headline Card",
       "description": "Stacked marketing call to action with display headline and horizontal action card.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -306,7 +306,7 @@
     {
       "name": "cta-11",
       "type": "registry:block",
-      "title": "CTA 11",
+      "title": "Social Proof Pills",
       "description": "Social-proof marketing call to action with avatars, rating, and pill buttons.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -321,7 +321,7 @@
     {
       "name": "cta-12",
       "type": "registry:block",
-      "title": "CTA 12",
+      "title": "Hairline Text Link",
       "description": "Hairline-framed marketing call to action with text link and outlined button.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -336,7 +336,7 @@
     {
       "name": "footer-1",
       "type": "registry:block",
-      "title": "Footer 1",
+      "title": "Inline Nav",
       "description": "Marketing footer with logo, social links, navigation, copyright, and optional attribution.",
       "registryDependencies": ["button"],
       "files": [
@@ -350,7 +350,7 @@
     {
       "name": "footer-2",
       "type": "registry:block",
-      "title": "Footer 2",
+      "title": "Brand Two Columns",
       "description": "Marketing footer with brand copy, social links, resource and company columns, and full-width dividers.",
       "registryDependencies": ["button"],
       "files": [
@@ -364,7 +364,7 @@
     {
       "name": "footer-3",
       "type": "registry:block",
-      "title": "Footer 3",
+      "title": "Social Cards",
       "description": "Marketing footer with social cards, multi-column link groups, and a centered copyright bar.",
       "dependencies": ["lucide-react"],
       "files": [
@@ -378,7 +378,7 @@
     {
       "name": "footer-4",
       "type": "registry:block",
-      "title": "Footer 4",
+      "title": "Store Badges",
       "description": "Marketing footer with link columns, social buttons, and official App Store and Google Play badges.",
       "registryDependencies": ["button"],
       "files": [
@@ -402,7 +402,7 @@
     {
       "name": "footer-5",
       "type": "registry:block",
-      "title": "Footer 5",
+      "title": "Newsletter Status",
       "description": "Marketing footer with brand copy, newsletter signup, social icons, multi-column links, and system status.",
       "registryDependencies": ["button", "input"],
       "files": [
@@ -416,7 +416,7 @@
     {
       "name": "footer-6",
       "type": "registry:block",
-      "title": "Footer 6",
+      "title": "Watermark Card",
       "description": "Card-style marketing footer with uppercase link columns, social buttons, outlined watermark, and status.",
       "registryDependencies": ["button"],
       "files": [
@@ -430,7 +430,7 @@
     {
       "name": "footer-7",
       "type": "registry:block",
-      "title": "Footer 7",
+      "title": "Theme Switcher Grid",
       "description": "Grid marketing footer with bordered columns, newsletter, status badge, and theme switcher.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "input"],
@@ -445,7 +445,7 @@
     {
       "name": "feature-1",
       "type": "registry:block",
-      "title": "Feature 1",
+      "title": "Four-up Icon Row",
       "description": "Four-up marketing feature row with icons, short copy, and vertical hairline dividers.",
       "dependencies": ["lucide-react"],
       "files": [
@@ -459,7 +459,7 @@
     {
       "name": "feature-2",
       "type": "registry:block",
-      "title": "Feature 2",
+      "title": "Framed Three Column",
       "description": "Framed three-column feature grid with corner marks and dashed rules.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
@@ -474,7 +474,7 @@
     {
       "name": "feature-3",
       "type": "registry:block",
-      "title": "Feature 3",
+      "title": "Six-up Bordered Grid",
       "description": "Headline and six-up bordered feature cards with icons and supporting copy.",
       "dependencies": ["lucide-react"],
       "files": [
@@ -488,7 +488,7 @@
     {
       "name": "feature-4",
       "type": "registry:block",
-      "title": "Feature 4",
+      "title": "Bento Pipeline",
       "description": "Bento marketing features with pipeline cards and a four-up highlight row.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card"],
@@ -503,7 +503,7 @@
     {
       "name": "feature-5",
       "type": "registry:block",
-      "title": "Feature 5",
+      "title": "Portrait Media Cards",
       "description": "Three portrait feature cards with product illustrations and supporting copy.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
@@ -518,7 +518,7 @@
     {
       "name": "feature-6",
       "type": "registry:block",
-      "title": "Feature 6",
+      "title": "Sticky Scroll Nav",
       "description": "Sticky product nav with scroll-synced feature sections and inline illustrations.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -533,7 +533,7 @@
     {
       "name": "feature-7",
       "type": "registry:block",
-      "title": "Feature 7",
+      "title": "Screenshot Highlights",
       "description": "Stacked product screenshot with a four-up icon highlight row.",
       "dependencies": ["lucide-react"],
       "files": [
@@ -547,7 +547,7 @@
     {
       "name": "feature-8",
       "type": "registry:block",
-      "title": "Feature 8",
+      "title": "Dashboard Bento",
       "description": "Pipeline dashboard features with a dotted map, conversation frame, uptime, and chart.",
       "files": [
         {
@@ -560,7 +560,7 @@
     {
       "name": "feature-9",
       "type": "registry:block",
-      "title": "Feature 9",
+      "title": "Two-up Illustrations",
       "description": "Two-up feature cards with code and scheduler illustrations.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
@@ -575,7 +575,7 @@
     {
       "name": "feature-10",
       "type": "registry:block",
-      "title": "Feature 10",
+      "title": "Split Copy Screenshot",
       "description": "Split feature copy with a screenshot frame and secondary CTA.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -590,7 +590,7 @@
     {
       "name": "feature-11",
       "type": "registry:block",
-      "title": "Feature 11",
+      "title": "Four-card Bento",
       "description": "Bento feature cards with screenshot, meeting, review, and assistant illustrations.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
@@ -605,7 +605,7 @@
     {
       "name": "feature-12",
       "type": "registry:block",
-      "title": "Feature 12",
+      "title": "Stacked Illustrations",
       "description": "Stacked feature layout with assistant, meeting, and review illustrations.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "card"],
@@ -620,7 +620,7 @@
     {
       "name": "feature-13",
       "type": "registry:block",
-      "title": "Feature 13",
+      "title": "Two-by-two Cards",
       "description": "Two-by-two feature cards with integration logos, sync rings, and a shield mark.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["card"],
@@ -635,7 +635,7 @@
     {
       "name": "header-1",
       "type": "registry:block",
-      "title": "Header 1",
+      "title": "Compact Sticky",
       "description": "Compact sticky marketing header that tightens on scroll, with simple links and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -654,7 +654,7 @@
     {
       "name": "header-2",
       "type": "registry:block",
-      "title": "Header 2",
+      "title": "Mega Menu",
       "description": "Sticky marketing header with product and company mega menus, pricing link, and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -674,7 +674,7 @@
     {
       "name": "logo-cloud-1",
       "type": "registry:block",
-      "title": "Logo Cloud 1",
+      "title": "Bordered Grid",
       "description": "Bordered grid of partner wordmarks in two columns on small screens and four on larger screens.",
       "files": [
         {
@@ -687,7 +687,7 @@
     {
       "name": "logo-cloud-2",
       "type": "registry:block",
-      "title": "Logo Cloud 2",
+      "title": "Marquee",
       "description": "Slow auto-scrolling partner wordmarks with edge fade and reduced-motion fallback.",
       "files": [
         {
@@ -700,7 +700,7 @@
     {
       "name": "logo-cloud-3",
       "type": "registry:block",
-      "title": "Logo Cloud 3",
+      "title": "Wrapping Row",
       "description": "Centered wrapping row of partner wordmarks.",
       "files": [
         {
@@ -713,7 +713,7 @@
     {
       "name": "integrations-1",
       "type": "registry:block",
-      "title": "Integrations 1",
+      "title": "Four Card Tray",
       "description": "Four integration cards on a muted tray with a view-all link.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button"],
@@ -728,7 +728,7 @@
     {
       "name": "integrations-2",
       "type": "registry:block",
-      "title": "Integrations 2",
+      "title": "Hairline Grid",
       "description": "Hairline integration grid with corner plus marks and optional cell decorations.",
       "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
       "files": [
@@ -742,7 +742,7 @@
     {
       "name": "integrations-3",
       "type": "registry:block",
-      "title": "Integrations 3",
+      "title": "Scattered Logos",
       "description": "Copy and CTA beside a scattered logo grid on a fading rule background.",
       "registryDependencies": [
         "button",
@@ -759,7 +759,7 @@
     {
       "name": "integrations-4",
       "type": "registry:block",
-      "title": "Integrations 4",
+      "title": "Masked Tile Grid",
       "description": "Headline beside a masked grid of bordered logo tiles and empty cells.",
       "files": [
         {
@@ -772,7 +772,7 @@
     {
       "name": "testimonial-1",
       "type": "registry:block",
-      "title": "Testimonial 1",
+      "title": "Centered Quote",
       "description": "Centered marketing testimonial with company mark, quote, and avatar.",
       "registryDependencies": ["avatar"],
       "files": [
@@ -786,7 +786,7 @@
     {
       "name": "testimonial-2",
       "type": "registry:block",
-      "title": "Testimonial 2",
+      "title": "Split Portrait",
       "description": "Split marketing testimonial with framed portrait and quote.",
       "registryDependencies": ["avatar"],
       "files": [
@@ -800,7 +800,7 @@
     {
       "name": "testimonial-3",
       "type": "registry:block",
-      "title": "Testimonial 3",
+      "title": "Featured Split",
       "description": "Split-column marketing testimonials with quote marks and full-width dividers.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
@@ -815,7 +815,7 @@
     {
       "name": "testimonial-4",
       "type": "registry:block",
-      "title": "Testimonial 4",
+      "title": "Three Column Grid",
       "description": "Grid marketing testimonials with avatars, quotes, and full-width dividers.",
       "registryDependencies": [
         "avatar",
@@ -832,7 +832,7 @@
     {
       "name": "testimonial-5",
       "type": "registry:block",
-      "title": "Testimonial 5",
+      "title": "Marquee",
       "description": "Auto-scrolling marketing testimonials with quote cards, avatars, and source labels.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -850,7 +850,7 @@
     {
       "name": "faq-1",
       "type": "registry:block",
-      "title": "FAQ 1",
+      "title": "Centered Accordion",
       "description": "Centered marketing FAQ with a bordered accordion and a support link.",
       "registryDependencies": ["accordion"],
       "files": [
@@ -864,7 +864,7 @@
     {
       "name": "faq-2",
       "type": "registry:block",
-      "title": "FAQ 2",
+      "title": "Split Stacked",
       "description": "Split-column marketing FAQ with a stacked headline and edge-to-edge accordion.",
       "registryDependencies": ["accordion"],
       "files": [
@@ -878,7 +878,7 @@
     {
       "name": "faq-3",
       "type": "registry:block",
-      "title": "FAQ 3",
+      "title": "Split Guide Line",
       "description": "Split-column marketing FAQ with a large headline, guide line, and corner marks.",
       "registryDependencies": [
         "accordion",
@@ -895,7 +895,7 @@
     {
       "name": "faq-4",
       "type": "registry:block",
-      "title": "FAQ 4",
+      "title": "Searchable Categories",
       "description": "Searchable marketing FAQ with category filters, card accordion items, and an empty state.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["accordion", "button", "empty", "input-group"],
@@ -910,7 +910,7 @@
     {
       "name": "faq-5",
       "type": "registry:block",
-      "title": "FAQ 5",
+      "title": "Grouped Categories",
       "description": "Centered marketing FAQ with category headings and hairline accordion groups.",
       "registryDependencies": ["accordion"],
       "files": [
@@ -924,7 +924,7 @@
     {
       "name": "blog-1",
       "type": "registry:block",
-      "title": "Blog 1",
+      "title": "Compact List",
       "description": "Compact blog index with dashed title rules, dates, and hoverable list rows.",
       "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
       "files": [
@@ -938,7 +938,7 @@
     {
       "name": "blog-2",
       "type": "registry:block",
-      "title": "Blog 2",
+      "title": "Three Column Grid",
       "description": "Three-column blog grid with category, date, excerpt, and author attribution.",
       "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
       "files": [
@@ -952,7 +952,7 @@
     {
       "name": "blog-3",
       "type": "registry:block",
-      "title": "Blog 3",
+      "title": "Featured Bento",
       "description": "Featured two-up and three-up blog grid with images, authors, and inset hover frames.",
       "dependencies": ["lucide-react"],
       "files": [
@@ -966,7 +966,7 @@
     {
       "name": "pricing-1",
       "type": "registry:block",
-      "title": "Pricing 1",
+      "title": "Three Tiers",
       "description": "Three-column marketing pricing table with monthly/annual toggle, popular badge, and trial CTAs.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],
@@ -981,7 +981,7 @@
     {
       "name": "pricing-2",
       "type": "registry:block",
-      "title": "Pricing 2",
+      "title": "Comparison Table",
       "description": "Feature comparison table with monthly/annual toggle, grouped rows, and a highlighted popular plan column.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],
@@ -996,7 +996,7 @@
     {
       "name": "pricing-3",
       "type": "registry:block",
-      "title": "Pricing 3",
+      "title": "Single Plan",
       "description": "Single-plan marketing pricing card with monthly/annual toggle, split offer and features, and a trial CTA.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],
@@ -1011,7 +1011,7 @@
     {
       "name": "pricing-4",
       "type": "registry:block",
-      "title": "Pricing 4",
+      "title": "Two Tiers",
       "description": "Two-column marketing pricing table with monthly/annual toggle, popular badge, and trial CTAs.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["button", "badge"],

@@ -73,7 +73,6 @@ export function Cta12({
     <section
       className={cn(
         "relative mx-auto flex w-full max-w-3xl items-center justify-center px-6 py-16",
-        "bg-[radial-gradient(40%_60%_at_50%_35%,--theme(--color-foreground/.1),transparent)]",
         className
       )}
     >

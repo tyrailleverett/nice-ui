@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Logo } from "@/components/logo";
 
@@ -11,8 +11,8 @@ import {
 } from "./footer-5";
 
 export default {
-  title: "Footer",
-} satisfies StoryDefault;
+  title: "Marketing/Footer",
+} satisfies Meta;
 
 const columns = [
   {
@@ -78,7 +78,7 @@ const socialLinks = [
   { href: "#", icon: <InstagramIcon />, label: "Instagram" },
 ];
 
-export const Footer5: Story = () => (
+export const NewsletterStatus: StoryFn = () => (
   <Footer5Block
     columns={columns}
     logo={<Logo aria-label="Nice UI" className="h-6 w-auto" />}

@@ -1,12 +1,12 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Logo } from "@/components/logo";
 
 import { Footer1 as Footer1Block, GithubIcon, XIcon } from "./footer-1";
 
 export default {
-  title: "Footer",
-} satisfies StoryDefault;
+  title: "Marketing/Footer",
+} satisfies Meta;
 
 const navLinks = [
   { href: "#", label: "Features" },
@@ -30,7 +30,7 @@ const socialLinks = [
   },
 ];
 
-export const Footer1: Story = () => (
+export const InlineNav: StoryFn = () => (
   <Footer1Block
     builtBy={{
       href: "https://github.com/hotreloadstudios",

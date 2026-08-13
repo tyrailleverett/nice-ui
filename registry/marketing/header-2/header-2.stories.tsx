@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 import {
   BarChart3Icon,
   CodeIcon,
@@ -21,8 +21,8 @@ import { Logo } from "@/components/logo";
 import { Header2 as Header2Block, type Header2LinkItem } from "./header-2";
 
 export default {
-  title: "Header",
-} satisfies StoryDefault;
+  title: "Marketing/Header",
+} satisfies Meta;
 
 const productLinks: Header2LinkItem[] = [
   {
@@ -112,7 +112,7 @@ const companyLinks2: Header2LinkItem[] = [
   },
 ];
 
-export const Header2: Story = () => (
+export const MegaMenu: StoryFn = () => (
   <div className="min-h-[150vh]">
     <Header2Block
       companyLinks={companyLinks}

@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { LogoCloud1 as LogoCloud1Block } from "./logo-cloud-1";
 
 export default {
-  title: "Logo Cloud",
-} satisfies StoryDefault;
+  title: "Marketing/Logo Cloud",
+} satisfies Meta;
 
-export const LogoCloud1: Story = () => <LogoCloud1Block />;
+export const BorderedGrid: StoryFn = () => <LogoCloud1Block />;

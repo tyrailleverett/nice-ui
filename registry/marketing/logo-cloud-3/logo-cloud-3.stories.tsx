@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { LogoCloud3 as LogoCloud3Block } from "./logo-cloud-3";
 
 export default {
-  title: "Logo Cloud",
-} satisfies StoryDefault;
+  title: "Marketing/Logo Cloud",
+} satisfies Meta;
 
-export const LogoCloud3: Story = () => <LogoCloud3Block />;
+export const WrappingRow: StoryFn = () => <LogoCloud3Block />;

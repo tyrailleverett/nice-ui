@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Faq4 as Faq4Block } from "./faq-4";
 
 export default {
-  title: "FAQ",
-} satisfies StoryDefault;
+  title: "Marketing/FAQ",
+} satisfies Meta;
 
-export const Faq4: Story = () => <Faq4Block />;
+export const SearchableCategories: StoryFn = () => <Faq4Block />;

@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Blog3 as Blog3Block } from "./blog-3";
 
 export default {
-  title: "Blog",
-} satisfies StoryDefault;
+  title: "Marketing/Blog",
+} satisfies Meta;
 
-export const Blog3: Story = () => <Blog3Block />;
+export const FeaturedBento: StoryFn = () => <Blog3Block />;

@@ -51,7 +51,6 @@ export function Cta9({
     <section
       className={cn(
         "relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl border px-6 py-16 text-center",
-        "[background-image:radial-gradient(50%_80%_at_50%_0%,--theme(--color-foreground/.08),transparent),repeating-linear-gradient(to_right,transparent,transparent_31px,var(--border)_31px,var(--border)_32px),repeating-linear-gradient(to_bottom,transparent,transparent_31px,var(--border)_31px,var(--border)_32px)]",
         className
       )}
     >

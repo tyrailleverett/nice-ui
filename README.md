@@ -1,6 +1,6 @@
 # Nice UI
 
-A shadcn-compatible component registry for marketing blocks. Preview components in Ladle, install them into any project with the shadcn CLI.
+A shadcn-compatible component registry for marketing blocks. Preview components in Storybook, install them into any project with the shadcn CLI.
 
 ## Quick start
 
@@ -9,7 +9,7 @@ bun install
 bun run dev
 ```
 
-Open the Ladle playground to browse and develop components in isolation.
+Open the Storybook playground to browse and develop components in isolation.
 
 ## Install components
 
@@ -39,7 +39,7 @@ Marketing blocks are registered in `registry/marketing/registry.json`. The root 
 ## Add a new block
 
 1. Create a folder under `registry/marketing/`.
-2. Add the component file and a `*.stories.tsx` file for Ladle.
+2. Add the component file and a `*.stories.tsx` file for Storybook.
 3. Register the item in `registry/marketing/registry.json`.
 4. Validate locally:
 
@@ -49,12 +49,14 @@ bun run registry:validate
 
 Stories are for local preview only and are not published as registry files.
 
+Slugs stay `{category}-{n}` (install IDs, folder names, and component exports). Registry `title` and the Storybook story export name the **layout or job** (for example `hero-1` / `Hero1` with title `Centered Screenshot`), not demo copy.
+
 ## Scripts
 
 | Script | Description |
 |---|---|
-| `bun run dev` | Start the Ladle playground |
-| `bun run build:ladle` | Build a static Ladle site |
+| `bun run dev` | Start the Storybook playground |
+| `bun run build:storybook` | Build a static Storybook site |
 | `bun run registry:validate` | Validate the registry manifest |
 
 ## Tech stack
@@ -63,4 +65,4 @@ Stories are for local preview only and are not published as registry files.
 - React + TypeScript + Vite
 - Tailwind CSS v4
 - shadcn/ui primitives
-- Ladle for component preview
+- Storybook for component preview

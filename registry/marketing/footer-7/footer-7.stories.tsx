@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import {
   Footer7 as Footer7Block,
@@ -8,8 +8,8 @@ import {
 } from "./footer-7";
 
 export default {
-  title: "Footer",
-} satisfies StoryDefault;
+  title: "Marketing/Footer",
+} satisfies Meta;
 
 const groups = [
   {
@@ -48,6 +48,6 @@ const socialLinks = [
   { href: "#", icon: <LinkedinIcon />, label: "LinkedIn" },
 ];
 
-export const Footer7: Story = () => (
+export const ThemeSwitcherGrid: StoryFn = () => (
   <Footer7Block groups={groups} socialLinks={socialLinks} />
 );

@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Cta10 as Cta10Block } from "./cta-10";
 
 export default {
-  title: "CTA",
-} satisfies StoryDefault;
+  title: "Marketing/CTA",
+} satisfies Meta;
 
-export const Cta10: Story = () => <Cta10Block />;
+export const DisplayHeadlineCard: StoryFn = () => <Cta10Block />;

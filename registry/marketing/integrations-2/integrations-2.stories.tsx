@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Integrations2 as Integrations2Block } from "./integrations-2";
 
 export default {
-  title: "Integrations",
-} satisfies StoryDefault;
+  title: "Marketing/Integrations",
+} satisfies Meta;
 
-export const Integrations2: Story = () => <Integrations2Block />;
+export const HairlineGrid: StoryFn = () => <Integrations2Block />;

@@ -1,12 +1,12 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Logo } from "@/components/logo";
 
 import { Footer2 as Footer2Block, GithubIcon, XIcon } from "./footer-2";
 
 export default {
-  title: "Footer",
-} satisfies StoryDefault;
+  title: "Marketing/Footer",
+} satisfies Meta;
 
 const companyLinks = [
   { href: "#", title: "About Us" },
@@ -37,7 +37,7 @@ const socialLinks = [
   },
 ];
 
-export const Footer2: Story = () => (
+export const BrandTwoColumns: StoryFn = () => (
   <Footer2Block
     companyLinks={companyLinks}
     logo={<Logo aria-label="Nice UI" className="h-5 w-auto" />}

@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Cta4 as Cta4Block } from "./cta-4";
 
 export default {
-  title: "CTA",
-} satisfies StoryDefault;
+  title: "Marketing/CTA",
+} satisfies Meta;
 
-export const Cta4: Story = () => <Cta4Block />;
+export const RoundedCard: StoryFn = () => <Cta4Block />;

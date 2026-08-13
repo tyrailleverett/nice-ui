@@ -73,7 +73,7 @@ export function Cta2({
           </p>
         ) : null}
       </div>
-      <div className="flex items-center justify-center gap-2 bg-secondary/80 p-4 dark:bg-secondary/40">
+      <div className="flex items-center justify-center gap-2 p-4">
         {secondaryCta ? (
           <ActionButton action={secondaryCta} variant="outline" />
         ) : null}
