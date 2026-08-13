@@ -1,27 +1,27 @@
-import { ArrowUpRightIcon, StarIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowUpRightIcon, StarIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Cta11Action = {
-  href?: string
-  label: string
+export interface Cta11Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta11Avatar = {
-  alt: string
-  src: string
+export interface Cta11Avatar {
+  alt: string;
+  src: string;
 }
 
-export type Cta11Props = {
-  avatars?: Cta11Avatar[]
-  ratingLabel?: string
-  title?: ReactNode
-  description?: string
-  primaryCta?: Cta11Action
-  secondaryCta?: Cta11Action
-  className?: string
+export interface Cta11Props {
+  avatars?: Cta11Avatar[];
+  className?: string;
+  description?: string;
+  primaryCta?: Cta11Action;
+  ratingLabel?: string;
+  secondaryCta?: Cta11Action;
+  title?: ReactNode;
 }
 
 const defaultAvatars: Cta11Avatar[] = [
@@ -45,37 +45,37 @@ const defaultAvatars: Cta11Avatar[] = [
     alt: "Partner 05",
     src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=72",
   },
-]
+];
 
 function ActionButton({
   action,
   variant,
   icon,
 }: {
-  action: Cta11Action
-  variant?: "default" | "outline"
-  icon?: ReactNode
+  action: Cta11Action;
+  variant?: "default" | "outline";
+  icon?: ReactNode;
 }) {
   const content = (
     <>
       {action.label}
       {icon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild className="rounded-full" variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button className="rounded-full" type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Cta11({
@@ -88,8 +88,8 @@ export function Cta11({
     </>
   ),
   description = "We engineer profitable acquisition systems for digital brands. If efficient, scalable growth is your goal, you're in the right place.",
-  primaryCta = { label: "Get Started", href: "#" },
-  secondaryCta = { label: "Try it now", href: "#" },
+  primaryCta = { href: "#", label: "Get Started" },
+  secondaryCta = { href: "#", label: "Try it now" },
   className,
 }: Cta11Props) {
   return (
@@ -116,9 +116,11 @@ export function Cta11({
         ) : null}
         <div className="text-left">
           <div className="flex items-center gap-0.5">
-            {Array.from({ length: 5 }, (_, index) => (
-              <StarIcon className="size-3.5 fill-foreground" key={index} />
-            ))}
+            {["star-1", "star-2", "star-3", "star-4", "star-5"].map(
+              (starId) => (
+                <StarIcon className="size-3.5 fill-foreground" key={starId} />
+              )
+            )}
           </div>
           <p className="text-muted-foreground text-xs">{ratingLabel}</p>
         </div>
@@ -144,5 +146,5 @@ export function Cta11({
         ) : null}
       </div>
     </section>
-  )
+  );
 }

@@ -1,1 +1,1 @@
-export { Portal, PortalBackdrop } from "../../registry/marketing/portal/portal"
+export { Portal, PortalBackdrop } from "../../registry/marketing/portal/portal";

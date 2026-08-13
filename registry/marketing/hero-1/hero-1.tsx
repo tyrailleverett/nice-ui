@@ -1,40 +1,40 @@
-import { ArrowRightIcon, PhoneCallIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowRightIcon, PhoneCallIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { DecorIcon } from "@/components/decor-icon"
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { DecorIcon } from "@/components/decor-icon";
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Hero1Action = {
-  href?: string
-  label: string
+export interface Hero1Action {
+  href?: string;
+  label: string;
 }
 
-export type Hero1Announcement = {
-  eyebrow?: string
-  label: string
-  href?: string
+export interface Hero1Announcement {
+  eyebrow?: string;
+  href?: string;
+  label: string;
 }
 
-export type Hero1Screenshot = {
-  src: string
-  alt: string
+export interface Hero1Screenshot {
+  alt: string;
+  src: string;
 }
 
-export type Hero1Props = {
-  announcement?: Hero1Announcement | null
-  title?: string
-  description?: string
-  primaryCta?: Hero1Action | null
-  secondaryCta?: Hero1Action | null
-  screenshot?: Hero1Screenshot
-  darkScreenshot?: Hero1Screenshot
-  className?: string
+export interface Hero1Props {
+  announcement?: Hero1Announcement | null;
+  className?: string;
+  darkScreenshot?: Hero1Screenshot;
+  description?: string;
+  primaryCta?: Hero1Action | null;
+  screenshot?: Hero1Screenshot;
+  secondaryCta?: Hero1Action | null;
+  title?: string;
 }
 
 const enter =
-  "fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards duration-500 ease-out motion-reduce:animate-none"
+  "fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards duration-500 ease-out motion-reduce:animate-none";
 
 function ActionButton({
   action,
@@ -42,10 +42,10 @@ function ActionButton({
   startIcon,
   endIcon,
 }: {
-  action: Hero1Action
-  variant?: "default" | "outline"
-  startIcon?: ReactNode
-  endIcon?: ReactNode
+  action: Hero1Action;
+  variant?: "default" | "outline";
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 }) {
   const content = (
     <>
@@ -53,40 +53,40 @@ function ActionButton({
       {action.label}
       {endIcon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Hero1({
   announcement = {
     eyebrow: "NOW",
-    label: "accepting new client projects",
     href: "#",
+    label: "accepting new client projects",
   },
   title = "Building Digital Experiences That Drive Growth",
   description = "We help brands scale faster through design, development and strategic execution.",
-  primaryCta = { label: "Get started", href: "#" },
-  secondaryCta = { label: "Book a Call", href: "#" },
+  primaryCta = { href: "#", label: "Get started" },
+  secondaryCta = { href: "#", label: "Book a Call" },
   screenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "Product dashboard",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   darkScreenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-dark.webp",
     alt: "Product dashboard",
+    src: "https://storage.efferd.com/screen/dashboard-dark.webp",
   },
   className,
 }: Hero1Props) {
@@ -204,5 +204,5 @@ export function Hero1({
         <FullWidthDivider position="bottom" />
       </div>
     </section>
-  )
+  );
 }

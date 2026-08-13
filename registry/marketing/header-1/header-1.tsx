@@ -1,28 +1,28 @@
-import { useState, type ReactNode } from "react"
-import { MenuIcon, XIcon } from "lucide-react"
+import { MenuIcon, XIcon } from "lucide-react";
+import { type ReactNode, useCallback, useState } from "react";
 
-import { Portal, PortalBackdrop } from "@/components/portal"
-import { Button } from "@/components/ui/button"
-import { useScroll } from "@/hooks/use-scroll"
-import { cn } from "@/lib/utils"
+import { Portal, PortalBackdrop } from "@/components/portal";
+import { Button } from "@/components/ui/button";
+import { useScroll } from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
-export type Header1NavLink = {
-  href: string
-  label: string
+export interface Header1NavLink {
+  href: string;
+  label: string;
 }
 
-export type Header1Cta = {
-  label: string
-  href?: string
+export interface Header1Cta {
+  href?: string;
+  label: string;
 }
 
-export type Header1Props = {
-  logo?: ReactNode
-  logoHref?: string
-  navLinks: Header1NavLink[]
-  signIn?: Header1Cta
-  getStarted?: Header1Cta
-  className?: string
+export interface Header1Props {
+  className?: string;
+  getStarted?: Header1Cta;
+  logo?: ReactNode;
+  logoHref?: string;
+  navLinks: Header1NavLink[];
+  signIn?: Header1Cta;
 }
 
 function HeaderCta({
@@ -31,10 +31,10 @@ function HeaderCta({
   variant,
   className,
 }: {
-  cta: Header1Cta
-  size?: "sm"
-  variant?: "outline"
-  className?: string
+  cta: Header1Cta;
+  size?: "sm";
+  variant?: "outline";
+  className?: string;
 }) {
   return (
     <Button
@@ -45,7 +45,7 @@ function HeaderCta({
     >
       {cta.href ? <a href={cta.href}>{cta.label}</a> : cta.label}
     </Button>
-  )
+  );
 }
 
 function MobileNav({
@@ -53,11 +53,14 @@ function MobileNav({
   signIn,
   getStarted,
 }: {
-  navLinks: Header1NavLink[]
-  signIn: Header1Cta
-  getStarted: Header1Cta
+  navLinks: Header1NavLink[];
+  signIn: Header1Cta;
+  getStarted: Header1Cta;
 }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const toggleOpen = useCallback(() => {
+    setOpen((current) => !current);
+  }, []);
 
   return (
     <div className="md:hidden">
@@ -66,11 +69,15 @@ function MobileNav({
         aria-expanded={open}
         aria-label="Toggle menu"
         className="md:hidden"
-        onClick={() => setOpen(!open)}
+        onClick={toggleOpen}
         size="icon"
         variant="outline"
       >
-        {open ? <XIcon className="size-4.5" /> : <MenuIcon className="size-4.5" />}
+        {open ? (
+          <XIcon className="size-4.5" />
+        ) : (
+          <MenuIcon className="size-4.5" />
+        )}
       </Button>
       {open ? (
         <Portal className="top-14" id="mobile-menu">
@@ -102,7 +109,7 @@ function MobileNav({
         </Portal>
       ) : null}
     </div>
-  )
+  );
 }
 
 export function Header1({
@@ -113,7 +120,7 @@ export function Header1({
   getStarted = { label: "Get Started" },
   className,
 }: Header1Props) {
-  const scrolled = useScroll(10)
+  const scrolled = useScroll(10);
 
   return (
     <header
@@ -139,7 +146,7 @@ export function Header1({
           href={logoHref}
         >
           {logo ?? (
-            <span className="font-heading h-4 text-sm font-semibold tracking-tight">
+            <span className="h-4 font-heading font-semibold text-sm tracking-tight">
               Nice UI
             </span>
           )}
@@ -162,5 +169,5 @@ export function Header1({
         />
       </nav>
     </header>
-  )
+  );
 }

@@ -1,50 +1,50 @@
-import { ArrowUpRightIcon } from "lucide-react"
+import { ArrowUpRightIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Integrations1Item = {
-  src: string
-  name: string
-  description: string
-  isInvertable?: boolean
+export interface Integrations1Item {
+  description: string;
+  isInvertable?: boolean;
+  name: string;
+  src: string;
 }
 
-export type Integrations1Action = {
-  href?: string
-  label: string
+export interface Integrations1Action {
+  href?: string;
+  label: string;
 }
 
-export type Integrations1Props = {
-  integrations?: Integrations1Item[]
-  viewAll?: Integrations1Action
-  className?: string
+export interface Integrations1Props {
+  className?: string;
+  integrations?: Integrations1Item[];
+  viewAll?: Integrations1Action;
 }
 
 const defaultIntegrations: Integrations1Item[] = [
   {
-    src: "https://storage.efferd.com/logo/vercel.svg",
-    name: "Vercel",
     description: "Preview every commit and ship the marketing site from git.",
     isInvertable: true,
+    name: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai.svg",
-    name: "OpenAI",
     description: "Drop models into onboarding, search, and support flows.",
     isInvertable: true,
+    name: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase.svg",
-    name: "Supabase",
     description: "Auth, database, and storage without a custom backend.",
+    name: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/notion.svg",
-    name: "Notion",
     description: "Keep product specs and launch notes in one workspace.",
+    name: "Notion",
+    src: "https://storage.efferd.com/logo/notion.svg",
   },
-]
+];
 
 export function Integrations1({
   integrations = defaultIntegrations,
@@ -99,5 +99,5 @@ export function Integrations1({
         </div>
       ) : null}
     </section>
-  )
+  );
 }

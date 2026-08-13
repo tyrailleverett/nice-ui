@@ -2,7 +2,5 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "nice-ui",
   "homepage": "https://github.com/tyrailleverett/nice-ui",
-  "include": [
-    "registry/marketing/registry.json"
-  ]
+  "include": ["registry/marketing/registry.json"]
 }

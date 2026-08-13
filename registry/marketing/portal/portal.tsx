@@ -1,32 +1,32 @@
-import { useEffect, useState, type ComponentProps } from "react"
-import { createPortal } from "react-dom"
+import { type ComponentProps, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Portal({ className, ...props }: ComponentProps<"div">) {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
 
-    const originalOverflow = document.body.style.overflow
-    const originalPaddingRight = document.body.style.paddingRight
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
     const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth
+      window.innerWidth - document.documentElement.clientWidth;
 
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = "hidden";
     if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${scrollbarWidth}px`
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
     return () => {
-      document.body.style.overflow = originalOverflow
-      document.body.style.paddingRight = originalPaddingRight
-    }
-  }, [])
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+    };
+  }, []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   return createPortal(
@@ -35,7 +35,7 @@ function Portal({ className, ...props }: ComponentProps<"div">) {
       {...props}
     />,
     document.body
-  )
+  );
 }
 
 function PortalBackdrop({ className, ...props }: ComponentProps<"div">) {
@@ -47,7 +47,7 @@ function PortalBackdrop({ className, ...props }: ComponentProps<"div">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Portal, PortalBackdrop }
+export { Portal, PortalBackdrop };

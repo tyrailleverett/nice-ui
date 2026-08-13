@@ -1,83 +1,83 @@
-import { ArrowRightIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Hero4Action = {
-  href?: string
-  label: string
+export interface Hero4Action {
+  href?: string;
+  label: string;
 }
 
-export type Hero4Announcement = {
-  eyebrow?: string
-  label: string
-  href?: string
+export interface Hero4Announcement {
+  eyebrow?: string;
+  href?: string;
+  label: string;
 }
 
-export type Hero4Image = {
-  src: string
-  alt: string
+export interface Hero4Image {
+  alt: string;
+  src: string;
 }
 
-export type Hero4Logo = {
-  src: string
-  alt: string
+export interface Hero4Logo {
+  alt: string;
+  src: string;
 }
 
-export type Hero4Props = {
-  announcement?: Hero4Announcement | null
-  title?: string
-  description?: string
-  primaryCta?: Hero4Action | null
-  screenshot?: Hero4Image
-  background?: Hero4Image
-  logos?: Hero4Logo[]
-  className?: string
+export interface Hero4Props {
+  announcement?: Hero4Announcement | null;
+  background?: Hero4Image;
+  className?: string;
+  description?: string;
+  logos?: Hero4Logo[];
+  primaryCta?: Hero4Action | null;
+  screenshot?: Hero4Image;
+  title?: string;
 }
 
 const defaultLogos: Hero4Logo[] = [
   {
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
     alt: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
     alt: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
     alt: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
     alt: "GitHub",
+    src: "https://storage.efferd.com/logo/github-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
     alt: "Claude",
+    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
     alt: "Clerk",
+    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
   },
-]
+];
 
 export function Hero4({
   announcement = {
     eyebrow: "New",
-    label: "Introducing Nice UI 1.0",
     href: "#",
+    label: "Introducing Nice UI 1.0",
   },
   title = "Agentic Creative canvas",
   description = "Modern websites and applications that look and feel the way you mean it.",
-  primaryCta = { label: "Get Started", href: "#" },
+  primaryCta = { href: "#", label: "Get Started" },
   screenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "Product dashboard",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   background = {
-    src: "https://images.unsplash.com/photo-1772037440088-2ef162671434?q=80&w=1313&auto=format&fit=crop",
     alt: "",
+    src: "https://images.unsplash.com/photo-1772037440088-2ef162671434?q=80&w=1313&auto=format&fit=crop",
   },
   logos = defaultLogos,
   className,
@@ -92,8 +92,12 @@ export function Hero4({
                 className="flex w-fit items-center gap-2 font-medium"
                 href={announcement.href ?? "#"}
               >
-                {announcement.eyebrow ? <span>{announcement.eyebrow}</span> : null}
-                <span className="text-muted-foreground">{announcement.label}</span>
+                {announcement.eyebrow ? (
+                  <span>{announcement.eyebrow}</span>
+                ) : null}
+                <span className="text-muted-foreground">
+                  {announcement.label}
+                </span>
                 <ArrowRightIcon className="size-3.5" />
               </a>
             ) : null}
@@ -109,10 +113,7 @@ export function Hero4({
                   </p>
                 ) : null}
                 {primaryCta ? (
-                  <Button
-                    asChild={Boolean(primaryCta.href)}
-                    className="w-fit"
-                  >
+                  <Button asChild={Boolean(primaryCta.href)} className="w-fit">
                     {primaryCta.href ? (
                       <a href={primaryCta.href}>{primaryCta.label}</a>
                     ) : (
@@ -126,7 +127,7 @@ export function Hero4({
 
           <div className="mx-auto max-w-7xl max-xl:px-2">
             <div className="relative aspect-square overflow-hidden rounded-3xl bg-muted md:aspect-5/3 lg:aspect-video">
-              <div className="absolute top-4 left-4 z-10 min-w-4xl rounded-2xl p-2 shadow-lg ring ring-foreground/10 before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-t before:border-l before:border-foreground/10 before:mask-radial-[100%_60%] before:mask-radial-from-65% before:mask-radial-at-top-left lg:top-16 lg:left-16 lg:min-w-5xl xl:min-w-7xl">
+              <div className="before:mask-radial-[100%_60%] before:mask-radial-from-65% before:mask-radial-at-top-left absolute top-4 left-4 z-10 min-w-4xl rounded-2xl p-2 shadow-lg ring ring-foreground/10 before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-foreground/10 before:border-t before:border-l lg:top-16 lg:left-16 lg:min-w-5xl xl:min-w-7xl">
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 z-1 rounded-2xl bg-foreground/2"
@@ -155,8 +156,10 @@ export function Hero4({
                 <img
                   alt={logo.alt}
                   className="pointer-events-none h-5 w-auto select-none dark:brightness-0 dark:invert"
+                  height={20}
                   key={logo.alt}
                   src={logo.src}
+                  width={80}
                 />
               ))}
             </div>
@@ -164,5 +167,5 @@ export function Hero4({
         </div>
       </div>
     </section>
-  )
+  );
 }

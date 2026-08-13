@@ -1,0 +1,16 @@
+pre-commit:
+  jobs:
+    - run: bun x biome format --write {staged_files}
+      glob:
+        - "**/*.js"
+        - "**/*.jsx"
+        - "**/*.ts"
+        - "**/*.tsx"
+        - "**/*.json"
+        - "**/*.jsonc"
+        - "**/*.css"
+      stage_fixed: true
+
+commit-msg:
+  jobs:
+    - run: bun x commitlint --edit {1}

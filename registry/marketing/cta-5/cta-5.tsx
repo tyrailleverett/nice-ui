@@ -1,29 +1,28 @@
-import { ArrowRightIcon, AtSignIcon } from "lucide-react"
-import type { FormEvent, ReactNode } from "react"
-
-import { Button } from "@/components/ui/button"
-import { FullWidthDivider } from "@/components/full-width-divider"
+import { ArrowRightIcon, AtSignIcon } from "lucide-react";
+import { type FormEvent, type ReactNode, useCallback } from "react";
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { Button } from "@/components/ui/button";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 
-export type Cta5Avatar = {
-  alt: string
-  src: string
+export interface Cta5Avatar {
+  alt: string;
+  src: string;
 }
 
-export type Cta5Props = {
-  title?: string
-  description?: string
-  emailPlaceholder?: string
-  subscribeLabel?: string
-  onSubscribe?: (email: string) => void
-  attribution?: ReactNode
-  avatars?: Cta5Avatar[]
-  className?: string
+export interface Cta5Props {
+  attribution?: ReactNode;
+  avatars?: Cta5Avatar[];
+  className?: string;
+  description?: string;
+  emailPlaceholder?: string;
+  onSubscribe?: (email: string) => void;
+  subscribeLabel?: string;
+  title?: string;
 }
 
 const defaultAvatars: Cta5Avatar[] = [
@@ -43,7 +42,7 @@ const defaultAvatars: Cta5Avatar[] = [
     alt: "Avatar 04",
     src: "https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=72",
   },
-]
+];
 
 export function Cta5({
   title = "Subscribe to our newsletter",
@@ -53,19 +52,23 @@ export function Cta5({
   onSubscribe,
   attribution = (
     <>
-      Written by <span className="font-medium text-foreground">real humans</span>{" "}
-      (we swear).
+      Written by{" "}
+      <span className="font-medium text-foreground">real humans</span> (we
+      swear).
     </>
   ),
   avatars = defaultAvatars,
   className,
 }: Cta5Props) {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const email = String(formData.get("email") ?? "")
-    onSubscribe?.(email)
-  }
+  const handleSubmit = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get("email") ?? "");
+      onSubscribe?.(email);
+    },
+    [onSubscribe]
+  );
 
   return (
     <section
@@ -128,5 +131,5 @@ export function Cta5({
 
       <FullWidthDivider position="bottom" />
     </section>
-  )
+  );
 }

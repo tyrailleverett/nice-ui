@@ -17,10 +17,13 @@ jobs:
           bun-version: 1.3.14
 
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: bun install --frozen-lockfile --ignore-scripts
 
       - name: Validate registry
         run: bun run registry:validate
+
+      - name: Lint
+        run: bun run check
 
       - name: Typecheck
         run: bunx tsc -b

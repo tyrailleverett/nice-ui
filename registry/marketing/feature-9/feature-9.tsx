@@ -5,29 +5,29 @@ import {
   ItalicIcon,
   StrikethroughIcon,
   UnderlineIcon,
-} from "lucide-react"
-import type { ReactNode } from "react"
+} from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-export type Feature9Card = {
-  title: string
-  description: string
-  illustration: ReactNode
+export interface Feature9Card {
+  description: string;
+  illustration: ReactNode;
+  title: string;
 }
 
-export type Feature9Props = {
-  title?: string
-  description?: string
-  cards?: Feature9Card[]
-  className?: string
+export interface Feature9Props {
+  cards?: Feature9Card[];
+  className?: string;
+  description?: string;
+  title?: string;
 }
 
-type IllustrationProps = {
-  className?: string
-  variant?: "elevated" | "outlined" | "mixed"
+interface IllustrationProps {
+  className?: string;
+  variant?: "elevated" | "outlined" | "mixed";
 }
 
 export function ScheduleIllustration({
@@ -40,10 +40,10 @@ export function ScheduleIllustration({
         className={cn(
           "absolute flex -translate-x-1/8 translate-y-[-110%] items-center gap-2 rounded-lg bg-background p-1",
           {
-            "shadow-lg shadow-black/10": variant === "elevated",
             "border border-foreground/10": variant === "outlined",
-            "border border-foreground/10 shadow-md shadow-black/5":
+            "border border-foreground/10 shadow-black/5 shadow-md":
               variant === "mixed",
+            "shadow-black/10 shadow-lg": variant === "elevated",
           }
         )}
       >
@@ -62,7 +62,11 @@ export function ScheduleIllustration({
           <Button aria-label="Toggle underline" size="icon-sm" variant="ghost">
             <UnderlineIcon className="size-4" />
           </Button>
-          <Button aria-label="Toggle strikethrough" size="icon-sm" variant="ghost">
+          <Button
+            aria-label="Toggle strikethrough"
+            size="icon-sm"
+            variant="ghost"
+          >
             <StrikethroughIcon className="size-4" />
           </Button>
         </div>
@@ -78,7 +82,7 @@ export function ScheduleIllustration({
         is our priority.
       </span>
     </div>
-  )
+  );
 }
 
 export function CodeIllustration({ className }: { className?: string }) {
@@ -105,21 +109,21 @@ export function CodeIllustration({ className }: { className?: string }) {
         )}
       </ul>
     </div>
-  )
+  );
 }
 
 const defaultCards: Feature9Card[] = [
   {
-    title: "Marketing Campaigns",
     description: "Plan and run campaigns from one organized workspace.",
     illustration: <CodeIllustration className="w-full" />,
+    title: "Marketing Campaigns",
   },
   {
-    title: "AI Meeting Scheduler",
     description: "Book and manage meetings without leaving the editor.",
     illustration: <ScheduleIllustration className="border" />,
+    title: "AI Meeting Scheduler",
   },
-]
+];
 
 export function Feature9({
   title = "Personal AI, with you anywhere",
@@ -132,7 +136,9 @@ export function Feature9({
       <div className="py-24">
         <div className="mx-auto w-full max-w-5xl px-6">
           <div>
-            <h2 className="mt-4 font-semibold text-4xl text-foreground">{title}</h2>
+            <h2 className="mt-4 font-semibold text-4xl text-foreground">
+              {title}
+            </h2>
             {description ? (
               <p className="mt-4 mb-12 text-balance text-lg text-muted-foreground">
                 {description}
@@ -160,5 +166,5 @@ export function Feature9({
         </div>
       </div>
     </section>
-  )
+  );
 }

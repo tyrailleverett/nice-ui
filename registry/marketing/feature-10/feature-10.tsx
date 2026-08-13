@@ -1,55 +1,78 @@
-import { CalendarCheckIcon, ChevronRightIcon, TargetIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { CalendarCheckIcon, ChevronRightIcon, TargetIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Feature10Action = {
-  href?: string
-  label: string
+export interface Feature10Action {
+  href?: string;
+  label: string;
 }
 
-export type Feature10Item = {
-  icon: ReactNode
-  title: string
-  description: string
+export interface Feature10Item {
+  description: string;
+  icon: ReactNode;
+  title: string;
 }
 
-export type Feature10Screenshot = {
-  src: string
-  alt: string
+export interface Feature10Screenshot {
+  alt: string;
+  src: string;
 }
 
-export type Feature10Props = {
-  title?: string
-  cta?: Feature10Action | null
-  items?: Feature10Item[]
-  screenshot?: Feature10Screenshot
-  className?: string
+export interface Feature10Props {
+  className?: string;
+  cta?: Feature10Action | null;
+  items?: Feature10Item[];
+  screenshot?: Feature10Screenshot;
+  title?: string;
 }
 
 const defaultItems: Feature10Item[] = [
   {
-    icon: <TargetIcon className="size-5" />,
-    title: "Code Generation",
     description:
       "Describe the code you want and generate it. From boilerplate to business logic.",
+    icon: <TargetIcon className="size-5" />,
+    title: "Code Generation",
   },
   {
-    icon: <CalendarCheckIcon className="size-5" />,
-    title: "Code Review",
     description:
       "Get instant feedback on best practices, performance, and maintainability.",
+    icon: <CalendarCheckIcon className="size-5" />,
+    title: "Code Review",
   },
-]
+];
+
+function FeatureCta({ cta }: { cta: Feature10Action }) {
+  const content = (
+    <>
+      {cta.label}
+      <ChevronRightIcon className="size-4 opacity-50" />
+    </>
+  );
+
+  if (cta.href) {
+    return (
+      <Button asChild className="mt-8 pr-2" variant="outline">
+        <a href={cta.href}>{content}</a>
+      </Button>
+    );
+  }
+
+  return (
+    <Button className="mt-8 pr-2" type="button" variant="outline">
+      {content}
+    </Button>
+  );
+}
 
 export function Feature10({
   title = "The AI coding assistant that helps you write code faster",
   cta = { href: "#", label: "Learn more" },
   items = defaultItems,
   screenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "App screen",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   className,
 }: Feature10Props) {
@@ -62,21 +85,7 @@ export function Feature10({
               <h2 className="text-balance font-semibold text-4xl text-foreground">
                 {title}
               </h2>
-              {cta ? (
-                cta.href ? (
-                  <Button asChild className="mt-8 pr-2" variant="outline">
-                    <a href={cta.href}>
-                      {cta.label}
-                      <ChevronRightIcon className="size-4 opacity-50" />
-                    </a>
-                  </Button>
-                ) : (
-                  <Button className="mt-8 pr-2" type="button" variant="outline">
-                    {cta.label}
-                    <ChevronRightIcon className="size-4 opacity-50" />
-                  </Button>
-                )
-              ) : null}
+              {cta ? <FeatureCta cta={cta} /> : null}
             </div>
 
             <div className="space-y-6 md:col-span-3 md:space-y-10">
@@ -97,7 +106,7 @@ export function Feature10({
           </div>
 
           <div className="relative -mx-12 mt-16 px-12">
-            <div className="relative mx-auto overflow-hidden rounded-xl border border-transparent bg-background shadow-lg shadow-black/10 ring-1 ring-black/10">
+            <div className="relative mx-auto overflow-hidden rounded-xl border border-transparent bg-background shadow-black/10 shadow-lg ring-1 ring-black/10">
               <img
                 alt={screenshot.alt}
                 className="w-full"
@@ -110,5 +119,5 @@ export function Feature10({
         </div>
       </div>
     </section>
-  )
+  );
 }

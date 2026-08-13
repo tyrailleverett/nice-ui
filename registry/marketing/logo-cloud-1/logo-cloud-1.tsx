@@ -1,51 +1,51 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type LogoCloud1Item = {
-  src: string
-  alt: string
+export interface LogoCloud1Item {
+  alt: string;
+  src: string;
 }
 
-export type LogoCloud1Props = {
-  title?: string
-  highlight?: string
-  logos?: LogoCloud1Item[]
-  className?: string
+export interface LogoCloud1Props {
+  className?: string;
+  highlight?: string;
+  logos?: LogoCloud1Item[];
+  title?: string;
 }
 
 const defaultLogos: LogoCloud1Item[] = [
   {
-    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
     alt: "Nvidia",
+    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
     alt: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
     alt: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
     alt: "Turso",
+    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
     alt: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
     alt: "GitHub",
+    src: "https://storage.efferd.com/logo/github-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
     alt: "Claude",
+    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
     alt: "Clerk",
+    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
   },
-]
+];
 
 export function LogoCloud1({
   title = "Your favorite companies are",
@@ -74,12 +74,14 @@ export function LogoCloud1({
             <img
               alt={logo.alt}
               className="pointer-events-none block h-4 w-auto select-none md:h-5 dark:brightness-0 dark:invert"
+              height={20}
               loading="lazy"
               src={logo.src}
+              width={80}
             />
           </div>
         ))}
       </div>
     </section>
-  )
+  );
 }

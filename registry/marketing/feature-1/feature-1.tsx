@@ -3,44 +3,44 @@ import {
   GlobeIcon,
   ShieldCheckIcon,
   ZapIcon,
-} from "lucide-react"
-import type { ReactNode } from "react"
+} from "lucide-react";
+import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type Feature1Item = {
-  title: string
-  icon: ReactNode
-  description: string
+export interface Feature1Item {
+  description: string;
+  icon: ReactNode;
+  title: string;
 }
 
-export type Feature1Props = {
-  features?: Feature1Item[]
-  className?: string
+export interface Feature1Props {
+  className?: string;
+  features?: Feature1Item[];
 }
 
 const defaultFeatures: Feature1Item[] = [
   {
-    title: "Lightning Fast",
-    icon: <ZapIcon />,
     description: "Blazing fast edge performance.",
+    icon: <ZapIcon />,
+    title: "Lightning Fast",
   },
   {
-    title: "Secure by Design",
-    icon: <ShieldCheckIcon />,
     description: "Security by design, zero config.",
+    icon: <ShieldCheckIcon />,
+    title: "Secure by Design",
   },
   {
-    title: "Real-time Sync",
-    icon: <ActivityIcon />,
     description: "Real-time sync across devices.",
+    icon: <ActivityIcon />,
+    title: "Real-time Sync",
   },
   {
-    title: "Global Scale",
-    icon: <GlobeIcon />,
     description: "Instant global deployment.",
+    icon: <GlobeIcon />,
+    title: "Global Scale",
   },
-]
+];
 
 export function Feature1({
   features = defaultFeatures,
@@ -76,5 +76,5 @@ export function Feature1({
         </div>
       ))}
     </section>
-  )
+  );
 }

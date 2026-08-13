@@ -1,11 +1,11 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 export type FullWidthDividerProps = ComponentProps<"div"> & {
-  contained?: boolean
-  position?: "top" | "bottom"
-}
+  contained?: boolean;
+  position?: "top" | "bottom";
+};
 
 export function FullWidthDivider({
   className,
@@ -28,5 +28,5 @@ export function FullWidthDivider({
       data-position={position}
       {...props}
     />
-  )
+  );
 }

@@ -1,108 +1,124 @@
-import { Button } from "@/components/ui/button"
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { cn } from "@/lib/utils"
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Integrations3Logo = {
-  src: string
-  alt: string
+export interface Integrations3Logo {
+  alt: string;
+  src: string;
 }
 
-export type Integrations3Tile = {
-  row: number
-  col: number
-  logo?: Integrations3Logo
+export interface Integrations3Tile {
+  col: number;
+  logo?: Integrations3Logo;
+  row: number;
 }
 
-export type Integrations3Action = {
-  href?: string
-  label: string
+export interface Integrations3Action {
+  href?: string;
+  label: string;
 }
 
-export type Integrations3Props = {
-  title?: string
-  description?: string
-  cta?: Integrations3Action
-  tiles?: Integrations3Tile[]
-  className?: string
+export interface Integrations3Props {
+  className?: string;
+  cta?: Integrations3Action;
+  description?: string;
+  tiles?: Integrations3Tile[];
+  title?: string;
+}
+
+function IntegrationsCta({ action }: { action: Integrations3Action }) {
+  if (action.href) {
+    return (
+      <Button asChild size="sm">
+        <a href={action.href}>{action.label}</a>
+      </Button>
+    );
+  }
+
+  return (
+    <Button size="sm" type="button">
+      {action.label}
+    </Button>
+  );
 }
 
 const defaultTiles: Integrations3Tile[] = [
   {
-    row: 0,
     col: 1,
     logo: {
-      src: "https://storage.efferd.com/logo/vercel.svg",
       alt: "Vercel",
+      src: "https://storage.efferd.com/logo/vercel.svg",
     },
-  },
-  {
     row: 0,
+  },
+  {
     col: 3,
     logo: {
-      src: "https://storage.efferd.com/logo/openai.svg",
       alt: "OpenAI",
+      src: "https://storage.efferd.com/logo/openai.svg",
     },
+    row: 0,
   },
-  { row: 1, col: 0 },
+  { col: 0, row: 1 },
   {
-    row: 1,
     col: 2,
     logo: {
-      src: "https://storage.efferd.com/logo/cursor.svg",
       alt: "Cursor",
+      src: "https://storage.efferd.com/logo/cursor.svg",
     },
+    row: 1,
   },
   {
-    row: 1,
     col: 4,
     logo: {
-      src: "https://storage.efferd.com/logo/v0.svg",
       alt: "v0",
+      src: "https://storage.efferd.com/logo/v0.svg",
     },
+    row: 1,
   },
   {
-    row: 2,
     col: 1,
     logo: {
-      src: "https://storage.efferd.com/logo/planetscale.svg",
       alt: "PlanetScale",
+      src: "https://storage.efferd.com/logo/planetscale.svg",
     },
+    row: 2,
   },
-  { row: 2, col: 3 },
-  { row: 3, col: 0 },
+  { col: 3, row: 2 },
+  { col: 0, row: 3 },
   {
-    row: 3,
     col: 2,
     logo: {
-      src: "https://storage.efferd.com/logo/base-ui.svg",
       alt: "Base UI",
+      src: "https://storage.efferd.com/logo/base-ui.svg",
     },
+    row: 3,
   },
   {
-    row: 3,
     col: 4,
     logo: {
-      src: "https://storage.efferd.com/logo/copilot.svg",
       alt: "Copilot",
+      src: "https://storage.efferd.com/logo/copilot.svg",
     },
+    row: 3,
   },
   {
-    row: 4,
     col: 1,
     logo: {
-      src: "https://storage.efferd.com/logo/github.svg",
       alt: "GitHub",
+      src: "https://storage.efferd.com/logo/github.svg",
     },
+    row: 4,
   },
   {
-    row: 4,
     col: 3,
     logo: {
-      src: "https://storage.efferd.com/logo/dub.svg",
       alt: "Dub",
+      src: "https://storage.efferd.com/logo/dub.svg",
     },
+    row: 4,
   },
-]
+];
 
 export function Integrations3({
   title = "Connect with your favorite tools",
@@ -130,17 +146,7 @@ export function Integrations3({
               {description}
             </p>
           ) : null}
-          {cta ? (
-            cta.href ? (
-              <Button asChild size="sm">
-                <a href={cta.href}>{cta.label}</a>
-              </Button>
-            ) : (
-              <Button size="sm" type="button">
-                {cta.label}
-              </Button>
-            )
-          ) : null}
+          {cta ? <IntegrationsCta action={cta} /> : null}
         </div>
       </div>
 
@@ -162,7 +168,7 @@ export function Integrations3({
 
       <FullWidthDivider position="bottom" />
     </section>
-  )
+  );
 }
 
 function IntegrationCard({ row, col, logo }: Integrations3Tile) {
@@ -187,5 +193,5 @@ function IntegrationCard({ row, col, logo }: Integrations3Tile) {
         />
       ) : null}
     </div>
-  )
+  );
 }

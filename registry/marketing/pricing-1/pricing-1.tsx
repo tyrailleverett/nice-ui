@@ -1,42 +1,34 @@
-import { useCallback, useState } from "react"
-import { CheckIcon, TagIcon } from "lucide-react"
+import { CheckIcon, TagIcon } from "lucide-react";
+import { useCallback, useState } from "react";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Pricing1Plan = {
-  key: string
-  name: string
-  description: string
-  popular?: boolean
-  previousTierName?: string | null
+export interface Pricing1Plan {
+  ctaHref?: string;
+  description: string;
+  features: string[];
+  key: string;
+  name: string;
+  popular?: boolean;
+  previousTierName?: string | null;
   prices: {
-    monthly: number
-    yearly: number
-  }
-  features: string[]
-  ctaHref?: string
+    monthly: number;
+    yearly: number;
+  };
 }
 
-export type Pricing1Props = {
-  plans?: Pricing1Plan[]
-  ctaLabel?: string
-  className?: string
+export interface Pricing1Props {
+  className?: string;
+  ctaLabel?: string;
+  plans?: Pricing1Plan[];
 }
 
 const defaultPlans: Pricing1Plan[] = [
   {
-    key: "basic",
-    name: "Starter",
     description:
       "Full product access for solo founders and small teams getting started.",
-    popular: false,
-    previousTierName: null,
-    prices: {
-      monthly: 2900,
-      yearly: 2320,
-    },
     features: [
       "All product features",
       "1 seat",
@@ -45,17 +37,17 @@ const defaultPlans: Pricing1Plan[] = [
       "5 GB storage",
       "Email support",
     ],
+    key: "basic",
+    name: "Starter",
+    popular: false,
+    previousTierName: null,
+    prices: {
+      monthly: 2900,
+      yearly: 2320,
+    },
   },
   {
-    key: "standard",
-    name: "Pro",
     description: "More capacity and collaboration for growing teams.",
-    popular: true,
-    previousTierName: "Starter",
-    prices: {
-      monthly: 7900,
-      yearly: 6320,
-    },
     features: [
       "All product features",
       "5 seats",
@@ -64,17 +56,17 @@ const defaultPlans: Pricing1Plan[] = [
       "50 GB storage",
       "Priority email support",
     ],
+    key: "standard",
+    name: "Pro",
+    popular: true,
+    previousTierName: "Starter",
+    prices: {
+      monthly: 7900,
+      yearly: 6320,
+    },
   },
   {
-    key: "premium",
-    name: "Scale",
     description: "Unlimited capacity for teams that need room to grow.",
-    popular: false,
-    previousTierName: "Pro",
-    prices: {
-      monthly: 19_900,
-      yearly: 15_920,
-    },
     features: [
       "All product features",
       "Unlimited seats",
@@ -83,8 +75,16 @@ const defaultPlans: Pricing1Plan[] = [
       "500 GB storage",
       "Priority support",
     ],
+    key: "premium",
+    name: "Scale",
+    popular: false,
+    previousTierName: "Pro",
+    prices: {
+      monthly: 19_900,
+      yearly: 15_920,
+    },
   },
-]
+];
 
 function formatPrice(amount: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -92,11 +92,11 @@ function formatPrice(amount: number): string {
     maximumFractionDigits: 0,
     minimumFractionDigits: 0,
     style: "currency",
-  }).format(amount / 100)
+  }).format(amount / 100);
 }
 
 function annualSavingsPercent(plan: Pricing1Plan): number {
-  return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100)
+  return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100);
 }
 
 function toggleButtonClass(selected: boolean): string {
@@ -105,23 +105,23 @@ function toggleButtonClass(selected: boolean): string {
     selected
       ? "bg-accent text-foreground"
       : "text-muted-foreground hover:text-foreground"
-  )
+  );
 }
 
 function BillingIntervalToggle({
   isAnnual,
   onChange,
 }: {
-  isAnnual: boolean
-  onChange: (isAnnual: boolean) => void
+  isAnnual: boolean;
+  onChange: (isAnnual: boolean) => void;
 }) {
   const selectMonthly = useCallback(() => {
-    onChange(false)
-  }, [onChange])
+    onChange(false);
+  }, [onChange]);
 
   const selectAnnual = useCallback(() => {
-    onChange(true)
-  }, [onChange])
+    onChange(true);
+  }, [onChange]);
 
   return (
     <div className="inline-flex rounded-lg border border-border bg-muted/50 p-1">
@@ -142,7 +142,7 @@ function BillingIntervalToggle({
         Annually
       </button>
     </div>
-  )
+  );
 }
 
 export function Pricing1({
@@ -150,8 +150,8 @@ export function Pricing1({
   ctaLabel = "Start 14-day trial",
   className,
 }: Pricing1Props) {
-  const [isAnnual, setIsAnnual] = useState(false)
-  const savingsPercent = plans[0] ? annualSavingsPercent(plans[0]) : 0
+  const [isAnnual, setIsAnnual] = useState(false);
+  const savingsPercent = plans[0] ? annualSavingsPercent(plans[0]) : 0;
 
   return (
     <section className={className}>
@@ -246,5 +246,5 @@ export function Pricing1({
         </div>
       </div>
     </section>
-  )
+  );
 }

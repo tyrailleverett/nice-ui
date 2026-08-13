@@ -1,21 +1,21 @@
-import { ArrowUpRightIcon, AtSignIcon, CreditCardIcon } from "lucide-react"
-import type { FormEvent, ReactNode } from "react"
+import { ArrowUpRightIcon, AtSignIcon, CreditCardIcon } from "lucide-react";
+import { type FormEvent, type ReactNode, useCallback } from "react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 
-export type Cta9Props = {
-  title?: ReactNode
-  emailPlaceholder?: string
-  submitLabel?: string
-  onSubscribe?: (email: string) => void
-  footnote?: ReactNode
-  className?: string
+export interface Cta9Props {
+  className?: string;
+  emailPlaceholder?: string;
+  footnote?: ReactNode;
+  onSubscribe?: (email: string) => void;
+  submitLabel?: string;
+  title?: ReactNode;
 }
 
 export function Cta9({
@@ -31,18 +31,21 @@ export function Cta9({
   onSubscribe,
   footnote = (
     <>
-      No credit card <CreditCardIcon className="inline-block size-3.5" /> required
-      • 7-days free trial
+      No credit card <CreditCardIcon className="inline-block size-3.5" />{" "}
+      required • 7-days free trial
     </>
   ),
   className,
 }: Cta9Props) {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const email = String(formData.get("email") ?? "")
-    onSubscribe?.(email)
-  }
+  const handleSubmit = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const email = String(formData.get("email") ?? "");
+      onSubscribe?.(email);
+    },
+    [onSubscribe]
+  );
 
   return (
     <section
@@ -53,7 +56,9 @@ export function Cta9({
       )}
     >
       <div className="relative space-y-8">
-        <h2 className="font-medium text-2xl tracking-tight md:text-4xl">{title}</h2>
+        <h2 className="font-medium text-2xl tracking-tight md:text-4xl">
+          {title}
+        </h2>
         <form
           className="mx-auto flex w-full max-w-md overflow-hidden rounded-lg border bg-background/80"
           onSubmit={handleSubmit}
@@ -81,5 +86,5 @@ export function Cta9({
         ) : null}
       </div>
     </section>
-  )
+  );
 }

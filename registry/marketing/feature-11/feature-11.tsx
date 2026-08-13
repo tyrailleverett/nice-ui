@@ -8,24 +8,24 @@ import {
   SignatureIcon,
   SparklesIcon,
   TargetIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
-const MESCHAC_AVATAR = "https://avatars.githubusercontent.com/u/47919550?v=4"
-const BERNARD_AVATAR = "https://avatars.githubusercontent.com/u/31113941?v=4"
-const THEO_AVATAR = "https://avatars.githubusercontent.com/u/68236786?v=4"
-const GLODIE_AVATAR = "https://avatars.githubusercontent.com/u/99137927?v=4"
+const MESCHAC_AVATAR = "https://avatars.githubusercontent.com/u/47919550?v=4";
+const BERNARD_AVATAR = "https://avatars.githubusercontent.com/u/31113941?v=4";
+const THEO_AVATAR = "https://avatars.githubusercontent.com/u/68236786?v=4";
+const GLODIE_AVATAR = "https://avatars.githubusercontent.com/u/99137927?v=4";
 
-export type Feature11Screenshot = {
-  src: string
-  alt: string
+export interface Feature11Screenshot {
+  alt: string;
+  src: string;
 }
 
-export type Feature11Props = {
-  screenshot?: Feature11Screenshot
-  className?: string
+export interface Feature11Props {
+  className?: string;
+  screenshot?: Feature11Screenshot;
 }
 
 function MeetingIllustration() {
@@ -38,10 +38,10 @@ function MeetingIllustration() {
       <div className="mb-2 flex -space-x-1.5">
         <div className="flex -space-x-1.5">
           {[
-            { src: MESCHAC_AVATAR, alt: "Méschac Irung" },
-            { src: BERNARD_AVATAR, alt: "Bernard Ngandu" },
-            { src: THEO_AVATAR, alt: "Théo Balick" },
-            { src: GLODIE_AVATAR, alt: "Glodie Lukose" },
+            { alt: "Méschac Irung", src: MESCHAC_AVATAR },
+            { alt: "Bernard Ngandu", src: BERNARD_AVATAR },
+            { alt: "Théo Balick", src: THEO_AVATAR },
+            { alt: "Glodie Lukose", src: GLODIE_AVATAR },
           ].map((avatar) => (
             <div
               className="size-7 rounded-full border bg-background p-0.5 shadow shadow-zinc-950/5"
@@ -62,7 +62,7 @@ function MeetingIllustration() {
         ML Pipeline Discussion
       </div>
     </Card>
-  )
+  );
 }
 
 function CodeReviewIllustration() {
@@ -99,7 +99,7 @@ function CodeReviewIllustration() {
         </div>
       </Card>
     </div>
-  )
+  );
 }
 
 function AIAssistantIllustration() {
@@ -136,19 +136,22 @@ function AIAssistantIllustration() {
             </Button>
           </div>
 
-          <Button className="size-7 rounded-2xl bg-black text-white" size="icon">
+          <Button
+            className="size-7 rounded-2xl bg-black text-white"
+            size="icon"
+          >
             <ArrowUpIcon strokeWidth={3} />
           </Button>
         </div>
       </div>
     </Card>
-  )
+  );
 }
 
 export function Feature11({
   screenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "App screen",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   className,
 }: Feature11Props) {
@@ -163,10 +166,10 @@ export function Feature11({
                 AI Code Generation
               </h3>
               <p className="mt-3 max-w-xl text-balance text-muted-foreground">
-                Transform natural language into production-ready code and iterate
-                faster across the whole workflow.
+                Transform natural language into production-ready code and
+                iterate faster across the whole workflow.
               </p>
-              <div className="-mt-2 -ml-2 mr-0.5 mask-b-from-95% pt-2 pl-2">
+              <div className="mask-b-from-95% -mt-2 mr-0.5 -ml-2 pt-2 pl-2">
                 <div className="relative mx-auto mt-8 h-96 overflow-hidden rounded-tl-xl border border-transparent bg-background shadow ring-1 ring-foreground/5">
                   <img
                     alt={screenshot.alt}
@@ -204,10 +207,10 @@ export function Feature11({
                 Contextual AI Assistant
               </h3>
               <p className="mt-3 text-balance text-muted-foreground">
-                A companion that understands your codebase and helps solve complex
-                problems.
+                A companion that understands your codebase and helps solve
+                complex problems.
               </p>
-              <div className="-mx-2 -mt-2 mask-b-from-50 px-2 pt-2">
+              <div className="mask-b-from-50 -mx-2 -mt-2 px-2 pt-2">
                 <AIAssistantIllustration />
               </div>
             </Card>
@@ -215,5 +218,5 @@ export function Feature11({
         </div>
       </div>
     </section>
-  )
+  );
 }

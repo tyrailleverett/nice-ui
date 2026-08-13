@@ -1,74 +1,74 @@
-import { ChevronRightIcon } from "lucide-react"
-import type { ComponentProps } from "react"
+import { ChevronRightIcon } from "lucide-react";
+import type { ComponentProps } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type Blog3Item = {
-  title: string
-  description: string
-  author: string
-  href: string
-  image: string
-  imageAlt?: string
+export interface Blog3Item {
+  author: string;
+  description: string;
+  href: string;
+  image: string;
+  imageAlt?: string;
+  title: string;
 }
 
-export type Blog3Props = {
-  title?: string
-  description?: string
-  readLabel?: string
-  posts?: Blog3Item[]
-  className?: string
+export interface Blog3Props {
+  className?: string;
+  description?: string;
+  posts?: Blog3Item[];
+  readLabel?: string;
+  title?: string;
 }
 
 const defaultPosts: Blog3Item[] = [
   {
-    title: "Design Systems That Scale",
+    author: "Ava Mitchell",
     description:
       "How to build a design system that scales with your team and product.",
-    author: "Ava Mitchell",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200",
     imageAlt: "Sunlit office interior with glass walls and workstations",
+    title: "Design Systems That Scale",
   },
   {
-    title: "The Psychology of Color in UI",
+    author: "Liam Carter",
     description:
       "Why color choices change how people feel and act in an interface.",
-    author: "Liam Carter",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200",
     imageAlt: "Abstract wash of pigment and color",
+    title: "The Psychology of Color in UI",
   },
   {
-    title: "Microinteractions That Delight",
-    description: "The small details that make a product feel alive.",
     author: "Sophia Kim",
+    description: "The small details that make a product feel alive.",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200",
     imageAlt: "Close-up of a phone screen with interface details",
+    title: "Microinteractions That Delight",
   },
   {
-    title: "Accessibility like never before",
-    description: "Practical ways to make your UI usable for everyone.",
     author: "Ethan Rodriguez",
+    description: "Practical ways to make your UI usable for everyone.",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200",
     imageAlt: "People collaborating around a laptop in a bright workspace",
+    title: "Accessibility like never before",
   },
   {
-    title: "Dark Mode Done Right",
-    description: "Building a dark theme that feels native, not like a filter.",
     author: "Maya Chen",
+    description: "Building a dark theme that feels native, not like a filter.",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200",
     imageAlt: "Starlit mountain ridge at night",
+    title: "Dark Mode Done Right",
   },
-]
+];
 
 export function Blog3({
   title = "Latest Blogs",
@@ -77,8 +77,8 @@ export function Blog3({
   posts = defaultPosts,
   className,
 }: Blog3Props) {
-  const featured = posts.slice(0, 2)
-  const rest = posts.slice(2)
+  const featured = posts.slice(0, 2);
+  const rest = posts.slice(2);
 
   return (
     <section className={cn("mx-auto w-full max-w-6xl px-4", className)}>
@@ -107,7 +107,7 @@ export function Blog3({
         ) : null}
       </div>
     </section>
-  )
+  );
 }
 
 function BlogCard({
@@ -116,10 +116,10 @@ function BlogCard({
   className,
   ...props
 }: ComponentProps<"a"> & {
-  post: Blog3Item
-  readLabel: string
+  post: Blog3Item;
+  readLabel: string;
 }) {
-  const { title, description, author, href, image, imageAlt } = post
+  const { title, description, author, href, image, imageAlt } = post;
 
   return (
     <a
@@ -134,7 +134,9 @@ function BlogCard({
         <img
           alt={imageAlt ?? title}
           className="mb-4 aspect-video w-full rounded-md object-cover"
+          height={180}
           src={image}
+          width={320}
         />
         <h3 className="font-semibold text-foreground text-lg md:text-xl">
           {title}
@@ -151,5 +153,5 @@ function BlogCard({
         </div>
       </div>
     </a>
-  )
+  );
 }

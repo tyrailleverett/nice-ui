@@ -1,117 +1,112 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { cn } from "@/lib/utils"
-
-export type Testimonial4Item = {
-  name: string
-  role: string
-  image: string
-  company?: string
-  quote: string
+export interface Testimonial4Item {
+  company?: string;
+  image: string;
+  name: string;
+  quote: string;
+  role: string;
 }
 
-export type Testimonial4Props = {
-  title?: string
-  description?: string
-  testimonials?: Testimonial4Item[]
-  className?: string
+export interface Testimonial4Props {
+  className?: string;
+  description?: string;
+  testimonials?: Testimonial4Item[];
+  title?: string;
 }
 
 const defaultTestimonials: Testimonial4Item[] = [
   {
-    quote:
-      "Nice UI is so polished I might just retire and become a full-time potato farmer. The ecosystem is in safe hands.",
+    company: "Shadcn UI",
     image: "https://github.com/shadcn.png",
     name: "Shadcn",
+    quote:
+      "Nice UI is so polished I might just retire and become a full-time potato farmer. The ecosystem is in safe hands.",
     role: "Founder",
-    company: "Shadcn UI",
   },
   {
-    quote:
-      "Nice UI is why I still have hair. No more pulling it out over centering divs or fighting with CSS grid.",
+    company: "Vercel",
     image: "https://github.com/rauchg.png",
     name: "Guillermo Rauch",
+    quote:
+      "Nice UI is why I still have hair. No more pulling it out over centering divs or fighting with CSS grid.",
     role: "CEO",
-    company: "Vercel",
   },
   {
-    quote:
-      "I tried to buy Nice UI but they wouldn't sell. So I just bought Twitter instead to complain about it.",
+    company: "X.com",
     image: "https://unavatar.io/x/elonmusk",
     name: "Elon Musk",
+    quote:
+      "I tried to buy Nice UI but they wouldn't sell. So I just bought Twitter instead to complain about it.",
     role: "CEO",
-    company: "X.com",
   },
   {
-    quote:
-      "We just acquired Nice UI for 3 gazillion dollars. We're calling it iNice. It's our best product yet.",
+    company: "Apple",
     image: "https://unavatar.io/x/tim_cook",
     name: "Tim Cook",
+    quote:
+      "We just acquired Nice UI for 3 gazillion dollars. We're calling it iNice. It's our best product yet.",
     role: "CEO",
-    company: "Apple",
   },
   {
-    quote:
-      "I'm considering shipping Nice UI components with Prime delivery. 2-day shipping on beautiful UIs? Done.",
+    company: "Amazon",
     image: "https://unavatar.io/x/JeffBezos",
     name: "Jeff Bezos",
+    quote:
+      "I'm considering shipping Nice UI components with Prime delivery. 2-day shipping on beautiful UIs? Done.",
     role: "Founder",
-    company: "Amazon",
   },
   {
-    quote:
-      "We're rewriting OpenAI's entire frontend in Nice UI. The AGI told us it's the only logical choice.",
+    company: "OpenAI",
     image: "https://unavatar.io/x/sama",
     name: "Sam Altman",
+    quote:
+      "We're rewriting OpenAI's entire frontend in Nice UI. The AGI told us it's the only logical choice.",
     role: "CEO",
-    company: "OpenAI",
   },
   {
-    quote:
-      "We processed 100 petabytes of data to find the perfect UI library. The algorithm returned 'Nice UI' with 99.9% confidence.",
+    company: "Google",
     image: "https://unavatar.io/x/sundarpichai",
     name: "Sundar Pichai",
+    quote:
+      "We processed 100 petabytes of data to find the perfect UI library. The algorithm returned 'Nice UI' with 99.9% confidence.",
     role: "CEO",
-    company: "Google",
   },
   {
-    quote:
-      "Our links might 404 sometimes, but thanks to Nice UI, at least the 404 page looks absolutely stunning.",
+    company: "Dub.co",
     image: "https://github.com/steven-tey.png",
     name: "Steven Tey",
+    quote:
+      "Our links might 404 sometimes, but thanks to Nice UI, at least the 404 page looks absolutely stunning.",
     role: "Founder",
-    company: "Dub.co",
   },
   {
-    quote:
-      "It's so fast, I finished my UI sprint before my next meeting even started. Open source for the win.",
+    company: "Cal.com",
     image: "https://unavatar.io/x/peer_rich",
     name: "Peer Richelsen",
+    quote:
+      "It's so fast, I finished my UI sprint before my next meeting even started. Open source for the win.",
     role: "Co-Founder",
-    company: "Cal.com",
   },
   {
-    quote:
-      "21st.dev brings in 100k users daily just to see Nice UI. We got into YC solely because of this UI library. And yes, we're rich now.",
+    company: "21st Labs.",
     image: "https://github.com/serafimcloud.png",
     name: "Serafim",
+    quote:
+      "21st.dev brings in 100k users daily just to see Nice UI. We got into YC solely because of this UI library. And yes, we're rich now.",
     role: "Founder",
-    company: "21st Labs.",
   },
   {
-    quote:
-      "I posted a video on Nice UI components and it got more views than my cat video. That's statistically impossible.",
     image: "https://github.com/TheOrcDev.png",
     name: "OrcDev",
+    quote:
+      "I posted a video on Nice UI components and it got more views than my cat video. That's statistically impossible.",
     role: "Youtuber",
   },
-]
+];
 
 export function Testimonial4({
   title = "Real Results, Real Voices",
@@ -120,7 +115,9 @@ export function Testimonial4({
   className,
 }: Testimonial4Props) {
   return (
-    <section className={cn("mx-auto max-w-5xl space-y-8 border-x py-6", className)}>
+    <section
+      className={cn("mx-auto max-w-5xl space-y-8 border-x py-6", className)}
+    >
       <div className="flex flex-col gap-2 px-4 md:px-6">
         <h2 className="text-balance font-semibold text-3xl tracking-wide md:text-4xl xl:font-bold">
           {title}
@@ -139,7 +136,7 @@ export function Testimonial4({
         <FullWidthDivider position="bottom" />
       </div>
     </section>
-  )
+  );
 }
 
 function TestimonialsCard({
@@ -147,9 +144,9 @@ function TestimonialsCard({
   className,
   ...props
 }: ComponentProps<"figure"> & {
-  testimonial: Testimonial4Item
+  testimonial: Testimonial4Item;
 }) {
-  const { quote, company, image, name, role } = testimonial
+  const { quote, company, image, name, role } = testimonial;
 
   return (
     <figure
@@ -176,5 +173,5 @@ function TestimonialsCard({
         </blockquote>
       </div>
     </figure>
-  )
+  );
 }

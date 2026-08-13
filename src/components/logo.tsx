@@ -1,1 +1,1 @@
-export { Logo, LogoIcon } from "../../registry/marketing/logo/logo"
+export { Logo, LogoIcon } from "../../registry/marketing/logo/logo";

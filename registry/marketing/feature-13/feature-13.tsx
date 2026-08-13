@@ -1,32 +1,37 @@
-import { ShieldIcon } from "lucide-react"
+import { ShieldIcon } from "lucide-react";
 
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-export type Feature13Logo = {
-  src: string
-  alt: string
+export interface Feature13Logo {
+  alt: string;
+  src: string;
 }
 
-export type Feature13Props = {
-  title?: string
-  description?: string
-  logos?: Feature13Logo[]
-  className?: string
+export interface Feature13Props {
+  className?: string;
+  description?: string;
+  logos?: Feature13Logo[];
+  title?: string;
 }
 
 const defaultLogos: Feature13Logo[] = [
-  { src: "https://storage.efferd.com/logo/vercel.svg", alt: "Vercel" },
-  { src: "https://storage.efferd.com/logo/slack.svg", alt: "Slack" },
-  { src: "https://storage.efferd.com/logo/clerk.svg", alt: "Clerk" },
-  { src: "https://storage.efferd.com/logo/linear.svg", alt: "Linear" },
-  { src: "https://storage.efferd.com/logo/supabase.svg", alt: "Supabase" },
-  { src: "https://storage.efferd.com/logo/firebase.svg", alt: "Firebase" },
-]
+  { alt: "Vercel", src: "https://storage.efferd.com/logo/vercel.svg" },
+  { alt: "Slack", src: "https://storage.efferd.com/logo/slack.svg" },
+  { alt: "Clerk", src: "https://storage.efferd.com/logo/clerk.svg" },
+  { alt: "Linear", src: "https://storage.efferd.com/logo/linear.svg" },
+  { alt: "Supabase", src: "https://storage.efferd.com/logo/supabase.svg" },
+  { alt: "Firebase", src: "https://storage.efferd.com/logo/firebase.svg" },
+];
+
+const DEVELOPER_BAR_IDS = Array.from(
+  { length: 32 },
+  (_, index) => `developer-bar-${index}`
+);
 
 function LogoPill({ src, alt }: Feature13Logo) {
   return (
-    <div className="relative flex h-8 items-center rounded-full bg-card px-3 shadow-sm shadow-black/10 ring ring-border">
+    <div className="relative flex h-8 items-center rounded-full bg-card px-3 shadow-black/10 shadow-sm ring ring-border">
       <img
         alt={alt}
         className="size-3.5 object-contain dark:invert"
@@ -35,7 +40,7 @@ function LogoPill({ src, alt }: Feature13Logo) {
         width={14}
       />
     </div>
-  )
+  );
 }
 
 export function Feature13({
@@ -44,26 +49,35 @@ export function Feature13({
   logos = defaultLogos,
   className,
 }: Feature13Props) {
-  const [vercel, slack, clerk, linear, supabase, firebase] = logos
+  const [vercel, slack, clerk, linear, supabase, firebase] = logos;
 
   return (
     <section className={cn("@container bg-background py-24", className)}>
       <div className="mx-auto max-w-2xl px-6">
         <div>
-          <h2 className="text-balance font-medium font-serif text-4xl">{title}</h2>
+          <h2 className="text-balance font-medium font-serif text-4xl">
+            {title}
+          </h2>
           {description ? (
-            <p className="mt-4 text-balance text-muted-foreground">{description}</p>
+            <p className="mt-4 text-balance text-muted-foreground">
+              {description}
+            </p>
           ) : null}
         </div>
-        <div className="mt-12 grid gap-3 *:p-6 @xl:grid-cols-2">
+        <div className="mt-12 grid @xl:grid-cols-2 gap-3 *:p-6">
           <Card className="row-span-2 grid grid-rows-subgrid shadow-sm">
             <div className="space-y-2">
-              <h3 className="font-medium text-foreground">Seamless Integrations</h3>
+              <h3 className="font-medium text-foreground">
+                Seamless Integrations
+              </h3>
               <p className="text-muted-foreground text-sm">
                 Connect your favorite tools and services with just a few clicks.
               </p>
             </div>
-            <div aria-hidden className="flex h-44 flex-col justify-between pt-8">
+            <div
+              aria-hidden
+              className="flex h-44 flex-col justify-between pt-8"
+            >
               <div className="relative flex h-10 items-center gap-12 px-6">
                 <div className="absolute inset-0 my-auto h-px bg-border" />
                 {vercel ? <LogoPill {...vercel} /> : null}
@@ -91,9 +105,9 @@ export function Feature13({
             <div aria-hidden className="relative h-44 translate-y-6">
               <div className="absolute inset-0 mx-auto w-px bg-foreground/15" />
               <div className="absolute -inset-x-16 top-6 aspect-square rounded-full border" />
-              <div className="absolute -inset-x-16 top-6 aspect-square rounded-full border border-primary mask-l-from-50% mask-l-to-90% mask-r-from-50% mask-r-to-50%" />
+              <div className="mask-l-from-50% mask-l-to-90% mask-r-from-50% mask-r-to-50% absolute -inset-x-16 top-6 aspect-square rounded-full border border-primary" />
               <div className="absolute -inset-x-8 top-24 aspect-square rounded-full border" />
-              <div className="absolute -inset-x-8 top-24 aspect-square rounded-full border border-lime-500 mask-r-from-50% mask-r-to-90% mask-l-from-50% mask-l-to-50%" />
+              <div className="mask-r-from-50% mask-r-to-90% mask-l-from-50% mask-l-to-50% absolute -inset-x-8 top-24 aspect-square rounded-full border border-lime-500" />
             </div>
           </Card>
           <Card className="row-span-2 grid grid-rows-subgrid overflow-hidden shadow-sm">
@@ -108,12 +122,12 @@ export function Feature13({
               aria-hidden
               className="flex h-44 justify-between pt-12 pb-6 *:h-full *:w-px *:bg-foreground/15"
             >
-              {Array.from({ length: 32 }, (_, index) => (
+              {DEVELOPER_BAR_IDS.map((barId, index) => (
                 <div
                   className={cn(
                     [4, 9, 13, 18, 23, 31].includes(index) && "bg-primary!"
                   )}
-                  key={index}
+                  key={barId}
                 />
               ))}
             </div>
@@ -122,7 +136,8 @@ export function Feature13({
             <div className="space-y-2">
               <h3 className="font-medium">Enterprise Ready</h3>
               <p className="text-muted-foreground text-sm">
-                Scale confidently with enterprise-grade security and reliability.
+                Scale confidently with enterprise-grade security and
+                reliability.
               </p>
             </div>
 
@@ -134,5 +149,5 @@ export function Feature13({
         </div>
       </div>
     </section>
-  )
+  );
 }

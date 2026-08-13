@@ -5,20 +5,20 @@ import {
   PlusIcon,
   SignatureIcon,
   SparklesIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
-const MESCHAC_AVATAR = "https://avatars.githubusercontent.com/u/47919550?v=4"
-const BERNARD_AVATAR = "https://avatars.githubusercontent.com/u/31113941?v=4"
-const THEO_AVATAR = "https://avatars.githubusercontent.com/u/68236786?v=4"
-const GLODIE_AVATAR = "https://avatars.githubusercontent.com/u/99137927?v=4"
+const MESCHAC_AVATAR = "https://avatars.githubusercontent.com/u/47919550?v=4";
+const BERNARD_AVATAR = "https://avatars.githubusercontent.com/u/31113941?v=4";
+const THEO_AVATAR = "https://avatars.githubusercontent.com/u/68236786?v=4";
+const GLODIE_AVATAR = "https://avatars.githubusercontent.com/u/99137927?v=4";
 
-export type Feature12Props = {
-  title?: string
-  mutedTitle?: string
-  className?: string
+export interface Feature12Props {
+  className?: string;
+  mutedTitle?: string;
+  title?: string;
 }
 
 function MeetingIllustration() {
@@ -31,10 +31,10 @@ function MeetingIllustration() {
       <div className="mb-2 flex -space-x-1.5">
         <div className="flex -space-x-1.5">
           {[
-            { src: MESCHAC_AVATAR, alt: "Méschac Irung" },
-            { src: BERNARD_AVATAR, alt: "Bernard Ngandu" },
-            { src: THEO_AVATAR, alt: "Théo Balick" },
-            { src: GLODIE_AVATAR, alt: "Glodie Lukose" },
+            { alt: "Méschac Irung", src: MESCHAC_AVATAR },
+            { alt: "Bernard Ngandu", src: BERNARD_AVATAR },
+            { alt: "Théo Balick", src: THEO_AVATAR },
+            { alt: "Glodie Lukose", src: GLODIE_AVATAR },
           ].map((avatar) => (
             <div
               className="size-7 rounded-full border bg-background p-0.5 shadow shadow-zinc-950/5"
@@ -55,7 +55,7 @@ function MeetingIllustration() {
         ML Pipeline Discussion
       </div>
     </Card>
-  )
+  );
 }
 
 function CodeReviewIllustration() {
@@ -94,7 +94,7 @@ function CodeReviewIllustration() {
         </div>
       </Card>
     </div>
-  )
+  );
 }
 
 function AIAssistantIllustration() {
@@ -102,9 +102,12 @@ function AIAssistantIllustration() {
     <Card aria-hidden className="p-4">
       <div className="ml-auto w-fit max-w-3/4">
         <p className="mb-2 rounded-t-2xl rounded-l-2xl rounded-br border border-foreground/5 bg-foreground/5 p-4 text-sm">
-          Can you tighten this landing page copy without losing the product story?
+          Can you tighten this landing page copy without losing the product
+          story?
         </p>
-        <span className="block text-right text-muted-foreground text-xs">Now</span>
+        <span className="block text-right text-muted-foreground text-xs">
+          Now
+        </span>
       </div>
       <div className="w-fit">
         <SparklesIcon className="size-3.5 fill-purple-300 stroke-purple-300" />
@@ -134,13 +137,16 @@ function AIAssistantIllustration() {
             </Button>
           </div>
 
-          <Button className="size-7 rounded-2xl bg-black text-white" size="icon">
+          <Button
+            className="size-7 rounded-2xl bg-black text-white"
+            size="icon"
+          >
             <ArrowUpIcon strokeWidth={3} />
           </Button>
         </div>
       </div>
     </Card>
-  )
+  );
 }
 
 export function Feature12({
@@ -158,7 +164,7 @@ export function Feature12({
           <div className="mt-12 grid gap-12 sm:grid-cols-2">
             <div className="col-span-full space-y-4">
               <Card className="overflow-hidden bg-muted/50 px-6 ring-0 sm:col-span-2">
-                <div className="mx-auto -mt-2 max-w-sm mask-b-from-75% px-2 pt-8">
+                <div className="mask-b-from-75% mx-auto -mt-2 max-w-sm px-2 pt-8">
                   <AIAssistantIllustration />
                 </div>
               </Card>
@@ -203,5 +209,5 @@ export function Feature12({
         </div>
       </div>
     </section>
-  )
+  );
 }

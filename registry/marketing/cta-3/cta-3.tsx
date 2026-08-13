@@ -1,21 +1,20 @@
-import { ArrowRightIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowRightIcon } from "lucide-react";
+import type { ReactNode } from "react";
+import { DecorIcon } from "@/components/decor-icon";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button"
-import { DecorIcon } from "@/components/decor-icon"
-import { cn } from "@/lib/utils"
-
-export type Cta3Action = {
-  href?: string
-  label: string
+export interface Cta3Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta3Props = {
-  title?: string
-  description?: string
-  primaryCta?: Cta3Action
-  secondaryCta?: Cta3Action
-  className?: string
+export interface Cta3Props {
+  className?: string;
+  description?: string;
+  primaryCta?: Cta3Action;
+  secondaryCta?: Cta3Action;
+  title?: string;
 }
 
 function ActionButton({
@@ -23,37 +22,37 @@ function ActionButton({
   variant,
   icon,
 }: {
-  action: Cta3Action
-  variant?: "default" | "outline"
-  icon?: ReactNode
+  action: Cta3Action;
+  variant?: "default" | "outline";
+  icon?: ReactNode;
 }) {
   const content = (
     <>
       {action.label}
       {icon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Cta3({
   title = "Start for Free Today!",
   description = "Begin your 6-day free trial today to fully explore and experience all the features and benefits we offer.",
-  primaryCta = { label: "Get Started", href: "#" },
-  secondaryCta = { label: "Contact Sales", href: "#" },
+  primaryCta = { href: "#", label: "Get Started" },
+  secondaryCta = { href: "#", label: "Contact Sales" },
   className,
 }: Cta3Props) {
   return (
@@ -92,5 +91,5 @@ export function Cta3({
         ) : null}
       </div>
     </section>
-  )
+  );
 }

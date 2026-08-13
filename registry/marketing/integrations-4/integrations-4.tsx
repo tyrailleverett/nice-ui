@@ -1,104 +1,104 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type Integrations4Logo = {
-  src: string
-  alt: string
-  isInvertable?: boolean
+export interface Integrations4Logo {
+  alt: string;
+  isInvertable?: boolean;
+  src: string;
 }
 
-export type Integrations4Tile = {
-  row: number
-  col: number
-  logo?: Integrations4Logo
+export interface Integrations4Tile {
+  col: number;
+  logo?: Integrations4Logo;
+  row: number;
 }
 
-export type Integrations4Props = {
-  title?: string
-  description?: string
-  tiles?: Integrations4Tile[]
-  className?: string
+export interface Integrations4Props {
+  className?: string;
+  description?: string;
+  tiles?: Integrations4Tile[];
+  title?: string;
 }
 
 const defaultTiles: Integrations4Tile[] = [
-  { row: 0, col: 1 },
+  { col: 1, row: 0 },
   {
-    row: 0,
     col: 3,
     logo: {
-      src: "https://storage.efferd.com/logo/notion.svg",
       alt: "Notion",
+      src: "https://storage.efferd.com/logo/notion.svg",
     },
+    row: 0,
   },
-  { row: 1, col: 0 },
+  { col: 0, row: 1 },
   {
-    row: 1,
     col: 2,
     logo: {
-      src: "https://storage.efferd.com/logo/cursor.svg",
       alt: "Cursor",
       isInvertable: true,
+      src: "https://storage.efferd.com/logo/cursor.svg",
     },
+    row: 1,
   },
   {
-    row: 1,
     col: 4,
     logo: {
-      src: "https://storage.efferd.com/logo/vercel.svg",
       alt: "Vercel",
       isInvertable: true,
+      src: "https://storage.efferd.com/logo/vercel.svg",
     },
+    row: 1,
   },
   {
-    row: 2,
     col: 1,
     logo: {
-      src: "https://storage.efferd.com/logo/planetscale.svg",
       alt: "PlanetScale",
       isInvertable: true,
+      src: "https://storage.efferd.com/logo/planetscale.svg",
     },
+    row: 2,
   },
   {
-    row: 2,
     col: 3,
     logo: {
-      src: "https://storage.efferd.com/logo/gmail.svg",
       alt: "Gmail",
+      src: "https://storage.efferd.com/logo/gmail.svg",
     },
+    row: 2,
   },
-  { row: 3, col: 0 },
+  { col: 0, row: 3 },
   {
-    row: 3,
     col: 2,
     logo: {
-      src: "https://storage.efferd.com/logo/supabase.svg",
       alt: "Supabase",
+      src: "https://storage.efferd.com/logo/supabase.svg",
     },
+    row: 3,
   },
   {
-    row: 3,
     col: 4,
     logo: {
-      src: "https://storage.efferd.com/logo/canva.svg",
       alt: "Canva",
+      src: "https://storage.efferd.com/logo/canva.svg",
     },
+    row: 3,
   },
   {
-    row: 4,
     col: 1,
     logo: {
-      src: "https://storage.efferd.com/logo/adobe.svg",
       alt: "Adobe",
+      src: "https://storage.efferd.com/logo/adobe.svg",
     },
+    row: 4,
   },
   {
-    row: 4,
     col: 3,
     logo: {
-      src: "https://storage.efferd.com/logo/polar.svg",
       alt: "Polar",
+      src: "https://storage.efferd.com/logo/polar.svg",
     },
+    row: 4,
   },
-]
+];
 
 export function Integrations4({
   title = "Works with the tools you already open",
@@ -125,14 +125,14 @@ export function Integrations4({
       </div>
 
       <div className="place-items-end">
-        <div className="relative size-90 mask-[radial-gradient(ellipse_at_center,black,black,transparent)]">
+        <div className="mask-[radial-gradient(ellipse_at_center,black,black,transparent)] relative size-90">
           {tiles.map((tile) => (
             <IntegrationCard key={`${tile.row}_${tile.col}`} {...tile} />
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function IntegrationCard({ row, col, logo }: Integrations4Tile) {
@@ -162,5 +162,5 @@ function IntegrationCard({ row, col, logo }: Integrations4Tile) {
         />
       ) : null}
     </div>
-  )
+  );
 }

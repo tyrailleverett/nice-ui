@@ -1,63 +1,63 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type LogoCloud3Item = {
-  src: string
-  alt: string
+export interface LogoCloud3Item {
+  alt: string;
+  src: string;
 }
 
-export type LogoCloud3Props = {
-  title?: string
-  highlight?: string
-  logos?: LogoCloud3Item[]
-  className?: string
+export interface LogoCloud3Props {
+  className?: string;
+  highlight?: string;
+  logos?: LogoCloud3Item[];
+  title?: string;
 }
 
 const defaultLogos: LogoCloud3Item[] = [
   {
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
     alt: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
     alt: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
     alt: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/dub-wordmark.svg",
     alt: "Dub",
+    src: "https://storage.efferd.com/logo/dub-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
     alt: "Turso",
+    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
     alt: "GitHub",
+    src: "https://storage.efferd.com/logo/github-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
     alt: "Claude",
+    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
     alt: "Nvidia",
+    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
     alt: "Clerk",
+    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
     alt: "Bolt",
+    src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
     alt: "Stripe",
+    src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
   },
-]
+];
 
 export function LogoCloud3({
   title = "Already used by",
@@ -81,13 +81,15 @@ export function LogoCloud3({
             <img
               alt={logo.alt}
               className="pointer-events-none h-5 w-fit select-none dark:brightness-0 dark:invert"
+              height={20}
               key={logo.alt}
               loading="lazy"
               src={logo.src}
+              width={80}
             />
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

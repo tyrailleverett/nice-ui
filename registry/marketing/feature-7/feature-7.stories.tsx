@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
-import { Feature7 as Feature7Block } from "./feature-7"
+import { Feature7 as Feature7Block } from "./feature-7";
 
 export default {
   title: "Features",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
-export const Feature7: Story = () => <Feature7Block />
+export const Feature7: Story = () => <Feature7Block />;

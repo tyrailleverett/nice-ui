@@ -1,6 +1,6 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
-import { Logo } from "@/components/logo"
+import { Logo } from "@/components/logo";
 
 import {
   FacebookIcon,
@@ -8,17 +8,16 @@ import {
   InstagramIcon,
   LinkedinIcon,
   XIcon,
-} from "./footer-5"
+} from "./footer-5";
 
 export default {
   title: "Footer",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
 const columns = [
   {
     groups: [
       {
-        title: "Product",
         links: [
           { href: "#", label: "Find suppliers" },
           { href: "#", label: "Planning tools" },
@@ -28,55 +27,56 @@ const columns = [
           { href: "#", label: "Book a demo" },
           { href: "#", label: "What's new" },
         ],
+        title: "Product",
       },
     ],
   },
   {
     groups: [
       {
-        title: "Solutions",
         links: [
           { href: "#", label: "Conferences" },
           { href: "#", label: "Social Events" },
           { href: "#", label: "Event Planner" },
           { href: "#", label: "Manager" },
         ],
+        title: "Solutions",
       },
       {
-        title: "Marketplace",
         links: [{ href: "#", label: "Browse the marketplace" }],
+        title: "Marketplace",
       },
     ],
   },
   {
     groups: [
       {
-        title: "Resources",
         links: [
           { href: "#", label: "Blog" },
           { href: "#", label: "Customer stories" },
           { href: "#", label: "Event templates" },
         ],
+        title: "Resources",
       },
       {
-        title: "Company",
         links: [
           { href: "#", label: "About" },
           { href: "#", label: "Contact" },
           { href: "#", label: "Careers" },
           { href: "#", label: "Press" },
         ],
+        title: "Company",
       },
     ],
   },
-]
+];
 
 const socialLinks = [
-  { href: "#", label: "Facebook", icon: <FacebookIcon /> },
-  { href: "#", label: "LinkedIn", icon: <LinkedinIcon /> },
-  { href: "#", label: "X", icon: <XIcon /> },
-  { href: "#", label: "Instagram", icon: <InstagramIcon /> },
-]
+  { href: "#", icon: <FacebookIcon />, label: "Facebook" },
+  { href: "#", icon: <LinkedinIcon />, label: "LinkedIn" },
+  { href: "#", icon: <XIcon />, label: "X" },
+  { href: "#", icon: <InstagramIcon />, label: "Instagram" },
+];
 
 export const Footer5: Story = () => (
   <Footer5Block
@@ -84,4 +84,4 @@ export const Footer5: Story = () => (
     logo={<Logo aria-label="Nice UI" className="h-6 w-auto" />}
     socialLinks={socialLinks}
   />
-)
+);

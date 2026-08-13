@@ -1,33 +1,35 @@
-import type { ComponentProps, ReactNode } from "react"
+import type { ComponentProps, ReactNode } from "react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { cn } from "@/lib/utils"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
-export type Testimonial1Avatar = {
-  alt: string
-  fallback: string
-  src: string
+export interface Testimonial1Avatar {
+  alt: string;
+  fallback: string;
+  src: string;
 }
 
-export type Testimonial1Props = {
-  company?: ReactNode
-  quote?: ReactNode
-  name?: string
-  role?: string
-  avatar?: Testimonial1Avatar
-  className?: string
+export interface Testimonial1Props {
+  avatar?: Testimonial1Avatar;
+  className?: string;
+  company?: ReactNode;
+  name?: string;
+  quote?: ReactNode;
+  role?: string;
 }
 
 export function VercelIcon(props: ComponentProps<"svg">) {
   return (
-    <svg preserveAspectRatio="xMidYMid" viewBox="0 0 256 222" {...props}>
+    <svg
+      aria-hidden="true"
+      preserveAspectRatio="xMidYMid"
+      viewBox="0 0 256 222"
+      {...props}
+    >
+      <title>Vercel</title>
       <path d="m128 0 128 221.705H0z" fill="currentColor" />
     </svg>
-  )
+  );
 }
 
 const defaultCompany = (
@@ -35,20 +37,20 @@ const defaultCompany = (
     <VercelIcon aria-hidden="true" className="size-6" />
     <span className="font-medium text-lg">Vercel</span>
   </>
-)
+);
 
 const defaultQuote = (
   <>
     &quot;<span className="font-medium">Nice UI</span> is why I still have hair.
     No more worrying about UI blocks.&quot;
   </>
-)
+);
 
 const defaultAvatar: Testimonial1Avatar = {
   alt: "Guillermo Rauch's profile picture",
   fallback: "GR",
   src: "https://github.com/rauchg.png",
-}
+};
 
 export function Testimonial1({
   company = defaultCompany,
@@ -91,5 +93,5 @@ export function Testimonial1({
         </Avatar>
       </figcaption>
     </figure>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import type { GlobalProvider } from "@ladle/react"
+import type { GlobalProvider } from "@ladle/react";
 
-import "../src/index.css"
+import "../src/index.css";
 
-export const Provider: GlobalProvider = ({ children }) => children
+export const Provider: GlobalProvider = ({ children }) => children;

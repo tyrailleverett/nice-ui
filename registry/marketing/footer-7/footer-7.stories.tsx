@@ -1,32 +1,36 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
-import { Footer7 as Footer7Block, GithubIcon, LinkedinIcon, XIcon } from "./footer-7"
+import {
+  Footer7 as Footer7Block,
+  GithubIcon,
+  LinkedinIcon,
+  XIcon,
+} from "./footer-7";
 
 export default {
   title: "Footer",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
 const groups = [
   {
-    title: "Nice UI",
     links: [
       { href: "#", label: "Home" },
       { href: "#", label: "Templates" },
       { href: "#", label: "Blog" },
       { href: "#", label: "Changelog" },
     ],
+    title: "Nice UI",
   },
   {
-    title: "Documentation",
     links: [
       { href: "#", label: "Introduction" },
       { href: "#", label: "Installation" },
       { href: "#", label: "Components" },
       { href: "#", label: "Hosting" },
     ],
+    title: "Documentation",
   },
   {
-    title: "Resources",
     links: [
       { href: "#", label: "FAQ" },
       { href: "#", label: "Roadmap" },
@@ -34,15 +38,16 @@ const groups = [
       { href: "#", label: "Affiliates" },
       { href: "#", label: "Use Cases" },
     ],
+    title: "Resources",
   },
-]
+];
 
 const socialLinks = [
-  { href: "#", label: "Github", icon: <GithubIcon /> },
-  { href: "#", label: "X", icon: <XIcon /> },
-  { href: "#", label: "LinkedIn", icon: <LinkedinIcon /> },
-]
+  { href: "#", icon: <GithubIcon />, label: "Github" },
+  { href: "#", icon: <XIcon />, label: "X" },
+  { href: "#", icon: <LinkedinIcon />, label: "LinkedIn" },
+];
 
 export const Footer7: Story = () => (
   <Footer7Block groups={groups} socialLinks={socialLinks} />
-)
+);

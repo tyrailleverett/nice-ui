@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
 import {
   DiscordIcon,
@@ -6,15 +6,14 @@ import {
   LinkedinIcon,
   XIcon,
   YoutubeIcon,
-} from "./footer-6"
+} from "./footer-6";
 
 export default {
   title: "Footer",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
 const groups = [
   {
-    title: "Products",
     links: [
       { href: "#", label: "Blocks" },
       { href: "#", label: "Templates" },
@@ -22,18 +21,18 @@ const groups = [
       { href: "#", label: "AI" },
       { href: "#", label: "Agents" },
     ],
+    title: "Products",
   },
   {
-    title: "Solutions",
     links: [
       { href: "#", label: "Finance" },
       { href: "#", label: "RevOps" },
       { href: "#", label: "Engineering" },
       { href: "#", label: "Partners" },
     ],
+    title: "Solutions",
   },
   {
-    title: "Resources",
     links: [
       { href: "#", label: "Customers" },
       { href: "#", label: "Resource Center" },
@@ -41,25 +40,26 @@ const groups = [
       { href: "#", label: "Blog" },
       { href: "#", label: "Videos" },
     ],
+    title: "Resources",
   },
   {
-    title: "Company",
     links: [
       { href: "#", label: "About" },
       { href: "#", label: "Careers" },
       { href: "#", label: "Newsroom" },
       { href: "#", label: "Security" },
     ],
+    title: "Company",
   },
-]
+];
 
 const socialLinks = [
-  { href: "#", label: "LinkedIn", icon: <LinkedinIcon /> },
-  { href: "#", label: "X", icon: <XIcon /> },
-  { href: "#", label: "Discord", icon: <DiscordIcon /> },
-  { href: "#", label: "YouTube", icon: <YoutubeIcon /> },
-]
+  { href: "#", icon: <LinkedinIcon />, label: "LinkedIn" },
+  { href: "#", icon: <XIcon />, label: "X" },
+  { href: "#", icon: <DiscordIcon />, label: "Discord" },
+  { href: "#", icon: <YoutubeIcon />, label: "YouTube" },
+];
 
 export const Footer6: Story = () => (
   <Footer6Block groups={groups} socialLinks={socialLinks} />
-)
+);

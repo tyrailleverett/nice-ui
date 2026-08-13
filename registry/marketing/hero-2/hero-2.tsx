@@ -1,38 +1,38 @@
-import { ArrowRightIcon, PhoneCallIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowRightIcon, PhoneCallIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Hero2Action = {
-  href?: string
-  label: string
+export interface Hero2Action {
+  href?: string;
+  label: string;
 }
 
-export type Hero2Announcement = {
-  eyebrow?: string
-  label: string
-  href?: string
+export interface Hero2Announcement {
+  eyebrow?: string;
+  href?: string;
+  label: string;
 }
 
-export type Hero2Screenshot = {
-  src: string
-  alt: string
+export interface Hero2Screenshot {
+  alt: string;
+  src: string;
 }
 
-export type Hero2Props = {
-  announcement?: Hero2Announcement | null
-  title?: string
-  description?: string
-  primaryCta?: Hero2Action | null
-  secondaryCta?: Hero2Action | null
-  screenshot?: Hero2Screenshot
-  darkScreenshot?: Hero2Screenshot
-  className?: string
+export interface Hero2Props {
+  announcement?: Hero2Announcement | null;
+  className?: string;
+  darkScreenshot?: Hero2Screenshot;
+  description?: string;
+  primaryCta?: Hero2Action | null;
+  screenshot?: Hero2Screenshot;
+  secondaryCta?: Hero2Action | null;
+  title?: string;
 }
 
 const enter =
-  "fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards duration-500 ease-out motion-reduce:animate-none"
+  "fade-in slide-in-from-bottom-10 animate-in fill-mode-backwards duration-500 ease-out motion-reduce:animate-none";
 
 function ActionButton({
   action,
@@ -40,10 +40,10 @@ function ActionButton({
   startIcon,
   endIcon,
 }: {
-  action: Hero2Action
-  variant?: "default" | "outline"
-  startIcon?: ReactNode
-  endIcon?: ReactNode
+  action: Hero2Action;
+  variant?: "default" | "outline";
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 }) {
   const content = (
     <>
@@ -51,40 +51,40 @@ function ActionButton({
       {action.label}
       {endIcon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Hero2({
   announcement = {
     eyebrow: "NOW",
-    label: "accepting new client projects",
     href: "#",
+    label: "accepting new client projects",
   },
   title = "Building Digital Experiences That Drive Growth",
   description = "We help brands scale faster through design, development and strategic execution.",
-  primaryCta = { label: "Get started", href: "#" },
-  secondaryCta = { label: "Book a Call", href: "#" },
+  primaryCta = { href: "#", label: "Get started" },
+  secondaryCta = { href: "#", label: "Book a Call" },
   screenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "Product dashboard",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   darkScreenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-dark.webp",
     alt: "Product dashboard",
+    src: "https://storage.efferd.com/screen/dashboard-dark.webp",
   },
   className,
 }: Hero2Props) {
@@ -210,5 +210,5 @@ export function Hero2({
         </div>
       </div>
     </section>
-  )
+  );
 }

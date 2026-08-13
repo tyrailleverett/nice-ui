@@ -1,21 +1,21 @@
-import { ArrowRightIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowRightIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Cta10Action = {
-  href?: string
-  label: string
+export interface Cta10Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta10Props = {
-  eyebrow?: string
-  title?: string
-  cardTitle?: string
-  cardDescription?: string
-  primaryCta?: Cta10Action
-  className?: string
+export interface Cta10Props {
+  cardDescription?: string;
+  cardTitle?: string;
+  className?: string;
+  eyebrow?: string;
+  primaryCta?: Cta10Action;
+  title?: string;
 }
 
 export function Cta10({
@@ -23,23 +23,23 @@ export function Cta10({
   title = "Your Future",
   cardTitle = "Let's Get Started!",
   cardDescription = "Join us and be part of the future.",
-  primaryCta = { label: "Join Now!", href: "#" },
+  primaryCta = { href: "#", label: "Join Now!" },
   className,
 }: Cta10Props) {
   const icon = (
     <span className="flex size-5 items-center justify-center rounded-md bg-foreground text-background">
       <ArrowRightIcon className="size-3" />
     </span>
-  )
+  );
 
-  let action: ReactNode = null
+  let action: ReactNode = null;
   if (primaryCta) {
     const content = (
       <>
         {primaryCta.label}
         {icon}
       </>
-    )
+    );
     action = primaryCta.href ? (
       <Button asChild className="rounded-full" variant="outline">
         <a href={primaryCta.href}>{content}</a>
@@ -48,7 +48,7 @@ export function Cta10({
       <Button className="rounded-full" type="button" variant="outline">
         {content}
       </Button>
-    )
+    );
   }
 
   return (
@@ -60,7 +60,7 @@ export function Cta10({
       )}
     >
       <div className="text-center">
-        <p className="text-muted-foreground text-2xl md:text-3xl">{eyebrow}</p>
+        <p className="text-2xl text-muted-foreground md:text-3xl">{eyebrow}</p>
         <h2 className="font-mono font-semibold text-3xl tracking-tight md:text-4xl">
           {title}
         </h2>
@@ -75,5 +75,5 @@ export function Cta10({
         {action}
       </div>
     </section>
-  )
+  );
 }

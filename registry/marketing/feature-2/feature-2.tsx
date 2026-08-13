@@ -1,38 +1,38 @@
-import { CommandIcon, HistoryIcon, SquareDashedIcon } from "lucide-react"
-import type { ComponentProps, ReactNode } from "react"
+import { CommandIcon, HistoryIcon, SquareDashedIcon } from "lucide-react";
+import type { ComponentProps, ReactNode } from "react";
 
-import { DecorIcon } from "@/components/decor-icon"
-import { cn } from "@/lib/utils"
+import { DecorIcon } from "@/components/decor-icon";
+import { cn } from "@/lib/utils";
 
-export type Feature2Item = {
-  title: string
-  icon: ReactNode
-  description: string
+export interface Feature2Item {
+  description: string;
+  icon: ReactNode;
+  title: string;
 }
 
-export type Feature2Props = {
-  title?: string
-  features?: Feature2Item[]
-  className?: string
+export interface Feature2Props {
+  className?: string;
+  features?: Feature2Item[];
+  title?: string;
 }
 
 const defaultFeatures: Feature2Item[] = [
   {
-    title: "Auto-Save Everything",
-    icon: <HistoryIcon />,
     description: "Write without worry, every time.",
+    icon: <HistoryIcon />,
+    title: "Auto-Save Everything",
   },
   {
-    title: "Drag-and-Drop Blocks",
-    icon: <SquareDashedIcon />,
     description: "Rearrange sections with the block editor.",
+    icon: <SquareDashedIcon />,
+    title: "Drag-and-Drop Blocks",
   },
   {
-    title: "Keyboard Shortcuts",
-    icon: <CommandIcon />,
     description: "Speed up your workflow with quick keys.",
+    icon: <CommandIcon />,
+    title: "Keyboard Shortcuts",
   },
-]
+];
 
 function DashedLine({ className, ...props }: ComponentProps<"div">) {
   return (
@@ -40,7 +40,7 @@ function DashedLine({ className, ...props }: ComponentProps<"div">) {
       className={cn("absolute border-collapse border border-dashed", className)}
       {...props}
     />
-  )
+  );
 }
 
 export function Feature2({
@@ -55,8 +55,14 @@ export function Feature2({
       </h2>
 
       <div className="relative">
-        <DecorIcon className="size-6 stroke-2 stroke-border" position="top-left" />
-        <DecorIcon className="size-6 stroke-2 stroke-border" position="top-right" />
+        <DecorIcon
+          className="size-6 stroke-2 stroke-border"
+          position="top-left"
+        />
+        <DecorIcon
+          className="size-6 stroke-2 stroke-border"
+          position="top-right"
+        />
         <DecorIcon
           className="size-6 stroke-2 stroke-border"
           position="bottom-left"
@@ -88,5 +94,5 @@ export function Feature2({
         </div>
       </div>
     </section>
-  )
+  );
 }

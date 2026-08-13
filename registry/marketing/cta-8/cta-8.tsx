@@ -10,29 +10,29 @@ import {
   PenToolIcon,
   SplineIcon,
   WandSparklesIcon,
-} from "lucide-react"
-import type { ReactNode } from "react"
+} from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Cta8Action = {
-  href?: string
-  label: string
+export interface Cta8Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta8Icon = {
-  className?: string
-  icon: ReactNode
+export interface Cta8Icon {
+  className?: string;
+  icon: ReactNode;
 }
 
-export type Cta8Props = {
-  title?: string
-  description?: string
-  primaryCta?: Cta8Action
-  secondaryCta?: Cta8Action
-  icons?: Cta8Icon[]
-  className?: string
+export interface Cta8Props {
+  className?: string;
+  description?: string;
+  icons?: Cta8Icon[];
+  primaryCta?: Cta8Action;
+  secondaryCta?: Cta8Action;
+  title?: string;
 }
 
 function ActionButton({
@@ -41,31 +41,31 @@ function ActionButton({
   icon,
   className,
 }: {
-  action: Cta8Action
-  variant?: "default" | "outline"
-  icon?: ReactNode
-  className?: string
+  action: Cta8Action;
+  variant?: "default" | "outline";
+  icon?: ReactNode;
+  className?: string;
 }) {
   const content = (
     <>
       {action.label}
       {icon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild className={className} variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button className={className} type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 function FloatingIcon({ className, icon }: Cta8Icon) {
@@ -78,25 +78,55 @@ function FloatingIcon({ className, icon }: Cta8Icon) {
     >
       {icon}
     </div>
-  )
+  );
 }
 
 export function Cta8({
   title = "Scale your outreach with precision tools",
   description = "Drive 3x conversions at half cost.",
-  primaryCta = { label: "Start free trial", href: "#" },
-  secondaryCta = { label: "Book a demo", href: "#" },
+  primaryCta = { href: "#", label: "Start free trial" },
+  secondaryCta = { href: "#", label: "Book a demo" },
   icons = [
-    { className: "top-[14%] left-[10%] rotate-[-8deg]", icon: <BoxesIcon className="size-5" /> },
-    { className: "top-[38%] left-[4%] rotate-[10deg]", icon: <MousePointer2Icon className="size-5" /> },
-    { className: "top-[32%] left-[18%] rotate-[-4deg]", icon: <SplineIcon className="size-5" /> },
-    { className: "bottom-[28%] left-[8%] rotate-[6deg]", icon: <PaletteIcon className="size-5" /> },
-    { className: "bottom-[14%] left-[16%] rotate-[-12deg]", icon: <LayersIcon className="size-5" /> },
-    { className: "top-[16%] right-[12%] rotate-[8deg]", icon: <MessageCircleIcon className="size-5" /> },
-    { className: "top-[36%] right-[5%] rotate-[-6deg]", icon: <PenToolIcon className="size-5" /> },
-    { className: "top-[48%] right-[16%] rotate-[12deg]", icon: <WandSparklesIcon className="size-5" /> },
-    { className: "bottom-[24%] right-[7%] rotate-[-8deg]", icon: <FrameIcon className="size-5" /> },
-    { className: "bottom-[12%] right-[18%] rotate-[4deg]", icon: <OrigamiIcon className="size-5" /> },
+    {
+      className: "top-[14%] left-[10%] rotate-[-8deg]",
+      icon: <BoxesIcon className="size-5" />,
+    },
+    {
+      className: "top-[38%] left-[4%] rotate-[10deg]",
+      icon: <MousePointer2Icon className="size-5" />,
+    },
+    {
+      className: "top-[32%] left-[18%] rotate-[-4deg]",
+      icon: <SplineIcon className="size-5" />,
+    },
+    {
+      className: "bottom-[28%] left-[8%] rotate-[6deg]",
+      icon: <PaletteIcon className="size-5" />,
+    },
+    {
+      className: "bottom-[14%] left-[16%] rotate-[-12deg]",
+      icon: <LayersIcon className="size-5" />,
+    },
+    {
+      className: "top-[16%] right-[12%] rotate-[8deg]",
+      icon: <MessageCircleIcon className="size-5" />,
+    },
+    {
+      className: "top-[36%] right-[5%] rotate-[-6deg]",
+      icon: <PenToolIcon className="size-5" />,
+    },
+    {
+      className: "top-[48%] right-[16%] rotate-[12deg]",
+      icon: <WandSparklesIcon className="size-5" />,
+    },
+    {
+      className: "bottom-[24%] right-[7%] rotate-[-8deg]",
+      icon: <FrameIcon className="size-5" />,
+    },
+    {
+      className: "bottom-[12%] right-[18%] rotate-[4deg]",
+      icon: <OrigamiIcon className="size-5" />,
+    },
   ],
   className,
 }: Cta8Props) {
@@ -108,15 +138,17 @@ export function Cta8({
         className
       )}
     >
-      {icons.map((item, index) => (
-        <FloatingIcon key={index} {...item} />
+      {icons.map((item) => (
+        <FloatingIcon key={item.className ?? "icon"} {...item} />
       ))}
 
       <h2 className="max-w-xl text-balance font-serif text-3xl leading-tight tracking-tight md:text-4xl">
         {title}
       </h2>
       {description ? (
-        <p className="text-muted-foreground text-sm md:text-base">{description}</p>
+        <p className="text-muted-foreground text-sm md:text-base">
+          {description}
+        </p>
       ) : null}
       <div className="flex flex-wrap items-center justify-center gap-2">
         {primaryCta ? (
@@ -135,5 +167,5 @@ export function Cta8({
         ) : null}
       </div>
     </section>
-  )
+  );
 }

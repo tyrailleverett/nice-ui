@@ -1,58 +1,58 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
 
-import { DecorIcon, type DecorIconProps } from "@/components/decor-icon"
-import { cn } from "@/lib/utils"
+import { DecorIcon, type DecorIconProps } from "@/components/decor-icon";
+import { cn } from "@/lib/utils";
 
-export type Integrations2Item = {
-  src: string
-  name: string
-  description: string
-  isInvertable?: boolean
-  decorPosition?: DecorIconProps["position"]
+export interface Integrations2Item {
+  decorPosition?: DecorIconProps["position"];
+  description: string;
+  isInvertable?: boolean;
+  name: string;
+  src: string;
 }
 
-export type Integrations2Props = {
-  integrations?: Integrations2Item[]
-  className?: string
+export interface Integrations2Props {
+  className?: string;
+  integrations?: Integrations2Item[];
 }
 
 const defaultIntegrations: Integrations2Item[] = [
   {
-    src: "https://storage.efferd.com/logo/vercel.svg",
-    name: "Vercel",
     description: "Preview every commit and ship the marketing site from git.",
     isInvertable: true,
+    name: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai.svg",
-    name: "OpenAI",
+    decorPosition: "bottom-left",
     description: "Drop models into onboarding, search, and support flows.",
     isInvertable: true,
-    decorPosition: "bottom-left",
+    name: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase.svg",
-    name: "Supabase",
     description: "Auth, database, and storage without a custom backend.",
+    name: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/github.svg",
-    name: "GitHub",
     description: "Open issues and pull requests next to the same blocks.",
     isInvertable: true,
+    name: "GitHub",
+    src: "https://storage.efferd.com/logo/github.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/notion.svg",
-    name: "Notion",
     description: "Keep product specs and launch notes in one workspace.",
+    name: "Notion",
+    src: "https://storage.efferd.com/logo/notion.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/gmail.svg",
-    name: "Gmail",
-    description: "Send launch mail from the inbox your team already uses.",
     decorPosition: "top-left",
+    description: "Send launch mail from the inbox your team already uses.",
+    name: "Gmail",
+    src: "https://storage.efferd.com/logo/gmail.svg",
   },
-]
+];
 
 export function Integrations2({
   integrations = defaultIntegrations,
@@ -70,7 +70,7 @@ export function Integrations2({
       <DecorIcon position="bottom-left" />
       <DecorIcon position="bottom-right" />
     </section>
-  )
+  );
 }
 
 function IntegrationCard({
@@ -78,7 +78,7 @@ function IntegrationCard({
   className,
   ...props
 }: ComponentProps<"div"> & {
-  integration: Integrations2Item
+  integration: Integrations2Item;
 }) {
   return (
     <div
@@ -108,5 +108,5 @@ function IntegrationCard({
         <DecorIcon position={integration.decorPosition} />
       ) : null}
     </div>
-  )
+  );
 }

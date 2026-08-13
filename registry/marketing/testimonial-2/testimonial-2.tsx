@@ -1,24 +1,20 @@
-import type { ComponentProps, ReactNode } from "react"
+import type { ComponentProps, ReactNode } from "react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { cn } from "@/lib/utils"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
-export type Testimonial2Avatar = {
-  alt: string
-  fallback: string
-  src: string
+export interface Testimonial2Avatar {
+  alt: string;
+  fallback: string;
+  src: string;
 }
 
-export type Testimonial2Props = {
-  quote?: ReactNode
-  name?: string
-  role?: string
-  avatar?: Testimonial2Avatar
-  className?: string
+export interface Testimonial2Props {
+  avatar?: Testimonial2Avatar;
+  className?: string;
+  name?: string;
+  quote?: ReactNode;
+  role?: string;
 }
 
 export function MaskLine({
@@ -39,7 +35,7 @@ export function MaskLine({
       )}
       {...props}
     />
-  )
+  );
 }
 
 const defaultQuote = (
@@ -47,13 +43,13 @@ const defaultQuote = (
     &quot;<span className="font-medium text-foreground">Nice UI</span> is so
     polished I might just retire. The ecosystem is in safe hands.&quot;
   </>
-)
+);
 
 const defaultAvatar: Testimonial2Avatar = {
   alt: "Shadcn's profile picture",
   fallback: "SH",
   src: "https://github.com/shadcn.png",
-}
+};
 
 export function Testimonial2({
   quote = defaultQuote,
@@ -75,7 +71,7 @@ export function Testimonial2({
         <MaskLine className="top-0 md:w-xl" orientation="horizontal" />
         <MaskLine className="bottom-0 md:w-xl" orientation="horizontal" />
 
-        <Avatar className="mask-[radial-gradient(circle,black_60%,transparent)] size-24 rounded-none after:rounded-none *:rounded-none md:size-32">
+        <Avatar className="mask-[radial-gradient(circle,black_60%,transparent)] size-24 rounded-none *:rounded-none after:rounded-none md:size-32">
           <AvatarImage alt={avatar.alt} src={avatar.src} />
           <AvatarFallback>{avatar.fallback}</AvatarFallback>
         </Avatar>
@@ -95,5 +91,5 @@ export function Testimonial2({
         </div>
       </figcaption>
     </figure>
-  )
+  );
 }

@@ -1,55 +1,61 @@
-import { SearchIcon, SearchSlashIcon } from "lucide-react"
-import { useMemo, useState } from "react"
+import { SearchIcon, SearchSlashIcon } from "lucide-react";
+import {
+  type ChangeEvent,
+  type MouseEvent,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import {
   Empty,
   EmptyContent,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/ui/empty"
+} from "@/components/ui/empty";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 
-export type Faq4Category = {
-  id: string
-  label: string
+export interface Faq4Category {
+  id: string;
+  label: string;
 }
 
-export type Faq4Item = {
-  id: string
-  category: string
-  title: string
-  content: string
+export interface Faq4Item {
+  category: string;
+  content: string;
+  id: string;
+  title: string;
 }
 
-export type Faq4Contact = {
-  href: string
-  label: string
+export interface Faq4Contact {
+  href: string;
+  label: string;
 }
 
-export type Faq4Props = {
-  title?: string
-  description?: string
-  searchPlaceholder?: string
-  categories?: Faq4Category[]
-  questions?: Faq4Item[]
-  emptyTitle?: string
-  clearSearchLabel?: string
-  contactPrompt?: string
-  contact?: Faq4Contact
-  className?: string
+export interface Faq4Props {
+  categories?: Faq4Category[];
+  className?: string;
+  clearSearchLabel?: string;
+  contact?: Faq4Contact;
+  contactPrompt?: string;
+  description?: string;
+  emptyTitle?: string;
+  questions?: Faq4Item[];
+  searchPlaceholder?: string;
+  title?: string;
 }
 
 const defaultCategories: Faq4Category[] = [
@@ -58,73 +64,73 @@ const defaultCategories: Faq4Category[] = [
   { id: "features", label: "Features" },
   { id: "billing", label: "Billing" },
   { id: "support", label: "Support" },
-]
+];
 
 const defaultQuestions: Faq4Item[] = [
   {
-    id: "1",
     category: "getting-started",
-    title: "How do I add my first block?",
     content:
       "Browse the Ladle playground, pick a block, then install it with the shadcn CLI. Drop it into your page and customize the copy and layout.",
+    id: "1",
+    title: "How do I add my first block?",
   },
   {
-    id: "2",
     category: "getting-started",
-    title: "What are the system requirements?",
     content:
       "Nice UI works in any modern browser including Chrome, Firefox, Safari, and Edge. Blocks install into projects that already use shadcn/ui and Tailwind.",
+    id: "2",
+    title: "What are the system requirements?",
   },
   {
-    id: "3",
     category: "features",
-    title: "Can I use Nice UI for team collaboration?",
     content:
       "Yes. Share the registry, compose blocks in a shared codebase, and keep design decisions in the components themselves so the whole team ships from the same set.",
+    id: "3",
+    title: "Can I use Nice UI for team collaboration?",
   },
   {
-    id: "4",
     category: "features",
-    title: "Is there a component library?",
     content:
       "Nice UI includes marketing and dashboard blocks built on shadcn primitives. You can also create your own blocks and publish them the same way.",
+    id: "4",
+    title: "Is there a component library?",
   },
   {
-    id: "5",
     category: "features",
-    title: "Do you support custom integrations?",
     content:
       "Blocks are regular React. Wire them to GitHub, Figma, Slack, or your own APIs the same way you would any other component.",
+    id: "5",
+    title: "Do you support custom integrations?",
   },
   {
-    id: "6",
     category: "billing",
-    title: "What payment methods do you accept?",
     content:
       "Nice UI is open to install from the registry. If you need a commercial license or support plan, contact the team to discuss options.",
+    id: "6",
+    title: "What payment methods do you accept?",
   },
   {
-    id: "7",
     category: "billing",
-    title: "Can I change my plan anytime?",
     content:
       "If you are on a support plan, you can upgrade or downgrade at any time. Changes take effect on the next billing cycle.",
+    id: "7",
+    title: "Can I change my plan anytime?",
   },
   {
-    id: "8",
     category: "support",
-    title: "How do I report a bug?",
     content:
       "Open a GitHub issue with steps to reproduce, the block name, and a screenshot. We typically respond within a day.",
+    id: "8",
+    title: "How do I report a bug?",
   },
   {
-    id: "9",
     category: "support",
-    title: "Do you offer training or onboarding?",
     content:
       "The playground and docs cover most setups. For teams that want a walkthrough, contact us for a working session.",
+    id: "9",
+    title: "Do you offer training or onboarding?",
   },
-]
+];
 
 export function Faq4({
   title = "Frequently Asked Questions",
@@ -138,28 +144,51 @@ export function Faq4({
   contact = { href: "#", label: "Contact Us" },
   className,
 }: Faq4Props) {
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState(
     categories[0]?.id ?? "all"
-  )
+  );
 
   const filtered = useMemo(() => {
-    const query = searchTerm.toLowerCase()
+    const query = searchTerm.toLowerCase();
 
     return questions.filter((faq) => {
       const matchesCategory =
-        activeCategory === "all" || faq.category === activeCategory
+        activeCategory === "all" || faq.category === activeCategory;
       const matchesSearch =
         faq.title.toLowerCase().includes(query) ||
-        faq.content.toLowerCase().includes(query)
-      return matchesCategory && matchesSearch
-    })
-  }, [activeCategory, questions, searchTerm])
+        faq.content.toLowerCase().includes(query);
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, questions, searchTerm]);
+
+  const handleSearchChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(event.target.value);
+    },
+    []
+  );
+
+  const handleCategoryClick = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      const {
+        currentTarget: {
+          dataset: { categoryId },
+        },
+      } = event;
+      if (categoryId) {
+        setActiveCategory(categoryId);
+      }
+    },
+    []
+  );
+
+  const handleClearSearch = useCallback(() => {
+    setSearchTerm("");
+  }, []);
 
   return (
-    <section
-      className={cn("mx-auto w-full max-w-3xl md:border-x", className)}
-    >
+    <section className={cn("mx-auto w-full max-w-3xl md:border-x", className)}>
       <div className="px-4 py-16 lg:px-6">
         <h2 className="mb-4 font-semibold text-3xl md:text-4xl">{title}</h2>
         {description ? (
@@ -168,7 +197,7 @@ export function Faq4({
 
         <InputGroup className="max-w-sm">
           <InputGroupInput
-            onChange={(event) => setSearchTerm(event.target.value)}
+            onChange={handleSearchChange}
             placeholder={searchPlaceholder}
             type="search"
             value={searchTerm}
@@ -181,14 +210,15 @@ export function Faq4({
 
       <div className="flex flex-wrap gap-1 border-y px-4 md:gap-3">
         {categories.map((category) => {
-          const isActive = activeCategory === category.id
+          const isActive = activeCategory === category.id;
 
           return (
             <button
               aria-pressed={isActive}
               className="flex flex-col"
+              data-category-id={category.id}
               key={category.id}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={handleCategoryClick}
               type="button"
             >
               <span
@@ -203,7 +233,7 @@ export function Faq4({
                 <span className="h-0.5 w-full rounded-full bg-primary" />
               ) : null}
             </button>
-          )
+          );
         })}
       </div>
 
@@ -237,7 +267,7 @@ export function Faq4({
             <EmptyTitle>{emptyTitle}</EmptyTitle>
           </EmptyHeader>
           <EmptyContent>
-            <Button onClick={() => setSearchTerm("")} variant="outline">
+            <Button onClick={handleClearSearch} variant="outline">
               <SearchSlashIcon data-icon="inline-start" />
               {clearSearchLabel}
             </Button>
@@ -256,5 +286,5 @@ export function Faq4({
         </div>
       ) : null}
     </section>
-  )
+  );
 }

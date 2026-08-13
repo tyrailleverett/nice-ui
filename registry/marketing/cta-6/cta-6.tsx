@@ -1,13 +1,25 @@
-import { useState } from "react"
+import { useCallback, useState } from "react";
 
-import { cn } from "@/lib/utils"
+const GRID_CELLS = [
+  "cell-0",
+  "cell-1",
+  "cell-2",
+  "cell-3",
+  "cell-4",
+  "cell-5",
+  "cell-6",
+  "cell-7",
+  "cell-8",
+] as const;
 
-export type Cta6Props = {
-  eyebrow?: string
-  title?: string
-  description?: string
-  command?: string
-  className?: string
+import { cn } from "@/lib/utils";
+
+export interface Cta6Props {
+  className?: string;
+  command?: string;
+  description?: string;
+  eyebrow?: string;
+  title?: string;
 }
 
 export function Cta6({
@@ -17,17 +29,17 @@ export function Cta6({
   command = "bunx shadcn@latest add hotreloadstudios/nice-ui/hero-1",
   className,
 }: Cta6Props) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
-  async function copyCommand() {
+  const copyCommand = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(command)
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1500)
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1500);
     } catch {
-      setCopied(false)
+      setCopied(false);
     }
-  }
+  }, [command]);
 
   return (
     <section
@@ -37,7 +49,7 @@ export function Cta6({
       )}
     >
       <div className="grid grid-cols-[minmax(2.25rem,1fr)_minmax(0,22rem)_minmax(2.25rem,1fr)] grid-rows-[minmax(2.5rem,1fr)_auto_minmax(2.5rem,1fr)] sm:grid-cols-[minmax(3.5rem,1fr)_minmax(0,28rem)_minmax(3.5rem,1fr)]">
-        {Array.from({ length: 9 }, (_, index) => (
+        {GRID_CELLS.map((cellId, index) => (
           <div
             className={cn(
               index % 3 !== 2 && "border-r",
@@ -45,7 +57,7 @@ export function Cta6({
               index === 4 &&
                 "flex flex-col items-center justify-center gap-4 px-4 py-10 text-center sm:px-8 sm:py-14"
             )}
-            key={index}
+            key={cellId}
           >
             {index === 4 ? (
               <>
@@ -66,7 +78,9 @@ export function Cta6({
                   type="button"
                 >
                   <span className="text-muted-foreground">$</span>
-                  <span className="truncate">{copied ? "Copied" : command}</span>
+                  <span className="truncate">
+                    {copied ? "Copied" : (command ?? "")}
+                  </span>
                 </button>
               </>
             ) : null}
@@ -74,5 +88,5 @@ export function Cta6({
         ))}
       </div>
     </section>
-  )
+  );
 }

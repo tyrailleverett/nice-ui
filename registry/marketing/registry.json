@@ -20,7 +20,11 @@
       "title": "Hero 1",
       "description": "Centered marketing hero with announcement pill, dual CTAs, faded side rules, and a framed screenshot.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider", "tyrailleverett/nice-ui/decor-icon"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/full-width-divider",
+        "tyrailleverett/nice-ui/decor-icon"
+      ],
       "files": [
         {
           "path": "hero-1/hero-1.tsx",
@@ -147,7 +151,10 @@
       "type": "registry:block",
       "title": "CTA 1",
       "description": "Split marketing call to action with headline, buttons, and full-width dividers.",
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "cta-1/cta-1.tsx",
@@ -162,7 +169,10 @@
       "title": "CTA 2",
       "description": "Stacked marketing call to action with supporting copy and a tinted button bar.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "cta-2/cta-2.tsx",
@@ -207,7 +217,11 @@
       "title": "CTA 5",
       "description": "Newsletter marketing call to action with email field, subscribe button, and avatars.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "input-group", "tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "cta-5/cta-5.tsx",
@@ -624,7 +638,11 @@
       "title": "Header 1",
       "description": "Compact sticky marketing header that tightens on scroll, with simple links and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/portal", "tyrailleverett/nice-ui/use-scroll"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/portal",
+        "tyrailleverett/nice-ui/use-scroll"
+      ],
       "files": [
         {
           "path": "header-1/header-1.tsx",
@@ -639,7 +657,12 @@
       "title": "Header 2",
       "description": "Sticky marketing header with product and company mega menus, pricing link, and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "navigation-menu", "tyrailleverett/nice-ui/portal", "tyrailleverett/nice-ui/use-scroll"],
+      "registryDependencies": [
+        "button",
+        "navigation-menu",
+        "tyrailleverett/nice-ui/portal",
+        "tyrailleverett/nice-ui/use-scroll"
+      ],
       "files": [
         {
           "path": "header-2/header-2.tsx",
@@ -721,7 +744,10 @@
       "type": "registry:block",
       "title": "Integrations 3",
       "description": "Copy and CTA beside a scattered logo grid on a fading rule background.",
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "integrations-3/integrations-3.tsx",
@@ -791,7 +817,10 @@
       "type": "registry:block",
       "title": "Testimonial 4",
       "description": "Grid marketing testimonials with avatars, quotes, and full-width dividers.",
-      "registryDependencies": ["avatar", "tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "avatar",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "testimonial-4/testimonial-4.tsx",
@@ -806,7 +835,10 @@
       "title": "Testimonial 5",
       "description": "Auto-scrolling marketing testimonials with quote cards, avatars, and source labels.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["avatar", "tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "avatar",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "testimonial-5/testimonial-5.tsx",
@@ -848,7 +880,10 @@
       "type": "registry:block",
       "title": "FAQ 3",
       "description": "Split-column marketing FAQ with a large headline, guide line, and corner marks.",
-      "registryDependencies": ["accordion", "tyrailleverett/nice-ui/decor-icon"],
+      "registryDependencies": [
+        "accordion",
+        "tyrailleverett/nice-ui/decor-icon"
+      ],
       "files": [
         {
           "path": "faq-3/faq-3.tsx",

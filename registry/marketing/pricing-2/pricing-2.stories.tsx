@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
-import { Pricing2 as Pricing2Block } from "./pricing-2"
+import { Pricing2 as Pricing2Block } from "./pricing-2";
 
 export default {
   title: "Pricing",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
-export const Pricing2: Story = () => <Pricing2Block />
+export const Pricing2: Story = () => <Pricing2Block />;

@@ -3,52 +3,52 @@ import {
   BellIcon,
   LineChartIcon,
   UsersIcon,
-} from "lucide-react"
-import type { ReactNode } from "react"
+} from "lucide-react";
+import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type Feature7Highlight = {
-  icon: ReactNode
-  title: string
-  description: string
+export interface Feature7Highlight {
+  description: string;
+  icon: ReactNode;
+  title: string;
 }
 
-export type Feature7Image = {
-  src: string
-  alt: string
+export interface Feature7Image {
+  alt: string;
+  src: string;
 }
 
-export type Feature7Props = {
-  title?: ReactNode
-  foregroundImage?: Feature7Image
-  backgroundImage?: Feature7Image
-  highlights?: Feature7Highlight[]
-  className?: string
+export interface Feature7Props {
+  backgroundImage?: Feature7Image;
+  className?: string;
+  foregroundImage?: Feature7Image;
+  highlights?: Feature7Highlight[];
+  title?: ReactNode;
 }
 
 const defaultHighlights: Feature7Highlight[] = [
   {
+    description: "Ownership changes without resetting the relationship.",
     icon: <ArrowLeftRightIcon className="inline size-4 -translate-y-0.5" />,
     title: "Seamless handoffs.",
-    description: "Ownership changes without resetting the relationship.",
   },
   {
+    description: "Surface renewals and quiet accounts before they slip.",
     icon: <BellIcon className="inline size-4 -translate-y-0.5" />,
     title: "Proactive alerts.",
-    description: "Surface renewals and quiet accounts before they slip.",
   },
   {
+    description: "Sales, success, and support work from one account view.",
     icon: <UsersIcon className="inline size-4 -translate-y-0.5" />,
     title: "Shared timeline.",
-    description: "Sales, success, and support work from one account view.",
   },
   {
+    description: "Leaders see risk and momentum without chasing updates.",
     icon: <LineChartIcon className="inline size-4 -translate-y-0.5" />,
     title: "Forecast clarity.",
-    description: "Leaders see risk and momentum without chasing updates.",
   },
-]
+];
 
 export function Feature7({
   title = (
@@ -58,12 +58,12 @@ export function Feature7({
     </>
   ),
   foregroundImage = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "Product screenshot",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   backgroundImage = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "Product screenshot background",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   highlights = defaultHighlights,
   className,
@@ -75,8 +75,8 @@ export function Feature7({
           {title}
         </h2>
         <div className="relative -mx-6 overflow-hidden px-3 pt-3 md:-mx-8">
-          <div className="absolute inset-3 z-1 size-64 rounded-tl-3xl border-t border-l mask-radial-[100%_60%] mask-radial-at-top-left mask-radial-from-65% md:size-96 lg:inset-4" />
-          <div className="relative aspect-88/36 min-w-2xl mask-b-from-75% mask-b-to-95%">
+          <div className="mask-radial-[100%_60%] mask-radial-at-top-left mask-radial-from-65% absolute inset-3 z-1 size-64 rounded-tl-3xl border-t border-l md:size-96 lg:inset-4" />
+          <div className="mask-b-from-75% mask-b-to-95% relative aspect-88/36 min-w-2xl">
             <img
               alt={foregroundImage.alt}
               className="absolute inset-0 z-10 size-full object-cover object-top"
@@ -105,5 +105,5 @@ export function Feature7({
         </div>
       </div>
     </section>
-  )
+  );
 }

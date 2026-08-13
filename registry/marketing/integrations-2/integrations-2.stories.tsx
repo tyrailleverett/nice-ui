@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
-import { Integrations2 as Integrations2Block } from "./integrations-2"
+import { Integrations2 as Integrations2Block } from "./integrations-2";
 
 export default {
   title: "Integrations",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
-export const Integrations2: Story = () => <Integrations2Block />
+export const Integrations2: Story = () => <Integrations2Block />;

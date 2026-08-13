@@ -1,20 +1,20 @@
-import { ArrowRightIcon, CreditCardIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowRightIcon, CreditCardIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Cta4Action = {
-  href?: string
-  label: string
+export interface Cta4Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta4Props = {
-  title?: string
-  description?: ReactNode
-  primaryCta?: Cta4Action
-  secondaryCta?: Cta4Action
-  className?: string
+export interface Cta4Props {
+  className?: string;
+  description?: ReactNode;
+  primaryCta?: Cta4Action;
+  secondaryCta?: Cta4Action;
+  title?: string;
 }
 
 function ActionButton({
@@ -22,30 +22,30 @@ function ActionButton({
   variant,
   icon,
 }: {
-  action: Cta4Action
-  variant?: "default" | "secondary"
-  icon?: ReactNode
+  action: Cta4Action;
+  variant?: "default" | "secondary";
+  icon?: ReactNode;
 }) {
   const content = (
     <>
       {action.label}
       {icon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild className="shadow" variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button className="shadow" type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Cta4({
@@ -56,8 +56,8 @@ export function Cta4({
       <CreditCardIcon className="inline-block size-4" /> required.
     </>
   ),
-  primaryCta = { label: "Get Started", href: "#" },
-  secondaryCta = { label: "Contact Sales", href: "#" },
+  primaryCta = { href: "#", label: "Get Started" },
+  secondaryCta = { href: "#", label: "Contact Sales" },
   className,
 }: Cta4Props) {
   return (
@@ -89,5 +89,5 @@ export function Cta4({
         ) : null}
       </div>
     </section>
-  )
+  );
 }

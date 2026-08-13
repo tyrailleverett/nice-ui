@@ -1,9 +1,9 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
-import { Cta1 as Cta1Block } from "./cta-1"
+import { Cta1 as Cta1Block } from "./cta-1";
 
 export default {
   title: "CTA",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
-export const Cta1: Story = () => <Cta1Block />
+export const Cta1: Story = () => <Cta1Block />;

@@ -1,19 +1,42 @@
-import { ArrowUpRightIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowUpRightIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Cta12Action = {
-  href?: string
-  label: string
+export interface Cta12Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta12Props = {
-  title?: string
-  primaryCta?: Cta12Action
-  secondaryCta?: Cta12Action
-  className?: string
+export interface Cta12Props {
+  className?: string;
+  primaryCta?: Cta12Action;
+  secondaryCta?: Cta12Action;
+  title?: string;
+}
+
+function PrimaryCtaButton({ action }: { action: Cta12Action }) {
+  const content = (
+    <>
+      {action.label}
+      <ArrowUpRightIcon data-icon="inline-end" />
+    </>
+  );
+
+  if (action.href) {
+    return (
+      <Button asChild className="rounded-full" variant="outline">
+        <a href={action.href}>{content}</a>
+      </Button>
+    );
+  }
+
+  return (
+    <Button className="rounded-full" type="button" variant="outline">
+      {content}
+    </Button>
+  );
 }
 
 function ActionLink({
@@ -21,29 +44,29 @@ function ActionLink({
   className,
   children,
 }: {
-  action: Cta12Action
-  className?: string
-  children: ReactNode
+  action: Cta12Action;
+  className?: string;
+  children: ReactNode;
 }) {
   if (action.href) {
     return (
       <a className={className} href={action.href}>
         {children}
       </a>
-    )
+    );
   }
 
   return (
     <button className={className} type="button">
       {children}
     </button>
-  )
+  );
 }
 
 export function Cta12({
   title = "Ship 10x Faster with Nice UI",
-  primaryCta = { label: "Get Started", href: "#" },
-  secondaryCta = { label: "Try it now", href: "#" },
+  primaryCta = { href: "#", label: "Get Started" },
+  secondaryCta = { href: "#", label: "Try it now" },
   className,
 }: Cta12Props) {
   return (
@@ -68,29 +91,15 @@ export function Cta12({
             {secondaryCta ? (
               <ActionLink
                 action={secondaryCta}
-                className="text-sm font-medium hover:underline"
+                className="font-medium text-sm hover:underline"
               >
                 {secondaryCta.label}
               </ActionLink>
             ) : null}
-            {primaryCta ? (
-              primaryCta.href ? (
-                <Button asChild className="rounded-full" variant="outline">
-                  <a href={primaryCta.href}>
-                    {primaryCta.label}
-                    <ArrowUpRightIcon data-icon="inline-end" />
-                  </a>
-                </Button>
-              ) : (
-                <Button className="rounded-full" type="button" variant="outline">
-                  {primaryCta.label}
-                  <ArrowUpRightIcon data-icon="inline-end" />
-                </Button>
-              )
-            ) : null}
+            {primaryCta ? <PrimaryCtaButton action={primaryCta} /> : null}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

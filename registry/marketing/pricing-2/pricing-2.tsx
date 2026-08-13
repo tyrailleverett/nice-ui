@@ -1,39 +1,39 @@
-import { useCallback, useState } from "react"
-import { CheckIcon, TagIcon } from "lucide-react"
+import { CheckIcon, TagIcon } from "lucide-react";
+import { useCallback, useState } from "react";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Pricing2Plan = {
-  key: string
-  name: string
-  popular?: boolean
+export interface Pricing2Plan {
+  ctaHref?: string;
+  ctaLabel?: string;
+  key: string;
+  name: string;
+  popular?: boolean;
   prices?: {
-    monthly: number
-    yearly: number
-  }
-  ctaHref?: string
-  ctaLabel?: string
+    monthly: number;
+    yearly: number;
+  };
 }
 
-export type Pricing2Value = boolean | string
+export type Pricing2Value = boolean | string;
 
-export type Pricing2Feature = {
-  name: string
-  values: Pricing2Value[]
+export interface Pricing2Feature {
+  name: string;
+  values: Pricing2Value[];
 }
 
-export type Pricing2Group = {
-  name: string
-  features: Pricing2Feature[]
+export interface Pricing2Group {
+  features: Pricing2Feature[];
+  name: string;
 }
 
-export type Pricing2Props = {
-  plans?: Pricing2Plan[]
-  groups?: Pricing2Group[]
-  ctaLabel?: string
-  className?: string
+export interface Pricing2Props {
+  className?: string;
+  ctaLabel?: string;
+  groups?: Pricing2Group[];
+  plans?: Pricing2Plan[];
 }
 
 const defaultPlans: Pricing2Plan[] = [
@@ -54,18 +54,23 @@ const defaultPlans: Pricing2Plan[] = [
     prices: { monthly: 19_900, yearly: 15_920 },
   },
   {
+    ctaLabel: "Contact sales",
     key: "enterprise",
     name: "Enterprise",
-    ctaLabel: "Contact sales",
   },
-]
+];
 
 const defaultGroups: Pricing2Group[] = [
   {
-    name: "Core",
     features: [
-      { name: "Team members", values: ["1", "Up to 10", "Up to 50", "Unlimited"] },
-      { name: "Projects", values: ["3", "Unlimited", "Unlimited", "Unlimited"] },
+      {
+        name: "Team members",
+        values: ["1", "Up to 10", "Up to 50", "Unlimited"],
+      },
+      {
+        name: "Projects",
+        values: ["3", "Unlimited", "Unlimited", "Unlimited"],
+      },
       { name: "Storage", values: ["1 GB", "50 GB", "500 GB", "Unlimited"] },
       { name: "REST & GraphQL API", values: [false, true, true, true] },
       {
@@ -77,9 +82,9 @@ const defaultGroups: Pricing2Group[] = [
         values: [false, "1", "5", "Unlimited"],
       },
     ],
+    name: "Core",
   },
   {
-    name: "Collaboration",
     features: [
       { name: "Real-time collaboration", values: [false, true, true, true] },
       { name: "Comments & mentions", values: [true, true, true, true] },
@@ -89,18 +94,18 @@ const defaultGroups: Pricing2Group[] = [
       },
       { name: "Custom roles", values: [false, false, true, true] },
     ],
+    name: "Collaboration",
   },
   {
-    name: "Security",
     features: [
       { name: "SAML SSO", values: [false, false, true, true] },
       { name: "Directory sync", values: [false, false, false, true] },
       { name: "Audit logs", values: [false, "7 days", "90 days", "1 year"] },
       { name: "IP allowlisting", values: [false, false, true, true] },
     ],
+    name: "Security",
   },
   {
-    name: "Support",
     features: [
       {
         name: "Support channel",
@@ -108,8 +113,9 @@ const defaultGroups: Pricing2Group[] = [
       },
       { name: "Onboarding assistance", values: [false, false, true, true] },
     ],
+    name: "Support",
   },
-]
+];
 
 function formatPrice(amount: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -117,14 +123,14 @@ function formatPrice(amount: number): string {
     maximumFractionDigits: 0,
     minimumFractionDigits: 0,
     style: "currency",
-  }).format(amount / 100)
+  }).format(amount / 100);
 }
 
 function annualSavingsPercent(plan: Pricing2Plan): number {
   if (!plan.prices) {
-    return 0
+    return 0;
   }
-  return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100)
+  return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100);
 }
 
 function toggleButtonClass(selected: boolean): string {
@@ -133,23 +139,23 @@ function toggleButtonClass(selected: boolean): string {
     selected
       ? "bg-accent text-foreground"
       : "text-muted-foreground hover:text-foreground"
-  )
+  );
 }
 
 function BillingIntervalToggle({
   isAnnual,
   onChange,
 }: {
-  isAnnual: boolean
-  onChange: (isAnnual: boolean) => void
+  isAnnual: boolean;
+  onChange: (isAnnual: boolean) => void;
 }) {
   const selectMonthly = useCallback(() => {
-    onChange(false)
-  }, [onChange])
+    onChange(false);
+  }, [onChange]);
 
   const selectAnnual = useCallback(() => {
-    onChange(true)
-  }, [onChange])
+    onChange(true);
+  }, [onChange]);
 
   return (
     <div className="inline-flex rounded-lg border border-border bg-muted/50 p-1">
@@ -170,25 +176,28 @@ function BillingIntervalToggle({
         Annually
       </button>
     </div>
-  )
+  );
 }
 
 function FeatureValue({ value }: { value: Pricing2Value | undefined }) {
   if (value === true) {
     return (
-      <CheckIcon aria-label="Included" className="mx-auto size-4 text-primary" />
-    )
+      <CheckIcon
+        aria-label="Included"
+        className="mx-auto size-4 text-primary"
+      />
+    );
   }
 
   if (value === false || value === undefined) {
     return (
-      <span aria-label="Not included" className="text-muted-foreground">
-        —
+      <span className="text-muted-foreground">
+        <span className="sr-only">Not included</span>—
       </span>
-    )
+    );
   }
 
-  return <span className="font-medium">{value}</span>
+  return <span className="font-medium">{value}</span>;
 }
 
 export function Pricing2({
@@ -197,9 +206,9 @@ export function Pricing2({
   ctaLabel = "Start 14-day trial",
   className,
 }: Pricing2Props) {
-  const [isAnnual, setIsAnnual] = useState(false)
-  const pricedPlan = plans.find((plan) => plan.prices)
-  const savingsPercent = pricedPlan ? annualSavingsPercent(pricedPlan) : 0
+  const [isAnnual, setIsAnnual] = useState(false);
+  const pricedPlan = plans.find((plan) => plan.prices);
+  const savingsPercent = pricedPlan ? annualSavingsPercent(pricedPlan) : 0;
 
   return (
     <section className={className}>
@@ -302,11 +311,7 @@ export function Pricing2({
               </thead>
               <tbody>
                 {groups.map((group) => (
-                  <GroupRows
-                    group={group}
-                    key={group.name}
-                    plans={plans}
-                  />
+                  <GroupRows group={group} key={group.name} plans={plans} />
                 ))}
               </tbody>
             </table>
@@ -314,15 +319,15 @@ export function Pricing2({
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function GroupRows({
   group,
   plans,
 }: {
-  group: Pricing2Group
-  plans: Pricing2Plan[]
+  group: Pricing2Group;
+  plans: Pricing2Plan[];
 }) {
   return (
     <>
@@ -371,5 +376,5 @@ function GroupRows({
         </tr>
       ))}
     </>
-  )
+  );
 }

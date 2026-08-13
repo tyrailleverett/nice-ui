@@ -22,11 +22,11 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "strictNullChecks": true
   },
-  "include": ["src", "registry"]
+  "include": ["src", "registry"],
+  "exclude": ["node_modules", "**/*.stories.tsx"]
 }

@@ -1,57 +1,56 @@
-import { QuoteIcon } from "lucide-react"
+import { QuoteIcon } from "lucide-react";
 
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { cn } from "@/lib/utils"
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { cn } from "@/lib/utils";
 
-export type Testimonial3Item = {
-  quote: string
-  name: string
-  role: string
-  company?: string
+export interface Testimonial3Item {
+  company?: string;
+  name: string;
+  quote: string;
+  role: string;
 }
 
-export type Testimonial3Props = {
-  testimonials?: Testimonial3Item[]
-  className?: string
+export interface Testimonial3Props {
+  className?: string;
+  testimonials?: Testimonial3Item[];
 }
 
 const defaultTestimonials: Testimonial3Item[] = [
   {
+    company: "Shadcn UI",
+    name: "Shadcn",
     quote:
       "Nice UI is so polished I might just retire and become a full-time potato farmer. The ecosystem is in safe hands.",
-    name: "Shadcn",
     role: "Founder",
-    company: "Shadcn UI",
   },
   {
+    company: "Vercel",
+    name: "Guillermo Rauch",
     quote:
       "Nice UI is why I still have hair. No more pulling it out over centering divs or fighting with CSS grid.",
-    name: "Guillermo Rauch",
     role: "CEO",
-    company: "Vercel",
   },
   {
+    company: "X.com",
+    name: "Elon Musk",
     quote:
       "I tried to buy Nice UI but they wouldn't sell. So I just bought Twitter instead to complain about it.",
-    name: "Elon Musk",
     role: "CEO",
-    company: "X.com",
   },
-]
+];
 
 export function Testimonial3({
   testimonials = defaultTestimonials,
   className,
 }: Testimonial3Props) {
-  const primary = testimonials.slice(0, 2)
-  const featured = testimonials[2]
+  const [firstTestimonial, secondTestimonial, featured] = testimonials;
+  const primary = [firstTestimonial, secondTestimonial].filter(
+    (testimonial): testimonial is Testimonial3Item => testimonial !== undefined
+  );
 
   return (
     <section
-      className={cn(
-        "relative mx-auto w-full max-w-4xl border-x",
-        className
-      )}
+      className={cn("relative mx-auto w-full max-w-4xl border-x", className)}
     >
       <FullWidthDivider position="top" />
       <div className="grid md:grid-cols-[2fr_1px_1fr]">
@@ -69,11 +68,11 @@ export function Testimonial3({
       </div>
       <FullWidthDivider position="bottom" />
     </section>
-  )
+  );
 }
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial3Item }) {
-  const { quote, name, role, company } = testimonial
+  const { quote, name, role, company } = testimonial;
 
   return (
     <figure className="p-6 md:p-8">
@@ -96,5 +95,5 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial3Item }) {
         </p>
       </figcaption>
     </figure>
-  )
+  );
 }

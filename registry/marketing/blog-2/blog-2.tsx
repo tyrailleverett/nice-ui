@@ -1,98 +1,98 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
 
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { cn } from "@/lib/utils"
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { cn } from "@/lib/utils";
 
-export type Blog2Item = {
-  title: string
-  date: string
-  description: string
-  category: string
-  author: string
-  href: string
+export interface Blog2Item {
+  author: string;
+  category: string;
+  date: string;
+  description: string;
+  href: string;
+  title: string;
 }
 
-export type Blog2Props = {
-  title?: string
-  description?: string
-  posts?: Blog2Item[]
-  className?: string
+export interface Blog2Props {
+  className?: string;
+  description?: string;
+  posts?: Blog2Item[];
+  title?: string;
 }
 
 const defaultPosts: Blog2Item[] = [
   {
-    title: "The New Design Principles for Modern Web Apps",
-    date: "May 20 2025",
-    category: "Design",
     author: "Sarah Chen",
+    category: "Design",
+    date: "May 20 2025",
     description:
       "We dive deep into modern UI/UX fundamentals and explore how small changes can make a massive impact on user retention.",
     href: "#",
+    title: "The New Design Principles for Modern Web Apps",
   },
   {
-    title: "Letter Club: An Ode to the Slow Web",
-    date: "Aug 14 2025",
-    category: "Design",
     author: "Mike Allyn",
+    category: "Design",
+    date: "Aug 14 2025",
     description:
       "In a world of instant gratification, we explore the beauty of thoughtful, long-form content and meaningful connections over time.",
     href: "#",
+    title: "Letter Club: An Ode to the Slow Web",
   },
   {
-    title: "Carve Out Space for Opportunity and Coffee",
-    date: "Sep 19 2025",
-    category: "Productivity",
     author: "Jessica Doi",
+    category: "Productivity",
+    date: "Sep 19 2025",
     description:
       "Taking a break is work. Learn how simple rituals like a morning coffee can boost your creativity and productivity.",
     href: "#",
+    title: "Carve Out Space for Opportunity and Coffee",
   },
   {
-    title: "Building Modern Applications with Shadcn UI Components",
-    date: "Oct 12 2025",
-    category: "Design",
     author: "Tom Cook",
+    category: "Design",
+    date: "Oct 12 2025",
     description:
       "A comprehensive guide to leveraging Shadcn UI to build accessible, customizable, and beautiful user interfaces with incredible speed.",
     href: "#",
+    title: "Building Modern Applications with Shadcn UI Components",
   },
   {
-    title: "Fesgin: Bridging The Gap Between Design and Code",
-    date: "Nov 23 2025",
-    category: "Design",
     author: "David Park",
+    category: "Design",
+    date: "Nov 23 2025",
     description:
       "How designers and developers can collaborate more effectively to bridge the gap between creative vision and technical implementation.",
     href: "#",
+    title: "Fesgin: Bridging The Gap Between Design and Code",
   },
   {
-    title: "The Art of Simplicity in User Interface Design",
-    date: "Dec 05 2025",
-    category: "Minimalism",
     author: "Emma Wilson",
+    category: "Minimalism",
+    date: "Dec 05 2025",
     description:
       "Discover how minimalism in design leads to clearer communication and a more intuitive user experience, focusing on what matters.",
     href: "#",
+    title: "The Art of Simplicity in User Interface Design",
   },
   {
-    title: "Why Web Performance Matters For Your Business Growth",
-    date: "Jan 18 2026",
-    category: "Engineering",
     author: "Chris Martin",
+    category: "Engineering",
+    date: "Jan 18 2026",
     description:
       "We discuss techniques for improving web performance, from lazy loading to code splitting, ensuring your application runs smoothly.",
     href: "#",
+    title: "Why Web Performance Matters For Your Business Growth",
   },
   {
-    title: "Practicing Digital Well-being in an Always-On World",
-    date: "Feb 02 2026",
-    category: "Lifestyle",
     author: "Olivia Kim",
+    category: "Lifestyle",
+    date: "Feb 02 2026",
     description:
       "Strategies for maintaining a healthy relationship with digital tools, setting boundaries, and ensuring technology serves us rather than consumes us.",
     href: "#",
+    title: "Practicing Digital Well-being in an Always-On World",
   },
-]
+];
 
 export function Blog2({
   title = "Latest Blogs",
@@ -101,7 +101,9 @@ export function Blog2({
   className,
 }: Blog2Props) {
   return (
-    <section className={cn("mx-auto w-full max-w-5xl py-4 lg:border-x", className)}>
+    <section
+      className={cn("mx-auto w-full max-w-5xl py-4 lg:border-x", className)}
+    >
       <div className="space-y-2 px-4 py-8 md:py-12">
         <h2 className="font-semibold text-2xl tracking-wide md:text-4xl">
           {title}
@@ -118,7 +120,7 @@ export function Blog2({
         <FullWidthDivider contained position="bottom" />
       </div>
     </section>
-  )
+  );
 }
 
 function BlogCard({
@@ -126,9 +128,9 @@ function BlogCard({
   className,
   ...props
 }: ComponentProps<"a"> & {
-  post: Blog2Item
+  post: Blog2Item;
 }) {
-  const { title, date, description, category, author, href } = post
+  const { title, date, description, category, author, href } = post;
 
   return (
     <a
@@ -161,5 +163,5 @@ function BlogCard({
         </span>
       </div>
     </a>
-  )
+  );
 }

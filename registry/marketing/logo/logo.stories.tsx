@@ -1,14 +1,14 @@
-import type { Story } from "@ladle/react"
+import type { Story } from "@ladle/react";
 
-import { Logo, LogoIcon } from "./logo"
+import { Logo, LogoIcon } from "./logo";
 
 export const Wordmark: Story = () => (
   <Logo aria-label="Nice UI" className="h-6 w-auto" />
-)
+);
 
 export const Icon: Story = () => (
   <LogoIcon aria-label="Nice UI" className="size-8" />
-)
+);
 
 export const Sizes: Story = () => (
   <div className="flex flex-col gap-8">
@@ -23,4 +23,4 @@ export const Sizes: Story = () => (
       <LogoIcon aria-hidden="true" className="size-12" />
     </div>
   </div>
-)
+);

@@ -3,50 +3,50 @@ import {
   BellIcon,
   LineChartIcon,
   UsersIcon,
-} from "lucide-react"
-import type { ReactNode } from "react"
+} from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-export type Feature4Highlight = {
-  icon: ReactNode
-  title: string
-  description: string
+export interface Feature4Highlight {
+  description: string;
+  icon: ReactNode;
+  title: string;
 }
 
-export type Feature4Props = {
-  title?: ReactNode
-  pipelineTitle?: ReactNode
-  pipelineDescription?: string
-  signalsTitle?: ReactNode
-  signalsDescription?: string
-  highlights?: Feature4Highlight[]
-  className?: string
+export interface Feature4Props {
+  className?: string;
+  highlights?: Feature4Highlight[];
+  pipelineDescription?: string;
+  pipelineTitle?: ReactNode;
+  signalsDescription?: string;
+  signalsTitle?: ReactNode;
+  title?: ReactNode;
 }
 
 const defaultHighlights: Feature4Highlight[] = [
   {
+    description: "See every open deal and stage in one workspace.",
     icon: <ArrowLeftRightIcon className="inline size-4 -translate-y-0.5" />,
     title: "Pipeline visibility.",
-    description: "See every open deal and stage in one workspace.",
   },
   {
+    description: "Every email, note, and task stays on the record.",
     icon: <BellIcon className="inline size-4 -translate-y-0.5" />,
     title: "Account history.",
-    description: "Every email, note, and task stays on the record.",
   },
   {
+    description: "Reps and managers work from shared customer context.",
     icon: <UsersIcon className="inline size-4 -translate-y-0.5" />,
     title: "Team alignment.",
-    description: "Reps and managers work from shared customer context.",
   },
   {
+    description: "Spot risk and momentum before the quarter slips away.",
     icon: <LineChartIcon className="inline size-4 -translate-y-0.5" />,
     title: "Forecast health.",
-    description: "Spot risk and momentum before the quarter slips away.",
   },
-]
+];
 
 export function Feature4({
   title = (
@@ -92,7 +92,7 @@ export function Feature4({
               </p>
             </div>
 
-            <div className="mt-6 mask-x-from-65% pt-2">
+            <div className="mask-x-from-65% mt-6 pt-2">
               <div
                 aria-hidden
                 className="relative h-72 rounded-xl bg-linear-to-b from-foreground/5 shadow-xl ring ring-foreground/10"
@@ -113,5 +113,5 @@ export function Feature4({
         </div>
       </div>
     </section>
-  )
+  );
 }

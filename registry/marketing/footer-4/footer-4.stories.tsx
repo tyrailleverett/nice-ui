@@ -1,4 +1,4 @@
-import type { Story, StoryDefault } from "@ladle/react"
+import type { Story, StoryDefault } from "@ladle/react";
 
 import {
   FacebookIcon,
@@ -6,15 +6,14 @@ import {
   InstagramIcon,
   LinkedinIcon,
   XIcon,
-} from "./footer-4"
+} from "./footer-4";
 
 export default {
   title: "Footer",
-} satisfies StoryDefault
+} satisfies StoryDefault;
 
 const groups = [
   {
-    title: "Company",
     links: [
       { href: "#", label: "Engineering Blog" },
       { href: "#", label: "Marketplace" },
@@ -24,9 +23,9 @@ const groups = [
       { href: "#", label: "Careers" },
       { href: "#", label: "Social Good" },
     ],
+    title: "Company",
   },
   {
-    title: "Community",
     links: [
       { href: "#", label: "Linktree for Enterprise" },
       { href: "#", label: "2023 Creator Report" },
@@ -36,9 +35,9 @@ const groups = [
       { href: "#", label: "Creator Profile Directory" },
       { href: "#", label: "Explore Templates" },
     ],
+    title: "Community",
   },
   {
-    title: "Support",
     links: [
       { href: "#", label: "Help Topics" },
       { href: "#", label: "Getting Started" },
@@ -47,9 +46,9 @@ const groups = [
       { href: "#", label: "FAQs" },
       { href: "#", label: "Report a Violation" },
     ],
+    title: "Support",
   },
   {
-    title: "Legal",
     links: [
       { href: "#", label: "Terms & Conditions" },
       { href: "#", label: "Privacy Notice" },
@@ -59,16 +58,17 @@ const groups = [
       { href: "#", label: "Transparency Report" },
       { href: "#", label: "Law Enforcement Access Policy" },
     ],
+    title: "Legal",
   },
-]
+];
 
 const socialLinks = [
-  { icon: <FacebookIcon />, href: "#", label: "Facebook" },
-  { icon: <InstagramIcon />, href: "#", label: "Instagram" },
-  { icon: <LinkedinIcon />, href: "#", label: "LinkedIn" },
-  { icon: <XIcon />, href: "#", label: "X" },
-]
+  { href: "#", icon: <FacebookIcon />, label: "Facebook" },
+  { href: "#", icon: <InstagramIcon />, label: "Instagram" },
+  { href: "#", icon: <LinkedinIcon />, label: "LinkedIn" },
+  { href: "#", icon: <XIcon />, label: "X" },
+];
 
 export const Footer4: Story = () => (
   <Footer4Block groups={groups} socialLinks={socialLinks} />
-)
+);

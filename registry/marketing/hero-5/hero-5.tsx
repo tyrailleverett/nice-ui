@@ -1,116 +1,116 @@
-import { ArrowRightIcon, ChevronRightIcon } from "lucide-react"
+import { ArrowRightIcon, ChevronRightIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Hero5Action = {
-  href?: string
-  label: string
+export interface Hero5Action {
+  href?: string;
+  label: string;
 }
 
-export type Hero5Announcement = {
-  eyebrow?: string
-  label: string
-  href?: string
+export interface Hero5Announcement {
+  eyebrow?: string;
+  href?: string;
+  label: string;
 }
 
-export type Hero5Screenshot = {
-  src: string
-  alt: string
+export interface Hero5Screenshot {
+  alt: string;
+  src: string;
 }
 
-export type Hero5Logo = {
-  src: string
-  alt: string
+export interface Hero5Logo {
+  alt: string;
+  src: string;
 }
 
-export type Hero5Props = {
-  announcement?: Hero5Announcement | null
-  title?: string
-  description?: string
-  primaryCta?: Hero5Action | null
-  secondaryCta?: Hero5Action | null
-  screenshot?: Hero5Screenshot
-  logos?: Hero5Logo[]
-  logosCta?: Hero5Action | null
-  className?: string
+export interface Hero5Props {
+  announcement?: Hero5Announcement | null;
+  className?: string;
+  description?: string;
+  logos?: Hero5Logo[];
+  logosCta?: Hero5Action | null;
+  primaryCta?: Hero5Action | null;
+  screenshot?: Hero5Screenshot;
+  secondaryCta?: Hero5Action | null;
+  title?: string;
 }
 
 const defaultLogos: Hero5Logo[] = [
   {
-    src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
     alt: "Bolt",
+    src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
     alt: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
     alt: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
     alt: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
     alt: "GitHub",
+    src: "https://storage.efferd.com/logo/github-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
     alt: "Claude",
+    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
     alt: "Clerk",
+    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
     alt: "Stripe",
+    src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
   },
-]
+];
 
 function ActionButton({
   action,
   variant,
 }: {
-  action: Hero5Action
-  variant?: "default" | "ghost"
+  action: Hero5Action;
+  variant?: "default" | "ghost";
 }) {
-  const content = <span className="text-nowrap">{action.label}</span>
+  const content = <span className="text-nowrap">{action.label}</span>;
 
   if (action.href) {
     return (
       <Button asChild variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Hero5({
   announcement = {
     eyebrow: "New:",
-    label: "Introducing the living customer graph",
     href: "#",
+    label: "Introducing the living customer graph",
   },
   title = "Customer universe, beautifully connected",
   description = "Every account, signal, conversation, and next move in one living workspace that helps teams turn momentum into revenue.",
-  primaryCta = { label: "Explore the graph", href: "#" },
-  secondaryCta = { label: "Watch the flow", href: "#" },
+  primaryCta = { href: "#", label: "Explore the graph" },
+  secondaryCta = { href: "#", label: "Watch the flow" },
   screenshot = {
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
     alt: "Product dashboard",
+    src: "https://storage.efferd.com/screen/dashboard-light.webp",
   },
   logos = defaultLogos,
-  logosCta = { label: "See the network", href: "#" },
+  logosCta = { href: "#", label: "See the network" },
   className,
 }: Hero5Props) {
   return (
@@ -124,7 +124,9 @@ export function Hero5({
                 href={announcement.href ?? "#"}
               >
                 {announcement.eyebrow ? (
-                  <span className="font-medium text-sm">{announcement.eyebrow}</span>
+                  <span className="font-medium text-sm">
+                    {announcement.eyebrow}
+                  </span>
                 ) : null}
                 <span className="text-muted-foreground text-sm">
                   {announcement.label}
@@ -162,8 +164,8 @@ export function Hero5({
           </div>
 
           <div className="relative mt-8 overflow-hidden p-6 max-sm:-mr-56 sm:mt-16">
-            <div className="absolute inset-0 mask-t-from-25% mask-t-to-65% rounded-4xl border bg-linear-to-b to-zinc-600" />
-            <div className="relative rounded-2xl p-2 shadow-xl shadow-black/50 ring ring-foreground/10 before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-t before:border-l before:border-foreground/10 before:mask-radial-[100%_60%] before:mask-radial-from-65% before:mask-radial-at-top-left">
+            <div className="mask-t-from-25% mask-t-to-65% absolute inset-0 rounded-4xl border bg-linear-to-b to-zinc-600" />
+            <div className="before:mask-radial-[100%_60%] before:mask-radial-from-65% before:mask-radial-at-top-left relative rounded-2xl p-2 shadow-black/50 shadow-xl ring ring-foreground/10 before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-foreground/10 before:border-t before:border-l">
               <div className="absolute inset-0 z-1 rounded-2xl bg-foreground/2" />
               <img
                 alt={screenshot.alt}
@@ -204,7 +206,9 @@ export function Hero5({
                   <img
                     alt={logo.alt}
                     className="mx-auto h-5 w-full max-w-24 object-contain dark:brightness-0 dark:invert"
+                    height={20}
                     src={logo.src}
+                    width={96}
                   />
                 </div>
               ))}
@@ -213,5 +217,5 @@ export function Hero5({
         </div>
       ) : null}
     </section>
-  )
+  );
 }

@@ -1,52 +1,57 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type Feature8ChartPoint = {
-  month: string
-  desktop: number
-  mobile: number
+export interface Feature8ChartPoint {
+  desktop: number;
+  mobile: number;
+  month: string;
 }
 
-export type Feature8Props = {
-  title?: ReactNode
-  mapTitle?: ReactNode
-  mapDescription?: string
-  threadTitle?: ReactNode
-  threadDescription?: string
-  uptime?: string
-  uptimeLabel?: string
-  chartTitle?: ReactNode
-  chartDescription?: string
-  connectionLabel?: ReactNode
-  chartData?: Feature8ChartPoint[]
-  className?: string
+export interface Feature8Props {
+  chartData?: Feature8ChartPoint[];
+  chartDescription?: string;
+  chartTitle?: ReactNode;
+  className?: string;
+  connectionLabel?: ReactNode;
+  mapDescription?: string;
+  mapTitle?: ReactNode;
+  threadDescription?: string;
+  threadTitle?: ReactNode;
+  title?: ReactNode;
+  uptime?: string;
+  uptimeLabel?: string;
 }
 
 const defaultChartData: Feature8ChartPoint[] = [
-  { month: "May", desktop: 56, mobile: 224 },
-  { month: "June", desktop: 56, mobile: 224 },
-  { month: "January", desktop: 126, mobile: 252 },
-  { month: "February", desktop: 205, mobile: 410 },
-  { month: "March", desktop: 200, mobile: 126 },
-  { month: "April", desktop: 400, mobile: 800 },
-]
+  { desktop: 56, mobile: 224, month: "May" },
+  { desktop: 56, mobile: 224, month: "June" },
+  { desktop: 126, mobile: 252, month: "January" },
+  { desktop: 205, mobile: 410, month: "February" },
+  { desktop: 200, mobile: 126, month: "March" },
+  { desktop: 400, mobile: 800, month: "April" },
+];
 
-function Map() {
-  const cols = 80
-  const rows = 40
-  const dots: { x: number; y: number }[] = []
+function FeatureMap() {
+  const cols = 80;
+  const rows = 40;
+  const dots: { x: number; y: number }[] = [];
 
   for (let y = 0; y < rows; y += 1) {
     for (let x = 0; x < cols; x += 1) {
       if ((x + y) % 2 === 0) {
-        dots.push({ x, y })
+        dots.push({ x, y });
       }
     }
   }
 
   return (
-    <svg className="size-full text-foreground" viewBox={`0 0 ${cols} ${rows}`}>
+    <svg
+      aria-hidden="true"
+      className="size-full text-foreground"
+      viewBox={`0 0 ${cols} ${rows}`}
+    >
+      <title>World map</title>
       {dots.map((point) => (
         <circle
           cx={point.x}
@@ -57,31 +62,49 @@ function Map() {
         />
       ))}
     </svg>
-  )
+  );
 }
 
-function stepPath(values: number[], width: number, height: number, max: number) {
-  if (values.length === 0) return ""
-
-  const step = width / Math.max(values.length - 1, 1)
-  const y = (value: number) => height - (value / max) * height
-
-  let d = `M 0 ${y(values[0] ?? 0)}`
-  for (let i = 1; i < values.length; i += 1) {
-    const x = i * step
-    d += ` H ${x} V ${y(values[i] ?? 0)}`
+function stepPath(
+  values: number[],
+  width: number,
+  height: number,
+  max: number
+) {
+  if (values.length === 0) {
+    return "";
   }
-  return d
+
+  const step = width / Math.max(values.length - 1, 1);
+  const y = (value: number) => height - (value / max) * height;
+
+  let d = `M 0 ${y(values[0] ?? 0)}`;
+  for (let i = 1; i < values.length; i += 1) {
+    const x = i * step;
+    d += ` H ${x} V ${y(values[i] ?? 0)}`;
+  }
+  return d;
 }
+
+const CHART_GRID_LINE_IDS = [
+  "grid-0",
+  "grid-1",
+  "grid-2",
+  "grid-3",
+  "grid-4",
+  "grid-5",
+] as const;
 
 function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
-  const width = 960
-  const height = 320
-  const max = Math.max(...data.flatMap((point) => [point.desktop + point.mobile, 1]))
-  const mobile = data.map((point) => point.mobile)
-  const stacked = data.map((point) => point.desktop + point.mobile)
-  const mobileLine = stepPath(mobile, width, height, max)
-  const stackedLine = stepPath(stacked, width, height, max)
+  const width = 960;
+  const height = 320;
+  const max = Math.max(
+    ...data.flatMap((point) => [point.desktop + point.mobile, 1])
+  );
+  const mobile = data.map((point) => point.mobile);
+  const stacked = data.map((point) => point.desktop + point.mobile);
+  const mobileLine = stepPath(mobile, width, height, max);
+  const stackedLine = stepPath(stacked, width, height, max);
 
   return (
     <div className="h-120 w-full md:h-96">
@@ -91,20 +114,37 @@ function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
         preserveAspectRatio="none"
         viewBox={`0 0 ${width} ${height}`}
       >
+        <title>Usage chart</title>
         <defs>
           <linearGradient id="feature-8-mobile" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="var(--color-chart-2)" stopOpacity="0.8" />
-            <stop offset="55%" stopColor="var(--color-chart-2)" stopOpacity="0.1" />
+            <stop
+              offset="0%"
+              stopColor="var(--color-chart-2)"
+              stopOpacity="0.8"
+            />
+            <stop
+              offset="55%"
+              stopColor="var(--color-chart-2)"
+              stopOpacity="0.1"
+            />
           </linearGradient>
           <linearGradient id="feature-8-desktop" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="var(--color-chart-1)" stopOpacity="0.8" />
-            <stop offset="55%" stopColor="var(--color-chart-1)" stopOpacity="0.1" />
+            <stop
+              offset="0%"
+              stopColor="var(--color-chart-1)"
+              stopOpacity="0.8"
+            />
+            <stop
+              offset="55%"
+              stopColor="var(--color-chart-1)"
+              stopOpacity="0.1"
+            />
           </linearGradient>
         </defs>
-        {Array.from({ length: 6 }, (_, index) => (
+        {CHART_GRID_LINE_IDS.map((lineId, index) => (
           <line
             className="stroke-border"
-            key={index}
+            key={lineId}
             strokeWidth="1"
             x1="0"
             x2={width}
@@ -136,7 +176,7 @@ function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
         />
       </svg>
     </div>
-  )
+  );
 }
 
 export function Feature8({
@@ -173,20 +213,21 @@ export function Feature8({
           <div className="row-span-2 grid grid-rows-subgrid gap-6 md:gap-0">
             <div className="p-6 sm:p-12">
               <p className="text-balance font-medium text-lg text-muted-foreground">
-                <span className="text-foreground">{mapTitle}</span> {mapDescription}
+                <span className="text-foreground">{mapTitle}</span>{" "}
+                {mapDescription}
               </p>
             </div>
 
             <div aria-hidden className="relative">
               <div className="absolute inset-0 z-10 m-auto size-fit -translate-y-full">
-                <div className="relative z-1 flex w-fit size-fit items-center gap-2 rounded-lg bg-zinc-900/75 px-3 py-1 font-medium text-muted-foreground text-xs shadow-lg shadow-black/10 ring ring-foreground/10 backdrop-blur">
+                <div className="relative z-1 flex size-fit w-fit items-center gap-2 rounded-lg bg-zinc-900/75 px-3 py-1 font-medium text-muted-foreground text-xs shadow-black/10 shadow-lg ring ring-foreground/10 backdrop-blur">
                   {connectionLabel}
                 </div>
-                <div className="absolute inset-2 -bottom-2 mx-auto rounded-lg bg-background px-3 py-4 font-medium text-xs shadow-md shadow-black/5 ring ring-foreground/10" />
+                <div className="absolute inset-2 -bottom-2 mx-auto rounded-lg bg-background px-3 py-4 font-medium text-xs shadow-black/5 shadow-md ring ring-foreground/10" />
               </div>
 
-              <div className="relative overflow-hidden opacity-25 mask-radial-[50%_50%] mask-radial-at-center mask-radial-from-25%">
-                <Map />
+              <div className="mask-radial-[50%_50%] mask-radial-at-center mask-radial-from-25% relative overflow-hidden opacity-25">
+                <FeatureMap />
               </div>
             </div>
           </div>
@@ -214,14 +255,17 @@ export function Feature8({
           </div>
           <div className="col-span-full border-y p-12 lg:py-20">
             <p className="text-center font-semibold text-4xl lg:text-7xl">
-              {uptime} <span className="text-muted-foreground">{uptimeLabel}</span>
+              {uptime}{" "}
+              <span className="text-muted-foreground">{uptimeLabel}</span>
             </p>
           </div>
           <div className="relative col-span-full">
             <div className="absolute z-10 max-w-lg px-6 pt-6 pr-12 md:px-12 md:pt-12">
               <p className="mb-8 text-balance font-medium text-lg">
                 {chartTitle}{" "}
-                <span className="text-muted-foreground">{chartDescription}</span>
+                <span className="text-muted-foreground">
+                  {chartDescription}
+                </span>
               </p>
             </div>
             <MonitoringChart data={chartData} />
@@ -229,5 +273,5 @@ export function Feature8({
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,21 +1,20 @@
-import { ArrowRightIcon } from "lucide-react"
-import type { ReactNode } from "react"
+import { ArrowRightIcon } from "lucide-react";
+import type { ReactNode } from "react";
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button"
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { cn } from "@/lib/utils"
-
-export type Cta2Action = {
-  href?: string
-  label: string
+export interface Cta2Action {
+  href?: string;
+  label: string;
 }
 
-export type Cta2Props = {
-  title?: string
-  description?: string
-  primaryCta?: Cta2Action
-  secondaryCta?: Cta2Action
-  className?: string
+export interface Cta2Props {
+  className?: string;
+  description?: string;
+  primaryCta?: Cta2Action;
+  secondaryCta?: Cta2Action;
+  title?: string;
 }
 
 function ActionButton({
@@ -23,37 +22,37 @@ function ActionButton({
   variant,
   icon,
 }: {
-  action: Cta2Action
-  variant?: "default" | "outline"
-  icon?: ReactNode
+  action: Cta2Action;
+  variant?: "default" | "outline";
+  icon?: ReactNode;
 }) {
   const content = (
     <>
       {action.label}
       {icon}
     </>
-  )
+  );
 
   if (action.href) {
     return (
       <Button asChild variant={variant}>
         <a href={action.href}>{content}</a>
       </Button>
-    )
+    );
   }
 
   return (
     <Button type="button" variant={variant}>
       {content}
     </Button>
-  )
+  );
 }
 
 export function Cta2({
   title = "Plan the present. Build the future.",
   description = "Start your journey today by clicking the button below.",
-  primaryCta = { label: "Get Started", href: "#" },
-  secondaryCta = { label: "Contact Sales", href: "#" },
+  primaryCta = { href: "#", label: "Get Started" },
+  secondaryCta = { href: "#", label: "Contact Sales" },
   className,
 }: Cta2Props) {
   return (
@@ -87,5 +86,5 @@ export function Cta2({
       </div>
       <FullWidthDivider position="bottom" />
     </section>
-  )
+  );
 }

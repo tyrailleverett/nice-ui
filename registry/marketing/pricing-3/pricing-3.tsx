@@ -1,38 +1,33 @@
-import { useCallback, useState } from "react"
-import { CheckIcon, TagIcon } from "lucide-react"
+import { CheckIcon, TagIcon } from "lucide-react";
+import { useCallback, useState } from "react";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export type Pricing3Plan = {
-  name: string
-  description: string
-  badge?: string
+export interface Pricing3Plan {
+  badge?: string;
+  ctaHref?: string;
+  description: string;
+  features: string[];
+  name: string;
   prices: {
-    monthly: number
-    yearly: number
-  }
-  features: string[]
-  ctaHref?: string
+    monthly: number;
+    yearly: number;
+  };
 }
 
-export type Pricing3Props = {
-  plan?: Pricing3Plan
-  ctaLabel?: string
-  footnote?: string
-  className?: string
+export interface Pricing3Props {
+  className?: string;
+  ctaLabel?: string;
+  footnote?: string;
+  plan?: Pricing3Plan;
 }
 
 const defaultPlan: Pricing3Plan = {
-  name: "Pro",
+  badge: "Simple pricing",
   description:
     "Everything you need to ship. One plan, no seat math, no feature gates.",
-  badge: "Simple pricing",
-  prices: {
-    monthly: 7900,
-    yearly: 6320,
-  },
   features: [
     "All product features",
     "Unlimited seats",
@@ -43,7 +38,12 @@ const defaultPlan: Pricing3Plan = {
     "Staging environments",
     "Comments & mentions",
   ],
-}
+  name: "Pro",
+  prices: {
+    monthly: 7900,
+    yearly: 6320,
+  },
+};
 
 function formatPrice(amount: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -51,11 +51,11 @@ function formatPrice(amount: number): string {
     maximumFractionDigits: 0,
     minimumFractionDigits: 0,
     style: "currency",
-  }).format(amount / 100)
+  }).format(amount / 100);
 }
 
 function annualSavingsPercent(plan: Pricing3Plan): number {
-  return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100)
+  return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100);
 }
 
 function toggleButtonClass(selected: boolean): string {
@@ -64,23 +64,23 @@ function toggleButtonClass(selected: boolean): string {
     selected
       ? "bg-accent text-foreground"
       : "text-muted-foreground hover:text-foreground"
-  )
+  );
 }
 
 function BillingIntervalToggle({
   isAnnual,
   onChange,
 }: {
-  isAnnual: boolean
-  onChange: (isAnnual: boolean) => void
+  isAnnual: boolean;
+  onChange: (isAnnual: boolean) => void;
 }) {
   const selectMonthly = useCallback(() => {
-    onChange(false)
-  }, [onChange])
+    onChange(false);
+  }, [onChange]);
 
   const selectAnnual = useCallback(() => {
-    onChange(true)
-  }, [onChange])
+    onChange(true);
+  }, [onChange]);
 
   return (
     <div className="inline-flex rounded-lg border border-border bg-muted/50 p-1">
@@ -101,7 +101,7 @@ function BillingIntervalToggle({
         Annually
       </button>
     </div>
-  )
+  );
 }
 
 export function Pricing3({
@@ -110,8 +110,8 @@ export function Pricing3({
   footnote = "Cancel anytime. No card required to start.",
   className,
 }: Pricing3Props) {
-  const [isAnnual, setIsAnnual] = useState(false)
-  const savingsPercent = annualSavingsPercent(plan)
+  const [isAnnual, setIsAnnual] = useState(false);
+  const savingsPercent = annualSavingsPercent(plan);
 
   return (
     <section className={className}>
@@ -187,5 +187,5 @@ export function Pricing3({
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,8 +1,13 @@
-import { useState, type ComponentProps, type ReactNode } from "react"
-import { MenuIcon, XIcon } from "lucide-react"
+import { MenuIcon, XIcon } from "lucide-react";
+import {
+  type ComponentProps,
+  type ReactNode,
+  useCallback,
+  useState,
+} from "react";
 
-import { Portal, PortalBackdrop } from "@/components/portal"
-import { Button } from "@/components/ui/button"
+import { Portal, PortalBackdrop } from "@/components/portal";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,40 +15,40 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { useScroll } from "@/hooks/use-scroll"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/navigation-menu";
+import { useScroll } from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
-export type Header2LinkItem = {
-  label: string
-  href: string
-  icon: ReactNode
-  description?: string
+export interface Header2LinkItem {
+  description?: string;
+  href: string;
+  icon: ReactNode;
+  label: string;
 }
 
-export type Header2Cta = {
-  label: string
-  href?: string
+export interface Header2Cta {
+  href?: string;
+  label: string;
 }
 
-export type Header2NavLink = {
-  label: string
-  href: string
+export interface Header2NavLink {
+  href: string;
+  label: string;
 }
 
-export type Header2Props = {
-  logo?: ReactNode
-  logoHref?: string
-  productLabel?: string
-  companyLabel?: string
-  productLinks: Header2LinkItem[]
-  companyLinks: Header2LinkItem[]
-  companyLinks2: Header2LinkItem[]
-  pricing?: Header2NavLink
-  demo?: Header2NavLink
-  signIn?: Header2Cta
-  getStarted?: Header2Cta
-  className?: string
+export interface Header2Props {
+  className?: string;
+  companyLabel?: string;
+  companyLinks: Header2LinkItem[];
+  companyLinks2: Header2LinkItem[];
+  demo?: Header2NavLink;
+  getStarted?: Header2Cta;
+  logo?: ReactNode;
+  logoHref?: string;
+  pricing?: Header2NavLink;
+  productLabel?: string;
+  productLinks: Header2LinkItem[];
+  signIn?: Header2Cta;
 }
 
 export function LinkItem({
@@ -77,7 +82,7 @@ export function LinkItem({
         ) : null}
       </div>
     </a>
-  )
+  );
 }
 
 function HeaderCta({
@@ -85,19 +90,15 @@ function HeaderCta({
   variant,
   className,
 }: {
-  cta: Header2Cta
-  variant?: "outline"
-  className?: string
+  cta: Header2Cta;
+  variant?: "outline";
+  className?: string;
 }) {
   return (
-    <Button
-      asChild={Boolean(cta.href)}
-      className={className}
-      variant={variant}
-    >
+    <Button asChild={Boolean(cta.href)} className={className} variant={variant}>
       {cta.href ? <a href={cta.href}>{cta.label}</a> : cta.label}
     </Button>
-  )
+  );
 }
 
 function DesktopNav({
@@ -109,13 +110,13 @@ function DesktopNav({
   pricing,
   demo,
 }: {
-  productLabel: string
-  companyLabel: string
-  productLinks: Header2LinkItem[]
-  companyLinks: Header2LinkItem[]
-  companyLinks2: Header2LinkItem[]
-  pricing?: Header2NavLink
-  demo?: Header2NavLink
+  productLabel: string;
+  companyLabel: string;
+  productLinks: Header2LinkItem[];
+  companyLinks: Header2LinkItem[];
+  companyLinks2: Header2LinkItem[];
+  pricing?: Header2NavLink;
+  demo?: Header2NavLink;
 }) {
   return (
     <NavigationMenu className="hidden md:flex">
@@ -180,7 +181,7 @@ function DesktopNav({
         ) : null}
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
 
 function MobileNav({
@@ -192,15 +193,18 @@ function MobileNav({
   signIn,
   getStarted,
 }: {
-  productLabel: string
-  companyLabel: string
-  productLinks: Header2LinkItem[]
-  companyLinks: Header2LinkItem[]
-  companyLinks2: Header2LinkItem[]
-  signIn: Header2Cta
-  getStarted: Header2Cta
+  productLabel: string;
+  companyLabel: string;
+  productLinks: Header2LinkItem[];
+  companyLinks: Header2LinkItem[];
+  companyLinks2: Header2LinkItem[];
+  signIn: Header2Cta;
+  getStarted: Header2Cta;
 }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const toggleOpen = useCallback(() => {
+    setOpen((current) => !current);
+  }, []);
 
   return (
     <div className="md:hidden">
@@ -209,7 +213,7 @@ function MobileNav({
         aria-expanded={open}
         aria-label="Toggle menu"
         className="relative md:hidden"
-        onClick={() => setOpen(!open)}
+        onClick={toggleOpen}
         size="icon"
         variant="outline"
       >
@@ -269,7 +273,7 @@ function MobileNav({
         </Portal>
       ) : null}
     </div>
-  )
+  );
 }
 
 export function Header2({
@@ -286,14 +290,18 @@ export function Header2({
   getStarted = { label: "Get Started" },
   className,
 }: Header2Props) {
-  const scrolled = useScroll(10)
+  const scrolled = useScroll(10);
 
   return (
     <header
-      className={cn("sticky top-0 z-50 w-full border-transparent border-b", {
-        "border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/50":
-          scrolled,
-      }, className)}
+      className={cn(
+        "sticky top-0 z-50 w-full border-transparent border-b",
+        {
+          "border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/50":
+            scrolled,
+        },
+        className
+      )}
     >
       <nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
         <div className="flex items-center gap-5">
@@ -302,7 +310,7 @@ export function Header2({
             href={logoHref}
           >
             {logo ?? (
-              <span className="font-heading h-4 text-sm font-semibold tracking-tight">
+              <span className="h-4 font-heading font-semibold text-sm tracking-tight">
                 Nice UI
               </span>
             )}
@@ -332,5 +340,5 @@ export function Header2({
         />
       </nav>
     </header>
-  )
+  );
 }

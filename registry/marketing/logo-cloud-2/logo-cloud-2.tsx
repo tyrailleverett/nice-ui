@@ -1,53 +1,53 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type LogoCloud2Item = {
-  src: string
-  alt: string
+export interface LogoCloud2Item {
+  alt: string;
+  src: string;
 }
 
-export type LogoCloud2Props = {
-  title?: string
-  highlight?: string
-  logos?: LogoCloud2Item[]
-  className?: string
+export interface LogoCloud2Props {
+  className?: string;
+  highlight?: string;
+  logos?: LogoCloud2Item[];
+  title?: string;
 }
 
 const defaultLogos: LogoCloud2Item[] = [
   {
-    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
     alt: "Nvidia",
+    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
     alt: "Supabase",
+    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
     alt: "OpenAI",
+    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
     alt: "Turso",
+    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
     alt: "Vercel",
+    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
     alt: "GitHub",
+    src: "https://storage.efferd.com/logo/github-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
     alt: "Claude",
+    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
   },
   {
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
     alt: "Clerk",
+    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
   },
-]
+];
 
 export function LogoCloud2({
   title = "Trusted by experts.",
@@ -105,7 +105,7 @@ export function LogoCloud2({
       </div>
       <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mt-5 h-px bg-border" />
     </section>
-  )
+  );
 }
 
 function LogoRow({
@@ -122,11 +122,13 @@ function LogoRow({
         <img
           alt={logo.alt}
           className="pointer-events-none h-4 w-auto shrink-0 select-none md:h-5 dark:brightness-0 dark:invert"
+          height={20}
           key={logo.alt}
           loading="lazy"
           src={logo.src}
+          width={80}
         />
       ))}
     </div>
-  )
+  );
 }

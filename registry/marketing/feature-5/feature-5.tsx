@@ -6,23 +6,23 @@ import {
   Mic2Icon,
   MonitorDownIcon,
   PlusIcon,
-} from "lucide-react"
-import type { ReactNode } from "react"
+} from "lucide-react";
+import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-export type Feature5Column = {
-  media: ReactNode
-  title: string
-  description: string
+export interface Feature5Column {
+  description: string;
+  media: ReactNode;
+  title: string;
 }
 
-export type Feature5Props = {
-  title?: ReactNode
-  columns?: Feature5Column[]
-  className?: string
+export interface Feature5Props {
+  className?: string;
+  columns?: Feature5Column[];
+  title?: ReactNode;
 }
 
 function DownloadIllustration() {
@@ -30,7 +30,7 @@ function DownloadIllustration() {
     <div className="absolute inset-0 z-1 m-auto size-fit scale-95">
       <Button
         asChild
-        className="ml-1 bg-background/25 backdrop-blur inset-ring inset-ring-foreground/25"
+        className="inset-ring inset-ring-foreground/25 ml-1 bg-background/25 backdrop-blur"
         size="sm"
         variant="secondary"
       >
@@ -41,7 +41,7 @@ function DownloadIllustration() {
         </div>
       </Button>
 
-      <div className="mt-3 min-w-52 rounded-2xl bg-white p-1 shadow-xl shadow-black/25 ring ring-black/10 *:cursor-pointer">
+      <div className="mt-3 min-w-52 rounded-2xl bg-white p-1 shadow-black/25 shadow-xl ring ring-black/10 *:cursor-pointer">
         <div className="peer flex gap-2 rounded-xl px-3 py-1.5 hover:bg-black/5">
           <MonitorDownIcon className="size-4 translate-y-0.5 text-black" />
           <div className="space-y-0.5">
@@ -50,7 +50,7 @@ function DownloadIllustration() {
           </div>
         </div>
 
-        <div className="flex gap-2 rounded-xl px-3 py-1.5 not-peer-hover:bg-black/5">
+        <div className="flex gap-2 rounded-xl not-peer-hover:bg-black/5 px-3 py-1.5">
           <CloudDownloadIcon className="size-4 translate-y-0.5 text-black" />
           <div className="space-y-0.5">
             <div className="font-medium text-black text-xs">Cloud</div>
@@ -59,33 +59,33 @@ function DownloadIllustration() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function AIInputIllustration() {
   return (
     <div aria-hidden className="absolute inset-8 z-1 m-auto h-fit scale-95">
-      <div className="mt-auto h-fit rounded-3xl bg-card p-3 shadow-xl shadow-black/25 ring ring-foreground/15">
+      <div className="mt-auto h-fit rounded-3xl bg-card p-3 shadow-black/25 shadow-xl ring ring-foreground/15">
         <div className="p-2 pb-3 text-muted-foreground text-sm">
           Ask Nice UI what you need...
         </div>
         <div className="flex justify-between gap-3">
           <div className="flex items-center gap-1">
-            <div className="flex size-7 cursor-pointer rounded-full hover:bg-muted *:m-auto *:size-4">
+            <div className="flex size-7 cursor-pointer rounded-full *:m-auto *:size-4 hover:bg-muted">
               <PlusIcon />
             </div>
-            <div className="flex size-7 cursor-pointer rounded-full hover:bg-muted *:m-auto *:size-4">
+            <div className="flex size-7 cursor-pointer rounded-full *:m-auto *:size-4 hover:bg-muted">
               <Mic2Icon />
             </div>
           </div>
 
-          <div className="flex size-7 cursor-pointer rounded-full bg-foreground text-background hover:brightness-110 *:m-auto *:size-4">
+          <div className="flex size-7 cursor-pointer rounded-full bg-foreground text-background *:m-auto *:size-4 hover:brightness-110">
             <ArrowUpIcon />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function DynamicIslandIllustration() {
@@ -94,7 +94,7 @@ function DynamicIslandIllustration() {
       aria-hidden
       className="absolute inset-x-8 bottom-0 z-1 mx-auto mt-auto h-2/3 w-10/12 origin-bottom scale-95 rounded-t-[4rem] border border-black/5 bg-black/5 px-4 pt-4"
     >
-      <div className="h-full overflow-hidden rounded-t-[3rem] bg-white p-3 shadow-lg shadow-black/15 ring ring-black/10">
+      <div className="h-full overflow-hidden rounded-t-[3rem] bg-white p-3 shadow-black/15 shadow-lg ring ring-black/10">
         <div className="relative">
           <img
             alt=""
@@ -103,7 +103,7 @@ function DynamicIslandIllustration() {
             src="https://images.unsplash.com/photo-1782366951390-d6798e902db7?q=80&w=1015&auto=format&fit=crop"
             width={500}
           />
-          <div className="relative rounded-[2.25rem] bg-white p-2 shadow-xl shadow-black/10 ring ring-black/10">
+          <div className="relative rounded-[2.25rem] bg-white p-2 shadow-black/10 shadow-xl ring ring-black/10">
             <div className="flex gap-2">
               <div className="relative size-18 overflow-hidden rounded-[1.75rem] shadow-md before:absolute before:inset-0 before:rounded-[1.75rem] before:border before:border-black/20">
                 <img
@@ -114,7 +114,9 @@ function DynamicIslandIllustration() {
                 />
               </div>
               <div className="py-1 pr-4">
-                <div className="font-medium text-black text-sm">Théo Balick</div>
+                <div className="font-medium text-black text-sm">
+                  Théo Balick
+                </div>
                 <div className="mt-1.5 flex items-center gap-3">
                   <div>
                     <div className="text-black/50 text-xs">Expenses</div>
@@ -136,11 +138,12 @@ function DynamicIslandIllustration() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const defaultColumns: Feature5Column[] = [
   {
+    description: "Ownership changes without resetting the relationship.",
     media: (
       <Card className="relative aspect-9/12 overflow-hidden">
         <AIInputIllustration />
@@ -154,18 +157,18 @@ const defaultColumns: Feature5Column[] = [
       </Card>
     ),
     title: "Seamless handoffs.",
-    description: "Ownership changes without resetting the relationship.",
   },
   {
+    description: "Surface renewals and quiet accounts before they slip.",
     media: (
       <Card className="relative aspect-9/12 overflow-hidden bg-zinc-200!">
         <DynamicIslandIllustration />
       </Card>
     ),
     title: "Proactive alerts.",
-    description: "Surface renewals and quiet accounts before they slip.",
   },
   {
+    description: "Sales, success, and support work from one account view.",
     media: (
       <Card className="relative aspect-9/12 overflow-hidden">
         <DownloadIllustration />
@@ -183,9 +186,8 @@ const defaultColumns: Feature5Column[] = [
       </Card>
     ),
     title: "Shared timeline.",
-    description: "Sales, success, and support work from one account view.",
   },
-]
+];
 
 export function Feature5({
   title = (
@@ -219,5 +221,5 @@ export function Feature5({
         </div>
       </div>
     </section>
-  )
+  );
 }

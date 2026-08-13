@@ -1,55 +1,55 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
 
-import { FullWidthDivider } from "@/components/full-width-divider"
-import { cn } from "@/lib/utils"
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { cn } from "@/lib/utils";
 
-export type Blog1Item = {
-  title: string
-  date: string
-  description: string
-  href: string
+export interface Blog1Item {
+  date: string;
+  description: string;
+  href: string;
+  title: string;
 }
 
-export type Blog1Props = {
-  title?: string
-  description?: string
-  posts?: Blog1Item[]
-  className?: string
+export interface Blog1Props {
+  className?: string;
+  description?: string;
+  posts?: Blog1Item[];
+  title?: string;
 }
 
 const defaultPosts: Blog1Item[] = [
   {
-    title: "The New Design",
     date: "May 20 2025",
     description:
       "What everyone new to the field should know, and how we can help.",
     href: "#",
+    title: "The New Design",
   },
   {
-    title: "Letter Club",
     date: "Aug 14 2025",
     description: "An ode to the slow web.",
     href: "#",
+    title: "Letter Club",
   },
   {
-    title: "Have the Coffee",
     date: "Sep 19 2025",
     description: "Carve space out for opportunity.",
     href: "#",
+    title: "Have the Coffee",
   },
   {
-    title: "Shadcn UI",
     date: "Oct 12 2025",
     description: "Building modern applications with reusable components.",
     href: "#",
+    title: "Shadcn UI",
   },
   {
-    title: "Fesgin",
     date: "Nov 23 2025",
     description: "Exploring the intersection of design and development.",
     href: "#",
+    title: "Fesgin",
   },
-]
+];
 
 export function Blog1({
   title = "Latest Blogs",
@@ -83,7 +83,7 @@ export function Blog1({
         <FullWidthDivider position="bottom" />
       </div>
     </section>
-  )
+  );
 }
 
 function BlogCard({
@@ -91,9 +91,9 @@ function BlogCard({
   className,
   ...props
 }: ComponentProps<"a"> & {
-  post: Blog1Item
+  post: Blog1Item;
 }) {
-  const { title, date, description, href } = post
+  const { title, date, description, href } = post;
 
   return (
     <a
@@ -117,5 +117,5 @@ function BlogCard({
         {description}
       </div>
     </a>
-  )
+  );
 }

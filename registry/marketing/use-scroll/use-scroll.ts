@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export function useScroll(threshold = 0) {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > threshold)
-    }
+      setScrolled(window.scrollY > threshold);
+    };
 
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", onScroll)
-    }
-  }, [threshold])
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [threshold]);
 
-  return scrolled
+  return scrolled;
 }
