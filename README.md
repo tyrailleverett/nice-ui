@@ -1,6 +1,6 @@
 # Nice UI
 
-A shadcn-compatible component registry for marketing and dashboard blocks. Preview components in Ladle, install them into any project with the shadcn CLI.
+A shadcn-compatible component registry for marketing blocks. Preview components in Ladle, install them into any project with the shadcn CLI.
 
 ## Quick start
 
@@ -13,19 +13,18 @@ Open the Ladle playground to browse and develop components in isolation.
 
 ## Install components
 
-After this repository is public on GitHub:
+From a project with shadcn already initialized:
 
 ```bash
-bunx shadcn@latest add hotreloadstudios/nice-ui/hero-1
-bunx shadcn@latest add hotreloadstudios/nice-ui/stats-cards
+bunx shadcn@latest add tyrailleverett/nice-ui/hero-1
 ```
 
 Useful commands:
 
 ```bash
-bunx shadcn@latest list hotreloadstudios/nice-ui
-bunx shadcn@latest view hotreloadstudios/nice-ui/hero-1
-bunx shadcn@latest add hotreloadstudios/nice-ui/hero-1 --dry-run
+bunx shadcn@latest list tyrailleverett/nice-ui
+bunx shadcn@latest view tyrailleverett/nice-ui/hero-1
+bunx shadcn@latest add tyrailleverett/nice-ui/hero-1 --dry-run
 ```
 
 ## Registry structure
@@ -33,16 +32,15 @@ bunx shadcn@latest add hotreloadstudios/nice-ui/hero-1 --dry-run
 ```
 registry/
   marketing/     # Landing and marketing blocks
-  dashboard/     # App and dashboard blocks
 ```
 
-Each family has its own `registry.json`. The root [`registry.json`](./registry.json) composes them with `include`.
+Marketing blocks are registered in `registry/marketing/registry.json`. The root [`registry.json`](./registry.json) composes that file with `include`.
 
 ## Add a new block
 
-1. Create a folder under `registry/marketing/` or `registry/dashboard/`.
+1. Create a folder under `registry/marketing/`.
 2. Add the component file and a `*.stories.tsx` file for Ladle.
-3. Register the item in that family's `registry.json`.
+3. Register the item in `registry/marketing/registry.json`.
 4. Validate locally:
 
 ```bash

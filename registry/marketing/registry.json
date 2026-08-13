@@ -20,7 +20,7 @@
       "title": "Hero 1",
       "description": "Centered marketing hero with announcement pill, dual CTAs, faded side rules, and a framed screenshot.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "full-width-divider", "decor-icon"],
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider", "tyrailleverett/nice-ui/decor-icon"],
       "files": [
         {
           "path": "hero-1/hero-1.tsx",
@@ -147,7 +147,7 @@
       "type": "registry:block",
       "title": "CTA 1",
       "description": "Split marketing call to action with headline, buttons, and full-width dividers.",
-      "registryDependencies": ["button", "full-width-divider"],
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "cta-1/cta-1.tsx",
@@ -162,7 +162,7 @@
       "title": "CTA 2",
       "description": "Stacked marketing call to action with supporting copy and a tinted button bar.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "full-width-divider"],
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "cta-2/cta-2.tsx",
@@ -177,7 +177,7 @@
       "title": "CTA 3",
       "description": "Framed marketing call to action with corner marks, dashed center line, and dual buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "decor-icon"],
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/decor-icon"],
       "files": [
         {
           "path": "cta-3/cta-3.tsx",
@@ -207,7 +207,7 @@
       "title": "CTA 5",
       "description": "Newsletter marketing call to action with email field, subscribe button, and avatars.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "input-group", "full-width-divider"],
+      "registryDependencies": ["button", "input-group", "tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "cta-5/cta-5.tsx",
@@ -448,7 +448,7 @@
       "title": "Feature 2",
       "description": "Framed three-column feature grid with corner marks and dashed rules.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["decor-icon"],
+      "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
       "files": [
         {
           "path": "feature-2/feature-2.tsx",
@@ -624,7 +624,7 @@
       "title": "Header 1",
       "description": "Compact sticky marketing header that tightens on scroll, with simple links and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "portal", "use-scroll"],
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/portal", "tyrailleverett/nice-ui/use-scroll"],
       "files": [
         {
           "path": "header-1/header-1.tsx",
@@ -639,7 +639,7 @@
       "title": "Header 2",
       "description": "Sticky marketing header with product and company mega menus, pricing link, and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "navigation-menu", "portal", "use-scroll"],
+      "registryDependencies": ["button", "navigation-menu", "tyrailleverett/nice-ui/portal", "tyrailleverett/nice-ui/use-scroll"],
       "files": [
         {
           "path": "header-2/header-2.tsx",
@@ -707,7 +707,7 @@
       "type": "registry:block",
       "title": "Integrations 2",
       "description": "Hairline integration grid with corner plus marks and optional cell decorations.",
-      "registryDependencies": ["decor-icon"],
+      "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
       "files": [
         {
           "path": "integrations-2/integrations-2.tsx",
@@ -721,7 +721,7 @@
       "type": "registry:block",
       "title": "Integrations 3",
       "description": "Copy and CTA beside a scattered logo grid on a fading rule background.",
-      "registryDependencies": ["button", "full-width-divider"],
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "integrations-3/integrations-3.tsx",
@@ -777,7 +777,7 @@
       "title": "Testimonial 3",
       "description": "Split-column marketing testimonials with quote marks and full-width dividers.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["full-width-divider"],
+      "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "testimonial-3/testimonial-3.tsx",
@@ -791,7 +791,7 @@
       "type": "registry:block",
       "title": "Testimonial 4",
       "description": "Grid marketing testimonials with avatars, quotes, and full-width dividers.",
-      "registryDependencies": ["avatar", "full-width-divider"],
+      "registryDependencies": ["avatar", "tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "testimonial-4/testimonial-4.tsx",
@@ -806,7 +806,7 @@
       "title": "Testimonial 5",
       "description": "Auto-scrolling marketing testimonials with quote cards, avatars, and source labels.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["avatar", "full-width-divider"],
+      "registryDependencies": ["avatar", "tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "testimonial-5/testimonial-5.tsx",
@@ -848,7 +848,7 @@
       "type": "registry:block",
       "title": "FAQ 3",
       "description": "Split-column marketing FAQ with a large headline, guide line, and corner marks.",
-      "registryDependencies": ["accordion", "decor-icon"],
+      "registryDependencies": ["accordion", "tyrailleverett/nice-ui/decor-icon"],
       "files": [
         {
           "path": "faq-3/faq-3.tsx",
@@ -891,7 +891,7 @@
       "type": "registry:block",
       "title": "Blog 1",
       "description": "Compact blog index with dashed title rules, dates, and hoverable list rows.",
-      "registryDependencies": ["full-width-divider"],
+      "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "blog-1/blog-1.tsx",
@@ -905,7 +905,7 @@
       "type": "registry:block",
       "title": "Blog 2",
       "description": "Three-column blog grid with category, date, excerpt, and author attribution.",
-      "registryDependencies": ["full-width-divider"],
+      "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
       "files": [
         {
           "path": "blog-2/blog-2.tsx",
