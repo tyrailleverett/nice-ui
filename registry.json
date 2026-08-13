@@ -1,0 +1,9 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "nice-ui",
+  "homepage": "https://github.com/hotreloadstudios/nice-ui",
+  "include": [
+    "registry/marketing/registry.json",
+    "registry/dashboard/registry.json"
+  ]
+}
