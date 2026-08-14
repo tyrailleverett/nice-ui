@@ -32,15 +32,16 @@ bunx shadcn@latest add tyrailleverett/nice-ui/hero-1 --dry-run
 ```
 registry/
   marketing/     # Landing and marketing blocks
+  app/           # Product and auth blocks
 ```
 
-Marketing blocks are registered in `registry/marketing/registry.json`. The root [`registry.json`](./registry.json) composes that file with `include`.
+Blocks are registered in `registry/marketing/registry.json` and `registry/app/registry.json`. The root [`registry.json`](./registry.json) composes those files with `include`.
 
 ## Add a new block
 
-1. Create a folder under `registry/marketing/`.
+1. Create a folder under `registry/marketing/` or `registry/app/`.
 2. Add the component file and a `*.stories.tsx` file for Storybook.
-3. Register the item in `registry/marketing/registry.json`.
+3. Register the item in the matching `registry.json`.
 4. Validate locally:
 
 ```bash

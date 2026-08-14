@@ -1,0 +1,19 @@
+[data-calendar-cat="sprint"] {
+  background-color: var(--calendar-sprint, oklch(0.62 0.16 300));
+}
+
+[data-calendar-cat="standup"] {
+  background-color: var(--calendar-standup, oklch(0.72 0.14 55));
+}
+
+[data-calendar-cat="review"] {
+  background-color: var(--calendar-review, oklch(0.68 0.12 240));
+}
+
+[data-calendar-cat="deadline"] {
+  background-color: var(--calendar-deadline, oklch(0.62 0.18 25));
+}
+
+[data-calendar-cat="workshop"] {
+  background-color: var(--calendar-workshop, oklch(0.68 0.15 145));
+}

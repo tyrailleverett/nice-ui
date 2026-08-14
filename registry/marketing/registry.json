@@ -646,6 +646,20 @@
       ]
     },
     {
+      "name": "bento-5",
+      "type": "registry:block",
+      "title": "Product Capability Grid",
+      "description": "Product capability bento with a revenue area chart, counting KPI, live activity feed, compute usage meter, and uptime bars.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "bento-5/bento-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/bento-5.tsx"
+        }
+      ]
+    },
+    {
       "name": "header-1",
       "type": "registry:block",
       "title": "Compact Sticky",
@@ -1033,6 +1047,89 @@
           "path": "pricing-4/pricing-4.tsx",
           "type": "registry:component",
           "target": "~/components/marketing/pricing-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cookie-consent-1",
+      "type": "registry:block",
+      "title": "Bottom Bar",
+      "description": "Full-width cookie consent bar with policy link, decline, and accept actions.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "cookie-consent-1/cookie-consent-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/cookie-consent-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cookie-consent-2",
+      "type": "registry:block",
+      "title": "Corner Card",
+      "description": "Corner cookie consent card with accept, reject, and preferences actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "cookie-consent-2/cookie-consent-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/cookie-consent-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "changelog-1",
+      "type": "registry:block",
+      "title": "Split Version Timeline",
+      "description": "Marketing changelog with version badges, dates, and grouped added, improved, and fixed notes.",
+      "registryDependencies": ["badge", "separator"],
+      "files": [
+        {
+          "path": "changelog-1/changelog-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/changelog-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-1",
+      "type": "registry:block",
+      "title": "Two Kpi Copy",
+      "description": "Two primary-colored KPIs beside a short supporting paragraph.",
+      "files": [
+        {
+          "path": "stats-1/stats-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/stats-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-3",
+      "type": "registry:block",
+      "title": "Split Headline Proof",
+      "description": "Split stats section with an emphasized headline and two narrative metrics.",
+      "files": [
+        {
+          "path": "stats-3/stats-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/stats-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-4",
+      "type": "registry:block",
+      "title": "Headline Metric Grid",
+      "description": "Centered headline and three framed KPIs with hairline rules and corner plus marks.",
+      "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
+      "files": [
+        {
+          "path": "stats-4/stats-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/stats-4.tsx"
         }
       ]
     }

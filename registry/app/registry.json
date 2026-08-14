@@ -1,0 +1,2143 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "use-file-upload",
+      "type": "registry:hook",
+      "title": "File Upload Hook",
+      "description": "Shared file picker hook with validation, previews, and drag-and-drop handlers.",
+      "files": [
+        {
+          "path": "hooks/use-file-upload.ts",
+          "type": "registry:hook",
+          "target": "~/hooks/use-file-upload.ts"
+        }
+      ]
+    },
+    {
+      "name": "calendar-shared",
+      "type": "registry:component",
+      "title": "Calendar Shared",
+      "description": "Shared calendar grid, time slots, and date helpers used by calendar blocks.",
+      "files": [
+        {
+          "path": "calendar-shared/calendar-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-shared.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["avatar", "button", "scroll-area", "select"]
+    },
+    {
+      "name": "forms-shared",
+      "type": "registry:component",
+      "title": "Forms Shared",
+      "description": "Shared form page chrome, status badges, and field hints used by form blocks.",
+      "files": [
+        {
+          "path": "forms-shared/forms-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/forms-shared.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "button", "tooltip"]
+    },
+    {
+      "name": "onboarding-shared",
+      "type": "registry:component",
+      "title": "Onboarding Shared",
+      "description": "Shared onboarding profile form, step rail, and brand mark used by onboarding blocks.",
+      "files": [
+        {
+          "path": "onboarding-shared/onboarding-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-shared.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/logo"]
+    },
+    {
+      "name": "settings-shared",
+      "type": "registry:component",
+      "title": "Settings Shared",
+      "description": "Shared settings headings, panels, selects, and switches used by settings surfaces.",
+      "files": [
+        {
+          "path": "settings-shared/settings-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-shared.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "select", "switch"]
+    },
+    {
+      "name": "app-shell-1",
+      "type": "registry:block",
+      "title": "Product Sidebar App Shell",
+      "description": "Responsive application shell with nested product navigation, resources, workspace switching, and account controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["avatar", "badge", "dropdown-menu", "sidebar"],
+      "files": [
+        {
+          "path": "app-shell-1/app-shell-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-2",
+      "type": "registry:block",
+      "title": "Organization Sidebar App Shell",
+      "description": "Inset application shell with searchable navigation, collapsible rail mode, and organization switching.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["avatar", "dropdown-menu", "sidebar"],
+      "files": [
+        {
+          "path": "app-shell-2/app-shell-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-3",
+      "type": "registry:block",
+      "title": "Project Dashboard App Shell",
+      "description": "Responsive project workspace with searchable navigation, active projects, spending status, and account controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "kbd",
+        "progress",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "app-shell-3/app-shell-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-4",
+      "type": "registry:block",
+      "title": "Operations Console App Shell",
+      "description": "Responsive operations console with environment context, nested access navigation, theme announcement, and account controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "kbd",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "app-shell-4/app-shell-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-5",
+      "type": "registry:block",
+      "title": "Reporting Dashboard App Shell",
+      "description": "Responsive reporting workspace with utility header, nested account navigation, report actions, and footer links.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["avatar", "badge", "button", "sidebar"],
+      "files": [
+        {
+          "path": "app-shell-5/app-shell-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-6",
+      "type": "registry:block",
+      "title": "Dual-Tier Workspace App Shell",
+      "description": "Light top navigation with primary links, search, account menu, and an icon subnav for workspace views.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dropdown-menu",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "app-shell-6/app-shell-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-7",
+      "type": "registry:block",
+      "title": "Inverted Dispatch App Shell",
+      "description": "Inverted global bar with centered search and utilities above a module nav and primary action.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dropdown-menu",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "app-shell-7/app-shell-7.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-7.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-8",
+      "type": "registry:block",
+      "title": "Service Console App Shell",
+      "description": "Three-tier top navigation with centered search, icon module links, breadcrumbs, and page actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "breadcrumb",
+        "button",
+        "dropdown-menu",
+        "input-group",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "app-shell-8/app-shell-8.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-8.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell-9",
+      "type": "registry:block",
+      "title": "Market Dashboard App Shell",
+      "description": "Commerce top nav over an inverted page mast with breadcrumbs, title, KPI strip, and overlapping content card.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "breadcrumb",
+        "button",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "app-shell-9/app-shell-9.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-9.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-1",
+      "type": "registry:block",
+      "title": "Fulfillment Operations Dashboard",
+      "description": "Fulfillment command center with service metrics, capacity allocation, decision flow, activity, and an exception queue.",
+      "dependencies": ["lucide-react", "recharts"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "chart",
+        "input",
+        "progress",
+        "select",
+        "table",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "dashboard-1/dashboard-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/dashboard-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-2",
+      "type": "registry:block",
+      "title": "Delivery Worklog Dashboard",
+      "description": "Client delivery board with account context, weekly utilization worklogs, integrations, workflows, and readiness checks.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "progress",
+        "select",
+        "table",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "dashboard-2/dashboard-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/dashboard-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-3",
+      "type": "registry:block",
+      "title": "Call Analytics Dashboard",
+      "description": "Voice operations analytics with interactive filters, call volume trends, agent rankings, and integration health.",
+      "dependencies": ["lucide-react", "recharts"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "chart",
+        "progress",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "dashboard-3/dashboard-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/dashboard-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-4",
+      "type": "registry:block",
+      "title": "Security Telemetry Dashboard",
+      "description": "Security telemetry overview with threat vectors, network flow, cluster health, and prioritized active lanes.",
+      "dependencies": ["lucide-react", "recharts"],
+      "registryDependencies": [
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "chart",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "dashboard-4/dashboard-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/dashboard-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-1",
+      "type": "registry:block",
+      "title": "Asset Upload Dropzone",
+      "description": "Drag-and-drop asset uploader with validation, simulated progress, completion toasts, and removable file rows.",
+      "dependencies": ["lucide-react", "sonner"],
+      "registryDependencies": [
+        "button",
+        "card",
+        "tyrailleverett/nice-ui/use-file-upload"
+      ],
+      "files": [
+        {
+          "path": "file-upload-1/file-upload-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/file-upload-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-2",
+      "type": "registry:block",
+      "title": "Avatar Upload Button",
+      "description": "Small avatar preview with a single-image upload and remove action.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/use-file-upload"
+      ],
+      "files": [
+        {
+          "path": "file-upload-2/file-upload-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/file-upload-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-3",
+      "type": "registry:block",
+      "title": "Avatar Upload Dropzone",
+      "description": "Circular avatar dropzone with default image, size guidance, and inline validation errors.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/use-file-upload"
+      ],
+      "files": [
+        {
+          "path": "file-upload-3/file-upload-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/file-upload-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-4",
+      "type": "registry:block",
+      "title": "Compact File Upload",
+      "description": "Space-efficient multi-file uploader with inline thumbnails, count, and removal controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/use-file-upload"
+      ],
+      "files": [
+        {
+          "path": "file-upload-4/file-upload-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/file-upload-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-5",
+      "type": "registry:block",
+      "title": "Progress File Upload",
+      "description": "Multi-file upload queue with previews, progress bars, status badges, retry, and clear actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "tyrailleverett/nice-ui/use-file-upload"
+      ],
+      "files": [
+        {
+          "path": "file-upload-5/file-upload-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/file-upload-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table-1",
+      "type": "registry:block",
+      "title": "Team Members Data Table",
+      "description": "Sortable, filterable, paginated team member table with selection, column visibility, and row actions.",
+      "dependencies": ["lucide-react", "sonner"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "checkbox",
+        "dropdown-menu",
+        "input",
+        "sonner",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "data-table/table-1/table-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/table-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table-2",
+      "type": "registry:block",
+      "title": "Invoices Data Table",
+      "description": "Responsive invoice table with client filtering, sortable columns, selection, and bulk actions.",
+      "dependencies": ["lucide-react", "sonner"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "checkbox",
+        "dropdown-menu",
+        "input",
+        "separator",
+        "sonner",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "data-table/table-2/table-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/table-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table-3",
+      "type": "registry:block",
+      "title": "Task Delivery Table",
+      "description": "Task delivery table with grouped work, status tabs, filtering, sorting, assignees, priorities, and pagination.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "dropdown-menu",
+        "input",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "data-table/table-3/table-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/table-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table-4",
+      "type": "registry:block",
+      "title": "Roadmap Queue Table",
+      "description": "Grouped roadmap queue with stage summaries, owner stacks, signal badges, progress rings, and pagination.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "dropdown-menu",
+        "input",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "data-table/table-4/table-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/table-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-1",
+      "type": "registry:block",
+      "title": "Notification Inbox",
+      "description": "Detailed notification panel with approvals, files, assignments, and workspace activity.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "notifications/notification-1/notification-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/notification-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-2",
+      "type": "registry:block",
+      "title": "Notification Feed",
+      "description": "Tabbed notification feed for all, unread, and mention activity.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "notifications/notification-2/notification-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/notification-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-3",
+      "type": "registry:block",
+      "title": "Pipeline Notifications",
+      "description": "Recent build pipeline status card with pass, fail, and retry states.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "notifications/notification-3/notification-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/notification-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-4",
+      "type": "registry:block",
+      "title": "Activity Drawer",
+      "description": "Theme-aware activity feed with replies, file previews, design project sharing, and tags.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "notifications/notification-4/notification-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/notification-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "Password Input",
+      "description": "Password field with visibility toggle and an optional focus-revealed strength indicator.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["input-group", "label"],
+      "files": [
+        {
+          "path": "auth/password-input/password-input.tsx",
+          "type": "registry:component",
+          "target": "~/components/password-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-form",
+      "type": "registry:component",
+      "title": "Login Form",
+      "description": "Shared email, password, and Google continue form used by auth login layouts.",
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "label",
+        "separator",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/password-input"
+      ],
+      "files": [
+        {
+          "path": "auth/login-form/login-form.tsx",
+          "type": "registry:component",
+          "target": "~/components/login-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-1",
+      "type": "registry:block",
+      "title": "Split Testimonial",
+      "description": "Split signup with a Google button, email and password fields, and a testimonial panel.",
+      "registryDependencies": ["avatar", "tyrailleverett/nice-ui/login-form"],
+      "files": [
+        {
+          "path": "auth/login-1/login-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/login-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered signup card with a Google button, email and password fields, and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/login-form"],
+      "files": [
+        {
+          "path": "auth/login-2/login-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/login-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered signup with a Google button and email and password fields.",
+      "registryDependencies": ["tyrailleverett/nice-ui/login-form"],
+      "files": [
+        {
+          "path": "auth/login-3/login-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/login-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "register-form",
+      "type": "registry:component",
+      "title": "Register Form",
+      "description": "Shared name, email, password, and Google continue form used by auth register layouts.",
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "label",
+        "separator",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/password-input"
+      ],
+      "files": [
+        {
+          "path": "auth/register-form/register-form.tsx",
+          "type": "registry:component",
+          "target": "~/components/register-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "register-1",
+      "type": "registry:block",
+      "title": "Split Testimonial",
+      "description": "Split signup with a Google button, name, email and password fields, and a testimonial panel.",
+      "registryDependencies": [
+        "avatar",
+        "tyrailleverett/nice-ui/register-form"
+      ],
+      "files": [
+        {
+          "path": "auth/register-1/register-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/register-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "register-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered signup card with a Google button, name, email and password fields, and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/register-form"],
+      "files": [
+        {
+          "path": "auth/register-2/register-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/register-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "register-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered signup with a Google button and name, email and password fields.",
+      "registryDependencies": ["tyrailleverett/nice-ui/register-form"],
+      "files": [
+        {
+          "path": "auth/register-3/register-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/register-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:component",
+      "title": "OTP Input",
+      "description": "Labeled one-time code input built on shadcn's input-otp.",
+      "registryDependencies": ["input-otp", "label"],
+      "files": [
+        {
+          "path": "auth/otp-input/otp-input.tsx",
+          "type": "registry:component",
+          "target": "~/components/otp-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "forgot-password-form",
+      "type": "registry:component",
+      "title": "Forgot Password Form",
+      "description": "Shared email form used by auth forgot password layouts.",
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "label",
+        "tyrailleverett/nice-ui/logo"
+      ],
+      "files": [
+        {
+          "path": "auth/forgot-password-form/forgot-password-form.tsx",
+          "type": "registry:component",
+          "target": "~/components/forgot-password-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "forgot-password-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered forgot password card with an email field and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/forgot-password-form"],
+      "files": [
+        {
+          "path": "auth/forgot-password-2/forgot-password-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/forgot-password-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "forgot-password-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered forgot password form with an email field.",
+      "registryDependencies": ["tyrailleverett/nice-ui/forgot-password-form"],
+      "files": [
+        {
+          "path": "auth/forgot-password-3/forgot-password-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/forgot-password-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reset-password-form",
+      "type": "registry:component",
+      "title": "Reset Password Form",
+      "description": "Shared new and confirm password form used by auth reset password layouts.",
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/password-input"
+      ],
+      "files": [
+        {
+          "path": "auth/reset-password-form/reset-password-form.tsx",
+          "type": "registry:component",
+          "target": "~/components/reset-password-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reset-password-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered reset password card with new and confirm password fields and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/reset-password-form"],
+      "files": [
+        {
+          "path": "auth/reset-password-2/reset-password-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/reset-password-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reset-password-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered reset password form with new and confirm password fields.",
+      "registryDependencies": ["tyrailleverett/nice-ui/reset-password-form"],
+      "files": [
+        {
+          "path": "auth/reset-password-3/reset-password-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/reset-password-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "verify-email-form",
+      "type": "registry:component",
+      "title": "Verify Email Form",
+      "description": "Shared one-time code form used by auth verify email layouts.",
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/otp-input"
+      ],
+      "files": [
+        {
+          "path": "auth/verify-email-form/verify-email-form.tsx",
+          "type": "registry:component",
+          "target": "~/components/verify-email-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "verify-email-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered verify email card with a one-time code input and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/verify-email-form"],
+      "files": [
+        {
+          "path": "auth/verify-email-2/verify-email-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/verify-email-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "verify-email-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered verify email form with a one-time code input.",
+      "registryDependencies": ["tyrailleverett/nice-ui/verify-email-form"],
+      "files": [
+        {
+          "path": "auth/verify-email-3/verify-email-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/verify-email-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-factor-form",
+      "type": "registry:component",
+      "title": "Two Factor Form",
+      "description": "Shared authentication code form with an optional recovery code fallback, used by auth two factor layouts.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/otp-input"
+      ],
+      "files": [
+        {
+          "path": "auth/two-factor-form/two-factor-form.tsx",
+          "type": "registry:component",
+          "target": "~/components/two-factor-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-factor-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered two factor card with an authentication code input and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/two-factor-form"],
+      "files": [
+        {
+          "path": "auth/two-factor-2/two-factor-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/two-factor-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "two-factor-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered two factor form with an authentication code input.",
+      "registryDependencies": ["tyrailleverett/nice-ui/two-factor-form"],
+      "files": [
+        {
+          "path": "auth/two-factor-3/two-factor-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/two-factor-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "check-email",
+      "type": "registry:component",
+      "title": "Check Email",
+      "description": "Confirmation notice that tells the user to check their inbox for a verification link.",
+      "registryDependencies": ["button", "tyrailleverett/nice-ui/logo"],
+      "files": [
+        {
+          "path": "auth/check-email/check-email.tsx",
+          "type": "registry:component",
+          "target": "~/components/check-email.tsx"
+        }
+      ]
+    },
+    {
+      "name": "check-email-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Centered check email notice card with a resend action and a rounded border.",
+      "registryDependencies": ["tyrailleverett/nice-ui/check-email"],
+      "files": [
+        {
+          "path": "auth/check-email-2/check-email-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/check-email-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "check-email-3",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Centered check email notice with a resend action.",
+      "registryDependencies": ["tyrailleverett/nice-ui/check-email"],
+      "files": [
+        {
+          "path": "auth/check-email-3/check-email-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/check-email-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header-1",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "Page header with a title, description, and primary and secondary action buttons.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "page-header/page-header-1/page-header-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/page-header-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header-2",
+      "type": "registry:block",
+      "title": "Breadcrumb",
+      "description": "Page header with breadcrumb navigation, a status badge, and action buttons.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "badge", "breadcrumb"],
+      "files": [
+        {
+          "path": "page-header/page-header-2/page-header-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/page-header-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header-3",
+      "type": "registry:block",
+      "title": "Toolbar",
+      "description": "Page header with search, status and sort filters, and a list and grid view toggle.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "input-group", "select", "separator"],
+      "files": [
+        {
+          "path": "page-header/page-header-3/page-header-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/page-header-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state-1",
+      "type": "registry:block",
+      "title": "Records Empty State",
+      "description": "Centered empty state for connecting a source or uploading a CSV.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "empty-state/empty-state-1/empty-state-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/empty-state-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state-2",
+      "type": "registry:block",
+      "title": "Projects Empty State",
+      "description": "Centered empty state for starting a project or exploring templates.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "empty-state/empty-state-2/empty-state-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/empty-state-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state-3",
+      "type": "registry:block",
+      "title": "Reports Empty State",
+      "description": "Split workspace panel for creating a first report or viewing a sample.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "empty-state/empty-state-3/empty-state-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/empty-state-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state-4",
+      "type": "registry:block",
+      "title": "Members Empty State",
+      "description": "Centered empty state for inviting members and sharing an invite link.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "empty-state/empty-state-4/empty-state-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/empty-state-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "onboarding-1",
+      "type": "registry:block",
+      "title": "Split Preview Onboarding",
+      "description": "Profile setup flow with a workspace preview panel.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "onboarding-1/onboarding-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-1.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+    },
+    {
+      "name": "onboarding-2",
+      "type": "registry:block",
+      "title": "Sidebar Rail Onboarding",
+      "description": "Profile setup flow with a numbered navigation rail.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "onboarding-2/onboarding-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-2.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+    },
+    {
+      "name": "onboarding-3",
+      "type": "registry:block",
+      "title": "Dotted Rail Onboarding",
+      "description": "Profile setup flow with a dotted, atmospheric progress rail.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "onboarding-3/onboarding-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-3.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+    },
+    {
+      "name": "onboarding-4",
+      "type": "registry:block",
+      "title": "Modal Onboarding",
+      "description": "Compact profile setup modal with pagination and close controls.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "onboarding-4/onboarding-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-4.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+    },
+    {
+      "name": "onboarding-5",
+      "type": "registry:block",
+      "title": "Minimal Flow Onboarding",
+      "description": "Focused profile setup screen with a top progress indicator.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "onboarding-5/onboarding-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-5.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+    },
+    {
+      "name": "command-palette-1",
+      "type": "registry:block",
+      "title": "Quick Actions Command Palette",
+      "description": "Grouped quick actions opened from a lightweight button trigger.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "command", "dialog"],
+      "files": [
+        {
+          "path": "command-palette-1/command-palette-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/command-palette-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-palette-2",
+      "type": "registry:block",
+      "title": "Search Commands Palette",
+      "description": "Keyboard-accessible command search with navigation and action groups.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "command", "dialog", "kbd"],
+      "files": [
+        {
+          "path": "command-palette-2/command-palette-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/command-palette-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-palette-3",
+      "type": "registry:block",
+      "title": "Recent Items Command Palette",
+      "description": "Recent items and categorized results with keyboard navigation hints.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "button", "command", "dialog", "kbd"],
+      "files": [
+        {
+          "path": "command-palette-3/command-palette-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/command-palette-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-palette-4",
+      "type": "registry:block",
+      "title": "Command Palette With Preview",
+      "description": "Searchable command palette with a responsive result preview pane.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "button", "command", "kbd"],
+      "files": [
+        {
+          "path": "command-palette-4/command-palette-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/command-palette-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "settings-general",
+      "type": "registry:block",
+      "title": "General Settings",
+      "description": "Project name, API, regional, and editor preference settings.",
+      "files": [
+        {
+          "path": "settings-general/settings-general.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-general.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "input",
+        "select",
+        "tyrailleverett/nice-ui/settings-layout",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-connections",
+      "type": "registry:block",
+      "title": "App Connections",
+      "description": "Grouped third-party connection list with status and overflow actions.",
+      "files": [
+        {
+          "path": "settings-connections/settings-connections.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-connections.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-permissions",
+      "type": "registry:block",
+      "title": "Role Permissions",
+      "description": "Capability toggles for a project manager role.",
+      "files": [
+        {
+          "path": "settings-permissions/settings-permissions.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-permissions.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-integrations",
+      "type": "registry:block",
+      "title": "Integrations",
+      "description": "Connect and configure workspace automation apps.",
+      "files": [
+        {
+          "path": "settings-integrations/settings-integrations.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-integrations.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-preferences",
+      "type": "registry:block",
+      "title": "Workspace Preferences",
+      "description": "Default view, date, theme, and display settings.",
+      "files": [
+        {
+          "path": "settings-preferences/settings-preferences.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-preferences.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/settings-layout",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-security",
+      "type": "registry:block",
+      "title": "Security Settings",
+      "description": "Session policy, login methods, and access restrictions.",
+      "files": [
+        {
+          "path": "settings-security/settings-security.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-security.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/settings-layout",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-member-security",
+      "type": "registry:block",
+      "title": "Member Security",
+      "description": "Authentication factors and sign-in security for a member.",
+      "files": [
+        {
+          "path": "settings-member-security/settings-member-security.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-member-security.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "separator",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-danger-zone",
+      "type": "registry:block",
+      "title": "Danger Zone",
+      "description": "Suspend, deactivate, and remove member actions.",
+      "files": [
+        {
+          "path": "settings-danger-zone/settings-danger-zone.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-danger-zone.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "card", "separator"]
+    },
+    {
+      "name": "settings-notifications",
+      "type": "registry:block",
+      "title": "Notification Settings",
+      "description": "Channel, integration, and follow preferences for workspace alerts.",
+      "files": [
+        {
+          "path": "settings-notifications/settings-notifications.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-notifications.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "select",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-features",
+      "type": "registry:block",
+      "title": "Workspace Features",
+      "description": "AI, publishing, collaboration, and notification feature toggles.",
+      "files": [
+        {
+          "path": "settings-features/settings-features.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-features.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "tyrailleverett/nice-ui/settings-shared"
+      ]
+    },
+    {
+      "name": "settings-layout",
+      "type": "registry:block",
+      "title": "Settings Layout",
+      "description": "Reusable settings layouts with sidebar, tabbed, panel, row, and modal variants.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "settings-layout/settings-layout.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "settings-appearance",
+      "type": "registry:block",
+      "title": "Appearance Settings",
+      "description": "Appearance settings with live theme stages, corner radius, density, text size, motion, and contrast controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "label",
+        "radio-group",
+        "switch",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "settings-appearance/settings-appearance.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-appearance.tsx"
+        }
+      ]
+    },
+    {
+      "name": "settings-billing",
+      "type": "registry:block",
+      "title": "Billing Settings",
+      "description": "Workspace billing settings with a cycle strip, plan changes, included usage meters, payment methods, spend alerts, and invoices.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "dialog",
+        "dropdown-menu",
+        "empty",
+        "label",
+        "progress",
+        "radio-group",
+        "separator",
+        "switch",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "settings-billing/settings-billing.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/settings-billing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "detail-1",
+      "type": "registry:block",
+      "title": "Exception Inspector",
+      "description": "Fulfillment record page with identity, hold details, next move, and a filterable activity rail.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "dropdown-menu",
+        "progress",
+        "separator",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "detail/detail-1/detail-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/detail-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "detail-2",
+      "type": "registry:block",
+      "title": "Account Workspace",
+      "description": "Client account record with overview, worklog, integrations, and files tabs.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "progress",
+        "separator",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "detail/detail-2/detail-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/detail-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "detail-3",
+      "type": "registry:block",
+      "title": "Incident Timeline",
+      "description": "Security incident record organized as a chronological lane with a pinned contain-or-restore decision.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "detail/detail-3/detail-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/detail-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-1",
+      "type": "registry:block",
+      "title": "Missing Record",
+      "description": "404-style record page for an order ID that is not in the workspace, with nearby queue suggestions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "empty",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "error/error-1/error-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/error-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-2",
+      "type": "registry:block",
+      "title": "Restricted Record",
+      "description": "403-style record page that shows the order identity while locking hold details and activity.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "breadcrumb",
+        "button",
+        "card",
+        "empty",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "error/error-2/error-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/error-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-3",
+      "type": "registry:block",
+      "title": "Interrupted Page",
+      "description": "500-style failed record load with a request ID, retry, and ghosted inspector layout.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "empty", "skeleton"],
+      "files": [
+        {
+          "path": "error/error-3/error-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/error-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-4",
+      "type": "registry:block",
+      "title": "Scheduled Freeze",
+      "description": "Maintenance window page that lists what is frozen, read-only, or paused during inventory writes.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "button", "card", "empty", "separator"],
+      "files": [
+        {
+          "path": "error/error-4/error-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/error-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-5",
+      "type": "registry:block",
+      "title": "Disconnected Workspace",
+      "description": "Offline page that keeps a stale last-known record snapshot and a retry connection action.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "button", "empty", "skeleton"],
+      "files": [
+        {
+          "path": "error/error-5/error-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/error-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-1",
+      "type": "registry:block",
+      "title": "Schedule Meeting Calendar",
+      "description": "Meeting scheduler with a month grid, time slots, recurrence, and waiting-room controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "field",
+        "input",
+        "scroll-area",
+        "select",
+        "separator",
+        "switch",
+        "textarea",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ],
+      "files": [
+        {
+          "path": "calendar-1/calendar-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-2",
+      "type": "registry:block",
+      "title": "Agenda Month Calendar",
+      "description": "Month calendar with category dots, filters, and a stacked daily agenda.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "empty",
+        "separator",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ],
+      "files": [
+        {
+          "path": "calendar-2/calendar.css",
+          "type": "registry:file",
+          "target": "~/components/app/calendar.css"
+        },
+        {
+          "path": "calendar-2/calendar-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-3",
+      "type": "registry:block",
+      "title": "Duration Picker",
+      "description": "Host booking card with start and end times plus duration presets.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dropdown-menu",
+        "field",
+        "select",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ],
+      "files": [
+        {
+          "path": "calendar-3/calendar-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-4",
+      "type": "registry:block",
+      "title": "Day Agenda Calendar",
+      "description": "Two-pane calendar with a compact month grid and a detailed daily event list.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "empty",
+        "select",
+        "separator",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ],
+      "files": [
+        {
+          "path": "calendar-4/calendar-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar-5",
+      "type": "registry:block",
+      "title": "Booking Calendar",
+      "description": "Three-pane booking flow with host details, availability calendar, and time slots.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "scroll-area",
+        "select",
+        "separator",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ],
+      "files": [
+        {
+          "path": "calendar-5/calendar-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-1",
+      "type": "registry:block",
+      "title": "Checkout Setup Form",
+      "description": "Hosted checkout settings with offer, customer, rule, and receipt fields.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "checkbox",
+        "field",
+        "input-group",
+        "select",
+        "tooltip",
+        "tyrailleverett/nice-ui/forms-shared"
+      ],
+      "files": [
+        {
+          "path": "form-1/form-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/form-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-2",
+      "type": "registry:block",
+      "title": "Invoice Details Form",
+      "description": "Sectioned invoice form for customer, terms, and editable line items.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "field",
+        "input",
+        "input-group",
+        "select",
+        "separator",
+        "tooltip",
+        "tyrailleverett/nice-ui/forms-shared"
+      ],
+      "files": [
+        {
+          "path": "form-2/form-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/form-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-3",
+      "type": "registry:block",
+      "title": "API Keys Form",
+      "description": "Credential manager with stack-ready env copy, key actions, and a secret-key warning.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "button",
+        "card",
+        "select",
+        "separator",
+        "tooltip",
+        "tyrailleverett/nice-ui/forms-shared"
+      ],
+      "files": [
+        {
+          "path": "form-3/form-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/form-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-4",
+      "type": "registry:block",
+      "title": "Business Verification Form",
+      "description": "Read-only verification review for legal, public, and ownership details.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "separator",
+        "tooltip",
+        "tyrailleverett/nice-ui/forms-shared"
+      ],
+      "files": [
+        {
+          "path": "form-4/form-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/form-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cards-shared",
+      "type": "registry:component",
+      "title": "Cards Shared",
+      "description": "Card visual system and overlapping avatar stack used by app card blocks.",
+      "files": [
+        {
+          "path": "cards-shared/cards.css",
+          "type": "registry:file",
+          "target": "~/components/app/cards.css"
+        },
+        {
+          "path": "cards-shared/cards-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/cards-shared.tsx"
+        }
+      ]
+    },
+    {
+      "name": "meeting-card",
+      "type": "registry:block",
+      "title": "Meeting Card",
+      "description": "Meeting summary card with attendees, duration, and a join action.",
+      "files": [
+        {
+          "path": "meeting-card/meeting-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/meeting-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "integration-card",
+      "type": "registry:block",
+      "title": "Integration Card",
+      "description": "Installed integration card with status, team avatars, and a guide action.",
+      "files": [
+        {
+          "path": "integration-card/integration-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/integration-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "recommended-role-card",
+      "type": "registry:block",
+      "title": "Recommended Role Card",
+      "description": "Job recommendation card with location, compensation, and apply actions.",
+      "files": [
+        {
+          "path": "recommended-role-card/recommended-role-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/recommended-role-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "data-row-card",
+      "type": "registry:block",
+      "title": "Data Row Card",
+      "description": "Horizontal deployment status row with preview and team avatars.",
+      "files": [
+        {
+          "path": "data-row-card/data-row-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/data-row-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "play-mode-card",
+      "type": "registry:block",
+      "title": "Play Mode Card",
+      "description": "Practice-mode callout with a demo trading action.",
+      "files": [
+        {
+          "path": "play-mode-card/play-mode-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/play-mode-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "flow-card",
+      "type": "registry:block",
+      "title": "Flow Card",
+      "description": "Integration flow card with a visual node row and tier badge.",
+      "files": [
+        {
+          "path": "flow-card/flow-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/flow-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "funding-card",
+      "type": "registry:block",
+      "title": "Funding Card",
+      "description": "Investor profile card with fund stats and a proposal action.",
+      "files": [
+        {
+          "path": "funding-card/funding-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/funding-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "partner-card",
+      "type": "registry:block",
+      "title": "Partner Cards",
+      "description": "Compact partner logo cards and a responsive partner row.",
+      "files": [
+        {
+          "path": "partner-card/partner-card.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/partner-card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+    },
+    {
+      "name": "dialogs-shared",
+      "type": "registry:component",
+      "title": "Dialogs Shared",
+      "description": "Shared dialog frame, close control, and footer actions used by app dialogs.",
+      "files": [
+        {
+          "path": "dialogs-shared/dialogs-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/dialogs-shared.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "dialog"]
+    },
+    {
+      "name": "select-duration-dialog",
+      "type": "registry:block",
+      "title": "Select Duration Dialog",
+      "description": "Start and end time fields with quick duration presets.",
+      "files": [
+        {
+          "path": "select-duration-dialog/select-duration-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/select-duration-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "field",
+        "select",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    },
+    {
+      "name": "invite-teammates-dialog",
+      "type": "registry:block",
+      "title": "Invite Teammates Dialog",
+      "description": "Email invite form with a starting role selector.",
+      "files": [
+        {
+          "path": "invite-teammates-dialog/invite-teammates-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/invite-teammates-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "field",
+        "input",
+        "select",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    },
+    {
+      "name": "cancel-plan-dialog",
+      "type": "registry:block",
+      "title": "Cancel Plan Dialog",
+      "description": "Plan cancellation reasons with a warning alert.",
+      "files": [
+        {
+          "path": "cancel-plan-dialog/cancel-plan-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/cancel-plan-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "alert",
+        "checkbox",
+        "textarea",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    },
+    {
+      "name": "launch-checklist-dialog",
+      "type": "registry:block",
+      "title": "Launch Checklist Dialog",
+      "description": "Expandable launch checklist with ownership details.",
+      "files": [
+        {
+          "path": "launch-checklist-dialog/launch-checklist-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/launch-checklist-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["badge", "tyrailleverett/nice-ui/dialogs-shared"]
+    },
+    {
+      "name": "add-workspace-app-dialog",
+      "type": "registry:block",
+      "title": "Add Workspace App Dialog",
+      "description": "Searchable grid of apps to connect to a workspace.",
+      "files": [
+        {
+          "path": "add-workspace-app-dialog/add-workspace-app-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/add-workspace-app-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "kbd",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    },
+    {
+      "name": "setup-help-dialog",
+      "type": "registry:block",
+      "title": "Setup Help Dialog",
+      "description": "Support paths for guides, walkthroughs, and escalation.",
+      "files": [
+        {
+          "path": "setup-help-dialog/setup-help-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/setup-help-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    },
+    {
+      "name": "create-entry-dialog",
+      "type": "registry:block",
+      "title": "Create Entry Dialog",
+      "description": "Quick record composer with type tabs and assignment fields.",
+      "files": [
+        {
+          "path": "create-entry-dialog/create-entry-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/create-entry-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "field",
+        "input",
+        "select",
+        "textarea",
+        "toggle-group",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    },
+    {
+      "name": "connect-gmail-dialog",
+      "type": "registry:block",
+      "title": "Connect Gmail Dialog",
+      "description": "Gmail connection consent with a sync-scope radio group.",
+      "files": [
+        {
+          "path": "connect-gmail-dialog/connect-gmail-dialog.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/connect-gmail-dialog.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "radio-group",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
+    }
+  ]
+}
