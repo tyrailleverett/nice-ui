@@ -1,11 +1,5 @@
 import { SearchIcon, SearchSlashIcon } from "lucide-react";
-import {
-  type ChangeEvent,
-  type MouseEvent,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import { type ChangeEvent, useCallback, useMemo, useState } from "react";
 
 import {
   Accordion,
@@ -26,6 +20,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 export interface Faq4Category {
@@ -169,19 +164,11 @@ export function Faq4({
     []
   );
 
-  const handleCategoryClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const {
-        currentTarget: {
-          dataset: { categoryId },
-        },
-      } = event;
-      if (categoryId) {
-        setActiveCategory(categoryId);
-      }
-    },
-    []
-  );
+  const handleCategoryChange = useCallback((value: string) => {
+    if (value) {
+      setActiveCategory(value);
+    }
+  }, []);
 
   const handleClearSearch = useCallback(() => {
     setSearchTerm("");
@@ -208,34 +195,26 @@ export function Faq4({
         </InputGroup>
       </div>
 
-      <div className="flex flex-wrap gap-1 border-y px-4 md:gap-3">
-        {categories.map((category) => {
-          const isActive = activeCategory === category.id;
-
-          return (
-            <button
-              aria-pressed={isActive}
-              className="flex flex-col"
-              data-category-id={category.id}
+      <Tabs
+        className="gap-0"
+        onValueChange={handleCategoryChange}
+        value={activeCategory}
+      >
+        <TabsList
+          className="h-auto w-full justify-start rounded-none border-y bg-transparent px-4 py-0 md:gap-3"
+          variant="line"
+        >
+          {categories.map((category) => (
+            <TabsTrigger
+              className="flex-none p-1 text-muted-foreground text-sm md:p-2 md:text-base"
               key={category.id}
-              onClick={handleCategoryClick}
-              type="button"
+              value={category.id}
             >
-              <span
-                className={cn(
-                  "p-1 text-muted-foreground text-sm hover:text-primary md:p-2 md:text-base",
-                  isActive && "text-primary"
-                )}
-              >
-                {category.label}
-              </span>
-              {isActive ? (
-                <span className="h-0.5 w-full rounded-full bg-primary" />
-              ) : null}
-            </button>
-          );
-        })}
-      </div>
+              {category.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
 
       {filtered.length > 0 ? (
         <Accordion

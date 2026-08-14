@@ -1,5 +1,6 @@
 import { MoreVerticalIcon } from "lucide-react";
 import { type AvatarItem, AvatarStack } from "@/components/app/cards-shared";
+import { Button } from "@/components/ui/button";
 
 export interface MeetingCardProps {
   attendeeCount?: number;
@@ -26,13 +27,14 @@ export function MeetingCard({
     <article className="showcase-card meeting-card">
       <div className="card-heading">
         <span>Meeting</span>
-        <button
+        <Button
           aria-label="More meeting options"
-          className="icon-button"
+          size="icon"
           type="button"
+          variant="ghost"
         >
-          <MoreVerticalIcon aria-hidden="true" />
-        </button>
+          <MoreVerticalIcon />
+        </Button>
       </div>
       <div className="meeting-panel">
         <div className="meeting-body">
@@ -47,16 +49,17 @@ export function MeetingCard({
             <span className="card-pill">{category}</span>
           </div>
         </div>
-        <button
-          className="card-action card-action-left"
+        <Button
+          className="h-auto min-h-14 w-full justify-start rounded-none px-6"
           onClick={onJoin}
           type="button"
+          variant="ghost"
         >
           <span aria-hidden="true" className="meet-mark">
             <VideoMark />
           </span>
           Join meeting
-        </button>
+        </Button>
       </div>
     </article>
   );

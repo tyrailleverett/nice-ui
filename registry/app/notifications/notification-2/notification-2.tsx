@@ -1,6 +1,9 @@
 import type { LucideIcon } from "lucide-react";
 import { AtSign, Check, GitPullRequest, MessageCircle, X } from "lucide-react";
-import { type MouseEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
 export interface Notification2Props {
@@ -44,8 +47,10 @@ export function Notification2({ className }: Notification2Props) {
   const [tab, setTab] = useState("All");
   const [read, setRead] = useState(false);
   const markRead = useCallback(() => setRead(true), []);
-  const changeTab = useCallback((event: MouseEvent<HTMLButtonElement>) => {
-    setTab(event.currentTarget.dataset.tab ?? "All");
+  const changeTab = useCallback((value: string) => {
+    if (value) {
+      setTab(value);
+    }
   }, []);
   return (
     <section
@@ -62,34 +67,35 @@ export function Notification2({ className }: Notification2Props) {
           </span>
         </div>
         <div className="flex items-center gap-12 text-muted-foreground text-xl">
-          <button
-            className="flex items-center gap-3 hover:text-white"
+          <Button
+            className="h-auto p-0 text-muted-foreground text-xl hover:text-foreground"
             onClick={markRead}
-            type="button"
+            variant="ghost"
           >
-            <Check size={20} /> {read ? "All Read" : "Mark All Read"}
-          </button>
-          <button aria-label="Close" type="button">
+            <Check data-icon="inline-start" />{" "}
+            {read ? "All Read" : "Mark All Read"}
+          </Button>
+          <Button aria-label="Close" size="icon" variant="ghost">
             <X />
-          </button>
+          </Button>
         </div>
       </header>
-      <div className="mx-8 mb-6 flex rounded-2xl bg-muted p-1.5">
+      <ToggleGroup
+        className="mx-8 mb-6 w-[calc(100%-4rem)] rounded-2xl bg-muted p-1.5"
+        onValueChange={changeTab}
+        type="single"
+        value={tab}
+      >
         {["All", "Unread  10", "Mentions  3"].map((label) => (
-          <button
-            className={cn(
-              "flex-1 rounded-xl px-4 py-2 text-[25px] text-muted-foreground",
-              tab === label && "bg-background text-foreground shadow-sm"
-            )}
-            data-tab={label}
+          <ToggleGroupItem
+            className="h-auto flex-1 rounded-xl px-4 py-2 text-[25px]"
             key={label}
-            onClick={changeTab}
-            type="button"
+            value={label}
           >
             {label}
-          </button>
+          </ToggleGroupItem>
         ))}
-      </div>
+      </ToggleGroup>
       <div className="border-border border-t">
         {[...items, ...items, items[0]].map(
           ([name, action, body, tag, Icon, initials]) => (
@@ -97,9 +103,11 @@ export function Notification2({ className }: Notification2Props) {
               className="flex gap-6 border-border border-b px-8 py-6"
               key={`${name}-${tag}`}
             >
-              <span className="flex size-[72px] shrink-0 items-center justify-center rounded-2xl bg-muted text-2xl text-muted-foreground">
-                {initials}
-              </span>
+              <Avatar className="size-[72px] rounded-2xl">
+                <AvatarFallback className="rounded-2xl bg-muted text-2xl text-muted-foreground">
+                  {initials}
+                </AvatarFallback>
+              </Avatar>
               <div className="min-w-0 flex-1">
                 <h3 className="text-[23px]">
                   <b className="font-medium">{name}</b>{" "}

@@ -544,10 +544,10 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                 </TableHead>
                 {columnVisible("name") && (
                   <TableHead>
-                    <button
-                      className="inline-flex items-center gap-1 font-medium text-xs uppercase"
+                    <Button
+                      className="h-auto p-0 font-medium text-xs uppercase"
                       onClick={() => toggleSort("name")}
-                      type="button"
+                      variant="ghost"
                     >
                       Member{" "}
                       <SortIcon
@@ -555,7 +555,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                           sort.key === "name" ? sort.direction : undefined
                         }
                       />
-                    </button>
+                    </Button>
                   </TableHead>
                 )}
                 {columnVisible("status") && (
@@ -565,10 +565,10 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                 )}
                 {columnVisible("role") && (
                   <TableHead>
-                    <button
-                      className="inline-flex items-center gap-1 font-medium text-xs uppercase"
+                    <Button
+                      className="h-auto p-0 font-medium text-xs uppercase"
                       onClick={() => toggleSort("role")}
-                      type="button"
+                      variant="ghost"
                     >
                       Role{" "}
                       <SortIcon
@@ -576,15 +576,15 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                           sort.key === "role" ? sort.direction : undefined
                         }
                       />
-                    </button>
+                    </Button>
                   </TableHead>
                 )}
                 {columnVisible("joined") && (
                   <TableHead className="text-right">
-                    <button
-                      className="inline-flex items-center gap-1 font-medium text-xs uppercase"
+                    <Button
+                      className="h-auto p-0 font-medium text-xs uppercase"
                       onClick={() => toggleSort("joined")}
-                      type="button"
+                      variant="ghost"
                     >
                       Joined{" "}
                       <SortIcon
@@ -592,7 +592,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                           sort.key === "joined" ? sort.direction : undefined
                         }
                       />
-                    </button>
+                    </Button>
                   </TableHead>
                 )}
                 <TableHead className="w-10 pr-4">

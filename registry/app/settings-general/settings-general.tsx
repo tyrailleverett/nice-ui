@@ -8,6 +8,7 @@ import {
 } from "@/components/app/settings-shared";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
 const accentColors = [
@@ -83,23 +84,22 @@ export function GeneralSettings({ className }: { className?: string }) {
           description="Select a color to represent your brand."
           label="Accent color"
         >
-          <div className="flex flex-wrap justify-end gap-3">
+          <ToggleGroup
+            className="justify-end gap-3"
+            defaultValue={accentColors[0]}
+            type="single"
+          >
             {accentColors.map((color, index) => (
-              <button
+              <ToggleGroupItem
                 aria-label={`Select accent color ${index + 1}`}
-                className={cn(
-                  "size-8 rounded-full",
-                  color,
-                  index === 0 &&
-                    "ring-2 ring-ring ring-offset-2 ring-offset-card"
-                )}
+                className={cn("size-8 rounded-full p-0", color)}
                 key={color}
-                type="button"
+                value={color}
               >
                 <span className="sr-only">Select</span>
-              </button>
+              </ToggleGroupItem>
             ))}
-          </div>
+          </ToggleGroup>
         </SettingsRow>
         <SettingsRow
           className="sm:items-start"

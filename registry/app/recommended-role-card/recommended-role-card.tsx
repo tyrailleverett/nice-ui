@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 
 import "@/components/app/cards-shared";
+import { Button } from "@/components/ui/button";
 
 export interface RecommendedRoleCardProps {
   company?: string;
@@ -60,20 +61,12 @@ export function RecommendedRoleCard({
         </div>
         <p className="card-description">{description}</p>
         <div className="role-actions">
-          <button
-            className="button button-primary"
-            onClick={onApply}
-            type="button"
-          >
+          <Button onClick={onApply} type="button">
             Quick apply
-          </button>
-          <button
-            className="button button-secondary"
-            onClick={onDetails}
-            type="button"
-          >
+          </Button>
+          <Button onClick={onDetails} type="button" variant="outline">
             View details
-          </button>
+          </Button>
         </div>
       </div>
     </article>

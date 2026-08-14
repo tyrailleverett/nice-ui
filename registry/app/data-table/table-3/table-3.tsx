@@ -32,6 +32,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
 type TaskStatus = "In Progress" | "Done" | "Todo" | "Review";
@@ -251,37 +252,36 @@ export function Table3({ className }: Table3Props) {
             New task
           </Button>
         </header>
-        <nav
-          aria-label="Task views"
-          className="flex items-center gap-8 border-border border-b px-6"
+        <Tabs
+          onValueChange={(value) => {
+            if (value === "all" || value === "active" || value === "backlog") {
+              setActiveTab(value);
+              setPage(0);
+            }
+          }}
+          value={activeTab}
         >
-          {(
-            [
-              ["all", "All tasks", tasks.length],
-              ["active", "Active", activeCount],
-              ["backlog", "Backlog", backlogCount],
-            ] as const
-          ).map(([id, label, count]) => (
-            <button
-              className={cn(
-                "relative flex items-center gap-2 py-4 font-medium text-muted-foreground text-sm transition-colors hover:text-foreground",
-                activeTab === id &&
-                  "text-foreground after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:bg-foreground"
-              )}
-              key={id}
-              onClick={() => {
-                setActiveTab(id);
-                setPage(0);
-              }}
-              type="button"
-            >
-              {label}
-              <span className="rounded-md bg-muted px-2 py-0.5 text-xs tabular-nums">
-                {count}
-              </span>
-            </button>
-          ))}
-        </nav>
+          <TabsList
+            aria-label="Task views"
+            className="h-auto w-full justify-start gap-8 rounded-none border-border border-b bg-transparent px-6"
+            variant="line"
+          >
+            {(
+              [
+                ["all", "All tasks", tasks.length],
+                ["active", "Active", activeCount],
+                ["backlog", "Backlog", backlogCount],
+              ] as const
+            ).map(([id, label, count]) => (
+              <TabsTrigger className="flex-none py-4" key={id} value={id}>
+                {label}
+                <span className="rounded-md bg-muted px-2 py-0.5 text-xs tabular-nums">
+                  {count}
+                </span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
         <div className="flex flex-wrap items-center justify-between gap-3 border-border border-b px-6 py-4">
           <div className="flex flex-wrap items-center gap-2">
             <Button variant="outline">
@@ -310,14 +310,14 @@ export function Table3({ className }: Table3Props) {
                 />
               </div>
               {query.length > 0 && (
-                <button
+                <Button
                   aria-label="Clear search"
-                  className="px-2 text-muted-foreground hover:text-foreground"
                   onClick={() => setQuery("")}
-                  type="button"
+                  size="icon-xs"
+                  variant="ghost"
                 >
                   <XIcon />
-                </button>
+                </Button>
               )}
             </div>
           </div>
@@ -331,27 +331,27 @@ export function Table3({ className }: Table3Props) {
             <TableRow className="bg-muted/30 hover:bg-muted/30">
               <TableHead className="w-[46%]">Task</TableHead>
               <TableHead>
-                <button
-                  className="inline-flex items-center gap-1"
+                <Button
+                  className="h-auto p-0"
                   onClick={() => setSortDescending((value) => !value)}
-                  type="button"
+                  variant="ghost"
                 >
                   Status <SortMark active={false} direction="desc" />
-                </button>
+                </Button>
               </TableHead>
               <TableHead>Assignee</TableHead>
               <TableHead>
-                <button
-                  className="inline-flex items-center gap-1"
+                <Button
+                  className="h-auto p-0"
                   onClick={() => setSortDescending((value) => !value)}
-                  type="button"
+                  variant="ghost"
                 >
                   Priority{" "}
                   <SortMark
                     active={true}
                     direction={sortDescending ? "desc" : "asc"}
                   />
-                </button>
+                </Button>
               </TableHead>
               <TableHead>Project</TableHead>
               <TableHead className="w-12">
@@ -373,17 +373,18 @@ export function Table3({ className }: Table3Props) {
                       {task.isChild ? (
                         <span className="size-3.5 rounded-full border border-input" />
                       ) : (
-                        <button
+                        <Button
                           aria-label={`${collapsed.has(task.id) ? "Expand" : "Collapse"} ${task.title}`}
                           onClick={() => toggleParent(task.id)}
-                          type="button"
+                          size="icon-xs"
+                          variant="ghost"
                         >
                           {collapsed.has(task.id) ? (
                             <ChevronRightIcon />
                           ) : (
                             <ChevronDownIcon />
                           )}
-                        </button>
+                        </Button>
                       )}
                     </span>
                     <span

@@ -1,6 +1,5 @@
 import {
   ArrowRightIcon,
-  ChevronDownIcon,
   CircleUserRoundIcon,
   ImagePlusIcon,
   XIcon,
@@ -9,6 +8,17 @@ import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useCallback } from "react";
 
 import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 export const ONBOARDING_STEPS = [
@@ -73,57 +83,59 @@ export function ProfileForm({
         <div className="grid size-16 shrink-0 place-items-center rounded-full border-2 border-border bg-muted/40 text-muted-foreground">
           <CircleUserRoundIcon size={29} strokeWidth={1.5} />
         </div>
-        <div className="space-y-1.5">
-          <button
-            className="inline-flex h-10 items-center gap-2 rounded-lg border border-border bg-secondary px-3.5 font-medium text-secondary-foreground text-sm transition-colors hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
-            type="button"
-          >
-            <ImagePlusIcon size={16} />
+        <div className="flex flex-col gap-1.5">
+          <Button type="button" variant="secondary">
+            <ImagePlusIcon data-icon="inline-start" />
             Upload photo
-          </button>
+          </Button>
           <p className="text-muted-foreground text-xs sm:text-sm">
             PNG or JPG, at least 400 × 400 px, up to 10 MB.
           </p>
         </div>
       </div>
 
-      <label className="grid gap-2 font-medium text-sm">
-        <span>
-          Full name <span className="text-destructive">*</span>
-        </span>
-        <input
-          className="h-12 rounded-xl border border-input bg-background px-4 font-normal text-base text-foreground shadow-xs outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30"
-          onChange={handleNameChange}
-          required
-          value={name}
-        />
-      </label>
-
-      <label className="grid gap-2 font-medium text-sm">
-        <span>Job title</span>
-        <input
-          className="h-12 rounded-xl border border-input bg-background px-4 font-normal text-base text-foreground shadow-xs outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30"
-          onChange={handleJobTitleChange}
-          value={jobTitle}
-        />
-      </label>
-
-      <label className="grid gap-2 font-medium text-sm">
-        <span>Timezone</span>
-        <span className="relative">
-          <select className="h-12 w-full appearance-none rounded-xl border border-input bg-background px-4 font-normal text-base text-muted-foreground shadow-xs outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30">
-            <option>Select a timezone</option>
-            <option>Central Time (Chicago)</option>
-            <option>Pacific Time (Los Angeles)</option>
-            <option>Eastern Time (New York)</option>
-          </select>
-          <ChevronDownIcon
-            aria-hidden="true"
-            className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-muted-foreground"
-            size={18}
+      <FieldGroup>
+        <Field>
+          <FieldLabel>
+            Full name <span className="text-destructive">*</span>
+          </FieldLabel>
+          <Input
+            className="h-12 rounded-xl px-4 text-base"
+            onChange={handleNameChange}
+            required
+            value={name}
           />
-        </span>
-      </label>
+        </Field>
+        <Field>
+          <FieldLabel>Job title</FieldLabel>
+          <Input
+            className="h-12 rounded-xl px-4 text-base"
+            onChange={handleJobTitleChange}
+            value={jobTitle}
+          />
+        </Field>
+        <Field>
+          <FieldLabel>Timezone</FieldLabel>
+          <Select>
+            <SelectTrigger className="h-12 w-full rounded-xl px-4 text-base">
+              <SelectValue placeholder="Select a timezone" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="America/Chicago">
+                  Central Time (Chicago)
+                </SelectItem>
+                <SelectItem value="America/Los_Angeles">
+                  Pacific Time (Los Angeles)
+                </SelectItem>
+                <SelectItem value="America/New_York">
+                  Eastern Time (New York)
+                </SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </Field>
+      </FieldGroup>
     </form>
   );
 }
@@ -140,17 +152,15 @@ export function ContinueButton({
   onClick?: () => void;
 }) {
   return (
-    <button
-      className={cn(
-        "inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 font-medium text-base text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2",
-        className
-      )}
+    <Button
+      className={cn("h-12 rounded-xl px-6 text-base", className)}
       onClick={onClick}
+      size="lg"
       type="button"
     >
       {children}
-      {icon ? <ArrowRightIcon size={19} /> : null}
-    </button>
+      {icon ? <ArrowRightIcon data-icon="inline-end" /> : null}
+    </Button>
   );
 }
 
@@ -259,13 +269,14 @@ export function ProductPreview() {
 
 export function CloseButton({ onClick }: { onClick?: () => void }) {
   return (
-    <button
+    <Button
       aria-label="Close"
-      className="grid size-9 place-items-center rounded-lg text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
       onClick={onClick}
+      size="icon"
       type="button"
+      variant="ghost"
     >
-      <XIcon size={20} />
-    </button>
+      <XIcon />
+    </Button>
   );
 }

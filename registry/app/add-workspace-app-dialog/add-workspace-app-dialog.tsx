@@ -44,10 +44,11 @@ export function AddWorkspaceAppDialog(props: DialogProps) {
           </InputGroup>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {apps.map(([name, copy, mark]) => (
-              <button
-                className="group flex min-h-36 flex-col justify-between rounded-xl border p-4 text-left transition-colors hover:bg-muted"
+              <Button
+                className="h-auto min-h-36 flex-col items-stretch justify-between rounded-xl p-4 text-left"
                 key={name}
                 type="button"
+                variant="outline"
               >
                 <span className="flex items-start justify-between">
                   <span className="grid size-10 place-items-center font-semibold text-2xl">
@@ -61,7 +62,7 @@ export function AddWorkspaceAppDialog(props: DialogProps) {
                     {copy}
                   </span>
                 </span>
-              </button>
+              </Button>
             ))}
           </div>
         </div>

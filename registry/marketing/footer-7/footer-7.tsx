@@ -8,6 +8,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
 export function GithubIcon(props: ComponentProps<"svg">) {
@@ -72,35 +73,6 @@ export interface Footer7Props {
   theme?: Footer7Theme;
 }
 
-function ThemeOptionButton({
-  option,
-  selected,
-  onThemeChange,
-}: {
-  option: { value: Footer7Theme; label: string; icon: ReactNode };
-  selected: boolean;
-  onThemeChange?: (theme: Footer7Theme) => void;
-}) {
-  const handleClick = useCallback(() => {
-    onThemeChange?.(option.value);
-  }, [onThemeChange, option.value]);
-
-  return (
-    <button
-      aria-label={option.label}
-      aria-pressed={selected}
-      className={cn(
-        "flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground [&_svg]:size-3.5",
-        selected && "bg-muted text-foreground"
-      )}
-      onClick={handleClick}
-      type="button"
-    >
-      {option.icon}
-    </button>
-  );
-}
-
 function ThemeSwitcher({
   theme = "system",
   onThemeChange,
@@ -114,17 +86,34 @@ function ThemeSwitcher({
     { icon: <MoonIcon />, label: "Dark", value: "dark" },
   ];
 
+  const handleValueChange = useCallback(
+    (value: string) => {
+      if (value === "system" || value === "light" || value === "dark") {
+        onThemeChange?.(value);
+      }
+    },
+    [onThemeChange]
+  );
+
   return (
-    <div className="inline-flex rounded-full border p-0.5">
+    <ToggleGroup
+      className="rounded-full border p-0.5"
+      onValueChange={handleValueChange}
+      spacing={0}
+      type="single"
+      value={theme}
+    >
       {options.map((option) => (
-        <ThemeOptionButton
+        <ToggleGroupItem
+          aria-label={option.label}
+          className="size-7 rounded-full p-0"
           key={option.value}
-          onThemeChange={onThemeChange}
-          option={option}
-          selected={theme === option.value}
-        />
+          value={option.value}
+        >
+          {option.icon}
+        </ToggleGroupItem>
       ))}
-    </div>
+    </ToggleGroup>
   );
 }
 

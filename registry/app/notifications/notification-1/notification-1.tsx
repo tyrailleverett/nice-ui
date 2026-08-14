@@ -9,28 +9,29 @@ import {
 } from "lucide-react";
 import { useCallback, useState } from "react";
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export interface Notification1Props {
   className?: string;
 }
 
-const Avatar = ({
+function InitialsAvatar({
   children,
   className,
 }: {
   children: string;
   className?: string;
-}) => (
-  <span
-    className={cn(
-      "flex size-9 shrink-0 items-center justify-center rounded-full border-2 border-background font-semibold text-background text-xs",
-      className
-    )}
-  >
-    {children}
-  </span>
-);
+}) {
+  return (
+    <Avatar className={cn("size-9 border-2 border-background", className)}>
+      <AvatarFallback className="bg-transparent font-semibold text-background text-xs">
+        {children}
+      </AvatarFallback>
+    </Avatar>
+  );
+}
 
 export function Notification1({ className }: Notification1Props) {
   const [open, setOpen] = useState(true);
@@ -41,16 +42,14 @@ export function Notification1({ className }: Notification1Props) {
 
   if (!open) {
     return (
-      <button
-        className={cn(
-          "rounded-full border border-border bg-background px-4 py-2 text-foreground text-sm",
-          className
-        )}
+      <Button
+        className={cn("rounded-full", className)}
         onClick={showNotifications}
         type="button"
+        variant="outline"
       >
         Show notifications
-      </button>
+      </Button>
     );
   }
 
@@ -72,28 +71,30 @@ export function Notification1({ className }: Notification1Props) {
           </span>
         </div>
         <div className="flex items-center gap-7">
-          <button
+          <Button
             aria-label="Mark all as read"
-            className="text-foreground transition-opacity hover:opacity-70"
+            size="icon"
             type="button"
+            variant="ghost"
           >
-            <CheckCheck size={25} />
-          </button>
-          <button
+            <CheckCheck />
+          </Button>
+          <Button
             aria-label="Close notifications"
-            className="text-foreground transition-opacity hover:opacity-70"
             onClick={closeNotifications}
+            size="icon"
             type="button"
+            variant="ghost"
           >
-            <X size={26} />
-          </button>
+            <X />
+          </Button>
         </div>
       </header>
 
       <div className="relative">
         <article className="px-10 pt-8 pb-7">
           <div className="flex gap-4">
-            <Avatar className="bg-primary">S</Avatar>
+            <InitialsAvatar className="bg-primary">S</InitialsAvatar>
             <div className="min-w-0 text-[24px] leading-[1.45]">
               <p>
                 <span className="text-muted-foreground">@sarah_smith</span>{" "}
@@ -125,19 +126,20 @@ export function Notification1({ className }: Notification1Props) {
                 deployment.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <button
-                  className="rounded-xl bg-primary px-4 py-2 font-medium text-[21px] text-primary-foreground transition-transform hover:scale-[1.02]"
+                <Button
+                  className="rounded-xl text-[21px]"
                   onClick={approve}
                   type="button"
                 >
                   Approve
-                </button>
-                <button
-                  className="rounded-xl border border-border px-4 py-2 font-medium text-[21px] transition-colors hover:bg-muted"
+                </Button>
+                <Button
+                  className="rounded-xl text-[21px]"
                   type="button"
+                  variant="outline"
                 >
                   Review
-                </button>
+                </Button>
               </div>
               <div className="mt-5 flex items-center gap-4 text-[20px] text-muted-foreground">
                 <span>5m ago</span>
@@ -153,7 +155,7 @@ export function Notification1({ className }: Notification1Props) {
         <article className="border-border border-t px-10 py-7">
           <div className="flex gap-4">
             <span className="mt-2 size-3 shrink-0 rounded-full bg-foreground" />
-            <Avatar className="bg-secondary">M</Avatar>
+            <InitialsAvatar className="bg-secondary">M</InitialsAvatar>
             <div className="min-w-0">
               <h3 className="text-[25px]">
                 <span className="text-muted-foreground">@maverick</span> shared
@@ -161,14 +163,15 @@ export function Notification1({ className }: Notification1Props) {
               <p className="mt-2 text-[24px] text-muted-foreground">
                 Project Timeline
               </p>
-              <button
-                className="mt-5 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-[21px]"
+              <Button
+                className="mt-5 h-auto rounded-full px-3 py-1 text-[21px]"
                 type="button"
+                variant="outline"
               >
-                <Paperclip size={20} /> project-plan.pdf{" "}
+                <Paperclip data-icon="inline-start" /> project-plan.pdf{" "}
                 <span className="text-muted-foreground">(2mb)</span>
-                <Download className="ml-4" size={20} />
-              </button>
+                <Download className="ml-4" />
+              </Button>
               <p className="mt-5 text-[20px] text-muted-foreground">15m ago</p>
             </div>
           </div>
@@ -208,9 +211,9 @@ export function Notification1({ className }: Notification1Props) {
                 Sarah, Mike, Emma and James just joined ReUI Pro.
               </p>
               <div className="mt-5 flex -space-x-2">
-                <Avatar className="bg-primary">S</Avatar>
-                <Avatar className="bg-secondary">M</Avatar>
-                <Avatar className="bg-accent">E</Avatar>
+                <InitialsAvatar className="bg-primary">S</InitialsAvatar>
+                <InitialsAvatar className="bg-secondary">M</InitialsAvatar>
+                <InitialsAvatar className="bg-accent">E</InitialsAvatar>
                 <span className="flex size-9 items-center justify-center rounded-full border-2 border-background bg-muted text-sm">
                   +1
                 </span>

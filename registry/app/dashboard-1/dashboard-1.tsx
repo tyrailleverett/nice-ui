@@ -39,6 +39,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import {
   Select,
@@ -396,7 +397,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
           </CardHeader>
           <CardContent className="flex flex-col gap-3 px-0">
             <div className="flex flex-col justify-between gap-2 px-4 sm:flex-row">
-              <label
+              <Label
                 className="relative max-w-sm flex-1"
                 htmlFor="exception-search"
               >
@@ -409,7 +410,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
                   placeholder="Search orders…"
                   value={query}
                 />
-              </label>
+              </Label>
               <Button aria-label="More actions" size="icon" variant="outline">
                 <EllipsisIcon />
               </Button>

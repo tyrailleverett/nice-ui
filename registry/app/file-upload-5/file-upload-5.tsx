@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import {
   type FileMetadata,
   type FileWithPreview,
@@ -258,12 +259,7 @@ export function FileUpload5({
                       </Button>
                     </div>
                     {file.status === "uploading" && (
-                      <div className="mt-2 h-1 overflow-hidden rounded-full bg-muted">
-                        <div
-                          className="h-full rounded-full bg-primary transition-all"
-                          style={{ width: `${file.progress}%` }}
-                        />
-                      </div>
+                      <Progress className="mt-2" value={file.progress} />
                     )}
                     {file.status === "error" && (
                       <div className="mt-2 flex items-center justify-between gap-2 rounded-md border border-destructive/30 bg-destructive/5 px-2 py-1 text-destructive text-xs">

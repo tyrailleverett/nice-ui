@@ -7,6 +7,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 export function FacebookIcon(props: ComponentProps<"svg">) {
@@ -141,9 +142,7 @@ export function Footer5({
               {description}
             </p>
             <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-              <label className="font-medium text-sm" htmlFor="footer-5-email">
-                {newsletterLabel}
-              </label>
+              <Label htmlFor="footer-5-email">{newsletterLabel}</Label>
               <div className="flex gap-2">
                 <Input
                   className="h-9"

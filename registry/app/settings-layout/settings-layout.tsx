@@ -51,13 +51,13 @@ function SettingsNavigation({
         const isActive = item.id === activeItem;
 
         return (
-          <button
+          <Button
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "group flex shrink-0 items-center gap-3 text-left font-medium text-sm outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50",
+              "shrink-0 justify-start font-medium text-sm",
               orientation === "sidebar"
-                ? "min-h-10 rounded-lg px-3 text-muted-foreground hover:bg-muted hover:text-foreground"
-                : "relative min-h-12 gap-2 px-3 text-muted-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-0.5 after:scale-x-0 after:bg-foreground after:transition-transform hover:text-foreground",
+                ? "h-10 px-3 text-muted-foreground"
+                : "relative h-12 rounded-none px-3 text-muted-foreground after:absolute after:inset-x-2 after:bottom-0 after:h-0.5 after:scale-x-0 after:bg-foreground after:transition-transform",
               isActive &&
                 (orientation === "sidebar"
                   ? "bg-muted text-foreground ring-1 ring-foreground/10"
@@ -66,11 +66,11 @@ function SettingsNavigation({
             data-item-id={item.id}
             key={item.id}
             onClick={handleItemClick}
-            type="button"
+            variant="ghost"
           >
-            {Icon ? <Icon aria-hidden="true" className="size-4" /> : null}
+            {Icon ? <Icon aria-hidden="true" /> : null}
             {item.label}
-          </button>
+          </Button>
         );
       })}
     </nav>

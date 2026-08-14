@@ -17,6 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Spinner } from "@/components/ui/spinner";
 import {
   type FileMetadata,
   type FileWithPreview,
@@ -58,7 +59,7 @@ function UploadStatusGlyph({ status }: { status: UploadStatus }) {
     return <CheckIcon aria-hidden="true" />;
   }
   return (
-    <span className="size-3 animate-spin rounded-full border-2 border-muted-foreground border-t-transparent" />
+    <Spinner aria-label="Uploading" className="size-3 text-muted-foreground" />
   );
 }
 

@@ -404,7 +404,7 @@
       "type": "registry:block",
       "title": "Newsletter Status",
       "description": "Marketing footer with brand copy, newsletter signup, social icons, multi-column links, and system status.",
-      "registryDependencies": ["button", "input"],
+      "registryDependencies": ["button", "input", "label"],
       "files": [
         {
           "path": "footer-5/footer-5.tsx",

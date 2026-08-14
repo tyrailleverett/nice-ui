@@ -52,14 +52,14 @@ export function FileUpload2({ className }: FileUpload2Props) {
             >
               {file.file.name}
             </p>
-            <button
+            <Button
               aria-label={`Remove ${file.file.name}`}
-              className="font-medium text-destructive hover:underline"
+              className="h-auto p-0 text-destructive"
               onClick={() => removeFile(file.id)}
-              type="button"
+              variant="link"
             >
               Remove
-            </button>
+            </Button>
           </>
         ) : (
           <p aria-live="polite" className="text-muted-foreground">

@@ -172,17 +172,18 @@ export function Dashboard3({ className }: Dashboard3Props) {
               ["Total LLM cost", "$7,258"],
               ["Avg. LLM cost", "$0.09"],
             ].map(([label, value], index) => (
-              <button
-                className="flex min-h-20 flex-col justify-center gap-1 border-r px-4 text-left transition-colors hover:bg-muted/50"
+              <Button
+                className="h-auto min-h-20 flex-col items-start justify-center gap-1 rounded-none border-r px-4"
                 key={label}
                 type="button"
+                variant="ghost"
               >
                 <span className="text-muted-foreground text-sm">{label}</span>
                 <strong>{value}</strong>
                 {index === 0 ? (
                   <span className="mt-auto h-0.5 w-full bg-primary" />
                 ) : null}
-              </button>
+              </Button>
             ))}
           </CardHeader>
           <CardContent className="p-4 sm:p-6">

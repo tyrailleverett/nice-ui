@@ -1,6 +1,7 @@
 import { CheckIcon, MoreVerticalIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { AvatarStack } from "@/components/app/cards-shared";
+import { Button } from "@/components/ui/button";
 
 export interface IntegrationCardProps {
   description?: string;
@@ -23,13 +24,14 @@ export function IntegrationCard({
         <span className="card-status">
           <CheckIcon aria-hidden="true" /> Live
         </span>
-        <button
+        <Button
           aria-label="More integration options"
-          className="icon-button"
+          size="icon"
           type="button"
+          variant="ghost"
         >
-          <MoreVerticalIcon aria-hidden="true" />
-        </button>
+          <MoreVerticalIcon />
+        </Button>
         {icon ? <span className="integration-logo">{icon}</span> : null}
       </div>
       <div className="integration-panel">
@@ -42,13 +44,14 @@ export function IntegrationCard({
           <AvatarStack count={6} />
         </div>
         <div className="integration-footer">
-          <button
-            className="card-action card-action-center"
+          <Button
+            className="h-auto min-h-14 w-full rounded-none"
             onClick={onGuide}
             type="button"
+            variant="ghost"
           >
             Integration guide
-          </button>
+          </Button>
         </div>
       </div>
     </article>

@@ -136,9 +136,10 @@
         "avatar",
         "badge",
         "button",
-        "card",
-        "kbd",
-        "sidebar"
+        "dropdown-menu",
+        "input",
+        "pagination",
+        "table"
       ],
       "files": [
         {
@@ -259,6 +260,7 @@
         "card",
         "chart",
         "input",
+        "label",
         "progress",
         "select",
         "table",
@@ -350,6 +352,7 @@
       "registryDependencies": [
         "button",
         "card",
+        "spinner",
         "tyrailleverett/nice-ui/use-file-upload"
       ],
       "files": [
@@ -588,7 +591,7 @@
       "title": "Password Input",
       "description": "Password field with visibility toggle and an optional focus-revealed strength indicator.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["input-group", "label"],
+      "registryDependencies": ["input-group", "label", "progress"],
       "files": [
         {
           "path": "auth/password-input/password-input.tsx",

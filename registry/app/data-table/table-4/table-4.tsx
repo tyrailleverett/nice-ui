@@ -26,6 +26,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+} from "@/components/ui/pagination";
+import {
   Table,
   TableBody,
   TableCell,
@@ -409,10 +414,10 @@ export function Table4({ className }: Table4Props) {
                   key={`${stage}-group`}
                 >
                   <TableCell colSpan={7}>
-                    <button
-                      className="flex w-full items-center gap-3 text-left"
+                    <Button
+                      className="h-auto w-full justify-start gap-3"
                       onClick={() => toggleStage(stage)}
-                      type="button"
+                      variant="ghost"
                     >
                       <span
                         className={cn(
@@ -430,7 +435,7 @@ export function Table4({ className }: Table4Props) {
                       <span className="ml-auto text-muted-foreground text-sm">
                         {stageCopy[stage]}
                       </span>
-                    </button>
+                    </Button>
                   </TableCell>
                 </TableRow>
                 {!collapsed.has(stage) &&
@@ -510,35 +515,47 @@ export function Table4({ className }: Table4Props) {
             ))}
           </TableBody>
         </Table>
-        <footer className="flex items-center justify-end gap-2 border-border border-t py-3 text-muted-foreground text-sm">
-          <span>
-            {page * pageSize + 1}–
-            {Math.min((page + 1) * pageSize, filtered.length)} of{" "}
-            {filtered.length}
-          </span>
-          <Button
-            aria-label="Previous page"
-            disabled={page === 0}
-            onClick={() => setPage((value) => Math.max(0, value - 1))}
-            size="icon-sm"
-            variant="ghost"
-          >
-            <ChevronLeftIcon />
-          </Button>
-          <span className="rounded-md bg-muted px-3 py-1 text-foreground">
-            {page + 1}
-          </span>
-          <Button
-            aria-label="Next page"
-            disabled={page >= pageCount - 1}
-            onClick={() =>
-              setPage((value) => Math.min(pageCount - 1, value + 1))
-            }
-            size="icon-sm"
-            variant="ghost"
-          >
-            <ChevronRightIcon />
-          </Button>
+        <footer className="flex items-center justify-end border-border border-t py-3 text-muted-foreground text-sm">
+          <Pagination className="w-auto">
+            <PaginationContent>
+              <PaginationItem>
+                <span className="px-2">
+                  {page * pageSize + 1}–
+                  {Math.min((page + 1) * pageSize, filtered.length)} of{" "}
+                  {filtered.length}
+                </span>
+              </PaginationItem>
+              <PaginationItem>
+                <Button
+                  aria-label="Previous page"
+                  disabled={page === 0}
+                  onClick={() => setPage((value) => Math.max(0, value - 1))}
+                  size="icon-sm"
+                  variant="ghost"
+                >
+                  <ChevronLeftIcon />
+                </Button>
+              </PaginationItem>
+              <PaginationItem>
+                <span className="rounded-md bg-muted px-3 py-1 text-foreground">
+                  {page + 1}
+                </span>
+              </PaginationItem>
+              <PaginationItem>
+                <Button
+                  aria-label="Next page"
+                  disabled={page >= pageCount - 1}
+                  onClick={() =>
+                    setPage((value) => Math.min(pageCount - 1, value + 1))
+                  }
+                  size="icon-sm"
+                  variant="ghost"
+                >
+                  <ChevronRightIcon />
+                </Button>
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
         </footer>
       </div>
     </section>

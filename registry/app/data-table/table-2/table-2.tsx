@@ -478,10 +478,10 @@ export function Table2({ className }: Table2Props) {
                   Invoice
                 </TableHead>
                 <TableHead>
-                  <button
-                    className="inline-flex items-center gap-1 font-semibold text-xs uppercase"
+                  <Button
+                    className="h-auto p-0 font-semibold text-xs uppercase"
                     onClick={() => toggleSort("client")}
-                    type="button"
+                    variant="ghost"
                   >
                     Client{" "}
                     <SortIcon
@@ -489,7 +489,7 @@ export function Table2({ className }: Table2Props) {
                         sort.key === "client" ? sort.direction : undefined
                       }
                     />
-                  </button>
+                  </Button>
                 </TableHead>
                 <TableHead className="hidden font-semibold text-xs uppercase sm:table-cell">
                   Project
@@ -498,10 +498,10 @@ export function Table2({ className }: Table2Props) {
                   Method
                 </TableHead>
                 <TableHead className="hidden font-semibold text-xs uppercase md:table-cell">
-                  <button
-                    className="inline-flex items-center gap-1"
+                  <Button
+                    className="h-auto p-0"
                     onClick={() => toggleSort("due")}
-                    type="button"
+                    variant="ghost"
                   >
                     Due{" "}
                     <SortIcon
@@ -509,16 +509,16 @@ export function Table2({ className }: Table2Props) {
                         sort.key === "due" ? sort.direction : undefined
                       }
                     />
-                  </button>
+                  </Button>
                 </TableHead>
                 <TableHead className="font-semibold text-xs uppercase">
                   Status
                 </TableHead>
                 <TableHead className="text-right">
-                  <button
-                    className="inline-flex items-center gap-1 font-semibold text-xs uppercase"
+                  <Button
+                    className="h-auto p-0 font-semibold text-xs uppercase"
                     onClick={() => toggleSort("amount")}
-                    type="button"
+                    variant="ghost"
                   >
                     Amount{" "}
                     <SortIcon
@@ -526,7 +526,7 @@ export function Table2({ className }: Table2Props) {
                         sort.key === "amount" ? sort.direction : undefined
                       }
                     />
-                  </button>
+                  </Button>
                 </TableHead>
                 <TableHead className="w-10 pr-4">
                   <span className="sr-only">Actions</span>

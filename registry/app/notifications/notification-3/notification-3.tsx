@@ -6,6 +6,7 @@ import {
   Triangle,
 } from "lucide-react";
 import { useCallback, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 function BuildIcon({ index }: { index: number }) {
@@ -93,14 +94,15 @@ export function Notification3({ className }: Notification3Props) {
                 {failed ? "Failed" : "Passed"}
                 <span className="text-muted-foreground">{duration}</span>
                 {failed ? (
-                  <button
-                    className="absolute mt-24 ml-16 rounded-2xl border-8 border-muted bg-background px-4 py-2 text-foreground"
+                  <Button
+                    className="absolute mt-24 ml-16 h-auto rounded-2xl border-8 border-muted"
                     onClick={retry}
                     type="button"
+                    variant="outline"
                   >
-                    <RotateCcw className="mr-2 inline" size={18} />
+                    <RotateCcw data-icon="inline-start" />
                     Retry
-                  </button>
+                  </Button>
                 ) : null}
               </div>
             </article>
@@ -111,9 +113,9 @@ export function Notification3({ className }: Notification3Props) {
         <span>
           <Clock3 className="mr-2 inline" size={18} />5 Recent Builds
         </span>
-        <button className="hover:text-white" type="button">
+        <Button className="h-auto p-0" type="button" variant="link">
           View All
-        </button>
+        </Button>
       </footer>
     </section>
   );

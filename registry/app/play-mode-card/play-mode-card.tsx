@@ -1,6 +1,7 @@
 import { ZapIcon } from "lucide-react";
 
 import "@/components/app/cards-shared";
+import { Button } from "@/components/ui/button";
 
 export interface PlayModeCardProps {
   onTryDemo?: () => void;
@@ -20,13 +21,9 @@ export function PlayModeCard({ onTryDemo }: PlayModeCardProps) {
         <br />
         and respond with precision
       </p>
-      <button
-        className="button button-primary play-button"
-        onClick={onTryDemo}
-        type="button"
-      >
-        <ZapIcon aria-hidden="true" /> Try demo trading
-      </button>
+      <Button className="play-button" onClick={onTryDemo} type="button">
+        <ZapIcon data-icon="inline-start" /> Try demo trading
+      </Button>
     </article>
   );
 }

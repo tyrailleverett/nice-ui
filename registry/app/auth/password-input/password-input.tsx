@@ -11,9 +11,11 @@ import {
 import {
   InputGroup,
   InputGroupAddon,
+  InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
+import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 
 const passwordRequirements = [
@@ -175,22 +177,23 @@ export function PasswordInput({
             type="text"
             value={password}
           />
-          <button
-            aria-label={isVisible ? "Hide password" : "Show password"}
-            aria-pressed={isVisible}
-            className="flex h-full w-9 shrink-0 items-center justify-center text-muted-foreground/80 outline-none transition hover:text-foreground focus-visible:text-foreground"
-            onBlur={handleBlur}
-            onClick={toggleVisibility}
-            onFocus={handleFocus}
-            onMouseDown={preventInputBlur}
-            type="button"
-          >
-            {isVisible ? (
-              <EyeOffIcon aria-hidden="true" className="size-4" />
-            ) : (
-              <EyeIcon aria-hidden="true" className="size-4" />
-            )}
-          </button>
+          <InputGroupAddon align="inline-end">
+            <InputGroupButton
+              aria-label={isVisible ? "Hide password" : "Show password"}
+              aria-pressed={isVisible}
+              onBlur={handleBlur}
+              onClick={toggleVisibility}
+              onFocus={handleFocus}
+              onMouseDown={preventInputBlur}
+              size="icon-sm"
+            >
+              {isVisible ? (
+                <EyeOffIcon aria-hidden="true" />
+              ) : (
+                <EyeIcon aria-hidden="true" />
+              )}
+            </InputGroupButton>
+          </InputGroupAddon>
         </InputGroup>
 
         {showStrengthIndicator ? (
@@ -211,24 +214,15 @@ export function PasswordInput({
                   !showIndicator && "pointer-events-none"
                 )}
               >
-                <div
+                <Progress
                   aria-label="Password strength"
-                  aria-valuemax={maxPasswordStrength}
-                  aria-valuemin={0}
-                  aria-valuenow={strengthScore}
-                  className="h-1 w-full overflow-hidden rounded-full bg-border"
-                  role="progressbar"
-                >
-                  <div
-                    className={cn(
-                      "h-full transition-all duration-500 ease-out",
-                      getPasswordStrengthColor(strengthScore)
-                    )}
-                    style={{
-                      width: `${(strengthScore / maxPasswordStrength) * 100}%`,
-                    }}
-                  />
-                </div>
+                  className="bg-border"
+                  indicatorClassName={cn(
+                    getPasswordStrengthColor(strengthScore),
+                    "duration-500 ease-out"
+                  )}
+                  value={(strengthScore / maxPasswordStrength) * 100}
+                />
                 <p className="font-medium text-sm" id={descriptionId}>
                   {getPasswordStrengthText(strengthScore)}. Must contain:
                 </p>

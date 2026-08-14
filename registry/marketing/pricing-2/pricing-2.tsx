@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
 export interface Pricing2Plan {
@@ -133,15 +134,6 @@ function annualSavingsPercent(plan: Pricing2Plan): number {
   return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100);
 }
 
-function toggleButtonClass(selected: boolean): string {
-  return cn(
-    "rounded-md px-5 py-2 font-medium text-sm transition-all",
-    selected
-      ? "bg-accent text-foreground"
-      : "text-muted-foreground hover:text-foreground"
-  );
-}
-
 function BillingIntervalToggle({
   isAnnual,
   onChange,
@@ -149,33 +141,29 @@ function BillingIntervalToggle({
   isAnnual: boolean;
   onChange: (isAnnual: boolean) => void;
 }) {
-  const selectMonthly = useCallback(() => {
-    onChange(false);
-  }, [onChange]);
-
-  const selectAnnual = useCallback(() => {
-    onChange(true);
-  }, [onChange]);
+  const handleValueChange = useCallback(
+    (value: string) => {
+      if (value === "monthly") {
+        onChange(false);
+        return;
+      }
+      if (value === "annual") {
+        onChange(true);
+      }
+    },
+    [onChange]
+  );
 
   return (
-    <div className="inline-flex rounded-lg border border-border bg-muted/50 p-1">
-      <button
-        aria-pressed={!isAnnual}
-        className={toggleButtonClass(!isAnnual)}
-        onClick={selectMonthly}
-        type="button"
-      >
-        Monthly
-      </button>
-      <button
-        aria-pressed={isAnnual}
-        className={toggleButtonClass(isAnnual)}
-        onClick={selectAnnual}
-        type="button"
-      >
-        Annually
-      </button>
-    </div>
+    <ToggleGroup
+      className="rounded-lg border border-border bg-muted/50 p-1"
+      onValueChange={handleValueChange}
+      type="single"
+      value={isAnnual ? "annual" : "monthly"}
+    >
+      <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
+      <ToggleGroupItem value="annual">Annually</ToggleGroupItem>
+    </ToggleGroup>
   );
 }
 

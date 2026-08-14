@@ -26,6 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Kbd } from "@/components/ui/kbd";
 import {
   Sidebar,
   SidebarContent,
@@ -290,9 +291,9 @@ export function AppShell2({
                 className="px-8"
                 placeholder="Search..."
               />
-              <kbd className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2 rounded border bg-muted px-1.5 py-0.5 text-muted-foreground text-xs">
+              <Kbd className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2">
                 ⌘K
-              </kbd>
+              </Kbd>
             </div>
           </SidebarHeader>
           <SidebarContent>

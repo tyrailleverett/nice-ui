@@ -12,6 +12,7 @@ const GRID_CELLS = [
   "cell-8",
 ] as const;
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export interface Cta6Props {
@@ -72,16 +73,17 @@ export function Cta6({
                 {description ? (
                   <p className="text-muted-foreground text-sm">{description}</p>
                 ) : null}
-                <button
-                  className="inline-flex max-w-full items-center gap-2 rounded-lg border bg-card px-3 py-2 font-mono text-xs sm:text-sm"
+                <Button
+                  className="h-auto max-w-full gap-2 font-mono text-xs sm:text-sm"
                   onClick={copyCommand}
                   type="button"
+                  variant="outline"
                 >
                   <span className="text-muted-foreground">$</span>
                   <span className="truncate">
                     {copied ? "Copied" : (command ?? "")}
                   </span>
-                </button>
+                </Button>
               </>
             ) : null}
           </div>

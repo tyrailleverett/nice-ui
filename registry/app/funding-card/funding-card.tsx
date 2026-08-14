@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 
 import "@/components/app/cards-shared";
+import { Button } from "@/components/ui/button";
 
 export interface FundingCardProps {
   onProposal?: () => void;
@@ -52,13 +53,14 @@ export function FundingCard({ onProposal }: FundingCardProps) {
           </div>
         ))}
       </div>
-      <button
-        className="card-action card-action-center"
+      <Button
+        className="h-auto min-h-14 w-full rounded-none"
         onClick={onProposal}
         type="button"
+        variant="ghost"
       >
-        <MessageSquareIcon aria-hidden="true" /> Send funding proposal
-      </button>
+        <MessageSquareIcon data-icon="inline-start" /> Send funding proposal
+      </Button>
     </article>
   );
 }

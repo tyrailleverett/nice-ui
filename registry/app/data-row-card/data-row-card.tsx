@@ -1,5 +1,6 @@
 import { Clock3Icon, Globe2Icon, MailIcon } from "lucide-react";
 import { AvatarStack } from "@/components/app/cards-shared";
+import { Button } from "@/components/ui/button";
 
 export interface DataRowCardProps {
   branch?: string;
@@ -42,10 +43,15 @@ export function DataRowCard({
         </div>
         <div>
           <span className="data-label">Email</span>
-          <button className="data-link" onClick={onPreview} type="button">
-            <MailIcon aria-hidden="true" />
+          <Button
+            className="data-link h-auto p-0"
+            onClick={onPreview}
+            type="button"
+            variant="link"
+          >
+            <MailIcon data-icon="inline-start" />
             {email}
-          </button>
+          </Button>
         </div>
         <div>
           <span className="data-label">Domain</span>

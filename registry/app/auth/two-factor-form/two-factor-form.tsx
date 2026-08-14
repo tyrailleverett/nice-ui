@@ -97,13 +97,9 @@ export function TwoFactorForm({
         </Button>
 
         <p className="text-center text-muted-foreground text-sm">
-          <button
-            className="text-primary hover:text-primary/80"
-            onClick={toggleMode}
-            type="button"
-          >
+          <Button className="h-auto p-0" onClick={toggleMode} variant="link">
             {toggleLabel}
-          </button>
+          </Button>
         </p>
 
         <p className="text-center text-muted-foreground text-sm">

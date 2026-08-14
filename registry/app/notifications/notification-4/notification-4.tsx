@@ -1,6 +1,15 @@
 import { FileImage, FileText, ImagePlus, Send, X } from "lucide-react";
 import { type ChangeEvent, useCallback, useState } from "react";
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
 
 export interface Notification4Props {
@@ -14,15 +23,11 @@ interface ActivityAvatarProps {
 
 function ActivityAvatar({ initials, className }: ActivityAvatarProps) {
   return (
-    <span
-      aria-hidden="true"
-      className={cn(
-        "flex size-16 shrink-0 items-center justify-center rounded-full border border-border bg-muted font-semibold text-foreground text-lg",
-        className
-      )}
-    >
-      {initials}
-    </span>
+    <Avatar className={cn("size-16 border border-border", className)}>
+      <AvatarFallback className="bg-muted font-semibold text-foreground text-lg">
+        {initials}
+      </AvatarFallback>
+    </Avatar>
   );
 }
 
@@ -38,16 +43,14 @@ export function Notification4({ className }: Notification4Props) {
 
   if (!isOpen) {
     return (
-      <button
-        className={cn(
-          "rounded-lg border border-border bg-background px-4 py-2 text-foreground text-sm",
-          className
-        )}
+      <Button
+        className={className}
         onClick={reopenActivity}
         type="button"
+        variant="outline"
       >
         Open activity
-      </button>
+      </Button>
     );
   }
 
@@ -61,14 +64,15 @@ export function Notification4({ className }: Notification4Props) {
     >
       <header className="flex items-center justify-between border-border border-b px-8 py-6">
         <h2 className="font-medium text-[32px] tracking-[-0.04em]">Activity</h2>
-        <button
+        <Button
           aria-label="Close activity"
-          className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           onClick={closeActivity}
+          size="icon"
           type="button"
+          variant="ghost"
         >
-          <X size={28} />
-        </button>
+          <X />
+        </Button>
       </header>
 
       <div>
@@ -90,32 +94,26 @@ export function Notification4({ className }: Notification4Props) {
                   @ShadcnStudio For an expert opinion, check out what Mike has
                   to say on this topic!
                 </p>
-                <label className="mt-7 flex items-center gap-3 rounded-xl border border-border bg-background px-5 py-4 shadow-sm">
-                  <span className="sr-only">Reply to Joe Lincoln</span>
-                  <input
-                    className="min-w-0 flex-1 bg-transparent text-[22px] outline-none placeholder:text-muted-foreground"
+                <InputGroup className="mt-7 h-auto">
+                  <InputGroupInput
+                    aria-label="Reply to Joe Lincoln"
+                    className="h-auto py-4 text-[22px]"
                     onChange={updateReply}
                     placeholder="Reply"
                     type="text"
                     value={reply}
                   />
-                  <button
-                    aria-label="Attach image"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                    type="button"
-                  >
-                    <ImagePlus size={24} />
-                  </button>
-                  {reply ? (
-                    <button
-                      aria-label="Send reply"
-                      className="text-primary transition-colors hover:text-primary/80"
-                      type="button"
-                    >
-                      <Send size={22} />
-                    </button>
-                  ) : null}
-                </label>
+                  <InputGroupAddon align="inline-end">
+                    <InputGroupButton aria-label="Attach image" size="icon-sm">
+                      <ImagePlus />
+                    </InputGroupButton>
+                    {reply ? (
+                      <InputGroupButton aria-label="Send reply" size="icon-sm">
+                        <Send />
+                      </InputGroupButton>
+                    ) : null}
+                  </InputGroupAddon>
+                </InputGroup>
               </div>
             </div>
           </div>
@@ -134,16 +132,17 @@ export function Notification4({ className }: Notification4Props) {
               <p className="mt-2 text-[22px] text-muted-foreground">
                 39 mins ago
               </p>
-              <button
-                className="mt-6 inline-flex items-center gap-3 rounded-xl bg-muted px-3 py-2 text-[22px] transition-colors hover:bg-accent"
+              <Button
+                className="mt-6 h-auto gap-3 rounded-xl bg-muted px-3 py-2 text-[22px]"
                 type="button"
+                variant="ghost"
               >
                 <span className="flex size-8 items-center justify-center rounded-md bg-destructive font-bold text-destructive-foreground text-xs">
                   pdf
                 </span>
-                <FileText className="text-muted-foreground" size={20} />
+                <FileText />
                 invoices.pdf
-              </button>
+              </Button>
             </div>
           </div>
         </article>
@@ -161,15 +160,16 @@ export function Notification4({ className }: Notification4Props) {
               <p className="mt-2 text-[22px] text-muted-foreground">
                 1 hour ago
               </p>
-              <button
-                className="mt-6 flex w-full items-center gap-6 rounded-2xl border border-border bg-muted/50 px-6 py-5 text-left text-[24px] transition-colors hover:bg-muted"
+              <Button
+                className="mt-6 h-auto w-full justify-start gap-6 rounded-2xl px-6 py-5 text-[24px]"
                 type="button"
+                variant="outline"
               >
                 <span className="flex size-16 items-center justify-center rounded-xl bg-background text-primary shadow-sm">
-                  <FileImage size={30} />
+                  <FileImage />
                 </span>
                 Launcher-UIKit.fig
-              </button>
+              </Button>
             </div>
           </div>
         </article>
@@ -205,15 +205,15 @@ export function Notification4({ className }: Notification4Props) {
                 8 hours ago
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <span className="rounded-lg bg-muted px-3 py-1 text-lg">
+                <Badge className="px-3 py-1 text-lg" variant="secondary">
                   Client-Request
-                </span>
-                <span className="rounded-lg bg-primary/10 px-3 py-1 text-lg text-primary">
+                </Badge>
+                <Badge className="bg-primary/10 px-3 py-1 text-lg text-primary">
                   Figma
-                </span>
-                <span className="rounded-lg bg-accent px-3 py-1 text-accent-foreground text-lg">
+                </Badge>
+                <Badge className="px-3 py-1 text-lg" variant="outline">
                   Redesign
-                </span>
+                </Badge>
               </div>
             </div>
           </div>

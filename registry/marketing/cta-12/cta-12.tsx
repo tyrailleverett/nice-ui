@@ -50,16 +50,16 @@ function ActionLink({
 }) {
   if (action.href) {
     return (
-      <a className={className} href={action.href}>
-        {children}
-      </a>
+      <Button asChild className={className} variant="link">
+        <a href={action.href}>{children}</a>
+      </Button>
     );
   }
 
   return (
-    <button className={className} type="button">
+    <Button className={className} type="button" variant="link">
       {children}
-    </button>
+    </Button>
   );
 }
 

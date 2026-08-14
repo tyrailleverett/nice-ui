@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
 export interface PageHeader3Props {
@@ -37,8 +38,11 @@ export function PageHeader3({
   const [view, setView] = useState<ViewMode>("list");
   const ActionIcon = primaryAction?.icon;
 
-  const showList = useCallback(() => setView("list"), []);
-  const showGrid = useCallback(() => setView("grid"), []);
+  const handleViewChange = useCallback((value: string) => {
+    if (value === "list" || value === "grid") {
+      setView(value);
+    }
+  }, []);
 
   return (
     <section
@@ -116,36 +120,28 @@ export function PageHeader3({
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <div className="flex overflow-hidden rounded-lg border border-border">
-              <button
+            <ToggleGroup
+              className="overflow-hidden rounded-lg border border-border"
+              onValueChange={handleViewChange}
+              spacing={0}
+              type="single"
+              value={view}
+            >
+              <ToggleGroupItem
                 aria-label="List view"
-                aria-pressed={view === "list"}
-                className={cn(
-                  "flex size-8 items-center justify-center transition-colors",
-                  view === "list"
-                    ? "bg-foreground text-background"
-                    : "text-muted-foreground hover:bg-muted/60"
-                )}
-                onClick={showList}
-                type="button"
+                className="size-8 rounded-none"
+                value="list"
               >
-                <ListIcon aria-hidden="true" className="size-4" />
-              </button>
-              <button
+                <ListIcon />
+              </ToggleGroupItem>
+              <ToggleGroupItem
                 aria-label="Grid view"
-                aria-pressed={view === "grid"}
-                className={cn(
-                  "flex size-8 items-center justify-center border-border border-l transition-colors",
-                  view === "grid"
-                    ? "bg-foreground text-background"
-                    : "text-muted-foreground hover:bg-muted/60"
-                )}
-                onClick={showGrid}
-                type="button"
+                className="size-8 rounded-none"
+                value="grid"
               >
-                <LayoutGridIcon aria-hidden="true" className="size-4" />
-              </button>
-            </div>
+                <LayoutGridIcon />
+              </ToggleGroupItem>
+            </ToggleGroup>
           </div>
         </div>
       </div>
