@@ -633,6 +633,19 @@
       ]
     },
     {
+      "name": "feature-14",
+      "type": "registry:block",
+      "title": "Split Headline List",
+      "description": "Two-column feature section with a two-tone headline on the left and a stacked title-and-copy list on the right.",
+      "files": [
+        {
+          "path": "feature-14/feature-14.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/feature-14.tsx"
+        }
+      ]
+    },
+    {
       "name": "header-1",
       "type": "registry:block",
       "title": "Compact Sticky",
