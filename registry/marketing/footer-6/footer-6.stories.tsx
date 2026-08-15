@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/react-vite";
+import { expect } from "storybook/test";
 
 import {
   DiscordIcon,
@@ -63,3 +64,14 @@ const socialLinks = [
 export const WatermarkCard: StoryFn = () => (
   <Footer6Block groups={groups} socialLinks={socialLinks} />
 );
+
+WatermarkCard.play = async ({ canvas, canvasElement }) => {
+  await expect(canvas.getByRole("link", { name: "Blocks" })).toBeVisible();
+  await expect(canvas.getByRole("link", { name: "LinkedIn" })).toBeVisible();
+  await expect(
+    canvas.getByRole("link", { name: "Terms of Service" })
+  ).toBeVisible();
+  await expect(
+    canvasElement.querySelector("[data-slot='footer-watermark-space']")
+  ).toBeTruthy();
+};

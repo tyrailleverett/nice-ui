@@ -66,49 +66,11 @@ export interface Footer6Props {
   legalLinks?: Footer6Link[];
   socialLinks?: Footer6SocialLink[];
   statusLabel?: string;
-  watermark?: ReactNode;
-  watermarkText?: string;
-}
-
-function FooterWatermark({ text }: { text: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className="mask-[linear-gradient(to_bottom,black_6%,black_34%,transparent_80%)] pointer-events-none relative -mx-6 w-[calc(100%+3rem)] overflow-hidden sm:-mx-10 sm:w-[calc(100%+5rem)]"
-    >
-      <svg
-        aria-hidden="true"
-        className="block h-auto w-full text-foreground/30"
-        preserveAspectRatio="xMidYMid meet"
-        viewBox="0 0 1200 240"
-      >
-        <title>{text}</title>
-        <text
-          fill="none"
-          lengthAdjust="spacingAndGlyphs"
-          stroke="currentColor"
-          strokeWidth="3.5"
-          style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: 210,
-            fontWeight: 600,
-          }}
-          textLength="1152"
-          x="24"
-          y="198"
-        >
-          {text}
-        </text>
-      </svg>
-    </div>
-  );
 }
 
 export function Footer6({
   groups,
   socialLinks,
-  watermark,
-  watermarkText = "Nice UI",
   legalLinks = [
     { href: "#", label: "Terms of Service" },
     { href: "#", label: "Privacy Policy" },
@@ -161,9 +123,11 @@ export function Footer6({
             ) : null}
           </div>
 
-          <div className="mt-10 -mb-3">
-            {watermark ?? <FooterWatermark text={watermarkText} />}
-          </div>
+          <div
+            aria-hidden="true"
+            className="mt-10 -mb-3 aspect-[5/1] w-full"
+            data-slot="footer-watermark-space"
+          />
 
           <div className="flex flex-col gap-3 border-t pt-5 pb-6 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between sm:pb-8">
             <div className="flex flex-wrap items-center gap-4">

@@ -571,7 +571,7 @@
       "name": "footer-6",
       "type": "registry:block",
       "title": "Watermark Card",
-      "description": "Card-style marketing footer with uppercase link columns, social buttons, outlined watermark, and status.",
+      "description": "Card-style marketing footer with uppercase link columns, social buttons, and status.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "button",
@@ -1537,6 +1537,40 @@
           "type": "registry:component",
           "target": "~/components/marketing/changelog-2.tsx"
         }
+      ]
+    },
+    {
+      "name": "terms-of-service-1",
+      "type": "registry:block",
+      "title": "Terms of Service",
+      "description": "Editorial marketing legal page with metadata, contents navigation, and configurable sections.",
+      "files": [
+        {
+          "path": "terms-of-service-1/terms-of-service-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/terms-of-service-1.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ]
+    },
+    {
+      "name": "privacy-policy-1",
+      "type": "registry:block",
+      "title": "Privacy Policy",
+      "description": "Editorial marketing privacy page with metadata, contents navigation, and configurable sections.",
+      "files": [
+        {
+          "path": "privacy-policy-1/privacy-policy-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/privacy-policy-1.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
       ]
     },
     {
