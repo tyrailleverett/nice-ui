@@ -73,7 +73,7 @@ export function LogoCloud1({
           >
             <img
               alt={logo.alt}
-              className="pointer-events-none block h-4 w-auto select-none md:h-5 dark:brightness-0 dark:invert"
+              className="pointer-events-none block max-h-5 max-w-20 select-none object-contain dark:brightness-0 dark:invert"
               height={20}
               loading="lazy"
               src={logo.src}
