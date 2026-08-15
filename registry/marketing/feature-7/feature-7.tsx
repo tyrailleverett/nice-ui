@@ -54,7 +54,7 @@ const defaultHighlights: Feature7Highlight[] = [
 export function Feature7({
   title = (
     <>
-      <span className="text-foreground">Your stack, connected.</span>
+      Your stack, connected.
       <br /> Git sync or AI agents, your way.
     </>
   ),
@@ -81,7 +81,7 @@ export function Feature7({
     <MarketingSection className={className}>
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl space-y-12 px-6">
-          <h2 className="relative z-10 max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground lg:text-5xl">
+          <h2 className="relative z-10 max-w-4xl text-balance font-display-heading text-4xl text-primary lg:text-5xl">
             {title}
           </h2>
           <div className="relative -mx-6 overflow-hidden px-3 pt-3 md:-mx-8">

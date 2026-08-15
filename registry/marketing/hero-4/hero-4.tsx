@@ -18,17 +18,11 @@ export interface Hero4Image {
   src: string;
 }
 
-export interface Hero4Logo {
-  alt: string;
-  src: string;
-}
-
 export interface Hero4Props {
   announcement?: Hero4Announcement | null;
   className?: string;
   darkScreenshot?: Hero4Image;
   description?: string;
-  logos?: Hero4Logo[];
   primaryCta?: Hero4Action | null;
   screenshot?: Hero4Image;
   title?: string;
@@ -50,33 +44,6 @@ function PrimaryCtaButton({ action }: { action: Hero4Action }) {
   return <Button className="w-fit">{action.label}</Button>;
 }
 
-const defaultLogos: Hero4Logo[] = [
-  {
-    alt: "Vercel",
-    src: "https://svgl.app/library/vercel_wordmark.svg",
-  },
-  {
-    alt: "Supabase",
-    src: "https://svgl.app/library/supabase_wordmark_light.svg",
-  },
-  {
-    alt: "OpenAI",
-    src: "https://svgl.app/library/openai_wordmark_light.svg",
-  },
-  {
-    alt: "GitHub",
-    src: "https://svgl.app/library/github_wordmark_light.svg",
-  },
-  {
-    alt: "Claude",
-    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
-  },
-  {
-    alt: "Clerk",
-    src: "https://svgl.app/library/clerk-wordmark-light.svg",
-  },
-];
-
 export function Hero4({
   announcement = {
     eyebrow: "New",
@@ -94,7 +61,6 @@ export function Hero4({
     alt: "Product dashboard",
     src: "/screenshots/canvas-dark.png",
   },
-  logos = defaultLogos,
   className,
 }: Hero4Props) {
   return (
@@ -157,21 +123,6 @@ export function Hero4({
                 </div>
               </div>
             </div>
-
-            {logos.length ? (
-              <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-8 px-6 pb-16">
-                {logos.map((logo) => (
-                  <img
-                    alt={logo.alt}
-                    className="pointer-events-none h-5 w-auto select-none dark:brightness-0 dark:invert"
-                    height={20}
-                    key={logo.alt}
-                    src={logo.src}
-                    width={80}
-                  />
-                ))}
-              </div>
-            ) : null}
           </div>
         </div>
       </section>

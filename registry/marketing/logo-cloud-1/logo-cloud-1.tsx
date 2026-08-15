@@ -57,10 +57,8 @@ export function LogoCloud1({
     <MarketingSection className={className} padded>
       <section className="space-y-5 px-4">
         {title || highlight ? (
-          <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">
-            {title ? (
-              <span className="text-muted-foreground">{title}</span>
-            ) : null}{" "}
+          <h2 className="text-center font-heading font-semibold text-lg text-primary md:text-2xl">
+            {title ? <span>{title}</span> : null}{" "}
             {highlight ? (
               <span className="text-primary">{highlight}</span>
             ) : null}
@@ -74,7 +72,7 @@ export function LogoCloud1({
             >
               <img
                 alt={logo.alt}
-                className="pointer-events-none block max-h-5 max-w-20 select-none object-contain dark:brightness-0 dark:invert"
+                className="pointer-events-none block h-auto max-h-5 w-auto max-w-20 select-none object-contain dark:brightness-0 dark:invert"
                 height={20}
                 loading="lazy"
                 src={logo.src}

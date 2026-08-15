@@ -44,9 +44,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
-const hatchClassName =
-  "bg-[repeating-linear-gradient(-45deg,transparent,transparent_10px,rgba(194,112,38,0.12)_10px,rgba(194,112,38,0.12)_11px)]";
-
 const serviceNavigation: Array<{ icon: LucideIcon; label: string }> = [
   { icon: GaugeIcon, label: "Dashboard" },
   { icon: CalendarDaysIcon, label: "Booking" },
@@ -74,10 +71,7 @@ function WorkspaceCanvas({ children }: { children?: ReactNode }) {
   return (
     <section
       aria-label="Kiln workspace"
-      className={cn(
-        "min-h-112 flex-1 rounded-[1.1rem] border border-[#e5d8c5] bg-[#fbf8f2] shadow-[0_12px_30px_-24px_rgba(122,74,25,0.6)]",
-        hatchClassName
-      )}
+      className="min-h-112 flex-1 rounded-xl border border-border bg-card"
     />
   );
 }
@@ -183,15 +177,15 @@ export function AppShell8({
   );
 
   return (
-    <div className="flex min-h-svh flex-col bg-[#f4f1ea] text-[#282522]">
-      <header className="border-[#e5d8c5] border-b bg-[#fbf8f2]">
-        <div className="grid items-center gap-3 border-[#c27026] border-t-2 px-4 py-3 md:grid-cols-[1fr_minmax(12rem,28rem)_1fr]">
+    <div className="flex min-h-svh flex-col bg-background text-foreground">
+      <header className="border-border border-b bg-card">
+        <div className="grid items-center gap-3 border-primary border-t-2 px-4 py-3 md:grid-cols-[1fr_minmax(12rem,28rem)_1fr]">
           <a className="flex items-center gap-2 font-semibold" href="#kiln">
             <KilnMark />
             Kiln Coachworks
           </a>
 
-          <InputGroup className="h-9 border-[#e5d8c5] bg-[#f1ece3] shadow-none">
+          <InputGroup className="h-9 border-input bg-muted shadow-none">
             <InputGroupAddon>
               <SearchIcon />
             </InputGroupAddon>
@@ -222,13 +216,13 @@ export function AppShell8({
           </div>
         </div>
 
-        <div className="bg-[#f4f1ea] px-4 pb-2">
+        <div className="bg-card px-4 pb-2">
           <ServiceNav activeItem={activeItem} onItemClick={handleItemClick} />
         </div>
 
         <Separator />
 
-        <div className="flex flex-col gap-3 border-[#e5d8c5] border-t px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-border border-t px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -258,7 +252,7 @@ export function AppShell8({
         </div>
       </header>
 
-      <div className="flex flex-1 flex-col bg-[#eee9df] p-4">
+      <div className="flex flex-1 flex-col bg-muted p-4">
         <WorkspaceCanvas>{children}</WorkspaceCanvas>
       </div>
     </div>

@@ -2,14 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "marketing-section",
   "title": "Marketing Section",
-  "description": "Shared marketing page frame with a top hairline and a max-width column with left and right borders.",
+  "description": "Shared marketing page frame with a top hairline and a max-width column.",
   "registryDependencies": [
     "tyrailleverett/nice-ui/style"
   ],
   "files": [
     {
       "path": "registry/marketing/marketing-section/marketing-section.tsx",
-      "content": "import type { ComponentProps } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type MarketingSectionProps = ComponentProps<\"section\"> & {\n  as?: \"section\" | \"footer\";\n  padded?: boolean;\n};\n\nexport function MarketingSection({\n  as = \"section\",\n  className,\n  children,\n  padded = false,\n  ...props\n}: MarketingSectionProps) {\n  const Comp = as;\n\n  return (\n    <Comp className={cn(\"border-border border-t\", className)} {...props}>\n      <div\n        className={cn(\n          \"mx-auto max-w-6xl border-border border-r border-l\",\n          padded && \"py-12 pr-8 pl-8 md:py-16\"\n        )}\n      >\n        {children}\n      </div>\n    </Comp>\n  );\n}\n",
+      "content": "import type { ComponentProps } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type MarketingSectionProps = ComponentProps<\"section\"> & {\n  as?: \"section\" | \"footer\";\n  padded?: boolean;\n};\n\nexport function MarketingSection({\n  as = \"section\",\n  className,\n  children,\n  padded = false,\n  ...props\n}: MarketingSectionProps) {\n  const Comp = as;\n\n  return (\n    <Comp className={cn(\"border-border border-t\", className)} {...props}>\n      <div\n        className={cn(\n          \"mx-auto max-w-6xl\",\n          padded && \"py-12 pr-8 pl-8 md:py-16\"\n        )}\n      >\n        {children}\n      </div>\n    </Comp>\n  );\n}\n",
       "type": "registry:component",
       "target": "~/components/marketing-section.tsx"
     }

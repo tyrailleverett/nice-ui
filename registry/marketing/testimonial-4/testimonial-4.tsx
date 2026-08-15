@@ -118,7 +118,7 @@ export function Testimonial4({
     <MarketingSection className={className}>
       <section className="space-y-8 py-6">
         <div className="flex flex-col gap-2 px-4 md:px-6">
-          <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
+          <h2 className="text-balance font-display-heading text-3xl text-primary md:text-4xl">
             {title}
           </h2>
           {description ? (

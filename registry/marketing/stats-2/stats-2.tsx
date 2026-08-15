@@ -34,7 +34,7 @@ export function Stats2({
             <p className="font-mono text-muted-foreground text-xs uppercase tracking-wider">
               {eyebrow}
             </p>
-            <h2 className="font-display-heading text-3xl sm:text-4xl">
+            <h2 className="font-display-heading text-3xl text-primary sm:text-4xl">
               {title}
             </h2>
           </div>

@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import { DecorIcon } from "@/components/decor-icon";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 
@@ -62,11 +61,6 @@ export function Cta3({
   return (
     <MarketingSection className={className}>
       <section className="relative flex flex-col justify-between gap-y-4 border-y px-4 py-8 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
-        <DecorIcon className="size-4" position="top-left" />
-        <DecorIcon className="size-4" position="top-right" />
-        <DecorIcon className="size-4" position="bottom-left" />
-        <DecorIcon className="size-4" position="bottom-right" />
-
         <div className="pointer-events-none absolute -inset-y-6 -left-px w-px border-l" />
         <div className="pointer-events-none absolute -inset-y-6 -right-px w-px border-r" />
 

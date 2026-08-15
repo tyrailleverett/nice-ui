@@ -40,9 +40,8 @@ export function Feature14({
     <MarketingSection className={className}>
       <section className="bg-background py-24 md:py-32">
         <div className="mx-auto grid max-w-6xl items-start gap-12 px-6 lg:grid-cols-2 lg:gap-x-28">
-          <h2 className="max-w-lg font-display-heading text-4xl text-foreground leading-[1.12] md:text-5xl">
-            <span className="text-muted-foreground">{mutedTitle} </span>
-            {title}
+          <h2 className="max-w-lg font-display-heading text-4xl text-primary leading-[1.12] md:text-5xl">
+            {mutedTitle} {title}
           </h2>
 
           <ul className="flex flex-col gap-12">

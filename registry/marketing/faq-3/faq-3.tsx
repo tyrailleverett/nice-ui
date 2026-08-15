@@ -1,4 +1,3 @@
-import { DecorIcon } from "@/components/decor-icon";
 import { MarketingSection } from "@/components/marketing-section";
 import {
   Accordion,
@@ -114,11 +113,6 @@ export function Faq3({
                 key={item.id}
                 value={item.id}
               >
-                <DecorIcon
-                  className="left-3.25 size-3 group-last:hidden"
-                  position="bottom-left"
-                />
-
                 <AccordionTrigger className="px-4 py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">
                   {item.title}
                 </AccordionTrigger>

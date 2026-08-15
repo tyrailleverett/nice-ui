@@ -95,18 +95,6 @@ export function Hero2({
   return (
     <MarketingSection className={className}>
       <section className="relative overflow-hidden pt-16">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 size-full overflow-hidden"
-        >
-          <div
-            className={cn(
-              "absolute inset-0 isolate -z-10",
-              "bg-[radial-gradient(20%_80%_at_20%_0%,--theme(--color-foreground/.1),transparent)]"
-            )}
-          />
-        </div>
-
         <div className="relative z-10 flex max-w-2xl flex-col gap-5 px-4">
           {announcement ? (
             <a

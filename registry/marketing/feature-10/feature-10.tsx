@@ -89,11 +89,11 @@ export function Feature10({
   return (
     <MarketingSection className={className}>
       <section className={cn()}>
-        <div className="bg-muted/50 py-24">
+        <div className="py-24">
           <div className="mx-auto w-full max-w-5xl px-6">
             <div className="grid gap-12 md:grid-cols-5">
               <div className="md:col-span-2">
-                <h2 className="text-balance font-display-heading text-4xl text-foreground">
+                <h2 className="text-balance font-display-heading text-4xl text-primary">
                   {title}
                 </h2>
                 {cta ? <FeatureCta cta={cta} /> : null}

@@ -20,7 +20,7 @@ export function MarketingSection({
     <Comp className={cn("border-border border-t", className)} {...props}>
       <div
         className={cn(
-          "mx-auto max-w-6xl border-border border-r border-l",
+          "mx-auto max-w-6xl",
           padded && "py-12 pr-8 pl-8 md:py-16"
         )}
       >

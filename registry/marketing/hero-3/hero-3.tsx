@@ -168,7 +168,7 @@ export function Hero3({
           </div>
 
           <div className="perspective-near mt-24 translate-x-12 md:absolute md:top-40 md:-right-6 md:bottom-16 md:left-1/2 md:mt-0 md:translate-x-0">
-            <div className="relative h-full before:absolute before:-inset-x-4 before:top-0 before:bottom-7 before:skew-x-6 before:rounded-[calc(var(--radius)+1rem)] before:border before:border-foreground/5 before:bg-foreground/5">
+            <div className="relative h-full before:absolute before:-inset-x-4 before:top-0 before:bottom-7 before:skew-x-6 before:rounded-[calc(var(--radius)+1rem)] before:border before:border-foreground/5">
               <div className="relative h-full -translate-y-12 skew-x-6 overflow-hidden rounded-lg border border-transparent bg-background shadow-foreground/10 shadow-md ring-1 ring-foreground/5">
                 <img
                   alt={screenshot.alt}

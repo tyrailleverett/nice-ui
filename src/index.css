@@ -93,7 +93,7 @@
   --destructive-foreground: #ffffff;
   --success: #166534;
   --info: #1d4ed8;
-  --border: #f5f5f5;
+  --border: #d4d4d4;
   --input: #d4d4d4;
   --ring: #a3a3a3;
   --chart-1: #262626;
@@ -108,7 +108,7 @@
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f5f5f5;
   --sidebar-accent-foreground: #262626;
-  --sidebar-border: #f5f5f5;
+  --sidebar-border: #d4d4d4;
   --sidebar-ring: #a3a3a3;
   --icon-sm: 16px;
 }

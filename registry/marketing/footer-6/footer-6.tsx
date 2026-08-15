@@ -125,7 +125,7 @@ export function Footer6({
             <div className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-4">
               {groups.map((group) => (
                 <div key={group.title}>
-                  <h3 className="mb-4 font-medium text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
+                  <h3 className="mb-4 font-semibold text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
                     {group.title}
                   </h3>
                   <ul className="space-y-2.5">

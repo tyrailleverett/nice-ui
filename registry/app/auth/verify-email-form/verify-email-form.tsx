@@ -1,8 +1,13 @@
-import { type FormEvent, type ReactNode, useCallback } from "react";
+import { type FormEvent, type ReactNode, useCallback, useState } from "react";
 
 import { LogoIcon } from "@/components/logo";
-import { OtpInput } from "@/components/otp-input";
 import { Button } from "@/components/ui/button";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 export interface VerifyEmailFormProps {
@@ -24,6 +29,7 @@ export interface VerifyEmailFormProps {
 const defaultLogo = (
   <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />
 );
+const otpSlots = ["slot-0", "slot-1", "slot-2", "slot-3", "slot-4", "slot-5"];
 
 export function VerifyEmailForm({
   className,
@@ -40,6 +46,7 @@ export function VerifyEmailForm({
   signInLabel = "Back to sign in",
   title = "Verify your email",
 }: VerifyEmailFormProps) {
+  const [code, setCode] = useState("");
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -59,7 +66,23 @@ export function VerifyEmailForm({
       </div>
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <OtpInput id={`${idPrefix}-code`} label={codeLabel} />
+        <div className="flex flex-col gap-2">
+          <Label htmlFor={`${idPrefix}-code`}>{codeLabel}</Label>
+          <InputOTP
+            autoComplete="one-time-code"
+            id={`${idPrefix}-code`}
+            maxLength={6}
+            name="code"
+            onChange={setCode}
+            value={code}
+          >
+            <InputOTPGroup>
+              {otpSlots.map((slot, index) => (
+                <InputOTPSlot index={index} key={slot} />
+              ))}
+            </InputOTPGroup>
+          </InputOTP>
+        </div>
 
         <Button className="h-10 w-full" type="submit">
           {primaryAction}

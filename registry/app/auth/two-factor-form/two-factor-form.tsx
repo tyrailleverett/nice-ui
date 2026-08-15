@@ -1,9 +1,13 @@
 import { type FormEvent, type ReactNode, useCallback, useState } from "react";
 
 import { LogoIcon } from "@/components/logo";
-import { OtpInput } from "@/components/otp-input";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +31,7 @@ export interface TwoFactorFormProps {
 const defaultLogo = (
   <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />
 );
+const otpSlots = ["slot-0", "slot-1", "slot-2", "slot-3", "slot-4", "slot-5"];
 
 type TwoFactorMode = "code" | "recovery";
 
@@ -47,6 +52,7 @@ export function TwoFactorForm({
   useCodeLabel = "Use an authentication code instead",
 }: TwoFactorFormProps) {
   const [mode, setMode] = useState<TwoFactorMode>("code");
+  const [code, setCode] = useState("");
 
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
@@ -74,7 +80,23 @@ export function TwoFactorForm({
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
         {mode === "code" ? (
-          <OtpInput id={`${idPrefix}-code`} label={codeLabel} />
+          <div className="flex flex-col gap-2">
+            <Label htmlFor={`${idPrefix}-code`}>{codeLabel}</Label>
+            <InputOTP
+              autoComplete="one-time-code"
+              id={`${idPrefix}-code`}
+              maxLength={6}
+              name="code"
+              onChange={setCode}
+              value={code}
+            >
+              <InputOTPGroup>
+                {otpSlots.map((slot, index) => (
+                  <InputOTPSlot index={index} key={slot} />
+                ))}
+              </InputOTPGroup>
+            </InputOTP>
+          </div>
         ) : (
           <div className="space-y-2">
             <Label htmlFor={`${idPrefix}-recovery-code`}>

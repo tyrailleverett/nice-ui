@@ -29,14 +29,6 @@ export const ProductSidebar: Story = {
   render: () => <AppShell1 />,
 };
 
-export const ProductSidebarWorkspaceMenu: Story = {
-  render: () => <AppShell1 defaultWorkspaceMenuOpen />,
-};
-
-export const ProductSidebarUserMenu: Story = {
-  render: () => <AppShell1 defaultUserMenuOpen />,
-};
-
 export const OrganizationSidebar: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Accounts" }));
@@ -45,28 +37,6 @@ export const OrganizationSidebar: Story = {
     ).toHaveAttribute("aria-current", "page");
   },
   render: () => <AppShell2 />,
-};
-
-export const OrganizationSidebarCollapsed: Story = {
-  play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Expand sidebar" })
-    );
-    await expect(
-      canvas.getByRole("button", { name: "Collapse sidebar" })
-    ).toBeVisible();
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Collapse sidebar" })
-    );
-    await expect(
-      canvas.getByRole("button", { name: "Expand sidebar" })
-    ).toBeVisible();
-  },
-  render: () => <AppShell2 defaultCollapsed />,
-};
-
-export const OrganizationSidebarMenu: Story = {
-  render: () => <AppShell2 defaultOrganizationMenuOpen />,
 };
 
 export const ProjectDashboardShell: Story = {
@@ -108,10 +78,6 @@ export const DualTierWorkspaceShell: Story = {
     ).toHaveAttribute("aria-current", "page");
   },
   render: () => <AppShell6 />,
-};
-
-export const DualTierWorkspaceUserMenu: Story = {
-  render: () => <AppShell6 defaultUserMenuOpen />,
 };
 
 export const InvertedDispatchShell: Story = {

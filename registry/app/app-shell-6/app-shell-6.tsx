@@ -69,8 +69,10 @@ function WorkspaceCanvas({ children }: { children?: ReactNode }) {
 }
 
 function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+
   return (
-    <DropdownMenu defaultOpen={defaultOpen}>
+    <DropdownMenu onOpenChange={setOpen} open={open}>
       <DropdownMenuTrigger
         render={
           <Button
@@ -87,12 +89,14 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
         <ChevronsUpDownIcon data-icon="inline-end" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel className="flex flex-col">
-          <span>Lena Voss</span>
-          <span className="font-normal text-muted-foreground">
-            lena@harbor.studio
-          </span>
-        </DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="flex flex-col">
+            <span>Lena Voss</span>
+            <span className="font-normal text-muted-foreground">
+              lena@harbor.studio
+            </span>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>

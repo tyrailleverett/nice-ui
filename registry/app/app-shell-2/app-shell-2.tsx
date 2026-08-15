@@ -154,6 +154,9 @@ function OrganizationNavigation({
                           isActive={activeItem === child}
                           render={
                             <button
+                              aria-current={
+                                activeItem === child ? "page" : undefined
+                              }
                               data-navigation-label={child}
                               onClick={onItemClick}
                               type="button"

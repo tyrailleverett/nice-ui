@@ -343,7 +343,7 @@ function FeatureSection({
 export function Feature6({
   title = (
     <>
-      <span className="text-foreground">Built for the full workflow.</span>
+      Built for the full workflow.
       <br /> One connected revenue product.
     </>
   ),
@@ -400,7 +400,7 @@ export function Feature6({
     <MarketingSection className={className}>
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-primary">
             {title}
           </h2>
           <div className="mt-16 grid gap-6 md:mt-32 lg:grid-cols-[auto_1fr]">

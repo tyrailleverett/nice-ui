@@ -158,8 +158,8 @@ export function Feature12({
     <MarketingSection className={className}>
       <div className="py-24">
         <div className="mx-auto w-full max-w-3xl px-6">
-          <h2 className="text-balance font-display-heading text-3xl text-foreground md:text-4xl">
-            <span className="text-muted-foreground">{mutedTitle}</span> {title}
+          <h2 className="text-balance font-display-heading text-3xl text-primary md:text-4xl">
+            {mutedTitle} {title}
           </h2>
           <div className="mt-12 grid gap-12 sm:grid-cols-2">
             <div className="col-span-full space-y-4">

@@ -81,7 +81,7 @@ export function Footer4({
         <div className="grid grid-cols-2 gap-8 py-8 md:grid-cols-4">
           {groups.map((item) => (
             <div key={item.title}>
-              <h3 className="mb-4 text-xs">{item.title}</h3>
+              <h3 className="mb-4 font-semibold text-xs">{item.title}</h3>
               <ul className="space-y-2 text-muted-foreground text-sm">
                 {item.links.map((link) => (
                   <li key={link.label}>

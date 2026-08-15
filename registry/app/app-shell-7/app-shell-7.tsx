@@ -33,9 +33,6 @@ import {
 } from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
 
-const hatchClassName =
-  "bg-[repeating-linear-gradient(-45deg,transparent,transparent_10px,rgba(15,118,110,0.12)_10px,rgba(15,118,110,0.12)_11px)]";
-
 interface ModuleLink {
   hasMenu?: boolean;
   icon: LucideIcon;
@@ -84,10 +81,7 @@ function WorkspaceCanvas({ children }: { children?: ReactNode }) {
   return (
     <section
       aria-label="Bayline workspace"
-      className={cn(
-        "min-h-112 flex-1 rounded-[1.1rem] border border-[#c9e3df] bg-[#f4fbfa] shadow-[0_12px_30px_-24px_rgba(15,118,110,0.6)]",
-        hatchClassName
-      )}
+      className="min-h-112 flex-1 rounded-xl border border-border bg-card"
     />
   );
 }
@@ -212,15 +206,15 @@ export function AppShell7({
   );
 
   return (
-    <div className="flex min-h-svh flex-col bg-[#f4fbfa] text-[#123b3a]">
-      <header className="bg-[#123b3a] text-[#effcf9] shadow-[0_8px_24px_-18px_rgba(18,59,58,0.9)]">
-        <div className="grid items-center gap-3 border-white/10 border-b px-4 py-2.5 md:grid-cols-[1fr_minmax(12rem,32rem)_1fr]">
+    <div className="flex min-h-svh flex-col bg-background text-foreground">
+      <header className="border-border border-b bg-primary text-primary-foreground">
+        <div className="grid items-center gap-3 border-primary-foreground/10 border-b px-4 py-2.5 md:grid-cols-[1fr_minmax(12rem,32rem)_1fr]">
           <a className="flex items-center gap-2 font-medium" href="#bayline">
             <BaylineMark />
             Bayline Dispatch
           </a>
 
-          <InputGroup className="h-9 border-white/15 bg-white/10 shadow-none">
+          <InputGroup className="h-9 border-primary-foreground/15 bg-primary-foreground/10 shadow-none">
             <InputGroupAddon className="text-primary-foreground/70">
               <SearchIcon />
             </InputGroupAddon>
@@ -263,7 +257,7 @@ export function AppShell7({
         </div>
       </header>
 
-      <div className="flex items-center gap-3 border-[#c9e3df] border-b bg-[#f4fbfa] px-4 py-2.5">
+      <div className="flex items-center gap-3 border-border border-b bg-background px-4 py-2.5">
         <ModuleNav
           activeItem={activeItem}
           className="min-w-0 flex-1"
@@ -272,7 +266,7 @@ export function AppShell7({
         <Button className="ml-auto">Apply Now</Button>
       </div>
 
-      <div className="flex flex-1 flex-col bg-[#eaf6f4] p-4">
+      <div className="flex flex-1 flex-col bg-muted p-4">
         <WorkspaceCanvas>{children}</WorkspaceCanvas>
       </div>
     </div>

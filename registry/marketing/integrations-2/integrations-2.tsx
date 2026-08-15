@@ -1,11 +1,9 @@
 import type { ComponentProps } from "react";
 
-import { DecorIcon, type DecorIconProps } from "@/components/decor-icon";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Integrations2Item {
-  decorPosition?: DecorIconProps["position"];
   description: string;
   isInvertable?: boolean;
   name: string;
@@ -25,7 +23,6 @@ const defaultIntegrations: Integrations2Item[] = [
     src: "https://svgl.app/library/vercel.svg",
   },
   {
-    decorPosition: "bottom-left",
     description: "Drop models into onboarding, search, and support flows.",
     isInvertable: true,
     name: "OpenAI",
@@ -48,7 +45,6 @@ const defaultIntegrations: Integrations2Item[] = [
     src: "https://svgl.app/library/notion.svg",
   },
   {
-    decorPosition: "top-left",
     description: "Send launch mail from the inbox your team already uses.",
     name: "Gmail",
     src: "https://svgl.app/library/gmail.svg",
@@ -67,10 +63,6 @@ export function Integrations2({
             <IntegrationCard integration={item} key={item.name} />
           ))}
         </div>
-        <DecorIcon position="top-left" />
-        <DecorIcon position="top-right" />
-        <DecorIcon position="bottom-left" />
-        <DecorIcon position="bottom-right" />
       </section>
     </MarketingSection>
   );
@@ -107,9 +99,6 @@ function IntegrationCard({
           {integration.description}
         </p>
       </div>
-      {integration.decorPosition ? (
-        <DecorIcon position={integration.decorPosition} />
-      ) : null}
     </div>
   );
 }

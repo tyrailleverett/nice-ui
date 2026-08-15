@@ -71,7 +71,9 @@ function LinkColumn({
 }) {
   return (
     <div className="col-span-3 w-full md:col-span-1">
-      <span className="text-muted-foreground text-xs">{title}</span>
+      <span className="font-semibold text-muted-foreground text-xs">
+        {title}
+      </span>
       <div className="mt-2 flex flex-col gap-2">
         {links.map(({ href, title: label }) => (
           <a className="w-max text-sm hover:underline" href={href} key={label}>

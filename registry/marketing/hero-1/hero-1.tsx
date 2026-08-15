@@ -1,7 +1,6 @@
 import { ArrowRightIcon, PhoneCallIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { DecorIcon } from "@/components/decor-icon";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -96,24 +95,7 @@ export function Hero1({
 }: Hero1Props) {
   return (
     <MarketingSection className={className}>
-      <div className="relative flex flex-col items-center justify-center gap-5 px-4 py-12 md:py-24 lg:py-28">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-1 size-full overflow-hidden"
-        >
-          <div
-            className={cn(
-              "absolute -inset-x-20 inset-y-0 z-0 rounded-full",
-              "bg-[radial-gradient(ellipse_at_center,theme(--color-foreground/.1),transparent,transparent)]",
-              "blur-[50px]"
-            )}
-          />
-          <div className="absolute inset-y-0 left-4 w-px bg-linear-to-b from-transparent via-border to-border md:left-8" />
-          <div className="absolute inset-y-0 right-4 w-px bg-linear-to-b from-transparent via-border to-border md:right-8" />
-          <div className="absolute inset-y-0 left-8 w-px bg-linear-to-b from-transparent via-border/50 to-border/50 md:left-12" />
-          <div className="absolute inset-y-0 right-8 w-px bg-linear-to-b from-transparent via-border/50 to-border/50 md:right-12" />
-        </div>
-
+      <div className="flex flex-col items-center justify-center gap-5 px-4 pt-12 pb-4 md:pt-24 md:pb-6 lg:pt-28 lg:pb-8">
         {announcement ? (
           <a
             className={cn(
@@ -183,11 +165,7 @@ export function Hero1({
         ) : null}
       </div>
 
-      <div className="relative">
-        <DecorIcon className="size-4" position="top-left" />
-        <DecorIcon className="size-4" position="top-right" />
-        <DecorIcon className="size-4" position="bottom-left" />
-        <DecorIcon className="size-4" position="bottom-right" />
+      <div className="relative px-4 md:px-8 lg:px-12">
         <div className="overflow-hidden *:pointer-events-none *:aspect-video *:select-none">
           <img
             alt={screenshot.alt}

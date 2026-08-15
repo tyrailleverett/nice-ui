@@ -167,6 +167,9 @@ function ProductNavigation({
                           isActive={activeItem === child}
                           render={
                             <button
+                              aria-current={
+                                activeItem === child ? "page" : undefined
+                              }
                               data-navigation-label={child}
                               onClick={onItemClick}
                               type="button"
@@ -217,10 +220,12 @@ function ResourceNavigation() {
 }
 
 function WorkspaceMenu({ defaultOpen }: { defaultOpen: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <DropdownMenu defaultOpen={defaultOpen}>
+        <DropdownMenu onOpenChange={setOpen} open={open}>
           <DropdownMenuTrigger
             render={
               <SidebarMenuButton aria-label="Switch workspace" size="lg" />
@@ -231,8 +236,8 @@ function WorkspaceMenu({ defaultOpen }: { defaultOpen: boolean }) {
             <EllipsisIcon className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-68">
-            <DropdownMenuLabel>Workspaces</DropdownMenuLabel>
             <DropdownMenuGroup>
+              <DropdownMenuLabel>Workspaces</DropdownMenuLabel>
               <DropdownMenuItem>
                 <Avatar size="sm">
                   <AvatarFallback>R</AvatarFallback>
@@ -273,10 +278,12 @@ function WorkspaceMenu({ defaultOpen }: { defaultOpen: boolean }) {
 }
 
 function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <DropdownMenu defaultOpen={defaultOpen}>
+        <DropdownMenu onOpenChange={setOpen} open={open}>
           <DropdownMenuTrigger
             render={
               <SidebarMenuButton
@@ -295,19 +302,21 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
             <EllipsisIcon className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-68" side="right">
-            <DropdownMenuLabel className="flex items-center gap-3 py-2">
-              <Avatar>
-                <AvatarFallback>NB</AvatarFallback>
-              </Avatar>
-              <span className="flex flex-col">
-                <span className="font-medium text-foreground text-sm">
-                  Nick Bold
+            <DropdownMenuGroup>
+              <DropdownMenuLabel className="flex items-center gap-3 py-2">
+                <Avatar>
+                  <AvatarFallback>NB</AvatarFallback>
+                </Avatar>
+                <span className="flex flex-col">
+                  <span className="font-medium text-foreground text-sm">
+                    Nick Bold
+                  </span>
+                  <span className="font-normal text-muted-foreground">
+                    nick@reui.io
+                  </span>
                 </span>
-                <span className="font-normal text-muted-foreground">
-                  nick@reui.io
-                </span>
-              </span>
-            </DropdownMenuLabel>
+              </DropdownMenuLabel>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
@@ -337,12 +346,14 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuLabel className="flex items-center gap-2">
-              <span className="flex-1">Theme</span>
-              <SunIcon />
-              <MoonIcon />
-              <MonitorIcon />
-            </DropdownMenuLabel>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel className="flex items-center gap-2">
+                <span className="flex-1">Theme</span>
+                <SunIcon />
+                <MoonIcon />
+                <MonitorIcon />
+              </DropdownMenuLabel>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>

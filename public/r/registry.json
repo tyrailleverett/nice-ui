@@ -232,7 +232,7 @@
     {
       "name": "hero-1",
       "title": "Centered Screenshot",
-      "description": "Centered marketing hero with announcement pill, dual CTAs, faded side rules, and a framed screenshot.",
+      "description": "Centered marketing hero with announcement pill, dual CTAs, and a screenshot.",
       "dependencies": [
         "lucide-react"
       ],
@@ -241,7 +241,6 @@
         "tyrailleverett/nice-ui/screenshot-assets",
         "button",
         "tyrailleverett/nice-ui/full-width-divider",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -320,31 +319,9 @@
       "type": "registry:block"
     },
     {
-      "name": "hero-5",
-      "title": "Centered Hover Logos",
-      "description": "Centered marketing hero with announcement, nested screenshot, and a hover-reveal logo grid.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/screenshot-assets",
-        "button",
-        "tyrailleverett/nice-ui/marketing-section"
-      ],
-      "files": [
-        {
-          "path": "registry/marketing/hero-5/hero-5.tsx",
-          "type": "registry:component",
-          "target": "~/components/marketing/hero-5.tsx"
-        }
-      ],
-      "type": "registry:block"
-    },
-    {
       "name": "marketing-section",
       "title": "Marketing Section",
-      "description": "Shared marketing page frame with a top hairline and a max-width column with left and right borders.",
+      "description": "Shared marketing page frame with a top hairline and a max-width column.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style"
       ],
@@ -475,7 +452,6 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "button",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -870,7 +846,6 @@
       ],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -1178,7 +1153,6 @@
       "description": "Featured screenshot cell and four supporting tiles, framed with corner plus marks.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -1377,7 +1351,6 @@
       "description": "Hairline integration grid with corner plus marks and optional cell decorations.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -1566,7 +1539,6 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "accordion",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -1821,6 +1793,23 @@
       "type": "registry:block"
     },
     {
+      "name": "changelog-2",
+      "title": "Editorial Changelog",
+      "description": "Editorial changelog with a ruled intro band, sticky release metadata, and responsive content columns.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "registry/marketing/changelog-2/changelog-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/changelog-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "stats-1",
       "title": "Two Kpi Copy",
       "description": "Two primary-colored KPIs beside a short supporting paragraph.",
@@ -1877,7 +1866,6 @@
       "description": "Centered headline and three framed KPIs with hairline rules and corner plus marks.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -2780,24 +2768,6 @@
       "type": "registry:block"
     },
     {
-      "name": "otp-input",
-      "title": "OTP Input",
-      "description": "Labeled one-time code input built on shadcn's input-otp.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "input-otp",
-        "label"
-      ],
-      "files": [
-        {
-          "path": "registry/app/auth/otp-input/otp-input.tsx",
-          "type": "registry:component",
-          "target": "~/components/otp-input.tsx"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
       "name": "forgot-password-form",
       "title": "Forgot Password Form",
       "description": "Shared email form used by auth forgot password layouts.",
@@ -2912,7 +2882,7 @@
         "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/logo",
-        "tyrailleverett/nice-ui/otp-input"
+        "input-otp"
       ],
       "files": [
         {
@@ -2967,7 +2937,7 @@
         "input",
         "label",
         "tyrailleverett/nice-ui/logo",
-        "tyrailleverett/nice-ui/otp-input"
+        "input-otp"
       ],
       "files": [
         {

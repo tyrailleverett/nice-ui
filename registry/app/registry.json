@@ -814,24 +814,6 @@
       ]
     },
     {
-      "name": "otp-input",
-      "type": "registry:component",
-      "title": "OTP Input",
-      "description": "Labeled one-time code input built on shadcn's input-otp.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "input-otp",
-        "label"
-      ],
-      "files": [
-        {
-          "path": "auth/otp-input/otp-input.tsx",
-          "type": "registry:component",
-          "target": "~/components/otp-input.tsx"
-        }
-      ]
-    },
-    {
       "name": "forgot-password-form",
       "type": "registry:component",
       "title": "Forgot Password Form",
@@ -947,7 +929,7 @@
         "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/logo",
-        "tyrailleverett/nice-ui/otp-input"
+        "input-otp"
       ],
       "files": [
         {
@@ -1002,7 +984,7 @@
         "input",
         "label",
         "tyrailleverett/nice-ui/logo",
-        "tyrailleverett/nice-ui/otp-input"
+        "input-otp"
       ],
       "files": [
         {

@@ -192,7 +192,7 @@ const defaultColumns: Feature5Column[] = [
 export function Feature5({
   title = (
     <>
-      <span className="text-foreground">Context before every reply.</span>
+      Context before every reply.
       <br /> Grounded in real account history.
     </>
   ),
@@ -203,7 +203,7 @@ export function Feature5({
     <MarketingSection className={className}>
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-primary">
             {title}
           </h2>
           <div className="mt-8 grid gap-x-3 gap-y-6 **:data-[slot=card]:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">

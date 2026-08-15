@@ -67,14 +67,13 @@
       "name": "hero-1",
       "type": "registry:block",
       "title": "Centered Screenshot",
-      "description": "Centered marketing hero with announcement pill, dual CTAs, faded side rules, and a framed screenshot.",
+      "description": "Centered marketing hero with announcement pill, dual CTAs, and a screenshot.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/screenshot-assets",
         "button",
         "tyrailleverett/nice-ui/full-width-divider",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -146,30 +145,10 @@
       ]
     },
     {
-      "name": "hero-5",
-      "type": "registry:block",
-      "title": "Centered Hover Logos",
-      "description": "Centered marketing hero with announcement, nested screenshot, and a hover-reveal logo grid.",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/screenshot-assets",
-        "button",
-        "tyrailleverett/nice-ui/marketing-section"
-      ],
-      "files": [
-        {
-          "path": "hero-5/hero-5.tsx",
-          "type": "registry:component",
-          "target": "~/components/marketing/hero-5.tsx"
-        }
-      ]
-    },
-    {
       "name": "marketing-section",
       "type": "registry:component",
       "title": "Marketing Section",
-      "description": "Shared marketing page frame with a top hairline and a max-width column with left and right borders.",
+      "description": "Shared marketing page frame with a top hairline and a max-width column.",
       "files": [
         {
           "path": "marketing-section/marketing-section.tsx",
@@ -284,7 +263,6 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "button",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -653,7 +631,6 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -944,7 +921,6 @@
       ],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ]
     },
@@ -1130,7 +1106,6 @@
       "description": "Hairline integration grid with corner plus marks and optional cell decorations.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -1315,7 +1290,6 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "accordion",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [
@@ -1549,6 +1523,23 @@
       ]
     },
     {
+      "name": "changelog-2",
+      "type": "registry:block",
+      "title": "Editorial Changelog",
+      "description": "Editorial changelog with a ruled intro band, sticky release metadata, and responsive content columns.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "changelog-2/changelog-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/changelog-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "stats-1",
       "type": "registry:block",
       "title": "Two Kpi Copy",
@@ -1606,7 +1597,6 @@
       "description": "Centered headline and three framed KPIs with hairline rules and corner plus marks.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/decor-icon",
         "tyrailleverett/nice-ui/marketing-section"
       ],
       "files": [

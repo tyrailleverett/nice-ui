@@ -69,7 +69,7 @@ export function LogoCloud3({
     <MarketingSection className={className}>
       <section className="px-4">
         {title || highlight ? (
-          <h2 className="mb-5 text-center text-lg text-muted-foreground">
+          <h2 className="mb-5 text-center text-lg text-primary">
             {title ? <>{title} </> : null}
             {highlight ? (
               <span className="font-medium text-primary">{highlight}</span>
@@ -81,7 +81,7 @@ export function LogoCloud3({
             {logos.map((logo) => (
               <img
                 alt={logo.alt}
-                className="pointer-events-none h-5 w-fit select-none dark:brightness-0 dark:invert"
+                className="pointer-events-none h-5 w-auto select-none dark:brightness-0 dark:invert"
                 height={20}
                 key={logo.alt}
                 loading="lazy"

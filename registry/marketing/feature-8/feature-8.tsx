@@ -181,7 +181,7 @@ function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
 export function Feature8({
   title = (
     <>
-      <span className="text-foreground">See the whole pipeline.</span>
+      See the whole pipeline.
       <br /> Activity and health in one view.
     </>
   ),
@@ -206,7 +206,7 @@ export function Feature8({
     <MarketingSection className={className}>
       <section className="overflow-hidden px-4 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-2 lg:px-6">
-          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-primary">
             {title}
           </h2>
           <div className="mt-8 grid rounded-xl border md:mt-16 md:grid-cols-2">

@@ -1,7 +1,6 @@
 import { CommandIcon, HistoryIcon, SquareDashedIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 
-import { DecorIcon } from "@/components/decor-icon";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
@@ -56,23 +55,6 @@ export function Feature2({
       </h2>
 
       <div className="relative">
-        <DecorIcon
-          className="size-6 stroke-2 stroke-border"
-          position="top-left"
-        />
-        <DecorIcon
-          className="size-6 stroke-2 stroke-border"
-          position="top-right"
-        />
-        <DecorIcon
-          className="size-6 stroke-2 stroke-border"
-          position="bottom-left"
-        />
-        <DecorIcon
-          className="size-6 stroke-2 stroke-border"
-          position="bottom-right"
-        />
-
         <DashedLine className="-top-[1.5px] right-3 left-3" />
         <DashedLine className="top-3 -right-[1.5px] bottom-3" />
         <DashedLine className="top-3 bottom-3 -left-[1.5px]" />

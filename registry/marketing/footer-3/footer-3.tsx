@@ -58,7 +58,7 @@ export interface Footer3Props {
 function LinksGroup({ title, links }: { title: string; links: Footer3Link[] }) {
   return (
     <div className="p-2">
-      <h3 className="mt-2 mb-3 font-light text-[10px] text-muted-foreground uppercase tracking-wider">
+      <h3 className="mt-2 mb-3 font-semibold text-[10px] text-muted-foreground uppercase tracking-wider">
         {title}
       </h3>
       <ul>

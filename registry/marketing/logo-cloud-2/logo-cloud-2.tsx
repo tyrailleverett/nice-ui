@@ -83,10 +83,8 @@ export function LogoCloud2({
         }
       `}</style>
         {title || highlight ? (
-          <h2 className="mb-5 text-center font-heading font-semibold text-foreground text-xl md:text-3xl">
-            {title ? (
-              <span className="text-muted-foreground">{title}</span>
-            ) : null}
+          <h2 className="mb-5 text-center font-heading font-semibold text-primary text-xl md:text-3xl">
+            {title ? <span>{title}</span> : null}
             {title && highlight ? <br /> : null}
             {highlight ? (
               <span className="font-semibold">{highlight}</span>

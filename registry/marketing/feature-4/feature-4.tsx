@@ -50,7 +50,7 @@ const defaultHighlights: Feature4Highlight[] = [
 export function Feature4({
   title = (
     <>
-      <span className="text-foreground">Every deal, one view.</span>
+      Every deal, one view.
       <br /> Stages and owners in one place.
     </>
   ),
@@ -65,7 +65,7 @@ export function Feature4({
     <MarketingSection className={className}>
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground lg:text-5xl">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-primary lg:text-5xl">
             {title}
           </h2>
           <div className="mt-8 grid gap-3 *:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">

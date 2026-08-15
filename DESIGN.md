@@ -82,7 +82,7 @@ The split is functional:
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 72px (`text-7xl`) | 900 | tight | `tracking-tight` −0.025em | Wide heroes (`{component.hero-4}`, `{component.hero-5}`) at xl |
+| `{typography.display-xl}` | 72px (`text-7xl`) | 900 | tight | `tracking-tight` −0.025em | Wide hero (`{component.hero-4}`) at xl |
 | `{typography.display-lg}` | 60px (`text-6xl`) | 900 | tight | `tracking-tight` −0.025em | Desktop hero h1 |
 | `{typography.display-md}` | 48px (`text-5xl`) | 900 | tight | `tracking-tight` −0.025em | Tablet hero h1, large feature heads |
 | `{typography.display-sm}` | 36px (`text-4xl`) | 900 | tight | `tracking-tight` −0.025em | Compact heroes (`{component.hero-2}`), section h2s |
@@ -222,12 +222,12 @@ Derived from `{radius.base}` 12px (`--radius: 0.75rem`):
 
 ### Image Behavior
 - Screenshots keep 16:9 in hero-1; `pointer-events-none` / `select-none` on marketing shots.
-- `dark:hidden` / `hidden dark:block` pairs for screenshot and some logo treatments (`dark:brightness-0 dark:invert` on `{component.hero-5}` logos).
+- `dark:hidden` / `hidden dark:block` pairs for screenshots and logo treatments (`dark:brightness-0 dark:invert`).
 - Avatars remain circles at every breakpoint.
 
 ## Iteration Guide
 
-1. Focus on **one block** at a time. Reference its registry slug and Storybook id (`{component.hero-1}`, `marketing-hero--centered-hover-logos`).
+1. Focus on **one block** at a time. Reference its registry slug and Storybook id (`{component.hero-1}`, `marketing-hero--centered-screenshot`).
 2. Variants of primitives (`default`, `outline`, `destructive`, sizes) live on the primitive — don't fork a new button for one band.
 3. Use `{token.refs}` / CSS variables (`bg-primary`, `text-muted-foreground`, `border-border`) — never raw hex in components.
 4. Never document hover as a separate component. Default, Active/Pressed, Focus-visible, Disabled, Invalid.

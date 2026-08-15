@@ -37,9 +37,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
-const hatchClassName =
-  "bg-[repeating-linear-gradient(-45deg,transparent,transparent_10px,rgba(120,224,206,0.12)_10px,rgba(120,224,206,0.12)_11px)]";
-
 interface MarketLink {
   hasMenu?: boolean;
   icon: LucideIcon;
@@ -100,10 +97,7 @@ function WorkspaceCanvas({ children }: { children?: ReactNode }) {
   return (
     <section
       aria-label="Lumen workspace"
-      className={cn(
-        "min-h-112 flex-1 rounded-t-[1.25rem] border border-[#26465f] border-b-0 bg-[#10283d] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]",
-        hatchClassName
-      )}
+      className="min-h-112 flex-1 rounded-xl border border-border border-b-0 bg-card"
     />
   );
 }
@@ -223,8 +217,8 @@ export function AppShell9({
   );
 
   return (
-    <div className="flex min-h-svh flex-col bg-[#0d2235] text-[#f3f8fb]">
-      <header className="border-[#d6e2ea] border-b bg-[#f7fafc] text-[#10283d]">
+    <div className="flex min-h-svh flex-col bg-background text-foreground">
+      <header className="border-border border-b bg-card">
         <div className="flex min-h-16 flex-wrap items-center gap-3 px-4 py-2.5">
           <a className="flex items-center gap-2 font-semibold" href="#lumen">
             <LumenMark />
@@ -249,35 +243,35 @@ export function AppShell9({
         </div>
       </header>
 
-      <div className="flex flex-1 flex-col bg-[#0d2235] text-[#f3f8fb]">
+      <div className="flex flex-1 flex-col bg-muted text-foreground">
         <div className="flex flex-col gap-6 px-6 pt-5">
           <Breadcrumb>
-            <BreadcrumbList className="text-primary-foreground/70">
+            <BreadcrumbList className="text-muted-foreground">
               <BreadcrumbItem>
                 <BreadcrumbLink
-                  className="inline-flex items-center gap-1.5 hover:text-primary-foreground"
+                  className="inline-flex items-center gap-1.5 hover:text-foreground"
                   href="#home"
                 >
                   <HomeIcon className="size-3.5" />
                   <span className="sr-only">Home</span>
                 </BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-primary-foreground/40">
+              <BreadcrumbSeparator className="text-muted-foreground/40">
                 /
               </BreadcrumbSeparator>
               <BreadcrumbItem>
                 <BreadcrumbLink
-                  className="hover:text-primary-foreground"
+                  className="hover:text-foreground"
                   href="#dashboards"
                 >
                   Dashboards
                 </BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-primary-foreground/40">
+              <BreadcrumbSeparator className="text-muted-foreground/40">
                 /
               </BreadcrumbSeparator>
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-primary-foreground">
+                <BreadcrumbPage className="text-foreground">
                   Lumen
                 </BreadcrumbPage>
               </BreadcrumbItem>
@@ -286,23 +280,21 @@ export function AppShell9({
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="flex items-center gap-3">
-              <span className="grid size-11 place-items-center rounded-lg bg-primary-foreground text-primary">
+              <span className="grid size-11 place-items-center rounded-lg bg-primary text-primary-foreground">
                 <RefreshCwIcon />
               </span>
               <div className="flex flex-col">
                 <h1 className="font-heading font-semibold text-title">
                   Market Dashboard
                 </h1>
-                <p className="text-primary-foreground/70 text-sm">
-                  Earning reports
-                </p>
+                <p className="text-muted-foreground text-sm">Earning reports</p>
               </div>
             </div>
 
             <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
               {earningStats.map((stat) => (
                 <div className="flex flex-col gap-1" key={stat.label}>
-                  <dt className="order-2 text-primary-foreground/70 text-sm">
+                  <dt className="order-2 text-muted-foreground text-sm">
                     {stat.label}
                   </dt>
                   <dd className="order-1 font-heading font-semibold text-title">

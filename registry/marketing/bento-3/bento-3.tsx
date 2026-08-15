@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import { DecorIcon } from "@/components/decor-icon";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
@@ -43,15 +42,7 @@ const defaultTiles: Bento3Cell[] = [
 ];
 
 function Frame({ children }: { children: ReactNode }) {
-  return (
-    <div className="relative">
-      <DecorIcon className="size-4" position="top-left" />
-      <DecorIcon className="size-4" position="top-right" />
-      <DecorIcon className="size-4" position="bottom-left" />
-      <DecorIcon className="size-4" position="bottom-right" />
-      {children}
-    </div>
-  );
+  return <div className="relative">{children}</div>;
 }
 
 export function Bento3({

@@ -9,7 +9,7 @@ export default {
 export const FramedColumn: StoryFn = () => (
   <MarketingSection padded>
     <p className="text-muted-foreground text-sm">
-      Section content sits in a max-width column with top and side borders.
+      Section content sits in a max-width column with a top hairline.
     </p>
   </MarketingSection>
 );
