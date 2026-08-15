@@ -7,7 +7,7 @@ import {
   UnderlineIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -137,7 +137,7 @@ export function Feature9({
   className,
 }: Feature9Props) {
   return (
-    <section className={className}>
+    <MarketingSection className={className}>
       <div className="py-24">
         <div className="mx-auto w-full max-w-5xl px-6">
           <div>
@@ -170,6 +170,6 @@ export function Feature9({
           </div>
         </div>
       </div>
-    </section>
+    </MarketingSection>
   );
 }

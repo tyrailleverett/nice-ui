@@ -1,8 +1,7 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export interface Cta12Action {
   href?: string;
@@ -80,35 +79,32 @@ export function Cta12({
   className,
 }: Cta12Props) {
   return (
-    <section
-      className={cn(
-        "relative mx-auto flex w-full max-w-3xl items-center justify-center px-6 py-16",
-        className
-      )}
-    >
-      <div className="relative px-10 py-12 sm:px-16 sm:py-14">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-border" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-border" />
-        <div className="pointer-events-none absolute inset-y-[-18%] left-0 w-px bg-border" />
-        <div className="pointer-events-none absolute inset-y-[-18%] right-0 w-px bg-border" />
+    <MarketingSection className={className}>
+      <section className="relative flex items-center justify-center px-6 py-16">
+        <div className="relative px-10 py-12 sm:px-16 sm:py-14">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-border" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-border" />
+          <div className="pointer-events-none absolute inset-y-[-18%] left-0 w-px bg-border" />
+          <div className="pointer-events-none absolute inset-y-[-18%] right-0 w-px bg-border" />
 
-        <div className="flex flex-col items-center gap-6 text-center">
-          <h2 className="font-display-heading text-2xl [text-shadow:0_0_32px_--theme(--color-foreground/.25)] md:text-4xl">
-            {title}
-          </h2>
-          <div className="flex items-center gap-4">
-            {secondaryCta ? (
-              <ActionLink
-                action={secondaryCta}
-                className="font-medium text-sm hover:underline"
-              >
-                {secondaryCta.label}
-              </ActionLink>
-            ) : null}
-            {primaryCta ? <PrimaryCtaButton action={primaryCta} /> : null}
+          <div className="flex flex-col items-center gap-6 text-center">
+            <h2 className="font-display-heading text-2xl [text-shadow:0_0_32px_--theme(--color-foreground/.25)] md:text-4xl">
+              {title}
+            </h2>
+            <div className="flex items-center gap-4">
+              {secondaryCta ? (
+                <ActionLink
+                  action={secondaryCta}
+                  className="font-medium text-sm hover:underline"
+                >
+                  {secondaryCta.label}
+                </ActionLink>
+              ) : null}
+              {primaryCta ? <PrimaryCtaButton action={primaryCta} /> : null}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

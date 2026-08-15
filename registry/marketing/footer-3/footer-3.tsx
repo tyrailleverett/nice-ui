@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export function FacebookIcon(props: ComponentProps<"svg">) {
@@ -109,8 +109,8 @@ export function Footer3({
   className,
 }: Footer3Props) {
   return (
-    <footer className={cn("border-t", className)}>
-      <div className="relative mx-auto max-w-5xl px-4">
+    <MarketingSection as="footer" className={className}>
+      <div className="relative px-4">
         <div className="relative grid grid-cols-1 border-x md:grid-cols-4 md:divide-x">
           {columns.map((column, index) => (
             <div key={column.title}>
@@ -140,6 +140,6 @@ export function Footer3({
           &copy; {new Date().getFullYear()} {copyright}
         </p>
       </div>
-    </footer>
+    </MarketingSection>
   );
 }

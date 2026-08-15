@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Blog2Item {
@@ -101,23 +102,23 @@ export function Blog2({
   className,
 }: Blog2Props) {
   return (
-    <section
-      className={cn("mx-auto w-full max-w-5xl py-4 lg:border-x", className)}
-    >
-      <div className="space-y-2 px-4 py-8 md:py-12">
-        <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
-        {description ? (
-          <p className="text-muted-foreground text-sm">{description}</p>
-        ) : null}
-      </div>
-      <div className="relative grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
-        <FullWidthDivider contained position="top" />
-        {posts.map((post) => (
-          <BlogCard key={post.title} post={post} />
-        ))}
-        <FullWidthDivider contained position="bottom" />
-      </div>
-    </section>
+    <MarketingSection className={className}>
+      <section className="py-4">
+        <div className="space-y-2 px-4 py-8 md:py-12">
+          <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
+          {description ? (
+            <p className="text-muted-foreground text-sm">{description}</p>
+          ) : null}
+        </div>
+        <div className="relative grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
+          <FullWidthDivider contained position="top" />
+          {posts.map((post) => (
+            <BlogCard key={post.title} post={post} />
+          ))}
+          <FullWidthDivider contained position="bottom" />
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

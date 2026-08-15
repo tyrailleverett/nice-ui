@@ -1,10 +1,10 @@
+import { MarketingSection } from "@/components/marketing-section";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 
 export interface Faq1Item {
   content: string;
@@ -80,35 +80,35 @@ export function Faq1({
   className,
 }: Faq1Props) {
   return (
-    <section
-      className={cn("mx-auto w-full max-w-2xl space-y-7 px-4", className)}
-    >
-      <div className="space-y-2">
-        <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
-        {description ? (
-          <p className="max-w-2xl text-muted-foreground">{description}</p>
+    <MarketingSection className={className} padded>
+      <section className="space-y-7 px-4">
+        <div className="space-y-2">
+          <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
+          {description ? (
+            <p className="max-w-2xl text-muted-foreground">{description}</p>
+          ) : null}
+        </div>
+        <Accordion className="overflow-hidden rounded-lg border">
+          {questions.map((item) => (
+            <AccordionItem className="px-4" key={item.id} value={item.id}>
+              <AccordionTrigger className="py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">
+                {item.title}
+              </AccordionTrigger>
+              <AccordionContent className="pb-4! text-muted-foreground">
+                {item.content}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+        {contact ? (
+          <p className="text-muted-foreground">
+            {contactPrompt}{" "}
+            <a className="text-primary hover:underline" href={contact.href}>
+              {contact.label}
+            </a>
+          </p>
         ) : null}
-      </div>
-      <Accordion className="overflow-hidden rounded-lg border">
-        {questions.map((item) => (
-          <AccordionItem className="px-4" key={item.id} value={item.id}>
-            <AccordionTrigger className="py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">
-              {item.title}
-            </AccordionTrigger>
-            <AccordionContent className="pb-4! text-muted-foreground">
-              {item.content}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-      {contact ? (
-        <p className="text-muted-foreground">
-          {contactPrompt}{" "}
-          <a className="text-primary hover:underline" href={contact.href}>
-            {contact.label}
-          </a>
-        </p>
-      ) : null}
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

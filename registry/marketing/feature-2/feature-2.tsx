@@ -2,6 +2,7 @@ import { CommandIcon, HistoryIcon, SquareDashedIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 
 import { DecorIcon } from "@/components/decor-icon";
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Feature2Item {
@@ -49,7 +50,7 @@ export function Feature2({
   className,
 }: Feature2Props) {
   return (
-    <section className={cn("mx-auto max-w-5xl", className)}>
+    <MarketingSection className={className}>
       <h2 className="mb-5 text-center font-heading font-semibold text-2xl md:text-3xl">
         {title}
       </h2>
@@ -93,6 +94,6 @@ export function Feature2({
           ))}
         </div>
       </div>
-    </section>
+    </MarketingSection>
   );
 }

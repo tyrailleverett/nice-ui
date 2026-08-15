@@ -1,7 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
@@ -59,75 +58,77 @@ export function Footer1({
   className,
 }: Footer1Props) {
   return (
-    <footer className={cn("mx-auto max-w-5xl *:px-4 *:md:px-6", className)}>
-      <div className="flex flex-col gap-6 py-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {logo ?? (
-              <span className="h-4.5 font-heading font-semibold text-sm tracking-tight">
-                Nice UI
-              </span>
-            )}
-          </div>
-          {socialLinks?.length ? (
-            <div className="flex items-center">
-              {socialLinks.map(({ href, label, icon }) => (
-                <Button
-                  key={label}
-                  nativeButton={false}
-                  render={<a aria-label={label} href={href} />}
-                  size="icon"
-                  variant="ghost"
-                >
-                  {icon}
-                </Button>
-              ))}
+    <MarketingSection as="footer" className={className}>
+      <div className="*:px-4 *:md:px-6">
+        <div className="flex flex-col gap-6 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {logo ?? (
+                <span className="h-4.5 font-heading font-semibold text-sm tracking-tight">
+                  Nice UI
+                </span>
+              )}
             </div>
-          ) : null}
+            {socialLinks?.length ? (
+              <div className="flex items-center">
+                {socialLinks.map(({ href, label, icon }) => (
+                  <Button
+                    key={label}
+                    nativeButton={false}
+                    render={<a aria-label={label} href={href} />}
+                    size="icon"
+                    variant="ghost"
+                  >
+                    {icon}
+                  </Button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <nav>
+            <ul className="flex flex-wrap gap-4 font-medium text-muted-foreground text-sm md:gap-6">
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <a className="hover:text-foreground" href={link.href}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <nav>
-          <ul className="flex flex-wrap gap-4 font-medium text-muted-foreground text-sm md:gap-6">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a className="hover:text-foreground" href={link.href}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-
-      <div className="flex items-center justify-between gap-4 border-t py-4 text-muted-foreground text-sm">
-        <p>
-          &copy; {new Date().getFullYear()} {copyright}
-        </p>
-
-        {builtBy ? (
-          <p className="inline-flex items-center gap-1">
-            <span>Built by</span>
-            <a
-              aria-label={builtBy.name}
-              className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground hover:underline"
-              href={builtBy.href}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {builtBy.imageSrc ? (
-                <img
-                  alt={builtBy.imageAlt ?? builtBy.name}
-                  className="size-4 rounded-full"
-                  height={16}
-                  src={builtBy.imageSrc}
-                  width={16}
-                />
-              ) : null}
-              {builtBy.name}
-            </a>
+        <div className="flex items-center justify-between gap-4 border-t py-4 text-muted-foreground text-sm">
+          <p>
+            &copy; {new Date().getFullYear()} {copyright}
           </p>
-        ) : null}
+
+          {builtBy ? (
+            <p className="inline-flex items-center gap-1">
+              <span>Built by</span>
+              <a
+                aria-label={builtBy.name}
+                className="inline-flex items-center gap-1 text-foreground/80 hover:text-foreground hover:underline"
+                href={builtBy.href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {builtBy.imageSrc ? (
+                  <img
+                    alt={builtBy.imageAlt ?? builtBy.name}
+                    className="size-4 rounded-full"
+                    height={16}
+                    src={builtBy.imageSrc}
+                    width={16}
+                  />
+                ) : null}
+                {builtBy.name}
+              </a>
+            </p>
+          ) : null}
+        </div>
       </div>
-    </footer>
+    </MarketingSection>
   );
 }

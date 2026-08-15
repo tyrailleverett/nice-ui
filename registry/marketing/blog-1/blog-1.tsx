@@ -1,6 +1,5 @@
 import type { ComponentProps } from "react";
-
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Blog1Item {
@@ -58,29 +57,24 @@ export function Blog1({
   className,
 }: Blog1Props) {
   return (
-    <section
-      className={cn(
-        "mx-auto flex w-full max-w-3xl flex-col justify-start md:border-x",
-        className
-      )}
-    >
-      <div className="space-y-2 px-4 py-8 md:py-12">
-        <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
-        {description ? (
-          <p className="text-muted-foreground text-sm">{description}</p>
-        ) : null}
-      </div>
-
-      <div className="relative">
-        <FullWidthDivider position="top" />
-        <div className="divide-y">
-          {posts.map((post) => (
-            <BlogCard key={post.title} post={post} />
-          ))}
+    <MarketingSection className={className}>
+      <section className="flex flex-col justify-start">
+        <div className="space-y-2 px-4 py-8 md:py-12">
+          <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
+          {description ? (
+            <p className="text-muted-foreground text-sm">{description}</p>
+          ) : null}
         </div>
-        <FullWidthDivider position="bottom" />
-      </div>
-    </section>
+
+        <div className="relative">
+          <div className="divide-y">
+            {posts.map((post) => (
+              <BlogCard key={post.title} post={post} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

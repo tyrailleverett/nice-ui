@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { MarketingSection } from "@/components/marketing-section";
 
 export interface Stats1Item {
   label: string;
@@ -24,25 +24,27 @@ export function Stats1({
   className,
 }: Stats1Props) {
   return (
-    <section className={cn("w-full bg-background py-16 sm:py-24", className)}>
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="sr-only">{title}</h2>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div className="space-y-0.5 md:text-center" key={stat.label}>
-              <div className="font-bold text-4xl text-primary tabular-nums tracking-tight">
-                {stat.value}
+    <MarketingSection className={className}>
+      <section className="bg-background py-16 sm:py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="sr-only">{title}</h2>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {stats.map((stat) => (
+              <div className="space-y-0.5 md:text-center" key={stat.label}>
+                <div className="font-bold text-4xl text-primary tabular-nums tracking-tight">
+                  {stat.value}
+                </div>
+                <p className="text-muted-foreground">{stat.label}</p>
               </div>
-              <p className="text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-          {description ? (
-            <p className="col-span-2 text-balance border-t pt-4 text-lg text-muted-foreground md:border-t-0 md:border-l md:pt-0 md:pl-12">
-              {description}
-            </p>
-          ) : null}
+            ))}
+            {description ? (
+              <p className="col-span-2 text-balance border-t pt-4 text-lg text-muted-foreground md:border-t-0 md:border-l md:pt-0 md:pl-12">
+                {description}
+              </p>
+            ) : null}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { DecorIcon } from "@/components/decor-icon";
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export interface Cta3Action {
   href?: string;
@@ -60,42 +60,39 @@ export function Cta3({
   className,
 }: Cta3Props) {
   return (
-    <section
-      className={cn(
-        "relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-4 border-y px-4 py-8 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]",
-        className
-      )}
-    >
-      <DecorIcon className="size-4" position="top-left" />
-      <DecorIcon className="size-4" position="top-right" />
-      <DecorIcon className="size-4" position="bottom-left" />
-      <DecorIcon className="size-4" position="bottom-right" />
+    <MarketingSection className={className}>
+      <section className="relative flex flex-col justify-between gap-y-4 border-y px-4 py-8 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
+        <DecorIcon className="size-4" position="top-left" />
+        <DecorIcon className="size-4" position="top-right" />
+        <DecorIcon className="size-4" position="bottom-left" />
+        <DecorIcon className="size-4" position="bottom-right" />
 
-      <div className="pointer-events-none absolute -inset-y-6 -left-px w-px border-l" />
-      <div className="pointer-events-none absolute -inset-y-6 -right-px w-px border-r" />
+        <div className="pointer-events-none absolute -inset-y-6 -left-px w-px border-l" />
+        <div className="pointer-events-none absolute -inset-y-6 -right-px w-px border-r" />
 
-      <div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
+        <div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
 
-      <h2 className="text-center font-heading font-semibold text-xl md:text-3xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="text-balance text-center font-medium text-muted-foreground text-sm md:text-base">
-          {description}
-        </p>
-      ) : null}
-
-      <div className="flex items-center justify-center gap-2">
-        {secondaryCta ? (
-          <ActionButton action={secondaryCta} variant="outline" />
+        <h2 className="text-center font-heading font-semibold text-xl md:text-3xl">
+          {title}
+        </h2>
+        {description ? (
+          <p className="text-balance text-center font-medium text-muted-foreground text-sm md:text-base">
+            {description}
+          </p>
         ) : null}
-        {primaryCta ? (
-          <ActionButton
-            action={primaryCta}
-            icon={<ArrowRightIcon data-icon="inline-end" />}
-          />
-        ) : null}
-      </div>
-    </section>
+
+        <div className="flex items-center justify-center gap-2">
+          {secondaryCta ? (
+            <ActionButton action={secondaryCta} variant="outline" />
+          ) : null}
+          {primaryCta ? (
+            <ActionButton
+              action={primaryCta}
+              icon={<ArrowRightIcon data-icon="inline-end" />}
+            />
+          ) : null}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

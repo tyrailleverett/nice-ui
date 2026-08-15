@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { MarketingSection } from "@/components/marketing-section";
 
 export interface LogoCloud1Item {
   alt: string;
@@ -54,34 +54,36 @@ export function LogoCloud1({
   className,
 }: LogoCloud1Props) {
   return (
-    <section
-      className={cn("mx-auto w-full max-w-3xl space-y-5 px-4", className)}
-    >
-      {title || highlight ? (
-        <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">
-          {title ? (
-            <span className="text-muted-foreground">{title}</span>
-          ) : null}{" "}
-          {highlight ? <span className="text-primary">{highlight}</span> : null}
-        </h2>
-      ) : null}
-      <div className="grid grid-cols-2 rounded-lg bg-border shadow md:grid-cols-4">
-        {logos.map((logo) => (
-          <div
-            className="flex items-center justify-center rounded-lg border bg-background p-8"
-            key={logo.alt}
-          >
-            <img
-              alt={logo.alt}
-              className="pointer-events-none block max-h-5 max-w-20 select-none object-contain dark:brightness-0 dark:invert"
-              height={20}
-              loading="lazy"
-              src={logo.src}
-              width={80}
-            />
-          </div>
-        ))}
-      </div>
-    </section>
+    <MarketingSection className={className} padded>
+      <section className="space-y-5 px-4">
+        {title || highlight ? (
+          <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">
+            {title ? (
+              <span className="text-muted-foreground">{title}</span>
+            ) : null}{" "}
+            {highlight ? (
+              <span className="text-primary">{highlight}</span>
+            ) : null}
+          </h2>
+        ) : null}
+        <div className="grid grid-cols-2 rounded-lg bg-border shadow md:grid-cols-4">
+          {logos.map((logo) => (
+            <div
+              className="flex items-center justify-center rounded-lg border bg-background p-8"
+              key={logo.alt}
+            >
+              <img
+                alt={logo.alt}
+                className="pointer-events-none block max-h-5 max-w-20 select-none object-contain dark:brightness-0 dark:invert"
+                height={20}
+                loading="lazy"
+                src={logo.src}
+                width={80}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

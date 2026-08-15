@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from "lucide-react";
 import type { ComponentProps } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Blog3Item {
@@ -81,30 +81,34 @@ export function Blog3({
   const rest = posts.slice(2);
 
   return (
-    <section className={cn("mx-auto w-full max-w-6xl px-4", className)}>
-      <div className="grid gap-px overflow-hidden border bg-border">
-        <div className="space-y-2 bg-background px-6 py-8 md:px-8 md:py-10">
-          <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
-          {description ? (
-            <p className="text-muted-foreground text-sm">{description}</p>
+    <MarketingSection className={className}>
+      <section className="px-4">
+        <div className="grid gap-px overflow-hidden border bg-border">
+          <div className="space-y-2 bg-background px-6 py-8 md:px-8 md:py-10">
+            <h2 className="font-display-heading text-2xl md:text-4xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="text-muted-foreground text-sm">{description}</p>
+            ) : null}
+          </div>
+          {featured.length ? (
+            <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
+              {featured.map((post) => (
+                <BlogCard key={post.title} post={post} readLabel={readLabel} />
+              ))}
+            </div>
+          ) : null}
+          {rest.length ? (
+            <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
+              {rest.map((post) => (
+                <BlogCard key={post.title} post={post} readLabel={readLabel} />
+              ))}
+            </div>
           ) : null}
         </div>
-        {featured.length ? (
-          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
-            {featured.map((post) => (
-              <BlogCard key={post.title} post={post} readLabel={readLabel} />
-            ))}
-          </div>
-        ) : null}
-        {rest.length ? (
-          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
-            {rest.map((post) => (
-              <BlogCard key={post.title} post={post} readLabel={readLabel} />
-            ))}
-          </div>
-        ) : null}
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }
 

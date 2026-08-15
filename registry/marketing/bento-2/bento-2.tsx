@@ -1,6 +1,6 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Bento2Tile {
@@ -66,56 +66,53 @@ export function Bento2({
   className,
 }: Bento2Props) {
   return (
-    <section
-      className={cn(
-        "w-full bg-background py-16 text-foreground md:py-20 lg:py-28",
-        className
-      )}
-    >
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
-          {description ? (
-            <p className="mt-4 text-pretty text-muted-foreground">
-              {description}
-            </p>
-          ) : null}
-        </div>
+    <MarketingSection className={className}>
+      <section className="bg-background py-16 text-foreground md:py-20 lg:py-28">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="mt-4 text-pretty text-muted-foreground">
+                {description}
+              </p>
+            ) : null}
+          </div>
 
-        <div className="mt-12 grid grid-cols-1 overflow-hidden rounded-xl border border-border md:grid-cols-3">
-          <article className="flex flex-col gap-4 border-b bg-card p-8 md:col-span-2 md:border-r md:border-b-0 md:p-10">
-            <h3 className="font-heading font-semibold text-title">
-              {lead.title}
-            </h3>
-            <p className="max-w-md text-muted-foreground text-sm">
-              {lead.description}
-            </p>
-            <TileLink href={lead.href}>{lead.label}</TileLink>
-          </article>
+          <div className="mt-12 grid grid-cols-1 overflow-hidden rounded-xl border border-border md:grid-cols-3">
+            <article className="flex flex-col gap-4 border-b bg-card p-8 md:col-span-2 md:border-r md:border-b-0 md:p-10">
+              <h3 className="font-heading font-semibold text-title">
+                {lead.title}
+              </h3>
+              <p className="max-w-md text-muted-foreground text-sm">
+                {lead.description}
+              </p>
+              <TileLink href={lead.href}>{lead.label}</TileLink>
+            </article>
 
-          <div className="grid grid-cols-1">
-            {secondary.map((tile, index) => (
-              <article
-                className={cn(
-                  "flex flex-col gap-3 bg-card p-8",
-                  index === 0 ? "border-b" : null
-                )}
-                key={tile.title}
-              >
-                <h3 className="font-heading font-semibold text-title-md">
-                  {tile.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {tile.description}
-                </p>
-                <TileLink href={tile.href}>{tile.label}</TileLink>
-              </article>
-            ))}
+            <div className="grid grid-cols-1">
+              {secondary.map((tile, index) => (
+                <article
+                  className={cn(
+                    "flex flex-col gap-3 bg-card p-8",
+                    index === 0 ? "border-b" : null
+                  )}
+                  key={tile.title}
+                >
+                  <h3 className="font-heading font-semibold text-title-md">
+                    {tile.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {tile.description}
+                  </p>
+                  <TileLink href={tile.href}>{tile.label}</TileLink>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

@@ -1,6 +1,6 @@
 import { ArrowUpRightIcon, StarIcon } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -98,58 +98,59 @@ export function Cta11({
   className,
 }: Cta11Props) {
   return (
-    <section
-      className={cn(
-        "relative mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-6 py-16 text-center",
-        "bg-[radial-gradient(45%_70%_at_50%_30%,--theme(--color-foreground/.08),transparent)]",
-        className
-      )}
-    >
-      <div className="flex items-center gap-3">
-        {avatars.length ? (
-          <div className="flex -space-x-2 *:rounded-full *:ring-2 *:ring-background">
-            {avatars.map((avatar) => (
-              <img
-                alt={avatar.alt}
-                height={32}
-                key={avatar.src}
-                src={avatar.src}
-                width={32}
-              />
-            ))}
+    <MarketingSection className={className}>
+      <section
+        className={cn(
+          "relative mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-6 py-16 text-center",
+          "bg-[radial-gradient(45%_70%_at_50%_30%,--theme(--color-foreground/.08),transparent)]"
+        )}
+      >
+        <div className="flex items-center gap-3">
+          {avatars.length ? (
+            <div className="flex -space-x-2 *:rounded-full *:ring-2 *:ring-background">
+              {avatars.map((avatar) => (
+                <img
+                  alt={avatar.alt}
+                  height={32}
+                  key={avatar.src}
+                  src={avatar.src}
+                  width={32}
+                />
+              ))}
+            </div>
+          ) : null}
+          <div className="text-left">
+            <div className="flex items-center gap-0.5">
+              {["star-1", "star-2", "star-3", "star-4", "star-5"].map(
+                (starId) => (
+                  <StarIcon className="size-3.5 fill-foreground" key={starId} />
+                )
+              )}
+            </div>
+            <p className="text-muted-foreground text-xs">{ratingLabel}</p>
           </div>
-        ) : null}
-        <div className="text-left">
-          <div className="flex items-center gap-0.5">
-            {["star-1", "star-2", "star-3", "star-4", "star-5"].map(
-              (starId) => (
-                <StarIcon className="size-3.5 fill-foreground" key={starId} />
-              )
-            )}
-          </div>
-          <p className="text-muted-foreground text-xs">{ratingLabel}</p>
         </div>
-      </div>
 
-      <h2 className="max-w-xl text-balance font-display-heading text-3xl md:text-4xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="max-w-lg text-pretty text-muted-foreground text-sm md:text-base">
-          {description}
-        </p>
-      ) : null}
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {secondaryCta ? (
-          <ActionButton action={secondaryCta} variant="outline" />
+        <h2 className="max-w-xl text-balance font-display-heading text-3xl md:text-4xl">
+          {title}
+        </h2>
+        {description ? (
+          <p className="max-w-lg text-pretty text-muted-foreground text-sm md:text-base">
+            {description}
+          </p>
         ) : null}
-        {primaryCta ? (
-          <ActionButton
-            action={primaryCta}
-            icon={<ArrowUpRightIcon data-icon="inline-end" />}
-          />
-        ) : null}
-      </div>
-    </section>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {secondaryCta ? (
+            <ActionButton action={secondaryCta} variant="outline" />
+          ) : null}
+          {primaryCta ? (
+            <ActionButton
+              action={primaryCta}
+              icon={<ArrowUpRightIcon data-icon="inline-end" />}
+            />
+          ) : null}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

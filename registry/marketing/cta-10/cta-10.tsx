@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -57,26 +57,29 @@ export function Cta10({
   }
 
   return (
-    <section
-      className={cn(
-        "relative mx-auto flex w-full max-w-3xl flex-col items-center gap-10 px-4 py-12",
-        "bg-[radial-gradient(45%_70%_at_50%_0%,--theme(--color-foreground/.08),transparent)]",
-        className
-      )}
-    >
-      <div className="text-center">
-        <p className="text-2xl text-muted-foreground md:text-3xl">{eyebrow}</p>
-        <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
-      </div>
-      <div className="flex w-full flex-col items-start justify-between gap-4 rounded-2xl border bg-card px-5 py-4 sm:flex-row sm:items-center sm:px-6">
-        <div>
-          <p className="font-semibold">{cardTitle}</p>
-          {cardDescription ? (
-            <p className="text-muted-foreground text-sm">{cardDescription}</p>
-          ) : null}
+    <MarketingSection className={className}>
+      <section
+        className={cn(
+          "relative mx-auto flex w-full max-w-3xl flex-col items-center gap-10 px-4 py-12",
+          "bg-[radial-gradient(45%_70%_at_50%_0%,--theme(--color-foreground/.08),transparent)]"
+        )}
+      >
+        <div className="text-center">
+          <p className="text-2xl text-muted-foreground md:text-3xl">
+            {eyebrow}
+          </p>
+          <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
         </div>
-        {action}
-      </div>
-    </section>
+        <div className="flex w-full flex-col items-start justify-between gap-4 rounded-2xl border bg-card px-5 py-4 sm:flex-row sm:items-center sm:px-6">
+          <div>
+            <p className="font-semibold">{cardTitle}</p>
+            {cardDescription ? (
+              <p className="text-muted-foreground text-sm">{cardDescription}</p>
+            ) : null}
+          </div>
+          {action}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

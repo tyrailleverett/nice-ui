@@ -1,8 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
 import { AppStoreBadge } from "./app-store-badge";
 import { GooglePlayBadge } from "./google-play-badge";
 
@@ -78,8 +76,8 @@ export function Footer4({
   className,
 }: Footer4Props) {
   return (
-    <footer className={cn("border-t", className)}>
-      <div className="mx-auto max-w-6xl px-4 lg:px-6">
+    <MarketingSection as="footer" className={className}>
+      <div className="px-4 lg:px-6">
         <div className="grid grid-cols-2 gap-8 py-8 md:grid-cols-4">
           {groups.map((item) => (
             <div key={item.title}>
@@ -128,6 +126,6 @@ export function Footer4({
           </p>
         </div>
       </div>
-    </footer>
+    </MarketingSection>
   );
 }

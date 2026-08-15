@@ -1,13 +1,12 @@
 import { ArrowUpRightIcon, AtSignIcon, CreditCardIcon } from "lucide-react";
 import { type FormEvent, type ReactNode, useCallback } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { cn } from "@/lib/utils";
 
 export interface Cta9Props {
   className?: string;
@@ -48,40 +47,39 @@ export function Cta9({
   );
 
   return (
-    <section
-      className={cn(
-        "relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl border px-6 py-16 text-center",
-        className
-      )}
-    >
-      <div className="relative space-y-8">
-        <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
-        <form
-          className="mx-auto flex w-full max-w-md overflow-hidden rounded-lg border bg-background/80"
-          onSubmit={handleSubmit}
-        >
-          <InputGroup className="min-w-0 flex-1 border-0 bg-transparent shadow-none dark:bg-transparent">
-            <InputGroupInput
-              name="email"
-              placeholder={emailPlaceholder}
-              type="email"
-            />
-            <InputGroupAddon>
-              <AtSignIcon data-icon="inline-start" />
-            </InputGroupAddon>
-          </InputGroup>
-          <Button
-            className="rounded-none border-l"
-            type="submit"
-            variant="ghost"
+    <MarketingSection className={className}>
+      <section className="relative overflow-hidden rounded-3xl border px-6 py-16 text-center">
+        <div className="relative space-y-8">
+          <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
+          <form
+            className="mx-auto flex w-full max-w-md overflow-hidden rounded-lg border bg-background/80"
+            onSubmit={handleSubmit}
           >
-            {submitLabel} <ArrowUpRightIcon data-icon="inline-end" />
-          </Button>
-        </form>
-        {footnote ? (
-          <p className="text-muted-foreground text-xs md:text-sm">{footnote}</p>
-        ) : null}
-      </div>
-    </section>
+            <InputGroup className="min-w-0 flex-1 border-0 bg-transparent shadow-none dark:bg-transparent">
+              <InputGroupInput
+                name="email"
+                placeholder={emailPlaceholder}
+                type="email"
+              />
+              <InputGroupAddon>
+                <AtSignIcon data-icon="inline-start" />
+              </InputGroupAddon>
+            </InputGroup>
+            <Button
+              className="rounded-none border-l"
+              type="submit"
+              variant="ghost"
+            >
+              {submitLabel} <ArrowUpRightIcon data-icon="inline-end" />
+            </Button>
+          </form>
+          {footnote ? (
+            <p className="text-muted-foreground text-xs md:text-sm">
+              {footnote}
+            </p>
+          ) : null}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

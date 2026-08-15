@@ -6,7 +6,7 @@ import {
   SignatureIcon,
   SparklesIcon,
 } from "lucide-react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -155,7 +155,7 @@ export function Feature12({
   className,
 }: Feature12Props) {
   return (
-    <section className={className}>
+    <MarketingSection className={className}>
       <div className="py-24">
         <div className="mx-auto w-full max-w-3xl px-6">
           <h2 className="text-balance font-display-heading text-3xl text-foreground md:text-4xl">
@@ -208,6 +208,6 @@ export function Feature12({
           </div>
         </div>
       </div>
-    </section>
+    </MarketingSection>
   );
 }

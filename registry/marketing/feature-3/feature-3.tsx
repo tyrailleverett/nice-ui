@@ -7,7 +7,7 @@ import {
   ZapIcon,
 } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Feature3Item {
@@ -64,26 +64,28 @@ export function Feature3({
   className,
 }: Feature3Props) {
   return (
-    <section className={cn("mx-auto w-full max-w-5xl space-y-8", className)}>
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-balance font-display-heading text-2xl md:text-4xl lg:text-5xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="mt-4 text-balance text-muted-foreground text-sm md:text-base">
-            {description}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="overflow-hidden rounded-lg border">
-        <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
-          {features.map((feature) => (
-            <FeatureCard feature={feature} key={feature.title} />
-          ))}
+    <MarketingSection className={className}>
+      <section className="space-y-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-balance font-display-heading text-2xl md:text-4xl lg:text-5xl">
+            {title}
+          </h2>
+          {description ? (
+            <p className="mt-4 text-balance text-muted-foreground text-sm md:text-base">
+              {description}
+            </p>
+          ) : null}
         </div>
-      </div>
-    </section>
+
+        <div className="overflow-hidden rounded-lg border">
+          <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
+            {features.map((feature) => (
+              <FeatureCard feature={feature} key={feature.title} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

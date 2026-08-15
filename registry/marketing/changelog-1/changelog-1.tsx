@@ -1,6 +1,6 @@
+import { MarketingSection } from "@/components/marketing-section";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 
 export type Changelog1ChangeType = "Added" | "Improved" | "Fixed";
 
@@ -96,64 +96,64 @@ export function Changelog1({
   className,
 }: Changelog1Props) {
   return (
-    <section
-      className={cn(
-        "flex w-full items-center justify-center bg-background px-6 py-16 text-foreground",
-        className
-      )}
-    >
-      <div className="mx-auto w-full max-w-3xl">
-        <div className="mb-12">
-          <Badge className="mb-4" variant="outline">
-            {badge}
-          </Badge>
-          <h2 className="font-heading font-semibold text-3xl">{title}</h2>
-          {description ? (
-            <p className="mt-3 text-muted-foreground">{description}</p>
-          ) : null}
-        </div>
+    <MarketingSection className={className}>
+      <section className="flex items-center justify-center bg-background px-6 py-16 text-foreground">
+        <div className="mx-auto w-full max-w-3xl">
+          <div className="mb-12">
+            <Badge className="mb-4" variant="outline">
+              {badge}
+            </Badge>
+            <h2 className="font-heading font-semibold text-3xl">{title}</h2>
+            {description ? (
+              <p className="mt-3 text-muted-foreground">{description}</p>
+            ) : null}
+          </div>
 
-        <div className="flex flex-col gap-10">
-          {releases.map((release, index) => (
-            <div key={release.version}>
-              {index > 0 ? <Separator className="mb-10" /> : null}
-              <div className="grid gap-x-8 gap-y-5 md:grid-cols-[180px_1fr]">
-                <div className="flex flex-col items-start gap-1.5">
-                  <Badge className="font-mono tabular-nums" variant="secondary">
-                    {release.version}
-                  </Badge>
-                  <span className="text-muted-foreground text-xs tabular-nums">
-                    {release.date}
-                  </span>
-                  <p className="mt-1 hidden text-muted-foreground text-sm md:block">
-                    {release.summary}
-                  </p>
-                </div>
+          <div className="flex flex-col gap-10">
+            {releases.map((release, index) => (
+              <div key={release.version}>
+                {index > 0 ? <Separator className="mb-10" /> : null}
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-[180px_1fr]">
+                  <div className="flex flex-col items-start gap-1.5">
+                    <Badge
+                      className="font-mono tabular-nums"
+                      variant="secondary"
+                    >
+                      {release.version}
+                    </Badge>
+                    <span className="text-muted-foreground text-xs tabular-nums">
+                      {release.date}
+                    </span>
+                    <p className="mt-1 hidden text-muted-foreground text-sm md:block">
+                      {release.summary}
+                    </p>
+                  </div>
 
-                <div className="flex flex-col gap-5">
-                  {release.groups.map((group) => (
-                    <div className="flex flex-col gap-2" key={group.type}>
-                      <h3 className="font-heading font-semibold text-sm">
-                        {group.type}
-                      </h3>
-                      <ul className="flex flex-col gap-1.5 pl-4.5">
-                        {group.items.map((item) => (
-                          <li
-                            className="list-disc text-muted-foreground text-sm/relaxed marker:text-muted-foreground/40"
-                            key={item}
-                          >
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                  <div className="flex flex-col gap-5">
+                    {release.groups.map((group) => (
+                      <div className="flex flex-col gap-2" key={group.type}>
+                        <h3 className="font-heading font-semibold text-sm">
+                          {group.type}
+                        </h3>
+                        <ul className="flex flex-col gap-1.5 pl-4.5">
+                          {group.items.map((item) => (
+                            <li
+                              className="list-disc text-muted-foreground text-sm/relaxed marker:text-muted-foreground/40"
+                              key={item}
+                            >
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

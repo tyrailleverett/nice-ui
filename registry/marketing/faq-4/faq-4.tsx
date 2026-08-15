@@ -1,6 +1,6 @@
 import { SearchIcon, SearchSlashIcon } from "lucide-react";
 import { type ChangeEvent, useCallback, useMemo, useState } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import {
   Accordion,
   AccordionContent,
@@ -21,7 +21,6 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
 
 export interface Faq4Category {
   id: string;
@@ -175,7 +174,7 @@ export function Faq4({
   }, []);
 
   return (
-    <section className={cn("mx-auto w-full max-w-3xl md:border-x", className)}>
+    <MarketingSection className={className}>
       <div className="px-4 py-16 lg:px-6">
         <h2 className="mb-4 font-display-heading text-3xl md:text-4xl">
           {title}
@@ -262,6 +261,6 @@ export function Faq4({
           </p>
         </div>
       ) : null}
-    </section>
+    </MarketingSection>
   );
 }

@@ -8,10 +8,9 @@ import {
   PlusIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export interface Feature5Column {
   description: string;
@@ -201,26 +200,28 @@ export function Feature5({
   className,
 }: Feature5Props) {
   return (
-    <section className={cn("py-16 md:py-20", className)}>
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
-          {title}
-        </h2>
-        <div className="mt-8 grid gap-x-3 gap-y-6 **:data-[slot=card]:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">
-          {columns.map((column) => (
-            <div
-              className="row-span-2 grid grid-cols-subgrid gap-4"
-              key={column.title}
-            >
-              {column.media}
-              <p className="text-balance text-muted-foreground">
-                <span className="text-foreground">{column.title} </span>
-                {column.description}
-              </p>
-            </div>
-          ))}
+    <MarketingSection className={className}>
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
+            {title}
+          </h2>
+          <div className="mt-8 grid gap-x-3 gap-y-6 **:data-[slot=card]:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+            {columns.map((column) => (
+              <div
+                className="row-span-2 grid grid-cols-subgrid gap-4"
+                key={column.title}
+              >
+                {column.media}
+                <p className="text-balance text-muted-foreground">
+                  <span className="text-foreground">{column.title} </span>
+                  {column.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

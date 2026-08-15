@@ -1,7 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { cn } from "@/lib/utils";
 
 export interface Testimonial1Avatar {
   alt: string;
@@ -59,37 +58,34 @@ export function Testimonial1({
   className,
 }: Testimonial1Props) {
   return (
-    <figure
-      className={cn(
-        "mx-auto flex w-full max-w-lg flex-col items-center justify-center",
-        className
-      )}
-    >
-      {company ? (
-        <div className="mb-8 flex items-center gap-1">{company}</div>
-      ) : null}
+    <MarketingSection className={className} padded>
+      <figure className="flex flex-col items-center justify-center">
+        {company ? (
+          <div className="mb-8 flex items-center gap-1">{company}</div>
+        ) : null}
 
-      <blockquote className="text-center text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl">
-        {quote}
-      </blockquote>
+        <blockquote className="text-center text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl">
+          {quote}
+        </blockquote>
 
-      <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mx-auto my-5 h-px w-full max-w-sm bg-border" />
+        <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mx-auto my-5 h-px w-full max-w-sm bg-border" />
 
-      <figcaption className="flex flex-col items-center gap-5">
-        <div className="space-y-0.5 text-center">
-          <cite className="font-medium text-foreground text-xl not-italic">
-            {name}
-          </cite>
-          {role ? (
-            <div className="text-lg text-muted-foreground">{role}</div>
-          ) : null}
-        </div>
+        <figcaption className="flex flex-col items-center gap-5">
+          <div className="space-y-0.5 text-center">
+            <cite className="font-medium text-foreground text-xl not-italic">
+              {name}
+            </cite>
+            {role ? (
+              <div className="text-lg text-muted-foreground">{role}</div>
+            ) : null}
+          </div>
 
-        <Avatar className="size-12 rounded-full border object-cover">
-          <AvatarImage alt={avatar.alt} src={avatar.src} />
-          <AvatarFallback>{avatar.fallback}</AvatarFallback>
-        </Avatar>
-      </figcaption>
-    </figure>
+          <Avatar className="size-12 rounded-full border object-cover">
+            <AvatarImage alt={avatar.alt} src={avatar.src} />
+            <AvatarFallback>{avatar.fallback}</AvatarFallback>
+          </Avatar>
+        </figcaption>
+      </figure>
+    </MarketingSection>
   );
 }

@@ -1,6 +1,6 @@
 import { CheckIcon, TagIcon } from "lucide-react";
 import { useCallback, useState } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -33,8 +33,10 @@ export interface Pricing2Group {
 export interface Pricing2Props {
   className?: string;
   ctaLabel?: string;
+  description?: string;
   groups?: Pricing2Group[];
   plans?: Pricing2Plan[];
+  title?: string;
 }
 
 const defaultPlans: Pricing2Plan[] = [
@@ -134,6 +136,9 @@ function annualSavingsPercent(plan: Pricing2Plan): number {
   return Math.round((1 - plan.prices.yearly / plan.prices.monthly) * 100);
 }
 
+const billingToggleItemClassName =
+  "hover:bg-transparent hover:text-foreground aria-pressed:hover:bg-primary aria-pressed:hover:text-primary-foreground data-[state=on]:hover:bg-primary data-[state=on]:hover:text-primary-foreground";
+
 function BillingIntervalToggle({
   isAnnual,
   onChange,
@@ -159,9 +164,14 @@ function BillingIntervalToggle({
       className="rounded-lg border border-border bg-muted/50 p-1"
       onValueChange={handleValueChange}
       value={[isAnnual ? "annual" : "monthly"]}
+      variant="solid"
     >
-      <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
-      <ToggleGroupItem value="annual">Annually</ToggleGroupItem>
+      <ToggleGroupItem className={billingToggleItemClassName} value="monthly">
+        Monthly
+      </ToggleGroupItem>
+      <ToggleGroupItem className={billingToggleItemClassName} value="annual">
+        Annually
+      </ToggleGroupItem>
     </ToggleGroup>
   );
 }
@@ -191,6 +201,8 @@ export function Pricing2({
   plans = defaultPlans,
   groups = defaultGroups,
   ctaLabel = "Start 14-day trial",
+  title = "Plans that Scale with You.",
+  description = "Whether you're just starting out or growing fast, our flexible pricing has you covered — with no hidden costs.",
   className,
 }: Pricing2Props) {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -198,14 +210,19 @@ export function Pricing2({
   const savingsPercent = pricedPlan ? annualSavingsPercent(pricedPlan) : 0;
 
   return (
-    <section className={className}>
-      <div className="mx-auto max-w-6xl">
-        <div
-          className={cn(
-            "flex flex-col items-center justify-center gap-3",
-            "border-border border-r border-l py-12"
-          )}
-        >
+    <MarketingSection className={className}>
+      <div className="flex flex-col items-center px-8 py-12">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
+            {title}
+          </h2>
+          {description ? (
+            <p className="mt-4 text-pretty text-muted-foreground">
+              {description}
+            </p>
+          ) : null}
+        </div>
+        <div className="mt-8 flex flex-col items-center gap-3">
           <BillingIntervalToggle isAnnual={isAnnual} onChange={setIsAnnual} />
           {savingsPercent > 0 ? (
             <p className="flex items-center gap-1.5 text-primary text-sm">
@@ -217,94 +234,92 @@ export function Pricing2({
       </div>
 
       <div className="border-border border-t">
-        <div className="mx-auto max-w-6xl">
-          <div className="overflow-x-auto border-border border-r border-l">
-            <table className="w-full min-w-4xl border-collapse text-sm">
-              <caption className="sr-only">Compare plans</caption>
-              <thead>
-                <tr>
+        <div className="overflow-x-auto border-border border-r border-l">
+          <table className="w-full min-w-4xl border-collapse text-sm">
+            <caption className="sr-only">Compare plans</caption>
+            <thead>
+              <tr>
+                <th
+                  className="sticky top-0 left-0 z-30 min-w-44 border-border border-b bg-background px-6 py-8 text-left font-medium"
+                  scope="col"
+                >
+                  <span className="sr-only">Feature</span>
+                </th>
+                {plans.map((plan) => (
                   <th
-                    className="sticky top-0 left-0 z-30 min-w-44 border-border border-b bg-background px-6 py-8 text-left font-medium"
+                    className={cn(
+                      "sticky top-0 z-20 min-w-40 border-border border-b border-l px-6 py-8 text-center align-bottom font-medium",
+                      plan.popular ? "bg-primary/5" : "bg-background"
+                    )}
+                    key={plan.key}
                     scope="col"
                   >
-                    <span className="sr-only">Feature</span>
-                  </th>
-                  {plans.map((plan) => (
-                    <th
-                      className={cn(
-                        "sticky top-0 z-20 min-w-40 border-border border-b border-l px-6 py-8 text-center align-bottom font-medium",
-                        plan.popular ? "bg-primary/5" : "bg-background"
-                      )}
-                      key={plan.key}
-                      scope="col"
-                    >
-                      <div className="flex flex-col items-center gap-4">
-                        <div className="flex items-center justify-center gap-2">
-                          <span className="text-xl tracking-tight">
-                            {plan.name}
-                          </span>
-                          {plan.popular ? (
-                            <Badge className="border-primary/20 bg-primary/10 text-primary hover:bg-primary/10">
-                              Popular
-                            </Badge>
-                          ) : null}
-                        </div>
-                        <div>
-                          {plan.prices ? (
-                            <>
-                              <div className="flex items-baseline justify-center gap-1">
-                                <span className="font-semibold text-3xl">
-                                  {formatPrice(
-                                    isAnnual
-                                      ? plan.prices.yearly
-                                      : plan.prices.monthly
-                                  )}
-                                </span>
-                                <span className="text-muted-foreground">
-                                  /month
-                                </span>
-                              </div>
-                              <p className="mt-1 text-muted-foreground text-xs">
-                                {isAnnual
-                                  ? "Per seat, billed annually"
-                                  : "Per seat, billed monthly"}
-                              </p>
-                            </>
-                          ) : (
-                            <>
-                              <span className="font-semibold text-3xl tracking-tight">
-                                Custom
-                              </span>
-                              <p className="mt-1 text-muted-foreground text-xs">
-                                Tailored to your team
-                              </p>
-                            </>
-                          )}
-                        </div>
-                        <Button
-                          className="w-full"
-                          nativeButton={false}
-                          render={<a href={plan.ctaHref ?? "#"} />}
-                          size="lg"
-                          variant={plan.popular ? "default" : "outline"}
-                        >
-                          {plan.ctaLabel ?? ctaLabel}
-                        </Button>
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-xl tracking-tight">
+                          {plan.name}
+                        </span>
+                        {plan.popular ? (
+                          <Badge className="border-primary/20 bg-primary/10 text-primary hover:bg-primary/10">
+                            Popular
+                          </Badge>
+                        ) : null}
                       </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {groups.map((group) => (
-                  <GroupRows group={group} key={group.name} plans={plans} />
+                      <div>
+                        {plan.prices ? (
+                          <>
+                            <div className="flex items-baseline justify-center gap-1">
+                              <span className="font-semibold text-3xl">
+                                {formatPrice(
+                                  isAnnual
+                                    ? plan.prices.yearly
+                                    : plan.prices.monthly
+                                )}
+                              </span>
+                              <span className="text-muted-foreground">
+                                /month
+                              </span>
+                            </div>
+                            <p className="mt-1 text-muted-foreground text-xs">
+                              {isAnnual
+                                ? "Per seat, billed annually"
+                                : "Per seat, billed monthly"}
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <span className="font-semibold text-3xl tracking-tight">
+                              Custom
+                            </span>
+                            <p className="mt-1 text-muted-foreground text-xs">
+                              Tailored to your team
+                            </p>
+                          </>
+                        )}
+                      </div>
+                      <Button
+                        className="w-full"
+                        nativeButton={false}
+                        render={<a href={plan.ctaHref ?? "#"} />}
+                        size="lg"
+                        variant={plan.popular ? "default" : "outline"}
+                      >
+                        {plan.ctaLabel ?? ctaLabel}
+                      </Button>
+                    </div>
+                  </th>
                 ))}
-              </tbody>
-            </table>
-          </div>
+              </tr>
+            </thead>
+            <tbody>
+              {groups.map((group) => (
+                <GroupRows group={group} key={group.name} plans={plans} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
-    </section>
+    </MarketingSection>
   );
 }
 

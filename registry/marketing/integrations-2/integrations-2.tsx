@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { DecorIcon, type DecorIconProps } from "@/components/decor-icon";
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Integrations2Item {
@@ -59,17 +60,19 @@ export function Integrations2({
   className,
 }: Integrations2Props) {
   return (
-    <section className={cn("relative mx-auto max-w-5xl border", className)}>
-      <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-3">
-        {integrations.map((item) => (
-          <IntegrationCard integration={item} key={item.name} />
-        ))}
-      </div>
-      <DecorIcon position="top-left" />
-      <DecorIcon position="top-right" />
-      <DecorIcon position="bottom-left" />
-      <DecorIcon position="bottom-right" />
-    </section>
+    <MarketingSection className={className}>
+      <section className="relative border">
+        <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-3">
+          {integrations.map((item) => (
+            <IntegrationCard integration={item} key={item.name} />
+          ))}
+        </div>
+        <DecorIcon position="top-left" />
+        <DecorIcon position="top-right" />
+        <DecorIcon position="bottom-left" />
+        <DecorIcon position="bottom-right" />
+      </section>
+    </MarketingSection>
   );
 }
 

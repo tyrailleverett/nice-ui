@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -96,52 +96,53 @@ export function Footer2({
   className,
 }: Footer2Props) {
   return (
-    <footer className={cn("relative mx-auto max-w-5xl lg:border-x", className)}>
-      <FullWidthDivider position="top" />
-      <div className="grid max-w-5xl grid-cols-6 gap-6 p-4">
-        <div className="col-span-6 flex flex-col gap-4 pt-5 md:col-span-4">
-          <a aria-label="Nice UI home" className="w-max" href={logoHref}>
-            {logo ?? (
-              <span className="font-heading font-semibold text-sm tracking-tight">
-                Nice UI
-              </span>
-            )}
-          </a>
-          <p className="max-w-sm text-balance text-muted-foreground text-sm">
-            {description}
-          </p>
-          {socialLinks?.length ? (
-            <div className="flex gap-2">
-              {socialLinks.map((item) => (
-                <Button
-                  key={item.label}
-                  nativeButton={false}
-                  render={
-                    <a
-                      aria-label={item.label}
-                      href={item.href}
-                      rel="noreferrer"
-                      target="_blank"
-                    />
-                  }
-                  size="icon"
-                  variant="outline"
-                >
-                  {item.icon}
-                </Button>
-              ))}
-            </div>
-          ) : null}
+    <MarketingSection as="footer" className={className}>
+      <div className="relative">
+        <div className="grid max-w-5xl grid-cols-6 gap-6 p-4">
+          <div className="col-span-6 flex flex-col gap-4 pt-5 md:col-span-4">
+            <a aria-label="Nice UI home" className="w-max" href={logoHref}>
+              {logo ?? (
+                <span className="font-heading font-semibold text-sm tracking-tight">
+                  Nice UI
+                </span>
+              )}
+            </a>
+            <p className="max-w-sm text-balance text-muted-foreground text-sm">
+              {description}
+            </p>
+            {socialLinks?.length ? (
+              <div className="flex gap-2">
+                {socialLinks.map((item) => (
+                  <Button
+                    key={item.label}
+                    nativeButton={false}
+                    render={
+                      <a
+                        aria-label={item.label}
+                        href={item.href}
+                        rel="noreferrer"
+                        target="_blank"
+                      />
+                    }
+                    size="icon"
+                    variant="outline"
+                  >
+                    {item.icon}
+                  </Button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          <LinkColumn links={resourceLinks} title={resourceTitle} />
+          <LinkColumn links={companyLinks} title={companyTitle} />
         </div>
-        <LinkColumn links={resourceLinks} title={resourceTitle} />
-        <LinkColumn links={companyLinks} title={companyTitle} />
+        <FullWidthDivider />
+        <div className="flex items-center justify-center gap-2 py-4">
+          <p className="text-center font-light text-muted-foreground text-sm">
+            &copy; {new Date().getFullYear()} {copyright}
+          </p>
+        </div>
       </div>
-      <FullWidthDivider />
-      <div className="flex items-center justify-center gap-2 py-4">
-        <p className="text-center font-light text-muted-foreground text-sm">
-          &copy; {new Date().getFullYear()} {copyright}
-        </p>
-      </div>
-    </footer>
+    </MarketingSection>
   );
 }

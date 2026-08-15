@@ -2,7 +2,7 @@ import { ArrowRightIcon, PhoneCallIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { DecorIcon } from "@/components/decor-icon";
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -95,7 +95,7 @@ export function Hero1({
   className,
 }: Hero1Props) {
   return (
-    <section className={className}>
+    <MarketingSection className={className}>
       <div className="relative flex flex-col items-center justify-center gap-5 px-4 py-12 md:py-24 lg:py-28">
         <div
           aria-hidden="true"
@@ -188,7 +188,6 @@ export function Hero1({
         <DecorIcon className="size-4" position="top-right" />
         <DecorIcon className="size-4" position="bottom-left" />
         <DecorIcon className="size-4" position="bottom-right" />
-        <FullWidthDivider position="top" />
         <div className="overflow-hidden *:pointer-events-none *:aspect-video *:select-none">
           <img
             alt={screenshot.alt}
@@ -205,8 +204,7 @@ export function Hero1({
             width={1920}
           />
         </div>
-        <FullWidthDivider position="bottom" />
       </div>
-    </section>
+    </MarketingSection>
   );
 }

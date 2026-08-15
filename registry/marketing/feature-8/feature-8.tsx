@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-
-import { cn } from "@/lib/utils";
+import { MarketingSection } from "@/components/marketing-section";
 
 export interface Feature8ChartPoint {
   desktop: number;
@@ -204,74 +203,76 @@ export function Feature8({
   className,
 }: Feature8Props) {
   return (
-    <section className={cn("overflow-hidden px-4 py-16 md:py-20", className)}>
-      <div className="mx-auto max-w-7xl px-2 lg:px-6">
-        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
-          {title}
-        </h2>
-        <div className="mt-8 grid rounded-xl border md:mt-16 md:grid-cols-2">
-          <div className="row-span-2 grid grid-rows-subgrid gap-6 md:gap-0">
-            <div className="p-6 sm:p-12">
-              <p className="text-balance font-medium text-lg text-muted-foreground">
-                <span className="text-foreground">{mapTitle}</span>{" "}
-                {mapDescription}
-              </p>
-            </div>
-
-            <div aria-hidden className="relative">
-              <div className="absolute inset-0 z-10 m-auto size-fit -translate-y-full">
-                <div className="relative z-1 flex size-fit w-fit items-center gap-2 rounded-lg bg-zinc-900/75 px-3 py-1 font-medium text-white text-xs shadow-black/10 shadow-lg ring ring-foreground/10 backdrop-blur">
-                  {connectionLabel}
-                </div>
-                <div className="absolute inset-2 -bottom-2 mx-auto rounded-lg bg-background px-3 py-4 font-medium text-xs shadow-black/5 shadow-md ring ring-foreground/10" />
+    <MarketingSection className={className}>
+      <section className="overflow-hidden px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-2 lg:px-6">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
+            {title}
+          </h2>
+          <div className="mt-8 grid rounded-xl border md:mt-16 md:grid-cols-2">
+            <div className="row-span-2 grid grid-rows-subgrid gap-6 md:gap-0">
+              <div className="p-6 sm:p-12">
+                <p className="text-balance font-medium text-lg text-muted-foreground">
+                  <span className="text-foreground">{mapTitle}</span>{" "}
+                  {mapDescription}
+                </p>
               </div>
 
-              <div className="mask-radial-[50%_50%] mask-radial-at-center mask-radial-from-25% relative overflow-hidden opacity-25">
-                <FeatureMap />
-              </div>
-            </div>
-          </div>
-          <div className="row-span-2 grid grid-rows-subgrid gap-6 overflow-hidden border-t p-6 sm:p-12 md:gap-0 md:border-0 md:border-l dark:bg-transparent">
-            <div className="relative z-10">
-              <p className="text-balance font-medium text-lg text-muted-foreground">
-                <span className="text-foreground">{threadTitle}</span>{" "}
-                {threadDescription}
-              </p>
-            </div>
-            <div
-              aria-hidden
-              className="mask-radial-[90%_80%] mask-radial-at-top-left mask-radial-from-75%"
-            >
-              <div className="relative mx-auto flex aspect-video flex-col justify-between rounded-xl border bg-card pb-6">
-                <div className="mb-6 flex gap-1.5 border-b p-3">
-                  <div className="size-1.5 rounded-full bg-foreground/10" />
-                  <div className="size-1.5 rounded-full bg-foreground/10" />
-                  <div className="size-1.5 rounded-full bg-foreground/10" />
+              <div aria-hidden className="relative">
+                <div className="absolute inset-0 z-10 m-auto size-fit -translate-y-full">
+                  <div className="relative z-1 flex size-fit w-fit items-center gap-2 rounded-lg bg-zinc-900/75 px-3 py-1 font-medium text-white text-xs shadow-black/10 shadow-lg ring ring-foreground/10 backdrop-blur">
+                    {connectionLabel}
+                  </div>
+                  <div className="absolute inset-2 -bottom-2 mx-auto rounded-lg bg-background px-3 py-4 font-medium text-xs shadow-black/5 shadow-md ring ring-foreground/10" />
                 </div>
 
-                <div className="mx-6 mt-auto h-32 rounded-xl bg-foreground/2 shadow-xl ring ring-foreground/10" />
+                <div className="mask-radial-[50%_50%] mask-radial-at-center mask-radial-from-25% relative overflow-hidden opacity-25">
+                  <FeatureMap />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-span-full border-y p-12 lg:py-20">
-            <p className="text-center font-semibold text-4xl lg:text-7xl">
-              {uptime}{" "}
-              <span className="text-muted-foreground">{uptimeLabel}</span>
-            </p>
-          </div>
-          <div className="relative col-span-full">
-            <div className="absolute z-10 max-w-lg px-6 pt-6 pr-12 md:px-12 md:pt-12">
-              <p className="mb-8 text-balance font-medium text-lg">
-                {chartTitle}{" "}
-                <span className="text-muted-foreground">
-                  {chartDescription}
-                </span>
+            <div className="row-span-2 grid grid-rows-subgrid gap-6 overflow-hidden border-t p-6 sm:p-12 md:gap-0 md:border-0 md:border-l dark:bg-transparent">
+              <div className="relative z-10">
+                <p className="text-balance font-medium text-lg text-muted-foreground">
+                  <span className="text-foreground">{threadTitle}</span>{" "}
+                  {threadDescription}
+                </p>
+              </div>
+              <div
+                aria-hidden
+                className="mask-radial-[90%_80%] mask-radial-at-top-left mask-radial-from-75%"
+              >
+                <div className="relative mx-auto flex aspect-video flex-col justify-between rounded-xl border bg-card pb-6">
+                  <div className="mb-6 flex gap-1.5 border-b p-3">
+                    <div className="size-1.5 rounded-full bg-foreground/10" />
+                    <div className="size-1.5 rounded-full bg-foreground/10" />
+                    <div className="size-1.5 rounded-full bg-foreground/10" />
+                  </div>
+
+                  <div className="mx-6 mt-auto h-32 rounded-xl bg-foreground/2 shadow-xl ring ring-foreground/10" />
+                </div>
+              </div>
+            </div>
+            <div className="col-span-full border-y p-12 lg:py-20">
+              <p className="text-center font-semibold text-4xl lg:text-7xl">
+                {uptime}{" "}
+                <span className="text-muted-foreground">{uptimeLabel}</span>
               </p>
             </div>
-            <MonitoringChart data={chartData} />
+            <div className="relative col-span-full">
+              <div className="absolute z-10 max-w-lg px-6 pt-6 pr-12 md:px-12 md:pt-12">
+                <p className="mb-8 text-balance font-medium text-lg">
+                  {chartTitle}{" "}
+                  <span className="text-muted-foreground">
+                    {chartDescription}
+                  </span>
+                </p>
+              </div>
+              <MonitoringChart data={chartData} />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

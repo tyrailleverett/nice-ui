@@ -1,7 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export function LinkedinIcon(props: ComponentProps<"svg">) {
   return (
@@ -119,71 +118,73 @@ export function Footer6({
   className,
 }: Footer6Props) {
   return (
-    <footer className={cn("p-3 sm:p-4", className)}>
-      <div className="overflow-hidden rounded-[2rem] border px-6 pt-8 sm:px-10 sm:pt-10">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-4">
-            {groups.map((group) => (
-              <div key={group.title}>
-                <h3 className="mb-4 font-medium text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
-                  {group.title}
-                </h3>
-                <ul className="space-y-2.5">
-                  {group.links.map((link) => (
-                    <li key={link.label}>
-                      <a
-                        className="text-foreground text-sm hover:text-muted-foreground"
-                        href={link.href}
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          {socialLinks?.length ? (
-            <div className="flex shrink-0 items-center gap-2">
-              {socialLinks.map((item) => (
-                <Button
-                  className="rounded-md"
-                  key={item.label}
-                  nativeButton={false}
-                  render={<a aria-label={item.label} href={item.href} />}
-                  size="icon"
-                  variant="outline"
-                >
-                  {item.icon}
-                </Button>
+    <MarketingSection as="footer" className={className}>
+      <div className="p-3 sm:p-4">
+        <div className="overflow-hidden rounded-[2rem] border px-6 pt-8 sm:px-10 sm:pt-10">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+            <div className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-4">
+              {groups.map((group) => (
+                <div key={group.title}>
+                  <h3 className="mb-4 font-medium text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
+                    {group.title}
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {group.links.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          className="text-foreground text-sm hover:text-muted-foreground"
+                          href={link.href}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
-          ) : null}
-        </div>
-
-        <div className="mt-10 -mb-3">
-          {watermark ?? <FooterWatermark text={watermarkText} />}
-        </div>
-
-        <div className="flex flex-col gap-3 border-t pt-5 pb-6 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between sm:pb-8">
-          <div className="flex flex-wrap items-center gap-4">
-            <span>{copyright}</span>
-            {legalLinks.map((link) => (
-              <a
-                className="hover:text-foreground"
-                href={link.href}
-                key={link.label}
-              >
-                {link.label}
-              </a>
-            ))}
+            {socialLinks?.length ? (
+              <div className="flex shrink-0 items-center gap-2">
+                {socialLinks.map((item) => (
+                  <Button
+                    className="rounded-md"
+                    key={item.label}
+                    nativeButton={false}
+                    render={<a aria-label={item.label} href={item.href} />}
+                    size="icon"
+                    variant="outline"
+                  >
+                    {item.icon}
+                  </Button>
+                ))}
+              </div>
+            ) : null}
           </div>
-          <p className="inline-flex items-center gap-2">
-            <span className="size-1.5 rounded-full bg-foreground/80" />
-            {statusLabel}
-          </p>
+
+          <div className="mt-10 -mb-3">
+            {watermark ?? <FooterWatermark text={watermarkText} />}
+          </div>
+
+          <div className="flex flex-col gap-3 border-t pt-5 pb-6 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between sm:pb-8">
+            <div className="flex flex-wrap items-center gap-4">
+              <span>{copyright}</span>
+              {legalLinks.map((link) => (
+                <a
+                  className="hover:text-foreground"
+                  href={link.href}
+                  key={link.label}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <p className="inline-flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-foreground/80" />
+              {statusLabel}
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
+    </MarketingSection>
   );
 }

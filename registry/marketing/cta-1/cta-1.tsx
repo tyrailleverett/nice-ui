@@ -1,6 +1,5 @@
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export interface Cta1Action {
   href?: string;
@@ -47,25 +46,20 @@ export function Cta1({
   className,
 }: Cta1Props) {
   return (
-    <section
-      className={cn(
-        "relative mx-auto flex w-full max-w-3xl flex-col justify-between border-x md:flex-row",
-        className
-      )}
-    >
-      <FullWidthDivider position="top" />
-      <div className="border-b p-4 md:border-b-0">
-        <h2 className="text-center font-heading font-semibold text-lg md:text-left md:text-2xl">
-          {title}
-        </h2>
-      </div>
-      <div className="flex items-center justify-center gap-2 p-4 md:border-l">
-        {secondaryCta ? (
-          <ActionButton action={secondaryCta} variant="secondary" />
-        ) : null}
-        {primaryCta ? <ActionButton action={primaryCta} /> : null}
-      </div>
-      <FullWidthDivider position="bottom" />
-    </section>
+    <MarketingSection className={className}>
+      <section className="relative flex flex-col justify-between md:flex-row">
+        <div className="border-b p-4 md:border-b-0">
+          <h2 className="text-center font-heading font-semibold text-lg md:text-left md:text-2xl">
+            {title}
+          </h2>
+        </div>
+        <div className="flex items-center justify-center gap-2 p-4 md:border-l">
+          {secondaryCta ? (
+            <ActionButton action={secondaryCta} variant="secondary" />
+          ) : null}
+          {primaryCta ? <ActionButton action={primaryCta} /> : null}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

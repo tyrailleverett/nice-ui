@@ -1,3 +1,4 @@
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Integrations4Logo {
@@ -107,31 +108,28 @@ export function Integrations4({
   className,
 }: Integrations4Props) {
   return (
-    <section
-      className={cn(
-        "mx-auto grid max-w-5xl grid-cols-1 gap-12 p-4 md:grid-cols-2 md:items-center",
-        className
-      )}
-    >
-      <div className="max-w-xl space-y-5">
-        <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl md:text-5xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="text-lg text-muted-foreground leading-8">
-            {description}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="place-items-end">
-        <div className="mask-[radial-gradient(ellipse_at_center,black,black,transparent)] relative size-90">
-          {tiles.map((tile) => (
-            <IntegrationCard key={`${tile.row}_${tile.col}`} {...tile} />
-          ))}
+    <MarketingSection className={className}>
+      <section className="grid grid-cols-1 gap-12 p-4 md:grid-cols-2 md:items-center">
+        <div className="max-w-xl space-y-5">
+          <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl md:text-5xl">
+            {title}
+          </h2>
+          {description ? (
+            <p className="text-lg text-muted-foreground leading-8">
+              {description}
+            </p>
+          ) : null}
         </div>
-      </div>
-    </section>
+
+        <div className="place-items-end">
+          <div className="mask-[radial-gradient(ellipse_at_center,black,black,transparent)] relative size-90">
+            {tiles.map((tile) => (
+              <IntegrationCard key={`${tile.row}_${tile.col}`} {...tile} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

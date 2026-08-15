@@ -12,7 +12,7 @@ import {
   WandSparklesIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -136,41 +136,42 @@ export function Cta8({
   className,
 }: Cta8Props) {
   return (
-    <section
-      className={cn(
-        "relative mx-auto flex min-h-96 w-full max-w-4xl flex-col items-center justify-center gap-4 overflow-hidden px-6 py-16 text-center",
-        "bg-[radial-gradient(45%_70%_at_50%_0%,--theme(--color-foreground/.08),transparent)]",
-        className
-      )}
-    >
-      {icons.map((item) => (
-        <FloatingIcon key={item.className ?? "icon"} {...item} />
-      ))}
+    <MarketingSection className={className}>
+      <section
+        className={cn(
+          "relative mx-auto flex min-h-96 w-full max-w-4xl flex-col items-center justify-center gap-4 overflow-hidden px-6 py-16 text-center",
+          "bg-[radial-gradient(45%_70%_at_50%_0%,--theme(--color-foreground/.08),transparent)]"
+        )}
+      >
+        {icons.map((item) => (
+          <FloatingIcon key={item.className ?? "icon"} {...item} />
+        ))}
 
-      <h2 className="max-w-xl text-balance font-display-heading text-3xl leading-tight md:text-4xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="text-muted-foreground text-sm md:text-base">
-          {description}
-        </p>
-      ) : null}
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {primaryCta ? (
-          <ActionButton
-            action={primaryCta}
-            className="rounded-full"
-            icon={<ArrowUpRightIcon data-icon="inline-end" />}
-          />
+        <h2 className="max-w-xl text-balance font-display-heading text-3xl leading-tight md:text-4xl">
+          {title}
+        </h2>
+        {description ? (
+          <p className="text-muted-foreground text-sm md:text-base">
+            {description}
+          </p>
         ) : null}
-        {secondaryCta ? (
-          <ActionButton
-            action={secondaryCta}
-            className="rounded-full"
-            variant="outline"
-          />
-        ) : null}
-      </div>
-    </section>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {primaryCta ? (
+            <ActionButton
+              action={primaryCta}
+              className="rounded-full"
+              icon={<ArrowUpRightIcon data-icon="inline-end" />}
+            />
+          ) : null}
+          {secondaryCta ? (
+            <ActionButton
+              action={secondaryCta}
+              className="rounded-full"
+              variant="outline"
+            />
+          ) : null}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

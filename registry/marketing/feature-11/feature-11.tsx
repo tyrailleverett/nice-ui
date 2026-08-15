@@ -9,7 +9,7 @@ import {
   SparklesIcon,
   TargetIcon,
 } from "lucide-react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -161,7 +161,7 @@ export function Feature11({
   className,
 }: Feature11Props) {
   return (
-    <section className={className}>
+    <MarketingSection className={className}>
       <div className="py-24">
         <div className="mx-auto w-full max-w-5xl px-6">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -229,6 +229,6 @@ export function Feature11({
           </div>
         </div>
       </div>
-    </section>
+    </MarketingSection>
   );
 }

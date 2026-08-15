@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
@@ -115,27 +115,28 @@ export function Testimonial4({
   className,
 }: Testimonial4Props) {
   return (
-    <section
-      className={cn("mx-auto max-w-5xl space-y-8 border-x py-6", className)}
-    >
-      <div className="flex flex-col gap-2 px-4 md:px-6">
-        <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-            {description}
-          </p>
-        ) : null}
-      </div>
-      <div className="relative grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
-        <FullWidthDivider position="top" />
-        {testimonials.map((testimonial) => (
-          <TestimonialsCard key={testimonial.name} testimonial={testimonial} />
-        ))}
-        <FullWidthDivider position="bottom" />
-      </div>
-    </section>
+    <MarketingSection className={className}>
+      <section className="space-y-8 py-6">
+        <div className="flex flex-col gap-2 px-4 md:px-6">
+          <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
+            {title}
+          </h2>
+          {description ? (
+            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
+              {description}
+            </p>
+          ) : null}
+        </div>
+        <div className="relative grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <TestimonialsCard
+              key={testimonial.name}
+              testimonial={testimonial}
+            />
+          ))}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

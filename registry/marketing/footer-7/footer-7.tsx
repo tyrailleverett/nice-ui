@@ -5,11 +5,10 @@ import {
   type ReactNode,
   useCallback,
 } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { cn } from "@/lib/utils";
 
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
@@ -142,73 +141,75 @@ export function Footer7({
   );
 
   return (
-    <footer className={cn("bg-background text-foreground", className)}>
-      <div className="grid border-t md:grid-cols-3 md:divide-x">
-        {groups.map((group) => (
-          <div
-            className="border-b px-6 py-8 last:border-b-0 md:border-b-0"
-            key={group.title}
-          >
-            <h3 className="mb-4 font-semibold text-sm">{group.title}</h3>
-            <ul className="space-y-2.5">
-              {group.links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    className="text-muted-foreground text-sm hover:text-foreground"
-                    href={link.href}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid border-t md:grid-cols-3 md:divide-x">
-        <div className="flex flex-col justify-between gap-6 border-b px-6 py-8 md:border-b-0">
-          {socialLinks?.length ? (
-            <div className="flex items-center gap-2">
-              {socialLinks.map((item) => (
-                <Button
-                  key={item.label}
-                  nativeButton={false}
-                  render={<a aria-label={item.label} href={item.href} />}
-                  size="icon"
-                  variant="outline"
-                >
-                  {item.icon}
-                </Button>
-              ))}
+    <MarketingSection as="footer" className={className}>
+      <div className="bg-background text-foreground">
+        <div className="grid border-t md:grid-cols-3 md:divide-x">
+          {groups.map((group) => (
+            <div
+              className="border-b px-6 py-8 last:border-b-0 md:border-b-0"
+              key={group.title}
+            >
+              <h3 className="mb-4 font-semibold text-sm">{group.title}</h3>
+              <ul className="space-y-2.5">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      className="text-muted-foreground text-sm hover:text-foreground"
+                      href={link.href}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ) : null}
-          <p className="text-muted-foreground text-xs">{copyright}</p>
+          ))}
         </div>
 
-        <div className="flex flex-col justify-center gap-3 border-b px-6 py-8 md:border-b-0">
-          <p className="font-semibold text-sm">{newsletterTitle}</p>
-          <form className="flex gap-2" onSubmit={handleSubmit}>
-            <Input
-              className="h-9"
-              name="email"
-              placeholder={emailPlaceholder}
-              type="email"
-            />
-            <Button className="h-9" type="submit" variant="outline">
-              {subscribeLabel}
-            </Button>
-          </form>
-        </div>
+        <div className="grid border-t md:grid-cols-3 md:divide-x">
+          <div className="flex flex-col justify-between gap-6 border-b px-6 py-8 md:border-b-0">
+            {socialLinks?.length ? (
+              <div className="flex items-center gap-2">
+                {socialLinks.map((item) => (
+                  <Button
+                    key={item.label}
+                    nativeButton={false}
+                    render={<a aria-label={item.label} href={item.href} />}
+                    size="icon"
+                    variant="outline"
+                  >
+                    {item.icon}
+                  </Button>
+                ))}
+              </div>
+            ) : null}
+            <p className="text-muted-foreground text-xs">{copyright}</p>
+          </div>
 
-        <div className="flex items-end justify-between gap-4 px-6 py-8">
-          <p className="inline-flex items-center gap-2 text-sm">
-            <span className="size-2 rounded-full bg-emerald-400" />
-            {statusLabel}
-          </p>
-          <ThemeSwitcher onThemeChange={onThemeChange} theme={theme} />
+          <div className="flex flex-col justify-center gap-3 border-b px-6 py-8 md:border-b-0">
+            <p className="font-semibold text-sm">{newsletterTitle}</p>
+            <form className="flex gap-2" onSubmit={handleSubmit}>
+              <Input
+                className="h-9"
+                name="email"
+                placeholder={emailPlaceholder}
+                type="email"
+              />
+              <Button className="h-9" type="submit" variant="outline">
+                {subscribeLabel}
+              </Button>
+            </form>
+          </div>
+
+          <div className="flex items-end justify-between gap-4 px-6 py-8">
+            <p className="inline-flex items-center gap-2 text-sm">
+              <span className="size-2 rounded-full bg-emerald-400" />
+              {statusLabel}
+            </p>
+            <ThemeSwitcher onThemeChange={onThemeChange} theme={theme} />
+          </div>
         </div>
       </div>
-    </footer>
+    </MarketingSection>
   );
 }

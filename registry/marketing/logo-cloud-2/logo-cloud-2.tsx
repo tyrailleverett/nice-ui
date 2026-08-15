@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface LogoCloud2Item {
@@ -56,8 +56,9 @@ export function LogoCloud2({
   className,
 }: LogoCloud2Props) {
   return (
-    <section className={cn("relative mx-auto w-full max-w-3xl", className)}>
-      <style>{`
+    <MarketingSection className={className}>
+      <section className="relative">
+        <style>{`
         @keyframes nice-ui-logo-cloud-2-marquee {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
@@ -81,30 +82,31 @@ export function LogoCloud2({
           }
         }
       `}</style>
-      {title || highlight ? (
-        <h2 className="mb-5 text-center font-heading font-semibold text-foreground text-xl md:text-3xl">
-          {title ? (
-            <span className="text-muted-foreground">{title}</span>
-          ) : null}
-          {title && highlight ? <br /> : null}
-          {highlight ? (
-            <span className="font-semibold">{highlight}</span>
-          ) : null}
-        </h2>
-      ) : null}
-      <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mx-auto my-5 h-px max-w-sm bg-border" />
-      <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] overflow-hidden py-4">
-        <div className="nice-ui-logo-cloud-2-track flex w-max">
-          <LogoRow logos={logos} />
-          <LogoRow
-            aria-hidden
-            className="nice-ui-logo-cloud-2-clone"
-            logos={logos}
-          />
+        {title || highlight ? (
+          <h2 className="mb-5 text-center font-heading font-semibold text-foreground text-xl md:text-3xl">
+            {title ? (
+              <span className="text-muted-foreground">{title}</span>
+            ) : null}
+            {title && highlight ? <br /> : null}
+            {highlight ? (
+              <span className="font-semibold">{highlight}</span>
+            ) : null}
+          </h2>
+        ) : null}
+        <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mx-auto my-5 h-px max-w-sm bg-border" />
+        <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] overflow-hidden py-4">
+          <div className="nice-ui-logo-cloud-2-track flex w-max">
+            <LogoRow logos={logos} />
+            <LogoRow
+              aria-hidden
+              className="nice-ui-logo-cloud-2-clone"
+              logos={logos}
+            />
+          </div>
         </div>
-      </div>
-      <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mt-5 h-px bg-border" />
-    </section>
+        <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mt-5 h-px bg-border" />
+      </section>
+    </MarketingSection>
   );
 }
 

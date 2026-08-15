@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-
-import { cn } from "@/lib/utils";
+import { MarketingSection } from "@/components/marketing-section";
 
 export interface Stats3Item {
   description: ReactNode;
@@ -65,29 +64,31 @@ export function Stats3({
   className,
 }: Stats3Props) {
   return (
-    <section className={cn("w-full bg-background py-16 sm:py-24", className)}>
-      <div className="mx-auto grid max-w-5xl gap-12 px-6 md:grid-cols-2 md:items-center md:gap-16">
-        <div className="space-y-4">
-          <h2 className="text-balance font-display-heading text-3xl text-muted-foreground sm:text-4xl">
-            {title}
-          </h2>
-          {description ? (
-            <p className="text-pretty text-lg text-muted-foreground">
-              {description}
-            </p>
-          ) : null}
-        </div>
-        <ul className="space-y-8">
-          {stats.map((stat) => (
-            <li className="border-primary border-l-2 pl-6" key={stat.value}>
-              <p className="font-bold text-3xl tabular-nums tracking-tight sm:text-4xl">
-                {stat.value}
+    <MarketingSection className={className}>
+      <section className="bg-background py-16 sm:py-24">
+        <div className="mx-auto grid max-w-5xl gap-12 px-6 md:grid-cols-2 md:items-center md:gap-16">
+          <div className="space-y-4">
+            <h2 className="text-balance font-display-heading text-3xl text-muted-foreground sm:text-4xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="text-pretty text-lg text-muted-foreground">
+                {description}
               </p>
-              <p className="mt-2 text-muted-foreground">{stat.description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+            ) : null}
+          </div>
+          <ul className="space-y-8">
+            {stats.map((stat) => (
+              <li className="border-primary border-l-2 pl-6" key={stat.value}>
+                <p className="font-bold text-3xl tabular-nums tracking-tight sm:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-muted-foreground">{stat.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

@@ -1,10 +1,10 @@
+import { MarketingSection } from "@/components/marketing-section";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 
 export interface Faq5Item {
   content: string;
@@ -114,39 +114,41 @@ export function Faq5({
   className,
 }: Faq5Props) {
   return (
-    <section className={cn("mx-auto w-full max-w-3xl px-4 py-16", className)}>
-      <header className="mb-16 space-y-3 text-center">
-        <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
-        {description ? (
-          <p className="mx-auto max-w-xl text-pretty text-muted-foreground">
-            {description}
-          </p>
-        ) : null}
-      </header>
+    <MarketingSection className={className}>
+      <section className="px-4 py-16">
+        <header className="mb-16 space-y-3 text-center">
+          <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
+          {description ? (
+            <p className="mx-auto max-w-xl text-pretty text-muted-foreground">
+              {description}
+            </p>
+          ) : null}
+        </header>
 
-      <div className="space-y-12">
-        {groups.map((group) => (
-          <div key={group.title}>
-            <h3 className="mb-2 font-medium text-lg">{group.title}</h3>
-            <Accordion className="border-t">
-              {group.items.map((item) => (
-                <AccordionItem
-                  className="border-b"
-                  key={item.id}
-                  value={item.id}
-                >
-                  <AccordionTrigger className="py-4 text-base hover:no-underline focus-visible:underline focus-visible:ring-0">
-                    {item.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-muted-foreground">
-                    {item.content}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        ))}
-      </div>
-    </section>
+        <div className="space-y-12">
+          {groups.map((group) => (
+            <div key={group.title}>
+              <h3 className="mb-2 font-medium text-lg">{group.title}</h3>
+              <Accordion className="border-t">
+                {group.items.map((item) => (
+                  <AccordionItem
+                    className="border-b"
+                    key={item.id}
+                    value={item.id}
+                  >
+                    <AccordionTrigger className="py-4 text-base hover:no-underline focus-visible:underline focus-visible:ring-0">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-muted-foreground">
+                      {item.content}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          ))}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

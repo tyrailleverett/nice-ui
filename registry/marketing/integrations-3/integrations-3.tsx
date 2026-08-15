@@ -1,4 +1,4 @@
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -128,46 +128,39 @@ export function Integrations3({
   className,
 }: Integrations3Props) {
   return (
-    <section
-      className={cn(
-        "relative mx-auto grid max-w-4xl grid-cols-1 gap-12 border-x md:grid-cols-2 md:items-center",
-        className
-      )}
-    >
-      <FullWidthDivider position="top" />
-
-      <div className="p-4 md:p-6">
-        <div className="space-y-4">
-          <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">
-            {title}
-          </h2>
-          {description ? (
-            <p className="text-muted-foreground text-sm md:text-base">
-              {description}
-            </p>
-          ) : null}
-          {cta ? <IntegrationsCta action={cta} /> : null}
+    <MarketingSection className={className}>
+      <section className="relative grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
+        <div className="p-4 md:p-6">
+          <div className="space-y-4">
+            <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="text-muted-foreground text-sm md:text-base">
+                {description}
+              </p>
+            ) : null}
+            {cta ? <IntegrationsCta action={cta} /> : null}
+          </div>
         </div>
-      </div>
 
-      <div className="place-items-end">
-        <div className="relative size-80">
-          <div
-            className={cn(
-              "absolute inset-0 size-full",
-              "bg-[linear-gradient(to_right,theme(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,theme(--color-border)_1px,transparent_1px)]",
-              "bg-size-[64px_64px]",
-              "mask-[radial-gradient(ellipse_at_center,black,black,transparent)]"
-            )}
-          />
-          {tiles.map((tile) => (
-            <IntegrationCard key={`${tile.row}_${tile.col}`} {...tile} />
-          ))}
+        <div className="place-items-end">
+          <div className="relative size-80">
+            <div
+              className={cn(
+                "absolute inset-0 size-full",
+                "bg-[linear-gradient(to_right,theme(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,theme(--color-border)_1px,transparent_1px)]",
+                "bg-size-[64px_64px]",
+                "mask-[radial-gradient(ellipse_at_center,black,black,transparent)]"
+              )}
+            />
+            {tiles.map((tile) => (
+              <IntegrationCard key={`${tile.row}_${tile.col}`} {...tile} />
+            ))}
+          </div>
         </div>
-      </div>
-
-      <FullWidthDivider position="bottom" />
-    </section>
+      </section>
+    </MarketingSection>
   );
 }
 

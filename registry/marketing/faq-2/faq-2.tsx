@@ -1,10 +1,10 @@
+import { MarketingSection } from "@/components/marketing-section";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 
 export interface Faq2Item {
   content: string;
@@ -80,7 +80,7 @@ export function Faq2({
   className,
 }: Faq2Props) {
   return (
-    <section className={cn("mx-auto w-full max-w-5xl lg:border-x", className)}>
+    <MarketingSection className={className}>
       <div className="mx-4 grid grid-cols-1 border-x md:mx-0 md:grid-cols-2 md:border-x-0">
         <div className="space-y-4 px-4 pt-12 pb-4 md:border-r">
           <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
@@ -113,6 +113,6 @@ export function Faq2({
           </p>
         </div>
       ) : null}
-    </section>
+    </MarketingSection>
   );
 }

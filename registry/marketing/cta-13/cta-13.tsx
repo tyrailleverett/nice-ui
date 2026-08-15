@@ -1,9 +1,8 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export interface Cta13Action {
   href?: string;
@@ -66,10 +65,7 @@ export function Cta13({
   className,
 }: Cta13Props) {
   return (
-    <section
-      className={cn("relative mx-auto w-full max-w-6xl border-x", className)}
-    >
-      <FullWidthDivider position="top" />
+    <MarketingSection className={className}>
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col justify-center px-8 py-12 md:py-16">
           <div className="flex max-w-lg flex-col gap-3">
@@ -105,7 +101,6 @@ export function Cta13({
           </div>
         </div>
       </div>
-      <FullWidthDivider position="bottom" />
-    </section>
+    </MarketingSection>
   );
 }

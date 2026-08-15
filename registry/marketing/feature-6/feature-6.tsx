@@ -26,7 +26,7 @@ import {
   useRef,
   useState,
 } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -397,36 +397,38 @@ export function Feature6({
   }, [items]);
 
   return (
-    <section className={cn("py-16 md:py-20", className)}>
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
-          {title}
-        </h2>
-        <div className="mt-16 grid gap-6 md:mt-32 lg:grid-cols-[auto_1fr]">
-          <div className="sticky top-24 h-fit w-56 max-lg:hidden">
-            <div className="text-muted-foreground text-sm">Product</div>
-            <div className="mt-4 -ml-4 flex flex-col *:justify-start">
+    <MarketingSection className={className}>
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
+            {title}
+          </h2>
+          <div className="mt-16 grid gap-6 md:mt-32 lg:grid-cols-[auto_1fr]">
+            <div className="sticky top-24 h-fit w-56 max-lg:hidden">
+              <div className="text-muted-foreground text-sm">Product</div>
+              <div className="mt-4 -ml-4 flex flex-col *:justify-start">
+                {items.map((item) => (
+                  <FeatureNavButton
+                    isActive={activeId === item.id}
+                    item={item}
+                    key={item.id}
+                    onSelect={scrollToFeature}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col gap-16 md:gap-32">
               {items.map((item) => (
-                <FeatureNavButton
-                  isActive={activeId === item.id}
+                <FeatureSection
                   item={item}
                   key={item.id}
-                  onSelect={scrollToFeature}
+                  registerRef={registerRef}
                 />
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-16 md:gap-32">
-            {items.map((item) => (
-              <FeatureSection
-                item={item}
-                key={item.id}
-                registerRef={registerRef}
-              />
-            ))}
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

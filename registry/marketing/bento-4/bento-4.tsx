@@ -1,3 +1,4 @@
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Bento4Metric {
@@ -51,67 +52,66 @@ export function Bento4({
   className,
 }: Bento4Props) {
   return (
-    <section
-      className={cn(
-        "w-full bg-background py-16 text-foreground md:py-20 lg:py-28",
-        className
-      )}
-    >
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
-          {description ? (
-            <p className="mt-4 text-pretty text-muted-foreground">
-              {description}
-            </p>
-          ) : null}
-        </div>
+    <MarketingSection className={className}>
+      <section className="bg-background py-16 text-foreground md:py-20 lg:py-28">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="mt-4 text-pretty text-muted-foreground">
+                {description}
+              </p>
+            ) : null}
+          </div>
 
-        <div className="mt-12 overflow-hidden rounded-xl border border-border">
-          <ul className="grid grid-cols-2 bg-card md:grid-cols-4">
-            {metrics.map((metric, index) => (
-              <li
-                className={cn(
-                  "flex flex-col gap-1 border-b p-6",
-                  index % 2 === 0 ? "border-r md:border-r" : "md:border-r",
-                  index === metrics.length - 1
-                    ? "border-r-0 md:border-r-0"
-                    : null
-                )}
-                key={metric.label}
-              >
-                <p className="font-semibold text-2xl tabular-nums tracking-tight md:text-3xl">
-                  {metric.value}
-                </p>
-                <p className="text-muted-foreground text-sm">{metric.label}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12 overflow-hidden rounded-xl border border-border">
+            <ul className="grid grid-cols-2 bg-card md:grid-cols-4">
+              {metrics.map((metric, index) => (
+                <li
+                  className={cn(
+                    "flex flex-col gap-1 border-b p-6",
+                    index % 2 === 0 ? "border-r md:border-r" : "md:border-r",
+                    index === metrics.length - 1
+                      ? "border-r-0 md:border-r-0"
+                      : null
+                  )}
+                  key={metric.label}
+                >
+                  <p className="font-semibold text-2xl tabular-nums tracking-tight md:text-3xl">
+                    {metric.value}
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    {metric.label}
+                  </p>
+                </li>
+              ))}
+            </ul>
 
-          <ul className="grid grid-cols-1 md:grid-cols-3">
-            {tiles.map((tile, index) => (
-              <li
-                className={cn(
-                  "flex flex-col gap-2 bg-card p-6 md:p-8",
-                  index < tiles.length - 1
-                    ? "border-b md:border-r md:border-b-0"
-                    : null
-                )}
-                key={tile.title}
-              >
-                <h3 className="font-heading font-semibold text-title-md">
-                  {tile.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {tile.description}
-                </p>
-              </li>
-            ))}
-          </ul>
+            <ul className="grid grid-cols-1 md:grid-cols-3">
+              {tiles.map((tile, index) => (
+                <li
+                  className={cn(
+                    "flex flex-col gap-2 bg-card p-6 md:p-8",
+                    index < tiles.length - 1
+                      ? "border-b md:border-r md:border-b-0"
+                      : null
+                  )}
+                  key={tile.title}
+                >
+                  <h3 className="font-heading font-semibold text-title-md">
+                    {tile.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {tile.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

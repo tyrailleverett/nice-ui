@@ -1,11 +1,11 @@
 import { DecorIcon } from "@/components/decor-icon";
+import { MarketingSection } from "@/components/marketing-section";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 
 export interface Faq3Item {
   content: string;
@@ -81,59 +81,56 @@ export function Faq3({
   className,
 }: Faq3Props) {
   return (
-    <section
-      className={cn(
-        "mx-auto grid w-full max-w-5xl grid-cols-1 md:grid-cols-2 lg:border-x",
-        className
-      )}
-    >
-      <div className="px-4 pt-12 pb-6">
-        <div className="space-y-5">
-          <h2 className="text-balance font-display-heading text-4xl md:text-6xl">
-            {title}
-          </h2>
-          {description ? (
-            <p className="text-muted-foreground">{description}</p>
-          ) : null}
-          {contact ? (
-            <p className="text-muted-foreground">
-              {contactPrompt}{" "}
-              <a className="text-primary hover:underline" href={contact.href}>
-                {contact.label}
-              </a>
-            </p>
-          ) : null}
+    <MarketingSection className={className}>
+      <section className="grid grid-cols-1 md:grid-cols-2">
+        <div className="px-4 pt-12 pb-6">
+          <div className="space-y-5">
+            <h2 className="text-balance font-display-heading text-4xl md:text-6xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="text-muted-foreground">{description}</p>
+            ) : null}
+            {contact ? (
+              <p className="text-muted-foreground">
+                {contactPrompt}{" "}
+                <a className="text-primary hover:underline" href={contact.href}>
+                  {contact.label}
+                </a>
+              </p>
+            ) : null}
+          </div>
         </div>
-      </div>
-      <div className="relative place-content-center">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-3 h-full w-px bg-border"
-        />
+        <div className="relative place-content-center">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-3 h-full w-px bg-border"
+          />
 
-        <Accordion className="rounded-none border-x-0 border-y">
-          {questions.map((item) => (
-            <AccordionItem
-              className="group relative pl-5"
-              key={item.id}
-              value={item.id}
-            >
-              <DecorIcon
-                className="left-3.25 size-3 group-last:hidden"
-                position="bottom-left"
-              />
+          <Accordion className="rounded-none border-x-0 border-y">
+            {questions.map((item) => (
+              <AccordionItem
+                className="group relative pl-5"
+                key={item.id}
+                value={item.id}
+              >
+                <DecorIcon
+                  className="left-3.25 size-3 group-last:hidden"
+                  position="bottom-left"
+                />
 
-              <AccordionTrigger className="px-4 py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">
-                {item.title}
-              </AccordionTrigger>
+                <AccordionTrigger className="px-4 py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">
+                  {item.title}
+                </AccordionTrigger>
 
-              <AccordionContent className="px-4 pb-4 text-muted-foreground">
-                {item.content}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-    </section>
+                <AccordionContent className="px-4 pb-4 text-muted-foreground">
+                  {item.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+    </MarketingSection>
   );
 }

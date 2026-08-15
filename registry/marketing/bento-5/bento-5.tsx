@@ -5,7 +5,7 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 import { useEffect, useId, useState } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
 
 export interface Bento5Activity {
@@ -335,233 +335,232 @@ export function Bento5({
   );
 
   return (
-    <section
-      className={cn(
-        "flex w-full items-center justify-center bg-background px-6 py-16 text-foreground sm:py-20",
-        className
-      )}
-    >
-      <div className="mx-auto w-full max-w-5xl">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
-            <LiveDot />
-            <span>
-              <span className="font-medium text-foreground">Live</span> Across
-              Every Environment
-            </span>
-          </div>
-          <h2 className="mt-6 text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
-          {description ? (
-            <p className="mt-4 text-pretty text-muted-foreground">
-              {description}
-            </p>
-          ) : null}
-        </div>
-
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3 md:grid-rows-3">
-          <div className="bg-card p-6 sm:p-8 md:col-span-2 md:row-span-2">
-            <div className="flex h-full flex-col">
-              <h3 className="font-heading font-medium text-muted-foreground text-sm">
-                Recurring Revenue
-              </h3>
-              <div className="mt-1 flex items-baseline gap-2">
-                <span className="font-bold text-3xl tabular-nums tracking-tight sm:text-4xl">
-                  ${Math.round(revenue)}M
-                </span>
-                <span className="inline-flex items-center gap-0.5 font-medium text-sm text-success">
-                  <ArrowUpIcon className="size-4" />
-                  18.6%
-                </span>
-              </div>
-              <p className="mt-1 text-muted-foreground text-xs">
-                Trailing Twelve Months
+    <MarketingSection className={className}>
+      <section className="flex items-center justify-center bg-background px-6 py-16 text-foreground sm:py-20">
+        <div className="mx-auto w-full max-w-5xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
+              <LiveDot />
+              <span>
+                <span className="font-medium text-foreground">Live</span> Across
+                Every Environment
+              </span>
+            </div>
+            <h2 className="mt-6 text-balance font-display-heading text-3xl sm:text-4xl">
+              {title}
+            </h2>
+            {description ? (
+              <p className="mt-4 text-pretty text-muted-foreground">
+                {description}
               </p>
-              <RevenueChart revealed={revealed} />
-            </div>
+            ) : null}
           </div>
 
-          <div className="bg-card p-6 md:row-span-2">
-            <div className="flex h-full flex-col">
-              <div className="flex items-center justify-between">
-                <h3 className="font-heading font-medium text-sm">
-                  Live Activity
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3 md:grid-rows-3">
+            <div className="bg-card p-6 sm:p-8 md:col-span-2 md:row-span-2">
+              <div className="flex h-full flex-col">
+                <h3 className="font-heading font-medium text-muted-foreground text-sm">
+                  Recurring Revenue
                 </h3>
-                <LiveDot />
-              </div>
-              <ul className="mt-4 flex flex-col divide-y divide-border">
-                {ACTIVITY.map((event) => {
-                  const Icon =
-                    event.kind === "merge" ? GitMergeIcon : RocketIcon;
-
-                  return (
-                    <li
-                      className="flex items-center gap-3 py-3 first:pt-0"
-                      key={`${event.name}-${event.time}`}
-                    >
-                      <img
-                        alt=""
-                        className="size-7 shrink-0 rounded-full grayscale"
-                        height={28}
-                        loading="lazy"
-                        src={event.avatarSrc}
-                        width={28}
-                      />
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-xs">
-                          <span className="font-medium">{event.name}</span>{" "}
-                          <span className="text-muted-foreground">
-                            {event.action}
-                          </span>{" "}
-                          <span className="text-foreground">
-                            {event.target}
-                          </span>
-                        </p>
-                        <p className="text-[0.7rem] text-muted-foreground">
-                          {event.time}
-                        </p>
-                      </div>
-                      <Icon
-                        aria-hidden
-                        className="size-4 shrink-0 text-muted-foreground"
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="mt-auto flex items-center justify-between border-border border-t pt-4 text-xs">
-                <span className="text-muted-foreground">Events Today</span>
-                <span className="font-medium tabular-nums">
-                  {Math.round(eventsToday).toLocaleString("en-US")}
-                </span>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="font-bold text-3xl tabular-nums tracking-tight sm:text-4xl">
+                    ${Math.round(revenue)}M
+                  </span>
+                  <span className="inline-flex items-center gap-0.5 font-medium text-sm text-success">
+                    <ArrowUpIcon className="size-4" />
+                    18.6%
+                  </span>
+                </div>
+                <p className="mt-1 text-muted-foreground text-xs">
+                  Trailing Twelve Months
+                </p>
+                <RevenueChart revealed={revealed} />
               </div>
             </div>
-          </div>
 
-          <div className="bg-card p-6">
-            <div className="flex h-full flex-col">
-              <h3 className="font-heading font-medium text-sm">
-                Compute Usage
-              </h3>
-              <div className="mt-4 flex items-baseline justify-between text-xs">
-                <span className="text-muted-foreground">
-                  <span className="font-medium text-foreground tabular-nums">
-                    {computeUsed}%
-                  </span>{" "}
-                  In Use
-                </span>
-                <span className="text-muted-foreground">
-                  {100 - computeUsed}% Free
-                </span>
-              </div>
-              <div className="mt-2 flex h-2 w-full overflow-hidden bg-muted">
-                <div
-                  className="flex h-full origin-left transition-transform duration-1000 ease-out"
-                  style={{
-                    transform: revealed ? "scaleX(1)" : "scaleX(0)",
-                    width: "100%",
-                  }}
-                >
-                  {COMPUTE_SLICES.map((slice, index) => (
-                    <span
-                      className="h-full bg-primary"
-                      key={slice.label}
-                      style={{
-                        flex: slice.percent,
-                        opacity: COMPUTE_OPACITY[index],
-                      }}
-                    />
-                  ))}
+            <div className="bg-card p-6 md:row-span-2">
+              <div className="flex h-full flex-col">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-heading font-medium text-sm">
+                    Live Activity
+                  </h3>
+                  <LiveDot />
+                </div>
+                <ul className="mt-4 flex flex-col divide-y divide-border">
+                  {ACTIVITY.map((event) => {
+                    const Icon =
+                      event.kind === "merge" ? GitMergeIcon : RocketIcon;
+
+                    return (
+                      <li
+                        className="flex items-center gap-3 py-3 first:pt-0"
+                        key={`${event.name}-${event.time}`}
+                      >
+                        <img
+                          alt=""
+                          className="size-7 shrink-0 rounded-full grayscale"
+                          height={28}
+                          loading="lazy"
+                          src={event.avatarSrc}
+                          width={28}
+                        />
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate text-xs">
+                            <span className="font-medium">{event.name}</span>{" "}
+                            <span className="text-muted-foreground">
+                              {event.action}
+                            </span>{" "}
+                            <span className="text-foreground">
+                              {event.target}
+                            </span>
+                          </p>
+                          <p className="text-[0.7rem] text-muted-foreground">
+                            {event.time}
+                          </p>
+                        </div>
+                        <Icon
+                          aria-hidden
+                          className="size-4 shrink-0 text-muted-foreground"
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="mt-auto flex items-center justify-between border-border border-t pt-4 text-xs">
+                  <span className="text-muted-foreground">Events Today</span>
+                  <span className="font-medium tabular-nums">
+                    {Math.round(eventsToday).toLocaleString("en-US")}
+                  </span>
                 </div>
               </div>
-              <ul className="mt-auto flex flex-col gap-2.5 pt-5 text-xs">
-                {COMPUTE_SLICES.map((slice, index) => (
-                  <li className="flex items-center gap-2.5" key={slice.label}>
+            </div>
+
+            <div className="bg-card p-6">
+              <div className="flex h-full flex-col">
+                <h3 className="font-heading font-medium text-sm">
+                  Compute Usage
+                </h3>
+                <div className="mt-4 flex items-baseline justify-between text-xs">
+                  <span className="text-muted-foreground">
+                    <span className="font-medium text-foreground tabular-nums">
+                      {computeUsed}%
+                    </span>{" "}
+                    In Use
+                  </span>
+                  <span className="text-muted-foreground">
+                    {100 - computeUsed}% Free
+                  </span>
+                </div>
+                <div className="mt-2 flex h-2 w-full overflow-hidden bg-muted">
+                  <div
+                    className="flex h-full origin-left transition-transform duration-1000 ease-out"
+                    style={{
+                      transform: revealed ? "scaleX(1)" : "scaleX(0)",
+                      width: "100%",
+                    }}
+                  >
+                    {COMPUTE_SLICES.map((slice, index) => (
+                      <span
+                        className="h-full bg-primary"
+                        key={slice.label}
+                        style={{
+                          flex: slice.percent,
+                          opacity: COMPUTE_OPACITY[index],
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <ul className="mt-auto flex flex-col gap-2.5 pt-5 text-xs">
+                  {COMPUTE_SLICES.map((slice, index) => (
+                    <li className="flex items-center gap-2.5" key={slice.label}>
+                      <span
+                        aria-hidden
+                        className="size-2.5 shrink-0 bg-primary"
+                        style={{ opacity: COMPUTE_OPACITY[index] }}
+                      />
+                      <span className="flex-1 text-muted-foreground">
+                        {slice.label}
+                      </span>
+                      <span className="font-medium tabular-nums">
+                        {slice.percent}%
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-card p-6">
+              <div className="flex h-full flex-col">
+                <div className="flex items-baseline justify-between">
+                  <h3 className="font-heading font-medium text-sm">Uptime</h3>
+                  <span className="font-semibold text-sm text-success tabular-nums">
+                    {uptime.toFixed(2)}%
+                  </span>
+                </div>
+                <div aria-hidden className="mt-4 flex h-12 items-end gap-0.5">
+                  {UPTIME_DAYS.map((dayId, index) => {
+                    const isWarning = index === UPTIME_WARNING_DAY;
+
+                    return (
+                      <span
+                        className={cn(
+                          "h-full flex-1 origin-bottom transition-transform duration-500 ease-out",
+                          isWarning ? "bg-amber-400/20" : "bg-emerald-500/20"
+                        )}
+                        key={dayId}
+                        style={{
+                          transform: revealed ? "scaleY(1)" : "scaleY(0.2)",
+                          transitionDelay: revealed ? `${index * 8}ms` : "0ms",
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+                <p className="mt-3 text-muted-foreground text-xs">
+                  Last 90 Days
+                </p>
+                <div className="mt-auto flex items-center justify-between border-border border-t pt-4 text-xs">
+                  <span className="flex items-center gap-1.5 text-muted-foreground">
                     <span
                       aria-hidden
-                      className="size-2.5 shrink-0 bg-primary"
-                      style={{ opacity: COMPUTE_OPACITY[index] }}
+                      className="size-1.5 rounded-full bg-emerald-500"
                     />
-                    <span className="flex-1 text-muted-foreground">
-                      {slice.label}
-                    </span>
-                    <span className="font-medium tabular-nums">
-                      {slice.percent}%
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-card p-6">
-            <div className="flex h-full flex-col">
-              <div className="flex items-baseline justify-between">
-                <h3 className="font-heading font-medium text-sm">Uptime</h3>
-                <span className="font-semibold text-sm text-success tabular-nums">
-                  {uptime.toFixed(2)}%
-                </span>
-              </div>
-              <div aria-hidden className="mt-4 flex h-12 items-end gap-0.5">
-                {UPTIME_DAYS.map((dayId, index) => {
-                  const isWarning = index === UPTIME_WARNING_DAY;
-
-                  return (
-                    <span
-                      className={cn(
-                        "h-full flex-1 origin-bottom transition-transform duration-500 ease-out",
-                        isWarning ? "bg-amber-400/20" : "bg-emerald-500/20"
-                      )}
-                      key={dayId}
-                      style={{
-                        transform: revealed ? "scaleY(1)" : "scaleY(0.2)",
-                        transitionDelay: revealed ? `${index * 8}ms` : "0ms",
-                      }}
-                    />
-                  );
-                })}
-              </div>
-              <p className="mt-3 text-muted-foreground text-xs">Last 90 Days</p>
-              <div className="mt-auto flex items-center justify-between border-border border-t pt-4 text-xs">
-                <span className="flex items-center gap-1.5 text-muted-foreground">
-                  <span
-                    aria-hidden
-                    className="size-1.5 rounded-full bg-emerald-500"
-                  />
-                  Operational
-                </span>
-                <span className="text-muted-foreground">
-                  <span className="font-medium text-foreground tabular-nums">
-                    0
-                  </span>{" "}
-                  Incidents
-                </span>
+                    Operational
+                  </span>
+                  <span className="text-muted-foreground">
+                    <span className="font-medium text-foreground tabular-nums">
+                      0
+                    </span>{" "}
+                    Incidents
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="bg-card p-6">
-            <div className="relative flex h-full flex-col overflow-hidden">
-              <h3 className="font-heading font-medium text-sm">
-                Secure By Default
-              </h3>
-              <p className="mt-1 text-muted-foreground text-xs">
-                Enterprise controls, on from day one.
-              </p>
-              <ul className="mt-4 flex flex-col gap-2 text-muted-foreground text-xs">
-                {SECURITY_CONTROLS.map((control) => (
-                  <li className="flex items-center gap-2" key={control}>
-                    <ShieldCheckIcon className="size-3.5 shrink-0 text-success" />
-                    {control}
-                  </li>
-                ))}
-              </ul>
-              <DotGrid />
+            <div className="bg-card p-6">
+              <div className="relative flex h-full flex-col overflow-hidden">
+                <h3 className="font-heading font-medium text-sm">
+                  Secure By Default
+                </h3>
+                <p className="mt-1 text-muted-foreground text-xs">
+                  Enterprise controls, on from day one.
+                </p>
+                <ul className="mt-4 flex flex-col gap-2 text-muted-foreground text-xs">
+                  {SECURITY_CONTROLS.map((control) => (
+                    <li className="flex items-center gap-2" key={control}>
+                      <ShieldCheckIcon className="size-3.5 shrink-0 text-success" />
+                      {control}
+                    </li>
+                  ))}
+                </ul>
+                <DotGrid />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

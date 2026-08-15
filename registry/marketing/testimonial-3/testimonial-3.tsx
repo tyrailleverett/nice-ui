@@ -1,7 +1,5 @@
 import { QuoteIcon } from "lucide-react";
-
-import { FullWidthDivider } from "@/components/full-width-divider";
-import { cn } from "@/lib/utils";
+import { MarketingSection } from "@/components/marketing-section";
 
 export interface Testimonial3Item {
   company?: string;
@@ -49,25 +47,26 @@ export function Testimonial3({
   );
 
   return (
-    <section
-      className={cn("relative mx-auto w-full max-w-4xl border-x", className)}
-    >
-      <FullWidthDivider position="top" />
-      <div className="grid md:grid-cols-[2fr_1px_1fr]">
-        <div className="divide-y">
-          {primary.map((testimonial) => (
-            <TestimonialCard key={testimonial.name} testimonial={testimonial} />
-          ))}
-        </div>
-        <div className="h-px bg-border md:h-auto" />
-        {featured ? (
-          <div className="flex items-center">
-            <TestimonialCard testimonial={featured} />
+    <MarketingSection className={className}>
+      <section className="relative">
+        <div className="grid md:grid-cols-[2fr_1px_1fr]">
+          <div className="divide-y">
+            {primary.map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.name}
+                testimonial={testimonial}
+              />
+            ))}
           </div>
-        ) : null}
-      </div>
-      <FullWidthDivider position="bottom" />
-    </section>
+          <div className="h-px bg-border md:h-auto" />
+          {featured ? (
+            <div className="flex items-center">
+              <TestimonialCard testimonial={featured} />
+            </div>
+          ) : null}
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

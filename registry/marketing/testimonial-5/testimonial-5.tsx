@@ -1,6 +1,6 @@
 import { QuoteIcon } from "lucide-react";
 import type { ComponentProps } from "react";
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { MarketingSection } from "@/components/marketing-section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
@@ -102,8 +102,9 @@ export function Testimonial5({
   className,
 }: Testimonial5Props) {
   return (
-    <section className={cn("mx-auto w-full max-w-5xl py-8", className)}>
-      <style>{`
+    <MarketingSection className={className}>
+      <section className="py-8">
+        <style>{`
         @keyframes nice-ui-testimonial-5-marquee {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
@@ -125,29 +126,28 @@ export function Testimonial5({
           }
         }
       `}</style>
-      <div className="mb-8 flex flex-col gap-2 px-4 md:px-6">
-        <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="text-muted-foreground text-sm md:text-base">
-            {description}
-          </p>
-        ) : null}
-      </div>
-      <div className="relative overflow-hidden">
-        <FullWidthDivider position="top" />
-        <div className="nice-ui-testimonial-5-track flex w-max">
-          <TestimonialRow testimonials={testimonials} />
-          <TestimonialRow
-            aria-hidden
-            className="nice-ui-testimonial-5-clone"
-            testimonials={testimonials}
-          />
+        <div className="mb-8 flex flex-col gap-2 px-4 md:px-6">
+          <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
+            {title}
+          </h2>
+          {description ? (
+            <p className="text-muted-foreground text-sm md:text-base">
+              {description}
+            </p>
+          ) : null}
         </div>
-        <FullWidthDivider position="bottom" />
-      </div>
-    </section>
+        <div className="relative overflow-hidden">
+          <div className="nice-ui-testimonial-5-track flex w-max">
+            <TestimonialRow testimonials={testimonials} />
+            <TestimonialRow
+              aria-hidden
+              className="nice-ui-testimonial-5-clone"
+              testimonials={testimonials}
+            />
+          </div>
+        </div>
+      </section>
+    </MarketingSection>
   );
 }
 

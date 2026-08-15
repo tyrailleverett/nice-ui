@@ -1,6 +1,6 @@
 import { CalendarCheckIcon, ChevronRightIcon, TargetIcon } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -87,54 +87,56 @@ export function Feature10({
   className,
 }: Feature10Props) {
   return (
-    <section className={cn(className)}>
-      <div className="bg-muted/50 py-24">
-        <div className="mx-auto w-full max-w-5xl px-6">
-          <div className="grid gap-12 md:grid-cols-5">
-            <div className="md:col-span-2">
-              <h2 className="text-balance font-display-heading text-4xl text-foreground">
-                {title}
-              </h2>
-              {cta ? <FeatureCta cta={cta} /> : null}
-            </div>
+    <MarketingSection className={className}>
+      <section className={cn()}>
+        <div className="bg-muted/50 py-24">
+          <div className="mx-auto w-full max-w-5xl px-6">
+            <div className="grid gap-12 md:grid-cols-5">
+              <div className="md:col-span-2">
+                <h2 className="text-balance font-display-heading text-4xl text-foreground">
+                  {title}
+                </h2>
+                {cta ? <FeatureCta cta={cta} /> : null}
+              </div>
 
-            <div className="space-y-6 md:col-span-3 md:space-y-10">
-              {items.map((item) => (
-                <div key={item.title}>
-                  <div className="flex items-center gap-2">
-                    {item.icon}
-                    <h3 className="font-semibold text-foreground text-lg">
-                      {item.title}
-                    </h3>
+              <div className="space-y-6 md:col-span-3 md:space-y-10">
+                {items.map((item) => (
+                  <div key={item.title}>
+                    <div className="flex items-center gap-2">
+                      {item.icon}
+                      <h3 className="font-semibold text-foreground text-lg">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="mt-3 text-balance text-muted-foreground">
+                      {item.description}
+                    </p>
                   </div>
-                  <p className="mt-3 text-balance text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="relative -mx-12 mt-16 px-12">
-            <div className="relative mx-auto overflow-hidden rounded-xl border border-transparent bg-background shadow-black/10 shadow-lg ring-1 ring-black/10">
-              <img
-                alt={screenshot.alt}
-                className="w-full dark:hidden"
-                height={1842}
-                src={screenshot.src}
-                width={2880}
-              />
-              <img
-                alt={darkScreenshot.alt}
-                className="hidden w-full dark:block"
-                height={1842}
-                src={darkScreenshot.src}
-                width={2880}
-              />
+            <div className="relative -mx-12 mt-16 px-12">
+              <div className="relative mx-auto overflow-hidden rounded-xl border border-transparent bg-background shadow-black/10 shadow-lg ring-1 ring-black/10">
+                <img
+                  alt={screenshot.alt}
+                  className="w-full dark:hidden"
+                  height={1842}
+                  src={screenshot.src}
+                  width={2880}
+                />
+                <img
+                  alt={darkScreenshot.alt}
+                  className="hidden w-full dark:block"
+                  height={1842}
+                  src={darkScreenshot.src}
+                  width={2880}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

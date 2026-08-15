@@ -4,11 +4,10 @@ import {
   type ReactNode,
   useCallback,
 } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
 
 export function FacebookIcon(props: ComponentProps<"svg">) {
   return (
@@ -131,86 +130,88 @@ export function Footer5({
   );
 
   return (
-    <footer className={cn("bg-background text-foreground", className)}>
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] lg:gap-16">
-          <div className="flex max-w-sm flex-col gap-6">
-            {logo ?? (
-              <span className="font-heading font-semibold text-lg tracking-tight">
-                Nice UI
-              </span>
-            )}
-            <p className="text-pretty text-muted-foreground text-sm">
-              {description}
-            </p>
-            <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-              <Label htmlFor="footer-5-email">{newsletterLabel}</Label>
-              <div className="flex gap-2">
-                <Input
-                  className="h-9"
-                  id="footer-5-email"
-                  name="email"
-                  placeholder={emailPlaceholder}
-                  type="email"
-                />
-                <Button className="h-9" type="submit" variant="secondary">
-                  {subscribeLabel}
-                </Button>
-              </div>
-            </form>
-            {socialLinks?.length ? (
-              <div className="flex items-center gap-2">
-                {socialLinks.map((item) => (
-                  <Button
-                    className="rounded-full"
-                    key={item.label}
-                    nativeButton={false}
-                    render={<a aria-label={item.label} href={item.href} />}
-                    size="icon"
-                    variant="ghost"
-                  >
-                    {item.icon}
+    <MarketingSection as="footer" className={className}>
+      <div className="bg-background text-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] lg:gap-16">
+            <div className="flex max-w-sm flex-col gap-6">
+              {logo ?? (
+                <span className="font-heading font-semibold text-lg tracking-tight">
+                  Nice UI
+                </span>
+              )}
+              <p className="text-pretty text-muted-foreground text-sm">
+                {description}
+              </p>
+              <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+                <Label htmlFor="footer-5-email">{newsletterLabel}</Label>
+                <div className="flex gap-2">
+                  <Input
+                    className="h-9"
+                    id="footer-5-email"
+                    name="email"
+                    placeholder={emailPlaceholder}
+                    type="email"
+                  />
+                  <Button className="h-9" type="submit" variant="secondary">
+                    {subscribeLabel}
                   </Button>
-                ))}
-              </div>
-            ) : null}
-          </div>
+                </div>
+              </form>
+              {socialLinks?.length ? (
+                <div className="flex items-center gap-2">
+                  {socialLinks.map((item) => (
+                    <Button
+                      className="rounded-full"
+                      key={item.label}
+                      nativeButton={false}
+                      render={<a aria-label={item.label} href={item.href} />}
+                      size="icon"
+                      variant="ghost"
+                    >
+                      {item.icon}
+                    </Button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
-            {columns.map((column) => (
-              <div
-                className="flex flex-col gap-10"
-                key={column.groups.map((group) => group.title).join("-")}
-              >
-                {column.groups.map((group) => (
-                  <LinkGroup key={group.title} {...group} />
-                ))}
-              </div>
-            ))}
+            <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+              {columns.map((column) => (
+                <div
+                  className="flex flex-col gap-10"
+                  key={column.groups.map((group) => group.title).join("-")}
+                >
+                  {column.groups.map((group) => (
+                    <LinkGroup key={group.title} {...group} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between">
+            <p className="inline-flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-emerald-400" />
+              {statusLabel}
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              {legalLinks.map((link) => (
+                <a
+                  className="hover:text-foreground"
+                  href={link.href}
+                  key={link.label}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <span>{copyright}</span>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="border-t">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p className="inline-flex items-center gap-2">
-            <span className="size-1.5 rounded-full bg-emerald-400" />
-            {statusLabel}
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            {legalLinks.map((link) => (
-              <a
-                className="hover:text-foreground"
-                href={link.href}
-                key={link.label}
-              >
-                {link.label}
-              </a>
-            ))}
-            <span>{copyright}</span>
-          </div>
-        </div>
-      </div>
-    </footer>
+    </MarketingSection>
   );
 }

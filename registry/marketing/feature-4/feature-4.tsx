@@ -5,9 +5,8 @@ import {
   UsersIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export interface Feature4Highlight {
   description: string;
@@ -63,55 +62,60 @@ export function Feature4({
   className,
 }: Feature4Props) {
   return (
-    <section className={cn("py-16 md:py-20", className)}>
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground lg:text-5xl">
-          {title}
-        </h2>
-        <div className="mt-8 grid gap-3 *:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="p-8">
-            <p className="max-w-xs font-medium text-lg text-muted-foreground">
-              <span className="text-foreground">{pipelineTitle}</span>{" "}
-              {pipelineDescription}
-            </p>
-
-            <div className="my-16">
-              <div
-                aria-hidden
-                className="relative mx-auto aspect-square w-10/12 rounded-xl border bg-background"
-              >
-                <div className="absolute right-0 bottom-0 aspect-square w-3/5 translate-x-8 translate-y-16 rounded-xl bg-card shadow-xl ring ring-foreground/10" />
-              </div>
-            </div>
-          </Card>
-          <Card className="lg:col-span-2">
-            <div className="p-8">
+    <MarketingSection className={className}>
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground lg:text-5xl">
+            {title}
+          </h2>
+          <div className="mt-8 grid gap-3 *:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="p-8">
               <p className="max-w-xs font-medium text-lg text-muted-foreground">
-                <span className="text-foreground">{signalsTitle}</span>{" "}
-                {signalsDescription}
+                <span className="text-foreground">{pipelineTitle}</span>{" "}
+                {pipelineDescription}
               </p>
-            </div>
 
-            <div className="mask-x-from-65% mt-6 pt-2">
-              <div
-                aria-hidden
-                className="relative h-72 rounded-xl bg-linear-to-b from-foreground/5 shadow-xl ring ring-foreground/10"
-              />
-            </div>
-          </Card>
-        </div>
+              <div className="my-16">
+                <div
+                  aria-hidden
+                  className="relative mx-auto aspect-square w-10/12 rounded-xl border bg-background"
+                >
+                  <div className="absolute right-0 bottom-0 aspect-square w-3/5 translate-x-8 translate-y-16 rounded-xl bg-card shadow-xl ring ring-foreground/10" />
+                </div>
+              </div>
+            </Card>
+            <Card className="lg:col-span-2">
+              <div className="p-8">
+                <p className="max-w-xs font-medium text-lg text-muted-foreground">
+                  <span className="text-foreground">{signalsTitle}</span>{" "}
+                  {signalsDescription}
+                </p>
+              </div>
 
-        <div className="mt-12 grid gap-3 *:max-w-xs max-sm:*:not-last:border-b max-sm:*:not-last:pb-3 sm:grid-cols-2 md:mt-16 md:gap-y-6 lg:mt-24 lg:grid-cols-4 lg:gap-6">
-          {highlights.map((item) => (
-            <p className="text-balance text-muted-foreground" key={item.title}>
-              <span className="font-medium text-foreground">
-                {item.icon} {item.title}
-              </span>{" "}
-              {item.description}
-            </p>
-          ))}
+              <div className="mask-x-from-65% mt-6 pt-2">
+                <div
+                  aria-hidden
+                  className="relative h-72 rounded-xl bg-linear-to-b from-foreground/5 shadow-xl ring ring-foreground/10"
+                />
+              </div>
+            </Card>
+          </div>
+
+          <div className="mt-12 grid gap-3 *:max-w-xs max-sm:*:not-last:border-b max-sm:*:not-last:pb-3 sm:grid-cols-2 md:mt-16 md:gap-y-6 lg:mt-24 lg:grid-cols-4 lg:gap-6">
+            {highlights.map((item) => (
+              <p
+                className="text-balance text-muted-foreground"
+                key={item.title}
+              >
+                <span className="font-medium text-foreground">
+                  {item.icon} {item.title}
+                </span>{" "}
+                {item.description}
+              </p>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MarketingSection>
   );
 }

@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-
+import { MarketingSection } from "@/components/marketing-section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
@@ -59,37 +59,34 @@ export function Testimonial2({
   className,
 }: Testimonial2Props) {
   return (
-    <figure
-      className={cn(
-        "mx-auto flex w-full max-w-lg flex-col items-center justify-center md:grid md:grid-cols-[auto_1fr]",
-        className
-      )}
-    >
-      <div className="relative">
-        <MaskLine className="left-0" orientation="vertical" />
-        <MaskLine className="right-0" orientation="vertical" />
-        <MaskLine className="top-0 md:w-xl" orientation="horizontal" />
-        <MaskLine className="bottom-0 md:w-xl" orientation="horizontal" />
+    <MarketingSection className={className}>
+      <figure className="flex flex-col items-center justify-center md:grid md:grid-cols-[auto_1fr]">
+        <div className="relative">
+          <MaskLine className="left-0" orientation="vertical" />
+          <MaskLine className="right-0" orientation="vertical" />
+          <MaskLine className="top-0 md:w-xl" orientation="horizontal" />
+          <MaskLine className="bottom-0 md:w-xl" orientation="horizontal" />
 
-        <Avatar className="mask-[radial-gradient(circle,black_60%,transparent)] size-24 rounded-none *:rounded-none after:rounded-none md:size-32">
-          <AvatarImage alt={avatar.alt} src={avatar.src} />
-          <AvatarFallback>{avatar.fallback}</AvatarFallback>
-        </Avatar>
-      </div>
-      <figcaption className="space-y-4 p-8 text-center md:p-6 md:text-left">
-        <blockquote className="text-lg text-muted-foreground leading-tight tracking-tight">
-          {quote}
-        </blockquote>
-
-        <div>
-          <cite className="font-medium text-foreground text-xs not-italic">
-            {name}
-          </cite>
-          {role ? (
-            <div className="text-[10px] text-muted-foreground">{role}</div>
-          ) : null}
+          <Avatar className="mask-[radial-gradient(circle,black_60%,transparent)] size-24 rounded-none *:rounded-none after:rounded-none md:size-32">
+            <AvatarImage alt={avatar.alt} src={avatar.src} />
+            <AvatarFallback>{avatar.fallback}</AvatarFallback>
+          </Avatar>
         </div>
-      </figcaption>
-    </figure>
+        <figcaption className="space-y-4 p-8 text-center md:p-6 md:text-left">
+          <blockquote className="text-lg text-muted-foreground leading-tight tracking-tight">
+            {quote}
+          </blockquote>
+
+          <div>
+            <cite className="font-medium text-foreground text-xs not-italic">
+              {name}
+            </cite>
+            {role ? (
+              <div className="text-[10px] text-muted-foreground">{role}</div>
+            ) : null}
+          </div>
+        </figcaption>
+      </figure>
+    </MarketingSection>
   );
 }
