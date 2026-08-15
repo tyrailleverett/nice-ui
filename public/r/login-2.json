@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-2",
+  "title": "Card",
+  "description": "Centered signup card with a Google button, email and password fields, and a rounded border.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/login-form"
+  ],
+  "files": [
+    {
+      "path": "registry/app/auth/login-2/login-2.tsx",
+      "content": "import type { FormEvent, ReactNode } from \"react\";\n\nimport {\n  defaultLoginLegalLinks,\n  LoginForm,\n  type LoginFormLink,\n  LoginLegalNav,\n} from \"@/components/login-form\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Login2Props {\n  className?: string;\n  description?: string;\n  emailPlaceholder?: string;\n  googleLabel?: string;\n  legalLinks?: LoginFormLink[];\n  logo?: ReactNode;\n  onGoogleContinue?: () => void;\n  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;\n  passwordPlaceholder?: string;\n  primaryAction?: string;\n  showStrengthIndicator?: boolean;\n  signInHref?: string;\n  signInLabel?: string;\n  signInPrompt?: string;\n  title?: string;\n}\n\nexport function Login2({\n  className,\n  description,\n  emailPlaceholder,\n  googleLabel,\n  legalLinks = defaultLoginLegalLinks,\n  logo,\n  onGoogleContinue,\n  onSubmit,\n  passwordPlaceholder,\n  primaryAction,\n  showStrengthIndicator,\n  signInHref,\n  signInLabel,\n  signInPrompt,\n  title,\n}: Login2Props) {\n  return (\n    <section\n      className={cn(\"min-h-svh bg-background text-foreground\", className)}\n    >\n      <div className=\"flex min-h-svh flex-col px-6 py-8 md:px-10\">\n        <div className=\"flex flex-1 items-center justify-center\">\n          <div className=\"w-fit max-w-full rounded-xl border p-6 md:p-8\">\n            <LoginForm\n              className=\"w-sm max-w-full\"\n              description={description}\n              emailPlaceholder={emailPlaceholder}\n              googleLabel={googleLabel}\n              idPrefix=\"login-2\"\n              logo={logo}\n              onGoogleContinue={onGoogleContinue}\n              onSubmit={onSubmit}\n              passwordPlaceholder={passwordPlaceholder}\n              primaryAction={primaryAction}\n              showStrengthIndicator={showStrengthIndicator}\n              signInHref={signInHref}\n              signInLabel={signInLabel}\n              signInPrompt={signInPrompt}\n              title={title}\n            />\n          </div>\n        </div>\n        <LoginLegalNav links={legalLinks} />\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/login-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

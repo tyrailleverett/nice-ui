@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "onboarding-4",
+  "title": "Modal Onboarding",
+  "description": "Compact profile setup modal with pagination and close controls.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/onboarding-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/onboarding-4/onboarding-4.tsx",
+      "content": "import {\n  BrandMark,\n  CloseButton,\n  ContinueButton,\n  ProfileForm,\n} from \"@/components/app/onboarding-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Onboarding4Props {\n  className?: string;\n}\n\nexport function Onboarding4({ className }: Onboarding4Props) {\n  return (\n    <main\n      className={cn(\n        \"grid min-h-screen place-items-center bg-background p-5 text-foreground sm:p-10\",\n        className\n      )}\n    >\n      <section className=\"w-full max-w-3xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl\">\n        <div className=\"flex items-start justify-between p-8 sm:p-12\">\n          <div>\n            <BrandMark className=\"mb-10 lg:hidden\" />\n            <h1 className=\"font-semibold text-2xl tracking-[-0.03em] sm:text-3xl\">\n              Set up your profile\n            </h1>\n            <p className=\"mt-3 text-lg text-muted-foreground\">\n              Add the details teammates will see across the workspace.\n            </p>\n          </div>\n          <CloseButton />\n        </div>\n        <div className=\"px-8 pb-12 sm:px-12\">\n          <ProfileForm compact />\n        </div>\n        <div className=\"flex items-center justify-between border-border border-t bg-muted/10 px-8 py-5 sm:px-12\">\n          <div aria-label=\"Step 1 of 6\" className=\"flex gap-2\" role=\"status\">\n            {[\"one\", \"two\", \"three\", \"four\", \"five\", \"six\"].map(\n              (step, index) => (\n                <span\n                  className={\n                    index === 0\n                      ? \"size-2.5 rounded-full bg-foreground\"\n                      : \"size-2.5 rounded-full bg-muted\"\n                  }\n                  key={step}\n                />\n              )\n            )}\n          </div>\n          <ContinueButton icon />\n        </div>\n      </section>\n    </main>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/onboarding-4.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

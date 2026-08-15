@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-permissions",
+  "title": "Role Permissions",
+  "description": "Capability toggles for a project manager role.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "tyrailleverett/nice-ui/settings-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/settings-permissions/settings-permissions.tsx",
+      "content": "import {\n  Panel,\n  SectionHeading,\n  SettingsSwitch,\n  SettingsTag,\n} from \"@/components/app/settings-shared\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nconst permissionItems = [\n  [\n    \"Workspace Settings\",\n    \"Review workspace details, team defaults, and operational preferences.\",\n    true,\n  ],\n  [\n    \"Billing Management\",\n    \"Access plan details, invoices, and subscription adjustments.\",\n    false,\n  ],\n  [\n    \"Integration Setup\",\n    \"Configure apps, credentials, and automation entry points.\",\n    true,\n  ],\n  [\n    \"Permissions Control\",\n    \"Grant, revoke, and review access scopes for collaborators.\",\n    false,\n  ],\n  [\n    \"Map Creation\",\n    \"Create new workspace maps and maintain location structure.\",\n    false,\n  ],\n  [\n    \"Data Export\",\n    \"Download structured workspace reports for analysis and audits.\",\n    true,\n  ],\n  [\n    \"User Roles\",\n    \"Edit role assignments and keep team responsibility lines clear.\",\n    true,\n  ],\n  [\n    \"Security Settings\",\n    \"Adjust workspace protection controls and policy requirements.\",\n    true,\n  ],\n  [\n    \"Insights Access\",\n    \"View performance dashboards, usage trends, and reporting panels.\",\n    false,\n  ],\n  [\n    \"Merchant List\",\n    \"Maintain merchant records and workspace-linked account mappings.\",\n    false,\n  ],\n] as const;\n\nexport function RolePermissions({ className }: { className?: string }) {\n  return (\n    <div\n      className={cn(\n        \"mx-auto flex w-full max-w-6xl flex-col gap-5 p-4 sm:p-8\",\n        className\n      )}\n    >\n      <div className=\"flex items-start justify-between gap-4\">\n        <SectionHeading\n          description=\"Control the workspace capabilities this role can manage.\"\n          title=\"Role Permissions for Project Manager\"\n        />\n        <Button>\n          Permission <SettingsTag tone=\"success\">New</SettingsTag>\n        </Button>\n      </div>\n      <Panel className=\"p-5 sm:p-8\">\n        <div className=\"grid gap-5 md:grid-cols-2\">\n          {permissionItems.map(([label, description, checked]) => (\n            <div\n              className=\"flex min-h-36 items-start justify-between gap-4 rounded-xl border border-border p-5\"\n              key={label}\n            >\n              <div>\n                <h2 className=\"font-medium text-lg\">{label}</h2>\n                <p className=\"mt-3 text-muted-foreground\">{description}</p>\n              </div>\n              <SettingsSwitch\n                defaultChecked={checked}\n                label={`Toggle ${label}`}\n              />\n            </div>\n          ))}\n        </div>\n      </Panel>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/settings-permissions.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

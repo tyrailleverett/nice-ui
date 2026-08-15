@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-14",
+  "title": "Split Headline List",
+  "description": "Two-column feature section with a two-tone headline on the left and a stacked title-and-copy list on the right.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/feature-14/feature-14.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\nexport interface Feature14Item {\n  description: string;\n  title: string;\n}\n\nexport interface Feature14Props {\n  className?: string;\n  features?: Feature14Item[];\n  mutedTitle?: string;\n  title?: string;\n}\n\nconst defaultFeatures: Feature14Item[] = [\n  {\n    description:\n      \"Leverage machine learning to gain deeper insights from your marketing data and optimize campaigns in real-time.\",\n    title: \"AI-Powered Analytics\",\n  },\n  {\n    description:\n      \"Automate repetitive tasks and workflows, allowing your team to focus on strategic initiatives.\",\n    title: \"Intelligent Automation\",\n  },\n  {\n    description:\n      \"Identify high-value audiences with precision using advanced predictive modeling.\",\n    title: \"Predictive Targeting\",\n  },\n];\n\nexport function Feature14({\n  mutedTitle = \"Building the next generation of\",\n  title = \"AI-powered Marketing Tools\",\n  features = defaultFeatures,\n  className,\n}: Feature14Props) {\n  return (\n    <section className={cn(\"bg-background py-24 md:py-32\", className)}>\n      <div className=\"mx-auto grid max-w-6xl items-start gap-12 px-6 lg:grid-cols-2 lg:gap-x-28\">\n        <h2 className=\"max-w-lg font-display-heading text-4xl text-foreground leading-[1.12] md:text-5xl\">\n          <span className=\"text-muted-foreground\">{mutedTitle} </span>\n          {title}\n        </h2>\n\n        <ul className=\"flex flex-col gap-12\">\n          {features.map((feature) => (\n            <li className=\"max-w-md\" key={feature.title}>\n              <h3 className=\"font-semibold text-foreground text-lg\">\n                {feature.title}\n              </h3>\n              <p className=\"mt-2 text-muted-foreground text-sm leading-relaxed\">\n                {feature.description}\n              </p>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/feature-14.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cookie-consent-2",
+  "title": "Corner Card",
+  "description": "Corner cookie consent card with accept, reject, and preferences actions.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cookie-consent-2/cookie-consent-2.tsx",
+      "content": "import { ShieldCheckIcon } from \"lucide-react\";\nimport { type ReactNode, useCallback, useState } from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface CookieConsent2Action {\n  label: string;\n}\n\nexport interface CookieConsent2Props {\n  accept?: CookieConsent2Action;\n  className?: string;\n  description?: ReactNode;\n  onAccept?: () => void;\n  onPreferences?: () => void;\n  onReject?: () => void;\n  preferences?: CookieConsent2Action;\n  reject?: CookieConsent2Action;\n  title?: string;\n}\n\nexport function CookieConsent2({\n  title = \"We value your privacy\",\n  description = \"We use cookies to enhance your browsing experience and analyze our traffic. You can accept all, reject, or set your own preferences.\",\n  accept = { label: \"Accept all\" },\n  reject = { label: \"Reject\" },\n  preferences = { label: \"Preferences\" },\n  onAccept,\n  onReject,\n  onPreferences,\n  className,\n}: CookieConsent2Props) {\n  const [visible, setVisible] = useState(true);\n\n  const handleAccept = useCallback(() => {\n    onAccept?.();\n    setVisible(false);\n  }, [onAccept]);\n\n  const handleReject = useCallback(() => {\n    onReject?.();\n    setVisible(false);\n  }, [onReject]);\n\n  const handlePreferences = useCallback(() => {\n    onPreferences?.();\n    setVisible(false);\n  }, [onPreferences]);\n\n  if (!visible) {\n    return null;\n  }\n\n  return (\n    <div\n      aria-describedby=\"cookie-consent-2-description\"\n      aria-labelledby=\"cookie-consent-2-title\"\n      className={cn(\n        \"fixed bottom-4 left-4 z-50 w-full max-w-sm rounded-4xl border bg-card p-5 shadow-sm dark:bg-card/50\",\n        className\n      )}\n      role=\"dialog\"\n    >\n      <div className=\"flex items-center gap-2\">\n        <ShieldCheckIcon\n          aria-hidden=\"true\"\n          className=\"size-5 text-foreground\"\n        />\n        <h2\n          className=\"font-heading font-semibold text-foreground text-sm\"\n          id=\"cookie-consent-2-title\"\n        >\n          {title}\n        </h2>\n      </div>\n      <p\n        className=\"mt-2 text-muted-foreground text-sm\"\n        id=\"cookie-consent-2-description\"\n      >\n        {description}\n      </p>\n      <div className=\"mt-4 flex flex-wrap items-center gap-2\">\n        <Button onClick={handleAccept} type=\"button\">\n          {accept.label}\n        </Button>\n        <Button onClick={handleReject} type=\"button\" variant=\"outline\">\n          {reject.label}\n        </Button>\n        <Button onClick={handlePreferences} type=\"button\" variant=\"ghost\">\n          {preferences.label}\n        </Button>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/cookie-consent-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

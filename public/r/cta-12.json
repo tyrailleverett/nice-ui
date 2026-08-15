@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-12",
+  "title": "Hairline Text Link",
+  "description": "Hairline-framed marketing call to action with text link and outlined button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cta-12/cta-12.tsx",
+      "content": "import { ArrowUpRightIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Cta12Action {\n  href?: string;\n  label: string;\n}\n\nexport interface Cta12Props {\n  className?: string;\n  primaryCta?: Cta12Action;\n  secondaryCta?: Cta12Action;\n  title?: string;\n}\n\nfunction PrimaryCtaButton({ action }: { action: Cta12Action }) {\n  const content = (\n    <>\n      {action.label}\n      <ArrowUpRightIcon data-icon=\"inline-end\" />\n    </>\n  );\n\n  if (action.href) {\n    return (\n      <Button asChild className=\"rounded-full\" variant=\"outline\">\n        <a href={action.href}>{content}</a>\n      </Button>\n    );\n  }\n\n  return (\n    <Button className=\"rounded-full\" type=\"button\" variant=\"outline\">\n      {content}\n    </Button>\n  );\n}\n\nfunction ActionLink({\n  action,\n  className,\n  children,\n}: {\n  action: Cta12Action;\n  className?: string;\n  children: ReactNode;\n}) {\n  if (action.href) {\n    return (\n      <Button asChild className={className} variant=\"link\">\n        <a href={action.href}>{children}</a>\n      </Button>\n    );\n  }\n\n  return (\n    <Button className={className} type=\"button\" variant=\"link\">\n      {children}\n    </Button>\n  );\n}\n\nexport function Cta12({\n  title = \"Ship 10x Faster with Nice UI\",\n  primaryCta = { href: \"#\", label: \"Get Started\" },\n  secondaryCta = { href: \"#\", label: \"Try it now\" },\n  className,\n}: Cta12Props) {\n  return (\n    <section\n      className={cn(\n        \"relative mx-auto flex w-full max-w-3xl items-center justify-center px-6 py-16\",\n        className\n      )}\n    >\n      <div className=\"relative px-10 py-12 sm:px-16 sm:py-14\">\n        <div className=\"pointer-events-none absolute inset-x-0 top-0 h-px bg-border\" />\n        <div className=\"pointer-events-none absolute inset-x-0 bottom-0 h-px bg-border\" />\n        <div className=\"pointer-events-none absolute inset-y-[-18%] left-0 w-px bg-border\" />\n        <div className=\"pointer-events-none absolute inset-y-[-18%] right-0 w-px bg-border\" />\n\n        <div className=\"flex flex-col items-center gap-6 text-center\">\n          <h2 className=\"font-display-heading text-2xl [text-shadow:0_0_32px_--theme(--color-foreground/.25)] md:text-4xl\">\n            {title}\n          </h2>\n          <div className=\"flex items-center gap-4\">\n            {secondaryCta ? (\n              <ActionLink\n                action={secondaryCta}\n                className=\"font-medium text-sm hover:underline\"\n              >\n                {secondaryCta.label}\n              </ActionLink>\n            ) : null}\n            {primaryCta ? <PrimaryCtaButton action={primaryCta} /> : null}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/cta-12.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

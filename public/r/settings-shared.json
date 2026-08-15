@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-shared",
+  "title": "Settings Shared",
+  "description": "Shared settings headings, panels, selects, and switches used by settings surfaces.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "badge",
+    "select",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/app/settings-shared/settings-shared.tsx",
+      "content": "import { ChevronDownIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nimport { Badge } from \"@/components/ui/badge\";\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\nimport { Switch } from \"@/components/ui/switch\";\nimport { cn } from \"@/lib/utils\";\n\ntype Tone = \"accent\" | \"default\" | \"success\" | \"warning\";\n\nexport function MessageMark() {\n  return <span className=\"font-bold text-success\">✣</span>;\n}\n\nexport function SectionHeading({\n  description,\n  title,\n}: {\n  description?: string;\n  title: string;\n}) {\n  return (\n    <header className=\"flex flex-col gap-1\">\n      <h1 className=\"font-heading font-semibold text-title sm:text-3xl\">\n        {title}\n      </h1>\n      {description ? (\n        <p className=\"text-base text-muted-foreground sm:text-lg\">\n          {description}\n        </p>\n      ) : null}\n    </header>\n  );\n}\n\nexport function Panel({\n  children,\n  className,\n}: {\n  children: ReactNode;\n  className?: string;\n}) {\n  return (\n    <section\n      className={cn(\n        \"overflow-hidden rounded-2xl bg-card text-card-foreground ring-1 ring-foreground/10\",\n        className\n      )}\n    >\n      {children}\n    </section>\n  );\n}\n\nexport function SettingsSwitch({\n  defaultChecked,\n  label,\n}: {\n  defaultChecked?: boolean;\n  label: string;\n}) {\n  return <Switch aria-label={label} defaultChecked={defaultChecked} />;\n}\n\nexport function SelectField({\n  defaultValue,\n  items,\n  label,\n}: {\n  defaultValue: string;\n  items: string[];\n  label: string;\n}) {\n  return (\n    <Select defaultValue={defaultValue}>\n      <SelectTrigger aria-label={label} className=\"w-full\">\n        <SelectValue />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          {items.map((item) => (\n            <SelectItem key={item} value={item}>\n              {item}\n            </SelectItem>\n          ))}\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  );\n}\n\nexport function SettingsTag({\n  children,\n  tone = \"default\",\n}: {\n  children: ReactNode;\n  tone?: Tone;\n}) {\n  return (\n    <Badge\n      className={cn(\n        tone === \"success\" && \"border-success/40 bg-success/10 text-success\",\n        tone === \"warning\" &&\n          \"border-amber-700/40 bg-amber-700/10 text-amber-700\",\n        tone === \"accent\" &&\n          \"border-violet-700/40 bg-violet-700/10 text-violet-700\"\n      )}\n      variant=\"outline\"\n    >\n      {children}\n    </Badge>\n  );\n}\n\nexport function PreferenceSection({\n  children,\n  title,\n}: {\n  children: ReactNode;\n  title: string;\n}) {\n  return (\n    <section className=\"flex flex-col gap-0\">\n      <div className=\"flex items-center justify-between rounded-t-2xl bg-card px-6 py-5 font-semibold text-lg ring-1 ring-foreground/10\">\n        <span>{title}</span>\n        <ChevronDownIcon className=\"text-muted-foreground\" />\n      </div>\n      <Panel className=\"rounded-t-none\">{children}</Panel>\n    </section>\n  );\n}\n\nexport function SecurityGroup({\n  children,\n  description,\n  title,\n}: {\n  children: ReactNode;\n  description: string;\n  title: string;\n}) {\n  return (\n    <section className=\"flex flex-col gap-0\">\n      <div className=\"rounded-t-2xl bg-card px-7 py-6 ring-1 ring-foreground/10\">\n        <h2 className=\"font-semibold text-lg\">{title}</h2>\n        <p className=\"mt-1 text-muted-foreground\">{description}</p>\n      </div>\n      <Panel className=\"rounded-t-none\">{children}</Panel>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/settings-shared.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

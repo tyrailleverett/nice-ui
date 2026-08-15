@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state-4",
+  "title": "Members Empty State",
+  "description": "Centered empty state for inviting members and sharing an invite link.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/app/empty-state/empty-state-4/empty-state-4.tsx",
+      "content": "import { CopyIcon, UserRoundPlusIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nfunction MembersIllustration() {\n  return (\n    <div aria-hidden=\"true\" className=\"relative h-32 w-44\">\n      <div className=\"absolute top-2 left-4 size-24 rotate-[-18deg] rounded-2xl border border-border bg-muted/10\" />\n      <div className=\"absolute top-5 left-10 size-24 rotate-[-9deg] rounded-2xl border border-border bg-muted/20\" />\n      <div className=\"absolute top-8 left-16 flex size-24 rotate-[-1deg] items-center justify-center rounded-2xl border-2 border-border bg-background shadow-sm\">\n        <UserRoundPlusIcon\n          className=\"size-9 text-muted-foreground\"\n          strokeWidth={1.5}\n        />\n      </div>\n    </div>\n  );\n}\n\nexport interface EmptyState4Props {\n  className?: string;\n  onCopyInviteLink?: () => void;\n  onInviteMembers?: () => void;\n}\n\nexport function EmptyState4({\n  className,\n  onCopyInviteLink,\n  onInviteMembers,\n}: EmptyState4Props) {\n  return (\n    <section\n      className={cn(\n        \"flex min-h-[34rem] w-full flex-col items-center justify-center bg-background px-6 py-16 text-center text-foreground\",\n        className\n      )}\n    >\n      <MembersIllustration />\n      <div className=\"mt-10 max-w-2xl\">\n        <h2 className=\"font-bold font-heading text-3xl tracking-tight sm:text-4xl\">\n          Invite the first people in\n        </h2>\n        <p className=\"mt-4 text-lg text-muted-foreground leading-relaxed sm:text-xl\">\n          Bring owners, editors, and reviewers into the workspace with a fast\n          email invite or one secure share link.\n        </p>\n      </div>\n      <div className=\"mt-8 flex flex-wrap justify-center gap-3\">\n        <Button onClick={onInviteMembers} type=\"button\">\n          <UserRoundPlusIcon data-icon=\"inline-start\" />\n          Invite members\n        </Button>\n        <Button onClick={onCopyInviteLink} type=\"button\" variant=\"outline\">\n          <CopyIcon data-icon=\"inline-start\" />\n          Copy invite link\n        </Button>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/empty-state-4.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

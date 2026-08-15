@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-9",
+  "title": "Newsletter Grid Card",
+  "description": "Grid-card marketing call to action with combined email field and join button.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cta-9/cta-9.tsx",
+      "content": "import { ArrowUpRightIcon, AtSignIcon, CreditCardIcon } from \"lucide-react\";\nimport { type FormEvent, type ReactNode, useCallback } from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from \"@/components/ui/input-group\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Cta9Props {\n  className?: string;\n  emailPlaceholder?: string;\n  footnote?: ReactNode;\n  onSubscribe?: (email: string) => void;\n  submitLabel?: string;\n  title?: ReactNode;\n}\n\nexport function Cta9({\n  title = (\n    <>\n      A.I Driven Growth\n      <br />\n      <span className=\"font-semibold\">for everyone.</span>\n    </>\n  ),\n  emailPlaceholder = \"Enter your email\",\n  submitLabel = \"Join Now\",\n  onSubscribe,\n  footnote = (\n    <>\n      No credit card <CreditCardIcon className=\"inline-block size-3.5\" />{\" \"}\n      required • 7-days free trial\n    </>\n  ),\n  className,\n}: Cta9Props) {\n  const handleSubmit = useCallback(\n    (event: FormEvent<HTMLFormElement>) => {\n      event.preventDefault();\n      const formData = new FormData(event.currentTarget);\n      const email = String(formData.get(\"email\") ?? \"\");\n      onSubscribe?.(email);\n    },\n    [onSubscribe]\n  );\n\n  return (\n    <section\n      className={cn(\n        \"relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl border px-6 py-16 text-center\",\n        className\n      )}\n    >\n      <div className=\"relative space-y-8\">\n        <h2 className=\"font-display-heading text-2xl md:text-4xl\">{title}</h2>\n        <form\n          className=\"mx-auto flex w-full max-w-md overflow-hidden rounded-lg border bg-background/80\"\n          onSubmit={handleSubmit}\n        >\n          <InputGroup className=\"min-w-0 flex-1 border-0 bg-transparent shadow-none dark:bg-transparent\">\n            <InputGroupInput\n              name=\"email\"\n              placeholder={emailPlaceholder}\n              type=\"email\"\n            />\n            <InputGroupAddon>\n              <AtSignIcon data-icon=\"inline-start\" />\n            </InputGroupAddon>\n          </InputGroup>\n          <Button\n            className=\"rounded-none border-l\"\n            type=\"submit\"\n            variant=\"ghost\"\n          >\n            {submitLabel} <ArrowUpRightIcon data-icon=\"inline-end\" />\n          </Button>\n        </form>\n        {footnote ? (\n          <p className=\"text-muted-foreground text-xs md:text-sm\">{footnote}</p>\n        ) : null}\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/cta-9.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

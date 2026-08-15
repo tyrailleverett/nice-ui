@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "funding-card",
+  "title": "Funding Card",
+  "description": "Investor profile card with fund stats and a proposal action.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/cards-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/funding-card/funding-card.tsx",
+      "content": "import {\n  BarChart3Icon,\n  CheckIcon,\n  CircleDollarSignIcon,\n  MessageSquareIcon,\n  WalletCardsIcon,\n} from \"lucide-react\";\n\nimport \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface FundingCardProps {\n  onProposal?: () => void;\n}\n\nexport function FundingCard({ onProposal }: FundingCardProps) {\n  const funds = [\n    [\"Northline Ventures\", \"$7,840,000\", BarChart3Icon],\n    [\"Bluepeak Capital\", \"$3,260,000\", WalletCardsIcon],\n    [\"Everfield Equity\", \"$1,180,000\", CircleDollarSignIcon],\n  ] as const;\n  return (\n    <article className=\"showcase-card funding-card\">\n      <div className=\"funding-profile\">\n        <span className=\"profile-photo\">MA</span>\n        <div>\n          <h3>Mara Alves</h3>\n          <span className=\"open-badge\">\n            <CheckIcon aria-hidden=\"true\" /> Open to proposals\n          </span>\n          <p>malves@reui-capital.io</p>\n        </div>\n      </div>\n      <div className=\"funding-stats\">\n        <span>\n          <b>87</b>Deals\n        </span>\n        <span>\n          <b>$7.2M</b>Avg. ticket\n        </span>\n        <span>\n          <b>$415M</b>Total fund\n        </span>\n      </div>\n      <div className=\"funding-list\">\n        {funds.map(([name, amount, IconComponent]) => (\n          <div className=\"funding-row\" key={name}>\n            <span className=\"fund-icon\">\n              <IconComponent aria-hidden=\"true\" />\n            </span>\n            <strong>{name}</strong>\n            <b>{amount}</b>\n          </div>\n        ))}\n      </div>\n      <Button\n        className=\"h-auto min-h-14 w-full rounded-none\"\n        onClick={onProposal}\n        type=\"button\"\n        variant=\"ghost\"\n      >\n        <MessageSquareIcon data-icon=\"inline-start\" /> Send funding proposal\n      </Button>\n    </article>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/funding-card.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

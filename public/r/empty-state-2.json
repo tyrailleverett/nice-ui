@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state-2",
+  "title": "Projects Empty State",
+  "description": "Centered empty state for starting a project or exploring templates.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/app/empty-state/empty-state-2/empty-state-2.tsx",
+      "content": "import { BlocksIcon, PlusIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nfunction ProjectIllustration() {\n  return (\n    <svg\n      aria-hidden=\"true\"\n      className=\"h-32 w-80 max-w-full\"\n      viewBox=\"0 0 320 128\"\n    >\n      <path\n        className=\"fill-none stroke-border\"\n        d=\"M32 96h256M32 64h256M32 32h256M80 16v96M160 16v96M240 16v96\"\n        strokeWidth=\"1\"\n      />\n      <path\n        className=\"fill-muted/20 stroke-muted-foreground\"\n        d=\"m112 65 48-28 48 28-48 28Z\"\n        strokeWidth=\"1.5\"\n      />\n      <path\n        className=\"fill-none stroke-muted-foreground\"\n        d=\"M112 65v28l48 28V93M208 65v28l-48 28M160 37v28\"\n        strokeWidth=\"1.5\"\n      />\n    </svg>\n  );\n}\n\nexport interface EmptyState2Props {\n  className?: string;\n  onExploreTemplates?: () => void;\n  onNewProject?: () => void;\n}\n\nexport function EmptyState2({\n  className,\n  onExploreTemplates,\n  onNewProject,\n}: EmptyState2Props) {\n  return (\n    <section\n      className={cn(\n        \"flex min-h-[34rem] w-full flex-col items-center justify-center bg-background px-6 py-16 text-center text-foreground\",\n        className\n      )}\n    >\n      <ProjectIllustration />\n      <div className=\"mt-10 max-w-xl\">\n        <h2 className=\"font-bold font-heading text-3xl tracking-tight sm:text-4xl\">\n          No projects to show\n        </h2>\n        <p className=\"mt-4 text-lg text-muted-foreground leading-relaxed sm:text-xl\">\n          Start a project from scratch or pick a template to launch your first\n          workspace and begin tracking tasks, goals, and progress.\n        </p>\n      </div>\n      <div className=\"mt-8 flex flex-wrap justify-center gap-3\">\n        <Button onClick={onNewProject} type=\"button\">\n          <PlusIcon data-icon=\"inline-start\" />\n          New project\n        </Button>\n        <Button onClick={onExploreTemplates} type=\"button\" variant=\"outline\">\n          <BlocksIcon data-icon=\"inline-start\" />\n          Explore templates\n        </Button>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/empty-state-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state-1",
+  "title": "Records Empty State",
+  "description": "Centered empty state for connecting a source or uploading a CSV.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/app/empty-state/empty-state-1/empty-state-1.tsx",
+      "content": "import { CableIcon, UploadIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nfunction RecordIllustration() {\n  return (\n    <div aria-hidden=\"true\" className=\"relative h-32 w-80 max-w-full\">\n      <div className=\"absolute inset-x-12 top-1 h-20 rounded-2xl border border-border bg-muted/20\" />\n      <div className=\"absolute inset-x-6 top-7 h-20 rounded-2xl border border-border bg-muted/30\" />\n      <div className=\"absolute inset-x-0 top-14 flex h-24 items-center gap-6 rounded-2xl border-2 border-border bg-background px-8 shadow-sm\">\n        <div className=\"size-16 shrink-0 rounded-lg bg-muted\" />\n        <div className=\"flex flex-1 flex-col gap-3\">\n          <div className=\"h-3 max-w-48 rounded-full bg-muted\" />\n          <div className=\"h-3 max-w-32 rounded-full bg-muted/70\" />\n        </div>\n      </div>\n    </div>\n  );\n}\n\nexport interface EmptyState1Props {\n  className?: string;\n  onConnectSource?: () => void;\n  onUploadCsv?: () => void;\n}\n\nexport function EmptyState1({\n  className,\n  onConnectSource,\n  onUploadCsv,\n}: EmptyState1Props) {\n  return (\n    <section\n      className={cn(\n        \"flex min-h-[34rem] w-full flex-col items-center justify-center bg-background px-6 py-16 text-center text-foreground\",\n        className\n      )}\n    >\n      <RecordIllustration />\n      <div className=\"mt-10 max-w-2xl\">\n        <h2 className=\"font-bold font-heading text-3xl tracking-tight sm:text-4xl\">\n          Your record space is empty\n        </h2>\n        <p className=\"mt-4 text-lg text-muted-foreground sm:text-xl\">\n          Connect a live source or upload a CSV to start organizing people,\n          teams, and attributes in one place.\n        </p>\n      </div>\n      <div className=\"mt-8 flex flex-wrap justify-center gap-3\">\n        <Button onClick={onConnectSource} type=\"button\">\n          <CableIcon data-icon=\"inline-start\" />\n          Connect source\n        </Button>\n        <Button onClick={onUploadCsv} type=\"button\" variant=\"outline\">\n          <UploadIcon data-icon=\"inline-start\" />\n          Upload CSV\n        </Button>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/empty-state-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

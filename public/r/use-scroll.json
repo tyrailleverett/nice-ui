@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-scroll",
+  "title": "Use Scroll",
+  "description": "Hook that returns whether the page has scrolled past a pixel threshold.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/use-scroll/use-scroll.ts",
+      "content": "import { useEffect, useState } from \"react\";\n\nexport function useScroll(threshold = 0) {\n  const [scrolled, setScrolled] = useState(false);\n\n  useEffect(() => {\n    const onScroll = () => {\n      setScrolled(window.scrollY > threshold);\n    };\n\n    onScroll();\n    window.addEventListener(\"scroll\", onScroll, { passive: true });\n\n    return () => {\n      window.removeEventListener(\"scroll\", onScroll);\n    };\n  }, [threshold]);\n\n  return scrolled;\n}\n",
+      "type": "registry:hook",
+      "target": "~/hooks/use-scroll.ts"
+    }
+  ],
+  "type": "registry:hook"
+}

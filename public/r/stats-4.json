@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-4",
+  "title": "Headline Metric Grid",
+  "description": "Centered headline and three framed KPIs with hairline rules and corner plus marks.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/decor-icon"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/stats-4/stats-4.tsx",
+      "content": "import type { ReactNode } from \"react\";\n\nimport { DecorIcon } from \"@/components/decor-icon\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Stats4Item {\n  label: string;\n  value: string;\n}\n\nexport interface Stats4Props {\n  className?: string;\n  description?: ReactNode;\n  stats?: Stats4Item[];\n  title?: string;\n}\n\nconst defaultStats: Stats4Item[] = [\n  { label: \"Conversion Rate\", value: \"+85%\" },\n  { label: \"Active Users\", value: \"12K\" },\n  { label: \"Revenue Growth\", value: \"40%\" },\n];\n\nconst defaultDescription = (\n  <>\n    Our platform has helped companies{\" \"}\n    <strong className=\"font-semibold text-foreground\">\n      increase conversion rates and boost engagement\n    </strong>{\" \"}\n    across all digital channels.\n  </>\n);\n\nexport function Stats4({\n  title = \"Delivering measurable Results\",\n  description = defaultDescription,\n  stats = defaultStats,\n  className,\n}: Stats4Props) {\n  const lastLabel = stats.at(-1)?.label;\n\n  return (\n    <section className={cn(\"w-full bg-background py-16 sm:py-24\", className)}>\n      <div className=\"mx-auto max-w-5xl px-6\">\n        <div className=\"mx-auto max-w-2xl text-center\">\n          <h2 className=\"text-balance font-display-heading text-3xl sm:text-4xl lg:text-5xl\">\n            {title}\n          </h2>\n          {description ? (\n            <p className=\"mt-6 text-pretty text-lg text-muted-foreground\">\n              {description}\n            </p>\n          ) : null}\n        </div>\n\n        <div className=\"relative mt-16\">\n          <DecorIcon className=\"size-4\" position=\"top-left\" />\n          <DecorIcon className=\"size-4\" position=\"top-right\" />\n          <DecorIcon className=\"size-4\" position=\"bottom-left\" />\n          <DecorIcon className=\"size-4\" position=\"bottom-right\" />\n\n          <div className=\"grid border-y md:grid-cols-3\">\n            {stats.map((stat) => {\n              const isLast = stat.label === lastLabel;\n\n              return (\n                <div\n                  className=\"relative flex flex-col items-center justify-center border-t px-6 py-12 first:border-t-0 md:border-t-0 md:border-l md:py-16 md:first:border-l-0\"\n                  key={stat.label}\n                >\n                  <p className=\"font-semibold text-4xl tabular-nums tracking-tight sm:text-5xl\">\n                    {stat.value}\n                  </p>\n                  <p className=\"mt-2 text-muted-foreground text-sm\">\n                    {stat.label}\n                  </p>\n                  {isLast ? null : (\n                    <>\n                      <DecorIcon\n                        className=\"hidden size-4 md:block\"\n                        position=\"top-right\"\n                      />\n                      <DecorIcon\n                        className=\"hidden size-4 md:block\"\n                        position=\"bottom-right\"\n                      />\n                    </>\n                  )}\n                </div>\n              );\n            })}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/stats-4.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

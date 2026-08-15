@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-form",
+  "title": "Two Factor Form",
+  "description": "Shared authentication code form with an optional recovery code fallback, used by auth two factor layouts.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "input",
+    "label",
+    "tyrailleverett/nice-ui/logo",
+    "tyrailleverett/nice-ui/otp-input"
+  ],
+  "files": [
+    {
+      "path": "registry/app/auth/two-factor-form/two-factor-form.tsx",
+      "content": "import { type FormEvent, type ReactNode, useCallback, useState } from \"react\";\n\nimport { LogoIcon } from \"@/components/logo\";\nimport { OtpInput } from \"@/components/otp-input\";\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface TwoFactorFormProps {\n  className?: string;\n  codeLabel?: string;\n  description?: string;\n  idPrefix?: string;\n  logo?: ReactNode;\n  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;\n  primaryAction?: string;\n  recoveryCodeLabel?: string;\n  recoveryCodePlaceholder?: string;\n  recoveryLabel?: string;\n  signInHref?: string;\n  signInLabel?: string;\n  title?: string;\n  useCodeLabel?: string;\n}\n\nconst defaultLogo = (\n  <LogoIcon aria-hidden=\"true\" className=\"mb-8 size-8 text-foreground\" />\n);\n\ntype TwoFactorMode = \"code\" | \"recovery\";\n\nexport function TwoFactorForm({\n  className,\n  codeLabel = \"Authentication code\",\n  description = \"Enter the six-digit code from your authenticator app.\",\n  idPrefix = \"two-factor\",\n  logo = defaultLogo,\n  onSubmit,\n  primaryAction = \"Verify\",\n  recoveryCodeLabel = \"Recovery code\",\n  recoveryCodePlaceholder = \"Enter your recovery code\",\n  recoveryLabel = \"Use a recovery code instead\",\n  signInHref = \"#\",\n  signInLabel = \"Back to sign in\",\n  title = \"Two-factor authentication\",\n  useCodeLabel = \"Use an authentication code instead\",\n}: TwoFactorFormProps) {\n  const [mode, setMode] = useState<TwoFactorMode>(\"code\");\n\n  const handleSubmit = useCallback(\n    (event: FormEvent<HTMLFormElement>) => {\n      event.preventDefault();\n      onSubmit?.(event);\n    },\n    [onSubmit]\n  );\n\n  const toggleMode = useCallback(() => {\n    setMode((current) => (current === \"code\" ? \"recovery\" : \"code\"));\n  }, []);\n\n  const toggleLabel = mode === \"code\" ? recoveryLabel : useCodeLabel;\n\n  return (\n    <div className={cn(\"w-full max-w-sm\", className)}>\n      {logo}\n      <div className=\"space-y-1\">\n        <h1 className=\"font-semibold text-3xl tracking-tight\">{title}</h1>\n        {description ? (\n          <p className=\"text-muted-foreground text-sm\">{description}</p>\n        ) : null}\n      </div>\n\n      <form className=\"mt-8 space-y-6\" onSubmit={handleSubmit}>\n        {mode === \"code\" ? (\n          <OtpInput id={`${idPrefix}-code`} label={codeLabel} />\n        ) : (\n          <div className=\"space-y-2\">\n            <Label htmlFor={`${idPrefix}-recovery-code`}>\n              {recoveryCodeLabel}\n            </Label>\n            <Input\n              autoComplete=\"off\"\n              className=\"h-10\"\n              id={`${idPrefix}-recovery-code`}\n              name=\"recovery-code\"\n              placeholder={recoveryCodePlaceholder}\n              required\n              type=\"text\"\n            />\n          </div>\n        )}\n\n        <Button className=\"h-10 w-full\" type=\"submit\">\n          {primaryAction}\n        </Button>\n\n        <p className=\"text-center text-muted-foreground text-sm\">\n          <Button className=\"h-auto p-0\" onClick={toggleMode} variant=\"link\">\n            {toggleLabel}\n          </Button>\n        </p>\n\n        <p className=\"text-center text-muted-foreground text-sm\">\n          <a\n            className=\"text-primary underline underline-offset-4 hover:text-primary/80\"\n            href={signInHref}\n          >\n            {signInLabel}\n          </a>\n        </p>\n      </form>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/two-factor-form.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

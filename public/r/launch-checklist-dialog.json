@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "launch-checklist-dialog",
+  "title": "Launch Checklist Dialog",
+  "description": "Expandable launch checklist with ownership details.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "badge",
+    "tyrailleverett/nice-ui/dialogs-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/launch-checklist-dialog/launch-checklist-dialog.tsx",
+      "content": "/* biome-ignore-all lint/performance/noJsxPropsBind: Dialog controls close over preset, section, and scope values. */\nimport {\n  BellRing,\n  BriefcaseBusiness,\n  CalendarDays,\n  ChevronDown,\n  ChevronUp,\n  ShieldCheck,\n  SlidersHorizontal,\n  UserRound,\n} from \"lucide-react\";\nimport { useState } from \"react\";\nimport {\n  DialogFrame,\n  type DialogProps,\n  Footer,\n} from \"@/components/app/dialogs-shared\";\nimport { Badge } from \"@/components/ui/badge\";\nimport { Button } from \"@/components/ui/button\";\nimport { Dialog } from \"@/components/ui/dialog\";\n\nexport function LaunchChecklistDialog(props: DialogProps) {\n  const [expanded, setExpanded] = useState<boolean>(true);\n  const items = [\n    [\n      ShieldCheck,\n      \"Ownership & cadence\",\n      \"Lock in the primary operator, workspace alias, and review window.\",\n    ],\n    [\n      SlidersHorizontal,\n      \"Connected apps\",\n      \"Choose the tools that can send events or receive rollout updates.\",\n    ],\n    [\n      BellRing,\n      \"Fallback rules\",\n      \"Set where alerts and digests land if the primary flow is paused.\",\n    ],\n  ] as const;\n  return (\n    <Dialog {...props}>\n      <DialogFrame\n        className=\"sm:max-w-4xl\"\n        description=\"Finalize routing, apps, and fallback rules before launch.\"\n        title=\"Launch checklist\"\n      >\n        <div className=\"flex flex-col gap-6\">\n          {items.map(([Icon, heading, copy], index) => (\n            <div className=\"flex gap-4\" key={heading}>\n              <div className=\"grid size-12 shrink-0 place-items-center rounded-xl border bg-muted\">\n                <Icon />\n              </div>\n              <div className=\"flex flex-1 flex-col gap-2\">\n                <div className=\"flex items-center gap-3\">\n                  <h3 className=\"font-medium\">{heading}</h3>\n                  <Badge\n                    className=\"ml-auto\"\n                    variant={index === 0 ? \"secondary\" : \"outline\"}\n                  >\n                    {index === 0 ? \"In progress\" : \"Pending\"}\n                  </Badge>\n                  <Button\n                    aria-label={`${expanded ? \"Collapse\" : \"Expand\"} ${heading}`}\n                    onClick={() => setExpanded(!expanded)}\n                    size=\"icon\"\n                    type=\"button\"\n                    variant=\"ghost\"\n                  >\n                    {expanded && index === 0 ? <ChevronUp /> : <ChevronDown />}\n                  </Button>\n                </div>\n                <p className=\"text-muted-foreground\">{copy}</p>\n                {expanded && index === 0 && (\n                  <div className=\"grid gap-4 rounded-xl border p-4 text-muted-foreground md:grid-cols-2\">\n                    <span className=\"flex items-center gap-2\">\n                      <UserRound />\n                      Launch owner{\" \"}\n                      <strong className=\"ml-auto font-normal text-foreground\">\n                        Ari Mendoza\n                      </strong>\n                    </span>\n                    <span className=\"flex items-center gap-2\">\n                      <BriefcaseBusiness />\n                      Workspace alias{\" \"}\n                      <strong className=\"ml-auto font-normal text-foreground\">\n                        growth-command\n                      </strong>\n                    </span>\n                    <span className=\"flex items-center gap-2\">\n                      <CalendarDays />\n                      Review window{\" \"}\n                      <strong className=\"ml-auto font-normal text-foreground\">\n                        Tue, 10:00 UTC\n                      </strong>\n                    </span>\n                  </div>\n                )}\n              </div>\n            </div>\n          ))}\n        </div>\n        <Footer action=\"Save\" />\n      </DialogFrame>\n    </Dialog>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/launch-checklist-dialog.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-10",
+  "title": "Split Copy Screenshot",
+  "description": "Split feature copy with a screenshot frame and secondary CTA.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/screenshot-assets",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/feature-10/feature-10.tsx",
+      "content": "import { CalendarCheckIcon, ChevronRightIcon, TargetIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Feature10Action {\n  href?: string;\n  label: string;\n}\n\nexport interface Feature10Item {\n  description: string;\n  icon: ReactNode;\n  title: string;\n}\n\nexport interface Feature10Screenshot {\n  alt: string;\n  src: string;\n}\n\nexport interface Feature10Props {\n  className?: string;\n  cta?: Feature10Action | null;\n  darkScreenshot?: Feature10Screenshot;\n  items?: Feature10Item[];\n  screenshot?: Feature10Screenshot;\n  title?: string;\n}\n\nconst defaultItems: Feature10Item[] = [\n  {\n    description:\n      \"Describe the code you want and generate it. From boilerplate to business logic.\",\n    icon: <TargetIcon className=\"size-5\" />,\n    title: \"Code Generation\",\n  },\n  {\n    description:\n      \"Get instant feedback on best practices, performance, and maintainability.\",\n    icon: <CalendarCheckIcon className=\"size-5\" />,\n    title: \"Code Review\",\n  },\n];\n\nfunction FeatureCta({ cta }: { cta: Feature10Action }) {\n  const content = (\n    <>\n      {cta.label}\n      <ChevronRightIcon className=\"size-4 opacity-50\" />\n    </>\n  );\n\n  if (cta.href) {\n    return (\n      <Button asChild className=\"mt-8 pr-2\" variant=\"outline\">\n        <a href={cta.href}>{content}</a>\n      </Button>\n    );\n  }\n\n  return (\n    <Button className=\"mt-8 pr-2\" type=\"button\" variant=\"outline\">\n      {content}\n    </Button>\n  );\n}\n\nexport function Feature10({\n  title = \"The AI coding assistant that helps you write code faster\",\n  cta = { href: \"#\", label: \"Learn more\" },\n  items = defaultItems,\n  screenshot = {\n    alt: \"App screen\",\n    src: \"/screenshots/analytics-light.png\",\n  },\n  darkScreenshot = {\n    alt: \"App screen\",\n    src: \"/screenshots/analytics-dark.png\",\n  },\n  className,\n}: Feature10Props) {\n  return (\n    <section className={cn(className)}>\n      <div className=\"bg-muted/50 py-24\">\n        <div className=\"mx-auto w-full max-w-5xl px-6\">\n          <div className=\"grid gap-12 md:grid-cols-5\">\n            <div className=\"md:col-span-2\">\n              <h2 className=\"text-balance font-display-heading text-4xl text-foreground\">\n                {title}\n              </h2>\n              {cta ? <FeatureCta cta={cta} /> : null}\n            </div>\n\n            <div className=\"space-y-6 md:col-span-3 md:space-y-10\">\n              {items.map((item) => (\n                <div key={item.title}>\n                  <div className=\"flex items-center gap-2\">\n                    {item.icon}\n                    <h3 className=\"font-semibold text-foreground text-lg\">\n                      {item.title}\n                    </h3>\n                  </div>\n                  <p className=\"mt-3 text-balance text-muted-foreground\">\n                    {item.description}\n                  </p>\n                </div>\n              ))}\n            </div>\n          </div>\n\n          <div className=\"relative -mx-12 mt-16 px-12\">\n            <div className=\"relative mx-auto overflow-hidden rounded-xl border border-transparent bg-background shadow-black/10 shadow-lg ring-1 ring-black/10\">\n              <img\n                alt={screenshot.alt}\n                className=\"w-full dark:hidden\"\n                height={1842}\n                src={screenshot.src}\n                width={2880}\n              />\n              <img\n                alt={darkScreenshot.alt}\n                className=\"hidden w-full dark:block\"\n                height={1842}\n                src={darkScreenshot.src}\n                width={2880}\n              />\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/feature-10.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-2",
+  "title": "Wide Lead Stack",
+  "description": "Wide lead tile beside two stacked asides, for a product story that needs room.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/bento-2/bento-2.tsx",
+      "content": "import { ArrowUpRightIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface Bento2Tile {\n  description: string;\n  href?: string;\n  label: string;\n  title: string;\n}\n\nexport interface Bento2Props {\n  className?: string;\n  description?: string;\n  lead?: Bento2Tile;\n  secondary?: Bento2Tile[];\n  title?: string;\n}\n\nconst defaultLead: Bento2Tile = {\n  description:\n    \"Drop a hero, a feature band, and a footer. They already share Inter, hairlines, and the same 12px radius ladder.\",\n  href: \"#\",\n  label: \"Start with a hero\",\n  title: \"Ship the page, not the design system\",\n};\n\nconst defaultSecondary: Bento2Tile[] = [\n  {\n    description: \"White canvas, near-black CTAs, no second display face.\",\n    href: \"#\",\n    label: \"See the tokens\",\n    title: \"Editorial, not gray-card SaaS\",\n  },\n  {\n    description:\n      \"The same ink inverts in dark mode. Screenshots ship in pairs.\",\n    href: \"#\",\n    label: \"Preview dark\",\n    title: \"Dark is a theme, not a footer\",\n  },\n];\n\nfunction TileLink({ children, href }: { children: ReactNode; href?: string }) {\n  if (!href) {\n    return null;\n  }\n\n  return (\n    <a\n      className=\"mt-auto inline-flex items-center gap-1 text-foreground text-sm\"\n      href={href}\n    >\n      {children}\n      <ArrowUpRightIcon className=\"size-4\" />\n    </a>\n  );\n}\n\nexport function Bento2({\n  title = \"Build the marketing site from blocks you already trust\",\n  description = \"A wide lead tile and two stacked asides — the layout for a product story that needs room to breathe.\",\n  lead = defaultLead,\n  secondary = defaultSecondary,\n  className,\n}: Bento2Props) {\n  return (\n    <section\n      className={cn(\n        \"w-full bg-background py-16 text-foreground md:py-20 lg:py-28\",\n        className\n      )}\n    >\n      <div className=\"mx-auto max-w-5xl px-6\">\n        <div className=\"mx-auto max-w-2xl text-center\">\n          <h2 className=\"text-balance font-display-heading text-3xl sm:text-4xl\">\n            {title}\n          </h2>\n          {description ? (\n            <p className=\"mt-4 text-pretty text-muted-foreground\">\n              {description}\n            </p>\n          ) : null}\n        </div>\n\n        <div className=\"mt-12 grid grid-cols-1 overflow-hidden rounded-xl border border-border md:grid-cols-3\">\n          <article className=\"flex flex-col gap-4 border-b bg-card p-8 md:col-span-2 md:border-r md:border-b-0 md:p-10\">\n            <h3 className=\"font-heading font-semibold text-title\">\n              {lead.title}\n            </h3>\n            <p className=\"max-w-md text-muted-foreground text-sm\">\n              {lead.description}\n            </p>\n            <TileLink href={lead.href}>{lead.label}</TileLink>\n          </article>\n\n          <div className=\"grid grid-cols-1\">\n            {secondary.map((tile, index) => (\n              <article\n                className={cn(\n                  \"flex flex-col gap-3 bg-card p-8\",\n                  index === 0 ? \"border-b\" : null\n                )}\n                key={tile.title}\n              >\n                <h3 className=\"font-heading font-semibold text-title-md\">\n                  {tile.title}\n                </h3>\n                <p className=\"text-muted-foreground text-sm\">\n                  {tile.description}\n                </p>\n                <TileLink href={tile.href}>{tile.label}</TileLink>\n              </article>\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/bento-2.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

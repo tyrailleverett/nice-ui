@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "decor-icon",
+  "title": "Decor Icon",
+  "description": "Corner plus mark for framed marketing sections.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/decor-icon/decor-icon.tsx",
+      "content": "import { cva, type VariantProps } from \"class-variance-authority\";\nimport type { ComponentProps } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst decorIconVariants = cva(\n  \"pointer-events-none absolute z-1 size-5 shrink-0 stroke-1 stroke-muted-foreground\",\n  {\n    defaultVariants: {\n      position: \"top-left\",\n    },\n    variants: {\n      position: {\n        \"bottom-left\":\n          \"bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)]\",\n        \"bottom-right\":\n          \"right-0 bottom-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)]\",\n        \"top-left\":\n          \"top-0 left-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)]\",\n        \"top-right\":\n          \"top-0 right-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)]\",\n      },\n    },\n  }\n);\n\nexport type DecorIconProps = ComponentProps<\"svg\"> &\n  VariantProps<typeof decorIconVariants>;\n\nexport function DecorIcon({ position, className, ...props }: DecorIconProps) {\n  return (\n    <svg\n      aria-hidden=\"true\"\n      className={cn(decorIconVariants({ position }), className)}\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n    >\n      <path d=\"M5 12h14\" />\n      <path d=\"M12 5v14\" />\n    </svg>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/decor-icon.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

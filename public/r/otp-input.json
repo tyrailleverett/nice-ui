@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp-input",
+  "title": "OTP Input",
+  "description": "Labeled one-time code input built on shadcn's input-otp.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "input-otp",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/app/auth/otp-input/otp-input.tsx",
+      "content": "import { useMemo, useState } from \"react\";\n\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSlot,\n} from \"@/components/ui/input-otp\";\nimport { Label } from \"@/components/ui/label\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface OtpInputProps {\n  autoComplete?: string;\n  className?: string;\n  id?: string;\n  label?: string;\n  length?: number;\n  name?: string;\n}\n\nexport function OtpInput({\n  autoComplete = \"one-time-code\",\n  className,\n  id = \"otp\",\n  label = \"Verification code\",\n  length = 6,\n  name = \"code\",\n}: OtpInputProps) {\n  const [value, setValue] = useState(\"\");\n\n  const slots = useMemo(\n    () =>\n      Array.from({ length }, (_, index) => ({\n        id: `${id}-${index}`,\n        index,\n      })),\n    [id, length]\n  );\n\n  return (\n    <div className={cn(\"space-y-2\", className)}>\n      <Label htmlFor={id}>{label}</Label>\n      <InputOTP\n        autoComplete={autoComplete}\n        id={id}\n        maxLength={length}\n        onChange={setValue}\n        value={value}\n      >\n        <InputOTPGroup>\n          {slots.map((slot) => (\n            <InputOTPSlot\n              className=\"size-10\"\n              index={slot.index}\n              key={slot.id}\n            />\n          ))}\n        </InputOTPGroup>\n      </InputOTP>\n      <input name={name} type=\"hidden\" value={value} />\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/otp-input.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

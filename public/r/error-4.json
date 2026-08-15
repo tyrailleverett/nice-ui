@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "error-4",
+  "title": "Scheduled Freeze",
+  "description": "Maintenance window page that lists what is frozen, read-only, or paused during inventory writes.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "badge",
+    "button",
+    "card",
+    "empty",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/app/error/error-4/error-4.tsx",
+      "content": "import { BellIcon, ClipboardListIcon } from \"lucide-react\";\n\nimport { Badge } from \"@/components/ui/badge\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyTitle,\n} from \"@/components/ui/empty\";\nimport { Separator } from \"@/components/ui/separator\";\nimport { cn } from \"@/lib/utils\";\n\nconst windowRows = [\n  {\n    name: \"Inventory writes\",\n    note: \"Recounts and hold releases wait until 03:00 UTC.\",\n    state: \"Frozen\",\n  },\n  {\n    name: \"Exception queue\",\n    note: \"Existing records stay readable.\",\n    state: \"Read only\",\n  },\n  {\n    name: \"Exports\",\n    note: \"Scheduled files resume after the freeze.\",\n    state: \"Paused\",\n  },\n] as const;\n\nexport interface Error4Props {\n  className?: string;\n  onNotify?: () => void;\n  onViewStatus?: () => void;\n}\n\nexport function Error4({ className, onNotify, onViewStatus }: Error4Props) {\n  return (\n    <main\n      className={cn(\n        \"min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8\",\n        className\n      )}\n    >\n      <div className=\"mx-auto flex max-w-3xl flex-col gap-5\">\n        <Empty className=\"border border-dashed\">\n          <EmptyHeader className=\"max-w-lg\">\n            <Badge variant=\"secondary\">01:00–03:00 UTC</Badge>\n            <EmptyTitle className=\"text-xl\">\n              Inventory writes are frozen\n            </EmptyTitle>\n            <EmptyDescription>\n              Dock systems are in a scheduled maintenance window. You can still\n              read the queue. You cannot release holds or start recounts until\n              03:00 UTC.\n            </EmptyDescription>\n          </EmptyHeader>\n          <EmptyContent>\n            <div className=\"flex flex-wrap justify-center gap-2\">\n              <Button onClick={onViewStatus} type=\"button\">\n                <ClipboardListIcon data-icon=\"inline-start\" />\n                Open read-only queue\n              </Button>\n              <Button onClick={onNotify} type=\"button\" variant=\"outline\">\n                <BellIcon data-icon=\"inline-start\" />\n                Notify me at 03:00\n              </Button>\n            </div>\n          </EmptyContent>\n        </Empty>\n\n        <Card>\n          <CardHeader>\n            <CardTitle>What stays available</CardTitle>\n            <CardDescription>\n              The freeze is scoped to writes against inventory, not the whole\n              workspace.\n            </CardDescription>\n          </CardHeader>\n          <CardContent className=\"flex flex-col\">\n            {windowRows.map((row, index) => (\n              <div key={row.name}>\n                <div className=\"flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between\">\n                  <div className=\"flex flex-col gap-1\">\n                    <span className=\"font-medium text-sm\">{row.name}</span>\n                    <span className=\"text-muted-foreground text-sm\">\n                      {row.note}\n                    </span>\n                  </div>\n                  <Badge variant=\"outline\">{row.state}</Badge>\n                </div>\n                {index < windowRows.length - 1 ? <Separator /> : null}\n              </div>\n            ))}\n          </CardContent>\n        </Card>\n      </div>\n    </main>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/error-4.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

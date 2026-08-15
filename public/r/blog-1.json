@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-1",
+  "title": "Compact List",
+  "description": "Compact blog index with dashed title rules, dates, and hoverable list rows.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/full-width-divider"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/blog-1/blog-1.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\nimport { FullWidthDivider } from \"@/components/full-width-divider\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Blog1Item {\n  date: string;\n  description: string;\n  href: string;\n  title: string;\n}\n\nexport interface Blog1Props {\n  className?: string;\n  description?: string;\n  posts?: Blog1Item[];\n  title?: string;\n}\n\nconst defaultPosts: Blog1Item[] = [\n  {\n    date: \"May 20 2025\",\n    description:\n      \"What everyone new to the field should know, and how we can help.\",\n    href: \"#\",\n    title: \"The New Design\",\n  },\n  {\n    date: \"Aug 14 2025\",\n    description: \"An ode to the slow web.\",\n    href: \"#\",\n    title: \"Letter Club\",\n  },\n  {\n    date: \"Sep 19 2025\",\n    description: \"Carve space out for opportunity.\",\n    href: \"#\",\n    title: \"Have the Coffee\",\n  },\n  {\n    date: \"Oct 12 2025\",\n    description: \"Building modern applications with reusable components.\",\n    href: \"#\",\n    title: \"Shadcn UI\",\n  },\n  {\n    date: \"Nov 23 2025\",\n    description: \"Exploring the intersection of design and development.\",\n    href: \"#\",\n    title: \"Fesgin\",\n  },\n];\n\nexport function Blog1({\n  title = \"Latest Blogs\",\n  description = \"Discover the latest trends and insights in the world of design and technology.\",\n  posts = defaultPosts,\n  className,\n}: Blog1Props) {\n  return (\n    <section\n      className={cn(\n        \"mx-auto flex w-full max-w-3xl flex-col justify-start md:border-x\",\n        className\n      )}\n    >\n      <div className=\"space-y-2 px-4 py-8 md:py-12\">\n        <h2 className=\"font-display-heading text-2xl md:text-4xl\">{title}</h2>\n        {description ? (\n          <p className=\"text-muted-foreground text-sm\">{description}</p>\n        ) : null}\n      </div>\n\n      <div className=\"relative\">\n        <FullWidthDivider position=\"top\" />\n        <div className=\"divide-y\">\n          {posts.map((post) => (\n            <BlogCard key={post.title} post={post} />\n          ))}\n        </div>\n        <FullWidthDivider position=\"bottom\" />\n      </div>\n    </section>\n  );\n}\n\nfunction BlogCard({\n  post,\n  className,\n  ...props\n}: ComponentProps<\"a\"> & {\n  post: Blog1Item;\n}) {\n  const { title, date, description, href } = post;\n\n  return (\n    <a\n      className={cn(\n        \"group flex h-24 w-full flex-col justify-center gap-y-1 p-4 hover:cursor-pointer hover:bg-accent/30 focus-visible:bg-accent/30 focus-visible:outline-none active:bg-accent dark:active:bg-accent/50\",\n        className\n      )}\n      href={href}\n      {...props}\n    >\n      <div className=\"relative flex items-end justify-center gap-2\">\n        <h3 className=\"whitespace-nowrap font-medium text-foreground text-lg md:text-xl\">\n          {title}\n        </h3>\n        <span className=\"mb-1.5 w-full border-b-2 border-dashed\" />\n        <span className=\"whitespace-nowrap font-mono text-muted-foreground text-xs uppercase group-hover:text-foreground md:text-sm\">\n          {date}\n        </span>\n      </div>\n      <div className=\"max-w-sm text-muted-foreground text-sm group-hover:text-foreground md:max-w-full md:text-base\">\n        {description}\n      </div>\n    </a>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/blog-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

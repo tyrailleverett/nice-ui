@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state-3",
+  "title": "Reports Empty State",
+  "description": "Split workspace panel for creating a first report or viewing a sample.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/app/empty-state/empty-state-3/empty-state-3.tsx",
+      "content": "import { BarChart3Icon, EyeIcon, PlusIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface EmptyState3Props {\n  className?: string;\n  onAddReport?: () => void;\n  onViewSample?: () => void;\n}\n\nexport function EmptyState3({\n  className,\n  onAddReport,\n  onViewSample,\n}: EmptyState3Props) {\n  return (\n    <section\n      className={cn(\n        \"w-full bg-background px-6 py-16 text-foreground sm:px-12 lg:px-20\",\n        className\n      )}\n    >\n      <div className=\"mx-auto grid min-h-[30rem] max-w-6xl overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-[minmax(20rem,1fr)_minmax(22rem,1.2fr)]\">\n        <div className=\"flex flex-col justify-center p-8 sm:p-12 lg:p-16\">\n          <div className=\"mb-8 flex size-12 items-center justify-center rounded-xl bg-muted\">\n            <BarChart3Icon aria-hidden=\"true\" className=\"size-6\" />\n          </div>\n          <h2 className=\"max-w-md font-bold font-heading text-3xl tracking-tight sm:text-4xl\">\n            No reports for this workspace\n          </h2>\n          <p className=\"mt-4 max-w-md text-lg text-muted-foreground leading-relaxed\">\n            Create your first report to turn tracked companies into one clear\n            view your team can share.\n          </p>\n          <div className=\"mt-8 flex flex-wrap gap-3\">\n            <Button onClick={onAddReport} type=\"button\">\n              <PlusIcon data-icon=\"inline-start\" />\n              Add report\n            </Button>\n            <Button onClick={onViewSample} type=\"button\" variant=\"outline\">\n              <EyeIcon data-icon=\"inline-start\" />\n              View sample\n            </Button>\n          </div>\n        </div>\n        <div\n          aria-hidden=\"true\"\n          className=\"min-h-64 border-border border-t bg-background lg:border-t-0 lg:border-l\"\n        />\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/empty-state-3.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

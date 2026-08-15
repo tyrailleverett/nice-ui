@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-5",
+  "title": "Newsletter Avatars",
+  "description": "Newsletter marketing call to action with email field, subscribe button, and avatars.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "input-group",
+    "tyrailleverett/nice-ui/full-width-divider"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cta-5/cta-5.tsx",
+      "content": "import { ArrowRightIcon, AtSignIcon } from \"lucide-react\";\nimport { type FormEvent, type ReactNode, useCallback } from \"react\";\nimport { FullWidthDivider } from \"@/components/full-width-divider\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from \"@/components/ui/input-group\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Cta5Avatar {\n  alt: string;\n  src: string;\n}\n\nexport interface Cta5Props {\n  attribution?: ReactNode;\n  avatars?: Cta5Avatar[];\n  className?: string;\n  description?: string;\n  emailPlaceholder?: string;\n  onSubscribe?: (email: string) => void;\n  subscribeLabel?: string;\n  title?: string;\n}\n\nconst defaultAvatars: Cta5Avatar[] = [\n  {\n    alt: \"Avatar 01\",\n    src: \"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=72\",\n  },\n  {\n    alt: \"Avatar 02\",\n    src: \"https://images.unsplash.com/photo-1485206412256-701ccc5b93ca?q=80&w=72\",\n  },\n  {\n    alt: \"Avatar 03\",\n    src: \"https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=72\",\n  },\n  {\n    alt: \"Avatar 04\",\n    src: \"https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=72\",\n  },\n];\n\nexport function Cta5({\n  title = \"Subscribe to our newsletter\",\n  description = \"Get the latest updates and insights delivered right to your inbox.\",\n  emailPlaceholder = \"Enter your email\",\n  subscribeLabel = \"Subscribe\",\n  onSubscribe,\n  attribution = (\n    <>\n      Written by{\" \"}\n      <span className=\"font-medium text-foreground\">real humans</span> (we\n      swear).\n    </>\n  ),\n  avatars = defaultAvatars,\n  className,\n}: Cta5Props) {\n  const handleSubmit = useCallback(\n    (event: FormEvent<HTMLFormElement>) => {\n      event.preventDefault();\n      const formData = new FormData(event.currentTarget);\n      const email = String(formData.get(\"email\") ?? \"\");\n      onSubscribe?.(email);\n    },\n    [onSubscribe]\n  );\n\n  return (\n    <section\n      className={cn(\n        \"relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-6 border-x px-2 py-8 md:px-4\",\n        className\n      )}\n    >\n      <FullWidthDivider position=\"top\" />\n\n      <div className=\"space-y-1\">\n        <h2 className=\"text-center font-display-heading text-2xl md:text-4xl\">\n          {title}\n        </h2>\n        {description ? (\n          <p className=\"text-balance text-center text-muted-foreground text-sm md:text-base\">\n            {description}\n          </p>\n        ) : null}\n      </div>\n      <form\n        className=\"flex items-center justify-center gap-2\"\n        onSubmit={handleSubmit}\n      >\n        <InputGroup className=\"max-w-[280px] bg-card\">\n          <InputGroupInput\n            name=\"email\"\n            placeholder={emailPlaceholder}\n            type=\"email\"\n          />\n          <InputGroupAddon>\n            <AtSignIcon data-icon=\"inline-start\" />\n          </InputGroupAddon>\n        </InputGroup>\n\n        <Button type=\"submit\">\n          {subscribeLabel} <ArrowRightIcon data-icon=\"inline-end\" />\n        </Button>\n      </form>\n      {attribution || avatars.length ? (\n        <div className=\"flex items-center justify-center gap-2\">\n          {attribution ? (\n            <p className=\"text-muted-foreground text-sm\">{attribution}</p>\n          ) : null}\n          {avatars.length ? (\n            <div className=\"flex -space-x-[0.45rem] *:rounded-full *:ring-2 *:ring-background\">\n              {avatars.map((avatar) => (\n                <img\n                  alt={avatar.alt}\n                  height={24}\n                  key={avatar.src}\n                  src={avatar.src}\n                  width={24}\n                />\n              ))}\n            </div>\n          ) : null}\n        </div>\n      ) : null}\n\n      <FullWidthDivider position=\"bottom\" />\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/cta-5.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

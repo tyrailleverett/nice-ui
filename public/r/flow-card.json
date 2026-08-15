@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flow-card",
+  "title": "Flow Card",
+  "description": "Integration flow card with a visual node row and tier badge.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/cards-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/flow-card/flow-card.tsx",
+      "content": "import { FileTextIcon, ShoppingCartIcon, ZapIcon } from \"lucide-react\";\n\nimport \"@/components/app/cards-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface FlowCardProps {\n  accent?: \"purple\" | \"blue\" | \"green\";\n  description: string;\n  label: string;\n  tier: \"premium\" | \"regular\" | \"enterprise\";\n  title: string;\n}\n\nexport function FlowCard({\n  accent = \"purple\",\n  description,\n  label,\n  tier,\n  title,\n}: FlowCardProps) {\n  return (\n    <article className=\"showcase-card flow-card\">\n      <div className=\"flow-visual\">\n        <span className=\"flow-node\">\n          <ShoppingCartIcon aria-hidden=\"true\" />\n        </span>\n        <span className={cn(\"flow-node flow-node-center\", `flow-${accent}`)}>\n          {accent === \"purple\" ? <span className=\"resend-mark\">R</span> : null}\n          {accent === \"blue\" ? <span className=\"paypal-mark\">P</span> : null}\n          {accent === \"green\" ? <ZapIcon aria-hidden=\"true\" /> : null}\n        </span>\n        <span className=\"flow-node\">\n          <FileTextIcon aria-hidden=\"true\" />\n        </span>\n      </div>\n      <div className=\"flow-copy\">\n        <h3>{title}</h3>\n        <span className={cn(\"tier-badge\", `tier-${tier}`)}>{label}</span>\n      </div>\n      <p className=\"card-description\">{description}</p>\n    </article>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/flow-card.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

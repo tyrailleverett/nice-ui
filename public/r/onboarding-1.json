@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "onboarding-1",
+  "title": "Split Preview Onboarding",
+  "description": "Profile setup flow with a workspace preview panel.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/onboarding-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/onboarding-1/onboarding-1.tsx",
+      "content": "import {\n  BrandMark,\n  ContinueButton,\n  ProductPreview,\n  ProfileForm,\n} from \"@/components/app/onboarding-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Onboarding1Props {\n  className?: string;\n}\n\nexport function Onboarding1({ className }: Onboarding1Props) {\n  return (\n    <main\n      className={cn(\n        \"min-h-screen bg-background px-5 py-6 text-foreground sm:px-10 lg:px-16\",\n        className\n      )}\n    >\n      <header className=\"mx-auto flex max-w-[1460px] items-center justify-between\">\n        <BrandMark />\n        <span className=\"text-muted-foreground text-sm\">Step 1 of 6</span>\n      </header>\n      <section className=\"mx-auto mt-10 grid min-h-[680px] max-w-[1460px] overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-[1fr_0.9fr]\">\n        <div className=\"flex flex-col p-8 sm:p-14 lg:p-20\">\n          <div className=\"max-w-xl\">\n            <h1 className=\"font-semibold text-3xl tracking-[-0.04em] sm:text-4xl\">\n              Set up your profile\n            </h1>\n            <p className=\"mt-3 text-lg text-muted-foreground\">\n              Add the details teammates will see across the workspace.\n            </p>\n            <div className=\"mt-12\">\n              <ProfileForm />\n            </div>\n          </div>\n          <ContinueButton className=\"mt-10\" />\n        </div>\n        <ProductPreview />\n      </section>\n      <footer className=\"flex justify-center gap-7 py-8 text-muted-foreground text-sm\">\n        <span>2026 ReUI</span>\n        <span>Privacy Policy</span>\n        <span>Support</span>\n        <span>Sign out</span>\n      </footer>\n    </main>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/onboarding-1.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

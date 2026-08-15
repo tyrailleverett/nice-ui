@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "invite-teammates-dialog",
+  "title": "Invite Teammates Dialog",
+  "description": "Email invite form with a starting role selector.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "field",
+    "input",
+    "select",
+    "tyrailleverett/nice-ui/dialogs-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/invite-teammates-dialog/invite-teammates-dialog.tsx",
+      "content": "import {\n  DialogFrame,\n  type DialogProps,\n  Footer,\n} from \"@/components/app/dialogs-shared\";\nimport { Dialog } from \"@/components/ui/dialog\";\nimport { Field, FieldGroup, FieldLabel } from \"@/components/ui/field\";\nimport { Input } from \"@/components/ui/input\";\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\n\nexport function InviteTeammatesDialog(props: DialogProps) {\n  return (\n    <Dialog {...props}>\n      <DialogFrame\n        description=\"Add emails and choose the role they start with.\"\n        title=\"Invite teammates\"\n      >\n        <FieldGroup>\n          <Field>\n            <FieldLabel htmlFor=\"invite-email\">Invite by email</FieldLabel>\n            <Input id=\"invite-email\" placeholder=\"name@company.com\" />\n          </Field>\n          <Field>\n            <FieldLabel htmlFor=\"invite-role\">Invite as</FieldLabel>\n            <Select defaultValue=\"core\">\n              <SelectTrigger className=\"w-full\" id=\"invite-role\">\n                <SelectValue />\n              </SelectTrigger>\n              <SelectContent>\n                <SelectGroup>\n                  <SelectItem value=\"core\">Core member</SelectItem>\n                  <SelectItem value=\"guest\">Guest</SelectItem>\n                </SelectGroup>\n              </SelectContent>\n            </Select>\n          </Field>\n        </FieldGroup>\n        <Footer action=\"Send invite\" />\n      </DialogFrame>\n    </Dialog>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/invite-teammates-dialog.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

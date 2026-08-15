@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-integrations",
+  "title": "Integrations",
+  "description": "Connect and configure workspace automation apps.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "tyrailleverett/nice-ui/settings-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/settings-integrations/settings-integrations.tsx",
+      "content": "import { CreditCardIcon, NetworkIcon, SparklesIcon } from \"lucide-react\";\nimport {\n  MessageMark,\n  Panel,\n  SectionHeading,\n  SettingsSwitch,\n} from \"@/components/app/settings-shared\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nfunction IntegrationLogo({ name }: { name: string }) {\n  return (\n    <div className=\"flex size-12 items-center justify-center rounded-xl bg-muted ring-1 ring-foreground/10\">\n      {integrationIcon(name)}\n    </div>\n  );\n}\n\nfunction integrationIcon(name: string) {\n  if (name === \"n8n\") {\n    return <NetworkIcon className=\"text-rose-500\" />;\n  }\n  if (name === \"Slack\") {\n    return <MessageMark />;\n  }\n  if (name === \"Discord\") {\n    return <SparklesIcon className=\"text-indigo-500\" />;\n  }\n  return <CreditCardIcon className=\"text-violet-500\" />;\n}\n\nfunction IntegrationCard({\n  connected,\n  name,\n  description,\n  options,\n}: {\n  connected: boolean;\n  description: string;\n  name: string;\n  options?: [string, string, boolean][];\n}) {\n  return (\n    <Panel className=\"p-5 sm:p-8\">\n      <div className=\"flex items-start gap-5\">\n        <IntegrationLogo name={name} />\n        <div className=\"min-w-0 flex-1\">\n          <div className=\"flex flex-wrap items-center justify-between gap-3\">\n            <div>\n              <h2 className=\"font-medium text-xl\">{name}</h2>\n              <p className=\"mt-1 text-muted-foreground\">{description}</p>\n            </div>\n            <Button variant={connected ? \"outline\" : \"default\"}>\n              {connected ? \"Disconnect\" : \"Connect\"}\n            </Button>\n          </div>\n          {options ? (\n            <div className=\"mt-6 flex flex-col gap-4\">\n              {options.map(([label, detail, enabled]) => (\n                <div\n                  className=\"flex items-center justify-between rounded-xl bg-muted/60 px-4 py-4\"\n                  key={label}\n                >\n                  <div>\n                    <p className=\"font-medium\">{label}</p>\n                    <p className=\"text-muted-foreground text-sm\">{detail}</p>\n                  </div>\n                  <SettingsSwitch\n                    defaultChecked={enabled}\n                    label={`Toggle ${label}`}\n                  />\n                </div>\n              ))}\n            </div>\n          ) : null}\n        </div>\n      </div>\n    </Panel>\n  );\n}\n\nexport function Integrations({ className }: { className?: string }) {\n  return (\n    <div\n      className={cn(\n        \"mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8\",\n        className\n      )}\n    >\n      <SectionHeading\n        description=\"Connect your favorite apps to automate workflows and stay updated on events.\"\n        title=\"Integrations\"\n      />\n      <IntegrationCard\n        connected={false}\n        description=\"Automate your workflows and integrate with thousands of apps.\"\n        name=\"n8n\"\n      />\n      <IntegrationCard\n        connected\n        description=\"Send call and message logs to your Slack workspace.\"\n        name=\"Slack\"\n        options={[\n          [\"Messages\", \"Send incoming messages to my channel\", true],\n          [\"Alerts\", \"Send system alerts to my channel\", true],\n        ]}\n      />\n      <IntegrationCard\n        connected\n        description=\"Post event notifications to your Discord server channels.\"\n        name=\"Discord\"\n        options={[\n          [\"Deploys\", \"Notify on successful deployments\", true],\n          [\"Errors\", \"Forward error reports to a channel\", false],\n        ]}\n      />\n      <IntegrationCard\n        connected={false}\n        description=\"Sync payment events and subscription lifecycle changes.\"\n        name=\"Stripe\"\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/settings-integrations.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

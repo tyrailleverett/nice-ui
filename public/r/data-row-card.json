@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-row-card",
+  "title": "Data Row Card",
+  "description": "Horizontal deployment status row with preview and team avatars.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/cards-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/app/data-row-card/data-row-card.tsx",
+      "content": "import { Clock3Icon, Globe2Icon, MailIcon } from \"lucide-react\";\nimport { AvatarStack } from \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface DataRowCardProps {\n  branch?: string;\n  domain?: string;\n  email?: string;\n  name?: string;\n  onPreview?: () => void;\n}\n\nexport function DataRowCard({\n  branch = \"Main\",\n  domain = \"reui.io\",\n  email = \"Preview\",\n  name = \"Conhodler\",\n  onPreview,\n}: DataRowCardProps) {\n  return (\n    <article className=\"showcase-card data-row-card\">\n      <div className=\"data-row-inner\">\n        <div>\n          <span className=\"data-label\">Created</span>\n          <strong className=\"data-primary\">\n            <span className=\"data-gem\" />\n            {name} <em>24m ago</em>\n          </strong>\n        </div>\n        <div>\n          <span className=\"data-label\">Status</span>\n          <strong className=\"data-primary\">\n            <span className=\"status-dot\" />\n            Ready\n          </strong>\n        </div>\n        <div>\n          <span className=\"data-label\">Mobile</span>\n          <strong className=\"data-primary\">\n            <Clock3Icon aria-hidden=\"true\" />\n            49s <em>24m ago</em>\n          </strong>\n        </div>\n        <div>\n          <span className=\"data-label\">Email</span>\n          <Button\n            className=\"data-link h-auto p-0\"\n            onClick={onPreview}\n            type=\"button\"\n            variant=\"link\"\n          >\n            <MailIcon data-icon=\"inline-start\" />\n            {email}\n          </Button>\n        </div>\n        <div>\n          <span className=\"data-label\">Domain</span>\n          <strong className=\"data-primary\">\n            <Globe2Icon aria-hidden=\"true\" />\n            {domain} <span className=\"branch-badge\">{branch}</span>\n          </strong>\n        </div>\n        <div>\n          <span className=\"data-label\">Team</span>\n          <AvatarStack count={4} />\n        </div>\n      </div>\n    </article>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/app/data-row-card.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
