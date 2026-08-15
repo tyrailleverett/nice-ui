@@ -119,7 +119,7 @@ export function Testimonial4({
       className={cn("mx-auto max-w-5xl space-y-8 border-x py-6", className)}
     >
       <div className="flex flex-col gap-2 px-4 md:px-6">
-        <h2 className="text-balance font-semibold text-3xl tracking-wide md:text-4xl xl:font-bold">
+        <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
           {title}
         </h2>
         {description ? (

@@ -48,7 +48,7 @@ export function FormHeading({
   return (
     <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
       <div className="flex min-w-0 flex-col gap-1">
-        <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+        <h1 className="font-heading font-semibold text-title sm:text-3xl">
           {title}
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base">
@@ -106,16 +106,27 @@ export function FieldHint({ label }: { label: string }) {
 
 export function FormRow({
   children,
+  htmlFor,
   label,
 }: {
   children: ReactNode;
+  htmlFor?: string;
   label: ReactNode;
 }) {
   return (
     <div className="grid gap-3 sm:grid-cols-[12.5rem_minmax(0,1fr)] sm:items-start">
-      <div className="flex min-h-8 items-center gap-1 pt-0.5 font-medium text-sm">
-        {label}
-      </div>
+      {htmlFor ? (
+        <label
+          className="flex min-h-8 items-center gap-1 pt-0.5 font-medium text-sm"
+          htmlFor={htmlFor}
+        >
+          {label}
+        </label>
+      ) : (
+        <div className="flex min-h-8 items-center gap-1 pt-0.5 font-medium text-sm">
+          {label}
+        </div>
+      )}
       <div className="min-w-0">{children}</div>
     </div>
   );

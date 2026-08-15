@@ -26,23 +26,23 @@ const defaultIntegrations: Integrations1Item[] = [
     description: "Preview every commit and ship the marketing site from git.",
     isInvertable: true,
     name: "Vercel",
-    src: "https://storage.efferd.com/logo/vercel.svg",
+    src: "https://svgl.app/library/vercel.svg",
   },
   {
     description: "Drop models into onboarding, search, and support flows.",
     isInvertable: true,
     name: "OpenAI",
-    src: "https://storage.efferd.com/logo/openai.svg",
+    src: "https://svgl.app/library/openai.svg",
   },
   {
     description: "Auth, database, and storage without a custom backend.",
     name: "Supabase",
-    src: "https://storage.efferd.com/logo/supabase.svg",
+    src: "https://svgl.app/library/supabase.svg",
   },
   {
     description: "Keep product specs and launch notes in one workspace.",
     name: "Notion",
-    src: "https://storage.efferd.com/logo/notion.svg",
+    src: "https://svgl.app/library/notion.svg",
   },
 ];
 

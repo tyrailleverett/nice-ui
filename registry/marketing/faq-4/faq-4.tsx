@@ -177,7 +177,9 @@ export function Faq4({
   return (
     <section className={cn("mx-auto w-full max-w-3xl md:border-x", className)}>
       <div className="px-4 py-16 lg:px-6">
-        <h2 className="mb-4 font-semibold text-3xl md:text-4xl">{title}</h2>
+        <h2 className="mb-4 font-display-heading text-3xl md:text-4xl">
+          {title}
+        </h2>
         {description ? (
           <p className="mb-8 max-w-2xl text-muted-foreground">{description}</p>
         ) : null}

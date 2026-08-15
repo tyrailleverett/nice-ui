@@ -126,7 +126,7 @@ export function Testimonial5({
         }
       `}</style>
       <div className="mb-8 flex flex-col gap-2 px-4 md:px-6">
-        <h2 className="text-balance font-semibold text-3xl tracking-tight md:text-4xl">
+        <h2 className="text-balance font-display-heading text-3xl md:text-4xl">
           {title}
         </h2>
         {description ? (

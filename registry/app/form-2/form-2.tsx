@@ -121,9 +121,7 @@ export function Form2({ className }: Form2Props) {
     <FormPage className={className}>
       <Card>
         <CardHeader className="border-b">
-          <CardTitle className="font-heading text-2xl">
-            Invoice Details
-          </CardTitle>
+          <CardTitle className="text-title">Invoice Details</CardTitle>
           <CardDescription>
             Customer, terms, items, and payment notes.
           </CardDescription>

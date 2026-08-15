@@ -206,7 +206,7 @@ export function Feature8({
   return (
     <section className={cn("overflow-hidden px-4 py-16 md:py-20", className)}>
       <div className="mx-auto max-w-7xl px-2 lg:px-6">
-        <h2 className="max-w-4xl text-balance font-medium text-4xl text-muted-foreground tracking-tight">
+        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
           {title}
         </h2>
         <div className="mt-8 grid rounded-xl border md:mt-16 md:grid-cols-2">
@@ -220,7 +220,7 @@ export function Feature8({
 
             <div aria-hidden className="relative">
               <div className="absolute inset-0 z-10 m-auto size-fit -translate-y-full">
-                <div className="relative z-1 flex size-fit w-fit items-center gap-2 rounded-lg bg-zinc-900/75 px-3 py-1 font-medium text-muted-foreground text-xs shadow-black/10 shadow-lg ring ring-foreground/10 backdrop-blur">
+                <div className="relative z-1 flex size-fit w-fit items-center gap-2 rounded-lg bg-zinc-900/75 px-3 py-1 font-medium text-white text-xs shadow-black/10 shadow-lg ring ring-foreground/10 backdrop-blur">
                   {connectionLabel}
                 </div>
                 <div className="absolute inset-2 -bottom-2 mx-auto rounded-lg bg-background px-3 py-4 font-medium text-xs shadow-black/5 shadow-md ring ring-foreground/10" />

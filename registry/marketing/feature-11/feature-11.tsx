@@ -25,6 +25,7 @@ export interface Feature11Screenshot {
 
 export interface Feature11Props {
   className?: string;
+  darkScreenshot?: Feature11Screenshot;
   screenshot?: Feature11Screenshot;
 }
 
@@ -82,7 +83,7 @@ function CodeReviewIllustration() {
           <span className="font-medium text-muted-foreground text-sm">
             Méschac Irung
           </span>
-          <span className="text-muted-foreground/75 text-xs">2m</span>
+          <span className="text-muted-foreground text-xs">2m</span>
         </div>
 
         <div className="ml-8 space-y-2">
@@ -151,7 +152,11 @@ function AIAssistantIllustration() {
 export function Feature11({
   screenshot = {
     alt: "App screen",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/analytics-light.png",
+  },
+  darkScreenshot = {
+    alt: "App screen",
+    src: "/screenshots/analytics-dark.png",
   },
   className,
 }: Feature11Props) {
@@ -173,9 +178,16 @@ export function Feature11({
                 <div className="relative mx-auto mt-8 h-96 overflow-hidden rounded-tl-xl border border-transparent bg-background shadow ring-1 ring-foreground/5">
                   <img
                     alt={screenshot.alt}
-                    className="h-full object-cover object-top-left"
+                    className="h-full object-cover object-top-left dark:hidden"
                     height={1842}
                     src={screenshot.src}
+                    width={2880}
+                  />
+                  <img
+                    alt={darkScreenshot.alt}
+                    className="hidden h-full object-cover object-top-left dark:block"
+                    height={1842}
+                    src={darkScreenshot.src}
                     width={2880}
                   />
                 </div>

@@ -179,7 +179,7 @@ export function Calendar4({ className }: Calendar4Props) {
             </div>
             <div className="flex items-center gap-2">
               <Select onValueChange={setScope} value={scope}>
-                <SelectTrigger className="min-w-32">
+                <SelectTrigger aria-label="Filter events" className="min-w-32">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

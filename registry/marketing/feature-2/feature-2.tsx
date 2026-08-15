@@ -50,7 +50,7 @@ export function Feature2({
 }: Feature2Props) {
   return (
     <section className={cn("mx-auto max-w-5xl", className)}>
-      <h2 className="mb-5 text-center font-medium text-2xl md:text-3xl">
+      <h2 className="mb-5 text-center font-heading font-semibold text-2xl md:text-3xl">
         {title}
       </h2>
 

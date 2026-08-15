@@ -15,6 +15,7 @@ function Progress({
 }) {
   return (
     <ProgressPrimitive.Root
+      aria-label={props["aria-label"] ?? "Progress"}
       data-slot="progress"
       className={cn(
         "relative flex h-1 w-full items-center overflow-x-hidden rounded-full bg-muted",

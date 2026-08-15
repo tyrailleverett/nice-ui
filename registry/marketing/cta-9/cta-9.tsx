@@ -55,9 +55,7 @@ export function Cta9({
       )}
     >
       <div className="relative space-y-8">
-        <h2 className="font-medium text-2xl tracking-tight md:text-4xl">
-          {title}
-        </h2>
+        <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
         <form
           className="mx-auto flex w-full max-w-md overflow-hidden rounded-lg border bg-background/80"
           onSubmit={handleSubmit}

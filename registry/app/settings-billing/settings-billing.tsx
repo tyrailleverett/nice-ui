@@ -323,7 +323,7 @@ export function BillingCycleStrip({
         </p>
       </div>
       <div className="px-5 pb-5 sm:px-6">
-        <div className="flex h-10 items-end gap-px" role="img">
+        <div aria-hidden="true" className="flex h-10 items-end gap-px">
           {Array.from({ length: ticks.totalDays }, (_, index) => {
             const dayNumber = index + 1;
             const isToday = dayNumber === ticks.elapsed;
@@ -406,18 +406,16 @@ export function SubscriptionPlan({
       <CardContent className="p-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="font-heading font-semibold text-2xl tracking-tight">
+            <p className="font-heading font-semibold text-title">
               {current.name}
             </p>
             <p className="mt-1 text-muted-foreground text-sm">
               {current.description}
             </p>
           </div>
-          <p className="font-heading text-2xl tabular-nums tracking-tight">
+          <p className="font-heading text-title tabular-nums">
             {currency.format(current.monthly)}
-            <span className="ml-1 font-sans text-muted-foreground text-sm">
-              / month
-            </span>
+            <span className="ml-1 text-muted-foreground text-sm">/ month</span>
           </p>
         </div>
         <dl className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -880,7 +878,7 @@ export function BillingSettings({
       )}
     >
       <header className="flex flex-col gap-1">
-        <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+        <h1 className="font-heading font-semibold text-title sm:text-3xl">
           Billing
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base">

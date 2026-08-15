@@ -69,18 +69,30 @@ function ProfileContent() {
           <Button variant="ghost">Remove</Button>
         </div>
       </SettingsRow>
-      <SettingsRow description="Used across your workspace." label="Full name">
-        <Input defaultValue="Ava Chen" />
+      <SettingsRow
+        description="Used across your workspace."
+        htmlFor="full-name"
+        label="Full name"
+      >
+        <Input defaultValue="Ava Chen" id="full-name" />
       </SettingsRow>
-      <SettingsRow description="Primary sign-in email." label="Email address">
-        <Input defaultValue="ava@example.com" type="email" />
+      <SettingsRow
+        description="Primary sign-in email."
+        htmlFor="email-address"
+        label="Email address"
+      >
+        <Input defaultValue="ava@example.com" id="email-address" type="email" />
       </SettingsRow>
-      <SettingsRow description="Used in mentions and links." label="Username">
-        <Input defaultValue="@avachen" />
+      <SettingsRow
+        description="Used in mentions and links."
+        htmlFor="username"
+        label="Username"
+      >
+        <Input defaultValue="@avachen" id="username" />
       </SettingsRow>
       <SettingsRow description="Shown across your workspace." label="Role">
         <Select defaultValue="lead">
-          <SelectTrigger>
+          <SelectTrigger aria-label="Role">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -149,9 +161,10 @@ function AdminPreview() {
         >
           <SettingsRow
             description="Used in shared pages and invites."
+            htmlFor="workspace-name"
             label="Workspace name"
           >
-            <Input defaultValue="Harbor Ops" />
+            <Input defaultValue="Harbor Ops" id="workspace-name" />
           </SettingsRow>
           <SettingsRow
             description="Allow signups from trusted company domains."

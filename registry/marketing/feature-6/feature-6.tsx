@@ -84,7 +84,7 @@ function DownloadIllustration() {
           <MonitorDownIcon className="size-4 translate-y-0.5 text-black" />
           <div className="space-y-0.5">
             <div className="font-medium text-black text-xs">Computer</div>
-            <div className="text-black/50 text-xs">16.1MB left</div>
+            <div className="text-muted-foreground text-xs">16.1MB left</div>
           </div>
         </div>
 
@@ -92,7 +92,7 @@ function DownloadIllustration() {
           <CloudDownloadIcon className="size-4 translate-y-0.5 text-black" />
           <div className="space-y-0.5">
             <div className="font-medium text-black text-xs">Cloud</div>
-            <div className="text-black/50 text-xs">Unlimited</div>
+            <div className="text-muted-foreground text-xs">Unlimited</div>
           </div>
         </div>
       </div>
@@ -151,12 +151,14 @@ function DynamicIslandIllustration() {
                 <div className="font-medium text-sm">Théo Balick</div>
                 <div className="mt-1.5 flex items-center gap-3">
                   <div>
-                    <div className="text-foreground/50 text-xs">Expenses</div>
+                    <div className="text-muted-foreground text-xs">
+                      Expenses
+                    </div>
                     <div className="mt-0.5 font-semibold text-sm">$32.65k</div>
                   </div>
                   <div className="h-7 w-px bg-border" />
                   <div>
-                    <div className="text-foreground/50 text-xs">Income</div>
+                    <div className="text-muted-foreground text-xs">Income</div>
                     <div className="mt-0.5 font-semibold text-sm">$2.65k</div>
                   </div>
                 </div>
@@ -191,9 +193,16 @@ const defaultItems: Feature6Item[] = [
       <div className="relative m-auto aspect-76/59 max-w-sm rounded-2xl bg-linear-to-b from-zinc-300 to-transparent p-px dark:from-zinc-700">
         <img
           alt="Payments illustration"
-          className="rounded-[15px]"
+          className="rounded-[15px] dark:hidden"
           height={929}
-          src="https://storage.efferd.com/screen/dashboard-light.webp"
+          src="/screenshots/workflow-light.png"
+          width={1207}
+        />
+        <img
+          alt="Payments illustration"
+          className="hidden rounded-[15px] dark:block"
+          height={929}
+          src="/screenshots/workflow-dark.png"
           width={1207}
         />
       </div>
@@ -219,7 +228,7 @@ const defaultItems: Feature6Item[] = [
     description: (
       <>
         Sales, success, and support work from one account view so{" "}
-        <span className="rounded bg-emerald-500/10 px-1.5 text-emerald-500">
+        <span className="rounded bg-success/10 px-1.5 text-success">
           every handoff keeps context
         </span>
         .
@@ -391,7 +400,7 @@ export function Feature6({
   return (
     <section className={cn("py-16 md:py-20", className)}>
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="max-w-4xl text-balance font-medium text-4xl text-muted-foreground tracking-tight">
+        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
           {title}
         </h2>
         <div className="mt-16 grid gap-6 md:mt-32 lg:grid-cols-[auto_1fr]">

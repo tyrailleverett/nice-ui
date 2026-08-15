@@ -218,7 +218,11 @@ export function MonthCalendar({
           }}
           value={monthValue}
         >
-          <SelectTrigger className="min-w-28 flex-1 rounded-full" size="sm">
+          <SelectTrigger
+            aria-label="Month"
+            className="min-w-28 flex-1 rounded-full"
+            size="sm"
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -237,7 +241,11 @@ export function MonthCalendar({
           }}
           value={yearValue}
         >
-          <SelectTrigger className="min-w-20 rounded-full" size="sm">
+          <SelectTrigger
+            aria-label="Year"
+            className="min-w-20 rounded-full"
+            size="sm"
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -309,7 +317,7 @@ export function MonthCalendar({
               aria-pressed={isSelected}
               className={cn(
                 "flex aspect-square min-h-9 flex-col items-center justify-center rounded-lg text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
-                cell.inMonth ? "text-foreground" : "text-muted-foreground/40",
+                cell.inMonth ? "text-foreground" : "text-muted-foreground",
                 isSelected
                   ? "bg-primary text-primary-foreground"
                   : "hover:bg-muted"

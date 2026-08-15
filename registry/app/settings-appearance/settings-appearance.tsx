@@ -162,7 +162,10 @@ function WorkspaceChrome({
   mode: "light" | "dark";
 }) {
   return (
-    <div className="flex h-full min-h-36" style={tokenStyle(mode)}>
+    <div
+      className={cn("flex h-full min-h-36", mode === "dark" && "dark")}
+      style={tokenStyle(mode)}
+    >
       <aside className="flex w-8 shrink-0 flex-col items-center gap-1.5 bg-sidebar py-2.5">
         <span className="size-3 rounded-full bg-primary" />
         <span className="size-2.5 rounded-sm bg-muted-foreground/40" />
@@ -247,7 +250,7 @@ function AppearanceHeading({
 }) {
   return (
     <header className="flex flex-col gap-1">
-      <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+      <h1 className="font-heading font-semibold text-title sm:text-3xl">
         {title}
       </h1>
       <p className="text-base text-muted-foreground sm:text-lg">

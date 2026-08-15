@@ -2,6 +2,54 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "items": [
     {
+      "name": "screenshot-assets",
+      "type": "registry:component",
+      "title": "Marketing Screenshot Assets",
+      "description": "Original light and dark product screenshots used by marketing blocks.",
+      "files": [
+        {
+          "path": "screenshot-assets/analytics-dark.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/analytics-dark.png"
+        },
+        {
+          "path": "screenshot-assets/analytics-light.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/analytics-light.png"
+        },
+        {
+          "path": "screenshot-assets/canvas-dark.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/canvas-dark.png"
+        },
+        {
+          "path": "screenshot-assets/canvas-light.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/canvas-light.png"
+        },
+        {
+          "path": "screenshot-assets/customer-dark.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/customer-dark.png"
+        },
+        {
+          "path": "screenshot-assets/customer-light.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/customer-light.png"
+        },
+        {
+          "path": "screenshot-assets/workflow-dark.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/workflow-dark.png"
+        },
+        {
+          "path": "screenshot-assets/workflow-light.png",
+          "type": "registry:file",
+          "target": "~/public/screenshots/workflow-light.png"
+        }
+      ]
+    },
+    {
       "name": "logo",
       "type": "registry:component",
       "title": "Logo",
@@ -12,7 +60,8 @@
           "type": "registry:component",
           "target": "~/components/logo.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "hero-1",
@@ -21,6 +70,8 @@
       "description": "Centered marketing hero with announcement pill, dual CTAs, faded side rules, and a framed screenshot.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
         "button",
         "tyrailleverett/nice-ui/full-width-divider",
         "tyrailleverett/nice-ui/decor-icon"
@@ -39,7 +90,11 @@
       "title": "Left Offset Screenshot",
       "description": "Left-aligned marketing hero with announcement pill, dual CTAs, and an offset masked screenshot.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button"
+      ],
       "files": [
         {
           "path": "hero-2/hero-2.tsx",
@@ -54,7 +109,11 @@
       "title": "Split Skewed Screenshot",
       "description": "Split marketing hero with copy, logos, dual CTAs, and a skewed product screenshot.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button"
+      ],
       "files": [
         {
           "path": "hero-3/hero-3.tsx",
@@ -69,7 +128,11 @@
       "title": "Split Headline Media",
       "description": "Two-column marketing hero with nested screenshot, photographic backdrop, and logo row.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button"
+      ],
       "files": [
         {
           "path": "hero-4/hero-4.tsx",
@@ -84,7 +147,11 @@
       "title": "Centered Hover Logos",
       "description": "Centered marketing hero with announcement, nested screenshot, and a hover-reveal logo grid.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button"
+      ],
       "files": [
         {
           "path": "hero-5/hero-5.tsx",
@@ -104,7 +171,8 @@
           "type": "registry:component",
           "target": "~/components/full-width-divider.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "decor-icon",
@@ -118,7 +186,8 @@
           "type": "registry:component",
           "target": "~/components/decor-icon.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "portal",
@@ -131,7 +200,8 @@
           "type": "registry:component",
           "target": "~/components/portal.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "use-scroll",
@@ -144,7 +214,8 @@
           "type": "registry:hook",
           "target": "~/hooks/use-scroll.ts"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "cta-1",
@@ -152,6 +223,7 @@
       "title": "Split Headline Actions",
       "description": "Split marketing call to action with headline, buttons, and full-width dividers.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/full-width-divider"
       ],
@@ -170,6 +242,7 @@
       "description": "Stacked marketing call to action with supporting copy and a tinted button bar.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/full-width-divider"
       ],
@@ -187,7 +260,11 @@
       "title": "Framed Dashed Center",
       "description": "Framed marketing call to action with corner marks, dashed center line, and dual buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/decor-icon"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "tyrailleverett/nice-ui/decor-icon"
+      ],
       "files": [
         {
           "path": "cta-3/cta-3.tsx",
@@ -202,7 +279,7 @@
       "title": "Rounded Card",
       "description": "Card-style marketing call to action with rounded frame and dual buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cta-4/cta-4.tsx",
@@ -218,6 +295,7 @@
       "description": "Newsletter marketing call to action with email field, subscribe button, and avatars.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input-group",
         "tyrailleverett/nice-ui/full-width-divider"
@@ -241,7 +319,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/cta-6.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "cta-7",
@@ -249,7 +328,7 @@
       "title": "GitHub Activity Cards",
       "description": "Open-source marketing call to action with GitHub button and floating activity cards.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cta-7/cta-7.tsx",
@@ -264,7 +343,7 @@
       "title": "Serif Floating Icons",
       "description": "Serif headline marketing call to action with floating tool icons and dual buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cta-8/cta-8.tsx",
@@ -279,7 +358,11 @@
       "title": "Newsletter Grid Card",
       "description": "Grid-card marketing call to action with combined email field and join button.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "input-group"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input-group"
+      ],
       "files": [
         {
           "path": "cta-9/cta-9.tsx",
@@ -294,7 +377,7 @@
       "title": "Display Headline Card",
       "description": "Stacked marketing call to action with display headline and horizontal action card.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cta-10/cta-10.tsx",
@@ -309,7 +392,7 @@
       "title": "Social Proof Pills",
       "description": "Social-proof marketing call to action with avatars, rating, and pill buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cta-11/cta-11.tsx",
@@ -324,7 +407,7 @@
       "title": "Hairline Text Link",
       "description": "Hairline-framed marketing call to action with text link and outlined button.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cta-12/cta-12.tsx",
@@ -338,7 +421,7 @@
       "type": "registry:block",
       "title": "Inline Nav",
       "description": "Marketing footer with logo, social links, navigation, copyright, and optional attribution.",
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "footer-1/footer-1.tsx",
@@ -352,7 +435,7 @@
       "type": "registry:block",
       "title": "Brand Two Columns",
       "description": "Marketing footer with brand copy, social links, resource and company columns, and full-width dividers.",
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "footer-2/footer-2.tsx",
@@ -373,14 +456,15 @@
           "type": "registry:component",
           "target": "~/components/marketing/footer-3.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "footer-4",
       "type": "registry:block",
       "title": "Store Badges",
       "description": "Marketing footer with link columns, social buttons, and official App Store and Google Play badges.",
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "footer-4/footer-4.tsx",
@@ -404,7 +488,12 @@
       "type": "registry:block",
       "title": "Newsletter Status",
       "description": "Marketing footer with brand copy, newsletter signup, social icons, multi-column links, and system status.",
-      "registryDependencies": ["button", "input", "label"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input",
+        "label"
+      ],
       "files": [
         {
           "path": "footer-5/footer-5.tsx",
@@ -418,7 +507,7 @@
       "type": "registry:block",
       "title": "Watermark Card",
       "description": "Card-style marketing footer with uppercase link columns, social buttons, outlined watermark, and status.",
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "footer-6/footer-6.tsx",
@@ -433,7 +522,11 @@
       "title": "Theme Switcher Grid",
       "description": "Grid marketing footer with bordered columns, newsletter, status badge, and theme switcher.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "input"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input"
+      ],
       "files": [
         {
           "path": "footer-7/footer-7.tsx",
@@ -454,7 +547,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/feature-1.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "feature-2",
@@ -462,7 +556,10 @@
       "title": "Framed Three Column",
       "description": "Framed three-column feature grid with corner marks and dashed rules.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/decor-icon"
+      ],
       "files": [
         {
           "path": "feature-2/feature-2.tsx",
@@ -483,7 +580,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/feature-3.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "feature-4",
@@ -491,7 +589,7 @@
       "title": "Bento Pipeline",
       "description": "Bento marketing features with pipeline cards and a four-up highlight row.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["card"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "card"],
       "files": [
         {
           "path": "feature-4/feature-4.tsx",
@@ -506,7 +604,11 @@
       "title": "Portrait Media Cards",
       "description": "Three portrait feature cards with product illustrations and supporting copy.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "card"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "card"
+      ],
       "files": [
         {
           "path": "feature-5/feature-5.tsx",
@@ -521,7 +623,11 @@
       "title": "Sticky Scroll Nav",
       "description": "Sticky product nav with scroll-synced feature sections and inline illustrations.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button"
+      ],
       "files": [
         {
           "path": "feature-6/feature-6.tsx",
@@ -542,6 +648,10 @@
           "type": "registry:component",
           "target": "~/components/marketing/feature-7.tsx"
         }
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets"
       ]
     },
     {
@@ -555,7 +665,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/feature-8.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "feature-9",
@@ -563,7 +674,11 @@
       "title": "Two-up Illustrations",
       "description": "Two-up feature cards with code and scheduler illustrations.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "card"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "card"
+      ],
       "files": [
         {
           "path": "feature-9/feature-9.tsx",
@@ -578,7 +693,11 @@
       "title": "Split Copy Screenshot",
       "description": "Split feature copy with a screenshot frame and secondary CTA.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button"
+      ],
       "files": [
         {
           "path": "feature-10/feature-10.tsx",
@@ -593,7 +712,12 @@
       "title": "Four-card Bento",
       "description": "Bento feature cards with screenshot, meeting, review, and assistant illustrations.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "card"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/screenshot-assets",
+        "button",
+        "card"
+      ],
       "files": [
         {
           "path": "feature-11/feature-11.tsx",
@@ -608,7 +732,11 @@
       "title": "Stacked Illustrations",
       "description": "Stacked feature layout with assistant, meeting, and review illustrations.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "card"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "card"
+      ],
       "files": [
         {
           "path": "feature-12/feature-12.tsx",
@@ -623,7 +751,7 @@
       "title": "Two-by-two Cards",
       "description": "Two-by-two feature cards with integration logos, sync rings, and a shield mark.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["card"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "card"],
       "files": [
         {
           "path": "feature-13/feature-13.tsx",
@@ -643,7 +771,69 @@
           "type": "registry:component",
           "target": "~/components/marketing/feature-14.tsx"
         }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
+    },
+    {
+      "name": "bento-1",
+      "type": "registry:block",
+      "title": "Equal Feature Grid",
+      "description": "Four equal bento cells with icon, title, and copy on a shared hairline grid.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "bento-1/bento-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/bento-1.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
+    },
+    {
+      "name": "bento-2",
+      "type": "registry:block",
+      "title": "Wide Lead Stack",
+      "description": "Wide lead tile beside two stacked asides, for a product story that needs room.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "bento-2/bento-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/bento-2.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
+    },
+    {
+      "name": "bento-3",
+      "type": "registry:block",
+      "title": "Framed Mosaic",
+      "description": "Featured screenshot cell and four supporting tiles, framed with corner plus marks.",
+      "files": [
+        {
+          "path": "bento-3/bento-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/bento-3.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/decor-icon"
       ]
+    },
+    {
+      "name": "bento-4",
+      "type": "registry:block",
+      "title": "Metric Tile Bento",
+      "description": "KPI strip over three copy tiles — proof first, then the reasons.",
+      "files": [
+        {
+          "path": "bento-4/bento-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/bento-4.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "bento-5",
@@ -657,7 +847,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/bento-5.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "header-1",
@@ -666,6 +857,7 @@
       "description": "Compact sticky marketing header that tightens on scroll, with simple links and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/portal",
         "tyrailleverett/nice-ui/use-scroll"
@@ -685,6 +877,7 @@
       "description": "Sticky marketing header with product and company mega menus, pricing link, and a mobile overlay menu.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "navigation-menu",
         "tyrailleverett/nice-ui/portal",
@@ -709,7 +902,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/logo-cloud-1.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "logo-cloud-2",
@@ -722,7 +916,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/logo-cloud-2.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "logo-cloud-3",
@@ -735,7 +930,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/logo-cloud-3.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "integrations-1",
@@ -743,7 +939,7 @@
       "title": "Four Card Tray",
       "description": "Four integration cards on a muted tray with a view-all link.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "integrations-1/integrations-1.tsx",
@@ -757,7 +953,10 @@
       "type": "registry:block",
       "title": "Hairline Grid",
       "description": "Hairline integration grid with corner plus marks and optional cell decorations.",
-      "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/decor-icon"
+      ],
       "files": [
         {
           "path": "integrations-2/integrations-2.tsx",
@@ -772,6 +971,7 @@
       "title": "Scattered Logos",
       "description": "Copy and CTA beside a scattered logo grid on a fading rule background.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/full-width-divider"
       ],
@@ -794,14 +994,15 @@
           "type": "registry:component",
           "target": "~/components/marketing/integrations-4.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "testimonial-1",
       "type": "registry:block",
       "title": "Centered Quote",
       "description": "Centered marketing testimonial with company mark, quote, and avatar.",
-      "registryDependencies": ["avatar"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "avatar"],
       "files": [
         {
           "path": "testimonial-1/testimonial-1.tsx",
@@ -815,7 +1016,7 @@
       "type": "registry:block",
       "title": "Split Portrait",
       "description": "Split marketing testimonial with framed portrait and quote.",
-      "registryDependencies": ["avatar"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "avatar"],
       "files": [
         {
           "path": "testimonial-2/testimonial-2.tsx",
@@ -830,7 +1031,10 @@
       "title": "Featured Split",
       "description": "Split-column marketing testimonials with quote marks and full-width dividers.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "testimonial-3/testimonial-3.tsx",
@@ -845,6 +1049,7 @@
       "title": "Three Column Grid",
       "description": "Grid marketing testimonials with avatars, quotes, and full-width dividers.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "tyrailleverett/nice-ui/full-width-divider"
       ],
@@ -863,6 +1068,7 @@
       "description": "Auto-scrolling marketing testimonials with quote cards, avatars, and source labels.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "tyrailleverett/nice-ui/full-width-divider"
       ],
@@ -879,7 +1085,7 @@
       "type": "registry:block",
       "title": "Centered Accordion",
       "description": "Centered marketing FAQ with a bordered accordion and a support link.",
-      "registryDependencies": ["accordion"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "accordion"],
       "files": [
         {
           "path": "faq-1/faq-1.tsx",
@@ -893,7 +1099,7 @@
       "type": "registry:block",
       "title": "Split Stacked",
       "description": "Split-column marketing FAQ with a stacked headline and edge-to-edge accordion.",
-      "registryDependencies": ["accordion"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "accordion"],
       "files": [
         {
           "path": "faq-2/faq-2.tsx",
@@ -908,6 +1114,7 @@
       "title": "Split Guide Line",
       "description": "Split-column marketing FAQ with a large headline, guide line, and corner marks.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "accordion",
         "tyrailleverett/nice-ui/decor-icon"
       ],
@@ -925,7 +1132,13 @@
       "title": "Searchable Categories",
       "description": "Searchable marketing FAQ with category filters, card accordion items, and an empty state.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["accordion", "button", "empty", "input-group"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "accordion",
+        "button",
+        "empty",
+        "input-group"
+      ],
       "files": [
         {
           "path": "faq-4/faq-4.tsx",
@@ -939,7 +1152,7 @@
       "type": "registry:block",
       "title": "Grouped Categories",
       "description": "Centered marketing FAQ with category headings and hairline accordion groups.",
-      "registryDependencies": ["accordion"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "accordion"],
       "files": [
         {
           "path": "faq-5/faq-5.tsx",
@@ -953,7 +1166,10 @@
       "type": "registry:block",
       "title": "Compact List",
       "description": "Compact blog index with dashed title rules, dates, and hoverable list rows.",
-      "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "blog-1/blog-1.tsx",
@@ -967,7 +1183,10 @@
       "type": "registry:block",
       "title": "Three Column Grid",
       "description": "Three-column blog grid with category, date, excerpt, and author attribution.",
-      "registryDependencies": ["tyrailleverett/nice-ui/full-width-divider"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
       "files": [
         {
           "path": "blog-2/blog-2.tsx",
@@ -988,7 +1207,8 @@
           "type": "registry:component",
           "target": "~/components/marketing/blog-3.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "pricing-1",
@@ -996,7 +1216,11 @@
       "title": "Three Tiers",
       "description": "Three-column marketing pricing table with monthly/annual toggle, popular badge, and trial CTAs.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "badge"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "badge"
+      ],
       "files": [
         {
           "path": "pricing-1/pricing-1.tsx",
@@ -1011,7 +1235,11 @@
       "title": "Comparison Table",
       "description": "Feature comparison table with monthly/annual toggle, grouped rows, and a highlighted popular plan column.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "badge"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "badge"
+      ],
       "files": [
         {
           "path": "pricing-2/pricing-2.tsx",
@@ -1026,7 +1254,11 @@
       "title": "Single Plan",
       "description": "Single-plan marketing pricing card with monthly/annual toggle, split offer and features, and a trial CTA.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "badge"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "badge"
+      ],
       "files": [
         {
           "path": "pricing-3/pricing-3.tsx",
@@ -1041,7 +1273,11 @@
       "title": "Two Tiers",
       "description": "Two-column marketing pricing table with monthly/annual toggle, popular badge, and trial CTAs.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "badge"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "badge"
+      ],
       "files": [
         {
           "path": "pricing-4/pricing-4.tsx",
@@ -1055,7 +1291,7 @@
       "type": "registry:block",
       "title": "Bottom Bar",
       "description": "Full-width cookie consent bar with policy link, decline, and accept actions.",
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cookie-consent-1/cookie-consent-1.tsx",
@@ -1070,7 +1306,7 @@
       "title": "Corner Card",
       "description": "Corner cookie consent card with accept, reject, and preferences actions.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "cookie-consent-2/cookie-consent-2.tsx",
@@ -1084,7 +1320,11 @@
       "type": "registry:block",
       "title": "Split Version Timeline",
       "description": "Marketing changelog with version badges, dates, and grouped added, improved, and fixed notes.",
-      "registryDependencies": ["badge", "separator"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "separator"
+      ],
       "files": [
         {
           "path": "changelog-1/changelog-1.tsx",
@@ -1104,7 +1344,22 @@
           "type": "registry:component",
           "target": "~/components/marketing/stats-1.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
+    },
+    {
+      "name": "stats-2",
+      "type": "registry:block",
+      "title": "Four Metric Row",
+      "description": "Short headline over four KPIs in a hairline row.",
+      "files": [
+        {
+          "path": "stats-2/stats-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/stats-2.tsx"
+        }
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "stats-3",
@@ -1117,14 +1372,18 @@
           "type": "registry:component",
           "target": "~/components/marketing/stats-3.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "stats-4",
       "type": "registry:block",
       "title": "Headline Metric Grid",
       "description": "Centered headline and three framed KPIs with hairline rules and corner plus marks.",
-      "registryDependencies": ["tyrailleverett/nice-ui/decor-icon"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/decor-icon"
+      ],
       "files": [
         {
           "path": "stats-4/stats-4.tsx",

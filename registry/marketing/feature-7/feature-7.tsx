@@ -22,6 +22,8 @@ export interface Feature7Image {
 export interface Feature7Props {
   backgroundImage?: Feature7Image;
   className?: string;
+  darkBackgroundImage?: Feature7Image;
+  darkForegroundImage?: Feature7Image;
   foregroundImage?: Feature7Image;
   highlights?: Feature7Highlight[];
   title?: ReactNode;
@@ -59,11 +61,19 @@ export function Feature7({
   ),
   foregroundImage = {
     alt: "Product screenshot",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/workflow-light.png",
   },
   backgroundImage = {
     alt: "Product screenshot background",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/workflow-light.png",
+  },
+  darkForegroundImage = {
+    alt: "Product screenshot",
+    src: "/screenshots/workflow-dark.png",
+  },
+  darkBackgroundImage = {
+    alt: "Product screenshot background",
+    src: "/screenshots/workflow-dark.png",
   },
   highlights = defaultHighlights,
   className,
@@ -71,7 +81,7 @@ export function Feature7({
   return (
     <section className={cn("py-16 md:py-20", className)}>
       <div className="mx-auto max-w-7xl space-y-12 px-6">
-        <h2 className="relative z-10 max-w-4xl text-balance font-medium text-4xl text-muted-foreground tracking-tight lg:text-5xl">
+        <h2 className="relative z-10 max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground lg:text-5xl">
           {title}
         </h2>
         <div className="relative -mx-6 overflow-hidden px-3 pt-3 md:-mx-8">
@@ -85,10 +95,24 @@ export function Feature7({
               width={2797}
             />
             <img
+              alt={darkForegroundImage.alt}
+              className="absolute inset-0 z-10 hidden size-full object-cover object-top dark:block"
+              height={1137}
+              src={darkForegroundImage.src}
+              width={2797}
+            />
+            <img
               alt={backgroundImage.alt}
               className="size-full object-cover object-top opacity-75"
               height={1137}
               src={backgroundImage.src}
+              width={2797}
+            />
+            <img
+              alt={darkBackgroundImage.alt}
+              className="hidden size-full object-cover object-top opacity-75 dark:block"
+              height={1137}
+              src={darkBackgroundImage.src}
               width={2797}
             />
           </div>

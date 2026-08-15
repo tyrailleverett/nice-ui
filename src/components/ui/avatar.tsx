@@ -24,11 +24,13 @@ function Avatar({
 }
 
 function AvatarImage({
+  alt = "",
   className,
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
     <AvatarPrimitive.Image
+      alt={alt}
       data-slot="avatar-image"
       className={cn("aspect-square size-full rounded-full object-cover", className)}
       {...props}

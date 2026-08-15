@@ -161,7 +161,7 @@ function ConsoleNavigation({
 
 function ThemeAnnouncement() {
   return (
-    <Card size="sm">
+    <Card>
       <CardHeader>
         <CardTitle>Multi-theme support is here</CardTitle>
         <CardDescription>

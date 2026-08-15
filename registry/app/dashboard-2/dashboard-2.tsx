@@ -238,7 +238,10 @@ export function Dashboard2({ className }: Dashboard2Props) {
                   ["status", "Billable status"],
                 ].map(([value, label]) => (
                   <Select defaultValue={value} key={value}>
-                    <SelectTrigger className="w-full sm:w-48">
+                    <SelectTrigger
+                      aria-label={label}
+                      className="w-full sm:w-48"
+                    >
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

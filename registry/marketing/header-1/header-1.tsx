@@ -142,6 +142,7 @@ export function Header1({
         )}
       >
         <a
+          aria-label="Nice UI home"
           className="rounded-md p-2 hover:bg-muted dark:hover:bg-muted/50"
           href={logoHref}
         >

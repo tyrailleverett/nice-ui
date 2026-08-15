@@ -114,7 +114,7 @@ export function SettingsLayout({
       <div className="mx-auto w-full max-w-6xl">
         <header className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-2xl">
-            <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+            <h1 className="font-heading font-semibold text-title sm:text-3xl">
               {title}
             </h1>
             {description ? (
@@ -198,6 +198,7 @@ export interface SettingsRowProps {
   children: ReactNode;
   className?: string;
   description?: string;
+  htmlFor?: string;
   label: string;
 }
 
@@ -205,6 +206,7 @@ export function SettingsRow({
   children,
   className,
   description,
+  htmlFor,
   label,
 }: SettingsRowProps) {
   return (
@@ -215,7 +217,13 @@ export function SettingsRow({
       )}
     >
       <div>
-        <div className="font-medium text-sm">{label}</div>
+        {htmlFor ? (
+          <label className="font-medium text-sm" htmlFor={htmlFor}>
+            {label}
+          </label>
+        ) : (
+          <div className="font-medium text-sm">{label}</div>
+        )}
         {description ? (
           <p className="mt-1 text-muted-foreground text-sm">{description}</p>
         ) : null}

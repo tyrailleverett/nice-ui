@@ -76,7 +76,7 @@ function CodeReviewIllustration() {
             <span className="line-clamp-1 font-medium text-muted-foreground text-sm">
               Méschac Irung
             </span>
-            <span className="text-muted-foreground/75 text-xs">2m</span>
+            <span className="text-muted-foreground text-xs">2m</span>
           </div>
         </div>
 
@@ -158,7 +158,7 @@ export function Feature12({
     <section className={className}>
       <div className="py-24">
         <div className="mx-auto w-full max-w-3xl px-6">
-          <h2 className="text-balance font-semibold text-3xl text-foreground md:text-4xl">
+          <h2 className="text-balance font-display-heading text-3xl text-foreground md:text-4xl">
             <span className="text-muted-foreground">{mutedTitle}</span> {title}
           </h2>
           <div className="mt-12 grid gap-12 sm:grid-cols-2">

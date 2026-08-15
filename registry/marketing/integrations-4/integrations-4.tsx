@@ -25,7 +25,7 @@ const defaultTiles: Integrations4Tile[] = [
     col: 3,
     logo: {
       alt: "Notion",
-      src: "https://storage.efferd.com/logo/notion.svg",
+      src: "https://svgl.app/library/notion.svg",
     },
     row: 0,
   },
@@ -35,7 +35,7 @@ const defaultTiles: Integrations4Tile[] = [
     logo: {
       alt: "Cursor",
       isInvertable: true,
-      src: "https://storage.efferd.com/logo/cursor.svg",
+      src: "https://svgl.app/library/cursor_light.svg",
     },
     row: 1,
   },
@@ -44,7 +44,7 @@ const defaultTiles: Integrations4Tile[] = [
     logo: {
       alt: "Vercel",
       isInvertable: true,
-      src: "https://storage.efferd.com/logo/vercel.svg",
+      src: "https://svgl.app/library/vercel.svg",
     },
     row: 1,
   },
@@ -53,7 +53,7 @@ const defaultTiles: Integrations4Tile[] = [
     logo: {
       alt: "PlanetScale",
       isInvertable: true,
-      src: "https://storage.efferd.com/logo/planetscale.svg",
+      src: "https://svgl.app/library/planetscale.svg",
     },
     row: 2,
   },
@@ -61,7 +61,7 @@ const defaultTiles: Integrations4Tile[] = [
     col: 3,
     logo: {
       alt: "Gmail",
-      src: "https://storage.efferd.com/logo/gmail.svg",
+      src: "https://svgl.app/library/gmail.svg",
     },
     row: 2,
   },
@@ -70,7 +70,7 @@ const defaultTiles: Integrations4Tile[] = [
     col: 2,
     logo: {
       alt: "Supabase",
-      src: "https://storage.efferd.com/logo/supabase.svg",
+      src: "https://svgl.app/library/supabase.svg",
     },
     row: 3,
   },
@@ -78,7 +78,7 @@ const defaultTiles: Integrations4Tile[] = [
     col: 4,
     logo: {
       alt: "Canva",
-      src: "https://storage.efferd.com/logo/canva.svg",
+      src: "https://svgl.app/library/canva.svg",
     },
     row: 3,
   },
@@ -86,7 +86,7 @@ const defaultTiles: Integrations4Tile[] = [
     col: 1,
     logo: {
       alt: "Adobe",
-      src: "https://storage.efferd.com/logo/adobe.svg",
+      src: "https://svgl.app/library/adobe.svg",
     },
     row: 4,
   },
@@ -94,7 +94,7 @@ const defaultTiles: Integrations4Tile[] = [
     col: 3,
     logo: {
       alt: "Polar",
-      src: "https://storage.efferd.com/logo/polar.svg",
+      src: "https://svgl.app/library/polar-sh_light.svg",
     },
     row: 4,
   },
@@ -114,7 +114,7 @@ export function Integrations4({
       )}
     >
       <div className="max-w-xl space-y-5">
-        <h2 className="font-medium text-3xl text-foreground tracking-tight sm:text-4xl md:text-5xl">
+        <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl md:text-5xl">
           {title}
         </h2>
         {description ? (

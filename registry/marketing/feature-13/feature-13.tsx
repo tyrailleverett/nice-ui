@@ -16,12 +16,12 @@ export interface Feature13Props {
 }
 
 const defaultLogos: Feature13Logo[] = [
-  { alt: "Vercel", src: "https://storage.efferd.com/logo/vercel.svg" },
-  { alt: "Slack", src: "https://storage.efferd.com/logo/slack.svg" },
-  { alt: "Clerk", src: "https://storage.efferd.com/logo/clerk.svg" },
-  { alt: "Linear", src: "https://storage.efferd.com/logo/linear.svg" },
-  { alt: "Supabase", src: "https://storage.efferd.com/logo/supabase.svg" },
-  { alt: "Firebase", src: "https://storage.efferd.com/logo/firebase.svg" },
+  { alt: "Vercel", src: "https://svgl.app/library/vercel.svg" },
+  { alt: "Slack", src: "https://svgl.app/library/slack.svg" },
+  { alt: "Clerk", src: "https://svgl.app/library/clerk-icon-light.svg" },
+  { alt: "Linear", src: "https://svgl.app/library/linear.svg" },
+  { alt: "Supabase", src: "https://svgl.app/library/supabase.svg" },
+  { alt: "Firebase", src: "https://svgl.app/library/firebase.svg" },
 ];
 
 const DEVELOPER_BAR_IDS = Array.from(
@@ -55,7 +55,7 @@ export function Feature13({
     <section className={cn("@container bg-background py-24", className)}>
       <div className="mx-auto max-w-2xl px-6">
         <div>
-          <h2 className="text-balance font-medium font-serif text-4xl">
+          <h2 className="text-balance font-display-heading text-4xl">
             {title}
           </h2>
           {description ? (

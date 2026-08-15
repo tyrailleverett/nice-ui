@@ -68,7 +68,7 @@ export function Cta4({
       )}
     >
       <div className="space-y-2">
-        <h2 className="text-center font-semibold text-lg tracking-tight md:text-2xl">
+        <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">
           {title}
         </h2>
         {description ? (

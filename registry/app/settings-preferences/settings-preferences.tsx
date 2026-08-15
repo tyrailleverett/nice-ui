@@ -27,6 +27,7 @@ export function WorkspacePreferences({ className }: { className?: string }) {
           <SelectField
             defaultValue="Board"
             items={["Board", "List", "Calendar"]}
+            label="Default view"
           />
         </SettingsRow>
         <SettingsRow
@@ -36,13 +37,18 @@ export function WorkspacePreferences({ className }: { className?: string }) {
           <SelectField
             defaultValue="MM/DD/YYYY"
             items={["MM/DD/YYYY", "DD/MM/YYYY", "YYYY/MM/DD"]}
+            label="Date format"
           />
         </SettingsRow>
         <SettingsRow
           description="Used for calendars and date pickers."
           label="First day of week"
         >
-          <SelectField defaultValue="Monday" items={["Monday", "Sunday"]} />
+          <SelectField
+            defaultValue="Monday"
+            items={["Monday", "Sunday"]}
+            label="First day of week"
+          />
         </SettingsRow>
         <SettingsRow
           description="Automatically save unsaved changes."
@@ -69,13 +75,18 @@ export function WorkspacePreferences({ className }: { className?: string }) {
           <SelectField
             defaultValue="System"
             items={["System", "Light", "Dark"]}
+            label="Color theme"
           />
         </SettingsRow>
         <SettingsRow
           description="Set the navigation sidebar placement."
           label="Sidebar position"
         >
-          <SelectField defaultValue="Left" items={["Left", "Right"]} />
+          <SelectField
+            defaultValue="Left"
+            items={["Left", "Right"]}
+            label="Sidebar position"
+          />
         </SettingsRow>
         <SettingsRow
           description="Minimize motion for accessibility."

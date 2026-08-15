@@ -26,8 +26,8 @@ export interface Hero4Logo {
 
 export interface Hero4Props {
   announcement?: Hero4Announcement | null;
-  background?: Hero4Image;
   className?: string;
+  darkScreenshot?: Hero4Image;
   description?: string;
   logos?: Hero4Logo[];
   primaryCta?: Hero4Action | null;
@@ -38,27 +38,27 @@ export interface Hero4Props {
 const defaultLogos: Hero4Logo[] = [
   {
     alt: "Vercel",
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+    src: "https://svgl.app/library/vercel_wordmark.svg",
   },
   {
     alt: "Supabase",
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+    src: "https://svgl.app/library/supabase_wordmark_light.svg",
   },
   {
     alt: "OpenAI",
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+    src: "https://svgl.app/library/openai_wordmark_light.svg",
   },
   {
     alt: "GitHub",
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
+    src: "https://svgl.app/library/github_wordmark_light.svg",
   },
   {
     alt: "Claude",
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
+    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
   },
   {
     alt: "Clerk",
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
+    src: "https://svgl.app/library/clerk-wordmark-light.svg",
   },
 ];
 
@@ -73,11 +73,11 @@ export function Hero4({
   primaryCta = { href: "#", label: "Get Started" },
   screenshot = {
     alt: "Product dashboard",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/canvas-light.png",
   },
-  background = {
-    alt: "",
-    src: "https://images.unsplash.com/photo-1772037440088-2ef162671434?q=80&w=1313&auto=format&fit=crop",
+  darkScreenshot = {
+    alt: "Product dashboard",
+    src: "/screenshots/canvas-dark.png",
   },
   logos = defaultLogos,
   className,
@@ -103,7 +103,7 @@ export function Hero4({
             ) : null}
 
             <div className="mt-8 grid items-end gap-4 md:grid-cols-2 md:gap-6">
-              <h1 className="text-balance font-heading font-medium text-5xl tracking-tight md:text-6xl xl:text-7xl">
+              <h1 className="text-balance font-display-heading text-5xl md:text-6xl xl:text-7xl">
                 {title}
               </h1>
               <div className="mx-auto flex max-w-md flex-col gap-6">
@@ -134,19 +134,19 @@ export function Hero4({
                 />
                 <img
                   alt={screenshot.alt}
-                  className="relative aspect-15/8 rounded-2xl bg-background"
+                  className="relative aspect-15/8 rounded-2xl bg-background dark:hidden"
                   height={1440}
                   src={screenshot.src}
                   width={2700}
                 />
+                <img
+                  alt={darkScreenshot.alt}
+                  className="relative hidden aspect-15/8 rounded-2xl bg-background dark:block"
+                  height={1440}
+                  src={darkScreenshot.src}
+                  width={2700}
+                />
               </div>
-              <img
-                alt={background.alt}
-                className="size-full rotate-180 rounded-3xl object-cover object-bottom"
-                height={1000}
-                src={background.src}
-                width={1313}
-              />
             </div>
           </div>
 

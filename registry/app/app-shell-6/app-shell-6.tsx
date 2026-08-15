@@ -122,17 +122,22 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
 
 function NavigationButtons({
   activeItem,
+  ariaLabel,
   className,
   items,
   onItemClick,
 }: {
   activeItem: string;
+  ariaLabel: string;
   className?: string;
   items: readonly string[] | Array<{ icon: LucideIcon; label: string }>;
   onItemClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }) {
   return (
-    <nav className={cn("flex items-center gap-1", className)}>
+    <nav
+      aria-label={ariaLabel}
+      className={cn("flex items-center gap-1", className)}
+    >
       {items.map((item) => {
         const label = typeof item === "string" ? item : item.label;
         const Icon = typeof item === "string" ? null : item.icon;
@@ -199,6 +204,7 @@ export function AppShell6({
 
           <NavigationButtons
             activeItem={primaryItem}
+            ariaLabel="Primary"
             className="flex-wrap"
             items={primaryNavigation}
             onItemClick={handlePrimaryClick}
@@ -222,6 +228,7 @@ export function AppShell6({
         <div className="flex min-h-12 items-center border-[#e4ebf2] border-t bg-[#f0f5f9] px-4 pt-1 pb-2">
           <NavigationButtons
             activeItem={viewItem}
+            ariaLabel="Workspace views"
             items={workspaceViews}
             onItemClick={handleViewClick}
           />

@@ -194,6 +194,7 @@ export function useFileUpload({
       clearFiles,
       getInputProps: () => ({
         accept,
+        "aria-label": "Upload files",
         multiple,
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           if (event.target.files) {

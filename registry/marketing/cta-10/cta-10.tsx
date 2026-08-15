@@ -61,9 +61,7 @@ export function Cta10({
     >
       <div className="text-center">
         <p className="text-2xl text-muted-foreground md:text-3xl">{eyebrow}</p>
-        <h2 className="font-mono font-semibold text-3xl tracking-tight md:text-4xl">
-          {title}
-        </h2>
+        <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
       </div>
       <div className="flex w-full flex-col items-start justify-between gap-4 rounded-2xl border bg-card px-5 py-4 sm:flex-row sm:items-center sm:px-6">
         <div>

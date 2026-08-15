@@ -96,7 +96,7 @@ export function PageHeader2({
 
         <div className="flex flex-col gap-4 border-border border-b pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold font-heading text-2xl tracking-tight sm:text-3xl">
+            <h1 className="font-heading font-semibold text-title sm:text-3xl">
               {title}
             </h1>
             {badge ? <Badge variant="secondary">{badge}</Badge> : null}

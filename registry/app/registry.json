@@ -12,7 +12,8 @@
           "type": "registry:hook",
           "target": "~/hooks/use-file-upload.ts"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "calendar-shared",
@@ -27,7 +28,13 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["avatar", "button", "scroll-area", "select"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "button",
+        "scroll-area",
+        "select"
+      ]
     },
     {
       "name": "forms-shared",
@@ -42,7 +49,12 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "button", "tooltip"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "tooltip"
+      ]
     },
     {
       "name": "onboarding-shared",
@@ -57,7 +69,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/logo"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/logo"
+      ]
     },
     {
       "name": "settings-shared",
@@ -72,7 +87,12 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "select", "switch"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "select",
+        "switch"
+      ]
     },
     {
       "name": "app-shell-1",
@@ -80,7 +100,13 @@
       "title": "Product Sidebar App Shell",
       "description": "Responsive application shell with nested product navigation, resources, workspace switching, and account controls.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["avatar", "badge", "dropdown-menu", "sidebar"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "dropdown-menu",
+        "sidebar"
+      ],
       "files": [
         {
           "path": "app-shell-1/app-shell-1.tsx",
@@ -95,7 +121,12 @@
       "title": "Organization Sidebar App Shell",
       "description": "Inset application shell with searchable navigation, collapsible rail mode, and organization switching.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["avatar", "dropdown-menu", "sidebar"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "dropdown-menu",
+        "sidebar"
+      ],
       "files": [
         {
           "path": "app-shell-2/app-shell-2.tsx",
@@ -111,6 +142,7 @@
       "description": "Responsive project workspace with searchable navigation, active projects, spending status, and account controls.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "card",
@@ -133,6 +165,7 @@
       "description": "Responsive operations console with environment context, nested access navigation, theme announcement, and account controls.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "button",
@@ -155,7 +188,13 @@
       "title": "Reporting Dashboard App Shell",
       "description": "Responsive reporting workspace with utility header, nested account navigation, report actions, and footer links.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["avatar", "badge", "button", "sidebar"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "sidebar"
+      ],
       "files": [
         {
           "path": "app-shell-5/app-shell-5.tsx",
@@ -171,6 +210,7 @@
       "description": "Light top navigation with primary links, search, account menu, and an icon subnav for workspace views.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "dropdown-menu",
@@ -191,6 +231,7 @@
       "description": "Inverted global bar with centered search and utilities above a module nav and primary action.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "dropdown-menu",
@@ -211,6 +252,7 @@
       "description": "Three-tier top navigation with centered search, icon module links, breadcrumbs, and page actions.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "breadcrumb",
         "button",
@@ -233,6 +275,7 @@
       "description": "Commerce top nav over an inverted page mast with breadcrumbs, title, KPI strip, and overlapping content card.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "breadcrumb",
         "button",
@@ -253,6 +296,7 @@
       "description": "Fulfillment command center with service metrics, capacity allocation, decision flow, activity, and an exception queue.",
       "dependencies": ["lucide-react", "recharts"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "breadcrumb",
@@ -281,6 +325,7 @@
       "description": "Client delivery board with account context, weekly utilization worklogs, integrations, workflows, and readiness checks.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "breadcrumb",
@@ -306,6 +351,7 @@
       "description": "Voice operations analytics with interactive filters, call volume trends, agent rankings, and integration health.",
       "dependencies": ["lucide-react", "recharts"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "card",
@@ -328,6 +374,7 @@
       "description": "Security telemetry overview with threat vectors, network flow, cluster health, and prioritized active lanes.",
       "dependencies": ["lucide-react", "recharts"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "breadcrumb",
         "button",
@@ -350,6 +397,7 @@
       "description": "Drag-and-drop asset uploader with validation, simulated progress, completion toasts, and removable file rows.",
       "dependencies": ["lucide-react", "sonner"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "card",
         "spinner",
@@ -370,6 +418,7 @@
       "description": "Small avatar preview with a single-image upload and remove action.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/use-file-upload"
       ],
@@ -388,6 +437,7 @@
       "description": "Circular avatar dropzone with default image, size guidance, and inline validation errors.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/use-file-upload"
       ],
@@ -406,6 +456,7 @@
       "description": "Space-efficient multi-file uploader with inline thumbnails, count, and removal controls.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/use-file-upload"
       ],
@@ -424,6 +475,7 @@
       "description": "Multi-file upload queue with previews, progress bars, status badges, retry, and clear actions.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "tyrailleverett/nice-ui/use-file-upload"
@@ -443,6 +495,7 @@
       "description": "Sortable, filterable, paginated team member table with selection, column visibility, and row actions.",
       "dependencies": ["lucide-react", "sonner"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "button",
@@ -467,6 +520,7 @@
       "description": "Responsive invoice table with client filtering, sortable columns, selection, and bulk actions.",
       "dependencies": ["lucide-react", "sonner"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "button",
@@ -492,6 +546,7 @@
       "description": "Task delivery table with grouped work, status tabs, filtering, sorting, assignees, priorities, and pagination.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "button",
@@ -514,6 +569,7 @@
       "description": "Grouped roadmap queue with stage summaries, owner stacks, signal badges, progress rings, and pagination.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "button",
@@ -541,7 +597,8 @@
           "type": "registry:component",
           "target": "~/components/app/notification-1.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "notification-2",
@@ -555,7 +612,8 @@
           "type": "registry:component",
           "target": "~/components/app/notification-2.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "notification-3",
@@ -569,7 +627,8 @@
           "type": "registry:component",
           "target": "~/components/app/notification-3.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "notification-4",
@@ -583,7 +642,8 @@
           "type": "registry:component",
           "target": "~/components/app/notification-4.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "password-input",
@@ -591,7 +651,12 @@
       "title": "Password Input",
       "description": "Password field with visibility toggle and an optional focus-revealed strength indicator.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["input-group", "label", "progress"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "input-group",
+        "label",
+        "progress"
+      ],
       "files": [
         {
           "path": "auth/password-input/password-input.tsx",
@@ -606,6 +671,7 @@
       "title": "Login Form",
       "description": "Shared email, password, and Google continue form used by auth login layouts.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input-group",
         "label",
@@ -626,7 +692,11 @@
       "type": "registry:block",
       "title": "Split Testimonial",
       "description": "Split signup with a Google button, email and password fields, and a testimonial panel.",
-      "registryDependencies": ["avatar", "tyrailleverett/nice-ui/login-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "tyrailleverett/nice-ui/login-form"
+      ],
       "files": [
         {
           "path": "auth/login-1/login-1.tsx",
@@ -640,7 +710,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered signup card with a Google button, email and password fields, and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/login-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/login-form"
+      ],
       "files": [
         {
           "path": "auth/login-2/login-2.tsx",
@@ -654,7 +727,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered signup with a Google button and email and password fields.",
-      "registryDependencies": ["tyrailleverett/nice-ui/login-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/login-form"
+      ],
       "files": [
         {
           "path": "auth/login-3/login-3.tsx",
@@ -669,6 +745,7 @@
       "title": "Register Form",
       "description": "Shared name, email, password, and Google continue form used by auth register layouts.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input-group",
         "label",
@@ -690,6 +767,7 @@
       "title": "Split Testimonial",
       "description": "Split signup with a Google button, name, email and password fields, and a testimonial panel.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "tyrailleverett/nice-ui/register-form"
       ],
@@ -706,7 +784,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered signup card with a Google button, name, email and password fields, and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/register-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/register-form"
+      ],
       "files": [
         {
           "path": "auth/register-2/register-2.tsx",
@@ -720,7 +801,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered signup with a Google button and name, email and password fields.",
-      "registryDependencies": ["tyrailleverett/nice-ui/register-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/register-form"
+      ],
       "files": [
         {
           "path": "auth/register-3/register-3.tsx",
@@ -734,7 +818,11 @@
       "type": "registry:component",
       "title": "OTP Input",
       "description": "Labeled one-time code input built on shadcn's input-otp.",
-      "registryDependencies": ["input-otp", "label"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "input-otp",
+        "label"
+      ],
       "files": [
         {
           "path": "auth/otp-input/otp-input.tsx",
@@ -749,6 +837,7 @@
       "title": "Forgot Password Form",
       "description": "Shared email form used by auth forgot password layouts.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input-group",
         "label",
@@ -767,7 +856,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered forgot password card with an email field and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/forgot-password-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/forgot-password-form"
+      ],
       "files": [
         {
           "path": "auth/forgot-password-2/forgot-password-2.tsx",
@@ -781,7 +873,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered forgot password form with an email field.",
-      "registryDependencies": ["tyrailleverett/nice-ui/forgot-password-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/forgot-password-form"
+      ],
       "files": [
         {
           "path": "auth/forgot-password-3/forgot-password-3.tsx",
@@ -796,6 +891,7 @@
       "title": "Reset Password Form",
       "description": "Shared new and confirm password form used by auth reset password layouts.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/logo",
         "tyrailleverett/nice-ui/password-input"
@@ -813,7 +909,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered reset password card with new and confirm password fields and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/reset-password-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/reset-password-form"
+      ],
       "files": [
         {
           "path": "auth/reset-password-2/reset-password-2.tsx",
@@ -827,7 +926,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered reset password form with new and confirm password fields.",
-      "registryDependencies": ["tyrailleverett/nice-ui/reset-password-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/reset-password-form"
+      ],
       "files": [
         {
           "path": "auth/reset-password-3/reset-password-3.tsx",
@@ -842,6 +944,7 @@
       "title": "Verify Email Form",
       "description": "Shared one-time code form used by auth verify email layouts.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/logo",
         "tyrailleverett/nice-ui/otp-input"
@@ -859,7 +962,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered verify email card with a one-time code input and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/verify-email-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/verify-email-form"
+      ],
       "files": [
         {
           "path": "auth/verify-email-2/verify-email-2.tsx",
@@ -873,7 +979,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered verify email form with a one-time code input.",
-      "registryDependencies": ["tyrailleverett/nice-ui/verify-email-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/verify-email-form"
+      ],
       "files": [
         {
           "path": "auth/verify-email-3/verify-email-3.tsx",
@@ -888,6 +997,7 @@
       "title": "Two Factor Form",
       "description": "Shared authentication code form with an optional recovery code fallback, used by auth two factor layouts.",
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input",
         "label",
@@ -907,7 +1017,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered two factor card with an authentication code input and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/two-factor-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/two-factor-form"
+      ],
       "files": [
         {
           "path": "auth/two-factor-2/two-factor-2.tsx",
@@ -921,7 +1034,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered two factor form with an authentication code input.",
-      "registryDependencies": ["tyrailleverett/nice-ui/two-factor-form"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/two-factor-form"
+      ],
       "files": [
         {
           "path": "auth/two-factor-3/two-factor-3.tsx",
@@ -935,7 +1051,11 @@
       "type": "registry:component",
       "title": "Check Email",
       "description": "Confirmation notice that tells the user to check their inbox for a verification link.",
-      "registryDependencies": ["button", "tyrailleverett/nice-ui/logo"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "tyrailleverett/nice-ui/logo"
+      ],
       "files": [
         {
           "path": "auth/check-email/check-email.tsx",
@@ -949,7 +1069,10 @@
       "type": "registry:block",
       "title": "Card",
       "description": "Centered check email notice card with a resend action and a rounded border.",
-      "registryDependencies": ["tyrailleverett/nice-ui/check-email"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/check-email"
+      ],
       "files": [
         {
           "path": "auth/check-email-2/check-email-2.tsx",
@@ -963,7 +1086,10 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered check email notice with a resend action.",
-      "registryDependencies": ["tyrailleverett/nice-ui/check-email"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/check-email"
+      ],
       "files": [
         {
           "path": "auth/check-email-3/check-email-3.tsx",
@@ -978,7 +1104,7 @@
       "title": "Simple",
       "description": "Page header with a title, description, and primary and secondary action buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "page-header/page-header-1/page-header-1.tsx",
@@ -993,7 +1119,12 @@
       "title": "Breadcrumb",
       "description": "Page header with breadcrumb navigation, a status badge, and action buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "badge", "breadcrumb"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "badge",
+        "breadcrumb"
+      ],
       "files": [
         {
           "path": "page-header/page-header-2/page-header-2.tsx",
@@ -1008,7 +1139,13 @@
       "title": "Toolbar",
       "description": "Page header with search, status and sort filters, and a list and grid view toggle.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "input-group", "select", "separator"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input-group",
+        "select",
+        "separator"
+      ],
       "files": [
         {
           "path": "page-header/page-header-3/page-header-3.tsx",
@@ -1023,7 +1160,7 @@
       "title": "Records Empty State",
       "description": "Centered empty state for connecting a source or uploading a CSV.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "empty-state/empty-state-1/empty-state-1.tsx",
@@ -1038,7 +1175,7 @@
       "title": "Projects Empty State",
       "description": "Centered empty state for starting a project or exploring templates.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "empty-state/empty-state-2/empty-state-2.tsx",
@@ -1053,7 +1190,7 @@
       "title": "Reports Empty State",
       "description": "Split workspace panel for creating a first report or viewing a sample.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "empty-state/empty-state-3/empty-state-3.tsx",
@@ -1068,7 +1205,7 @@
       "title": "Members Empty State",
       "description": "Centered empty state for inviting members and sharing an invite link.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "empty-state/empty-state-4/empty-state-4.tsx",
@@ -1090,7 +1227,10 @@
           "target": "~/components/app/onboarding-1.tsx"
         }
       ],
-      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared"
+      ]
     },
     {
       "name": "onboarding-2",
@@ -1105,7 +1245,10 @@
           "target": "~/components/app/onboarding-2.tsx"
         }
       ],
-      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared"
+      ]
     },
     {
       "name": "onboarding-3",
@@ -1120,7 +1263,10 @@
           "target": "~/components/app/onboarding-3.tsx"
         }
       ],
-      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared"
+      ]
     },
     {
       "name": "onboarding-4",
@@ -1135,7 +1281,10 @@
           "target": "~/components/app/onboarding-4.tsx"
         }
       ],
-      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared"
+      ]
     },
     {
       "name": "onboarding-5",
@@ -1150,7 +1299,10 @@
           "target": "~/components/app/onboarding-5.tsx"
         }
       ],
-      "registryDependencies": ["tyrailleverett/nice-ui/onboarding-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared"
+      ]
     },
     {
       "name": "command-palette-1",
@@ -1158,7 +1310,12 @@
       "title": "Quick Actions Command Palette",
       "description": "Grouped quick actions opened from a lightweight button trigger.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "command", "dialog"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "command",
+        "dialog"
+      ],
       "files": [
         {
           "path": "command-palette-1/command-palette-1.tsx",
@@ -1173,7 +1330,13 @@
       "title": "Search Commands Palette",
       "description": "Keyboard-accessible command search with navigation and action groups.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "command", "dialog", "kbd"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "command",
+        "dialog",
+        "kbd"
+      ],
       "files": [
         {
           "path": "command-palette-2/command-palette-2.tsx",
@@ -1188,7 +1351,14 @@
       "title": "Recent Items Command Palette",
       "description": "Recent items and categorized results with keyboard navigation hints.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "button", "command", "dialog", "kbd"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "command",
+        "dialog",
+        "kbd"
+      ],
       "files": [
         {
           "path": "command-palette-3/command-palette-3.tsx",
@@ -1203,7 +1373,13 @@
       "title": "Command Palette With Preview",
       "description": "Searchable command palette with a responsive result preview pane.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "button", "command", "kbd"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "command",
+        "kbd"
+      ],
       "files": [
         {
           "path": "command-palette-4/command-palette-4.tsx",
@@ -1226,6 +1402,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input",
         "select",
@@ -1247,6 +1424,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/settings-shared"
       ]
@@ -1265,6 +1443,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/settings-shared"
       ]
@@ -1283,6 +1462,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/settings-shared"
       ]
@@ -1301,6 +1481,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/settings-layout",
         "tyrailleverett/nice-ui/settings-shared"
       ]
@@ -1319,6 +1500,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/settings-layout",
         "tyrailleverett/nice-ui/settings-shared"
       ]
@@ -1337,6 +1519,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "card",
@@ -1357,7 +1540,12 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "card", "separator"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "card",
+        "separator"
+      ]
     },
     {
       "name": "settings-notifications",
@@ -1373,6 +1561,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "select",
         "tyrailleverett/nice-ui/settings-shared"
@@ -1392,6 +1581,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "tyrailleverett/nice-ui/settings-shared"
@@ -1403,7 +1593,7 @@
       "title": "Settings Layout",
       "description": "Reusable settings layouts with sidebar, tabbed, panel, row, and modal variants.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
       "files": [
         {
           "path": "settings-layout/settings-layout.tsx",
@@ -1419,6 +1609,7 @@
       "description": "Appearance settings with live theme stages, corner radius, density, text size, motion, and contrast controls.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "label",
         "radio-group",
@@ -1440,6 +1631,7 @@
       "description": "Workspace billing settings with a cycle strip, plan changes, included usage meters, payment methods, spend alerts, and invoices.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "card",
@@ -1468,6 +1660,7 @@
       "description": "Fulfillment record page with identity, hold details, next move, and a filterable activity rail.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "breadcrumb",
@@ -1493,6 +1686,7 @@
       "description": "Client account record with overview, worklog, integrations, and files tabs.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "breadcrumb",
@@ -1517,6 +1711,7 @@
       "description": "Security incident record organized as a chronological lane with a pinned contain-or-restore decision.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "breadcrumb",
@@ -1539,6 +1734,7 @@
       "description": "404-style record page for an order ID that is not in the workspace, with nearby queue suggestions.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "breadcrumb",
         "button",
@@ -1561,6 +1757,7 @@
       "description": "403-style record page that shows the order identity while locking hold details and activity.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "breadcrumb",
         "button",
@@ -1582,7 +1779,12 @@
       "title": "Interrupted Page",
       "description": "500-style failed record load with a request ID, retry, and ghosted inspector layout.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "empty", "skeleton"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "empty",
+        "skeleton"
+      ],
       "files": [
         {
           "path": "error/error-3/error-3.tsx",
@@ -1597,7 +1799,14 @@
       "title": "Scheduled Freeze",
       "description": "Maintenance window page that lists what is frozen, read-only, or paused during inventory writes.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "button", "card", "empty", "separator"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "card",
+        "empty",
+        "separator"
+      ],
       "files": [
         {
           "path": "error/error-4/error-4.tsx",
@@ -1612,7 +1821,13 @@
       "title": "Disconnected Workspace",
       "description": "Offline page that keeps a stale last-known record snapshot and a retry connection action.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "button", "empty", "skeleton"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "empty",
+        "skeleton"
+      ],
       "files": [
         {
           "path": "error/error-5/error-5.tsx",
@@ -1628,6 +1843,7 @@
       "description": "Meeting scheduler with a month grid, time slots, recurrence, and waiting-room controls.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "field",
         "input",
@@ -1653,6 +1869,7 @@
       "description": "Month calendar with category dots, filters, and a stacked daily agenda.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "empty",
@@ -1679,6 +1896,7 @@
       "description": "Host booking card with start and end times plus duration presets.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "dropdown-menu",
@@ -1701,6 +1919,7 @@
       "description": "Two-pane calendar with a compact month grid and a detailed daily event list.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "badge",
         "button",
@@ -1724,6 +1943,7 @@
       "description": "Three-pane booking flow with host details, availability calendar, and time slots.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "avatar",
         "button",
         "scroll-area",
@@ -1746,6 +1966,7 @@
       "description": "Hosted checkout settings with offer, customer, rule, and receipt fields.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "card",
@@ -1771,6 +1992,7 @@
       "description": "Sectioned invoice form for customer, terms, and editable line items.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "card",
@@ -1797,6 +2019,7 @@
       "description": "Credential manager with stack-ready env copy, key actions, and a secret-key warning.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "alert",
         "badge",
         "button",
@@ -1821,6 +2044,7 @@
       "description": "Read-only verification review for legal, public, and ownership details.",
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "badge",
         "button",
         "card",
@@ -1852,7 +2076,8 @@
           "type": "registry:component",
           "target": "~/components/app/cards-shared.tsx"
         }
-      ]
+      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style"]
     },
     {
       "name": "meeting-card",
@@ -1867,7 +2092,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "integration-card",
@@ -1882,7 +2110,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "recommended-role-card",
@@ -1897,7 +2128,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "data-row-card",
@@ -1912,7 +2146,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "play-mode-card",
@@ -1927,7 +2164,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "flow-card",
@@ -1942,7 +2182,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "funding-card",
@@ -1957,22 +2200,10 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
-    },
-    {
-      "name": "partner-card",
-      "type": "registry:block",
-      "title": "Partner Cards",
-      "description": "Compact partner logo cards and a responsive partner row.",
-      "files": [
-        {
-          "path": "partner-card/partner-card.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/partner-card.tsx"
-        }
-      ],
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["tyrailleverett/nice-ui/cards-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/cards-shared"
+      ]
     },
     {
       "name": "dialogs-shared",
@@ -1987,7 +2218,11 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button", "dialog"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "dialog"
+      ]
     },
     {
       "name": "select-duration-dialog",
@@ -2003,6 +2238,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "field",
         "select",
@@ -2023,6 +2259,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "field",
         "input",
         "select",
@@ -2043,6 +2280,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "alert",
         "checkbox",
         "textarea",
@@ -2062,7 +2300,11 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["badge", "tyrailleverett/nice-ui/dialogs-shared"]
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "tyrailleverett/nice-ui/dialogs-shared"
+      ]
     },
     {
       "name": "add-workspace-app-dialog",
@@ -2078,6 +2320,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "input-group",
         "kbd",
@@ -2098,6 +2341,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "button",
         "tyrailleverett/nice-ui/dialogs-shared"
       ]
@@ -2116,6 +2360,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "field",
         "input",
         "select",
@@ -2138,6 +2383,7 @@
       ],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
         "radio-group",
         "tyrailleverett/nice-ui/dialogs-shared"
       ]

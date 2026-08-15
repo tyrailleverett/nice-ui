@@ -114,7 +114,7 @@ export function Notification1({ className }: Notification1Props) {
             <span className="mt-2 size-3 shrink-0 rounded-full bg-foreground" />
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-4">
-                <span className="flex size-7 items-center justify-center rounded-full border-2 border-amber-500 text-amber-500">
+                <span className="flex size-7 items-center justify-center rounded-full border-2 border-amber-700 text-amber-700">
                   <Check size={17} />
                 </span>
                 <h3 className="font-medium text-[25px]">
@@ -145,7 +145,7 @@ export function Notification1({ className }: Notification1Props) {
                 <span>5m ago</span>
                 <span className="rounded-xl border border-border bg-muted px-3 py-1">
                   Priority{" "}
-                  <b className="ml-3 font-normal text-amber-500">High</b>
+                  <b className="ml-3 font-normal text-amber-700">High</b>
                 </span>
               </div>
             </div>
@@ -201,10 +201,7 @@ export function Notification1({ className }: Notification1Props) {
 
         <article className="border-border border-t px-10 py-7">
           <div className="flex gap-4">
-            <UserRoundPlus
-              className="mt-1 shrink-0 text-emerald-500"
-              size={28}
-            />
+            <UserRoundPlus className="mt-1 shrink-0 text-success" size={28} />
             <div>
               <h3 className="text-[25px]">4 people joined your workspace</h3>
               <p className="mt-2 text-[24px] text-muted-foreground">

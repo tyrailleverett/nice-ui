@@ -1,4 +1,7 @@
 /* biome-ignore-all lint/a11y/useSemanticElements: Drop zone contains a file input and nested controls. */
+/* biome-ignore-all lint/a11y/noNoninteractiveElementInteractions: Drop zone is a mouse target; the Browse button is the keyboard control. */
+/* biome-ignore-all lint/a11y/noStaticElementInteractions: Drop zone is a mouse target; the Browse button is the keyboard control. */
+/* biome-ignore-all lint/a11y/useKeyWithClickEvents: Drop zone is a mouse target; the Browse button is the keyboard control. */
 /* biome-ignore-all lint/performance/noJsxPropsBind: Upload controls close over file ids and the hidden input. */
 import {
   CheckIcon,
@@ -170,7 +173,7 @@ export function FileUpload1({
         <CardContent className="flex flex-col gap-5">
           <div
             className={cn(
-              "flex cursor-pointer flex-col items-center justify-center gap-3 rounded-lg border border-dashed px-6 py-12 text-center outline-none transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50",
+              "flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed px-6 py-12 text-center outline-none transition-colors",
               isDragging
                 ? "border-primary bg-primary/5"
                 : "border-border bg-muted/40 hover:bg-muted/60"
@@ -180,14 +183,6 @@ export function FileUpload1({
             onDragLeave={actions.handleDragLeave}
             onDragOver={actions.handleDragOver}
             onDrop={actions.handleDrop}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                actions.openFileDialog();
-              }
-            }}
-            role="button"
-            tabIndex={0}
           >
             <input {...actions.getInputProps()} className="sr-only" />
             <div className="flex size-12 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground">

@@ -107,9 +107,7 @@ export function Changelog1({
           <Badge className="mb-4" variant="outline">
             {badge}
           </Badge>
-          <h2 className="font-bold font-heading text-3xl tracking-tight">
-            {title}
-          </h2>
+          <h2 className="font-heading font-semibold text-3xl">{title}</h2>
           {description ? (
             <p className="mt-3 text-muted-foreground">{description}</p>
           ) : null}

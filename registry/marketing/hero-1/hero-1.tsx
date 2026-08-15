@@ -82,11 +82,11 @@ export function Hero1({
   secondaryCta = { href: "#", label: "Book a Call" },
   screenshot = {
     alt: "Product dashboard",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/analytics-light.png",
   },
   darkScreenshot = {
     alt: "Product dashboard",
-    src: "https://storage.efferd.com/screen/dashboard-dark.webp",
+    src: "/screenshots/analytics-dark.png",
   },
   className,
 }: Hero1Props) {
@@ -134,7 +134,7 @@ export function Hero1({
 
         <h1
           className={cn(
-            "max-w-2xl text-balance text-center font-heading text-3xl text-foreground md:text-5xl lg:text-6xl",
+            "max-w-2xl text-balance text-center font-display-heading text-3xl text-foreground md:text-5xl lg:text-6xl",
             enter,
             "delay-100"
           )}

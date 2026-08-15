@@ -320,7 +320,7 @@ export function Table4({ className }: Table4Props) {
       <div className="mx-auto w-full max-w-7xl">
         <header className="flex flex-wrap items-end justify-between gap-6 pb-7">
           <div>
-            <h1 className="font-heading font-semibold text-2xl tracking-tight">
+            <h1 className="font-heading font-semibold text-title">
               Roadmap Queue
             </h1>
             <p className="mt-2 text-muted-foreground text-sm">

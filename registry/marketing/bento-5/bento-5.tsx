@@ -350,7 +350,7 @@ export function Bento5({
               Every Environment
             </span>
           </div>
-          <h2 className="mt-6 text-balance font-bold font-heading text-3xl tracking-tight sm:text-4xl">
+          <h2 className="mt-6 text-balance font-display-heading text-3xl sm:text-4xl">
             {title}
           </h2>
           {description ? (
@@ -370,7 +370,7 @@ export function Bento5({
                 <span className="font-bold text-3xl tabular-nums tracking-tight sm:text-4xl">
                   ${Math.round(revenue)}M
                 </span>
-                <span className="inline-flex items-center gap-0.5 font-medium text-emerald-500 text-sm">
+                <span className="inline-flex items-center gap-0.5 font-medium text-sm text-success">
                   <ArrowUpIcon className="size-4" />
                   18.6%
                 </span>
@@ -499,7 +499,7 @@ export function Bento5({
             <div className="flex h-full flex-col">
               <div className="flex items-baseline justify-between">
                 <h3 className="font-heading font-medium text-sm">Uptime</h3>
-                <span className="font-semibold text-emerald-500 text-sm tabular-nums">
+                <span className="font-semibold text-sm text-success tabular-nums">
                   {uptime.toFixed(2)}%
                 </span>
               </div>
@@ -552,7 +552,7 @@ export function Bento5({
               <ul className="mt-4 flex flex-col gap-2 text-muted-foreground text-xs">
                 {SECURITY_CONTROLS.map((control) => (
                   <li className="flex items-center gap-2" key={control}>
-                    <ShieldCheckIcon className="size-3.5 shrink-0 text-emerald-500" />
+                    <ShieldCheckIcon className="size-3.5 shrink-0 text-success" />
                     {control}
                   </li>
                 ))}

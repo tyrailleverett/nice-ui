@@ -72,7 +72,9 @@ export function Cta3({
 
       <div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
 
-      <h2 className="text-center font-semibold text-xl md:text-3xl">{title}</h2>
+      <h2 className="text-center font-heading font-semibold text-xl md:text-3xl">
+        {title}
+      </h2>
       {description ? (
         <p className="text-balance text-center font-medium text-muted-foreground text-sm md:text-base">
           {description}

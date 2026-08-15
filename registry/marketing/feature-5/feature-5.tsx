@@ -46,7 +46,7 @@ function DownloadIllustration() {
           <MonitorDownIcon className="size-4 translate-y-0.5 text-black" />
           <div className="space-y-0.5">
             <div className="font-medium text-black text-xs">Computer</div>
-            <div className="text-black/50 text-xs">16.1MB left</div>
+            <div className="text-muted-foreground text-xs">16.1MB left</div>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ function DownloadIllustration() {
           <CloudDownloadIcon className="size-4 translate-y-0.5 text-black" />
           <div className="space-y-0.5">
             <div className="font-medium text-black text-xs">Cloud</div>
-            <div className="text-black/50 text-xs">Unlimited</div>
+            <div className="text-muted-foreground text-xs">Unlimited</div>
           </div>
         </div>
       </div>
@@ -119,14 +119,16 @@ function DynamicIslandIllustration() {
                 </div>
                 <div className="mt-1.5 flex items-center gap-3">
                   <div>
-                    <div className="text-black/50 text-xs">Expenses</div>
+                    <div className="text-muted-foreground text-xs">
+                      Expenses
+                    </div>
                     <div className="mt-0.5 font-semibold text-black text-sm">
                       $32.65k
                     </div>
                   </div>
                   <div className="h-7 w-px bg-border" />
                   <div>
-                    <div className="text-black/50 text-xs">Income</div>
+                    <div className="text-muted-foreground text-xs">Income</div>
                     <div className="mt-0.5 font-semibold text-black text-sm">
                       $2.65k
                     </div>
@@ -202,7 +204,7 @@ export function Feature5({
   return (
     <section className={cn("py-16 md:py-20", className)}>
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="max-w-4xl text-balance font-medium text-4xl text-muted-foreground tracking-tight">
+        <h2 className="max-w-4xl text-balance font-display-heading text-4xl text-muted-foreground">
           {title}
         </h2>
         <div className="mt-8 grid gap-x-3 gap-y-6 **:data-[slot=card]:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">

@@ -15,47 +15,47 @@ export interface LogoCloud3Props {
 const defaultLogos: LogoCloud3Item[] = [
   {
     alt: "Vercel",
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+    src: "https://svgl.app/library/vercel_wordmark.svg",
   },
   {
     alt: "Supabase",
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+    src: "https://svgl.app/library/supabase_wordmark_light.svg",
   },
   {
     alt: "OpenAI",
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+    src: "https://svgl.app/library/openai_wordmark_light.svg",
   },
   {
     alt: "Dub",
-    src: "https://storage.efferd.com/logo/dub-wordmark.svg",
+    src: "https://svgl.app/library/dub_dark_wordmark.svg",
   },
   {
     alt: "Turso",
-    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
+    src: "https://svgl.app/library/turso-wordmark-light.svg",
   },
   {
     alt: "GitHub",
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
+    src: "https://svgl.app/library/github_wordmark_light.svg",
   },
   {
     alt: "Claude",
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
+    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
   },
   {
     alt: "Nvidia",
-    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
+    src: "https://svgl.app/library/nvidia-wordmark-light.svg",
   },
   {
     alt: "Clerk",
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
+    src: "https://svgl.app/library/clerk-wordmark-light.svg",
   },
   {
     alt: "Bolt",
-    src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
+    src: "https://svgl.app/library/bolt-new.svg",
   },
   {
     alt: "Stripe",
-    src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
+    src: "https://svgl.app/library/stripe_wordmark.svg",
   },
 ];
 

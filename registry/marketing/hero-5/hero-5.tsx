@@ -27,6 +27,7 @@ export interface Hero5Logo {
 export interface Hero5Props {
   announcement?: Hero5Announcement | null;
   className?: string;
+  darkScreenshot?: Hero5Screenshot;
   description?: string;
   logos?: Hero5Logo[];
   logosCta?: Hero5Action | null;
@@ -39,35 +40,35 @@ export interface Hero5Props {
 const defaultLogos: Hero5Logo[] = [
   {
     alt: "Bolt",
-    src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
+    src: "https://svgl.app/library/bolt-new.svg",
   },
   {
     alt: "Vercel",
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+    src: "https://svgl.app/library/vercel_wordmark.svg",
   },
   {
     alt: "Supabase",
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+    src: "https://svgl.app/library/supabase_wordmark_light.svg",
   },
   {
     alt: "OpenAI",
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+    src: "https://svgl.app/library/openai_wordmark_light.svg",
   },
   {
     alt: "GitHub",
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
+    src: "https://svgl.app/library/github_wordmark_light.svg",
   },
   {
     alt: "Claude",
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
+    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
   },
   {
     alt: "Clerk",
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
+    src: "https://svgl.app/library/clerk-wordmark-light.svg",
   },
   {
     alt: "Stripe",
-    src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
+    src: "https://svgl.app/library/stripe_wordmark.svg",
   },
 ];
 
@@ -107,7 +108,11 @@ export function Hero5({
   secondaryCta = { href: "#", label: "Watch the flow" },
   screenshot = {
     alt: "Product dashboard",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/customer-light.png",
+  },
+  darkScreenshot = {
+    alt: "Product dashboard",
+    src: "/screenshots/customer-dark.png",
   },
   logos = defaultLogos,
   logosCta = { href: "#", label: "See the network" },
@@ -144,7 +149,7 @@ export function Hero5({
               </a>
             ) : null}
 
-            <h1 className="mx-auto mt-8 max-w-4xl text-balance font-heading font-medium text-5xl tracking-tight md:text-6xl lg:mt-12 xl:text-7xl">
+            <h1 className="mx-auto mt-8 max-w-4xl text-balance font-display-heading text-5xl md:text-6xl lg:mt-12 xl:text-7xl">
               {title}
             </h1>
             {description ? (
@@ -164,14 +169,20 @@ export function Hero5({
           </div>
 
           <div className="relative mt-8 overflow-hidden p-6 max-sm:-mr-56 sm:mt-16">
-            <div className="mask-t-from-25% mask-t-to-65% absolute inset-0 rounded-4xl border bg-linear-to-b to-zinc-600" />
-            <div className="before:mask-radial-[100%_60%] before:mask-radial-from-65% before:mask-radial-at-top-left relative rounded-2xl p-2 shadow-black/50 shadow-xl ring ring-foreground/10 before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-foreground/10 before:border-t before:border-l">
+            <div className="before:mask-radial-[100%_60%] before:mask-radial-from-65% before:mask-radial-at-top-left relative rounded-2xl p-2 shadow-lg ring ring-foreground/10 before:absolute before:-inset-px before:z-10 before:size-56 before:rounded-tl-2xl before:border-foreground/10 before:border-t before:border-l">
               <div className="absolute inset-0 z-1 rounded-2xl bg-foreground/2" />
               <img
                 alt={screenshot.alt}
-                className="relative aspect-15/8 rounded-2xl bg-background"
+                className="relative aspect-15/8 rounded-2xl bg-background dark:hidden"
                 height={1440}
                 src={screenshot.src}
+                width={2700}
+              />
+              <img
+                alt={darkScreenshot.alt}
+                className="relative hidden aspect-15/8 rounded-2xl bg-background dark:block"
+                height={1440}
+                src={darkScreenshot.src}
                 width={2700}
               />
             </div>

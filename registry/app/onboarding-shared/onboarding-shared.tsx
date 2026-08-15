@@ -96,28 +96,34 @@ export function ProfileForm({
 
       <FieldGroup>
         <Field>
-          <FieldLabel>
+          <FieldLabel htmlFor="onboarding-name">
             Full name <span className="text-destructive">*</span>
           </FieldLabel>
           <Input
             className="h-12 rounded-xl px-4 text-base"
+            id="onboarding-name"
             onChange={handleNameChange}
             required
             value={name}
           />
         </Field>
         <Field>
-          <FieldLabel>Job title</FieldLabel>
+          <FieldLabel htmlFor="onboarding-title">Job title</FieldLabel>
           <Input
             className="h-12 rounded-xl px-4 text-base"
+            id="onboarding-title"
             onChange={handleJobTitleChange}
             value={jobTitle}
           />
         </Field>
         <Field>
-          <FieldLabel>Timezone</FieldLabel>
+          <FieldLabel htmlFor="onboarding-timezone">Timezone</FieldLabel>
           <Select>
-            <SelectTrigger className="h-12 w-full rounded-xl px-4 text-base">
+            <SelectTrigger
+              aria-label="Timezone"
+              className="h-12 w-full rounded-xl px-4 text-base"
+              id="onboarding-timezone"
+            >
               <SelectValue placeholder="Select a timezone" />
             </SelectTrigger>
             <SelectContent>

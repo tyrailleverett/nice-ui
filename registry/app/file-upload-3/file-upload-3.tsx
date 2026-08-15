@@ -33,6 +33,7 @@ export function FileUpload3({
     <div className={cn("flex flex-col items-center gap-4", className)}>
       <div className="relative">
         <button
+          aria-label={preview ? "Change avatar" : "Upload avatar"}
           className={cn(
             "group/avatar relative flex size-24 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-dashed transition-colors",
             isDragging
@@ -59,7 +60,11 @@ export function FileUpload3({
             <UserIcon aria-hidden="true" className="text-muted-foreground" />
           )}
         </button>
-        <input {...actions.getInputProps()} className="sr-only" />
+        <input
+          {...actions.getInputProps()}
+          aria-label="Upload avatar image"
+          className="sr-only"
+        />
         {file ? (
           <Button
             aria-label="Remove avatar"

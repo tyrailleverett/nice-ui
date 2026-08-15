@@ -20,14 +20,12 @@ export interface Testimonial1Props {
 
 export function VercelIcon(props: ComponentProps<"svg">) {
   return (
-    <svg
-      aria-hidden="true"
-      preserveAspectRatio="xMidYMid"
-      viewBox="0 0 256 222"
-      {...props}
-    >
-      <title>Vercel</title>
-      <path d="m128 0 128 221.705H0z" fill="currentColor" />
+    <svg aria-hidden="true" {...props}>
+      <image
+        height="100%"
+        href="https://svgl.app/library/vercel.svg"
+        width="100%"
+      />
     </svg>
   );
 }

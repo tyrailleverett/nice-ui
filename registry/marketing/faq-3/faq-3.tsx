@@ -89,7 +89,7 @@ export function Faq3({
     >
       <div className="px-4 pt-12 pb-6">
         <div className="space-y-5">
-          <h2 className="text-balance font-bold text-4xl md:text-6xl lg:font-black">
+          <h2 className="text-balance font-display-heading text-4xl md:text-6xl">
             {title}
           </h2>
           {description ? (

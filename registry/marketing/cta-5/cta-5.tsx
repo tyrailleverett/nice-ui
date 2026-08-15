@@ -80,7 +80,7 @@ export function Cta5({
       <FullWidthDivider position="top" />
 
       <div className="space-y-1">
-        <h2 className="text-center font-semibold text-2xl tracking-tight md:text-4xl">
+        <h2 className="text-center font-display-heading text-2xl md:text-4xl">
           {title}
         </h2>
         {description ? (

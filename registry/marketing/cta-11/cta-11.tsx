@@ -126,7 +126,7 @@ export function Cta11({
         </div>
       </div>
 
-      <h2 className="max-w-xl text-balance font-semibold text-3xl tracking-tight md:text-4xl">
+      <h2 className="max-w-xl text-balance font-display-heading text-3xl md:text-4xl">
         {title}
       </h2>
       {description ? (

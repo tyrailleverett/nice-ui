@@ -122,7 +122,7 @@ export function Dashboard3({ className }: Dashboard3Props) {
           </div>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[180px_180px_180px_auto]">
             <Select defaultValue="7-days">
-              <SelectTrigger>
+              <SelectTrigger aria-label="Date range">
                 <CalendarDaysIcon />
                 <SelectValue />
               </SelectTrigger>
@@ -134,7 +134,7 @@ export function Dashboard3({ className }: Dashboard3Props) {
               </SelectContent>
             </Select>
             <Select defaultValue="daily">
-              <SelectTrigger>
+              <SelectTrigger aria-label="Cadence">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -145,7 +145,7 @@ export function Dashboard3({ className }: Dashboard3Props) {
               </SelectContent>
             </Select>
             <Select defaultValue="all">
-              <SelectTrigger>
+              <SelectTrigger aria-label="Agent group">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -236,7 +236,7 @@ export function Dashboard3({ className }: Dashboard3Props) {
               <CardDescription>Call volume by agent</CardDescription>
               <CardAction>
                 <Select defaultValue="calls">
-                  <SelectTrigger className="w-32">
+                  <SelectTrigger aria-label="Metric" className="w-32">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>

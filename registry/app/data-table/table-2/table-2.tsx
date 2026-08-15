@@ -572,7 +572,7 @@ export function Table2({ className }: Table2Props) {
                             size="sm"
                           >
                             <AvatarImage
-                              alt={invoice.client}
+                              alt=""
                               className="grayscale"
                               src={invoice.avatar}
                             />

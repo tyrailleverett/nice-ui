@@ -87,7 +87,7 @@ export function Notification3({ className }: Notification3Props) {
               <div
                 className={cn(
                   "flex items-center gap-3 pt-1 text-xl",
-                  failed ? "text-destructive" : "text-emerald-500"
+                  failed ? "text-destructive" : "text-success"
                 )}
               >
                 <span className="size-4 rounded-full bg-current" />

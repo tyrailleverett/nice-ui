@@ -43,7 +43,7 @@ export function Stats4({
     <section className={cn("w-full bg-background py-16 sm:py-24", className)}>
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-heading font-semibold text-3xl tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl lg:text-5xl">
             {title}
           </h2>
           {description ? (

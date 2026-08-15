@@ -6,7 +6,6 @@ import { FlowCard } from "../flow-card/flow-card";
 import { FundingCard } from "../funding-card/funding-card";
 import { IntegrationCard } from "../integration-card/integration-card";
 import { MeetingCard } from "../meeting-card/meeting-card";
-import { PartnerCards } from "../partner-card/partner-card";
 import { PlayModeCard } from "../play-mode-card/play-mode-card";
 import { RecommendedRoleCard } from "../recommended-role-card/recommended-role-card";
 
@@ -48,7 +47,6 @@ function CardShowcase() {
         />
       </div>
       <FundingCard />
-      <PartnerCards />
     </main>
   );
 }
@@ -121,10 +119,5 @@ export const Flows: StoryFn = () => (
 export const Funding: StoryFn = () => (
   <StoryFrame size="large">
     <FundingCard />
-  </StoryFrame>
-);
-export const Partners: StoryFn = () => (
-  <StoryFrame size="full">
-    <PartnerCards />
   </StoryFrame>
 );

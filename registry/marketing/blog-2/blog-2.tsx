@@ -105,9 +105,7 @@ export function Blog2({
       className={cn("mx-auto w-full max-w-5xl py-4 lg:border-x", className)}
     >
       <div className="space-y-2 px-4 py-8 md:py-12">
-        <h2 className="font-semibold text-2xl tracking-wide md:text-4xl">
-          {title}
-        </h2>
+        <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
         {description ? (
           <p className="text-muted-foreground text-sm">{description}</p>
         ) : null}

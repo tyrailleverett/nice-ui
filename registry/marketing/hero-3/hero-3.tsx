@@ -21,6 +21,7 @@ export interface Hero3Screenshot {
 
 export interface Hero3Props {
   className?: string;
+  darkScreenshot?: Hero3Screenshot;
   description?: string;
   logos?: Hero3Logo[];
   logosLabel?: string;
@@ -33,15 +34,15 @@ export interface Hero3Props {
 const defaultLogos: Hero3Logo[] = [
   {
     alt: "Vercel",
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+    src: "https://svgl.app/library/vercel_wordmark.svg",
   },
   {
     alt: "Supabase",
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+    src: "https://svgl.app/library/supabase_wordmark_light.svg",
   },
   {
     alt: "OpenAI",
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+    src: "https://svgl.app/library/openai_wordmark_light.svg",
   },
 ];
 
@@ -92,7 +93,11 @@ export function Hero3({
   logos = defaultLogos,
   screenshot = {
     alt: "Product dashboard",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/workflow-light.png",
+  },
+  darkScreenshot = {
+    alt: "Product dashboard",
+    src: "/screenshots/workflow-dark.png",
   },
   className,
 }: Hero3Props) {
@@ -106,7 +111,7 @@ export function Hero3({
       <div className="relative py-24 md:py-36">
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
           <div className="md:w-1/2">
-            <h1 className="max-w-md text-balance font-heading font-medium text-5xl md:text-6xl">
+            <h1 className="max-w-md text-balance font-display-heading text-5xl md:text-6xl">
               {title}
             </h1>
             {description ? (
@@ -166,9 +171,16 @@ export function Hero3({
             <div className="relative h-full -translate-y-12 skew-x-6 overflow-hidden rounded-lg border border-transparent bg-background shadow-foreground/10 shadow-md ring-1 ring-foreground/5">
               <img
                 alt={screenshot.alt}
-                className="size-full object-cover object-top-left"
+                className="size-full object-cover object-top-left dark:hidden"
                 height={1842}
                 src={screenshot.src}
+                width={2880}
+              />
+              <img
+                alt={darkScreenshot.alt}
+                className="hidden size-full object-cover object-top-left dark:block"
+                height={1842}
+                src={darkScreenshot.src}
                 width={2880}
               />
             </div>

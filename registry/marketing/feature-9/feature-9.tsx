@@ -71,7 +71,12 @@ export function ScheduleIllustration({
           </Button>
         </div>
         <span className="block h-4 w-px bg-border" />
-        <Button className="size-8" size="icon" variant="ghost">
+        <Button
+          aria-label="More actions"
+          className="size-8"
+          size="icon"
+          variant="ghost"
+        >
           <EllipsisIcon className="size-3" />
         </Button>
       </div>
@@ -136,7 +141,7 @@ export function Feature9({
       <div className="py-24">
         <div className="mx-auto w-full max-w-5xl px-6">
           <div>
-            <h2 className="mt-4 font-semibold text-4xl text-foreground">
+            <h2 className="mt-4 font-display-heading text-4xl text-foreground">
               {title}
             </h2>
             {description ? (

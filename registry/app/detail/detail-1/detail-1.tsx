@@ -156,7 +156,7 @@ export function Detail1({
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+                <h1 className="font-heading font-semibold text-title sm:text-3xl">
                   <span className="font-mono text-[0.92em] tracking-tight">
                     NSC-84763
                   </span>

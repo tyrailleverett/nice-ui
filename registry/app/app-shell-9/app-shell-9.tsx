@@ -286,7 +286,7 @@ export function AppShell9({
                 <RefreshCwIcon />
               </span>
               <div className="flex flex-col">
-                <h1 className="font-heading font-semibold text-2xl tracking-tight">
+                <h1 className="font-heading font-semibold text-title">
                   Market Dashboard
                 </h1>
                 <p className="text-primary-foreground/70 text-sm">
@@ -301,7 +301,7 @@ export function AppShell9({
                   <dt className="order-2 text-primary-foreground/70 text-sm">
                     {stat.label}
                   </dt>
-                  <dd className="order-1 font-heading font-semibold text-2xl tracking-tight">
+                  <dd className="order-1 font-heading font-semibold text-title">
                     {stat.value}
                   </dd>
                 </div>

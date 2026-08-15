@@ -71,28 +71,28 @@ const defaultTestimonial: Login1Testimonial = {
 };
 
 const defaultPanelImage: Login1Image = {
-  alt: "Starry night sky over a desert horizon",
-  src: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&q=80&w=2000",
+  alt: "Abstract connected workspace with luminous blue and violet nodes",
+  src: "/auth-panel.webp",
 };
 
 const defaultTrustedBy: Login1TrustedBy = {
   logos: [
     {
       alt: "OpenAI",
-      src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+      src: "https://svgl.app/library/openai_wordmark_light.svg",
     },
     {
       alt: "Stripe",
-      src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
+      src: "https://svgl.app/library/stripe_wordmark.svg",
     },
     {
       alt: "Supabase",
-      src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+      src: "https://svgl.app/library/supabase_wordmark_light.svg",
     },
     {
       alt: "Slack",
       label: "slack",
-      src: "https://cdn.simpleicons.org/slack/ffffff",
+      src: "https://svgl.app/library/slack.svg",
     },
   ],
   title: "Trusted by leading teams",

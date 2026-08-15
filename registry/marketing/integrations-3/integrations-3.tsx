@@ -47,7 +47,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 1,
     logo: {
       alt: "Vercel",
-      src: "https://storage.efferd.com/logo/vercel.svg",
+      src: "https://svgl.app/library/vercel.svg",
     },
     row: 0,
   },
@@ -55,7 +55,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 3,
     logo: {
       alt: "OpenAI",
-      src: "https://storage.efferd.com/logo/openai.svg",
+      src: "https://svgl.app/library/openai.svg",
     },
     row: 0,
   },
@@ -64,7 +64,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 2,
     logo: {
       alt: "Cursor",
-      src: "https://storage.efferd.com/logo/cursor.svg",
+      src: "https://svgl.app/library/cursor_light.svg",
     },
     row: 1,
   },
@@ -72,7 +72,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 4,
     logo: {
       alt: "v0",
-      src: "https://storage.efferd.com/logo/v0.svg",
+      src: "https://svgl.app/library/v0_light.svg",
     },
     row: 1,
   },
@@ -80,7 +80,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 1,
     logo: {
       alt: "PlanetScale",
-      src: "https://storage.efferd.com/logo/planetscale.svg",
+      src: "https://svgl.app/library/planetscale.svg",
     },
     row: 2,
   },
@@ -90,7 +90,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 2,
     logo: {
       alt: "Base UI",
-      src: "https://storage.efferd.com/logo/base-ui.svg",
+      src: "https://svgl.app/library/base-ui.svg",
     },
     row: 3,
   },
@@ -98,7 +98,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 4,
     logo: {
       alt: "Copilot",
-      src: "https://storage.efferd.com/logo/copilot.svg",
+      src: "https://svgl.app/library/copilot.svg",
     },
     row: 3,
   },
@@ -106,7 +106,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 1,
     logo: {
       alt: "GitHub",
-      src: "https://storage.efferd.com/logo/github.svg",
+      src: "https://svgl.app/library/github_light.svg",
     },
     row: 4,
   },
@@ -114,7 +114,7 @@ const defaultTiles: Integrations3Tile[] = [
     col: 3,
     logo: {
       alt: "Dub",
-      src: "https://storage.efferd.com/logo/dub.svg",
+      src: "https://svgl.app/library/dub.svg",
     },
     row: 4,
   },
@@ -138,7 +138,7 @@ export function Integrations3({
 
       <div className="p-4 md:p-6">
         <div className="space-y-4">
-          <h2 className="font-medium text-3xl text-foreground tracking-tight sm:text-4xl">
+          <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">
             {title}
           </h2>
           {description ? (

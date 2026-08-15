@@ -1,6 +1,8 @@
 # Nice UI
 
-A shadcn-compatible component registry for marketing blocks. Preview components in Storybook, install them into any project with the shadcn CLI.
+A shadcn-compatible registry of **marketing blocks** and **product app blocks**. Preview in Storybook, install into any shadcn project with the CLI.
+
+Released under the [MIT License](./LICENSE).
 
 ## Quick start
 
@@ -11,12 +13,18 @@ bun run dev
 
 Open the Storybook playground to browse and develop components in isolation.
 
-## Install components
+## Install
 
 From a project with shadcn already initialized:
 
 ```bash
 bunx shadcn@latest add tyrailleverett/nice-ui/hero-1
+```
+
+Adding any block also installs the Nice UI **style** (Inter Variable, color tokens, 12px radius ladder, and `font-display-heading`). To apply the system without a block:
+
+```bash
+bunx shadcn@latest add tyrailleverett/nice-ui/style
 ```
 
 Useful commands:
@@ -27,21 +35,30 @@ bunx shadcn@latest view tyrailleverett/nice-ui/hero-1
 bunx shadcn@latest add tyrailleverett/nice-ui/hero-1 --dry-run
 ```
 
+Standalone design-system items:
+
+| Item | Type | What it installs |
+|---|---|---|
+| `tyrailleverett/nice-ui/font` | `registry:font` | Inter Variable (`@fontsource-variable/inter`) |
+| `tyrailleverett/nice-ui/theme` | `registry:theme` | Canvas, ink, semantic hues, radius ladder |
+| `tyrailleverett/nice-ui/style` | `registry:style` | Font + theme + `font-display-heading` utility |
+
 ## Registry structure
 
 ```
 registry/
+  theme/         # Font, theme tokens, and style
   marketing/     # Landing and marketing blocks
-  app/           # Product and auth blocks
+  app/           # Product, auth, and dashboard blocks
 ```
 
-Blocks are registered in `registry/marketing/registry.json` and `registry/app/registry.json`. The root [`registry.json`](./registry.json) composes those files with `include`.
+Blocks are registered in `registry/marketing/registry.json` and `registry/app/registry.json`. Theme items live in `registry/theme/registry.json`. The root [`registry.json`](./registry.json) composes those files with `include`.
 
 ## Add a new block
 
 1. Create a folder under `registry/marketing/` or `registry/app/`.
 2. Add the component file and a `*.stories.tsx` file for Storybook.
-3. Register the item in the matching `registry.json`.
+3. Register the item in the matching `registry.json`. Include `tyrailleverett/nice-ui/style` in `registryDependencies` so install pulls tokens and Inter.
 4. Validate locally:
 
 ```bash

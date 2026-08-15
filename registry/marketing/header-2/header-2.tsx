@@ -173,11 +173,13 @@ function DesktopNav({
           </NavigationMenuContent>
         </NavigationMenuItem>
         {pricing ? (
-          <NavigationMenuLink asChild className="px-4">
-            <a className="rounded-md p-2 hover:bg-accent" href={pricing.href}>
-              {pricing.label}
-            </a>
-          </NavigationMenuLink>
+          <NavigationMenuItem>
+            <NavigationMenuLink asChild className="px-4">
+              <a className="rounded-md p-2 hover:bg-accent" href={pricing.href}>
+                {pricing.label}
+              </a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         ) : null}
       </NavigationMenuList>
     </NavigationMenu>
@@ -306,6 +308,7 @@ export function Header2({
       <nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
         <div className="flex items-center gap-5">
           <a
+            aria-label="Nice UI home"
             className="rounded-lg px-3 py-2.5 hover:bg-muted dark:hover:bg-muted/50"
             href={logoHref}
           >

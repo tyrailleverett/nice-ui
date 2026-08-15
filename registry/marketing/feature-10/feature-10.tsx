@@ -23,6 +23,7 @@ export interface Feature10Screenshot {
 export interface Feature10Props {
   className?: string;
   cta?: Feature10Action | null;
+  darkScreenshot?: Feature10Screenshot;
   items?: Feature10Item[];
   screenshot?: Feature10Screenshot;
   title?: string;
@@ -72,7 +73,11 @@ export function Feature10({
   items = defaultItems,
   screenshot = {
     alt: "App screen",
-    src: "https://storage.efferd.com/screen/dashboard-light.webp",
+    src: "/screenshots/analytics-light.png",
+  },
+  darkScreenshot = {
+    alt: "App screen",
+    src: "/screenshots/analytics-dark.png",
   },
   className,
 }: Feature10Props) {
@@ -82,7 +87,7 @@ export function Feature10({
         <div className="mx-auto w-full max-w-5xl px-6">
           <div className="grid gap-12 md:grid-cols-5">
             <div className="md:col-span-2">
-              <h2 className="text-balance font-semibold text-4xl text-foreground">
+              <h2 className="text-balance font-display-heading text-4xl text-foreground">
                 {title}
               </h2>
               {cta ? <FeatureCta cta={cta} /> : null}
@@ -109,9 +114,16 @@ export function Feature10({
             <div className="relative mx-auto overflow-hidden rounded-xl border border-transparent bg-background shadow-black/10 shadow-lg ring-1 ring-black/10">
               <img
                 alt={screenshot.alt}
-                className="w-full"
+                className="w-full dark:hidden"
                 height={1842}
                 src={screenshot.src}
+                width={2880}
+              />
+              <img
+                alt={darkScreenshot.alt}
+                className="hidden w-full dark:block"
+                height={1842}
+                src={darkScreenshot.src}
                 width={2880}
               />
             </div>

@@ -58,9 +58,7 @@ export function Error5({
 
         <section aria-label="Last known record" className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="font-heading font-mono font-semibold text-2xl tracking-tight">
-              NSC-84763
-            </h1>
+            <h1 className="font-heading font-semibold text-title">NSC-84763</h1>
             <Badge variant="secondary">Stale</Badge>
           </div>
           <div className="grid gap-px overflow-hidden rounded-xl bg-border p-px sm:grid-cols-3">

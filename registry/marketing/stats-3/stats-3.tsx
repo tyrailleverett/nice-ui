@@ -68,7 +68,7 @@ export function Stats3({
     <section className={cn("w-full bg-background py-16 sm:py-24", className)}>
       <div className="mx-auto grid max-w-5xl gap-12 px-6 md:grid-cols-2 md:items-center md:gap-16">
         <div className="space-y-4">
-          <h2 className="text-balance font-heading font-medium text-3xl text-muted-foreground tracking-tight sm:text-4xl">
+          <h2 className="text-balance font-display-heading text-3xl text-muted-foreground sm:text-4xl">
             {title}
           </h2>
           {description ? (

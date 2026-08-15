@@ -1,0 +1,163 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "font",
+      "type": "registry:font",
+      "title": "Inter Variable",
+      "description": "Nice UI typeface: Inter Variable for display, UI, and body. Marketing headlines use weight 900 via font-display-heading.",
+      "docs": "Non-Next.js projects should import `@fontsource-variable/inter` in the global CSS file after install.",
+      "font": {
+        "dependency": "@fontsource-variable/inter",
+        "family": "\"Inter Variable\", sans-serif",
+        "import": "Inter",
+        "provider": "google",
+        "subsets": ["latin"],
+        "variable": "--font-sans"
+      },
+      "css": {
+        "@import \"@fontsource-variable/inter\"": {}
+      },
+      "cssVars": {
+        "theme": {
+          "font-heading": "var(--font-sans)",
+          "font-sans": "\"Inter Variable\", sans-serif"
+        }
+      }
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Nice UI Theme",
+      "description": "White-canvas tokens: near-black ink, hairline borders, 12px radius ladder, and semantic success / info / subtle hues.",
+      "registryDependencies": ["tyrailleverett/nice-ui/font"],
+      "cssVars": {
+        "theme": {
+          "color-info": "var(--info)",
+          "color-subtle": "var(--subtle)",
+          "color-success": "var(--success)",
+          "font-weight-display": "900",
+          "radius-2xl": "calc(var(--radius) * 1.8)",
+          "radius-3xl": "calc(var(--radius) * 2.2)",
+          "radius-4xl": "calc(var(--radius) * 2.6)",
+          "radius-lg": "var(--radius)",
+          "radius-md": "calc(var(--radius) * 0.8)",
+          "radius-sm": "calc(var(--radius) * 0.6)",
+          "radius-xl": "calc(var(--radius) * 1.4)",
+          "spacing-icon-sm": "var(--icon-sm)",
+          "text-label": "0.75rem",
+          "text-label--line-height": "1rem",
+          "text-title": "1.5rem",
+          "text-title--line-height": "2rem",
+          "text-title-md": "1rem",
+          "text-title-md--line-height": "1.25rem",
+          "tracking-display": "-0.025em"
+        },
+        "light": {
+          "accent": "#f5f5f5",
+          "accent-foreground": "#262626",
+          "background": "#ffffff",
+          "border": "#f5f5f5",
+          "card": "#ffffff",
+          "card-foreground": "#262626",
+          "chart-1": "#262626",
+          "chart-2": "#737373",
+          "chart-3": "#a3a3a3",
+          "chart-4": "#3b82f6",
+          "chart-5": "#16a34a",
+          "destructive": "#f87171",
+          "foreground": "#262626",
+          "icon-sm": "16px",
+          "info": "#3b82f6",
+          "input": "#d4d4d4",
+          "muted": "#f5f5f5",
+          "muted-foreground": "#737373",
+          "popover": "#ffffff",
+          "popover-foreground": "#262626",
+          "primary": "#262626",
+          "primary-foreground": "#ffffff",
+          "radius": "0.75rem",
+          "ring": "#a3a3a3",
+          "secondary": "#f5f5f5",
+          "secondary-foreground": "#262626",
+          "sidebar": "#fafafa",
+          "sidebar-accent": "#f5f5f5",
+          "sidebar-accent-foreground": "#262626",
+          "sidebar-border": "#f5f5f5",
+          "sidebar-foreground": "#262626",
+          "sidebar-primary": "#262626",
+          "sidebar-primary-foreground": "#ffffff",
+          "sidebar-ring": "#a3a3a3",
+          "subtle": "#a3a3a3",
+          "success": "#16a34a"
+        },
+        "dark": {
+          "accent": "#404040",
+          "accent-foreground": "#fafafa",
+          "background": "#171717",
+          "border": "#404040",
+          "card": "#262626",
+          "card-foreground": "#fafafa",
+          "chart-1": "#fafafa",
+          "chart-2": "#a3a3a3",
+          "chart-3": "#737373",
+          "chart-4": "#3b82f6",
+          "chart-5": "#16a34a",
+          "destructive": "#f87171",
+          "foreground": "#fafafa",
+          "info": "#3b82f6",
+          "input": "#404040",
+          "muted": "#404040",
+          "muted-foreground": "#a3a3a3",
+          "popover": "#262626",
+          "popover-foreground": "#fafafa",
+          "primary": "#fafafa",
+          "primary-foreground": "#262626",
+          "ring": "#737373",
+          "secondary": "#404040",
+          "secondary-foreground": "#fafafa",
+          "sidebar": "#262626",
+          "sidebar-accent": "#404040",
+          "sidebar-accent-foreground": "#fafafa",
+          "sidebar-border": "#404040",
+          "sidebar-foreground": "#fafafa",
+          "sidebar-primary": "#fafafa",
+          "sidebar-primary-foreground": "#262626",
+          "sidebar-ring": "#737373",
+          "subtle": "#737373",
+          "success": "#16a34a"
+        }
+      }
+    },
+    {
+      "name": "style",
+      "type": "registry:style",
+      "title": "Nice UI Style",
+      "description": "Installs Inter Variable, Nice UI color and radius tokens, and the font-display-heading utility used by marketing headlines.",
+      "docs": "Adding any Nice UI block installs this style automatically. You can also add it on its own: bunx shadcn@latest add tyrailleverett/nice-ui/style",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/font",
+        "tyrailleverett/nice-ui/theme"
+      ],
+      "css": {
+        "@utility font-display-heading": {
+          "font-family": "var(--font-heading)",
+          "font-weight": "var(--font-weight-display)",
+          "letter-spacing": "var(--tracking-display)"
+        },
+        "@layer base": {
+          "html": {
+            "font-family": "var(--font-sans)"
+          },
+          "body": {
+            "background-color": "var(--background)",
+            "color": "var(--foreground)",
+            "font-size": "0.875rem",
+            "font-weight": "400",
+            "line-height": "1.25rem"
+          }
+        }
+      }
+    }
+  ]
+}

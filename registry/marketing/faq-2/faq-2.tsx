@@ -83,7 +83,7 @@ export function Faq2({
     <section className={cn("mx-auto w-full max-w-5xl lg:border-x", className)}>
       <div className="mx-4 grid grid-cols-1 border-x md:mx-0 md:grid-cols-2 md:border-x-0">
         <div className="space-y-4 px-4 pt-12 pb-4 md:border-r">
-          <h2 className="font-black text-3xl md:text-4xl">{title}</h2>
+          <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
           {description ? (
             <p className="text-muted-foreground">{description}</p>
           ) : null}

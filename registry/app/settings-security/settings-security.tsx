@@ -39,6 +39,7 @@ export function SecuritySettings({ className }: { className?: string }) {
           <SelectField
             defaultValue="4 hours"
             items={["1 hour", "4 hours", "8 hours", "Never"]}
+            label="Session timeout"
           />
         </SettingsRow>
         <SettingsRow

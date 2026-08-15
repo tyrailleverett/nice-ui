@@ -26,7 +26,10 @@ import { cn } from "@/lib/utils";
 function NotificationDeliverySelect() {
   return (
     <Select defaultValue="default">
-      <SelectTrigger className="h-12 w-full text-base">
+      <SelectTrigger
+        aria-label="Notification delivery"
+        className="h-12 w-full text-base"
+      >
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

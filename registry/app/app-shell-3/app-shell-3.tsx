@@ -146,7 +146,7 @@ function ActiveProjects() {
 
 function SpendingLimitCard() {
   return (
-    <Card size="sm">
+    <Card>
       <CardHeader>
         <CardTitle>Spending Limit</CardTitle>
         <CardDescription>

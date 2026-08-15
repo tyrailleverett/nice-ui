@@ -83,7 +83,7 @@ export function Cta12({
         <div className="pointer-events-none absolute inset-y-[-18%] right-0 w-px bg-border" />
 
         <div className="flex flex-col items-center gap-6 text-center">
-          <h2 className="font-semibold text-2xl tracking-tight [text-shadow:0_0_32px_--theme(--color-foreground/.25)] md:text-4xl">
+          <h2 className="font-display-heading text-2xl [text-shadow:0_0_32px_--theme(--color-foreground/.25)] md:text-4xl">
             {title}
           </h2>
           <div className="flex items-center gap-4">

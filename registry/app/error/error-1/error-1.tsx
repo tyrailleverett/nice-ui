@@ -70,9 +70,7 @@ export function Error1({
 
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="font-heading font-mono font-semibold text-2xl tracking-tight">
-              NSC-84901
-            </h1>
+            <h1 className="font-heading font-semibold text-title">NSC-84901</h1>
             <Badge variant="outline">Missing</Badge>
           </div>
           <Skeleton className="h-4 w-64" />

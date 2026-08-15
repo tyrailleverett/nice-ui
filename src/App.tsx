@@ -1,8 +1,13 @@
 import { useCallback, useState } from "react";
 import heroImg from "./assets/hero.png";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
 import "./app.css";
+
+const reactLogo = "https://svgl.app/library/react_dark.svg";
+const viteLogo = "https://svgl.app/library/vite.svg";
+const githubLogo = "https://svgl.app/library/github_light.svg";
+const discordLogo = "https://svgl.app/library/discord.svg";
+const xLogo = "https://svgl.app/library/x.svg";
+const blueskyLogo = "https://svgl.app/library/bluesky.svg";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -92,40 +97,40 @@ function App() {
                 rel="noopener"
                 target="_blank"
               >
-                <svg
+                <img
+                  alt=""
                   aria-hidden="true"
                   className="button-icon"
-                  role="presentation"
-                >
-                  <title>GitHub</title>
-                  <use href="/icons.svg#github-icon" />
-                </svg>
+                  height={16}
+                  src={githubLogo}
+                  width={16}
+                />
                 GitHub
               </a>
             </li>
             <li>
               <a href="https://chat.vite.dev/" rel="noopener" target="_blank">
-                <svg
+                <img
+                  alt=""
                   aria-hidden="true"
                   className="button-icon"
-                  role="presentation"
-                >
-                  <title>Discord</title>
-                  <use href="/icons.svg#discord-icon" />
-                </svg>
+                  height={16}
+                  src={discordLogo}
+                  width={16}
+                />
                 Discord
               </a>
             </li>
             <li>
               <a href="https://x.com/vite_js" rel="noopener" target="_blank">
-                <svg
+                <img
+                  alt=""
                   aria-hidden="true"
                   className="button-icon"
-                  role="presentation"
-                >
-                  <title>X</title>
-                  <use href="/icons.svg#x-icon" />
-                </svg>
+                  height={16}
+                  src={xLogo}
+                  width={16}
+                />
                 X.com
               </a>
             </li>
@@ -135,14 +140,14 @@ function App() {
                 rel="noopener"
                 target="_blank"
               >
-                <svg
+                <img
+                  alt=""
                   aria-hidden="true"
                   className="button-icon"
-                  role="presentation"
-                >
-                  <title>Bluesky</title>
-                  <use href="/icons.svg#bluesky-icon" />
-                </svg>
+                  height={16}
+                  src={blueskyLogo}
+                  width={16}
+                />
                 Bluesky
               </a>
             </li>

@@ -66,7 +66,7 @@ export function Feature3({
   return (
     <section className={cn("mx-auto w-full max-w-5xl space-y-8", className)}>
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-balance font-medium text-2xl md:text-4xl lg:text-5xl">
+        <h2 className="text-balance font-display-heading text-2xl md:text-4xl lg:text-5xl">
           {title}
         </h2>
         {description ? (

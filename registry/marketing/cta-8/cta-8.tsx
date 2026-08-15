@@ -142,7 +142,7 @@ export function Cta8({
         <FloatingIcon key={item.className ?? "icon"} {...item} />
       ))}
 
-      <h2 className="max-w-xl text-balance font-serif text-3xl leading-tight tracking-tight md:text-4xl">
+      <h2 className="max-w-xl text-balance font-display-heading text-3xl leading-tight md:text-4xl">
         {title}
       </h2>
       {description ? (

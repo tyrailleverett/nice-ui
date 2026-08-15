@@ -84,7 +84,7 @@ export function Faq1({
       className={cn("mx-auto w-full max-w-2xl space-y-7 px-4", className)}
     >
       <div className="space-y-2">
-        <h2 className="font-semibold text-3xl md:text-4xl">{title}</h2>
+        <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
         {description ? (
           <p className="max-w-2xl text-muted-foreground">{description}</p>
         ) : null}

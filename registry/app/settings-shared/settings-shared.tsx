@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 type Tone = "accent" | "default" | "success" | "warning";
 
 export function MessageMark() {
-  return <span className="font-bold text-emerald-500">✣</span>;
+  return <span className="font-bold text-success">✣</span>;
 }
 
 export function SectionHeading({
@@ -28,7 +28,7 @@ export function SectionHeading({
 }) {
   return (
     <header className="flex flex-col gap-1">
-      <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+      <h1 className="font-heading font-semibold text-title sm:text-3xl">
         {title}
       </h1>
       {description ? (
@@ -72,13 +72,15 @@ export function SettingsSwitch({
 export function SelectField({
   defaultValue,
   items,
+  label,
 }: {
   defaultValue: string;
   items: string[];
+  label: string;
 }) {
   return (
     <Select defaultValue={defaultValue}>
-      <SelectTrigger className="w-full">
+      <SelectTrigger aria-label={label} className="w-full">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
@@ -104,12 +106,11 @@ export function SettingsTag({
   return (
     <Badge
       className={cn(
-        tone === "success" &&
-          "border-emerald-500/40 bg-emerald-500/10 text-emerald-600",
+        tone === "success" && "border-success/40 bg-success/10 text-success",
         tone === "warning" &&
-          "border-amber-500/40 bg-amber-500/10 text-amber-600",
+          "border-amber-700/40 bg-amber-700/10 text-amber-700",
         tone === "accent" &&
-          "border-violet-500/40 bg-violet-500/10 text-violet-600"
+          "border-violet-700/40 bg-violet-700/10 text-violet-700"
       )}
       variant="outline"
     >

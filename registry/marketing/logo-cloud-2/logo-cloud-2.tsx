@@ -17,35 +17,35 @@ export interface LogoCloud2Props {
 const defaultLogos: LogoCloud2Item[] = [
   {
     alt: "Nvidia",
-    src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
+    src: "https://svgl.app/library/nvidia-wordmark-light.svg",
   },
   {
     alt: "Supabase",
-    src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+    src: "https://svgl.app/library/supabase_wordmark_light.svg",
   },
   {
     alt: "OpenAI",
-    src: "https://storage.efferd.com/logo/openai-wordmark.svg",
+    src: "https://svgl.app/library/openai_wordmark_light.svg",
   },
   {
     alt: "Turso",
-    src: "https://storage.efferd.com/logo/turso-wordmark.svg",
+    src: "https://svgl.app/library/turso-wordmark-light.svg",
   },
   {
     alt: "Vercel",
-    src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+    src: "https://svgl.app/library/vercel_wordmark.svg",
   },
   {
     alt: "GitHub",
-    src: "https://storage.efferd.com/logo/github-wordmark.svg",
+    src: "https://svgl.app/library/github_wordmark_light.svg",
   },
   {
     alt: "Claude",
-    src: "https://storage.efferd.com/logo/claude-wordmark.svg",
+    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
   },
   {
     alt: "Clerk",
-    src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
+    src: "https://svgl.app/library/clerk-wordmark-light.svg",
   },
 ];
 
@@ -82,7 +82,7 @@ export function LogoCloud2({
         }
       `}</style>
       {title || highlight ? (
-        <h2 className="mb-5 text-center font-medium text-foreground text-xl tracking-tight md:text-3xl">
+        <h2 className="mb-5 text-center font-heading font-semibold text-foreground text-xl md:text-3xl">
           {title ? (
             <span className="text-muted-foreground">{title}</span>
           ) : null}

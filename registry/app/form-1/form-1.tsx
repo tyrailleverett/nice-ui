@@ -93,9 +93,7 @@ export function Form1({ className }: Form1Props) {
     <FormPage className={cn("max-w-3xl", className)}>
       <Card>
         <CardHeader className="border-b">
-          <CardTitle className="font-heading text-2xl">
-            Checkout Setup
-          </CardTitle>
+          <CardTitle className="text-title">Checkout Setup</CardTitle>
           <CardDescription>Hosted checkout settings.</CardDescription>
           <CardAction>
             <StatusBadge
@@ -109,6 +107,7 @@ export function Form1({ className }: Form1Props) {
         <CardContent className="py-6">
           <FieldGroup>
             <FormRow
+              htmlFor="offer-type"
               label={
                 <>
                   Offer Type
@@ -267,7 +266,7 @@ export function Form1({ className }: Form1Props) {
               </FieldSet>
             </FormRow>
 
-            <FormRow label="Button Copy">
+            <FormRow htmlFor="button-copy" label="Button Copy">
               <Select onValueChange={setButtonCopy} value={buttonCopy}>
                 <SelectTrigger className="w-full" id="button-copy">
                   <SelectValue />
@@ -284,7 +283,7 @@ export function Form1({ className }: Form1Props) {
               </Select>
             </FormRow>
 
-            <FormRow label="Handoff">
+            <FormRow htmlFor="handoff" label="Handoff">
               <Select onValueChange={setHandoff} value={handoff}>
                 <SelectTrigger className="w-full" id="handoff">
                   <SelectValue />
@@ -302,6 +301,7 @@ export function Form1({ className }: Form1Props) {
             </FormRow>
 
             <FormRow
+              htmlFor="return-url"
               label={
                 <>
                   Return URL

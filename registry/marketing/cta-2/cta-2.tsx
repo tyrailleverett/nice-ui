@@ -64,7 +64,7 @@ export function Cta2({
     >
       <FullWidthDivider position="top" />
       <div className="border-b px-2 py-8">
-        <h2 className="text-center font-semibold text-lg md:text-2xl">
+        <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">
           {title}
         </h2>
         {description ? (

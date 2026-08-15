@@ -84,9 +84,7 @@ export function Blog3({
     <section className={cn("mx-auto w-full max-w-6xl px-4", className)}>
       <div className="grid gap-px overflow-hidden border bg-border">
         <div className="space-y-2 bg-background px-6 py-8 md:px-8 md:py-10">
-          <h2 className="font-semibold text-2xl tracking-wide md:text-4xl">
-            {title}
-          </h2>
+          <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
           {description ? (
             <p className="text-muted-foreground text-sm">{description}</p>
           ) : null}

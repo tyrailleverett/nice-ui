@@ -66,7 +66,7 @@ export function Cta6({
                   <p className="font-medium text-muted-foreground text-xl sm:text-2xl">
                     {eyebrow}
                   </p>
-                  <h2 className="font-semibold text-2xl tracking-tight sm:text-3xl">
+                  <h2 className="font-heading font-semibold text-2xl sm:text-3xl">
                     {title}
                   </h2>
                 </div>

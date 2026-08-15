@@ -51,7 +51,7 @@ export function Cta1({
     >
       <FullWidthDivider position="top" />
       <div className="border-b p-4 md:border-b-0">
-        <h2 className="text-center font-bold text-lg md:text-left md:text-2xl">
+        <h2 className="text-center font-heading font-semibold text-lg md:text-left md:text-2xl">
           {title}
         </h2>
       </div>

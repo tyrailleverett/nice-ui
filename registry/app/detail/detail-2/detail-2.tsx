@@ -89,7 +89,7 @@ export function Detail2({
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="font-heading font-semibold text-2xl tracking-tight sm:text-3xl">
+                <h1 className="font-heading font-semibold text-title sm:text-3xl">
                   Avery Outdoor
                 </h1>
                 <Badge variant="secondary">At risk</Badge>

@@ -116,9 +116,7 @@ export function Faq5({
   return (
     <section className={cn("mx-auto w-full max-w-3xl px-4 py-16", className)}>
       <header className="mb-16 space-y-3 text-center">
-        <h2 className="font-semibold text-3xl tracking-tight md:text-4xl">
-          {title}
-        </h2>
+        <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
         {description ? (
           <p className="mx-auto max-w-xl text-pretty text-muted-foreground">
             {description}

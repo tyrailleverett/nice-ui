@@ -39,7 +39,7 @@ export function Feature14({
   return (
     <section className={cn("bg-background py-24 md:py-32", className)}>
       <div className="mx-auto grid max-w-6xl items-start gap-12 px-6 lg:grid-cols-2 lg:gap-x-28">
-        <h2 className="max-w-lg font-bold text-4xl text-foreground leading-[1.12] tracking-tight md:text-5xl">
+        <h2 className="max-w-lg font-display-heading text-4xl text-foreground leading-[1.12] md:text-5xl">
           <span className="text-muted-foreground">{mutedTitle} </span>
           {title}
         </h2>

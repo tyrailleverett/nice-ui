@@ -1,8 +1,7 @@
 .card-showcase,
 .card-story-frame,
 .showcase-card,
-.flow-grid,
-.partner-grid {
+.flow-grid {
   --cards-surface: var(--card);
   --cards-surface-raised: color-mix(
     in srgb,
@@ -14,7 +13,6 @@
   --cards-line: color-mix(in srgb, var(--border) 82%, var(--foreground));
   --cards-soft-line: color-mix(in srgb, var(--border) 58%, transparent);
   --cards-accent: var(--primary);
-  font-family: var(--font-sans);
   color: var(--cards-ink);
 }
 
@@ -149,7 +147,7 @@
   line-height: 1;
   white-space: nowrap;
   border: 1px solid var(--cards-line);
-  border-radius: 999px;
+  border-radius: var(--radius-md);
 }
 
 .card-time {
@@ -249,7 +247,7 @@
 .meeting-panel {
   margin: 1.1rem 1.35rem 1.35rem;
   overflow: hidden;
-  background: var(--cards-surface-raised);
+  background: var(--cards-surface);
   border: 1px solid var(--cards-line);
   border-radius: 1.15rem;
 }
@@ -325,13 +323,7 @@
   justify-content: space-between;
   min-height: 11.5rem;
   padding: 1.15rem 1.15rem 0;
-  background:
-    radial-gradient(
-      120% 90% at 20% 20%,
-      color-mix(in srgb, var(--cards-accent) 18%, transparent),
-      transparent 55%
-    ),
-    var(--muted);
+  background: var(--cards-surface);
 }
 
 .card-status {
@@ -339,12 +331,12 @@
   gap: 0.35rem;
   align-items: center;
   height: 2rem;
-  padding: 0 0.7rem;
+  padding: 0 0.85rem;
   font-size: 0.85rem;
   font-weight: 500;
   background: var(--cards-surface);
   border: 1px solid var(--cards-line);
-  border-radius: 999px;
+  border-radius: var(--radius-md);
 }
 
 .integration-logo {
@@ -551,12 +543,12 @@
 }
 
 .branch-badge {
-  padding: 0.12rem 0.45rem;
+  padding: 0.2rem 0.55rem;
   margin-left: 0.35rem;
   font-size: 0.75rem;
   font-weight: 500;
   border: 1px solid var(--cards-line);
-  border-radius: 999px;
+  border-radius: var(--radius-md);
 }
 
 .play-card {
@@ -603,7 +595,7 @@
   padding: 0 0.85rem;
   font-size: 0.9rem;
   border: 1px solid var(--cards-line);
-  border-radius: 999px;
+  border-radius: var(--radius-md);
 }
 
 .play-card h3 {
@@ -701,10 +693,10 @@
   display: inline-flex;
   align-items: center;
   height: 1.7rem;
-  padding: 0 0.65rem;
+  padding: 0 0.75rem;
   font-size: 0.78rem;
   font-weight: 500;
-  border-radius: 999px;
+  border-radius: var(--radius-md);
 }
 
 .tier-premium {
@@ -718,7 +710,7 @@
 }
 
 .tier-enterprise {
-  color: #15803d;
+  color: #166534;
   background: color-mix(in srgb, #16a34a 12%, transparent);
 }
 
@@ -824,64 +816,15 @@
   font-weight: 500;
 }
 
-.partner-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-.partner-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 11.5rem;
-  padding: 1.5rem;
-}
-
-.partner-logo {
-  display: grid;
-  place-items: center;
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: 0.9rem;
-  background: var(--muted);
-  border: 1px solid var(--cards-line);
-  border-radius: 1rem;
-}
-
-.partner-card h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 500;
-}
-
-.stripe-mark {
-  width: 2rem;
-  height: 1.15rem;
-  background: var(--cards-accent);
-  transform: skewY(-12deg);
-}
-
 .paypal-mark {
   font-size: 1.5rem;
   font-style: italic;
   font-weight: 800;
 }
 
-.anthropic-mark {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-}
-
 @media (min-width: 768px) {
   .flow-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .partner-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 

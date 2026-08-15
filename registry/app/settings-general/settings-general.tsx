@@ -48,15 +48,17 @@ export function GeneralSettings({ className }: { className?: string }) {
       <Panel>
         <SettingsRow
           description="The display name for your project across the platform."
+          htmlFor="project-name"
           label="Project name"
         >
-          <Input defaultValue="Acme Dashboard" />
+          <Input defaultValue="Acme Dashboard" id="project-name" />
         </SettingsRow>
         <SettingsRow
           description="Set the base URL for your project API."
+          htmlFor="api-endpoint"
           label="API endpoint"
         >
-          <Input defaultValue="https://api.acme.io" />
+          <Input defaultValue="https://api.acme.io" id="api-endpoint" />
         </SettingsRow>
         <SettingsRow
           description="Choose which day marks the start of your week."
@@ -65,6 +67,7 @@ export function GeneralSettings({ className }: { className?: string }) {
           <SelectField
             defaultValue="Monday"
             items={["Monday", "Sunday", "Saturday"]}
+            label="Start of week"
           />
         </SettingsRow>
         <SettingsRow
@@ -110,10 +113,12 @@ export function GeneralSettings({ className }: { className?: string }) {
             <SelectField
               defaultValue="United States"
               items={["United States", "Canada", "United Kingdom"]}
+              label="Region"
             />
             <SelectField
               defaultValue="USD · US Dollar"
               items={["USD · US Dollar", "EUR · Euro", "GBP · Pound Sterling"]}
+              label="Currency"
             />
           </div>
         </SettingsRow>
