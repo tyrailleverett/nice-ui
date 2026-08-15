@@ -493,14 +493,16 @@ export function Table4({ className }: Table4Props) {
                       </TableCell>
                       <TableCell>
                         <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-label={`Actions for ${item.title}`}
-                              size="icon-sm"
-                              variant="ghost"
-                            >
-                              <EllipsisIcon />
-                            </Button>
+                          <DropdownMenuTrigger
+                            render={
+                              <Button
+                                aria-label={`Actions for ${item.title}`}
+                                size="icon-sm"
+                                variant="ghost"
+                              />
+                            }
+                          >
+                            <EllipsisIcon />
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuItem>Open task</DropdownMenuItem>

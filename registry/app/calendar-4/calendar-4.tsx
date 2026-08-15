@@ -1,3 +1,4 @@
+/* biome-ignore-all lint/performance/noJsxPropsBind: Select handlers close over the calendar scope setter. */
 import { Clock3Icon, MapPinIcon, PlusIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
@@ -178,7 +179,20 @@ export function Calendar4({ className }: Calendar4Props) {
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Select onValueChange={setScope} value={scope}>
+              <Select
+                items={[
+                  { label: "All events", value: "all" },
+                  { label: "Upcoming", value: "upcoming" },
+                  { label: "In progress", value: "in progress" },
+                  { label: "Done", value: "done" },
+                ]}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setScope(value);
+                  }
+                }}
+                value={scope}
+              >
                 <SelectTrigger aria-label="Filter events" className="min-w-32">
                   <SelectValue />
                 </SelectTrigger>

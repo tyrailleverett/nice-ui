@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -91,13 +92,21 @@ function ProfileContent() {
         <Input defaultValue="@avachen" id="username" />
       </SettingsRow>
       <SettingsRow description="Shown across your workspace." label="Role">
-        <Select defaultValue="lead">
+        <Select
+          defaultValue="lead"
+          items={[
+            { label: "Staff product lead", value: "lead" },
+            { label: "Product designer", value: "designer" },
+          ]}
+        >
           <SelectTrigger aria-label="Role">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="lead">Staff product lead</SelectItem>
-            <SelectItem value="designer">Product designer</SelectItem>
+            <SelectGroup>
+              <SelectItem value="lead">Staff product lead</SelectItem>
+              <SelectItem value="designer">Product designer</SelectItem>
+            </SelectGroup>
           </SelectContent>
         </Select>
       </SettingsRow>

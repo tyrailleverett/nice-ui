@@ -128,7 +128,7 @@ export function Faq5({
         {groups.map((group) => (
           <div key={group.title}>
             <h3 className="mb-2 font-medium text-lg">{group.title}</h3>
-            <Accordion className="border-t" collapsible type="single">
+            <Accordion className="border-t">
               {group.items.map((item) => (
                 <AccordionItem
                   className="border-b"

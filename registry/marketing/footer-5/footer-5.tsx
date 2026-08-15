@@ -162,15 +162,14 @@ export function Footer5({
               <div className="flex items-center gap-2">
                 {socialLinks.map((item) => (
                   <Button
-                    asChild
                     className="rounded-full"
                     key={item.label}
+                    nativeButton={false}
+                    render={<a aria-label={item.label} href={item.href} />}
                     size="icon"
                     variant="ghost"
                   >
-                    <a aria-label={item.label} href={item.href}>
-                      {item.icon}
-                    </a>
+                    {item.icon}
                   </Button>
                 ))}
               </div>

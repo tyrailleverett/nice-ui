@@ -145,16 +145,16 @@ function ReportsNavigation({
                       {item.children.map((child) => (
                         <SidebarMenuSubItem key={child}>
                           <SidebarMenuSubButton
-                            asChild
                             isActive={activeItem === child}
+                            render={
+                              <button
+                                data-navigation-label={child}
+                                onClick={onItemClick}
+                                type="button"
+                              />
+                            }
                           >
-                            <button
-                              data-navigation-label={child}
-                              onClick={onItemClick}
-                              type="button"
-                            >
-                              <span>{child}</span>
-                            </button>
+                            <span>{child}</span>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
                       ))}

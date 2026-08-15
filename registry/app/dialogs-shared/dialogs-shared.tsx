@@ -18,17 +18,19 @@ export interface DialogProps {
 
 export function CloseButton({ label = "Close" }: { label?: string }) {
   return (
-    <DialogClose asChild>
-      <Button
-        aria-label={label}
-        className="absolute top-2 right-2"
-        size="icon"
-        type="button"
-        variant="ghost"
-      >
-        <X />
-        <span className="sr-only">{label}</span>
-      </Button>
+    <DialogClose
+      render={
+        <Button
+          aria-label={label}
+          className="absolute top-2 right-2"
+          size="icon"
+          type="button"
+          variant="ghost"
+        />
+      }
+    >
+      <X />
+      <span className="sr-only">{label}</span>
     </DialogClose>
   );
 }

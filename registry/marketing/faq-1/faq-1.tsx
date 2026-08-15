@@ -89,11 +89,7 @@ export function Faq1({
           <p className="max-w-2xl text-muted-foreground">{description}</p>
         ) : null}
       </div>
-      <Accordion
-        className="overflow-hidden rounded-lg border"
-        collapsible
-        type="single"
-      >
+      <Accordion className="overflow-hidden rounded-lg border">
         {questions.map((item) => (
           <AccordionItem className="px-4" key={item.id} value={item.id}>
             <AccordionTrigger className="py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">

@@ -444,14 +444,16 @@ export function Table3({ className }: Table3Props) {
                 </TableCell>
                 <TableCell>
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        aria-label={`Actions for ${task.title}`}
-                        size="icon-sm"
-                        variant="ghost"
-                      >
-                        <EllipsisIcon />
-                      </Button>
+                    <DropdownMenuTrigger
+                      render={
+                        <Button
+                          aria-label={`Actions for ${task.title}`}
+                          size="icon-sm"
+                          variant="ghost"
+                        />
+                      }
+                    >
+                      <EllipsisIcon />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem>Open task</DropdownMenuItem>

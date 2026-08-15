@@ -121,7 +121,13 @@ export function Dashboard3({ className }: Dashboard3Props) {
             </div>
           </div>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[180px_180px_180px_auto]">
-            <Select defaultValue="7-days">
+            <Select
+              defaultValue="7-days"
+              items={[
+                { label: "Last 7 days", value: "7-days" },
+                { label: "Last 30 days", value: "30-days" },
+              ]}
+            >
               <SelectTrigger aria-label="Date range">
                 <CalendarDaysIcon />
                 <SelectValue />
@@ -133,7 +139,13 @@ export function Dashboard3({ className }: Dashboard3Props) {
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <Select defaultValue="daily">
+            <Select
+              defaultValue="daily"
+              items={[
+                { label: "Daily", value: "daily" },
+                { label: "Weekly", value: "weekly" },
+              ]}
+            >
               <SelectTrigger aria-label="Cadence">
                 <SelectValue />
               </SelectTrigger>
@@ -144,7 +156,13 @@ export function Dashboard3({ className }: Dashboard3Props) {
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <Select defaultValue="all">
+            <Select
+              defaultValue="all"
+              items={[
+                { label: "All agents", value: "all" },
+                { label: "Support agents", value: "support" },
+              ]}
+            >
               <SelectTrigger aria-label="Agent group">
                 <SelectValue />
               </SelectTrigger>
@@ -235,7 +253,13 @@ export function Dashboard3({ className }: Dashboard3Props) {
               <CardTitle>Most Called Agents</CardTitle>
               <CardDescription>Call volume by agent</CardDescription>
               <CardAction>
-                <Select defaultValue="calls">
+                <Select
+                  defaultValue="calls"
+                  items={[
+                    { label: "Calls", value: "calls" },
+                    { label: "Cost", value: "cost" },
+                  ]}
+                >
                   <SelectTrigger aria-label="Metric" className="w-32">
                     <SelectValue />
                   </SelectTrigger>

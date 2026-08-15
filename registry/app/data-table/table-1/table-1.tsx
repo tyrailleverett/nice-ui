@@ -461,11 +461,11 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
               />
             </div>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button size="sm" variant="outline">
-                  <Columns3Icon data-icon="inline-start" />
-                  View
-                </Button>
+              <DropdownMenuTrigger
+                render={<Button size="sm" variant="outline" />}
+              >
+                <Columns3Icon data-icon="inline-start" />
+                View
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
@@ -536,7 +536,8 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                 <TableHead className="w-10 pl-4">
                   <Checkbox
                     aria-label="Select all members on this page"
-                    checked={pageSelectionState}
+                    checked={pageSelectionState === true}
+                    indeterminate={pageSelectionState === "indeterminate"}
                     onCheckedChange={(checked) =>
                       togglePageSelection(checked === true)
                     }
@@ -678,14 +679,16 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                     )}
                     <TableCell className="pr-4">
                       <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            aria-label={`Actions for ${member.name}`}
-                            size="icon-sm"
-                            variant="ghost"
-                          >
-                            <EllipsisIcon />
-                          </Button>
+                        <DropdownMenuTrigger
+                          render={
+                            <Button
+                              aria-label={`Actions for ${member.name}`}
+                              size="icon-sm"
+                              variant="ghost"
+                            />
+                          }
+                        >
+                          <EllipsisIcon />
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem>

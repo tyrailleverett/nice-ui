@@ -42,11 +42,13 @@ function HeaderAction({
 
   if (action.href) {
     return (
-      <Button asChild variant={variant}>
-        <a href={action.href}>
-          {Icon ? <Icon data-icon="inline-start" /> : null}
-          {action.label}
-        </a>
+      <Button
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant={variant}
+      >
+        {Icon ? <Icon data-icon="inline-start" /> : null}
+        {action.label}
       </Button>
     );
   }
@@ -77,15 +79,11 @@ export function PageHeader2({
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <a href={HOME_HREF}>Home</a>
-              </BreadcrumbLink>
+              <BreadcrumbLink href={HOME_HREF}>Home</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <a href={PROJECTS_HREF}>Projects</a>
-              </BreadcrumbLink>
+              <BreadcrumbLink href={PROJECTS_HREF}>Projects</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

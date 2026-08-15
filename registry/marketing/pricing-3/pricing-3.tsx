@@ -67,7 +67,7 @@ function BillingIntervalToggle({
   onChange: (isAnnual: boolean) => void;
 }) {
   const handleValueChange = useCallback(
-    (value: string) => {
+    ([value]: string[]) => {
       if (value === "monthly") {
         onChange(false);
         return;
@@ -83,8 +83,7 @@ function BillingIntervalToggle({
     <ToggleGroup
       className="rounded-lg border border-border bg-muted/50 p-1"
       onValueChange={handleValueChange}
-      type="single"
-      value={isAnnual ? "annual" : "monthly"}
+      value={[isAnnual ? "annual" : "monthly"]}
     >
       <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
       <ToggleGroupItem value="annual">Annually</ToggleGroupItem>
@@ -150,8 +149,13 @@ export function Pricing3({
                     : "Per seat per month, billed monthly"}
                 </p>
               </div>
-              <Button asChild className="mt-8 w-full sm:w-auto" size="lg">
-                <a href={plan.ctaHref ?? "#"}>{ctaLabel}</a>
+              <Button
+                className="mt-8 w-full sm:w-auto"
+                nativeButton={false}
+                render={<a href={plan.ctaHref ?? "#"} />}
+                size="lg"
+              >
+                {ctaLabel}
               </Button>
               {footnote ? (
                 <p className="mt-3 text-muted-foreground text-xs">{footnote}</p>

@@ -246,7 +246,18 @@ export function Form2({ className }: Form2Props) {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="currency">Currency</FieldLabel>
-                  <Select onValueChange={setCurrency} value={currency}>
+                  <Select
+                    items={CURRENCIES.map((option) => ({
+                      label: option,
+                      value: option,
+                    }))}
+                    onValueChange={(value) => {
+                      if (value !== null) {
+                        setCurrency(value);
+                      }
+                    }}
+                    value={currency}
+                  >
                     <SelectTrigger className="w-full" id="currency">
                       <SelectValue />
                     </SelectTrigger>
@@ -263,7 +274,18 @@ export function Form2({ className }: Form2Props) {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="payment-terms">Payment Terms</FieldLabel>
-                  <Select onValueChange={setTerms} value={terms}>
+                  <Select
+                    items={TERMS.map((option) => ({
+                      label: option,
+                      value: option,
+                    }))}
+                    onValueChange={(value) => {
+                      if (value !== null) {
+                        setTerms(value);
+                      }
+                    }}
+                    value={terms}
+                  >
                     <SelectTrigger className="w-full" id="payment-terms">
                       <SelectValue />
                     </SelectTrigger>
@@ -280,7 +302,18 @@ export function Form2({ className }: Form2Props) {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="collection">Collection</FieldLabel>
-                  <Select onValueChange={setCollection} value={collection}>
+                  <Select
+                    items={COLLECTIONS.map((option) => ({
+                      label: option,
+                      value: option,
+                    }))}
+                    onValueChange={(value) => {
+                      if (value !== null) {
+                        setCollection(value);
+                      }
+                    }}
+                    value={collection}
+                  >
                     <SelectTrigger className="w-full" id="collection">
                       <SelectValue />
                     </SelectTrigger>
@@ -371,9 +404,16 @@ export function Form2({ className }: Form2Props) {
                     </FieldLabel>
                     <div className="flex items-center gap-1">
                       <Select
-                        onValueChange={(value) =>
-                          updateLine(row.id, { item: value })
-                        }
+                        items={CATALOG.map((option) => ({
+                          label: option,
+                          value: option,
+                        }))}
+                        onValueChange={(value) => {
+                          if (!value) {
+                            return;
+                          }
+                          updateLine(row.id, { item: value });
+                        }}
                         value={row.item}
                       >
                         <SelectTrigger className="w-full" id={`${row.id}-item`}>
@@ -447,9 +487,16 @@ export function Form2({ className }: Form2Props) {
                       Tax
                     </FieldLabel>
                     <Select
-                      onValueChange={(value) =>
-                        updateLine(row.id, { tax: value })
-                      }
+                      items={TAX_RATES.map((option) => ({
+                        label: option.label,
+                        value: option.value,
+                      }))}
+                      onValueChange={(value) => {
+                        if (!value) {
+                          return;
+                        }
+                        updateLine(row.id, { tax: value });
+                      }}
                       value={row.tax}
                     >
                       <SelectTrigger className="w-full" id={`${row.id}-tax`}>

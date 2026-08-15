@@ -89,11 +89,7 @@ export function Faq2({
           ) : null}
         </div>
         <div className="place-content-center">
-          <Accordion
-            className="rounded-none border-x-0 border-y"
-            collapsible
-            type="single"
-          >
+          <Accordion className="rounded-none border-x-0 border-y">
             {questions.map((item) => (
               <AccordionItem className="px-4" key={item.id} value={item.id}>
                 <AccordionTrigger className="py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">

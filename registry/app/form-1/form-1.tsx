@@ -115,7 +115,18 @@ export function Form1({ className }: Form1Props) {
                 </>
               }
             >
-              <Select onValueChange={setOfferType} value={offerType}>
+              <Select
+                items={OFFER_TYPES.map((option) => ({
+                  label: option,
+                  value: option,
+                }))}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setOfferType(value);
+                  }
+                }}
+                value={offerType}
+              >
                 <SelectTrigger className="w-full" id="offer-type">
                   <SelectValue />
                 </SelectTrigger>
@@ -267,7 +278,18 @@ export function Form1({ className }: Form1Props) {
             </FormRow>
 
             <FormRow htmlFor="button-copy" label="Button Copy">
-              <Select onValueChange={setButtonCopy} value={buttonCopy}>
+              <Select
+                items={BUTTON_COPY.map((option) => ({
+                  label: option,
+                  value: option,
+                }))}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setButtonCopy(value);
+                  }
+                }}
+                value={buttonCopy}
+              >
                 <SelectTrigger className="w-full" id="button-copy">
                   <SelectValue />
                 </SelectTrigger>
@@ -284,7 +306,18 @@ export function Form1({ className }: Form1Props) {
             </FormRow>
 
             <FormRow htmlFor="handoff" label="Handoff">
-              <Select onValueChange={setHandoff} value={handoff}>
+              <Select
+                items={HANDOFFS.map((option) => ({
+                  label: option,
+                  value: option,
+                }))}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setHandoff(value);
+                  }
+                }}
+                value={handoff}
+              >
                 <SelectTrigger className="w-full" id="handoff">
                   <SelectValue />
                 </SelectTrigger>

@@ -142,7 +142,7 @@ function BillingIntervalToggle({
   onChange: (isAnnual: boolean) => void;
 }) {
   const handleValueChange = useCallback(
-    (value: string) => {
+    ([value]: string[]) => {
       if (value === "monthly") {
         onChange(false);
         return;
@@ -158,8 +158,7 @@ function BillingIntervalToggle({
     <ToggleGroup
       className="rounded-lg border border-border bg-muted/50 p-1"
       onValueChange={handleValueChange}
-      type="single"
-      value={isAnnual ? "annual" : "monthly"}
+      value={[isAnnual ? "annual" : "monthly"]}
     >
       <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
       <ToggleGroupItem value="annual">Annually</ToggleGroupItem>
@@ -283,14 +282,13 @@ export function Pricing2({
                           )}
                         </div>
                         <Button
-                          asChild
                           className="w-full"
+                          nativeButton={false}
+                          render={<a href={plan.ctaHref ?? "#"} />}
                           size="lg"
                           variant={plan.popular ? "default" : "outline"}
                         >
-                          <a href={plan.ctaHref ?? "#"}>
-                            {plan.ctaLabel ?? ctaLabel}
-                          </a>
+                          {plan.ctaLabel ?? ctaLabel}
                         </Button>
                       </div>
                     </th>

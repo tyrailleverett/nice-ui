@@ -35,6 +35,22 @@ export interface Hero4Props {
   title?: string;
 }
 
+function PrimaryCtaButton({ action }: { action: Hero4Action }) {
+  if (action.href) {
+    return (
+      <Button
+        className="w-fit"
+        nativeButton={false}
+        render={<a href={action.href} />}
+      >
+        {action.label}
+      </Button>
+    );
+  }
+
+  return <Button className="w-fit">{action.label}</Button>;
+}
+
 const defaultLogos: Hero4Logo[] = [
   {
     alt: "Vercel",
@@ -112,15 +128,7 @@ export function Hero4({
                     {description}
                   </p>
                 ) : null}
-                {primaryCta ? (
-                  <Button asChild={Boolean(primaryCta.href)} className="w-fit">
-                    {primaryCta.href ? (
-                      <a href={primaryCta.href}>{primaryCta.label}</a>
-                    ) : (
-                      primaryCta.label
-                    )}
-                  </Button>
-                ) : null}
+                {primaryCta ? <PrimaryCtaButton action={primaryCta} /> : null}
               </div>
             </div>
           </div>

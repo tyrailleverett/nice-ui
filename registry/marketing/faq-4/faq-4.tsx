@@ -219,11 +219,7 @@ export function Faq4({
       </Tabs>
 
       {filtered.length > 0 ? (
-        <Accordion
-          className="space-y-2 border-0! px-4 py-12 lg:px-6"
-          collapsible
-          type="single"
-        >
+        <Accordion className="space-y-2 border-0! px-4 py-12 lg:px-6">
           {filtered.map((faq) => (
             <AccordionItem
               className="rounded-lg border px-4 shadow-xs"

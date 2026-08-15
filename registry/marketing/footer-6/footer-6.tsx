@@ -147,15 +147,14 @@ export function Footer6({
             <div className="flex shrink-0 items-center gap-2">
               {socialLinks.map((item) => (
                 <Button
-                  asChild
                   className="rounded-md"
                   key={item.label}
+                  nativeButton={false}
+                  render={<a aria-label={item.label} href={item.href} />}
                   size="icon"
                   variant="outline"
                 >
-                  <a aria-label={item.label} href={item.href}>
-                    {item.icon}
-                  </a>
+                  {item.icon}
                 </Button>
               ))}
             </div>

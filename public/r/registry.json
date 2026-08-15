@@ -643,6 +643,27 @@
       "type": "registry:block"
     },
     {
+      "name": "cta-13",
+      "title": "Split Copy Actions",
+      "description": "Two-column marketing call to action with highlighted headline, supporting copy, and split actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "tyrailleverett/nice-ui/full-width-divider"
+      ],
+      "files": [
+        {
+          "path": "registry/marketing/cta-13/cta-13.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/cta-13.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "footer-1",
       "title": "Inline Nav",
       "description": "Marketing footer with logo, social links, navigation, copyright, and optional attribution.",
@@ -1147,17 +1168,33 @@
       "type": "registry:block"
     },
     {
-      "name": "header-1",
-      "title": "Compact Sticky",
-      "description": "Compact sticky marketing header that tightens on scroll, with simple links and a mobile overlay menu.",
+      "name": "header-shared",
+      "title": "Header Shared",
+      "description": "Shared floating marketing header chrome, nav links, and mobile menu used by header blocks.",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "button",
-        "tyrailleverett/nice-ui/portal",
         "tyrailleverett/nice-ui/use-scroll"
+      ],
+      "files": [
+        {
+          "path": "registry/marketing/header-shared/header-shared.tsx",
+          "type": "registry:component",
+          "target": "~/components/header-shared.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "header-1",
+      "title": "Nav Left",
+      "description": "Floating marketing header that tightens on scroll, with nav links beside the logo.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/header-shared"
       ],
       "files": [
         {
@@ -1170,23 +1207,34 @@
     },
     {
       "name": "header-2",
-      "title": "Mega Menu",
-      "description": "Sticky marketing header with product and company mega menus, pricing link, and a mobile overlay menu.",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "title": "Nav Center",
+      "description": "Floating marketing header that tightens on scroll, with nav links centered between the logo and actions.",
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "button",
-        "navigation-menu",
-        "tyrailleverett/nice-ui/portal",
-        "tyrailleverett/nice-ui/use-scroll"
+        "tyrailleverett/nice-ui/header-shared"
       ],
       "files": [
         {
           "path": "registry/marketing/header-2/header-2.tsx",
           "type": "registry:component",
           "target": "~/components/marketing/header-2.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "header-3",
+      "title": "Nav Right",
+      "description": "Floating marketing header that tightens on scroll, with nav links grouped to the right ahead of the actions.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/header-shared"
+      ],
+      "files": [
+        {
+          "path": "registry/marketing/header-3/header-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/header-3.tsx"
         }
       ],
       "type": "registry:block"

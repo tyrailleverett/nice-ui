@@ -237,7 +237,17 @@ export function Dashboard2({ className }: Dashboard2Props) {
                   ["time", "Tracked time"],
                   ["status", "Billable status"],
                 ].map(([value, label]) => (
-                  <Select defaultValue={value} key={value}>
+                  <Select
+                    defaultValue={value}
+                    items={[
+                      { label, value },
+                      {
+                        label: `All ${label.toLowerCase()}`,
+                        value: `${value}-all`,
+                      },
+                    ]}
+                    key={value}
+                  >
                     <SelectTrigger
                       aria-label={label}
                       className="w-full sm:w-48"

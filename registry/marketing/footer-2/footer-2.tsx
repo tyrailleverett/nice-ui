@@ -113,15 +113,21 @@ export function Footer2({
           {socialLinks?.length ? (
             <div className="flex gap-2">
               {socialLinks.map((item) => (
-                <Button asChild key={item.label} size="icon" variant="outline">
-                  <a
-                    aria-label={item.label}
-                    href={item.href}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {item.icon}
-                  </a>
+                <Button
+                  key={item.label}
+                  nativeButton={false}
+                  render={
+                    <a
+                      aria-label={item.label}
+                      href={item.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    />
+                  }
+                  size="icon"
+                  variant="outline"
+                >
+                  {item.icon}
                 </Button>
               ))}
             </div>

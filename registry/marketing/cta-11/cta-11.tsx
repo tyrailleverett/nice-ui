@@ -65,8 +65,13 @@ function ActionButton({
 
   if (action.href) {
     return (
-      <Button asChild className="rounded-full" variant={variant}>
-        <a href={action.href}>{content}</a>
+      <Button
+        className="rounded-full"
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant={variant}
+      >
+        {content}
       </Button>
     );
   }

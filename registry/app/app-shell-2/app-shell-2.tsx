@@ -151,16 +151,16 @@ function OrganizationNavigation({
                     {item.children.map((child) => (
                       <SidebarMenuSubItem key={child}>
                         <SidebarMenuSubButton
-                          asChild
                           isActive={activeItem === child}
+                          render={
+                            <button
+                              data-navigation-label={child}
+                              onClick={onItemClick}
+                              type="button"
+                            />
+                          }
                         >
-                          <button
-                            data-navigation-label={child}
-                            onClick={onItemClick}
-                            type="button"
-                          >
-                            <span>{child}</span>
-                          </button>
+                          <span>{child}</span>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
@@ -183,19 +183,21 @@ function OrganizationMenu({ defaultOpen }: { defaultOpen: boolean }) {
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu defaultOpen={defaultOpen}>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              aria-label="Switch organization"
-              size="lg"
-              tooltip="Switch organization"
-              variant="outline"
-            >
-              <OrganizationMark />
-              <span className="flex-1 font-medium group-data-[collapsible=icon]:hidden">
-                Vercel
-              </span>
-              <EllipsisVerticalIcon className="ml-auto group-data-[collapsible=icon]:hidden" />
-            </SidebarMenuButton>
+          <DropdownMenuTrigger
+            render={
+              <SidebarMenuButton
+                aria-label="Switch organization"
+                size="lg"
+                tooltip="Switch organization"
+                variant="outline"
+              />
+            }
+          >
+            <OrganizationMark />
+            <span className="flex-1 font-medium group-data-[collapsible=icon]:hidden">
+              Vercel
+            </span>
+            <EllipsisVerticalIcon className="ml-auto group-data-[collapsible=icon]:hidden" />
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="start"

@@ -54,8 +54,13 @@ function FeatureCta({ cta }: { cta: Feature10Action }) {
 
   if (cta.href) {
     return (
-      <Button asChild className="mt-8 pr-2" variant="outline">
-        <a href={cta.href}>{content}</a>
+      <Button
+        className="mt-8 pr-2"
+        nativeButton={false}
+        render={<a href={cta.href} />}
+        variant="outline"
+      >
+        {content}
       </Button>
     );
   }

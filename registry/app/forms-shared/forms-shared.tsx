@@ -94,10 +94,17 @@ export function StatusBadge({
 export function FieldHint({ label }: { label: string }) {
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button aria-label={label} size="icon-xs" type="button" variant="ghost">
-          <CircleHelpIcon />
-        </Button>
+      <TooltipTrigger
+        render={
+          <Button
+            aria-label={label}
+            size="icon-xs"
+            type="button"
+            variant="ghost"
+          />
+        }
+      >
+        <CircleHelpIcon />
       </TooltipTrigger>
       <TooltipContent>{label}</TooltipContent>
     </Tooltip>

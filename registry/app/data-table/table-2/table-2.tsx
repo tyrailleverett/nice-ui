@@ -468,7 +468,8 @@ export function Table2({ className }: Table2Props) {
                 <TableHead className="w-10 pl-4">
                   <Checkbox
                     aria-label="Select all invoices on this page"
-                    checked={pageSelectionState}
+                    checked={pageSelectionState === true}
+                    indeterminate={pageSelectionState === "indeterminate"}
                     onCheckedChange={(checked) =>
                       togglePageSelection(checked === true)
                     }
@@ -612,14 +613,16 @@ export function Table2({ className }: Table2Props) {
                       </TableCell>
                       <TableCell className="pr-4">
                         <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-label={`Actions for ${invoice.id}`}
-                              size="icon-sm"
-                              variant="ghost"
-                            >
-                              <EllipsisIcon />
-                            </Button>
+                          <DropdownMenuTrigger
+                            render={
+                              <Button
+                                aria-label={`Actions for ${invoice.id}`}
+                                size="icon-sm"
+                                variant="ghost"
+                              />
+                            }
+                          >
+                            <EllipsisIcon />
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuItem>

@@ -118,13 +118,29 @@ export function ProfileForm({
         </Field>
         <Field>
           <FieldLabel htmlFor="onboarding-timezone">Timezone</FieldLabel>
-          <Select>
+          <Select
+            items={[
+              { label: "Select a timezone", value: null },
+              {
+                label: "Central Time (Chicago)",
+                value: "America/Chicago",
+              },
+              {
+                label: "Pacific Time (Los Angeles)",
+                value: "America/Los_Angeles",
+              },
+              {
+                label: "Eastern Time (New York)",
+                value: "America/New_York",
+              },
+            ]}
+          >
             <SelectTrigger
               aria-label="Timezone"
               className="h-12 w-full rounded-xl px-4 text-base"
               id="onboarding-timezone"
             >
-              <SelectValue placeholder="Select a timezone" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>

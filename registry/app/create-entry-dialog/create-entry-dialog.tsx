@@ -30,13 +30,13 @@ export function CreateEntryDialog(props: DialogProps) {
       >
         <div className="flex flex-col gap-6">
           <ToggleGroup
-            onValueChange={(value) => {
+            onValueChange={(values) => {
+              const [value] = values;
               if (value) {
                 setTab(value);
               }
             }}
-            type="single"
-            value={tab}
+            value={[tab]}
             variant="outline"
           >
             {entryTabs.map((item) => (
@@ -64,7 +64,10 @@ export function CreateEntryDialog(props: DialogProps) {
               {entryFields.map(([label, value, display]) => (
                 <Field key={label}>
                   <FieldLabel htmlFor={`entry-${value}`}>{label}</FieldLabel>
-                  <Select defaultValue={value}>
+                  <Select
+                    defaultValue={value}
+                    items={[{ label: display, value }]}
+                  >
                     <SelectTrigger className="w-full" id={`entry-${value}`}>
                       <SelectValue />
                     </SelectTrigger>

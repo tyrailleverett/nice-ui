@@ -84,11 +84,15 @@ export function Integrations1({
       {viewAll ? (
         <div className="relative flex items-center justify-center p-1 sm:col-span-2 lg:col-span-4">
           {viewAll.href ? (
-            <Button asChild className="text-xs" size="sm" variant="link">
-              <a href={viewAll.href}>
-                {viewAll.label}
-                <ArrowUpRightIcon data-icon="inline-end" />
-              </a>
+            <Button
+              className="text-xs"
+              nativeButton={false}
+              render={<a href={viewAll.href} />}
+              size="sm"
+              variant="link"
+            >
+              {viewAll.label}
+              <ArrowUpRightIcon data-icon="inline-end" />
             </Button>
           ) : (
             <Button className="text-xs" size="sm" type="button" variant="link">

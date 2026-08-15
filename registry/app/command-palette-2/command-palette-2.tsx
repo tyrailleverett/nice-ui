@@ -93,18 +93,20 @@ export default function CommandPalette2() {
   return (
     <section className="flex min-h-svh w-full flex-col items-center justify-center gap-3 bg-background px-6 py-12 text-foreground">
       <Dialog onOpenChange={setOpen} open={open}>
-        <DialogTrigger asChild>
-          <Button
-            className="w-full max-w-md justify-start gap-2 text-muted-foreground"
-            variant="outline"
-          >
-            <SearchIcon aria-hidden="true" />
-            <span className="flex-1 text-left">Search…</span>
-            <KbdGroup>
-              <Kbd>Ctrl</Kbd>
-              <Kbd>K</Kbd>
-            </KbdGroup>
-          </Button>
+        <DialogTrigger
+          render={
+            <Button
+              className="w-full max-w-md justify-start gap-2 text-muted-foreground"
+              variant="outline"
+            />
+          }
+        >
+          <SearchIcon aria-hidden="true" />
+          <span className="flex-1 text-left">Search…</span>
+          <KbdGroup>
+            <Kbd>Ctrl</Kbd>
+            <Kbd>K</Kbd>
+          </KbdGroup>
         </DialogTrigger>
         <DialogContent className="overflow-hidden p-0" showCloseButton={false}>
           <DialogTitle className="sr-only">Command palette</DialogTitle>

@@ -31,11 +31,13 @@ function HeaderAction({
 
   if (action.href) {
     return (
-      <Button asChild variant={variant}>
-        <a href={action.href}>
-          {Icon ? <Icon data-icon="inline-start" /> : null}
-          {action.label}
-        </a>
+      <Button
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant={variant}
+      >
+        {Icon ? <Icon data-icon="inline-start" /> : null}
+        {action.label}
       </Button>
     );
   }

@@ -50,7 +50,10 @@ export function SelectDurationDialog(props: DialogProps) {
                   (optional)
                 </span>
               </FieldLabel>
-              <Select defaultValue="02:00 AM">
+              <Select
+                defaultValue="02:00 AM"
+                items={[{ label: "02:00 AM", value: "02:00 AM" }]}
+              >
                 <SelectTrigger className="w-full" id="start-time">
                   <SelectValue />
                 </SelectTrigger>
@@ -68,7 +71,10 @@ export function SelectDurationDialog(props: DialogProps) {
                   (optional)
                 </span>
               </FieldLabel>
-              <Select defaultValue="02:30 AM">
+              <Select
+                defaultValue="02:30 AM"
+                items={[{ label: "02:30 AM", value: "02:30 AM" }]}
+              >
                 <SelectTrigger className="w-full" id="end-time">
                   <SelectValue />
                 </SelectTrigger>
@@ -84,13 +90,13 @@ export function SelectDurationDialog(props: DialogProps) {
             <FieldLegend>Quick duration</FieldLegend>
             <ToggleGroup
               className="grid w-full grid-cols-2 md:grid-cols-4"
-              onValueChange={(value) => {
+              onValueChange={(values) => {
+                const [value] = values;
                 if (value) {
                   setDuration(value);
                 }
               }}
-              type="single"
-              value={duration}
+              value={[duration]}
               variant="outline"
             >
               {durationPresets.map((preset) => (

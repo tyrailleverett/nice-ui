@@ -89,8 +89,7 @@ export function GeneralSettings({ className }: { className?: string }) {
         >
           <ToggleGroup
             className="justify-end gap-3"
-            defaultValue={accentColors[0]}
-            type="single"
+            defaultValue={[accentColors[0]]}
           >
             {accentColors.map((color, index) => (
               <ToggleGroupItem

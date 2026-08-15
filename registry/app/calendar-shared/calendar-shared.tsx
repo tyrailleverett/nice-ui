@@ -213,7 +213,14 @@ export function MonthCalendar({
           <ChevronLeftIcon />
         </Button>
         <Select
+          items={MONTHS.map((month, index) => ({
+            label: month,
+            value: String(index),
+          }))}
           onValueChange={(value) => {
+            if (!value) {
+              return;
+            }
             onViewChange(new Date(viewDate.getFullYear(), Number(value), 1));
           }}
           value={monthValue}
@@ -236,7 +243,14 @@ export function MonthCalendar({
           </SelectContent>
         </Select>
         <Select
+          items={YEAR_OPTIONS.map((year) => ({
+            label: year,
+            value: year,
+          }))}
           onValueChange={(value) => {
+            if (!value) {
+              return;
+            }
             onViewChange(new Date(Number(value), viewDate.getMonth(), 1));
           }}
           value={yearValue}

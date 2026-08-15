@@ -35,8 +35,13 @@ function ActionButton({
 
   if (action.href) {
     return (
-      <Button asChild className="shadow" variant={variant}>
-        <a href={action.href}>{content}</a>
+      <Button
+        className="shadow"
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant={variant}
+      >
+        {content}
       </Button>
     );
   }

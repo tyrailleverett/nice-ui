@@ -26,8 +26,13 @@ function PrimaryCtaButton({ action }: { action: Cta12Action }) {
 
   if (action.href) {
     return (
-      <Button asChild className="rounded-full" variant="outline">
-        <a href={action.href}>{content}</a>
+      <Button
+        className="rounded-full"
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant="outline"
+      >
+        {content}
       </Button>
     );
   }
@@ -50,8 +55,13 @@ function ActionLink({
 }) {
   if (action.href) {
     return (
-      <Button asChild className={className} variant="link">
-        <a href={action.href}>{children}</a>
+      <Button
+        className={className}
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant="link"
+      >
+        {children}
       </Button>
     );
   }

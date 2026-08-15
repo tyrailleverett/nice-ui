@@ -111,11 +111,7 @@ export function Faq3({
           className="pointer-events-none absolute inset-y-0 left-3 h-full w-px bg-border"
         />
 
-        <Accordion
-          className="rounded-none border-x-0 border-y"
-          collapsible
-          type="single"
-        >
+        <Accordion className="rounded-none border-x-0 border-y">
           {questions.map((item) => (
             <AccordionItem
               className="group relative pl-5"

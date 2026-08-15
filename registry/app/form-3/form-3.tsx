@@ -193,7 +193,18 @@ export function Form3({ className }: Form3Props) {
             Choose a stack and paste the environment block.
           </CardDescription>
           <CardAction className="flex items-center gap-2">
-            <Select onValueChange={setStack} value={stack}>
+            <Select
+              items={STACKS.map((option) => ({
+                label: option,
+                value: option,
+              }))}
+              onValueChange={(value) => {
+                if (value !== null) {
+                  setStack(value);
+                }
+              }}
+              value={stack}
+            >
               <SelectTrigger aria-label="Stack" className="w-40">
                 <BracesIcon />
                 <SelectValue />

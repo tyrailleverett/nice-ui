@@ -29,7 +29,13 @@ export function InviteTeammatesDialog(props: DialogProps) {
           </Field>
           <Field>
             <FieldLabel htmlFor="invite-role">Invite as</FieldLabel>
-            <Select defaultValue="core">
+            <Select
+              defaultValue="core"
+              items={[
+                { label: "Core member", value: "core" },
+                { label: "Guest", value: "guest" },
+              ]}
+            >
               <SelectTrigger className="w-full" id="invite-role">
                 <SelectValue />
               </SelectTrigger>

@@ -110,18 +110,20 @@ function ModuleNav({
         if (item.hasMenu && item.items) {
           return (
             <DropdownMenu key={item.label}>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  aria-current={isActive ? "page" : undefined}
-                  className={cn(!isActive && "text-muted-foreground")}
-                  data-navigation-label={item.label}
-                  onClick={onItemClick}
-                  variant={isActive ? "secondary" : "ghost"}
-                >
-                  <Icon data-icon="inline-start" />
-                  {item.label}
-                  <ChevronDownIcon data-icon="inline-end" />
-                </Button>
+              <DropdownMenuTrigger
+                render={
+                  <Button
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(!isActive && "text-muted-foreground")}
+                    data-navigation-label={item.label}
+                    onClick={onItemClick}
+                    variant={isActive ? "secondary" : "ghost"}
+                  />
+                }
+              >
+                <Icon data-icon="inline-start" />
+                {item.label}
+                <ChevronDownIcon data-icon="inline-end" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 <DropdownMenuGroup>
@@ -155,17 +157,19 @@ function ModuleNav({
 function AccountMenu({ defaultOpen }: { defaultOpen: boolean }) {
   return (
     <DropdownMenu defaultOpen={defaultOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button
-          aria-label="Open account menu"
-          className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-          size="icon"
-          variant="ghost"
-        >
-          <Avatar className="rounded-md after:rounded-md" size="sm">
-            <AvatarFallback className="rounded-md">CR</AvatarFallback>
-          </Avatar>
-        </Button>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            aria-label="Open account menu"
+            className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            size="icon"
+            variant="ghost"
+          />
+        }
+      >
+        <Avatar className="rounded-md after:rounded-md" size="sm">
+          <AvatarFallback className="rounded-md">CR</AvatarFallback>
+        </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-52">
         <DropdownMenuLabel>Cal Reyes</DropdownMenuLabel>

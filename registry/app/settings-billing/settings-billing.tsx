@@ -437,10 +437,10 @@ export function SubscriptionPlan({
       </CardContent>
       <CardFooter className="flex flex-col gap-2 sm:flex-row sm:justify-end">
         <Dialog onOpenChange={setCancelOpen} open={cancelOpen}>
-          <DialogTrigger asChild>
-            <Button className="w-full sm:w-auto" variant="ghost">
-              Cancel plan
-            </Button>
+          <DialogTrigger
+            render={<Button className="w-full sm:w-auto" variant="ghost" />}
+          >
+            Cancel plan
           </DialogTrigger>
           <DialogContent className="sm:max-w-md" showCloseButton>
             <DialogHeader>
@@ -461,8 +461,8 @@ export function SubscriptionPlan({
           </DialogContent>
         </Dialog>
         <Dialog onOpenChange={setOpen} open={open}>
-          <DialogTrigger asChild>
-            <Button className="w-full sm:w-auto">Change plan</Button>
+          <DialogTrigger render={<Button className="w-full sm:w-auto" />}>
+            Change plan
           </DialogTrigger>
           <DialogContent className="sm:max-w-lg" showCloseButton>
             <DialogHeader>
@@ -740,14 +740,16 @@ export function InvoiceHistory({
                   </TableCell>
                   <TableCell className="pr-6">
                     <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button
-                          aria-label={`Actions for ${invoice.id}`}
-                          size="icon-sm"
-                          variant="ghost"
-                        >
-                          <MoreHorizontalIcon />
-                        </Button>
+                      <DropdownMenuTrigger
+                        render={
+                          <Button
+                            aria-label={`Actions for ${invoice.id}`}
+                            size="icon-sm"
+                            variant="ghost"
+                          />
+                        }
+                      >
+                        <MoreHorizontalIcon />
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuGroup>

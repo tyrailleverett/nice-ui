@@ -126,17 +126,19 @@ function MarketNav({
         if (item.hasMenu && item.items) {
           return (
             <DropdownMenu key={item.label}>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  aria-current={isActive ? "page" : undefined}
-                  data-navigation-label={item.label}
-                  onClick={onItemClick}
-                  variant={isActive ? "secondary" : "ghost"}
-                >
-                  <Icon data-icon="inline-start" />
-                  {item.label}
-                  <ChevronDownIcon data-icon="inline-end" />
-                </Button>
+              <DropdownMenuTrigger
+                render={
+                  <Button
+                    aria-current={isActive ? "page" : undefined}
+                    data-navigation-label={item.label}
+                    onClick={onItemClick}
+                    variant={isActive ? "secondary" : "ghost"}
+                  />
+                }
+              >
+                <Icon data-icon="inline-start" />
+                {item.label}
+                <ChevronDownIcon data-icon="inline-end" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 <DropdownMenuGroup>
@@ -169,12 +171,14 @@ function MarketNav({
 function AccountMenu({ defaultOpen }: { defaultOpen: boolean }) {
   return (
     <DropdownMenu defaultOpen={defaultOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button aria-label="Open account menu" size="icon" variant="ghost">
-          <Avatar size="sm">
-            <AvatarFallback>AM</AvatarFallback>
-          </Avatar>
-        </Button>
+      <DropdownMenuTrigger
+        render={
+          <Button aria-label="Open account menu" size="icon" variant="ghost" />
+        }
+      >
+        <Avatar size="sm">
+          <AvatarFallback>AM</AvatarFallback>
+        </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-52">
         <DropdownMenuLabel>Ada Moreau</DropdownMenuLabel>

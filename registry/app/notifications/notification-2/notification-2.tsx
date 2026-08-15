@@ -47,7 +47,8 @@ export function Notification2({ className }: Notification2Props) {
   const [tab, setTab] = useState("All");
   const [read, setRead] = useState(false);
   const markRead = useCallback(() => setRead(true), []);
-  const changeTab = useCallback((value: string) => {
+  const changeTab = useCallback((values: string[]) => {
+    const [value] = values;
     if (value) {
       setTab(value);
     }
@@ -83,8 +84,7 @@ export function Notification2({ className }: Notification2Props) {
       <ToggleGroup
         className="mx-8 mb-6 w-[calc(100%-4rem)] rounded-2xl bg-muted p-1.5"
         onValueChange={changeTab}
-        type="single"
-        value={tab}
+        value={[tab]}
       >
         {["All", "Unread  10", "Mentions  3"].map((label) => (
           <ToggleGroupItem

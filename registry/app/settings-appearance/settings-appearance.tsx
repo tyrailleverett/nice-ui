@@ -419,7 +419,8 @@ export function DisplayComfort({
   const largeContrast = contrastProp ?? uncontrolledContrast;
 
   const handleDensityChange = useCallback(
-    (value: string) => {
+    (values: string[]) => {
+      const [value] = values;
       if (value !== "comfortable" && value !== "compact") {
         return;
       }
@@ -432,7 +433,8 @@ export function DisplayComfort({
   );
 
   const handleTextSizeChange = useCallback(
-    (value: string) => {
+    (values: string[]) => {
+      const [value] = values;
       if (value !== "default" && value !== "large") {
         return;
       }
@@ -472,8 +474,7 @@ export function DisplayComfort({
       >
         <ToggleGroup
           onValueChange={handleDensityChange}
-          type="single"
-          value={density}
+          value={[density]}
           variant="outline"
         >
           <ToggleGroupItem value="comfortable">Comfortable</ToggleGroupItem>
@@ -486,8 +487,7 @@ export function DisplayComfort({
       >
         <ToggleGroup
           onValueChange={handleTextSizeChange}
-          type="single"
-          value={textSize}
+          value={[textSize]}
           variant="outline"
         >
           <ToggleGroupItem value="default">Default</ToggleGroupItem>
@@ -530,7 +530,8 @@ export function AppearanceSettings({ className }: AppearanceSettingsProps) {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [contrast, setContrast] = useState(false);
 
-  const handleCornersChange = useCallback((value: string) => {
+  const handleCornersChange = useCallback((values: string[]) => {
+    const [value] = values;
     if (value === "square" || value === "soft" || value === "round") {
       setCorners(value);
     }
@@ -580,8 +581,7 @@ export function AppearanceSettings({ className }: AppearanceSettingsProps) {
         >
           <ToggleGroup
             onValueChange={handleCornersChange}
-            type="single"
-            value={corners}
+            value={[corners]}
             variant="outline"
           >
             <ToggleGroupItem value="square">Square</ToggleGroupItem>

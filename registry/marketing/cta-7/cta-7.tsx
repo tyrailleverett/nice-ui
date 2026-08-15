@@ -130,10 +130,13 @@ export function Cta7({
         </p>
       ) : null}
       {primaryCta.href ? (
-        <Button asChild className="rounded-full" size="lg">
-          <a href={primaryCta.href} rel="noreferrer" target="_blank">
-            {ctaContent}
-          </a>
+        <Button
+          className="rounded-full"
+          nativeButton={false}
+          render={<a href={primaryCta.href} rel="noreferrer" target="_blank" />}
+          size="lg"
+        >
+          {ctaContent}
         </Button>
       ) : (
         <Button className="rounded-full" size="lg" type="button">

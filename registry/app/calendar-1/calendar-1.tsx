@@ -1,3 +1,4 @@
+/* biome-ignore-all lint/performance/noJsxPropsBind: Select handlers close over duration and recurrence setters. */
 import { CircleDotIcon, ShieldIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
@@ -72,7 +73,18 @@ export function Calendar1({ className }: Calendar1Props) {
           <div className="grid gap-4 sm:grid-cols-2">
             <Field>
               <FieldLabel htmlFor="meeting-duration">Duration</FieldLabel>
-              <Select onValueChange={setDuration} value={duration}>
+              <Select
+                items={DURATION_OPTIONS.map((option) => ({
+                  label: option,
+                  value: option,
+                }))}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setDuration(value);
+                  }
+                }}
+                value={duration}
+              >
                 <SelectTrigger className="w-full" id="meeting-duration">
                   <SelectValue />
                 </SelectTrigger>
@@ -89,7 +101,18 @@ export function Calendar1({ className }: Calendar1Props) {
             </Field>
             <Field>
               <FieldLabel htmlFor="meeting-recurrence">Recurrence</FieldLabel>
-              <Select onValueChange={setRecurrence} value={recurrence}>
+              <Select
+                items={RECURRENCE_OPTIONS.map((option) => ({
+                  label: option,
+                  value: option,
+                }))}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setRecurrence(value);
+                  }
+                }}
+                value={recurrence}
+              >
                 <SelectTrigger className="w-full" id="meeting-recurrence">
                   <SelectValue />
                 </SelectTrigger>

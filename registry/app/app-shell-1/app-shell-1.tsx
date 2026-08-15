@@ -164,16 +164,16 @@ function ProductNavigation({
                     {item.children.map((child) => (
                       <SidebarMenuSubItem key={child}>
                         <SidebarMenuSubButton
-                          asChild
                           isActive={activeItem === child}
+                          render={
+                            <button
+                              data-navigation-label={child}
+                              onClick={onItemClick}
+                              type="button"
+                            />
+                          }
                         >
-                          <button
-                            data-navigation-label={child}
-                            onClick={onItemClick}
-                            type="button"
-                          >
-                            <span>{child}</span>
-                          </button>
+                          <span>{child}</span>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
@@ -221,12 +221,14 @@ function WorkspaceMenu({ defaultOpen }: { defaultOpen: boolean }) {
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu defaultOpen={defaultOpen}>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton aria-label="Switch workspace" size="lg">
-              <BrandMark />
-              <span className="flex-1 font-semibold">ReUI</span>
-              <EllipsisIcon className="ml-auto" />
-            </SidebarMenuButton>
+          <DropdownMenuTrigger
+            render={
+              <SidebarMenuButton aria-label="Switch workspace" size="lg" />
+            }
+          >
+            <BrandMark />
+            <span className="flex-1 font-semibold">ReUI</span>
+            <EllipsisIcon className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-68">
             <DropdownMenuLabel>Workspaces</DropdownMenuLabel>
@@ -275,20 +277,22 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu defaultOpen={defaultOpen}>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              aria-label="Open user menu"
-              size="lg"
-              variant="outline"
-            >
-              <Avatar size="sm">
-                <AvatarFallback>NB</AvatarFallback>
-              </Avatar>
-              <span className="min-w-0 flex-1 truncate font-medium">
-                Nick Bold
-              </span>
-              <EllipsisIcon className="ml-auto" />
-            </SidebarMenuButton>
+          <DropdownMenuTrigger
+            render={
+              <SidebarMenuButton
+                aria-label="Open user menu"
+                size="lg"
+                variant="outline"
+              />
+            }
+          >
+            <Avatar size="sm">
+              <AvatarFallback>NB</AvatarFallback>
+            </Avatar>
+            <span className="min-w-0 flex-1 truncate font-medium">
+              Nick Bold
+            </span>
+            <EllipsisIcon className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-68" side="right">
             <DropdownMenuLabel className="flex items-center gap-3 py-2">

@@ -228,7 +228,13 @@ export function Dashboard1({ className }: Dashboard1Props) {
             <CardHeader>
               <CardTitle>Shift Performance</CardTitle>
               <CardAction>
-                <Select defaultValue="today">
+                <Select
+                  defaultValue="today"
+                  items={[
+                    { label: "Today", value: "today" },
+                    { label: "This week", value: "week" },
+                  ]}
+                >
                   <SelectTrigger aria-label="Shift period" className="w-36">
                     <SelectValue />
                   </SelectTrigger>

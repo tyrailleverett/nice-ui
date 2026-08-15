@@ -68,15 +68,17 @@ export function Calendar3({ className }: Calendar3Props) {
             </div>
           </div>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                aria-label="More options"
-                size="icon"
-                type="button"
-                variant="ghost"
-              >
-                <EllipsisIcon />
-              </Button>
+            <DropdownMenuTrigger
+              render={
+                <Button
+                  aria-label="More options"
+                  size="icon"
+                  type="button"
+                  variant="ghost"
+                />
+              }
+            >
+              <EllipsisIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuGroup>
@@ -91,7 +93,18 @@ export function Calendar3({ className }: Calendar3Props) {
             <div className="grid gap-4 sm:grid-cols-2">
               <Field>
                 <FieldLabel htmlFor="start-time">Start time</FieldLabel>
-                <Select onValueChange={setStart} value={start}>
+                <Select
+                  items={slots.map((slot) => ({
+                    label: formatMeridiem(slot),
+                    value: slot,
+                  }))}
+                  onValueChange={(value) => {
+                    if (value !== null) {
+                      setStart(value);
+                    }
+                  }}
+                  value={start}
+                >
                   <SelectTrigger className="w-full" id="start-time">
                     <SelectValue>{formatMeridiem(start)}</SelectValue>
                   </SelectTrigger>
@@ -109,7 +122,14 @@ export function Calendar3({ className }: Calendar3Props) {
               <Field>
                 <FieldLabel htmlFor="end-time">End time</FieldLabel>
                 <Select
+                  items={slots.map((slot) => ({
+                    label: formatMeridiem(slot),
+                    value: slot,
+                  }))}
                   onValueChange={(value) => {
+                    if (!value) {
+                      return;
+                    }
                     const [startHour, startMinute] = start
                       .split(":")
                       .map(Number);

@@ -101,10 +101,14 @@ export function Footer4({
           {socialLinks?.length ? (
             <div className="flex items-center gap-2">
               {socialLinks.map(({ icon, href, label }) => (
-                <Button asChild key={label} size="icon" variant="outline">
-                  <a aria-label={label} href={href}>
-                    {icon}
-                  </a>
+                <Button
+                  key={label}
+                  nativeButton={false}
+                  render={<a aria-label={label} href={href} />}
+                  size="icon"
+                  variant="outline"
+                >
+                  {icon}
                 </Button>
               ))}
             </div>

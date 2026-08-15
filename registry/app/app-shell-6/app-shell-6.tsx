@@ -71,18 +71,20 @@ function WorkspaceCanvas({ children }: { children?: ReactNode }) {
 function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
   return (
     <DropdownMenu defaultOpen={defaultOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button
-          aria-label="Open user menu"
-          className="h-9 gap-2 px-1.5"
-          variant="ghost"
-        >
-          <Avatar size="sm">
-            <AvatarFallback>LV</AvatarFallback>
-          </Avatar>
-          <span className="font-medium">Lena Voss</span>
-          <ChevronsUpDownIcon data-icon="inline-end" />
-        </Button>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            aria-label="Open user menu"
+            className="h-9 gap-2 px-1.5"
+            variant="ghost"
+          />
+        }
+      >
+        <Avatar size="sm">
+          <AvatarFallback>LV</AvatarFallback>
+        </Avatar>
+        <span className="font-medium">Lena Voss</span>
+        <ChevronsUpDownIcon data-icon="inline-end" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="flex flex-col">

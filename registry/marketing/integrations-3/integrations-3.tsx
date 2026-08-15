@@ -29,8 +29,8 @@ export interface Integrations3Props {
 function IntegrationsCta({ action }: { action: Integrations3Action }) {
   if (action.href) {
     return (
-      <Button asChild size="sm">
-        <a href={action.href}>{action.label}</a>
+      <Button nativeButton={false} render={<a href={action.href} />} size="sm">
+        {action.label}
       </Button>
     );
   }

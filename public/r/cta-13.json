@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-13",
+  "title": "Split Copy Actions",
+  "description": "Two-column marketing call to action with highlighted headline, supporting copy, and split actions.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "tyrailleverett/nice-ui/full-width-divider"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cta-13/cta-13.tsx",
+      "content": "import { ArrowRightIcon, ArrowUpRightIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nimport { FullWidthDivider } from \"@/components/full-width-divider\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Cta13Action {\n  href?: string;\n  label: string;\n}\n\nexport interface Cta13Props {\n  className?: string;\n  description?: string;\n  highlight?: string;\n  primaryCta?: Cta13Action;\n  secondaryCta?: Cta13Action;\n  title?: string;\n}\n\nfunction ActionButton({\n  action,\n  variant,\n  size,\n  icon,\n}: {\n  action: Cta13Action;\n  variant?: \"default\" | \"link\";\n  size?: \"default\" | \"lg\";\n  icon?: ReactNode;\n}) {\n  const content = (\n    <>\n      {action.label}\n      {icon}\n    </>\n  );\n\n  if (action.href) {\n    return (\n      <Button\n        nativeButton={false}\n        render={<a href={action.href} />}\n        size={size}\n        variant={variant}\n      >\n        {content}\n      </Button>\n    );\n  }\n\n  return (\n    <Button size={size} type=\"button\" variant={variant}>\n      {content}\n    </Button>\n  );\n}\n\nexport function Cta13({\n  title = \"Your SaaS deserves a\",\n  highlight = \"better starting point\",\n  description = \"Stop rebuilding authentication and billing from scratch. Start with a production-ready foundation and ship your first feature today.\",\n  primaryCta = { href: \"#\", label: \"Get started\" },\n  secondaryCta = { href: \"#\", label: \"View Pricing\" },\n  className,\n}: Cta13Props) {\n  return (\n    <section\n      className={cn(\"relative mx-auto w-full max-w-6xl border-x\", className)}\n    >\n      <FullWidthDivider position=\"top\" />\n      <div className=\"grid grid-cols-1 md:grid-cols-2\">\n        <div className=\"flex flex-col justify-center px-8 py-12 md:py-16\">\n          <div className=\"flex max-w-lg flex-col gap-3\">\n            <h2 className=\"text-balance font-heading font-semibold text-xl tracking-tight sm:text-2xl lg:text-3xl\">\n              {title}{\" \"}\n              {highlight ? (\n                <span className=\"text-primary\">{highlight}</span>\n              ) : null}\n            </h2>\n            {description ? (\n              <p className=\"text-balance text-base text-muted-foreground\">\n                {description}\n              </p>\n            ) : null}\n          </div>\n        </div>\n        <div className=\"flex flex-col items-start justify-center gap-3 px-8 py-12 md:items-end md:border-l md:py-16\">\n          <div className=\"flex flex-col items-stretch gap-3 sm:flex-row sm:items-center\">\n            {primaryCta ? (\n              <ActionButton\n                action={primaryCta}\n                icon={<ArrowUpRightIcon data-icon=\"inline-end\" />}\n                size=\"lg\"\n              />\n            ) : null}\n            {secondaryCta ? (\n              <ActionButton\n                action={secondaryCta}\n                icon={<ArrowRightIcon data-icon=\"inline-end\" />}\n                variant=\"link\"\n              />\n            ) : null}\n          </div>\n        </div>\n      </div>\n      <FullWidthDivider position=\"bottom\" />\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "~/components/marketing/cta-13.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

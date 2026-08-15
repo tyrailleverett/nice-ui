@@ -41,8 +41,13 @@ export function Cta10({
       </>
     );
     action = primaryCta.href ? (
-      <Button asChild className="rounded-full" variant="outline">
-        <a href={primaryCta.href}>{content}</a>
+      <Button
+        className="rounded-full"
+        nativeButton={false}
+        render={<a href={primaryCta.href} />}
+        variant="outline"
+      >
+        {content}
       </Button>
     ) : (
       <Button className="rounded-full" type="button" variant="outline">

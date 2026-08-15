@@ -79,7 +79,10 @@ export function SelectField({
   label: string;
 }) {
   return (
-    <Select defaultValue={defaultValue}>
+    <Select
+      defaultValue={defaultValue}
+      items={items.map((item) => ({ label: item, value: item }))}
+    >
       <SelectTrigger aria-label={label} className="w-full">
         <SelectValue />
       </SelectTrigger>

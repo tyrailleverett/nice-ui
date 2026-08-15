@@ -118,7 +118,8 @@ export function Detail1({
   onReleaseHold,
 }: Detail1Props) {
   const [filter, setFilter] = useState<ActivityFilter>("all");
-  const handleFilter = useCallback((value: string) => {
+  const handleFilter = useCallback((values: string[]) => {
+    const [value] = values;
     if (value === "all" || value === "people" || value === "system") {
       setFilter(value);
     }
@@ -179,14 +180,16 @@ export function Detail1({
                 Release hold
               </Button>
               <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    aria-label="More actions"
-                    size="icon"
-                    variant="outline"
-                  >
-                    <EllipsisIcon />
-                  </Button>
+                <DropdownMenuTrigger
+                  render={
+                    <Button
+                      aria-label="More actions"
+                      size="icon"
+                      variant="outline"
+                    />
+                  }
+                >
+                  <EllipsisIcon />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuGroup>
@@ -300,8 +303,7 @@ export function Detail1({
                 <ToggleGroup
                   onValueChange={handleFilter}
                   size="sm"
-                  type="single"
-                  value={filter}
+                  value={[filter]}
                   variant="outline"
                 >
                   <ToggleGroupItem aria-label="All activity" value="all">

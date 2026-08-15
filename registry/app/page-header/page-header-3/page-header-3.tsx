@@ -29,6 +29,34 @@ export interface PageHeader3Props {
 
 type ViewMode = "grid" | "list";
 
+function HeaderAction({
+  action,
+}: {
+  action: NonNullable<PageHeader3Props["primaryAction"]>;
+}) {
+  const ActionIcon = action.icon;
+  const content = (
+    <>
+      {ActionIcon ? <ActionIcon data-icon="inline-start" /> : null}
+      {action.label}
+    </>
+  );
+
+  if (action.href) {
+    return (
+      <Button
+        className="w-full sm:w-auto"
+        nativeButton={false}
+        render={<a href={action.href} />}
+      >
+        {content}
+      </Button>
+    );
+  }
+
+  return <Button className="w-full sm:w-auto">{content}</Button>;
+}
+
 export function PageHeader3({
   className,
   description = "Manage and track every project across your workspace.",
@@ -36,9 +64,9 @@ export function PageHeader3({
   title = "Projects",
 }: PageHeader3Props) {
   const [view, setView] = useState<ViewMode>("list");
-  const ActionIcon = primaryAction?.icon;
 
-  const handleViewChange = useCallback((value: string) => {
+  const handleViewChange = useCallback((values: string[]) => {
+    const [value] = values;
     if (value === "list" || value === "grid") {
       setView(value);
     }
@@ -59,24 +87,7 @@ export function PageHeader3({
               <p className="text-muted-foreground text-sm">{description}</p>
             ) : null}
           </div>
-          {primaryAction ? (
-            <Button
-              asChild={Boolean(primaryAction.href)}
-              className="w-full sm:w-auto"
-            >
-              {primaryAction.href ? (
-                <a href={primaryAction.href}>
-                  {ActionIcon ? <ActionIcon data-icon="inline-start" /> : null}
-                  {primaryAction.label}
-                </a>
-              ) : (
-                <>
-                  {ActionIcon ? <ActionIcon data-icon="inline-start" /> : null}
-                  {primaryAction.label}
-                </>
-              )}
-            </Button>
-          ) : null}
+          {primaryAction ? <HeaderAction action={primaryAction} /> : null}
         </div>
 
         <Separator className="my-5" />
@@ -94,7 +105,14 @@ export function PageHeader3({
           </InputGroup>
 
           <div className="flex items-center gap-2">
-            <Select defaultValue="Active">
+            <Select
+              defaultValue="Active"
+              items={[
+                { label: "All", value: "All" },
+                { label: "Active", value: "Active" },
+                { label: "Archived", value: "Archived" },
+              ]}
+            >
               <SelectTrigger aria-label="Filter by status" className="w-32">
                 <SelectValue />
               </SelectTrigger>
@@ -106,7 +124,14 @@ export function PageHeader3({
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <Select defaultValue="Most recent">
+            <Select
+              defaultValue="Most recent"
+              items={[
+                { label: "Most recent", value: "Most recent" },
+                { label: "Name", value: "Name" },
+                { label: "Owner", value: "Owner" },
+              ]}
+            >
               <SelectTrigger aria-label="Sort by" className="w-36">
                 <SelectValue />
               </SelectTrigger>
@@ -122,8 +147,7 @@ export function PageHeader3({
               className="overflow-hidden rounded-lg border border-border"
               onValueChange={handleViewChange}
               spacing={0}
-              type="single"
-              value={view}
+              value={[view]}
             >
               <ToggleGroupItem
                 aria-label="List view"

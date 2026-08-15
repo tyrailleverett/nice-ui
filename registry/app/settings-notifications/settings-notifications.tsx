@@ -25,7 +25,14 @@ import { cn } from "@/lib/utils";
 
 function NotificationDeliverySelect() {
   return (
-    <Select defaultValue="default">
+    <Select
+      defaultValue="default"
+      items={[
+        { label: "Default", value: "default" },
+        { label: "Important only", value: "important" },
+        { label: "Off", value: "off" },
+      ]}
+    >
       <SelectTrigger
         aria-label="Notification delivery"
         className="h-12 w-full text-base"

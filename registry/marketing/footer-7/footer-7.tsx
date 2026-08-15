@@ -89,7 +89,7 @@ function ThemeSwitcher({
   ];
 
   const handleValueChange = useCallback(
-    (value: string) => {
+    ([value]: string[]) => {
       if (value === "system" || value === "light" || value === "dark") {
         onThemeChange?.(value);
       }
@@ -102,8 +102,7 @@ function ThemeSwitcher({
       className="rounded-full border p-0.5"
       onValueChange={handleValueChange}
       spacing={0}
-      type="single"
-      value={theme}
+      value={[theme]}
       variant="solid"
     >
       {options.map((option) => (
@@ -172,10 +171,14 @@ export function Footer7({
           {socialLinks?.length ? (
             <div className="flex items-center gap-2">
               {socialLinks.map((item) => (
-                <Button asChild key={item.label} size="icon" variant="outline">
-                  <a aria-label={item.label} href={item.href}>
-                    {item.icon}
-                  </a>
+                <Button
+                  key={item.label}
+                  nativeButton={false}
+                  render={<a aria-label={item.label} href={item.href} />}
+                  size="icon"
+                  variant="outline"
+                >
+                  {item.icon}
                 </Button>
               ))}
             </div>

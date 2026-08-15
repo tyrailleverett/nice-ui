@@ -72,10 +72,14 @@ export function Footer1({
           {socialLinks?.length ? (
             <div className="flex items-center">
               {socialLinks.map(({ href, label, icon }) => (
-                <Button asChild key={label} size="icon" variant="ghost">
-                  <a aria-label={label} href={href}>
-                    {icon}
-                  </a>
+                <Button
+                  key={label}
+                  nativeButton={false}
+                  render={<a aria-label={label} href={href} />}
+                  size="icon"
+                  variant="ghost"
+                >
+                  {icon}
                 </Button>
               ))}
             </div>

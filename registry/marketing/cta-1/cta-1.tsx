@@ -23,8 +23,12 @@ function ActionButton({
 }) {
   if (action.href) {
     return (
-      <Button asChild variant={variant}>
-        <a href={action.href}>{action.label}</a>
+      <Button
+        nativeButton={false}
+        render={<a href={action.href} />}
+        variant={variant}
+      >
+        {action.label}
       </Button>
     );
   }

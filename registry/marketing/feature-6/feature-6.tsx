@@ -67,16 +67,15 @@ function DownloadIllustration() {
   return (
     <div className="absolute inset-0 z-1 m-auto size-fit scale-95">
       <Button
-        asChild
         className="inset-ring inset-ring-foreground/25 ml-1 bg-background/25 backdrop-blur"
+        nativeButton={false}
+        render={<div />}
         size="sm"
         variant="secondary"
       >
-        <div>
-          <HardDriveDownloadIcon className="opacity-75" />
-          <span className="border-r pr-2">Download</span>
-          <ChevronDownIcon className="opacity-50" />
-        </div>
+        <HardDriveDownloadIcon className="opacity-75" />
+        <span className="border-r pr-2">Download</span>
+        <ChevronDownIcon className="opacity-50" />
       </Button>
 
       <div className="mt-3 min-w-52 rounded-2xl bg-white p-1 shadow-black/10 shadow-xl ring ring-black/10 *:cursor-pointer">
