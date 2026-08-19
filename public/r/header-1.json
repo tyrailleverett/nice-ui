@@ -1,6 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "header-1",
+  "type": "registry:block",
   "title": "Nav Left",
   "description": "Floating marketing header that tightens on scroll, with nav links beside the logo.",
   "registryDependencies": [
@@ -10,10 +11,9 @@
   "files": [
     {
       "path": "registry/marketing/header-1/header-1.tsx",
-      "content": "import {\n  HeaderActions,\n  type HeaderBlockProps,\n  type HeaderCta,\n  HeaderFrame,\n  HeaderLogo,\n  HeaderMenuToggle,\n  type HeaderNavLink,\n  HeaderNavLinks,\n  useHeaderMenu,\n} from \"@/components/header-shared\";\n\nexport type Header1Cta = HeaderCta;\nexport type Header1NavLink = HeaderNavLink;\nexport type Header1Props = HeaderBlockProps;\n\nexport function Header1({\n  className,\n  getStarted = { label: \"Get started\" },\n  logo,\n  logoHref = \"#\",\n  navLinks,\n  signIn = { label: \"Login\" },\n}: Header1Props) {\n  const { menuOpen, toggleMenu } = useHeaderMenu();\n\n  return (\n    <HeaderFrame className={className} menuOpen={menuOpen}>\n      <div className=\"flex w-full justify-between lg:w-auto\">\n        <div className=\"flex items-center gap-8\">\n          <HeaderLogo logo={logo} logoHref={logoHref} />\n          <HeaderNavLinks className=\"hidden lg:flex\" navLinks={navLinks} />\n        </div>\n        <HeaderMenuToggle menuOpen={menuOpen} onToggle={toggleMenu} />\n      </div>\n      <HeaderActions\n        getStarted={getStarted}\n        menuOpen={menuOpen}\n        navLinks={navLinks}\n        signIn={signIn}\n      />\n    </HeaderFrame>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/marketing/header-1.tsx"
+      "target": "~/components/marketing/header-1.tsx",
+      "content": "import {\n  HeaderActions,\n  type HeaderBlockProps,\n  type HeaderCta,\n  HeaderFrame,\n  HeaderLogo,\n  HeaderMenuToggle,\n  type HeaderNavLink,\n  HeaderNavLinks,\n  useHeaderMenu,\n} from \"@/components/header-shared\";\n\nexport type Header1Cta = HeaderCta;\nexport type Header1NavLink = HeaderNavLink;\nexport type Header1Props = HeaderBlockProps;\n\nexport function Header1({\n  className,\n  getStarted = { label: \"Get started\" },\n  logo,\n  logoHref = \"#\",\n  navLinks,\n  signIn = { label: \"Login\" },\n}: Header1Props) {\n  const { menuOpen, toggleMenu } = useHeaderMenu();\n\n  return (\n    <HeaderFrame className={className} menuOpen={menuOpen}>\n      <div className=\"flex w-full justify-between lg:w-auto\">\n        <div className=\"flex items-center gap-8\">\n          <HeaderLogo logo={logo} logoHref={logoHref} />\n          <HeaderNavLinks className=\"hidden lg:flex\" navLinks={navLinks} />\n        </div>\n        <HeaderMenuToggle menuOpen={menuOpen} onToggle={toggleMenu} />\n      </div>\n      <HeaderActions\n        getStarted={getStarted}\n        menuOpen={menuOpen}\n        navLinks={navLinks}\n        signIn={signIn}\n      />\n    </HeaderFrame>\n  );\n}\n"
     }
-  ],
-  "type": "registry:block"
+  ]
 }

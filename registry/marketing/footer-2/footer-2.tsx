@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ export interface Footer2Props {
   className?: string;
   companyLinks: Footer2NavLink[];
   companyTitle?: string;
+  contact?: Footer2NavLink;
   copyright?: string;
   description?: string;
   logo?: ReactNode;
@@ -94,6 +96,7 @@ export function Footer2({
   resourceLinks,
   companyTitle = "Company",
   companyLinks,
+  contact = { href: "#", title: "Contact" },
   copyright = "Nice UI, All rights reserved",
   className,
 }: Footer2Props) {
@@ -140,6 +143,16 @@ export function Footer2({
         </div>
         <FullWidthDivider />
         <div className="flex items-center justify-center gap-2 py-4">
+          <a
+            className="inline-flex items-center gap-1 text-center font-light text-muted-foreground text-sm hover:text-foreground"
+            href={contact.href}
+          >
+            {contact.title}
+            <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+          </a>
+          <span aria-hidden="true" className="text-muted-foreground">
+            ·
+          </span>
           <p className="text-center font-light text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} {copyright}
           </p>

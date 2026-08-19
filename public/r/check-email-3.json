@@ -1,6 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "check-email-3",
+  "type": "registry:block",
   "title": "Simple",
   "description": "Centered check email notice with a resend action.",
   "registryDependencies": [
@@ -10,10 +11,9 @@
   "files": [
     {
       "path": "registry/app/auth/check-email-3/check-email-3.tsx",
-      "content": "import type { ReactNode } from \"react\";\n\nimport { CheckEmail } from \"@/components/check-email\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface CheckEmail3Props {\n  className?: string;\n  description?: ReactNode;\n  email?: string;\n  logo?: ReactNode;\n  onResend?: () => void;\n  resendLabel?: string;\n  signInHref?: string;\n  signInLabel?: string;\n  title?: string;\n}\n\nexport function CheckEmail3({\n  className,\n  description,\n  email,\n  logo,\n  onResend,\n  resendLabel,\n  signInHref,\n  signInLabel,\n  title,\n}: CheckEmail3Props) {\n  return (\n    <section\n      className={cn(\"min-h-svh bg-background text-foreground\", className)}\n    >\n      <div className=\"flex min-h-svh flex-col px-6 py-8 md:px-10\">\n        <div className=\"flex flex-1 items-center justify-center\">\n          <CheckEmail\n            description={description}\n            email={email}\n            logo={logo}\n            onResend={onResend}\n            resendLabel={resendLabel}\n            signInHref={signInHref}\n            signInLabel={signInLabel}\n            title={title}\n          />\n        </div>\n      </div>\n    </section>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/app/check-email-3.tsx"
+      "target": "~/components/app/check-email-3.tsx",
+      "content": "import type { ReactNode } from \"react\";\n\nimport { CheckEmail } from \"@/components/check-email\";\nimport {\n  defaultLoginLegalLinks,\n  type LoginFormLink,\n  LoginLegalNav,\n} from \"@/components/login-form\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface CheckEmail3Props {\n  className?: string;\n  description?: ReactNode;\n  email?: string;\n  legalLinks?: LoginFormLink[];\n  logo?: ReactNode;\n  onResend?: () => void;\n  resendLabel?: string;\n  signInHref?: string;\n  signInLabel?: string;\n  title?: string;\n}\n\nexport function CheckEmail3({\n  className,\n  description,\n  email,\n  legalLinks = defaultLoginLegalLinks,\n  logo,\n  onResend,\n  resendLabel,\n  signInHref,\n  signInLabel,\n  title,\n}: CheckEmail3Props) {\n  return (\n    <section\n      className={cn(\"min-h-svh bg-background text-foreground\", className)}\n    >\n      <div className=\"flex min-h-svh flex-col px-6 py-8 md:px-10\">\n        <div className=\"flex flex-1 items-center justify-center\">\n          <CheckEmail\n            description={description}\n            email={email}\n            logo={logo}\n            onResend={onResend}\n            resendLabel={resendLabel}\n            signInHref={signInHref}\n            signInLabel={signInLabel}\n            title={title}\n          />\n        </div>\n        <LoginLegalNav links={legalLinks} />\n      </div>\n    </section>\n  );\n}\n"
     }
-  ],
-  "type": "registry:block"
+  ]
 }

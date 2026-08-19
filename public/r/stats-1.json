@@ -1,19 +1,19 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stats-1",
+  "type": "registry:block",
   "title": "Two Kpi Copy",
   "description": "Two primary-colored KPIs beside a short supporting paragraph.",
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style",
-    "tyrailleverett/nice-ui/marketing-section"
-  ],
   "files": [
     {
       "path": "registry/marketing/stats-1/stats-1.tsx",
-      "content": "import { MarketingSection } from \"@/components/marketing-section\";\n\nexport interface Stats1Item {\n  label: string;\n  value: string;\n}\n\nexport interface Stats1Props {\n  className?: string;\n  description?: string;\n  stats?: Stats1Item[];\n  title?: string;\n}\n\nconst defaultStats: Stats1Item[] = [\n  { label: \"Marketing Blocks\", value: \"40+\" },\n  { label: \"Page Categories\", value: \"12\" },\n];\n\nexport function Stats1({\n  title = \"Nice UI in stats\",\n  description = \"Ship heroes, pricing, and footers that already share a type scale, so the marketing site does not look assembled from leftovers.\",\n  stats = defaultStats,\n  className,\n}: Stats1Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"bg-background py-16 sm:py-24\">\n        <div className=\"mx-auto max-w-5xl px-6\">\n          <h2 className=\"sr-only\">{title}</h2>\n          <div className=\"grid grid-cols-2 gap-4 md:grid-cols-4\">\n            {stats.map((stat) => (\n              <div className=\"space-y-0.5 md:text-center\" key={stat.label}>\n                <div className=\"font-bold text-4xl text-primary tabular-nums tracking-tight\">\n                  {stat.value}\n                </div>\n                <p className=\"text-muted-foreground\">{stat.label}</p>\n              </div>\n            ))}\n            {description ? (\n              <p className=\"col-span-2 text-balance border-t pt-4 text-lg text-muted-foreground md:border-t-0 md:border-l md:pt-0 md:pl-12\">\n                {description}\n              </p>\n            ) : null}\n          </div>\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/marketing/stats-1.tsx"
+      "target": "~/components/marketing/stats-1.tsx",
+      "content": "import { MarketingSection } from \"@/components/marketing-section\";\n\nexport interface Stats1Item {\n  label: string;\n  value: string;\n}\n\nexport interface Stats1Props {\n  className?: string;\n  description?: string;\n  stats?: Stats1Item[];\n  title?: string;\n}\n\nconst defaultStats: Stats1Item[] = [\n  { label: \"Marketing Blocks\", value: \"40+\" },\n  { label: \"Page Categories\", value: \"12\" },\n];\n\nexport function Stats1({\n  title = \"Nice UI in stats\",\n  description = \"Ship heroes, pricing, and footers that already share a type scale, so the marketing site does not look assembled from leftovers.\",\n  stats = defaultStats,\n  className,\n}: Stats1Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"bg-background py-16 sm:py-24\">\n        <div className=\"mx-auto max-w-5xl px-6\">\n          <h2 className=\"sr-only\">{title}</h2>\n          <div className=\"grid grid-cols-2 gap-4 md:grid-cols-4\">\n            {stats.map((stat) => (\n              <div className=\"space-y-0.5 md:text-center\" key={stat.label}>\n                <div className=\"font-bold text-4xl text-primary tabular-nums tracking-tight\">\n                  {stat.value}\n                </div>\n                <p className=\"text-muted-foreground\">{stat.label}</p>\n              </div>\n            ))}\n            {description ? (\n              <p className=\"col-span-2 text-balance border-t pt-4 text-lg text-muted-foreground md:border-t-0 md:border-l md:pt-0 md:pl-12\">\n                {description}\n              </p>\n            ) : null}\n          </div>\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
     }
   ],
-  "type": "registry:block"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ]
 }

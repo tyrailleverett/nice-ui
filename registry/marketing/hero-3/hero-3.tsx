@@ -98,11 +98,11 @@ export function Hero3({
   logos = defaultLogos,
   screenshot = {
     alt: "Product dashboard",
-    src: "/screenshots/workflow-light.png",
+    src: "/screenshots/workflow-light.svg",
   },
   darkScreenshot = {
     alt: "Product dashboard",
-    src: "/screenshots/workflow-dark.png",
+    src: "/screenshots/workflow-dark.svg",
   },
   className,
 }: Hero3Props) {

@@ -1,18 +1,22 @@
 import type { FormEvent, ReactNode } from "react";
-
 import { ForgotPasswordForm } from "@/components/forgot-password-form";
+import {
+  defaultLoginLegalLinks,
+  type LoginFormLink,
+  LoginLegalNav,
+} from "@/components/login-form";
 import { cn } from "@/lib/utils";
 
 export interface ForgotPassword3Props {
   className?: string;
   description?: string;
   emailPlaceholder?: string;
+  legalLinks?: LoginFormLink[];
   logo?: ReactNode;
   onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
   primaryAction?: string;
   signInHref?: string;
   signInLabel?: string;
-  signInPrompt?: string;
   title?: string;
 }
 
@@ -20,12 +24,12 @@ export function ForgotPassword3({
   className,
   description,
   emailPlaceholder,
+  legalLinks = defaultLoginLegalLinks,
   logo,
   onSubmit,
   primaryAction,
   signInHref,
   signInLabel,
-  signInPrompt,
   title,
 }: ForgotPassword3Props) {
   return (
@@ -43,10 +47,10 @@ export function ForgotPassword3({
             primaryAction={primaryAction}
             signInHref={signInHref}
             signInLabel={signInLabel}
-            signInPrompt={signInPrompt}
             title={title}
           />
         </div>
+        <LoginLegalNav links={legalLinks} />
       </div>
     </section>
   );

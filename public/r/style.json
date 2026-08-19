@@ -1,8 +1,10 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "style",
+  "type": "registry:style",
   "title": "Nice UI Style",
   "description": "Installs Inter Variable, Nice UI color and radius tokens, and the font-display-heading utility used by marketing headlines.",
+  "docs": "Adding any Nice UI block installs this style automatically. You can also add it on its own: bunx shadcn@latest add tyrailleverett/nice-ui/style",
   "registryDependencies": [
     "tyrailleverett/nice-ui/font",
     "tyrailleverett/nice-ui/theme"
@@ -26,6 +28,5 @@
       }
     }
   },
-  "docs": "Adding any Nice UI block installs this style automatically. You can also add it on its own: bunx shadcn@latest add tyrailleverett/nice-ui/style",
-  "type": "registry:style"
+  "files": []
 }

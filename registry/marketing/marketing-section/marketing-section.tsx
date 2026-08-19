@@ -17,7 +17,7 @@ export function MarketingSection({
   const Comp = as;
 
   return (
-    <Comp className={cn("border-border border-t", className)} {...props}>
+    <Comp className={cn(className)} {...props}>
       <div
         className={cn(
           "mx-auto max-w-6xl",

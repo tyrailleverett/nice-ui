@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, ExternalLinkIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
@@ -52,6 +52,7 @@ export interface Footer3Column {
 export interface Footer3Props {
   className?: string;
   columns: Footer3Column[];
+  contact?: Footer3Link;
   copyright?: string;
 }
 
@@ -105,6 +106,7 @@ function SocialCard({
 
 export function Footer3({
   columns,
+  contact = { href: "#", title: "Contact" },
   copyright = "Nice UI, All rights reserved",
   className,
 }: Footer3Props) {
@@ -136,9 +138,19 @@ export function Footer3({
         </div>
       </div>
       <div className="flex justify-center border-t p-3">
-        <p className="text-muted-foreground text-xs">
-          &copy; {new Date().getFullYear()} {copyright}
-        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 text-muted-foreground text-xs">
+          <a
+            className="inline-flex items-center gap-1 hover:text-foreground"
+            href={contact.href}
+          >
+            {contact.title}
+            <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+          </a>
+          <span aria-hidden="true">·</span>
+          <p>
+            &copy; {new Date().getFullYear()} {copyright}
+          </p>
+        </div>
       </div>
     </MarketingSection>
   );

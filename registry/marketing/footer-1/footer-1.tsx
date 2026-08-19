@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,7 @@ export interface Footer1BuiltBy {
 export interface Footer1Props {
   builtBy?: Footer1BuiltBy;
   className?: string;
+  contact?: Footer1NavLink;
   copyright?: string;
   logo?: ReactNode;
   navLinks: Footer1NavLink[];
@@ -53,6 +55,7 @@ export function Footer1({
   logo,
   navLinks,
   socialLinks,
+  contact = { href: "#", label: "Contact" },
   copyright = "Nice UI",
   builtBy,
   className,
@@ -95,6 +98,15 @@ export function Footer1({
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  className="inline-flex items-center gap-1 hover:text-foreground"
+                  href={contact.href}
+                >
+                  {contact.label}
+                  <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+                </a>
+              </li>
             </ul>
           </nav>
         </div>

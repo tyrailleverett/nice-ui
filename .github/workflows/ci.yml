@@ -20,7 +20,7 @@ jobs:
         run: bun install --frozen-lockfile --ignore-scripts
 
       - name: Validate registry
-        run: bun run registry:validate
+        run: bun run registry:build && bun run registry:validate
 
       - name: Lint
         run: bun run check

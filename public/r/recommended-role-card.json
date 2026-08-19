@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "recommended-role-card",
+  "type": "registry:block",
   "title": "Recommended Role Card",
   "description": "Job recommendation card with location, compensation, and apply actions.",
+  "files": [
+    {
+      "path": "registry/app/recommended-role-card/recommended-role-card.tsx",
+      "type": "registry:component",
+      "target": "~/components/app/recommended-role-card.tsx",
+      "content": "import {\n  BanknoteIcon,\n  Laptop2Icon,\n  MapPinIcon,\n  SparklesIcon,\n} from \"lucide-react\";\n\nimport \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface RecommendedRoleCardProps {\n  company?: string;\n  description?: string;\n  location?: string;\n  onApply?: () => void;\n  onDetails?: () => void;\n  salary?: string;\n  title?: string;\n  workMode?: string;\n}\n\nexport function RecommendedRoleCard({\n  company = \"Resend\",\n  description = \"Join the engineering team at CloudCore to build scalable cloud platforms. Collaborate on backend systems, APIs, and modern infrastructure to deliver enterprise solutions worldwide.\",\n  location = \"Berlin, Germany\",\n  onApply,\n  onDetails,\n  salary = \"$60–75k/year\",\n  title = \"Software Engineer\",\n  workMode = \"Hybrid\",\n}: RecommendedRoleCardProps) {\n  return (\n    <article className=\"showcase-card role-card\">\n      <div className=\"role-label\">\n        <SparklesIcon aria-hidden=\"true\" /> Recommended role, based on your\n        profile\n      </div>\n      <div className=\"role-body\">\n        <div className=\"role-intro\">\n          <span className=\"role-logo\">\n            <span className=\"resend-mark\">R</span>\n          </span>\n          <div>\n            <h3>{title}</h3>\n            <p>{company}</p>\n          </div>\n        </div>\n        <div className=\"role-facts\">\n          <span>\n            <MapPinIcon aria-hidden=\"true\" />\n            {location}\n          </span>\n          <span>\n            <Laptop2Icon aria-hidden=\"true\" />\n            {workMode}\n          </span>\n          <span>\n            <BanknoteIcon aria-hidden=\"true\" />\n            {salary}\n          </span>\n        </div>\n        <p className=\"card-description\">{description}</p>\n        <div className=\"role-actions\">\n          <Button onClick={onApply} type=\"button\">\n            Quick apply\n          </Button>\n          <Button onClick={onDetails} type=\"button\" variant=\"outline\">\n            View details\n          </Button>\n        </div>\n      </div>\n    </article>\n  );\n}\n"
+    }
+  ],
   "dependencies": [
     "lucide-react"
   ],
   "registryDependencies": [
     "tyrailleverett/nice-ui/style",
     "tyrailleverett/nice-ui/cards-shared"
-  ],
-  "files": [
-    {
-      "path": "registry/app/recommended-role-card/recommended-role-card.tsx",
-      "content": "import {\n  BanknoteIcon,\n  Laptop2Icon,\n  MapPinIcon,\n  SparklesIcon,\n} from \"lucide-react\";\n\nimport \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface RecommendedRoleCardProps {\n  company?: string;\n  description?: string;\n  location?: string;\n  onApply?: () => void;\n  onDetails?: () => void;\n  salary?: string;\n  title?: string;\n  workMode?: string;\n}\n\nexport function RecommendedRoleCard({\n  company = \"Resend\",\n  description = \"Join the engineering team at CloudCore to build scalable cloud platforms. Collaborate on backend systems, APIs, and modern infrastructure to deliver enterprise solutions worldwide.\",\n  location = \"Berlin, Germany\",\n  onApply,\n  onDetails,\n  salary = \"$60–75k/year\",\n  title = \"Software Engineer\",\n  workMode = \"Hybrid\",\n}: RecommendedRoleCardProps) {\n  return (\n    <article className=\"showcase-card role-card\">\n      <div className=\"role-label\">\n        <SparklesIcon aria-hidden=\"true\" /> Recommended role, based on your\n        profile\n      </div>\n      <div className=\"role-body\">\n        <div className=\"role-intro\">\n          <span className=\"role-logo\">\n            <span className=\"resend-mark\">R</span>\n          </span>\n          <div>\n            <h3>{title}</h3>\n            <p>{company}</p>\n          </div>\n        </div>\n        <div className=\"role-facts\">\n          <span>\n            <MapPinIcon aria-hidden=\"true\" />\n            {location}\n          </span>\n          <span>\n            <Laptop2Icon aria-hidden=\"true\" />\n            {workMode}\n          </span>\n          <span>\n            <BanknoteIcon aria-hidden=\"true\" />\n            {salary}\n          </span>\n        </div>\n        <p className=\"card-description\">{description}</p>\n        <div className=\"role-actions\">\n          <Button onClick={onApply} type=\"button\">\n            Quick apply\n          </Button>\n          <Button onClick={onDetails} type=\"button\" variant=\"outline\">\n            View details\n          </Button>\n        </div>\n      </div>\n    </article>\n  );\n}\n",
-      "type": "registry:component",
-      "target": "~/components/app/recommended-role-card.tsx"
-    }
-  ],
-  "type": "registry:block"
+  ]
 }

@@ -78,11 +78,11 @@ export function Feature10({
   items = defaultItems,
   screenshot = {
     alt: "App screen",
-    src: "/screenshots/analytics-light.png",
+    src: "/screenshots/analytics-light.svg",
   },
   darkScreenshot = {
     alt: "App screen",
-    src: "/screenshots/analytics-dark.png",
+    src: "/screenshots/analytics-dark.svg",
   },
   className,
 }: Feature10Props) {

@@ -1,19 +1,19 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stats-2",
+  "type": "registry:block",
   "title": "Four Metric Row",
   "description": "Short headline over four KPIs in a hairline row.",
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style",
-    "tyrailleverett/nice-ui/marketing-section"
-  ],
   "files": [
     {
       "path": "registry/marketing/stats-2/stats-2.tsx",
-      "content": "import { MarketingSection } from \"@/components/marketing-section\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Stats2Item {\n  label: string;\n  value: string;\n}\n\nexport interface Stats2Props {\n  className?: string;\n  eyebrow?: string;\n  stats?: Stats2Item[];\n  title?: string;\n}\n\nconst defaultStats: Stats2Item[] = [\n  { label: \"Blocks shipped\", value: \"120+\" },\n  { label: \"Shared tokens\", value: \"1\" },\n  { label: \"Install time\", value: \"<1m\" },\n  { label: \"Themes\", value: \"2\" },\n];\n\nexport function Stats2({\n  eyebrow = \"Proof\",\n  title = \"One token set, every surface\",\n  stats = defaultStats,\n  className,\n}: Stats2Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"bg-background py-16 md:py-20 lg:py-28\">\n        <div className=\"mx-auto max-w-5xl px-6\">\n          <div className=\"flex flex-col gap-2\">\n            <p className=\"font-mono text-muted-foreground text-xs uppercase tracking-wider\">\n              {eyebrow}\n            </p>\n            <h2 className=\"font-display-heading text-3xl text-primary sm:text-4xl\">\n              {title}\n            </h2>\n          </div>\n\n          <ul className=\"mt-12 grid grid-cols-2 border-y md:grid-cols-4\">\n            {stats.map((stat, index) => (\n              <li\n                className={cn(\n                  \"flex flex-col gap-1 px-0 py-8 md:px-8 md:py-10\",\n                  index > 0 && \"md:border-l\",\n                  index % 2 === 1 && \"pl-6 md:pl-8\",\n                  index >= 2 && \"border-t md:border-t-0\"\n                )}\n                key={stat.label}\n              >\n                <p className=\"font-semibold text-4xl tabular-nums tracking-tight\">\n                  {stat.value}\n                </p>\n                <p className=\"text-muted-foreground text-sm\">{stat.label}</p>\n              </li>\n            ))}\n          </ul>\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/marketing/stats-2.tsx"
+      "target": "~/components/marketing/stats-2.tsx",
+      "content": "import { MarketingSection } from \"@/components/marketing-section\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Stats2Item {\n  label: string;\n  value: string;\n}\n\nexport interface Stats2Props {\n  className?: string;\n  eyebrow?: string;\n  stats?: Stats2Item[];\n  title?: string;\n}\n\nconst defaultStats: Stats2Item[] = [\n  { label: \"Blocks shipped\", value: \"120+\" },\n  { label: \"Shared tokens\", value: \"1\" },\n  { label: \"Install time\", value: \"<1m\" },\n  { label: \"Themes\", value: \"2\" },\n];\n\nexport function Stats2({\n  eyebrow = \"Proof\",\n  title = \"One token set, every surface\",\n  stats = defaultStats,\n  className,\n}: Stats2Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"bg-background py-16 md:py-20 lg:py-28\">\n        <div className=\"mx-auto max-w-5xl px-6\">\n          <div className=\"flex flex-col gap-2\">\n            <p className=\"font-mono text-muted-foreground text-xs uppercase tracking-wider\">\n              {eyebrow}\n            </p>\n            <h2 className=\"font-display-heading text-3xl text-primary sm:text-4xl\">\n              {title}\n            </h2>\n          </div>\n\n          <ul className=\"mt-12 grid grid-cols-2 border-y md:grid-cols-4\">\n            {stats.map((stat, index) => (\n              <li\n                className={cn(\n                  \"flex flex-col gap-1 px-0 py-8 md:px-8 md:py-10\",\n                  index > 0 && \"md:border-l\",\n                  index % 2 === 1 && \"pl-6 md:pl-8\",\n                  index >= 2 && \"border-t md:border-t-0\"\n                )}\n                key={stat.label}\n              >\n                <p className=\"font-semibold text-4xl tabular-nums tracking-tight\">\n                  {stat.value}\n                </p>\n                <p className=\"text-muted-foreground text-sm\">{stat.label}</p>\n              </li>\n            ))}\n          </ul>\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
     }
   ],
-  "type": "registry:block"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ]
 }

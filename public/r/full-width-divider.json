@@ -1,18 +1,18 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "full-width-divider",
+  "type": "registry:component",
   "title": "Full Width Divider",
   "description": "Hairline rule that can bleed to the viewport or stay contained within its parent.",
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style"
-  ],
   "files": [
     {
       "path": "registry/marketing/full-width-divider/full-width-divider.tsx",
-      "content": "import type { ComponentProps } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type FullWidthDividerProps = ComponentProps<\"div\"> & {\n  contained?: boolean;\n  position?: \"top\" | \"bottom\";\n};\n\nexport function FullWidthDivider({\n  className,\n  contained = false,\n  position,\n  ...props\n}: FullWidthDividerProps) {\n  return (\n    <div\n      aria-hidden=\"true\"\n      className={cn(\n        \"pointer-events-none absolute h-px bg-border\",\n        \"data-[contained=false]:left-1/2 data-[contained=false]:w-screen data-[contained=false]:-translate-x-1/2\",\n        \"data-[contained=true]:inset-x-0 data-[contained=true]:w-full\",\n        position &&\n          \"data-[position=top]:-top-px data-[position=bottom]:-bottom-px\",\n        className\n      )}\n      data-contained={contained}\n      data-position={position}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/full-width-divider.tsx"
+      "target": "~/components/full-width-divider.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type FullWidthDividerProps = ComponentProps<\"div\"> & {\n  contained?: boolean;\n  position?: \"top\" | \"bottom\";\n};\n\nexport function FullWidthDivider({\n  className,\n  contained = false,\n  position,\n  ...props\n}: FullWidthDividerProps) {\n  return (\n    <div\n      aria-hidden=\"true\"\n      className={cn(\n        \"pointer-events-none absolute h-px bg-border\",\n        \"data-[contained=false]:left-1/2 data-[contained=false]:w-screen data-[contained=false]:-translate-x-1/2\",\n        \"data-[contained=true]:inset-x-0 data-[contained=true]:w-full\",\n        position &&\n          \"data-[position=top]:-top-px data-[position=bottom]:-bottom-px\",\n        className\n      )}\n      data-contained={contained}\n      data-position={position}\n      {...props}\n    />\n  );\n}\n"
     }
   ],
-  "type": "registry:component"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style"
+  ]
 }

@@ -1,4 +1,4 @@
-import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
+import { ExternalLinkIcon, MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import {
   type ComponentProps,
   type FormEvent,
@@ -62,6 +62,7 @@ export type Footer7Theme = "system" | "light" | "dark";
 
 export interface Footer7Props {
   className?: string;
+  contact?: Footer7Link;
   copyright?: string;
   emailPlaceholder?: string;
   groups: Footer7LinkGroup[];
@@ -121,6 +122,7 @@ function ThemeSwitcher({
 export function Footer7({
   groups,
   socialLinks,
+  contact = { href: "#", label: "Contact" },
   copyright = `Copyright © ${new Date().getFullYear()} Nice UI, Inc.`,
   newsletterTitle = "Get updates",
   emailPlaceholder = "Your email",
@@ -202,10 +204,19 @@ export function Footer7({
           </div>
 
           <div className="flex items-end justify-between gap-4 px-6 py-8">
-            <p className="inline-flex items-center gap-2 text-sm">
-              <span className="size-2 rounded-full bg-emerald-400" />
-              {statusLabel}
-            </p>
+            <div className="flex items-center gap-4">
+              <p className="inline-flex items-center gap-2 text-sm">
+                <span className="size-2 rounded-full bg-emerald-400" />
+                {statusLabel}
+              </p>
+              <a
+                className="inline-flex items-center gap-1 text-muted-foreground text-sm hover:text-foreground"
+                href={contact.href}
+              >
+                {contact.label}
+                <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+              </a>
+            </div>
             <ThemeSwitcher onThemeChange={onThemeChange} theme={theme} />
           </div>
         </div>

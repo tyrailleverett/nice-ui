@@ -1,6 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme",
+  "type": "registry:theme",
   "title": "Nice UI Theme",
   "description": "White-canvas tokens: near-black ink, hairline borders, 12px radius ladder, and semantic success / info / subtle hues.",
   "registryDependencies": [
@@ -103,5 +104,5 @@
       "success": "#16a34a"
     }
   },
-  "type": "registry:theme"
+  "files": []
 }

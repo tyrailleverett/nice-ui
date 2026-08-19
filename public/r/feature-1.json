@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "feature-1",
+  "type": "registry:block",
   "title": "Four-up Icon Row",
   "description": "Four-up marketing feature row with icons, short copy, and vertical hairline dividers.",
   "dependencies": [
     "lucide-react"
   ],
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style",
-    "tyrailleverett/nice-ui/marketing-section"
-  ],
   "files": [
     {
       "path": "registry/marketing/feature-1/feature-1.tsx",
-      "content": "import {\n  ActivityIcon,\n  GlobeIcon,\n  ShieldCheckIcon,\n  ZapIcon,\n} from \"lucide-react\";\nimport type { ReactNode } from \"react\";\nimport { MarketingSection } from \"@/components/marketing-section\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Feature1Item {\n  description: string;\n  icon: ReactNode;\n  title: string;\n}\n\nexport interface Feature1Props {\n  className?: string;\n  features?: Feature1Item[];\n}\n\nconst defaultFeatures: Feature1Item[] = [\n  {\n    description: \"Blazing fast edge performance.\",\n    icon: <ZapIcon />,\n    title: \"Lightning Fast\",\n  },\n  {\n    description: \"Security by design, zero config.\",\n    icon: <ShieldCheckIcon />,\n    title: \"Secure by Design\",\n  },\n  {\n    description: \"Real-time sync across devices.\",\n    icon: <ActivityIcon />,\n    title: \"Real-time Sync\",\n  },\n  {\n    description: \"Instant global deployment.\",\n    icon: <GlobeIcon />,\n    title: \"Global Scale\",\n  },\n];\n\nexport function Feature1({\n  features = defaultFeatures,\n  className,\n}: Feature1Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"grid grid-cols-2 gap-4 py-4 md:grid-cols-4\">\n        {features.map((feature, index) => (\n          <div\n            className={cn(\n              \"relative flex flex-col items-center justify-center p-2\",\n              \"after:absolute after:inset-y-0 after:right-0 after:h-full after:w-px after:bg-linear-to-b after:from-foreground/6 after:via-foreground/25 after:to-foreground/6\",\n              \"[&_svg]:size-6 [&_svg]:text-muted-foreground\",\n              {\n                \"after:hidden\": index === features.length - 1,\n                \"after:hidden after:md:block\": index === 1,\n              }\n            )}\n            key={feature.title}\n          >\n            {feature.icon}\n            <h3 className=\"mt-4 text-center font-medium text-xs md:text-sm lg:text-base\">\n              {feature.title}\n            </h3>\n            <p className=\"mt-1 text-center text-[10px] text-muted-foreground md:text-xs\">\n              {feature.description}\n            </p>\n          </div>\n        ))}\n      </section>\n    </MarketingSection>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/marketing/feature-1.tsx"
+      "target": "~/components/marketing/feature-1.tsx",
+      "content": "import {\n  ActivityIcon,\n  GlobeIcon,\n  ShieldCheckIcon,\n  ZapIcon,\n} from \"lucide-react\";\nimport type { ReactNode } from \"react\";\nimport { MarketingSection } from \"@/components/marketing-section\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Feature1Item {\n  description: string;\n  icon: ReactNode;\n  title: string;\n}\n\nexport interface Feature1Props {\n  className?: string;\n  features?: Feature1Item[];\n}\n\nconst defaultFeatures: Feature1Item[] = [\n  {\n    description: \"Blazing fast edge performance.\",\n    icon: <ZapIcon />,\n    title: \"Lightning Fast\",\n  },\n  {\n    description: \"Security by design, zero config.\",\n    icon: <ShieldCheckIcon />,\n    title: \"Secure by Design\",\n  },\n  {\n    description: \"Real-time sync across devices.\",\n    icon: <ActivityIcon />,\n    title: \"Real-time Sync\",\n  },\n  {\n    description: \"Instant global deployment.\",\n    icon: <GlobeIcon />,\n    title: \"Global Scale\",\n  },\n];\n\nexport function Feature1({\n  features = defaultFeatures,\n  className,\n}: Feature1Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"grid grid-cols-2 gap-4 py-4 md:grid-cols-4\">\n        {features.map((feature, index) => (\n          <div\n            className={cn(\n              \"relative flex flex-col items-center justify-center p-2\",\n              \"after:absolute after:inset-y-0 after:right-0 after:h-full after:w-px after:bg-linear-to-b after:from-foreground/6 after:via-foreground/25 after:to-foreground/6\",\n              \"[&_svg]:size-6 [&_svg]:text-muted-foreground\",\n              {\n                \"after:hidden\": index === features.length - 1,\n                \"after:hidden after:md:block\": index === 1,\n              }\n            )}\n            key={feature.title}\n          >\n            {feature.icon}\n            <h3 className=\"mt-4 text-center font-medium text-xs md:text-sm lg:text-base\">\n              {feature.title}\n            </h3>\n            <p className=\"mt-1 text-center text-[10px] text-muted-foreground md:text-xs\">\n              {feature.description}\n            </p>\n          </div>\n        ))}\n      </section>\n    </MarketingSection>\n  );\n}\n"
     }
   ],
-  "type": "registry:block"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ]
 }

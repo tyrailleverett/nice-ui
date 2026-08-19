@@ -62,6 +62,7 @@ Blocks are registered in `registry/marketing/registry.json` and `registry/app/re
 4. Validate locally:
 
 ```bash
+bun run registry:build
 bun run registry:validate
 ```
 
@@ -76,6 +77,7 @@ Slugs stay `{category}-{n}` (install IDs, folder names, and component exports). 
 | `bun run dev` | Start the Storybook playground |
 | `bun run build:storybook` | Build a static Storybook site |
 | `bun run registry:validate` | Validate the registry manifest |
+| `bun run registry:build` | Export registry items and text-safe screenshot assets to `public/r` |
 
 ## Tech stack
 

@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,7 @@ export interface Footer6SocialLink {
 
 export interface Footer6Props {
   className?: string;
+  contact?: Footer6Link;
   copyright?: string;
   groups: Footer6LinkGroup[];
   legalLinks?: Footer6Link[];
@@ -71,6 +73,7 @@ export interface Footer6Props {
 export function Footer6({
   groups,
   socialLinks,
+  contact = { href: "#", label: "Contact" },
   legalLinks = [
     { href: "#", label: "Terms of Service" },
     { href: "#", label: "Privacy Policy" },
@@ -132,6 +135,13 @@ export function Footer6({
           <div className="flex flex-col gap-3 border-t pt-5 pb-6 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between sm:pb-8">
             <div className="flex flex-wrap items-center gap-4">
               <span>{copyright}</span>
+              <a
+                className="inline-flex items-center gap-1 hover:text-foreground"
+                href={contact.href}
+              >
+                {contact.label}
+                <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+              </a>
               {legalLinks.map((link) => (
                 <a
                   className="hover:text-foreground"

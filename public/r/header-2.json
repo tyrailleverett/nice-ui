@@ -1,6 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "header-2",
+  "type": "registry:block",
   "title": "Nav Center",
   "description": "Floating marketing header that tightens on scroll, with nav links centered between the logo and actions.",
   "registryDependencies": [
@@ -10,10 +11,9 @@
   "files": [
     {
       "path": "registry/marketing/header-2/header-2.tsx",
-      "content": "import {\n  HeaderActions,\n  type HeaderBlockProps,\n  type HeaderCta,\n  HeaderFrame,\n  HeaderLogo,\n  HeaderMenuToggle,\n  type HeaderNavLink,\n  HeaderNavLinks,\n  useHeaderMenu,\n} from \"@/components/header-shared\";\n\nexport type Header2Cta = HeaderCta;\nexport type Header2NavLink = HeaderNavLink;\nexport type Header2Props = HeaderBlockProps;\n\nexport function Header2({\n  className,\n  getStarted = { label: \"Get started\" },\n  logo,\n  logoHref = \"#\",\n  navLinks,\n  signIn = { label: \"Login\" },\n}: Header2Props) {\n  const { menuOpen, toggleMenu } = useHeaderMenu();\n\n  return (\n    <HeaderFrame className={className} menuOpen={menuOpen}>\n      <div className=\"flex w-full justify-between lg:w-auto\">\n        <HeaderLogo logo={logo} logoHref={logoHref} />\n        <HeaderMenuToggle menuOpen={menuOpen} onToggle={toggleMenu} />\n      </div>\n      <div className=\"absolute inset-0 m-auto hidden size-fit lg:block\">\n        <HeaderNavLinks navLinks={navLinks} />\n      </div>\n      <HeaderActions\n        getStarted={getStarted}\n        menuOpen={menuOpen}\n        navLinks={navLinks}\n        signIn={signIn}\n      />\n    </HeaderFrame>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/marketing/header-2.tsx"
+      "target": "~/components/marketing/header-2.tsx",
+      "content": "import {\n  HeaderActions,\n  type HeaderBlockProps,\n  type HeaderCta,\n  HeaderFrame,\n  HeaderLogo,\n  HeaderMenuToggle,\n  type HeaderNavLink,\n  HeaderNavLinks,\n  useHeaderMenu,\n} from \"@/components/header-shared\";\n\nexport type Header2Cta = HeaderCta;\nexport type Header2NavLink = HeaderNavLink;\nexport type Header2Props = HeaderBlockProps;\n\nexport function Header2({\n  className,\n  getStarted = { label: \"Get started\" },\n  logo,\n  logoHref = \"#\",\n  navLinks,\n  signIn = { label: \"Login\" },\n}: Header2Props) {\n  const { menuOpen, toggleMenu } = useHeaderMenu();\n\n  return (\n    <HeaderFrame className={className} menuOpen={menuOpen}>\n      <div className=\"flex w-full justify-between lg:w-auto\">\n        <HeaderLogo logo={logo} logoHref={logoHref} />\n        <HeaderMenuToggle menuOpen={menuOpen} onToggle={toggleMenu} />\n      </div>\n      <div className=\"absolute inset-0 m-auto hidden size-fit lg:block\">\n        <HeaderNavLinks navLinks={navLinks} />\n      </div>\n      <HeaderActions\n        getStarted={getStarted}\n        menuOpen={menuOpen}\n        navLinks={navLinks}\n        signIn={signIn}\n      />\n    </HeaderFrame>\n  );\n}\n"
     }
-  ],
-  "type": "registry:block"
+  ]
 }

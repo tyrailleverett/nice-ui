@@ -1,6 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "two-factor-3",
+  "type": "registry:block",
   "title": "Simple",
   "description": "Centered two factor form with an authentication code input.",
   "registryDependencies": [
@@ -10,10 +11,9 @@
   "files": [
     {
       "path": "registry/app/auth/two-factor-3/two-factor-3.tsx",
-      "content": "import type { FormEvent, ReactNode } from \"react\";\n\nimport { TwoFactorForm } from \"@/components/two-factor-form\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface TwoFactor3Props {\n  className?: string;\n  codeLabel?: string;\n  description?: string;\n  logo?: ReactNode;\n  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;\n  primaryAction?: string;\n  recoveryCodeLabel?: string;\n  recoveryCodePlaceholder?: string;\n  recoveryLabel?: string;\n  signInHref?: string;\n  signInLabel?: string;\n  title?: string;\n  useCodeLabel?: string;\n}\n\nexport function TwoFactor3({\n  className,\n  codeLabel,\n  description,\n  logo,\n  onSubmit,\n  primaryAction,\n  recoveryCodeLabel,\n  recoveryCodePlaceholder,\n  recoveryLabel,\n  signInHref,\n  signInLabel,\n  title,\n  useCodeLabel,\n}: TwoFactor3Props) {\n  return (\n    <section\n      className={cn(\"min-h-svh bg-background text-foreground\", className)}\n    >\n      <div className=\"flex min-h-svh flex-col px-6 py-8 md:px-10\">\n        <div className=\"flex flex-1 items-center justify-center\">\n          <TwoFactorForm\n            codeLabel={codeLabel}\n            description={description}\n            idPrefix=\"two-factor-3\"\n            logo={logo}\n            onSubmit={onSubmit}\n            primaryAction={primaryAction}\n            recoveryCodeLabel={recoveryCodeLabel}\n            recoveryCodePlaceholder={recoveryCodePlaceholder}\n            recoveryLabel={recoveryLabel}\n            signInHref={signInHref}\n            signInLabel={signInLabel}\n            title={title}\n            useCodeLabel={useCodeLabel}\n          />\n        </div>\n      </div>\n    </section>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/app/two-factor-3.tsx"
+      "target": "~/components/app/two-factor-3.tsx",
+      "content": "import type { FormEvent, ReactNode } from \"react\";\nimport {\n  defaultLoginLegalLinks,\n  type LoginFormLink,\n  LoginLegalNav,\n} from \"@/components/login-form\";\nimport { TwoFactorForm } from \"@/components/two-factor-form\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface TwoFactor3Props {\n  className?: string;\n  codeLabel?: string;\n  description?: string;\n  legalLinks?: LoginFormLink[];\n  logo?: ReactNode;\n  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;\n  primaryAction?: string;\n  recoveryCodeLabel?: string;\n  recoveryCodePlaceholder?: string;\n  recoveryLabel?: string;\n  signInHref?: string;\n  signInLabel?: string;\n  title?: string;\n  useCodeLabel?: string;\n}\n\nexport function TwoFactor3({\n  className,\n  codeLabel,\n  description,\n  legalLinks = defaultLoginLegalLinks,\n  logo,\n  onSubmit,\n  primaryAction,\n  recoveryCodeLabel,\n  recoveryCodePlaceholder,\n  recoveryLabel,\n  signInHref,\n  signInLabel,\n  title,\n  useCodeLabel,\n}: TwoFactor3Props) {\n  return (\n    <section\n      className={cn(\"min-h-svh bg-background text-foreground\", className)}\n    >\n      <div className=\"flex min-h-svh flex-col px-6 py-8 md:px-10\">\n        <div className=\"flex flex-1 items-center justify-center\">\n          <TwoFactorForm\n            codeLabel={codeLabel}\n            description={description}\n            idPrefix=\"two-factor-3\"\n            logo={logo}\n            onSubmit={onSubmit}\n            primaryAction={primaryAction}\n            recoveryCodeLabel={recoveryCodeLabel}\n            recoveryCodePlaceholder={recoveryCodePlaceholder}\n            recoveryLabel={recoveryLabel}\n            signInHref={signInHref}\n            signInLabel={signInLabel}\n            title={title}\n            useCodeLabel={useCodeLabel}\n          />\n        </div>\n        <LoginLegalNav links={legalLinks} />\n      </div>\n    </section>\n  );\n}\n"
     }
-  ],
-  "type": "registry:block"
+  ]
 }

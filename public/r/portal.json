@@ -1,18 +1,18 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "portal",
+  "type": "registry:component",
   "title": "Portal",
   "description": "Full-screen overlay portal with a blurred backdrop, used by mobile navigation.",
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style"
-  ],
   "files": [
     {
       "path": "registry/marketing/portal/portal.tsx",
-      "content": "import { type ComponentProps, useEffect, useState } from \"react\";\nimport { createPortal } from \"react-dom\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Portal({ className, ...props }: ComponentProps<\"div\">) {\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => {\n    setMounted(true);\n\n    const originalOverflow = document.body.style.overflow;\n    const originalPaddingRight = document.body.style.paddingRight;\n    const scrollbarWidth =\n      window.innerWidth - document.documentElement.clientWidth;\n\n    document.body.style.overflow = \"hidden\";\n    if (scrollbarWidth > 0) {\n      document.body.style.paddingRight = `${scrollbarWidth}px`;\n    }\n\n    return () => {\n      document.body.style.overflow = originalOverflow;\n      document.body.style.paddingRight = originalPaddingRight;\n    };\n  }, []);\n\n  if (!mounted) {\n    return null;\n  }\n\n  return createPortal(\n    <div\n      className={cn(\"fixed inset-0 isolate z-40 flex flex-col\", className)}\n      {...props}\n    />,\n    document.body\n  );\n}\n\nfunction PortalBackdrop({ className, ...props }: ComponentProps<\"div\">) {\n  return (\n    <div\n      className={cn(\n        \"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 -z-1 bg-background/95 backdrop-blur-sm duration-500 data-[state=closed]:animate-out data-[state=open]:animate-in supports-backdrop-filter:bg-background/60\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Portal, PortalBackdrop };\n",
       "type": "registry:component",
-      "target": "~/components/portal.tsx"
+      "target": "~/components/portal.tsx",
+      "content": "import { type ComponentProps, useEffect, useState } from \"react\";\nimport { createPortal } from \"react-dom\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Portal({ className, ...props }: ComponentProps<\"div\">) {\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => {\n    setMounted(true);\n\n    const originalOverflow = document.body.style.overflow;\n    const originalPaddingRight = document.body.style.paddingRight;\n    const scrollbarWidth =\n      window.innerWidth - document.documentElement.clientWidth;\n\n    document.body.style.overflow = \"hidden\";\n    if (scrollbarWidth > 0) {\n      document.body.style.paddingRight = `${scrollbarWidth}px`;\n    }\n\n    return () => {\n      document.body.style.overflow = originalOverflow;\n      document.body.style.paddingRight = originalPaddingRight;\n    };\n  }, []);\n\n  if (!mounted) {\n    return null;\n  }\n\n  return createPortal(\n    <div\n      className={cn(\"fixed inset-0 isolate z-40 flex flex-col\", className)}\n      {...props}\n    />,\n    document.body\n  );\n}\n\nfunction PortalBackdrop({ className, ...props }: ComponentProps<\"div\">) {\n  return (\n    <div\n      className={cn(\n        \"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 -z-1 bg-background/95 backdrop-blur-sm duration-500 data-[state=closed]:animate-out data-[state=open]:animate-in supports-backdrop-filter:bg-background/60\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Portal, PortalBackdrop };\n"
     }
   ],
-  "type": "registry:component"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style"
+  ]
 }

@@ -706,23 +706,6 @@
       ]
     },
     {
-      "name": "login-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered signup card with a Google button, email and password fields, and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/login-form"
-      ],
-      "files": [
-        {
-          "path": "auth/login-2/login-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/login-2.tsx"
-        }
-      ]
-    },
-    {
       "name": "login-3",
       "type": "registry:block",
       "title": "Simple",
@@ -780,23 +763,6 @@
       ]
     },
     {
-      "name": "register-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered signup card with a Google button, name, email and password fields, and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/register-form"
-      ],
-      "files": [
-        {
-          "path": "auth/register-2/register-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/register-2.tsx"
-        }
-      ]
-    },
-    {
       "name": "register-3",
       "type": "registry:block",
       "title": "Simple",
@@ -830,23 +796,6 @@
           "path": "auth/forgot-password-form/forgot-password-form.tsx",
           "type": "registry:component",
           "target": "~/components/forgot-password-form.tsx"
-        }
-      ]
-    },
-    {
-      "name": "forgot-password-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered forgot password card with an email field and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/forgot-password-form"
-      ],
-      "files": [
-        {
-          "path": "auth/forgot-password-2/forgot-password-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/forgot-password-2.tsx"
         }
       ]
     },
@@ -887,23 +836,6 @@
       ]
     },
     {
-      "name": "reset-password-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered reset password card with new and confirm password fields and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/reset-password-form"
-      ],
-      "files": [
-        {
-          "path": "auth/reset-password-2/reset-password-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/reset-password-2.tsx"
-        }
-      ]
-    },
-    {
       "name": "reset-password-3",
       "type": "registry:block",
       "title": "Simple",
@@ -917,59 +849,6 @@
           "path": "auth/reset-password-3/reset-password-3.tsx",
           "type": "registry:component",
           "target": "~/components/app/reset-password-3.tsx"
-        }
-      ]
-    },
-    {
-      "name": "verify-email-form",
-      "type": "registry:component",
-      "title": "Verify Email Form",
-      "description": "Shared one-time code form used by auth verify email layouts.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "tyrailleverett/nice-ui/logo",
-        "input-otp"
-      ],
-      "files": [
-        {
-          "path": "auth/verify-email-form/verify-email-form.tsx",
-          "type": "registry:component",
-          "target": "~/components/verify-email-form.tsx"
-        }
-      ]
-    },
-    {
-      "name": "verify-email-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered verify email card with a one-time code input and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/verify-email-form"
-      ],
-      "files": [
-        {
-          "path": "auth/verify-email-2/verify-email-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/verify-email-2.tsx"
-        }
-      ]
-    },
-    {
-      "name": "verify-email-3",
-      "type": "registry:block",
-      "title": "Simple",
-      "description": "Centered verify email form with a one-time code input.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/verify-email-form"
-      ],
-      "files": [
-        {
-          "path": "auth/verify-email-3/verify-email-3.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/verify-email-3.tsx"
         }
       ]
     },
@@ -991,23 +870,6 @@
           "path": "auth/two-factor-form/two-factor-form.tsx",
           "type": "registry:component",
           "target": "~/components/two-factor-form.tsx"
-        }
-      ]
-    },
-    {
-      "name": "two-factor-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered two factor card with an authentication code input and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/two-factor-form"
-      ],
-      "files": [
-        {
-          "path": "auth/two-factor-2/two-factor-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/two-factor-2.tsx"
         }
       ]
     },
@@ -1043,23 +905,6 @@
           "path": "auth/check-email/check-email.tsx",
           "type": "registry:component",
           "target": "~/components/check-email.tsx"
-        }
-      ]
-    },
-    {
-      "name": "check-email-2",
-      "type": "registry:block",
-      "title": "Card",
-      "description": "Centered check email notice card with a resend action and a rounded border.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/check-email"
-      ],
-      "files": [
-        {
-          "path": "auth/check-email-2/check-email-2.tsx",
-          "type": "registry:component",
-          "target": "~/components/app/check-email-2.tsx"
         }
       ]
     },

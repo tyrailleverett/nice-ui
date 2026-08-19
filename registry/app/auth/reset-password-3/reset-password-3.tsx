@@ -1,5 +1,9 @@
 import type { FormEvent, ReactNode } from "react";
-
+import {
+  defaultLoginLegalLinks,
+  type LoginFormLink,
+  LoginLegalNav,
+} from "@/components/login-form";
 import { ResetPasswordForm } from "@/components/reset-password-form";
 import { cn } from "@/lib/utils";
 
@@ -8,6 +12,7 @@ export interface ResetPassword3Props {
   confirmLabel?: string;
   confirmPlaceholder?: string;
   description?: string;
+  legalLinks?: LoginFormLink[];
   logo?: ReactNode;
   onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
   passwordLabel?: string;
@@ -16,7 +21,6 @@ export interface ResetPassword3Props {
   showStrengthIndicator?: boolean;
   signInHref?: string;
   signInLabel?: string;
-  signInPrompt?: string;
   title?: string;
 }
 
@@ -25,6 +29,7 @@ export function ResetPassword3({
   confirmLabel,
   confirmPlaceholder,
   description,
+  legalLinks = defaultLoginLegalLinks,
   logo,
   onSubmit,
   passwordLabel,
@@ -33,7 +38,6 @@ export function ResetPassword3({
   showStrengthIndicator,
   signInHref,
   signInLabel,
-  signInPrompt,
   title,
 }: ResetPassword3Props) {
   return (
@@ -55,10 +59,10 @@ export function ResetPassword3({
             showStrengthIndicator={showStrengthIndicator}
             signInHref={signInHref}
             signInLabel={signInLabel}
-            signInPrompt={signInPrompt}
             title={title}
           />
         </div>
+        <LoginLegalNav links={legalLinks} />
       </div>
     </section>
   );

@@ -194,14 +194,14 @@ const defaultItems: Feature6Item[] = [
           alt="Payments illustration"
           className="rounded-[15px] dark:hidden"
           height={929}
-          src="/screenshots/workflow-light.png"
+          src="/screenshots/workflow-light.svg"
           width={1207}
         />
         <img
           alt="Payments illustration"
           className="hidden rounded-[15px] dark:block"
           height={929}
-          src="/screenshots/workflow-dark.png"
+          src="/screenshots/workflow-dark.svg"
           width={1207}
         />
       </div>

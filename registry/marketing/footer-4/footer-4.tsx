@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,7 @@ export interface Footer4SocialLink {
 export interface Footer4Props {
   appStoreHref?: string;
   className?: string;
+  contact?: Footer4Link;
   copyright?: string;
   googlePlayHref?: string;
   groups: Footer4LinkGroup[];
@@ -72,6 +74,7 @@ export function Footer4({
   socialLinks,
   appStoreHref = "#",
   googlePlayHref = "#",
+  contact = { href: "#", label: "Contact" },
   copyright = "Nice UI, All rights reserved",
   className,
 }: Footer4Props) {
@@ -121,6 +124,13 @@ export function Footer4({
         </div>
         <div className="h-px bg-border" />
         <div className="py-4 text-center text-muted-foreground text-xs">
+          <a
+            className="mb-2 inline-flex items-center gap-1 hover:text-foreground"
+            href={contact.href}
+          >
+            {contact.label}
+            <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+          </a>
           <p>
             &copy; {new Date().getFullYear()} {copyright}
           </p>

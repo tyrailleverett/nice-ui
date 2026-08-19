@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "meeting-card",
+  "type": "registry:block",
   "title": "Meeting Card",
   "description": "Meeting summary card with attendees, duration, and a join action.",
+  "files": [
+    {
+      "path": "registry/app/meeting-card/meeting-card.tsx",
+      "type": "registry:component",
+      "target": "~/components/app/meeting-card.tsx",
+      "content": "import { MoreVerticalIcon } from \"lucide-react\";\nimport { type AvatarItem, AvatarStack } from \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface MeetingCardProps {\n  attendeeCount?: number;\n  attendees?: AvatarItem[];\n  category?: string;\n  description?: string;\n  duration?: string;\n  onJoin?: () => void;\n  time?: string;\n  title?: string;\n}\n\nexport function MeetingCard({\n  attendees,\n  attendeeCount = 6,\n  category = \"Client meeting\",\n  description = \"Collaborative sprint planning to address blockers, assign tasks, and refine deliverables for the upcoming development phase.\",\n  duration = \"30 min\",\n  onJoin,\n  time = \"09:00 AM CET\",\n  title = \"Apollo CRM – Sprint Planning\",\n}: MeetingCardProps) {\n  return (\n    <article className=\"showcase-card meeting-card\">\n      <div className=\"card-heading\">\n        <span>Meeting</span>\n        <Button\n          aria-label=\"More meeting options\"\n          size=\"icon\"\n          type=\"button\"\n          variant=\"ghost\"\n        >\n          <MoreVerticalIcon />\n        </Button>\n      </div>\n      <div className=\"meeting-panel\">\n        <div className=\"meeting-body\">\n          <div className=\"card-row card-row-between\">\n            <h3>{title}</h3>\n            <span className=\"card-pill\">{duration}</span>\n          </div>\n          <p className=\"card-time\">{time}</p>\n          <p className=\"card-description\">{description}</p>\n          <div className=\"meeting-meta\">\n            <AvatarStack avatars={attendees} count={attendeeCount} />\n            <span className=\"card-pill\">{category}</span>\n          </div>\n        </div>\n        <Button\n          className=\"h-auto min-h-14 w-full justify-start rounded-none px-6\"\n          onClick={onJoin}\n          type=\"button\"\n          variant=\"ghost\"\n        >\n          <span aria-hidden=\"true\" className=\"meet-mark\">\n            <VideoMark />\n          </span>\n          Join meeting\n        </Button>\n      </div>\n    </article>\n  );\n}\n\nfunction VideoMark() {\n  return (\n    <span className=\"video-mark\">\n      <i />\n      <b />\n    </span>\n  );\n}\n"
+    }
+  ],
   "dependencies": [
     "lucide-react"
   ],
   "registryDependencies": [
     "tyrailleverett/nice-ui/style",
     "tyrailleverett/nice-ui/cards-shared"
-  ],
-  "files": [
-    {
-      "path": "registry/app/meeting-card/meeting-card.tsx",
-      "content": "import { MoreVerticalIcon } from \"lucide-react\";\nimport { type AvatarItem, AvatarStack } from \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface MeetingCardProps {\n  attendeeCount?: number;\n  attendees?: AvatarItem[];\n  category?: string;\n  description?: string;\n  duration?: string;\n  onJoin?: () => void;\n  time?: string;\n  title?: string;\n}\n\nexport function MeetingCard({\n  attendees,\n  attendeeCount = 6,\n  category = \"Client meeting\",\n  description = \"Collaborative sprint planning to address blockers, assign tasks, and refine deliverables for the upcoming development phase.\",\n  duration = \"30 min\",\n  onJoin,\n  time = \"09:00 AM CET\",\n  title = \"Apollo CRM – Sprint Planning\",\n}: MeetingCardProps) {\n  return (\n    <article className=\"showcase-card meeting-card\">\n      <div className=\"card-heading\">\n        <span>Meeting</span>\n        <Button\n          aria-label=\"More meeting options\"\n          size=\"icon\"\n          type=\"button\"\n          variant=\"ghost\"\n        >\n          <MoreVerticalIcon />\n        </Button>\n      </div>\n      <div className=\"meeting-panel\">\n        <div className=\"meeting-body\">\n          <div className=\"card-row card-row-between\">\n            <h3>{title}</h3>\n            <span className=\"card-pill\">{duration}</span>\n          </div>\n          <p className=\"card-time\">{time}</p>\n          <p className=\"card-description\">{description}</p>\n          <div className=\"meeting-meta\">\n            <AvatarStack avatars={attendees} count={attendeeCount} />\n            <span className=\"card-pill\">{category}</span>\n          </div>\n        </div>\n        <Button\n          className=\"h-auto min-h-14 w-full justify-start rounded-none px-6\"\n          onClick={onJoin}\n          type=\"button\"\n          variant=\"ghost\"\n        >\n          <span aria-hidden=\"true\" className=\"meet-mark\">\n            <VideoMark />\n          </span>\n          Join meeting\n        </Button>\n      </div>\n    </article>\n  );\n}\n\nfunction VideoMark() {\n  return (\n    <span className=\"video-mark\">\n      <i />\n      <b />\n    </span>\n  );\n}\n",
-      "type": "registry:component",
-      "target": "~/components/app/meeting-card.tsx"
-    }
-  ],
-  "type": "registry:block"
+  ]
 }

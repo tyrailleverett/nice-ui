@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "lucide-react";
 import {
   type ComponentProps,
   type FormEvent,
@@ -70,6 +71,7 @@ export interface Footer5SocialLink {
 export interface Footer5Props {
   className?: string;
   columns: Footer5Column[];
+  contact?: Footer5Link;
   copyright?: string;
   description?: string;
   emailPlaceholder?: string;
@@ -111,6 +113,7 @@ export function Footer5({
   onSubscribe,
   socialLinks,
   columns,
+  contact = { href: "#", label: "Contact" },
   statusLabel = "All Systems Normal",
   legalLinks = [
     { href: "#", label: "Terms of use" },
@@ -198,6 +201,13 @@ export function Footer5({
               {statusLabel}
             </p>
             <div className="flex flex-wrap items-center gap-4">
+              <a
+                className="inline-flex items-center gap-1 hover:text-foreground"
+                href={contact.href}
+              >
+                {contact.label}
+                <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
+              </a>
               {legalLinks.map((link) => (
                 <a
                   className="hover:text-foreground"

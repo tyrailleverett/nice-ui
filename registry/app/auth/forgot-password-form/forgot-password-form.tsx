@@ -21,7 +21,6 @@ export interface ForgotPasswordFormProps {
   primaryAction?: string;
   signInHref?: string;
   signInLabel?: string;
-  signInPrompt?: string;
   title?: string;
 }
 
@@ -39,7 +38,6 @@ export function ForgotPasswordForm({
   primaryAction = "Send reset link",
   signInHref = "#",
   signInLabel = "Back to sign in",
-  signInPrompt = "Remembered your password?",
   title = "Forgot password",
 }: ForgotPasswordFormProps) {
   const emailId = `${idPrefix}-email`;
@@ -86,13 +84,13 @@ export function ForgotPasswordForm({
         </Button>
 
         <p className="text-center text-muted-foreground text-sm">
-          {signInPrompt}{" "}
-          <a
-            className="text-primary underline underline-offset-4 hover:text-primary/80"
-            href={signInHref}
+          <Button
+            className="w-full"
+            render={<a href={signInHref} />}
+            variant="ghost"
           >
             {signInLabel}
-          </a>
+          </Button>
         </p>
       </form>
     </div>

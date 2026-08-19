@@ -119,18 +119,19 @@ export function TwoFactorForm({
         </Button>
 
         <p className="text-center text-muted-foreground text-sm">
-          <Button className="h-auto p-0" onClick={toggleMode} variant="link">
+          <Button className="w-full" onClick={toggleMode} variant="outline">
             {toggleLabel}
           </Button>
         </p>
 
         <p className="text-center text-muted-foreground text-sm">
-          <a
-            className="text-primary underline underline-offset-4 hover:text-primary/80"
-            href={signInHref}
+          <Button
+            className="w-full"
+            render={<a href={signInHref} />}
+            variant="ghost"
           >
             {signInLabel}
-          </a>
+          </Button>
         </p>
       </form>
     </div>

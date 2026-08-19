@@ -17,7 +17,6 @@ const columns = [
       { href: "#", title: "Pricing" },
       { href: "#", title: "Testimonials" },
       { href: "#", title: "FAQs" },
-      { href: "#", title: "Contact Us" },
       { href: "#", title: "Blog" },
     ],
     social: { href: "#", icon: <FacebookIcon />, title: "Facebook" },

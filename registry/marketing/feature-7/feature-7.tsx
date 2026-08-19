@@ -60,19 +60,19 @@ export function Feature7({
   ),
   foregroundImage = {
     alt: "Product screenshot",
-    src: "/screenshots/workflow-light.png",
+    src: "/screenshots/workflow-light.svg",
   },
   backgroundImage = {
     alt: "Product screenshot background",
-    src: "/screenshots/workflow-light.png",
+    src: "/screenshots/workflow-light.svg",
   },
   darkForegroundImage = {
     alt: "Product screenshot",
-    src: "/screenshots/workflow-dark.png",
+    src: "/screenshots/workflow-dark.svg",
   },
   darkBackgroundImage = {
     alt: "Product screenshot background",
-    src: "/screenshots/workflow-dark.png",
+    src: "/screenshots/workflow-dark.svg",
   },
   highlights = defaultHighlights,
   className,

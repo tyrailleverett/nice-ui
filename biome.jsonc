@@ -2,7 +2,11 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["ultracite/biome/core", "ultracite/biome/react"],
   "files": {
-    "includes": ["!src/components/ui", "!public"]
+    "includes": [
+      "!src/components/ui",
+      "!public",
+      "!registry/marketing/screenshot-assets/*.svg"
+    ]
   },
   "overrides": [
     {

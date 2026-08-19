@@ -1,5 +1,9 @@
 import type { FormEvent, ReactNode } from "react";
-
+import {
+  defaultLoginLegalLinks,
+  type LoginFormLink,
+  LoginLegalNav,
+} from "@/components/login-form";
 import { TwoFactorForm } from "@/components/two-factor-form";
 import { cn } from "@/lib/utils";
 
@@ -7,6 +11,7 @@ export interface TwoFactor3Props {
   className?: string;
   codeLabel?: string;
   description?: string;
+  legalLinks?: LoginFormLink[];
   logo?: ReactNode;
   onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
   primaryAction?: string;
@@ -23,6 +28,7 @@ export function TwoFactor3({
   className,
   codeLabel,
   description,
+  legalLinks = defaultLoginLegalLinks,
   logo,
   onSubmit,
   primaryAction,
@@ -56,6 +62,7 @@ export function TwoFactor3({
             useCodeLabel={useCodeLabel}
           />
         </div>
+        <LoginLegalNav links={legalLinks} />
       </div>
     </section>
   );

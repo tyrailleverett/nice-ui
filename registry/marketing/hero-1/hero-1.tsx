@@ -85,11 +85,11 @@ export function Hero1({
   secondaryCta = { href: "#", label: "Book a Call" },
   screenshot = {
     alt: "Product dashboard",
-    src: "/screenshots/analytics-light.png",
+    src: "/screenshots/analytics-light.svg",
   },
   darkScreenshot = {
     alt: "Product dashboard",
-    src: "/screenshots/analytics-dark.png",
+    src: "/screenshots/analytics-dark.svg",
   },
   className,
 }: Hero1Props) {

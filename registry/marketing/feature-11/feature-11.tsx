@@ -152,11 +152,11 @@ function AIAssistantIllustration() {
 export function Feature11({
   screenshot = {
     alt: "App screen",
-    src: "/screenshots/analytics-light.png",
+    src: "/screenshots/analytics-light.svg",
   },
   darkScreenshot = {
     alt: "App screen",
-    src: "/screenshots/analytics-dark.png",
+    src: "/screenshots/analytics-dark.svg",
   },
   className,
 }: Feature11Props) {

@@ -19,7 +19,6 @@ export interface ResetPasswordFormProps {
   showStrengthIndicator?: boolean;
   signInHref?: string;
   signInLabel?: string;
-  signInPrompt?: string;
   title?: string;
 }
 
@@ -41,7 +40,6 @@ export function ResetPasswordForm({
   showStrengthIndicator = true,
   signInHref = "#",
   signInLabel = "Back to sign in",
-  signInPrompt = "Remembered your password?",
   title = "Reset password",
 }: ResetPasswordFormProps) {
   const passwordId = `${idPrefix}-password`;
@@ -66,7 +64,7 @@ export function ResetPasswordForm({
       </div>
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="space-y-4">
+        <div className="space-y-5">
           <PasswordInput
             autoComplete="new-password"
             id={passwordId}
@@ -88,13 +86,13 @@ export function ResetPasswordForm({
         </Button>
 
         <p className="text-center text-muted-foreground text-sm">
-          {signInPrompt}{" "}
-          <a
-            className="text-primary underline underline-offset-4 hover:text-primary/80"
-            href={signInHref}
+          <Button
+            className="w-full"
+            render={<a href={signInHref} />}
+            variant="ghost"
           >
             {signInLabel}
-          </a>
+          </Button>
         </p>
       </form>
     </div>

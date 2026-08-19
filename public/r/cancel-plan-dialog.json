@@ -1,8 +1,17 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cancel-plan-dialog",
+  "type": "registry:block",
   "title": "Cancel Plan Dialog",
   "description": "Plan cancellation reasons with a warning alert.",
+  "files": [
+    {
+      "path": "registry/app/cancel-plan-dialog/cancel-plan-dialog.tsx",
+      "type": "registry:component",
+      "target": "~/components/app/cancel-plan-dialog.tsx",
+      "content": "/* biome-ignore-all lint/performance/noJsxPropsBind: Dialog controls close over preset, section, and scope values. */\nimport { CircleHelp } from \"lucide-react\";\nimport {\n  DialogFrame,\n  type DialogProps,\n  Footer,\n} from \"@/components/app/dialogs-shared\";\nimport {\n  Alert,\n  AlertAction,\n  AlertDescription,\n  AlertTitle,\n} from \"@/components/ui/alert\";\nimport { Button } from \"@/components/ui/button\";\nimport { Checkbox } from \"@/components/ui/checkbox\";\nimport { Dialog } from \"@/components/ui/dialog\";\nimport { Field, FieldLabel, FieldSet } from \"@/components/ui/field\";\nimport { Textarea } from \"@/components/ui/textarea\";\n\nconst reasons = [\n  \"Only needed one launch\",\n  \"Budget changed\",\n  \"Missing a few patterns\",\n  \"Moved back in-house\",\n  \"Not the right stack fit\",\n  \"Wanted better Figma parity\",\n  \"Output felt inconsistent\",\n  \"Something else\",\n];\nexport function CancelPlanDialog(props: DialogProps) {\n  return (\n    <Dialog {...props}>\n      <DialogFrame\n        className=\"sm:max-w-4xl\"\n        description=\"Your workspace stays active through the current billing period.\"\n        title=\"Cancel Your Plan\"\n      >\n        <div className=\"flex flex-col gap-6\">\n          <Alert>\n            <CircleHelp />\n            <AlertTitle>Shared access pauses after expiry.</AlertTitle>\n            <AlertDescription>\n              Team access stays on until the current period ends.\n            </AlertDescription>\n            <AlertAction>\n              <Button type=\"button\" variant=\"outline\">\n                Manage\n              </Button>\n            </AlertAction>\n          </Alert>\n          <FieldSet>\n            <div className=\"grid gap-3 md:grid-cols-2\">\n              {reasons.map((reason, index) => {\n                const id = `cancel-reason-${index}`;\n                return (\n                  <Field\n                    className=\"rounded-xl border px-4 py-3\"\n                    key={reason}\n                    orientation=\"horizontal\"\n                  >\n                    <FieldLabel className=\"flex-1\" htmlFor={id}>\n                      {reason}\n                    </FieldLabel>\n                    <Checkbox id={id} />\n                  </Field>\n                );\n              })}\n            </div>\n          </FieldSet>\n          <Field>\n            <FieldLabel className=\"sr-only\" htmlFor=\"cancel-feedback\">\n              Feedback\n            </FieldLabel>\n            <Textarea\n              id=\"cancel-feedback\"\n              placeholder=\"Anything we should improve before you leave ReUI?\"\n            />\n          </Field>\n        </div>\n        <Footer\n          action=\"Cancel plan\"\n          cancel=\"Keep plan\"\n          note=\"Billing stays active\"\n        />\n      </DialogFrame>\n    </Dialog>\n  );\n}\n"
+    }
+  ],
   "dependencies": [
     "lucide-react"
   ],
@@ -12,14 +21,5 @@
     "checkbox",
     "textarea",
     "tyrailleverett/nice-ui/dialogs-shared"
-  ],
-  "files": [
-    {
-      "path": "registry/app/cancel-plan-dialog/cancel-plan-dialog.tsx",
-      "content": "/* biome-ignore-all lint/performance/noJsxPropsBind: Dialog controls close over preset, section, and scope values. */\nimport { CircleHelp } from \"lucide-react\";\nimport {\n  DialogFrame,\n  type DialogProps,\n  Footer,\n} from \"@/components/app/dialogs-shared\";\nimport {\n  Alert,\n  AlertAction,\n  AlertDescription,\n  AlertTitle,\n} from \"@/components/ui/alert\";\nimport { Button } from \"@/components/ui/button\";\nimport { Checkbox } from \"@/components/ui/checkbox\";\nimport { Dialog } from \"@/components/ui/dialog\";\nimport { Field, FieldLabel, FieldSet } from \"@/components/ui/field\";\nimport { Textarea } from \"@/components/ui/textarea\";\n\nconst reasons = [\n  \"Only needed one launch\",\n  \"Budget changed\",\n  \"Missing a few patterns\",\n  \"Moved back in-house\",\n  \"Not the right stack fit\",\n  \"Wanted better Figma parity\",\n  \"Output felt inconsistent\",\n  \"Something else\",\n];\nexport function CancelPlanDialog(props: DialogProps) {\n  return (\n    <Dialog {...props}>\n      <DialogFrame\n        className=\"sm:max-w-4xl\"\n        description=\"Your workspace stays active through the current billing period.\"\n        title=\"Cancel Your Plan\"\n      >\n        <div className=\"flex flex-col gap-6\">\n          <Alert>\n            <CircleHelp />\n            <AlertTitle>Shared access pauses after expiry.</AlertTitle>\n            <AlertDescription>\n              Team access stays on until the current period ends.\n            </AlertDescription>\n            <AlertAction>\n              <Button type=\"button\" variant=\"outline\">\n                Manage\n              </Button>\n            </AlertAction>\n          </Alert>\n          <FieldSet>\n            <div className=\"grid gap-3 md:grid-cols-2\">\n              {reasons.map((reason, index) => {\n                const id = `cancel-reason-${index}`;\n                return (\n                  <Field\n                    className=\"rounded-xl border px-4 py-3\"\n                    key={reason}\n                    orientation=\"horizontal\"\n                  >\n                    <FieldLabel className=\"flex-1\" htmlFor={id}>\n                      {reason}\n                    </FieldLabel>\n                    <Checkbox id={id} />\n                  </Field>\n                );\n              })}\n            </div>\n          </FieldSet>\n          <Field>\n            <FieldLabel className=\"sr-only\" htmlFor=\"cancel-feedback\">\n              Feedback\n            </FieldLabel>\n            <Textarea\n              id=\"cancel-feedback\"\n              placeholder=\"Anything we should improve before you leave ReUI?\"\n            />\n          </Field>\n        </div>\n        <Footer\n          action=\"Cancel plan\"\n          cancel=\"Keep plan\"\n          note=\"Billing stays active\"\n        />\n      </DialogFrame>\n    </Dialog>\n  );\n}\n",
-      "type": "registry:component",
-      "target": "~/components/app/cancel-plan-dialog.tsx"
-    }
-  ],
-  "type": "registry:block"
+  ]
 }

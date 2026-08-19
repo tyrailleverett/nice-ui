@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "onboarding-5",
+  "type": "registry:block",
   "title": "Minimal Flow Onboarding",
   "description": "Focused profile setup screen with a top progress indicator.",
   "dependencies": [
     "lucide-react"
   ],
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style",
-    "tyrailleverett/nice-ui/onboarding-shared"
-  ],
   "files": [
     {
       "path": "registry/app/onboarding-5/onboarding-5.tsx",
-      "content": "import {\n  BrandMark,\n  ContinueButton,\n  ProfileForm,\n} from \"@/components/app/onboarding-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Onboarding5Props {\n  className?: string;\n}\n\nexport function Onboarding5({ className }: Onboarding5Props) {\n  return (\n    <main\n      className={cn(\n        \"flex min-h-screen flex-col bg-background text-foreground\",\n        className\n      )}\n    >\n      <header className=\"flex h-20 items-center justify-between border-border border-b px-6 sm:px-10\">\n        <BrandMark />\n        <div className=\"flex items-center gap-5\">\n          <div className=\"h-2 w-44 overflow-hidden rounded-full bg-muted sm:w-80\">\n            <div className=\"h-full w-1/8 rounded-full bg-foreground\" />\n          </div>\n          <span className=\"text-muted-foreground text-sm\">1 / 8</span>\n        </div>\n      </header>\n      <section className=\"mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-20 sm:px-10 sm:py-28\">\n        <h1 className=\"font-semibold text-3xl tracking-[-0.04em] sm:text-4xl\">\n          Set up your profile\n        </h1>\n        <p className=\"mt-4 text-lg text-muted-foreground\">\n          Add the details teammates will see across the workspace.\n        </p>\n        <div className=\"mt-16\">\n          <ProfileForm />\n        </div>\n      </section>\n      <footer className=\"flex justify-end border-border border-t px-6 py-6 sm:px-10\">\n        <ContinueButton>Next step</ContinueButton>\n      </footer>\n    </main>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/app/onboarding-5.tsx"
+      "target": "~/components/app/onboarding-5.tsx",
+      "content": "import {\n  BrandMark,\n  ContinueButton,\n  ProfileForm,\n} from \"@/components/app/onboarding-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Onboarding5Props {\n  className?: string;\n}\n\nexport function Onboarding5({ className }: Onboarding5Props) {\n  return (\n    <main\n      className={cn(\n        \"flex min-h-screen flex-col bg-background text-foreground\",\n        className\n      )}\n    >\n      <header className=\"flex h-20 items-center justify-between border-border border-b px-6 sm:px-10\">\n        <BrandMark />\n        <div className=\"flex items-center gap-5\">\n          <div className=\"h-2 w-44 overflow-hidden rounded-full bg-muted sm:w-80\">\n            <div className=\"h-full w-1/8 rounded-full bg-foreground\" />\n          </div>\n          <span className=\"text-muted-foreground text-sm\">1 / 8</span>\n        </div>\n      </header>\n      <section className=\"mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-20 sm:px-10 sm:py-28\">\n        <h1 className=\"font-semibold text-3xl tracking-[-0.04em] sm:text-4xl\">\n          Set up your profile\n        </h1>\n        <p className=\"mt-4 text-lg text-muted-foreground\">\n          Add the details teammates will see across the workspace.\n        </p>\n        <div className=\"mt-16\">\n          <ProfileForm />\n        </div>\n      </section>\n      <footer className=\"flex justify-end border-border border-t px-6 py-6 sm:px-10\">\n        <ContinueButton>Next step</ContinueButton>\n      </footer>\n    </main>\n  );\n}\n"
     }
   ],
-  "type": "registry:block"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/onboarding-shared"
+  ]
 }

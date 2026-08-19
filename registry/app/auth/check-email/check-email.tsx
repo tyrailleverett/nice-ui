@@ -58,12 +58,13 @@ export function CheckEmail({
         </Button>
 
         <p className="text-center text-muted-foreground text-sm">
-          <a
-            className="text-primary underline underline-offset-4 hover:text-primary/80"
-            href={signInHref}
+          <Button
+            className="w-full"
+            render={<a href={signInHref} />}
+            variant="ghost"
           >
             {signInLabel}
-          </a>
+          </Button>
         </p>
       </div>
     </div>

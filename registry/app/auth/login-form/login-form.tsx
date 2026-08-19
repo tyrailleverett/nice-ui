@@ -84,7 +84,7 @@ function OrDivider() {
       </div>
       <div className="relative flex justify-center">
         <span className="bg-background px-3 text-muted-foreground text-xs">
-          or
+          or continue with email
         </span>
       </div>
     </div>
@@ -104,7 +104,7 @@ export function LoginLegalNav({
 
   return (
     <nav
-      aria-label="Legal"
+      aria-label="Support and legal"
       className={cn(
         "flex items-center justify-center gap-5 pt-8 text-muted-foreground text-sm",
         className
@@ -121,7 +121,7 @@ export function LoginLegalNav({
 
 export function LoginForm({
   className,
-  description = "Welcome back",
+  description,
   emailPlaceholder = "Enter your email",
   forgotPasswordHref = "#",
   forgotPasswordLabel = "Forgot password?",
@@ -140,6 +140,7 @@ export function LoginForm({
 }: LoginFormProps) {
   const emailId = `${idPrefix}-email`;
   const passwordId = `${idPrefix}-password`;
+  const accountPrompt = description ?? signInPrompt;
 
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
@@ -154,8 +155,16 @@ export function LoginForm({
       {logo}
       <div className="space-y-1">
         <h1 className="font-semibold text-3xl tracking-tight">{title}</h1>
-        {description ? (
-          <p className="text-muted-foreground text-sm">{description}</p>
+        {accountPrompt ? (
+          <p className="text-muted-foreground text-sm">
+            {accountPrompt}{" "}
+            <a
+              className="text-primary underline underline-offset-4 hover:text-primary/80"
+              href={signInHref}
+            >
+              {signInLabel}
+            </a>
+          </p>
         ) : null}
       </div>
 
@@ -203,16 +212,6 @@ export function LoginForm({
         <Button className="h-10 w-full" type="submit">
           {primaryAction}
         </Button>
-
-        <p className="text-center text-muted-foreground text-sm">
-          {signInPrompt}{" "}
-          <a
-            className="text-primary underline underline-offset-4 hover:text-primary/80"
-            href={signInHref}
-          >
-            {signInLabel}
-          </a>
-        </p>
       </form>
     </div>
   );

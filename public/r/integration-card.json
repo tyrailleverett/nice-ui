@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "integration-card",
+  "type": "registry:block",
   "title": "Integration Card",
   "description": "Installed integration card with status, team avatars, and a guide action.",
+  "files": [
+    {
+      "path": "registry/app/integration-card/integration-card.tsx",
+      "type": "registry:component",
+      "target": "~/components/app/integration-card.tsx",
+      "content": "import { CheckIcon, MoreVerticalIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\nimport { AvatarStack } from \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface IntegrationCardProps {\n  description?: string;\n  icon?: ReactNode;\n  name?: string;\n  onGuide?: () => void;\n  status?: string;\n}\n\nexport function IntegrationCard({\n  description = \"Sync contacts, track opportunities, and forecast deals in one unified workspace.\",\n  icon,\n  name = \"LeadForge CRM\",\n  onGuide,\n  status = \"Installed\",\n}: IntegrationCardProps) {\n  return (\n    <article className=\"showcase-card integration-card\">\n      <div className=\"integration-visual\">\n        <span className=\"card-status\">\n          <CheckIcon aria-hidden=\"true\" /> Live\n        </span>\n        <Button\n          aria-label=\"More integration options\"\n          size=\"icon\"\n          type=\"button\"\n          variant=\"ghost\"\n        >\n          <MoreVerticalIcon />\n        </Button>\n        {icon ? <span className=\"integration-logo\">{icon}</span> : null}\n      </div>\n      <div className=\"integration-panel\">\n        <div className=\"integration-content\">\n          <div className=\"card-row card-row-between\">\n            <h3>{name}</h3>\n            <span className=\"card-pill\">{status}</span>\n          </div>\n          <p className=\"card-description\">{description}</p>\n          <AvatarStack count={6} />\n        </div>\n        <div className=\"integration-footer\">\n          <Button\n            className=\"h-auto min-h-14 w-full rounded-none\"\n            onClick={onGuide}\n            type=\"button\"\n            variant=\"ghost\"\n          >\n            Integration guide\n          </Button>\n        </div>\n      </div>\n    </article>\n  );\n}\n"
+    }
+  ],
   "dependencies": [
     "lucide-react"
   ],
   "registryDependencies": [
     "tyrailleverett/nice-ui/style",
     "tyrailleverett/nice-ui/cards-shared"
-  ],
-  "files": [
-    {
-      "path": "registry/app/integration-card/integration-card.tsx",
-      "content": "import { CheckIcon, MoreVerticalIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\nimport { AvatarStack } from \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface IntegrationCardProps {\n  description?: string;\n  icon?: ReactNode;\n  name?: string;\n  onGuide?: () => void;\n  status?: string;\n}\n\nexport function IntegrationCard({\n  description = \"Sync contacts, track opportunities, and forecast deals in one unified workspace.\",\n  icon,\n  name = \"LeadForge CRM\",\n  onGuide,\n  status = \"Installed\",\n}: IntegrationCardProps) {\n  return (\n    <article className=\"showcase-card integration-card\">\n      <div className=\"integration-visual\">\n        <span className=\"card-status\">\n          <CheckIcon aria-hidden=\"true\" /> Live\n        </span>\n        <Button\n          aria-label=\"More integration options\"\n          size=\"icon\"\n          type=\"button\"\n          variant=\"ghost\"\n        >\n          <MoreVerticalIcon />\n        </Button>\n        {icon ? <span className=\"integration-logo\">{icon}</span> : null}\n      </div>\n      <div className=\"integration-panel\">\n        <div className=\"integration-content\">\n          <div className=\"card-row card-row-between\">\n            <h3>{name}</h3>\n            <span className=\"card-pill\">{status}</span>\n          </div>\n          <p className=\"card-description\">{description}</p>\n          <AvatarStack count={6} />\n        </div>\n        <div className=\"integration-footer\">\n          <Button\n            className=\"h-auto min-h-14 w-full rounded-none\"\n            onClick={onGuide}\n            type=\"button\"\n            variant=\"ghost\"\n          >\n            Integration guide\n          </Button>\n        </div>\n      </div>\n    </article>\n  );\n}\n",
-      "type": "registry:component",
-      "target": "~/components/app/integration-card.tsx"
-    }
-  ],
-  "type": "registry:block"
+  ]
 }

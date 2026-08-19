@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "onboarding-2",
+  "type": "registry:block",
   "title": "Sidebar Rail Onboarding",
   "description": "Profile setup flow with a numbered navigation rail.",
   "dependencies": [
     "lucide-react"
   ],
-  "registryDependencies": [
-    "tyrailleverett/nice-ui/style",
-    "tyrailleverett/nice-ui/onboarding-shared"
-  ],
   "files": [
     {
       "path": "registry/app/onboarding-2/onboarding-2.tsx",
-      "content": "import {\n  BrandMark,\n  ContinueButton,\n  ProfileForm,\n  StepRail,\n} from \"@/components/app/onboarding-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Onboarding2Props {\n  className?: string;\n}\n\nexport function Onboarding2({ className }: Onboarding2Props) {\n  return (\n    <main\n      className={cn(\n        \"min-h-screen bg-background p-4 text-foreground sm:p-8\",\n        className\n      )}\n    >\n      <div className=\"grid min-h-[calc(100vh-2rem)] grid-cols-1 overflow-hidden rounded-2xl border border-border bg-card sm:min-h-[calc(100vh-4rem)] lg:grid-cols-[320px_1fr]\">\n        <aside className=\"flex flex-col border-border border-r bg-muted/20 p-8 lg:p-10\">\n          <BrandMark />\n          <div className=\"mt-auto mb-auto pt-16\">\n            <StepRail />\n          </div>\n          <div className=\"flex justify-between text-muted-foreground text-xs\">\n            <span>Terms of Service</span>\n            <span>Help Center</span>\n          </div>\n        </aside>\n        <section className=\"flex flex-col p-8 sm:p-16 lg:p-24\">\n          <div className=\"mx-auto flex w-full max-w-2xl flex-1 flex-col\">\n            <h1 className=\"font-semibold text-3xl tracking-[-0.04em] sm:text-4xl\">\n              Set up your profile\n            </h1>\n            <p className=\"mt-3 text-lg text-muted-foreground\">\n              Add the details teammates will see across the workspace.\n            </p>\n            <div className=\"mt-12\">\n              <ProfileForm jobTitle=\"Product Lead\" />\n            </div>\n            <ContinueButton className=\"mt-10\" />\n          </div>\n        </section>\n      </div>\n    </main>\n  );\n}\n",
       "type": "registry:component",
-      "target": "~/components/app/onboarding-2.tsx"
+      "target": "~/components/app/onboarding-2.tsx",
+      "content": "import {\n  BrandMark,\n  ContinueButton,\n  ProfileForm,\n  StepRail,\n} from \"@/components/app/onboarding-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface Onboarding2Props {\n  className?: string;\n}\n\nexport function Onboarding2({ className }: Onboarding2Props) {\n  return (\n    <main\n      className={cn(\n        \"min-h-screen bg-background p-4 text-foreground sm:p-8\",\n        className\n      )}\n    >\n      <div className=\"grid min-h-[calc(100vh-2rem)] grid-cols-1 overflow-hidden rounded-2xl border border-border bg-card sm:min-h-[calc(100vh-4rem)] lg:grid-cols-[320px_1fr]\">\n        <aside className=\"flex flex-col border-border border-r bg-muted/20 p-8 lg:p-10\">\n          <BrandMark />\n          <div className=\"mt-auto mb-auto pt-16\">\n            <StepRail />\n          </div>\n          <div className=\"flex justify-between text-muted-foreground text-xs\">\n            <span>Terms of Service</span>\n            <span>Help Center</span>\n          </div>\n        </aside>\n        <section className=\"flex flex-col p-8 sm:p-16 lg:p-24\">\n          <div className=\"mx-auto flex w-full max-w-2xl flex-1 flex-col\">\n            <h1 className=\"font-semibold text-3xl tracking-[-0.04em] sm:text-4xl\">\n              Set up your profile\n            </h1>\n            <p className=\"mt-3 text-lg text-muted-foreground\">\n              Add the details teammates will see across the workspace.\n            </p>\n            <div className=\"mt-12\">\n              <ProfileForm jobTitle=\"Product Lead\" />\n            </div>\n            <ContinueButton className=\"mt-10\" />\n          </div>\n        </section>\n      </div>\n    </main>\n  );\n}\n"
     }
   ],
-  "type": "registry:block"
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/onboarding-shared"
+  ]
 }

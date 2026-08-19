@@ -8,44 +8,44 @@
       "description": "Original light and dark product screenshots used by marketing blocks.",
       "files": [
         {
-          "path": "screenshot-assets/analytics-dark.png",
+          "path": "screenshot-assets/analytics-dark.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/analytics-dark.png"
+          "target": "~/public/screenshots/analytics-dark.svg"
         },
         {
-          "path": "screenshot-assets/analytics-light.png",
+          "path": "screenshot-assets/analytics-light.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/analytics-light.png"
+          "target": "~/public/screenshots/analytics-light.svg"
         },
         {
-          "path": "screenshot-assets/canvas-dark.png",
+          "path": "screenshot-assets/canvas-dark.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/canvas-dark.png"
+          "target": "~/public/screenshots/canvas-dark.svg"
         },
         {
-          "path": "screenshot-assets/canvas-light.png",
+          "path": "screenshot-assets/canvas-light.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/canvas-light.png"
+          "target": "~/public/screenshots/canvas-light.svg"
         },
         {
-          "path": "screenshot-assets/customer-dark.png",
+          "path": "screenshot-assets/customer-dark.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/customer-dark.png"
+          "target": "~/public/screenshots/customer-dark.svg"
         },
         {
-          "path": "screenshot-assets/customer-light.png",
+          "path": "screenshot-assets/customer-light.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/customer-light.png"
+          "target": "~/public/screenshots/customer-light.svg"
         },
         {
-          "path": "screenshot-assets/workflow-dark.png",
+          "path": "screenshot-assets/workflow-dark.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/workflow-dark.png"
+          "target": "~/public/screenshots/workflow-dark.svg"
         },
         {
-          "path": "screenshot-assets/workflow-light.png",
+          "path": "screenshot-assets/workflow-light.svg",
           "type": "registry:file",
-          "target": "~/public/screenshots/workflow-light.png"
+          "target": "~/public/screenshots/workflow-light.svg"
         }
       ]
     },

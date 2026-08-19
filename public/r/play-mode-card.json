@@ -1,22 +1,22 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "play-mode-card",
+  "type": "registry:block",
   "title": "Play Mode Card",
   "description": "Practice-mode callout with a demo trading action.",
+  "files": [
+    {
+      "path": "registry/app/play-mode-card/play-mode-card.tsx",
+      "type": "registry:component",
+      "target": "~/components/app/play-mode-card.tsx",
+      "content": "import { ZapIcon } from \"lucide-react\";\n\nimport \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface PlayModeCardProps {\n  onTryDemo?: () => void;\n}\n\nexport function PlayModeCard({ onTryDemo }: PlayModeCardProps) {\n  return (\n    <article className=\"showcase-card play-card\">\n      <div className=\"play-art\">\n        <span />\n        <span />\n      </div>\n      <span className=\"outline-pill\">Play mode</span>\n      <h3>Practice trading safely</h3>\n      <p>\n        Analyze live market data to identify patterns\n        <br />\n        and respond with precision\n      </p>\n      <Button className=\"play-button\" onClick={onTryDemo} type=\"button\">\n        <ZapIcon data-icon=\"inline-start\" /> Try demo trading\n      </Button>\n    </article>\n  );\n}\n"
+    }
+  ],
   "dependencies": [
     "lucide-react"
   ],
   "registryDependencies": [
     "tyrailleverett/nice-ui/style",
     "tyrailleverett/nice-ui/cards-shared"
-  ],
-  "files": [
-    {
-      "path": "registry/app/play-mode-card/play-mode-card.tsx",
-      "content": "import { ZapIcon } from \"lucide-react\";\n\nimport \"@/components/app/cards-shared\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface PlayModeCardProps {\n  onTryDemo?: () => void;\n}\n\nexport function PlayModeCard({ onTryDemo }: PlayModeCardProps) {\n  return (\n    <article className=\"showcase-card play-card\">\n      <div className=\"play-art\">\n        <span />\n        <span />\n      </div>\n      <span className=\"outline-pill\">Play mode</span>\n      <h3>Practice trading safely</h3>\n      <p>\n        Analyze live market data to identify patterns\n        <br />\n        and respond with precision\n      </p>\n      <Button className=\"play-button\" onClick={onTryDemo} type=\"button\">\n        <ZapIcon data-icon=\"inline-start\" /> Try demo trading\n      </Button>\n    </article>\n  );\n}\n",
-      "type": "registry:component",
-      "target": "~/components/app/play-mode-card.tsx"
-    }
-  ],
-  "type": "registry:block"
+  ]
 }

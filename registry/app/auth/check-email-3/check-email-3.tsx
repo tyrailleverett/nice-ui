@@ -1,12 +1,18 @@
 import type { ReactNode } from "react";
 
 import { CheckEmail } from "@/components/check-email";
+import {
+  defaultLoginLegalLinks,
+  type LoginFormLink,
+  LoginLegalNav,
+} from "@/components/login-form";
 import { cn } from "@/lib/utils";
 
 export interface CheckEmail3Props {
   className?: string;
   description?: ReactNode;
   email?: string;
+  legalLinks?: LoginFormLink[];
   logo?: ReactNode;
   onResend?: () => void;
   resendLabel?: string;
@@ -19,6 +25,7 @@ export function CheckEmail3({
   className,
   description,
   email,
+  legalLinks = defaultLoginLegalLinks,
   logo,
   onResend,
   resendLabel,
@@ -43,6 +50,7 @@ export function CheckEmail3({
             title={title}
           />
         </div>
+        <LoginLegalNav links={legalLinks} />
       </div>
     </section>
   );

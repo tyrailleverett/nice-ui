@@ -1,27 +1,28 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "font",
+  "type": "registry:font",
   "title": "Inter Variable",
   "description": "Nice UI typeface: Inter Variable for display, UI, and body. Marketing headlines use weight 900 via font-display-heading.",
+  "docs": "Non-Next.js projects should import `@fontsource-variable/inter` in the global CSS file after install.",
+  "font": {
+    "dependency": "@fontsource-variable/inter",
+    "family": "\"Inter Variable\", sans-serif",
+    "import": "Inter",
+    "provider": "google",
+    "subsets": [
+      "latin"
+    ],
+    "variable": "--font-sans"
+  },
+  "css": {
+    "@import \"@fontsource-variable/inter\"": {}
+  },
   "cssVars": {
     "theme": {
       "font-heading": "var(--font-sans)",
       "font-sans": "\"Inter Variable\", sans-serif"
     }
   },
-  "css": {
-    "@import \"@fontsource-variable/inter\"": {}
-  },
-  "docs": "Non-Next.js projects should import `@fontsource-variable/inter` in the global CSS file after install.",
-  "type": "registry:font",
-  "font": {
-    "family": "\"Inter Variable\", sans-serif",
-    "provider": "google",
-    "import": "Inter",
-    "variable": "--font-sans",
-    "subsets": [
-      "latin"
-    ],
-    "dependency": "@fontsource-variable/inter"
-  }
+  "files": []
 }

@@ -55,11 +55,11 @@ export function Hero4({
   primaryCta = { href: "#", label: "Get Started" },
   screenshot = {
     alt: "Product dashboard",
-    src: "/screenshots/canvas-light.png",
+    src: "/screenshots/canvas-light.svg",
   },
   darkScreenshot = {
     alt: "Product dashboard",
-    src: "/screenshots/canvas-dark.png",
+    src: "/screenshots/canvas-dark.svg",
   },
   className,
 }: Hero4Props) {

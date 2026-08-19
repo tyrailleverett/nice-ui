@@ -13,6 +13,7 @@
     "prepare": "lefthook install",
     "preview": "vite preview",
     "preview:storybook": "vite preview --outDir storybook-static --port 6006",
+    "registry:build": "bun scripts/build-registry.ts",
     "registry:validate": "bunx shadcn@latest registry validate ./registry.json"
   },
   "dependencies": {
