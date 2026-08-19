@@ -84,7 +84,7 @@ function OrDivider() {
       </div>
       <div className="relative flex justify-center">
         <span className="bg-background px-3 text-muted-foreground text-xs">
-          or continue with email
+          OR CONTINUE WITH EMAIL
         </span>
       </div>
     </div>
