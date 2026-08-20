@@ -2214,6 +2214,172 @@
         "radio-group",
         "tyrailleverett/nice-ui/dialogs-shared"
       ]
+    },
+    {
+      "name": "usage-dashboard",
+      "type": "registry:block",
+      "title": "Usage & Limits Dashboard",
+      "description": "SaaS usage workspace with plan context, quota ledger, usage trend, and upgrade guidance.",
+      "files": [
+        {
+          "path": "usage-dashboard/usage-dashboard.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/usage-dashboard.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react", "recharts"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "alert",
+        "badge",
+        "button",
+        "card",
+        "chart",
+        "progress",
+        "separator"
+      ]
+    },
+    {
+      "name": "audit-log",
+      "type": "registry:block",
+      "title": "Audit Log",
+      "description": "Filterable SaaS audit history with connected event rail, expandable details, and loading states.",
+      "files": [
+        {
+          "path": "audit-log/audit-log.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/audit-log.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "field",
+        "input",
+        "pagination",
+        "select",
+        "separator",
+        "skeleton",
+        "table"
+      ]
+    },
+    {
+      "name": "webhook-deliveries",
+      "type": "registry:block",
+      "title": "Webhook Deliveries",
+      "description": "Developer-facing webhook delivery console with health metrics, filters, retries, and request inspection.",
+      "files": [
+        {
+          "path": "webhook-deliveries/webhook-deliveries.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/webhook-deliveries.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "input",
+        "separator"
+      ]
+    },
+    {
+      "name": "kanban-board",
+      "type": "registry:block",
+      "title": "Pipeline Board",
+      "description": "Responsive SaaS work board with status columns, ownership, priorities, due dates, and progress.",
+      "files": [
+        {
+          "path": "kanban-board/kanban-board.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/kanban-board.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "progress",
+        "select",
+        "tabs"
+      ]
+    },
+    {
+      "name": "members-management",
+      "type": "registry:block",
+      "title": "Members & Enrollment",
+      "description": "SaaS member directory with seat enrollment, pending invites, filters, roles, and row actions.",
+      "files": [
+        {
+          "path": "members-management/members-management.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/members-management.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "input"
+      ]
+    },
+    {
+      "name": "creation-wizard",
+      "type": "registry:block",
+      "title": "Project Creation Wizard",
+      "description": "Interactive three-step SaaS creation flow for details, source connection, review, and success.",
+      "files": [
+        {
+          "path": "creation-wizard/creation-wizard.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/creation-wizard.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "alert",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "label",
+        "progress",
+        "radio-group",
+        "separator",
+        "textarea"
+      ]
+    },
+    {
+      "name": "upgrade-paywall",
+      "type": "registry:block",
+      "title": "Upgrade & Paywall States",
+      "description": "Entitlement-aware SaaS states for locked features, reached limits, expiring trials, and failed payments.",
+      "files": [
+        {
+          "path": "upgrade-paywall/upgrade-paywall.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/upgrade-paywall.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "progress",
+        "separator"
+      ]
     }
   ]
 }

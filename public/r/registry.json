@@ -3111,6 +3111,145 @@
         "radio-group",
         "tyrailleverett/nice-ui/dialogs-shared"
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "usage-dashboard",
+      "type": "registry:block",
+      "title": "Usage & Limits Dashboard",
+      "description": "SaaS usage workspace with plan context, quota ledger, usage trend, and upgrade guidance.",
+      "dependencies": [
+        "lucide-react",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "alert",
+        "badge",
+        "button",
+        "card",
+        "chart",
+        "progress",
+        "separator"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "audit-log",
+      "type": "registry:block",
+      "title": "Audit Log",
+      "description": "Filterable SaaS audit history with connected event rail, expandable details, and loading states.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "field",
+        "input",
+        "pagination",
+        "select",
+        "separator",
+        "skeleton",
+        "table"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "webhook-deliveries",
+      "type": "registry:block",
+      "title": "Webhook Deliveries",
+      "description": "Developer-facing webhook delivery console with health metrics, filters, retries, and request inspection.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "input",
+        "separator"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "kanban-board",
+      "type": "registry:block",
+      "title": "Pipeline Board",
+      "description": "Responsive SaaS work board with status columns, ownership, priorities, due dates, and progress.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "progress",
+        "select",
+        "tabs"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "members-management",
+      "type": "registry:block",
+      "title": "Members & Enrollment",
+      "description": "SaaS member directory with seat enrollment, pending invites, filters, roles, and row actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "input"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "creation-wizard",
+      "type": "registry:block",
+      "title": "Project Creation Wizard",
+      "description": "Interactive three-step SaaS creation flow for details, source connection, review, and success.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "alert",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "label",
+        "progress",
+        "radio-group",
+        "separator",
+        "textarea"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "upgrade-paywall",
+      "type": "registry:block",
+      "title": "Upgrade & Paywall States",
+      "description": "Entitlement-aware SaaS states for locked features, reached limits, expiring trials, and failed payments.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "progress",
+        "separator"
+      ]
     }
   ],
   "name": "nice-ui"
