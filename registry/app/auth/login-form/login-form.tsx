@@ -1,4 +1,3 @@
-import { MailIcon } from "lucide-react";
 import {
   type ComponentProps,
   type FormEvent,
@@ -9,11 +8,7 @@ import {
 import { LogoIcon } from "@/components/logo";
 import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -194,9 +189,6 @@ export function LoginForm({
                 required
                 type="email"
               />
-              <InputGroupAddon>
-                <MailIcon aria-hidden="true" data-icon="inline-start" />
-              </InputGroupAddon>
             </InputGroup>
           </div>
           <PasswordInput

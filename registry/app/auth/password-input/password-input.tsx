@@ -1,4 +1,4 @@
-import { CheckIcon, EyeIcon, EyeOffIcon, LockIcon, XIcon } from "lucide-react";
+import { CheckIcon, EyeIcon, EyeOffIcon, XIcon } from "lucide-react";
 import {
   type ChangeEvent,
   type FocusEvent,
@@ -149,9 +149,6 @@ export function PasswordInput({
       </div>
       <div>
         <InputGroup className="h-10">
-          <InputGroupAddon>
-            <LockIcon aria-hidden="true" data-icon="inline-start" />
-          </InputGroupAddon>
           <InputGroupInput
             aria-describedby={showStrengthIndicator ? descriptionId : undefined}
             aria-invalid={

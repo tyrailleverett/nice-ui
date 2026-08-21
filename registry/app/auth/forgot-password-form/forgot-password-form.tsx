@@ -1,13 +1,8 @@
-import { MailIcon } from "lucide-react";
 import { type FormEvent, type ReactNode, useCallback } from "react";
 
 import { LogoIcon } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
@@ -73,9 +68,6 @@ export function ForgotPasswordForm({
               required
               type="email"
             />
-            <InputGroupAddon>
-              <MailIcon aria-hidden="true" data-icon="inline-start" />
-            </InputGroupAddon>
           </InputGroup>
         </div>
 
