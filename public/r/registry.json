@@ -1342,6 +1342,38 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "waitlist-1",
+      "type": "registry:block",
+      "title": "Editorial Waitlist Band",
+      "description": "A compact editorial waitlist form with early-access copy and a clear success state.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input",
+        "tyrailleverett/nice-ui/marketing-section"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "waitlist-2",
+      "type": "registry:block",
+      "title": "Launch Dispatch Waitlist",
+      "description": "A split waitlist block with a stamped early-access panel and responsive email form.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input",
+        "tyrailleverett/nice-ui/marketing-section"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "use-file-upload",
       "type": "registry:hook",
       "title": "File Upload Hook",
