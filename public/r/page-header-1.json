@@ -9,7 +9,8 @@
   ],
   "registryDependencies": [
     "tyrailleverett/nice-ui/style",
-    "button"
+    "button",
+    "tyrailleverett/nice-ui/use-file-upload"
   ],
   "files": [
     {

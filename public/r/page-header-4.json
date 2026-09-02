@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-header-4",
+  "type": "registry:block",
+  "title": "Context Tabs Page Header",
+  "description": "Workspace eyebrow, status badge, inline actions, and horizontal section tabs for command-center pages.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "badge",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/app/page-header/page-header-4/page-header-4.tsx",
+      "type": "registry:component",
+      "target": "~/components/app/page-header-4.tsx",
+      "content": "import type { LucideIcon } from \"lucide-react\";\nimport { ChevronRightIcon } from \"lucide-react\";\n\nimport { Badge } from \"@/components/ui/badge\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface PageHeader4Action {\n  href?: string;\n  icon?: LucideIcon;\n  label: string;\n}\n\nexport interface PageHeader4Props {\n  actions?: PageHeader4Action[];\n  className?: string;\n  eyebrow?: string;\n  status?: string | null;\n  tabs?: string[];\n  title?: string;\n}\n\nfunction HeaderAction({ action }: { action: PageHeader4Action }) {\n  const Icon = action.icon;\n  const content = (\n    <>\n      {Icon ? <Icon data-icon=\"inline-start\" /> : null}\n      {action.label}\n    </>\n  );\n\n  if (action.href) {\n    return (\n      <Button nativeButton={false} render={<a href={action.href} />} variant=\"outline\">\n        {content}\n      </Button>\n    );\n  }\n\n  return <Button variant=\"outline\">{content}</Button>;\n}\n\nexport function PageHeader4({\n  actions = [{ label: \"Open command menu\" }],\n  className,\n  eyebrow = \"Northstar workspace\",\n  status = \"Operational\",\n  tabs = [\"Overview\", \"Activity\", \"Access\", \"Settings\"],\n  title = \"Workspace health\",\n}: PageHeader4Props) {\n  return (\n    <section className={cn(\"w-full bg-background px-6 py-8 text-foreground\", className)}>\n      <div className=\"mx-auto w-full max-w-6xl\">\n        <div className=\"flex flex-col gap-6 border-border border-b pb-6 lg:flex-row lg:items-end lg:justify-between\">\n          <div className=\"flex flex-col gap-2\">\n            <p className=\"font-mono text-muted-foreground text-xs uppercase tracking-[0.16em]\">\n              {eyebrow}\n            </p>\n            <div className=\"flex flex-wrap items-center gap-3\">\n              <h1 className=\"font-heading font-semibold text-title sm:text-3xl\">{title}</h1>\n              {status ? <Badge variant=\"secondary\">{status}</Badge> : null}\n            </div>\n          </div>\n          <div className=\"flex flex-wrap items-center gap-2\">\n            {actions.map((action) => (\n              <HeaderAction action={action} key={action.label} />\n            ))}\n          </div>\n        </div>\n\n        <nav aria-label=\"Page sections\" className=\"flex gap-6 overflow-x-auto pt-4\">\n          {tabs.map((tab, index) => (\n            <a\n              aria-current={index === 0 ? \"page\" : undefined}\n              className={cn(\n                \"flex shrink-0 items-center gap-1 border-b-2 pb-3 text-sm\",\n                index === 0\n                  ? \"border-foreground font-medium text-foreground\"\n                  : \"border-transparent text-muted-foreground hover:text-foreground\"\n              )}\n              href={`#${tab.toLowerCase().replaceAll(\" \", \"-\")}`}\n              key={tab}\n            >\n              {tab}\n              {index === 0 ? <ChevronRightIcon className=\"size-3.5\" /> : null}\n            </a>\n          ))}\n        </nav>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}
