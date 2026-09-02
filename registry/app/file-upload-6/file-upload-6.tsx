@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 const MAX_FILE_SIZE = 25 * 1024 * 1024;
 
-type ImportState = "ready" | "importing" | "complete";
+type UploadPhase = "upload" | "review" | "importing" | "complete";
 
 interface SelectedFile {
   name: string;
@@ -44,27 +44,26 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
       ? { name: "workspace-export.csv", size: 2_460_000 }
       : defaultFile
   );
-  const [step, setStep] = useState<"upload" | "review">("upload");
-  const [importState, setImportState] = useState<ImportState>("ready");
+  const [phase, setPhase] = useState<UploadPhase>("upload");
   const [progress, setProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (importState !== "importing") {
+    if (phase !== "importing") {
       return;
     }
     const timer = window.setInterval(() => {
       setProgress((current) => {
         const next = Math.min(current + 12, 100);
         if (next === 100) {
-          setImportState("complete");
+          setPhase("complete");
         }
         return next;
       });
     }, 450);
     return () => window.clearInterval(timer);
-  }, [importState]);
+  }, [phase]);
 
   const selectFile = (candidate: File) => {
     let validationError: string | null = null;
@@ -79,20 +78,19 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
       return;
     }
     setFile({ name: candidate.name, size: candidate.size });
-    setStep("upload");
-    setImportState("ready");
+    setPhase("upload");
     setProgress(0);
   };
 
   const removeFile = () => {
     setFile(null);
     setError(null);
-    setImportState("ready");
+    setPhase("upload");
     setProgress(0);
   };
 
-  const isReview = step === "review";
-  const canContinue = file !== null && importState === "ready";
+  const isReview = phase === "review" || phase === "importing";
+  const canContinue = file !== null && phase === "upload";
 
   return (
     <main
@@ -169,7 +167,7 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
         </nav>
 
         <section className="mx-auto mt-8 max-w-2xl rounded-xl border border-border bg-background p-5 shadow-sm sm:p-8">
-          {importState === "complete" ? (
+          {phase === "complete" ? (
             <div className="py-8 text-center">
               <CheckCircle2Icon className="mx-auto size-10 text-primary" />
               <h1 className="mt-4 font-semibold text-2xl tracking-tight">
@@ -293,7 +291,7 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                 </div>
               )}
 
-              {isReview && (
+              {isReview ? (
                 <div className="mt-5 rounded-lg border border-border bg-muted/20 p-4">
                   <div className="flex items-center justify-between gap-3">
                     <p className="font-medium text-sm">Validation passed</p>
@@ -310,13 +308,13 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                     className="mt-4"
                     value={progress}
                   />
-                  {importState === "importing" && (
+                  {phase === "importing" && (
                     <p className="mt-2 text-muted-foreground text-xs">
                       Preparing your import… {progress}%
                     </p>
                   )}
                 </div>
-              )}
+              ) : null}
 
               {error !== null && (
                 <p className="mt-3 flex items-center gap-2 text-destructive text-xs">
@@ -326,27 +324,25 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
               )}
 
               <div className="mt-7 flex items-center justify-between gap-3 border-border border-t pt-5">
-                <Button onClick={() => setStep("upload")} variant="outline">
+                <Button onClick={() => setPhase("upload")} variant="outline">
                   <ArrowLeftIcon data-icon="inline-start" />
                   Back
                 </Button>
                 {isReview ? (
                   <Button
-                    disabled={importState === "importing"}
+                    disabled={phase === "importing" || file === null}
                     onClick={() => {
-                      setImportState("importing");
+                      setPhase("importing");
                       setProgress(8);
                     }}
                   >
-                    {importState === "importing"
-                      ? "Importing…"
-                      : "Start import"}
+                    {phase === "importing" ? "Importing…" : "Start import"}
                     <ArrowRightIcon data-icon="inline-end" />
                   </Button>
                 ) : (
                   <Button
                     disabled={!canContinue}
-                    onClick={() => setStep("review")}
+                    onClick={() => setPhase("review")}
                   >
                     Continue to review
                     <ArrowRightIcon data-icon="inline-end" />

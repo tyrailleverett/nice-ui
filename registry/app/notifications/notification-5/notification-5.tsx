@@ -78,12 +78,12 @@ const filters: { label: string; value: NotificationFilter }[] = [
 
 export interface Notification5Props {
   className?: string;
-  items?: NotificationItem[];
+  defaultItems?: NotificationItem[];
 }
 
 export function Notification5({
   className,
-  items: initialNotificationItems = initialItems,
+  defaultItems: initialNotificationItems = initialItems,
 }: Notification5Props) {
   const [activeFilter, setActiveFilter] = useState<NotificationFilter>("all");
   const [items, setItems] = useState(initialNotificationItems);

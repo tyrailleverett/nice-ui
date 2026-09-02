@@ -34,5 +34,5 @@ export const Center: Story = {
 };
 
 export const Empty: Story = {
-  render: () => <Notification5 items={[]} />,
+  render: () => <Notification5 defaultItems={[]} />,
 };
