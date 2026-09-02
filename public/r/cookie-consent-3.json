@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cookie-consent-3",
+  "type": "registry:block",
+  "title": "Compact Cookie Notice",
+  "description": "A compact, accessible cookie preference notice with accept, essential-only, and manage actions.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cookie-consent-3/cookie-consent-3.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/cookie-consent-3.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\nexport interface CookieConsent3Props {\n  className?: string;\n  onAccept?: () => void;\n  onManage?: () => void;\n  onReject?: () => void;\n}\nexport function CookieConsent3({\n  className,\n  onAccept,\n  onManage,\n  onReject,\n}: CookieConsent3Props) {\n  return (\n    <aside\n      aria-label=\"Cookie preferences\"\n      className={cn(\n        \"fixed inset-x-3 bottom-3 z-10 mx-auto max-w-2xl border bg-background p-5 shadow-lg sm:inset-x-auto sm:right-6 sm:bottom-6\",\n        className\n      )}\n    >\n      <div className=\"space-y-3\">\n        <p className=\"font-medium\">A small note about cookies</p>\n        <p className=\"text-muted-foreground text-sm leading-6\">\n          We use essential cookies to keep Nice UI working and optional\n          analytics to understand what people find useful. You can change your\n          choice at any time.\n        </p>\n        <div className=\"flex flex-wrap items-center gap-2\">\n          <Button onClick={onAccept} size=\"sm\">\n            Accept all\n          </Button>\n          <Button onClick={onReject} size=\"sm\" variant=\"outline\">\n            Only essential\n          </Button>\n          <Button onClick={onManage} size=\"sm\" variant=\"ghost\">\n            Manage choices\n          </Button>\n        </div>\n      </div>\n    </aside>\n  );\n}\n"
+    }
+  ]
+}

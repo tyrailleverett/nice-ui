@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-8",
+  "type": "registry:block",
+  "title": "Dark Directory Footer",
+  "description": "A dark directory footer with grouped links, product tagline, and a compact utility bar.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/logo",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/footer-8/footer-8.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/footer-8.tsx",
+      "content": "import { ArrowUpRightIcon } from \"lucide-react\";\nimport { MarketingSection } from \"@/components/marketing-section\";\nimport { Logo } from \"../logo/logo\";\nexport interface Footer8Link {\n  href: string;\n  label: string;\n}\nexport interface Footer8Group {\n  links: Footer8Link[];\n  title: string;\n}\nexport interface Footer8Props {\n  className?: string;\n  groups?: Footer8Group[];\n  tagline?: string;\n}\nconst defaultGroups: Footer8Group[] = [\n  {\n    links: [\"Blocks\", \"Templates\", \"Components\"].map((label) => ({\n      href: \"#\",\n      label,\n    })),\n    title: \"Product\",\n  },\n  {\n    links: [\"About\", \"Changelog\", \"Contact\"].map((label) => ({\n      href: \"#\",\n      label,\n    })),\n    title: \"Company\",\n  },\n  {\n    links: [\"Documentation\", \"GitHub\", \"License\"].map((label) => ({\n      href: \"#\",\n      label,\n    })),\n    title: \"Resources\",\n  },\n];\nexport function Footer8({\n  groups = defaultGroups,\n  tagline = \"A considered starting point for the next thing you make.\",\n  className,\n}: Footer8Props) {\n  return (\n    <MarketingSection className={className}>\n      <footer className=\"space-y-12 bg-primary p-6 text-primary-foreground md:p-10\">\n        <div className=\"flex flex-col justify-between gap-8 md:flex-row\">\n          <div className=\"max-w-xs space-y-5\">\n            <Logo />\n            <p className=\"text-primary-foreground/70 text-sm leading-6\">\n              {tagline}\n            </p>\n            <a\n              className=\"inline-flex items-center gap-1 text-sm underline-offset-4 hover:underline\"\n              href=\"/docs\"\n            >\n              Start building{\" \"}\n              <ArrowUpRightIcon aria-hidden=\"true\" className=\"size-4\" />\n            </a>\n          </div>\n          <nav\n            aria-label=\"Footer\"\n            className=\"grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-3\"\n          >\n            {groups.map((group) => (\n              <div className=\"space-y-3\" key={group.title}>\n                <h2 className=\"font-mono text-primary-foreground/50 text-xs uppercase tracking-[0.16em]\">\n                  {group.title}\n                </h2>\n                <ul className=\"space-y-2\">\n                  {group.links.map((link) => (\n                    <li key={link.label}>\n                      <a\n                        className=\"text-primary-foreground/80 text-sm hover:text-primary-foreground hover:underline\"\n                        href={link.href}\n                      >\n                        {link.label}\n                      </a>\n                    </li>\n                  ))}\n                </ul>\n              </div>\n            ))}\n          </nav>\n        </div>\n        <div className=\"flex flex-col gap-2 border-primary-foreground/20 border-t pt-5 text-primary-foreground/50 text-xs sm:flex-row sm:justify-between\">\n          <span>© 2026 Nice UI</span>\n          <span>Made for thoughtful interfaces.</span>\n        </div>\n      </footer>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}

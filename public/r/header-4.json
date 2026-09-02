@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header-4",
+  "type": "registry:block",
+  "title": "Systems Bar Header",
+  "description": "A two-tier marketing header with system status, centered navigation, and a responsive menu.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/header-shared"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/header-4/header-4.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/header-4.tsx",
+      "content": "import {\n  type HeaderBlockProps,\n  HeaderCtaButton,\n  HeaderLogo,\n  HeaderMenuToggle,\n  HeaderNavLinks,\n  useHeaderMenu,\n} from \"@/components/header-shared\";\nimport { cn } from \"@/lib/utils\";\n\nexport type Header4Cta = HeaderBlockProps[\"getStarted\"];\nexport type Header4NavLink = HeaderBlockProps[\"navLinks\"][number];\nexport type Header4Props = HeaderBlockProps;\n\nexport function Header4({\n  className,\n  getStarted = { label: \"Get started\" },\n  logo,\n  logoHref = \"#\",\n  navLinks,\n  signIn = { label: \"Log in\" },\n}: Header4Props) {\n  const { menuOpen, toggleMenu } = useHeaderMenu();\n\n  return (\n    <header className={cn(\"border-b bg-background\", className)}>\n      <div className=\"mx-auto max-w-7xl px-6 sm:px-10 lg:px-12\">\n        <div className=\"flex items-center justify-between border-b py-3 font-mono text-[10px] text-muted-foreground uppercase tracking-[0.16em]\">\n          <span>Nice UI / systems for making</span>\n          <span className=\"hidden items-center gap-2 sm:flex\">\n            <span className=\"size-1.5 rounded-full bg-emerald-500\" />\n            All systems nominal\n          </span>\n        </div>\n        <nav\n          aria-label=\"Primary navigation\"\n          className=\"relative flex min-h-20 items-center justify-between gap-6\"\n        >\n          <HeaderLogo logo={logo} logoHref={logoHref} />\n          <div className=\"hidden lg:block\">\n            <HeaderNavLinks navLinks={navLinks} underline=\"center\" />\n          </div>\n          <div className=\"hidden items-center gap-3 lg:flex\">\n            <HeaderCtaButton cta={signIn} variant=\"outline\" />\n            <HeaderCtaButton cta={getStarted} />\n          </div>\n          <HeaderMenuToggle menuOpen={menuOpen} onToggle={toggleMenu} />\n          <div\n            className={cn(\n              \"absolute top-full right-0 left-0 z-10 hidden border-b bg-background p-6 shadow-lg\",\n              menuOpen && \"flex flex-col gap-6\",\n              \"lg:hidden\"\n            )}\n            id=\"mobile-menu\"\n          >\n            <HeaderNavLinks className=\"flex-col gap-5\" navLinks={navLinks} />\n            <div className=\"flex flex-col gap-3 sm:flex-row\">\n              <HeaderCtaButton cta={signIn} variant=\"outline\" />\n              <HeaderCtaButton cta={getStarted} />\n            </div>\n          </div>\n        </nav>\n      </div>\n    </header>\n  );\n}\n"
+    }
+  ]
+}

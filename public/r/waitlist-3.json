@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "waitlist-3",
+  "type": "registry:block",
+  "title": "Early Access Form",
+  "description": "An early-access waitlist section with a compact form and clear confirmation state.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "input",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/waitlist-3/waitlist-3.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/waitlist-3.tsx",
+      "content": "import { ArrowUpRightIcon, CheckIcon, MailIcon } from \"lucide-react\";\nimport { type FormEvent, useCallback, useState } from \"react\";\n\nimport { MarketingSection } from \"@/components/marketing-section\";\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\n\nexport interface Waitlist3Props {\n  className?: string;\n  description?: string;\n  onJoin?: (email: string) => void;\n  title?: string;\n}\n\nexport function Waitlist3({\n  title = \"A better starting point is almost here.\",\n  description = \"Join the early access list for the next Nice UI release. We’ll send one useful note when it is ready.\",\n  onJoin,\n  className,\n}: Waitlist3Props) {\n  const [submitted, setSubmitted] = useState(false);\n  const handleSubmit = useCallback(\n    (event: FormEvent<HTMLFormElement>) => {\n      event.preventDefault();\n      const email = String(\n        new FormData(event.currentTarget).get(\"email\") ?? \"\"\n      );\n      onJoin?.(email);\n      setSubmitted(true);\n    },\n    [onJoin]\n  );\n\n  return (\n    <MarketingSection className={className}>\n      <section className=\"relative overflow-hidden border-y bg-muted/30 px-6 py-12 sm:px-10 sm:py-16\">\n        <div className=\"pointer-events-none absolute top-0 right-0 size-48 rounded-full border border-primary/20 sm:size-72\" />\n        <div className=\"relative mx-auto grid max-w-4xl gap-8 md:grid-cols-[1fr_0.9fr] md:items-center md:gap-14\">\n          <div className=\"space-y-4\">\n            <p className=\"font-mono text-[11px] text-primary uppercase tracking-[0.22em]\">\n              Early access / 001\n            </p>\n            <h2 className=\"max-w-lg text-balance font-display-heading text-3xl sm:text-4xl\">\n              {title}\n            </h2>\n            <p className=\"max-w-md text-muted-foreground text-sm leading-6\">\n              {description}\n            </p>\n            <div className=\"flex flex-wrap gap-x-5 gap-y-2 pt-2 text-muted-foreground text-xs\">\n              <span className=\"flex items-center gap-1.5\">\n                <CheckIcon className=\"size-3.5 text-primary\" /> First release\n                access\n              </span>\n              <span className=\"flex items-center gap-1.5\">\n                <CheckIcon className=\"size-3.5 text-primary\" /> No spam\n              </span>\n            </div>\n          </div>\n          {submitted ? (\n            <div\n              aria-live=\"polite\"\n              className=\"flex min-h-32 items-center gap-3 border border-primary/30 bg-primary/5 px-5 text-sm\"\n            >\n              <span className=\"flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground\">\n                <CheckIcon aria-hidden=\"true\" className=\"size-4\" />\n              </span>\n              <span>You’re on the list. We’ll be in touch.</span>\n            </div>\n          ) : (\n            <form className=\"space-y-3\" onSubmit={handleSubmit}>\n              <label className=\"sr-only\" htmlFor=\"waitlist-3-email\">\n                Email address\n              </label>\n              <div className=\"relative\">\n                <MailIcon\n                  aria-hidden=\"true\"\n                  className=\"pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground\"\n                />\n                <Input\n                  className=\"h-11 bg-background pl-9\"\n                  id=\"waitlist-3-email\"\n                  name=\"email\"\n                  placeholder=\"you@company.com\"\n                  required\n                  type=\"email\"\n                />\n              </div>\n              <Button className=\"h-11 w-full\" type=\"submit\">\n                Join early access <ArrowUpRightIcon data-icon=\"inline-end\" />\n              </Button>\n              <p className=\"text-muted-foreground text-xs\">\n                By joining, you agree to receive product updates. Unsubscribe\n                anytime.\n              </p>\n            </form>\n          )}\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}

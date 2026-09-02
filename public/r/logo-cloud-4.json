@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-cloud-4",
+  "type": "registry:block",
+  "title": "Editorial Logo Grid",
+  "description": "A ruled logo grid that treats customer marks as a structured editorial band.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/logo-cloud-4/logo-cloud-4.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/logo-cloud-4.tsx",
+      "content": "import { MarketingSection } from \"@/components/marketing-section\";\nexport interface LogoCloud4Logo {\n  name: string;\n  src?: string;\n}\nexport interface LogoCloud4Props {\n  className?: string;\n  logos?: LogoCloud4Logo[];\n  title?: string;\n}\nconst defaultLogos: LogoCloud4Logo[] = [\n  \"Arcade\",\n  \"Northstar\",\n  \"Field Notes\",\n  \"Relay\",\n  \"Common Room\",\n  \"Orbit\",\n].map((name) => ({ name }));\nexport function LogoCloud4({\n  title = \"Trusted by teams with standards\",\n  logos = defaultLogos,\n  className,\n}: LogoCloud4Props) {\n  return (\n    <MarketingSection className={className}>\n      <section\n        aria-label=\"Customers\"\n        className=\"space-y-8 p-4 text-center md:p-8\"\n      >\n        <p className=\"font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]\">\n          {title}\n        </p>\n        <div className=\"grid grid-cols-2 border-y sm:grid-cols-3 lg:grid-cols-6\">\n          {logos.map((logo) => (\n            <div\n              className=\"flex h-20 items-center justify-center border-border border-b px-3 font-display-heading text-lg text-muted-foreground grayscale last:border-b-0 sm:border-r sm:nth-[3n]:border-r-0 lg:border-r lg:border-b-0 lg:last:border-r-0\"\n              key={logo.name}\n            >\n              {logo.src ? (\n                <img\n                  alt={logo.name}\n                  className=\"max-h-7 max-w-28 object-contain\"\n                  height={28}\n                  src={logo.src}\n                  width={112}\n                />\n              ) : (\n                logo.name\n              )}\n            </div>\n          ))}\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}

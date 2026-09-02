@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "integrations-5",
+  "type": "registry:block",
+  "title": "Connection Index",
+  "description": "An integration index with category labels, connection status, and compact cards.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/integrations-5/integrations-5.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/integrations-5.tsx",
+      "content": "import { ArrowUpRightIcon, CheckIcon } from \"lucide-react\";\nimport { MarketingSection } from \"@/components/marketing-section\";\nexport interface Integrations5Item {\n  category: string;\n  description: string;\n  name: string;\n}\nexport interface Integrations5Props {\n  className?: string;\n  integrations?: Integrations5Item[];\n  title?: string;\n}\nconst defaultIntegrations: Integrations5Item[] = [\n  {\n    category: \"Code\",\n    description: \"Keep components and releases close to the repo.\",\n    name: \"GitHub\",\n  },\n  {\n    category: \"Design\",\n    description: \"Move from a shared reference to a working block.\",\n    name: \"Figma\",\n  },\n  {\n    category: \"Planning\",\n    description: \"Link customer feedback to the work that ships.\",\n    name: \"Linear\",\n  },\n  {\n    category: \"Deploy\",\n    description: \"Preview every marketing change before launch.\",\n    name: \"Vercel\",\n  },\n  {\n    category: \"Email\",\n    description: \"Connect product moments to a reliable inbox.\",\n    name: \"Resend\",\n  },\n];\nexport function Integrations5({\n  title = \"Fits into the way your team ships\",\n  integrations = defaultIntegrations,\n  className,\n}: Integrations5Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"grid gap-10 p-4 md:grid-cols-[0.8fr_1.5fr] md:p-8\">\n        <header className=\"space-y-4\">\n          <p className=\"font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]\">\n            Integrations\n          </p>\n          <h2 className=\"font-display-heading text-3xl sm:text-4xl\">{title}</h2>\n          <p className=\"text-muted-foreground text-sm leading-6\">\n            Bring your tools with you. These connections keep the handoff small\n            and the context intact.\n          </p>\n        </header>\n        <div className=\"grid gap-px bg-border sm:grid-cols-2\">\n          {integrations.map((item) => (\n            <article\n              className=\"group space-y-5 bg-background p-5\"\n              key={item.name}\n            >\n              <div className=\"flex items-center justify-between\">\n                <span className=\"flex size-9 items-center justify-center border bg-muted font-semibold text-sm\">\n                  {item.name.slice(0, 1)}\n                </span>\n                <ArrowUpRightIcon\n                  aria-hidden=\"true\"\n                  className=\"size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5\"\n                />\n              </div>\n              <div>\n                <p className=\"font-mono text-muted-foreground text-xs uppercase\">\n                  {item.category}\n                </p>\n                <h3 className=\"mt-1 font-medium\">{item.name}</h3>\n                <p className=\"mt-2 text-muted-foreground text-sm leading-6\">\n                  {item.description}\n                </p>\n              </div>\n              <p className=\"flex items-center gap-1 text-muted-foreground text-xs\">\n                <CheckIcon aria-hidden=\"true\" className=\"size-3\" /> Ready to\n                connect\n              </p>\n            </article>\n          ))}\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}

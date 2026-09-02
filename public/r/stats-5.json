@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-5",
+  "type": "registry:block",
+  "title": "System Snapshot",
+  "description": "A five-column stats snapshot with tabular values and supporting notes.",
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/stats-5/stats-5.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/stats-5.tsx",
+      "content": "import { MarketingSection } from \"@/components/marketing-section\";\nexport interface Stats5Item {\n  label: string;\n  note?: string;\n  value: string;\n}\nexport interface Stats5Props {\n  className?: string;\n  stats?: Stats5Item[];\n  title?: string;\n}\nconst defaultStats: Stats5Item[] = [\n  { label: \"ready-to-compose blocks\", note: \"and counting\", value: \"48\" },\n  { label: \"marketing categories\", note: \"from hero to footer\", value: \"12\" },\n  { label: \"typed React props\", note: \"built for adaptation\", value: \"100%\" },\n  { label: \"registry edits required\", note: \"for this pack\", value: \"0\" },\n  { label: \"shared visual language\", note: \"across every surface\", value: \"1\" },\n];\nexport function Stats5({\n  title = \"Small system. Broad reach.\",\n  stats = defaultStats,\n  className,\n}: Stats5Props) {\n  return (\n    <MarketingSection className={className}>\n      <section aria-labelledby=\"stats-5-title\" className=\"p-4 md:p-8\">\n        <h2 className=\"sr-only\" id=\"stats-5-title\">\n          {title}\n        </h2>\n        <div className=\"grid border-y sm:grid-cols-2 lg:grid-cols-5\">\n          {stats.map((stat) => (\n            <article\n              className=\"space-y-3 border-border border-b p-5 last:border-b-0 sm:border-r lg:border-b-0 lg:last:border-r-0\"\n              key={stat.label}\n            >\n              <p className=\"font-bold text-4xl tabular-nums tracking-tight\">\n                {stat.value}\n              </p>\n              <p className=\"text-sm\">{stat.label}</p>\n              {stat.note ? (\n                <p className=\"font-mono text-muted-foreground text-xs uppercase\">\n                  {stat.note}\n                </p>\n              ) : null}\n            </article>\n          ))}\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "changelog-3",
+  "type": "registry:block",
+  "title": "Release Notes",
+  "description": "A compact release-notes list with version labels, dates, and change summaries.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/changelog-3/changelog-3.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/changelog-3.tsx",
+      "content": "import { ArrowUpRightIcon } from \"lucide-react\";\nimport { MarketingSection } from \"@/components/marketing-section\";\nexport interface Changelog3Entry {\n  date: string;\n  description: string;\n  title: string;\n  version: string;\n}\nexport interface Changelog3Props {\n  className?: string;\n  entries?: Changelog3Entry[];\n  title?: string;\n}\nconst defaultEntries: Changelog3Entry[] = [\n  {\n    date: \"Aug 28, 2026\",\n    description:\n      \"New FAQ, footer, logo cloud, and testimonial compositions share the same compact rhythm.\",\n    title: \"Marketing blocks get a sharper edge\",\n    version: \"0.8.0\",\n  },\n  {\n    date: \"Aug 12, 2026\",\n    description:\n      \"Updated content defaults make it easier to see the intended structure before customizing a block.\",\n    title: \"More useful empty states\",\n    version: \"0.7.2\",\n  },\n  {\n    date: \"Jul 30, 2026\",\n    description:\n      \"Keyboard focus, readable contrast, and semantic landmarks are now part of the marketing review checklist.\",\n    title: \"Accessible by default\",\n    version: \"0.7.0\",\n  },\n];\nexport function Changelog3({\n  title = \"Recent changes\",\n  entries = defaultEntries,\n  className,\n}: Changelog3Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"grid gap-10 p-4 md:grid-cols-[0.7fr_1.7fr] md:p-8\">\n        <header className=\"space-y-3\">\n          <p className=\"font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]\">\n            Changelog\n          </p>\n          <h2 className=\"font-display-heading text-3xl sm:text-4xl\">{title}</h2>\n          <p className=\"text-muted-foreground text-sm leading-6\">\n            A short record of what changed, and why it matters.\n          </p>\n        </header>\n        <div className=\"divide-y border-y\">\n          {entries.map((entry) => (\n            <article\n              className=\"grid gap-4 py-6 sm:grid-cols-[5rem_1fr_auto] sm:items-start\"\n              key={entry.version}\n            >\n              <p className=\"font-mono text-muted-foreground text-xs\">\n                {entry.version}\n              </p>\n              <div>\n                <p className=\"font-medium\">{entry.title}</p>\n                <p className=\"mt-2 max-w-xl text-muted-foreground text-sm leading-6\">\n                  {entry.description}\n                </p>\n              </div>\n              <div className=\"flex items-center gap-3\">\n                <time\n                  className=\"text-muted-foreground text-xs\"\n                  dateTime={entry.date}\n                >\n                  {entry.date}\n                </time>\n                <ArrowUpRightIcon\n                  aria-hidden=\"true\"\n                  className=\"size-4 text-muted-foreground\"\n                />\n              </div>\n            </article>\n          ))}\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}

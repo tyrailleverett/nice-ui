@@ -1680,6 +1680,330 @@
           "target": "~/components/marketing/waitlist-2.tsx"
         }
       ]
+    },
+    {
+      "name": "blog-4",
+      "type": "registry:block",
+      "title": "Journal Index",
+      "description": "An editorial journal index with a featured essay, issue marker, and compact secondary reading list.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "blog-4/blog-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/blog-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-5",
+      "type": "registry:block",
+      "title": "Signal Board Hero",
+      "description": "A dark, technical marketing hero with a live signal board preview and utility-focused CTAs.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "hero-5/hero-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/hero-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "header-4",
+      "type": "registry:block",
+      "title": "Systems Bar Header",
+      "description": "A two-tier marketing header with system status, centered navigation, and a responsive menu.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/header-shared"
+      ],
+      "files": [
+        {
+          "path": "header-4/header-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/header-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-15",
+      "type": "registry:block",
+      "title": "Editorial Process Rail",
+      "description": "A three-step feature section with editorial copy and code-native process visuals.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "feature-15/feature-15.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/feature-15.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-6",
+      "type": "registry:block",
+      "title": "Asymmetric Field Notes",
+      "description": "An asymmetric bento section combining a dark pulse panel with compact editorial product cards.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "bento-6/bento-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/bento-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-14",
+      "type": "registry:block",
+      "title": "Proof Led CTA Band",
+      "description": "A dark conversion band with proof points, split actions, and an architectural accent.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "cta-14/cta-14.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/cta-14.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-5",
+      "type": "registry:block",
+      "title": "Free And Studio Pricing",
+      "description": "A focused two-plan pricing section with annual/monthly billing and feature comparison.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "toggle-group",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "pricing-5/pricing-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/pricing-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-3",
+      "type": "registry:block",
+      "title": "Early Access Form",
+      "description": "An early-access waitlist section with a compact form and clear confirmation state.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "waitlist-3/waitlist-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/waitlist-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-6",
+      "type": "registry:block",
+      "title": "FAQ Index",
+      "description": "A searchable-feeling FAQ index with compact accordion rows and category labels.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "accordion",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "faq-6/faq-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/faq-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-6",
+      "type": "registry:block",
+      "title": "Editorial Testimonial",
+      "description": "A quote-led testimonial layout with a strong editorial pull quote and customer details.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "testimonial-6/testimonial-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/testimonial-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-8",
+      "type": "registry:block",
+      "title": "Dark Directory Footer",
+      "description": "A dark directory footer with grouped links, product tagline, and a compact utility bar.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "footer-8/footer-8.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/footer-8.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-cloud-4",
+      "type": "registry:block",
+      "title": "Editorial Logo Grid",
+      "description": "A ruled logo grid that treats customer marks as a structured editorial band.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "logo-cloud-4/logo-cloud-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/logo-cloud-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "integrations-5",
+      "type": "registry:block",
+      "title": "Connection Index",
+      "description": "An integration index with category labels, connection status, and compact cards.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "integrations-5/integrations-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/integrations-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-5",
+      "type": "registry:block",
+      "title": "System Snapshot",
+      "description": "A five-column stats snapshot with tabular values and supporting notes.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "stats-5/stats-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/stats-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "changelog-3",
+      "type": "registry:block",
+      "title": "Release Notes",
+      "description": "A compact release-notes list with version labels, dates, and change summaries.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "changelog-3/changelog-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/changelog-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cookie-consent-3",
+      "type": "registry:block",
+      "title": "Compact Cookie Notice",
+      "description": "A compact, accessible cookie preference notice with accept, essential-only, and manage actions.",
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button"],
+      "files": [
+        {
+          "path": "cookie-consent-3/cookie-consent-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/cookie-consent-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "privacy-policy-2",
+      "type": "registry:block",
+      "title": "Readable Privacy Policy",
+      "description": "A readable privacy policy layout with sticky contents navigation and clear sections.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "privacy-policy-2/privacy-policy-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/privacy-policy-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "terms-of-service-2",
+      "type": "registry:block",
+      "title": "Readable Terms",
+      "description": "A readable terms-of-service layout with sticky contents navigation and structured sections.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/marketing-section"
+      ],
+      "files": [
+        {
+          "path": "terms-of-service-2/terms-of-service-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/marketing/terms-of-service-2.tsx"
+        }
+      ]
     }
   ]
 }

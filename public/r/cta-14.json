@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-14",
+  "type": "registry:block",
+  "title": "Proof Led CTA Band",
+  "description": "A dark conversion band with proof points, split actions, and an architectural accent.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tyrailleverett/nice-ui/style",
+    "button",
+    "tyrailleverett/nice-ui/marketing-section"
+  ],
+  "files": [
+    {
+      "path": "registry/marketing/cta-14/cta-14.tsx",
+      "type": "registry:component",
+      "target": "~/components/marketing/cta-14.tsx",
+      "content": "import { ArrowRightIcon, ArrowUpRightIcon, CheckIcon } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nimport { MarketingSection } from \"@/components/marketing-section\";\nimport { Button } from \"@/components/ui/button\";\n\nexport interface Cta14Action {\n  href?: string;\n  label: string;\n}\n\nexport interface Cta14Props {\n  className?: string;\n  description?: string;\n  primaryCta?: Cta14Action;\n  secondaryCta?: Cta14Action;\n  title?: ReactNode;\n}\n\nfunction ActionButton({\n  action,\n  children,\n  className,\n  variant = \"default\",\n}: {\n  action: Cta14Action;\n  children: ReactNode;\n  className?: string;\n  variant?: \"default\" | \"outline\";\n}) {\n  if (action.href) {\n    return (\n      <Button\n        className={className}\n        nativeButton={false}\n        render={<a href={action.href} />}\n        variant={variant}\n      >\n        {children}\n      </Button>\n    );\n  }\n\n  return (\n    <Button className={className} type=\"button\" variant={variant}>\n      {children}\n    </Button>\n  );\n}\n\nexport function Cta14({\n  title = (\n    <>\n      Make the next release your <span className=\"text-primary\">best</span>\n    </>\n  ),\n  description = \"A considered foundation for teams who want to move quickly without making their product feel rushed.\",\n  primaryCta = { href: \"#\", label: \"Start building\" },\n  secondaryCta = { href: \"#\", label: \"See what is included\" },\n  className,\n}: Cta14Props) {\n  return (\n    <MarketingSection className={className}>\n      <section className=\"relative overflow-hidden bg-foreground px-6 py-14 text-background sm:px-10 sm:py-20\">\n        <div className=\"pointer-events-none absolute inset-y-0 right-[12%] hidden w-px bg-background/10 lg:block\" />\n        <div className=\"pointer-events-none absolute top-1/2 right-[7%] hidden size-52 -translate-y-1/2 rounded-full border border-primary/30 lg:block\" />\n        <div className=\"relative mx-auto grid max-w-5xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end\">\n          <div className=\"max-w-2xl space-y-5\">\n            <p className=\"font-mono text-[11px] text-primary uppercase tracking-[0.22em]\">\n              The thoughtful shortcut\n            </p>\n            <h2 className=\"text-balance font-display-heading text-4xl leading-tight sm:text-5xl\">\n              {title}\n            </h2>\n            <p className=\"max-w-xl text-background/70 text-base leading-7\">\n              {description}\n            </p>\n          </div>\n\n          <div className=\"flex flex-col items-start gap-5 lg:items-end\">\n            <div className=\"flex flex-col items-stretch gap-3 sm:flex-row\">\n              <ActionButton action={primaryCta}>\n                {primaryCta.label}\n                <ArrowUpRightIcon data-icon=\"inline-end\" />\n              </ActionButton>\n              <ActionButton\n                action={secondaryCta}\n                className=\"border-background/30 text-background hover:bg-background/10 hover:text-background\"\n                variant=\"outline\"\n              >\n                {secondaryCta.label}\n                <ArrowRightIcon data-icon=\"inline-end\" />\n              </ActionButton>\n            </div>\n            <ul className=\"flex flex-wrap gap-x-5 gap-y-2 text-background/65 text-xs\">\n              {[\n                \"No credit card\",\n                \"Accessible by default\",\n                \"Ships with tokens\",\n              ].map((item) => (\n                <li className=\"flex items-center gap-1.5\" key={item}>\n                  <CheckIcon\n                    aria-hidden=\"true\"\n                    className=\"size-3.5 text-primary\"\n                  />\n                  {item}\n                </li>\n              ))}\n            </ul>\n          </div>\n        </div>\n      </section>\n    </MarketingSection>\n  );\n}\n"
+    }
+  ]
+}
