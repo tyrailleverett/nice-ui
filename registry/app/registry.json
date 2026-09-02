@@ -1011,6 +1011,7 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/use-file-upload",
         "button",
         "progress"
       ],

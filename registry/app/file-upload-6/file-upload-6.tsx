@@ -9,45 +9,69 @@ import {
   UploadCloudIcon,
   XIcon,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { formatBytes, useFileUpload } from "@/hooks/use-file-upload";
 import { cn } from "@/lib/utils";
 
 const MAX_FILE_SIZE = 25 * 1024 * 1024;
 
 type UploadPhase = "upload" | "review" | "importing" | "complete";
 
-interface SelectedFile {
-  name: string;
-  size: number;
-}
-
 export interface FileUpload6Props {
   className?: string;
-  defaultFile?: SelectedFile | null;
+  defaultFile?: { name: string; size: number; type?: string } | null;
 }
 
-const formatBytes = (bytes: number): string => {
-  if (bytes < 1024) {
-    return `${bytes} B`;
+function getInitialFile(defaultFile: FileUpload6Props["defaultFile"]) {
+  if (defaultFile === undefined) {
+    return {
+      id: "workspace-export",
+      name: "workspace-export.csv",
+      size: 2_460_000,
+      type: "text/csv",
+    };
   }
-  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
-};
+  if (defaultFile === null) {
+    return null;
+  }
+  return {
+    id: "default-file",
+    ...defaultFile,
+    type: defaultFile.type ?? "text/csv",
+  };
+}
 
 // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: The component intentionally keeps the upload, review, and progress states together as one focused workflow.
 export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [file, setFile] = useState<SelectedFile | null>(
-    defaultFile === undefined
-      ? { name: "workspace-export.csv", size: 2_460_000 }
-      : defaultFile
-  );
   const [phase, setPhase] = useState<UploadPhase>("upload");
   const [progress, setProgress] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const initialFile = getInitialFile(defaultFile);
+  const [
+    { files, errors, isDragging },
+    {
+      clearFiles,
+      getInputProps,
+      handleDragEnter,
+      handleDragLeave,
+      handleDragOver,
+      handleDrop,
+      openFileDialog,
+    },
+  ] = useFileUpload({
+    accept: ".csv,text/csv",
+    initialFiles: initialFile ? [initialFile] : [],
+    maxFiles: 1,
+    maxSize: MAX_FILE_SIZE,
+    multiple: false,
+    onFilesChange: () => {
+      setPhase("upload");
+      setProgress(0);
+    },
+  });
+  const file = files[0]?.file ?? null;
 
   useEffect(() => {
     if (phase !== "importing") {
@@ -65,26 +89,8 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
     return () => window.clearInterval(timer);
   }, [phase]);
 
-  const selectFile = (candidate: File) => {
-    let validationError: string | null = null;
-    if (!candidate.name.toLowerCase().endsWith(".csv")) {
-      validationError = "Choose a CSV file to continue.";
-    } else if (candidate.size > MAX_FILE_SIZE) {
-      validationError =
-        "That file is larger than 25 MB. Export a smaller CSV and try again.";
-    }
-    setError(validationError);
-    if (validationError) {
-      return;
-    }
-    setFile({ name: candidate.name, size: candidate.size });
-    setPhase("upload");
-    setProgress(0);
-  };
-
   const removeFile = () => {
-    setFile(null);
-    setError(null);
+    clearFiles();
     setPhase("upload");
     setProgress(0);
   };
@@ -209,7 +215,7 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                 <span className="font-medium text-foreground">email</span>.
               </div>
 
-              {!isReview && (
+              {isReview ? null : (
                 <>
                   <button
                     className={cn(
@@ -218,24 +224,11 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                         ? "border-primary bg-primary/10"
                         : "border-border hover:border-primary/60 hover:bg-muted/40"
                     )}
-                    onClick={() => inputRef.current?.click()}
-                    onDragEnter={(event) => {
-                      event.preventDefault();
-                      setIsDragging(true);
-                    }}
-                    onDragLeave={(event) => {
-                      event.preventDefault();
-                      setIsDragging(false);
-                    }}
-                    onDragOver={(event) => event.preventDefault()}
-                    onDrop={(event) => {
-                      event.preventDefault();
-                      setIsDragging(false);
-                      const [droppedFile] = event.dataTransfer.files;
-                      if (droppedFile) {
-                        selectFile(droppedFile);
-                      }
-                    }}
+                    onClick={openFileDialog}
+                    onDragEnter={handleDragEnter}
+                    onDragLeave={handleDragLeave}
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
                     type="button"
                   >
                     <UploadCloudIcon
@@ -251,23 +244,11 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                       CSV files up to 25 MB
                     </span>
                   </button>
-                  <input
-                    accept=".csv,text/csv"
-                    className="sr-only"
-                    onChange={(event) => {
-                      const selected = event.target.files?.[0];
-                      if (selected) {
-                        selectFile(selected);
-                      }
-                      event.target.value = "";
-                    }}
-                    ref={inputRef}
-                    type="file"
-                  />
+                  <input {...getInputProps()} className="sr-only" />
                 </>
               )}
 
-              {file !== null && (
+              {file ? (
                 <div className="mt-4 flex items-center gap-3 rounded-lg border border-border bg-background p-3">
                   <div className="flex size-9 shrink-0 items-center justify-center rounded-md bg-muted">
                     <FileTextIcon className="size-4 text-muted-foreground" />
@@ -289,7 +270,7 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                     <XIcon />
                   </Button>
                 </div>
-              )}
+              ) : null}
 
               {isReview ? (
                 <div className="mt-5 rounded-lg border border-border bg-muted/20 p-4">
@@ -316,12 +297,12 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
                 </div>
               ) : null}
 
-              {error !== null && (
+              {errors.length > 0 ? (
                 <p className="mt-3 flex items-center gap-2 text-destructive text-xs">
                   <AlertCircleIcon className="size-4" />
-                  {error}
+                  {errors[0]}
                 </p>
-              )}
+              ) : null}
 
               <div className="mt-7 flex items-center justify-between gap-3 border-border border-t pt-5">
                 <Button onClick={() => setPhase("upload")} variant="outline">

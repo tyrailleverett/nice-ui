@@ -1,10 +1,13 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Onboarding6 } from "./onboarding-6";
 
-export default {
+const meta = {
   parameters: { layout: "fullscreen" },
-  title: "App/Onboarding",
-} satisfies Meta;
+  title: "App/Onboarding/Workspace Checklist",
+} satisfies Meta<typeof Onboarding6>;
 
-export const WorkspaceChecklist: StoryFn = () => <Onboarding6 />;
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = { render: () => <Onboarding6 /> };

@@ -18,16 +18,19 @@ const setupSteps = [
   {
     complete: true,
     detail: "Give your team a shared home.",
+    id: "name-workspace",
     label: "Name your workspace",
   },
   {
     complete: false,
     detail: "Invite the people you work with.",
+    id: "invite-teammates",
     label: "Invite teammates",
   },
   {
     complete: false,
     detail: "Create a place for your first project.",
+    id: "create-project",
     label: "Create a project",
   },
 ] as const;
@@ -160,7 +163,7 @@ export function Onboarding6({
                         {step.detail}
                       </span>
                     </span>
-                    {!step.complete && step.label === "Invite teammates" ? (
+                    {!step.complete && step.id === "invite-teammates" ? (
                       <Button
                         onClick={onInviteTeammates}
                         size="sm"
