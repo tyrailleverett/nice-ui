@@ -4,6 +4,7 @@ import { FileUpload2 } from "../file-upload-2/file-upload-2";
 import { FileUpload3 } from "../file-upload-3/file-upload-3";
 import { FileUpload4 } from "../file-upload-4/file-upload-4";
 import { FileUpload5 } from "../file-upload-5/file-upload-5";
+import { FileUpload6 } from "../file-upload-6/file-upload-6";
 
 export default {
   parameters: { layout: "fullscreen" },
@@ -14,3 +15,4 @@ export const AvatarButton: StoryFn = () => <FileUpload2 />;
 export const AvatarDropzone: StoryFn = () => <FileUpload3 />;
 export const Compact: StoryFn = () => <FileUpload4 />;
 export const Progress: StoryFn = () => <FileUpload5 />;
+export const ImportWizard: StoryFn = () => <FileUpload6 />;

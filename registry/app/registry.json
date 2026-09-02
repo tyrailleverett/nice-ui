@@ -290,6 +290,28 @@
       ]
     },
     {
+      "name": "app-shell-10",
+      "type": "registry:block",
+      "title": "Command Bar Workspace Shell",
+      "description": "Horizontal workspace navigation with command search, account actions, operational status, and a centered content canvas.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "dropdown-menu",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "app-shell-10/app-shell-10.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/app-shell-10.tsx"
+        }
+      ]
+    },
+    {
       "name": "dashboard-1",
       "type": "registry:block",
       "title": "Fulfillment Operations Dashboard",
@@ -982,6 +1004,44 @@
       ]
     },
     {
+      "name": "file-upload-6",
+      "type": "registry:block",
+      "title": "Import Review Upload",
+      "description": "Multi-step CSV import surface with drag-and-drop, validation guidance, file status, and review actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "file-upload-6/file-upload-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/file-upload-6.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header-4",
+      "type": "registry:block",
+      "title": "Context Tabs Page Header",
+      "description": "Workspace eyebrow, status badge, inline actions, and horizontal section tabs for command-center pages.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "page-header/page-header-4/page-header-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/page-header-4.tsx"
+        }
+      ]
+    },
+    {
       "name": "empty-state-1",
       "type": "registry:block",
       "title": "Records Empty State",
@@ -1129,6 +1189,64 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/onboarding-shared"
+      ]
+    },
+    {
+      "name": "form-5",
+      "type": "registry:block",
+      "title": "Split Form Editor",
+      "description": "Form builder with editable field rows, live preview, validation status, and publish actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "form-5/form-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/form-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notification-5",
+      "type": "registry:block",
+      "title": "Notification Center",
+      "description": "Grouped workspace notifications with unread signals, filters, and mark-all-read action.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "notifications/notification-5/notification-5.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/notification-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "onboarding-6",
+      "type": "registry:block",
+      "title": "Workspace Checklist Onboarding",
+      "description": "Post-signup workspace setup with a persistent checklist, empty project canvas, and contextual quickstart help rail.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "onboarding-6/onboarding-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/onboarding-6.tsx"
+        }
       ]
     },
     {
@@ -1787,6 +1905,27 @@
       ]
     },
     {
+      "name": "calendar-6",
+      "type": "registry:block",
+      "title": "Agenda Availability Calendar",
+      "description": "Three-pane scheduling calendar with selectable availability slots and a compact daily timeline.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "scroll-area",
+        "separator",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ],
+      "files": [
+        {
+          "path": "calendar-6/calendar-6.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/calendar-6.tsx"
+        }
+      ]
+    },
+    {
       "name": "form-1",
       "type": "registry:block",
       "title": "Checkout Setup Form",
@@ -1976,6 +2115,29 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/cards-shared"
+      ]
+    },
+    {
+      "name": "workspace-hub",
+      "type": "registry:block",
+      "title": "Workspace Library Hub",
+      "description": "Searchable workspace library with card and list views, progress signals, member stacks, and a recent activity rail.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "data-row-card/workspace-hub/workspace-hub.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/workspace-hub.tsx"
+        }
       ]
     },
     {

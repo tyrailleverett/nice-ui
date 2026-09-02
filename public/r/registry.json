@@ -1574,6 +1574,24 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "app-shell-10",
+      "type": "registry:block",
+      "title": "Command Bar Workspace Shell",
+      "description": "Horizontal workspace navigation with command search, account actions, operational status, and a centered content canvas.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "dropdown-menu",
+        "input"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "dashboard-1",
       "type": "registry:block",
       "title": "Fulfillment Operations Dashboard",
@@ -2077,7 +2095,8 @@
       ],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "button"
+        "button",
+        "tyrailleverett/nice-ui/use-file-upload"
       ]
     },
     {
@@ -2111,6 +2130,35 @@
         "input-group",
         "select",
         "separator"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "file-upload-6",
+      "type": "registry:block",
+      "title": "Import Review Upload",
+      "description": "Multi-step CSV import surface with drag-and-drop, validation guidance, file status, and review actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "page-header-4",
+      "type": "registry:block",
+      "title": "Context Tabs Page Header",
+      "description": "Workspace eyebrow, status badge, inline actions, and horizontal section tabs for command-center pages.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button"
       ]
     },
     {
@@ -2237,6 +2285,52 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/onboarding-shared"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "form-5",
+      "type": "registry:block",
+      "title": "Split Form Editor",
+      "description": "Form builder with editable field rows, live preview, validation status, and publish actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "input",
+        "label"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "notification-5",
+      "type": "registry:block",
+      "title": "Notification Center",
+      "description": "Grouped workspace notifications with unread signals, filters, and mark-all-read action.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "onboarding-6",
+      "type": "registry:block",
+      "title": "Workspace Checklist Onboarding",
+      "description": "Post-signup workspace setup with a persistent checklist, empty project canvas, and contextual quickstart help rail.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/onboarding-shared",
+        "button"
       ]
     },
     {
@@ -2774,6 +2868,23 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "calendar-6",
+      "type": "registry:block",
+      "title": "Agenda Availability Calendar",
+      "description": "Three-pane scheduling calendar with selectable availability slots and a compact daily timeline.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "button",
+        "scroll-area",
+        "separator",
+        "tyrailleverett/nice-ui/calendar-shared"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "form-1",
       "type": "registry:block",
       "title": "Checkout Setup Form",
@@ -2921,6 +3032,25 @@
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
         "tyrailleverett/nice-ui/cards-shared"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "workspace-hub",
+      "type": "registry:block",
+      "title": "Workspace Library Hub",
+      "description": "Searchable workspace library with card and list views, progress signals, member stacks, and a recent activity rail.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "progress"
       ]
     },
     {

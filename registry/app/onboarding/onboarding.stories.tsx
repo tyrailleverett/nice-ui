@@ -5,6 +5,7 @@ import { Onboarding2 } from "../onboarding-2/onboarding-2";
 import { Onboarding3 } from "../onboarding-3/onboarding-3";
 import { Onboarding4 } from "../onboarding-4/onboarding-4";
 import { Onboarding5 } from "../onboarding-5/onboarding-5";
+import { Onboarding6 } from "../onboarding-6/onboarding-6";
 
 export default {
   parameters: { layout: "fullscreen" },
@@ -16,3 +17,4 @@ export const SidebarRail: StoryFn = () => <Onboarding2 />;
 export const DottedRail: StoryFn = () => <Onboarding3 />;
 export const Modal: StoryFn = () => <Onboarding4 />;
 export const MinimalFlow: StoryFn = () => <Onboarding5 />;
+export const WorkspaceChecklist: StoryFn = () => <Onboarding6 />;
