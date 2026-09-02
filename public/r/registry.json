@@ -3654,6 +3654,66 @@
         "progress",
         "separator"
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "api-keys",
+      "type": "registry:block",
+      "title": "API Keys Management",
+      "description": "Developer-facing API key management with masked secrets, environments, copy feedback, and safe revoke flows.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/forms-shared",
+        "badge",
+        "button",
+        "card",
+        "dialog",
+        "dropdown-menu",
+        "input",
+        "separator"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "support-inbox",
+      "type": "registry:block",
+      "title": "Support Inbox Workspace",
+      "description": "Responsive SaaS support workspace with conversation triage, customer context, reply notes, tags, and resolution actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "input",
+        "separator",
+        "textarea"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "feedback-roadmap",
+      "type": "registry:block",
+      "title": "Feedback & Product Roadmap",
+      "description": "Customer-facing feedback board with roadmap columns, voting, priority badges, submission dialog, and success state.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "card",
+        "dialog",
+        "input",
+        "label",
+        "textarea"
+      ]
     }
   ],
   "name": "nice-ui"

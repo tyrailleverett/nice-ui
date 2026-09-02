@@ -2543,6 +2543,78 @@
         "progress",
         "separator"
       ]
+    },
+    {
+      "name": "api-keys",
+      "type": "registry:block",
+      "title": "API Keys Management",
+      "description": "Developer-facing API key management with masked secrets, environments, copy feedback, and safe revoke flows.",
+      "files": [
+        {
+          "path": "api-keys/api-keys.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/api-keys.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "tyrailleverett/nice-ui/forms-shared",
+        "badge",
+        "button",
+        "card",
+        "dialog",
+        "dropdown-menu",
+        "input",
+        "separator"
+      ]
+    },
+    {
+      "name": "support-inbox",
+      "type": "registry:block",
+      "title": "Support Inbox Workspace",
+      "description": "Responsive SaaS support workspace with conversation triage, customer context, reply notes, tags, and resolution actions.",
+      "files": [
+        {
+          "path": "support-inbox/support-inbox.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/support-inbox.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "avatar",
+        "badge",
+        "button",
+        "input",
+        "separator",
+        "textarea"
+      ]
+    },
+    {
+      "name": "feedback-roadmap",
+      "type": "registry:block",
+      "title": "Feedback & Product Roadmap",
+      "description": "Customer-facing feedback board with roadmap columns, voting, priority badges, submission dialog, and success state.",
+      "files": [
+        {
+          "path": "feedback-roadmap/feedback-roadmap.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/feedback-roadmap.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "badge",
+        "button",
+        "card",
+        "dialog",
+        "input",
+        "label",
+        "textarea"
+      ]
     }
   ]
 }
