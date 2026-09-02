@@ -2127,8 +2127,7 @@
       ],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "button",
-        "tyrailleverett/nice-ui/use-file-upload"
+        "button"
       ]
     },
     {
@@ -2175,7 +2174,9 @@
       ],
       "registryDependencies": [
         "tyrailleverett/nice-ui/style",
-        "button"
+        "tyrailleverett/nice-ui/use-file-upload",
+        "button",
+        "progress"
       ]
     },
     {
