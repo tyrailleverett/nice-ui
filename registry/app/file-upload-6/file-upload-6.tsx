@@ -1,4 +1,3 @@
-/* biome-ignore-all lint/performance/noJsxPropsBind: The upload panel keeps event handlers next to the controls they operate. */
 import {
   AlertCircleIcon,
   ArrowLeftIcon,
@@ -9,7 +8,7 @@ import {
   UploadCloudIcon,
   XIcon,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -19,6 +18,32 @@ import { cn } from "@/lib/utils";
 const MAX_FILE_SIZE = 25 * 1024 * 1024;
 
 type UploadPhase = "upload" | "review" | "importing" | "complete";
+type UploadAction =
+  | { type: "reset" }
+  | { type: "review" }
+  | { type: "start" }
+  | { type: "tick" };
+
+interface UploadState {
+  phase: UploadPhase;
+  progress: number;
+}
+
+const initialUploadState: UploadState = { phase: "upload", progress: 0 };
+
+function uploadReducer(state: UploadState, action: UploadAction): UploadState {
+  if (action.type === "reset") {
+    return initialUploadState;
+  }
+  if (action.type === "review") {
+    return { phase: "review", progress: 0 };
+  }
+  if (action.type === "start") {
+    return { phase: "importing", progress: 8 };
+  }
+  const progress = Math.min(state.progress + 12, 100);
+  return { phase: progress === 100 ? "complete" : "importing", progress };
+}
 
 export interface FileUpload6Props {
   className?: string;
@@ -46,8 +71,13 @@ function getInitialFile(defaultFile: FileUpload6Props["defaultFile"]) {
 
 // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: The component intentionally keeps the upload, review, and progress states together as one focused workflow.
 export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
-  const [phase, setPhase] = useState<UploadPhase>("upload");
-  const [progress, setProgress] = useState(0);
+  const [{ phase, progress }, dispatch] = useReducer(
+    uploadReducer,
+    initialUploadState
+  );
+  const resetUpload = useCallback(() => dispatch({ type: "reset" }), []);
+  const reviewUpload = useCallback(() => dispatch({ type: "review" }), []);
+  const startImport = useCallback(() => dispatch({ type: "start" }), []);
   const initialFile = getInitialFile(defaultFile);
   const [
     { files, errors, isDragging },
@@ -66,10 +96,7 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
     maxFiles: 1,
     maxSize: MAX_FILE_SIZE,
     multiple: false,
-    onFilesChange: () => {
-      setPhase("upload");
-      setProgress(0);
-    },
+    onFilesChange: resetUpload,
   });
   const file = files[0]?.file ?? null;
 
@@ -78,22 +105,15 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
       return;
     }
     const timer = window.setInterval(() => {
-      setProgress((current) => {
-        const next = Math.min(current + 12, 100);
-        if (next === 100) {
-          setPhase("complete");
-        }
-        return next;
-      });
+      dispatch({ type: "tick" });
     }, 450);
     return () => window.clearInterval(timer);
   }, [phase]);
 
-  const removeFile = () => {
+  const removeFile = useCallback(() => {
     clearFiles();
-    setPhase("upload");
-    setProgress(0);
-  };
+    resetUpload();
+  }, [clearFiles, resetUpload]);
 
   const isReview = phase === "review" || phase === "importing";
   const canContinue = file !== null && phase === "upload";
@@ -305,26 +325,20 @@ export function FileUpload6({ className, defaultFile }: FileUpload6Props) {
               ) : null}
 
               <div className="mt-7 flex items-center justify-between gap-3 border-border border-t pt-5">
-                <Button onClick={() => setPhase("upload")} variant="outline">
+                <Button onClick={resetUpload} variant="outline">
                   <ArrowLeftIcon data-icon="inline-start" />
                   Back
                 </Button>
                 {isReview ? (
                   <Button
                     disabled={phase === "importing" || file === null}
-                    onClick={() => {
-                      setPhase("importing");
-                      setProgress(8);
-                    }}
+                    onClick={startImport}
                   >
                     {phase === "importing" ? "Importing…" : "Start import"}
                     <ArrowRightIcon data-icon="inline-end" />
                   </Button>
                 ) : (
-                  <Button
-                    disabled={!canContinue}
-                    onClick={() => setPhase("review")}
-                  >
+                  <Button disabled={!canContinue} onClick={reviewUpload}>
                     Continue to review
                     <ArrowRightIcon data-icon="inline-end" />
                   </Button>

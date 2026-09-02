@@ -9,7 +9,7 @@ import {
   SearchIcon,
   UsersIcon,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { type ChangeEvent, useCallback, useMemo, useState } from "react";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -93,16 +93,16 @@ const statusVariant = {
 
 function MemberStack({ members }: { members: string[] }) {
   return (
-    <div
+    <fieldset
       aria-label={`${members.length} workspace members`}
-      className="flex -space-x-2"
+      className="flex -space-x-2 border-0 p-0"
     >
       {members.map((member) => (
         <Avatar className="size-7 border-2 border-background" key={member}>
           <AvatarFallback className="text-[10px]">{member}</AvatarFallback>
         </Avatar>
       ))}
-    </div>
+    </fieldset>
   );
 }
 
@@ -192,6 +192,12 @@ function WorkspaceList({ workspace }: { workspace: Workspace }) {
 export function WorkspaceHub() {
   const [query, setQuery] = useState("");
   const [view, setView] = useState<ViewMode>("cards");
+  const handleSearchChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value),
+    []
+  );
+  const showCards = useCallback(() => setView("cards"), []);
+  const showList = useCallback(() => setView("list"), []);
   const filteredWorkspaces = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     if (!normalizedQuery) {
@@ -278,18 +284,18 @@ export function WorkspaceHub() {
               <Input
                 aria-label="Search workspaces"
                 className="pl-9"
-                onChange={(event) => setQuery(event.target.value)}
+                onChange={handleSearchChange}
                 placeholder="Search workspaces"
                 value={query}
               />
             </div>
-            <div
+            <fieldset
               aria-label="Workspace view"
               className="flex items-center gap-1 rounded-lg border border-border/70 p-1"
             >
               <Button
                 aria-pressed={view === "cards"}
-                onClick={() => setView("cards")}
+                onClick={showCards}
                 size="sm"
                 variant={view === "cards" ? "secondary" : "ghost"}
               >
@@ -298,14 +304,14 @@ export function WorkspaceHub() {
               </Button>
               <Button
                 aria-pressed={view === "list"}
-                onClick={() => setView("list")}
+                onClick={showList}
                 size="sm"
                 variant={view === "list" ? "secondary" : "ghost"}
               >
                 <LayoutListIcon data-icon="inline-start" />
                 List
               </Button>
-            </div>
+            </fieldset>
           </div>
 
           {filteredWorkspaces.length > 0 ? (
