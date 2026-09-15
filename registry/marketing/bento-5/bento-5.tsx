@@ -1,9 +1,4 @@
-import {
-  ArrowUpIcon,
-  GitMergeIcon,
-  RocketIcon,
-  ShieldCheckIcon,
-} from "lucide-react";
+import { ArrowUpIcon, GitMergeIcon, RocketIcon, ShieldCheckIcon } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
@@ -109,13 +104,9 @@ const UPTIME_DAY_COUNT = 90;
 const UPTIME_WARNING_DAY = 72;
 const UPTIME_DAYS = Array.from(
   { length: UPTIME_DAY_COUNT },
-  (_, index) => `uptime-day-${index + 1}`
+  (_, index) => `uptime-day-${index + 1}`,
 );
-const SECURITY_CONTROLS = [
-  "SOC 2 Type II",
-  "End-To-End Encryption",
-  "Role-Based Access",
-] as const;
+const SECURITY_CONTROLS = ["SOC 2 Type II", "End-To-End Encryption", "Role-Based Access"] as const;
 
 const CHART_WIDTH = 617;
 const CHART_HEIGHT = 347;
@@ -136,10 +127,10 @@ function prefersReducedMotion(): boolean {
 
 function useCountUp(target: number, duration = COUNT_DURATION_MS): number {
   const [value, setValue] = useState(0);
+  const reducedMotion = prefersReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      setValue(target);
+    if (reducedMotion) {
       return;
     }
 
@@ -161,17 +152,17 @@ function useCountUp(target: number, duration = COUNT_DURATION_MS): number {
     return () => {
       cancelAnimationFrame(frameId);
     };
-  }, [duration, target]);
+  }, [duration, target, reducedMotion]);
 
-  return value;
+  return reducedMotion ? target : value;
 }
 
 function useReveal(): boolean {
   const [revealed, setRevealed] = useState(false);
+  const reducedMotion = prefersReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      setRevealed(true);
+    if (reducedMotion) {
       return;
     }
 
@@ -182,9 +173,9 @@ function useReveal(): boolean {
     return () => {
       cancelAnimationFrame(frameId);
     };
-  }, []);
+  }, [reducedMotion]);
 
-  return revealed;
+  return reducedMotion ? true : revealed;
 }
 
 function LiveDot({ className }: { className?: string }) {
@@ -247,13 +238,14 @@ function RevenueChart({ revealed }: { revealed: boolean }) {
 
   const areaPath = `${linePath} L${CHART_RIGHT},${CHART_BOTTOM} L${CHART_LEFT},${CHART_BOTTOM} Z`;
   const xTickPoints = points.filter((point) =>
-    CHART_X_TICKS.includes(point.month as (typeof CHART_X_TICKS)[number])
+    CHART_X_TICKS.includes(point.month as (typeof CHART_X_TICKS)[number]),
   );
 
   return (
     <svg
       aria-label="Monthly revenue trend"
       className="mt-6 min-h-0 w-full flex-1"
+      // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- SVG chart with aria-label
       role="img"
       viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
     >
@@ -268,13 +260,7 @@ function RevenueChart({ revealed }: { revealed: boolean }) {
         const y = CHART_BOTTOM - (tick / REVENUE_MAX) * plotHeight;
         return (
           <g key={tick}>
-            <line
-              className="stroke-border/50"
-              x1={CHART_LEFT}
-              x2={CHART_RIGHT}
-              y1={y}
-              y2={y}
-            />
+            <line className="stroke-border/50" x1={CHART_LEFT} x2={CHART_RIGHT} y1={y} y2={y} />
             <text
               className="fill-muted-foreground text-[11px]"
               textAnchor="end"
@@ -329,10 +315,7 @@ export function Bento5({
   const revenue = useCountUp(128);
   const eventsToday = useCountUp(1284);
   const uptime = useCountUp(99.98);
-  const computeUsed = COMPUTE_SLICES.reduce(
-    (total, slice) => total + slice.percent,
-    0
-  );
+  const computeUsed = COMPUTE_SLICES.reduce((total, slice) => total + slice.percent, 0);
 
   return (
     <MarketingSection className={className}>
@@ -342,17 +325,12 @@ export function Bento5({
             <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
               <LiveDot />
               <span>
-                <span className="font-medium text-foreground">Live</span> Across
-                Every Environment
+                <span className="font-medium text-foreground">Live</span> Across Every Environment
               </span>
             </div>
-            <h2 className="mt-6 text-balance font-display-heading text-3xl sm:text-4xl">
-              {title}
-            </h2>
+            <h2 className="mt-6 text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
             {description ? (
-              <p className="mt-4 text-pretty text-muted-foreground">
-                {description}
-              </p>
+              <p className="mt-4 text-pretty text-muted-foreground">{description}</p>
             ) : null}
           </div>
 
@@ -371,9 +349,7 @@ export function Bento5({
                     18.6%
                   </span>
                 </div>
-                <p className="mt-1 text-muted-foreground text-xs">
-                  Trailing Twelve Months
-                </p>
+                <p className="mt-1 text-muted-foreground text-xs">Trailing Twelve Months</p>
                 <RevenueChart revealed={revealed} />
               </div>
             </div>
@@ -381,15 +357,12 @@ export function Bento5({
             <div className="bg-card p-6 md:row-span-2">
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-heading font-medium text-sm">
-                    Live Activity
-                  </h3>
+                  <h3 className="font-heading font-medium text-sm">Live Activity</h3>
                   <LiveDot />
                 </div>
                 <ul className="mt-4 flex flex-col divide-y divide-border">
                   {ACTIVITY.map((event) => {
-                    const Icon =
-                      event.kind === "merge" ? GitMergeIcon : RocketIcon;
+                    const Icon = event.kind === "merge" ? GitMergeIcon : RocketIcon;
 
                     return (
                       <li
@@ -407,21 +380,12 @@ export function Bento5({
                         <div className="min-w-0 flex-1">
                           <p className="truncate text-xs">
                             <span className="font-medium">{event.name}</span>{" "}
-                            <span className="text-muted-foreground">
-                              {event.action}
-                            </span>{" "}
-                            <span className="text-foreground">
-                              {event.target}
-                            </span>
+                            <span className="text-muted-foreground">{event.action}</span>{" "}
+                            <span className="text-foreground">{event.target}</span>
                           </p>
-                          <p className="text-[0.7rem] text-muted-foreground">
-                            {event.time}
-                          </p>
+                          <p className="text-[0.7rem] text-muted-foreground">{event.time}</p>
                         </div>
-                        <Icon
-                          aria-hidden
-                          className="size-4 shrink-0 text-muted-foreground"
-                        />
+                        <Icon aria-hidden className="size-4 shrink-0 text-muted-foreground" />
                       </li>
                     );
                   })}
@@ -437,19 +401,13 @@ export function Bento5({
 
             <div className="bg-card p-6">
               <div className="flex h-full flex-col">
-                <h3 className="font-heading font-medium text-sm">
-                  Compute Usage
-                </h3>
+                <h3 className="font-heading font-medium text-sm">Compute Usage</h3>
                 <div className="mt-4 flex items-baseline justify-between text-xs">
                   <span className="text-muted-foreground">
-                    <span className="font-medium text-foreground tabular-nums">
-                      {computeUsed}%
-                    </span>{" "}
+                    <span className="font-medium text-foreground tabular-nums">{computeUsed}%</span>{" "}
                     In Use
                   </span>
-                  <span className="text-muted-foreground">
-                    {100 - computeUsed}% Free
-                  </span>
+                  <span className="text-muted-foreground">{100 - computeUsed}% Free</span>
                 </div>
                 <div className="mt-2 flex h-2 w-full overflow-hidden bg-muted">
                   <div
@@ -479,12 +437,8 @@ export function Bento5({
                         className="size-2.5 shrink-0 bg-primary"
                         style={{ opacity: COMPUTE_OPACITY[index] }}
                       />
-                      <span className="flex-1 text-muted-foreground">
-                        {slice.label}
-                      </span>
-                      <span className="font-medium tabular-nums">
-                        {slice.percent}%
-                      </span>
+                      <span className="flex-1 text-muted-foreground">{slice.label}</span>
+                      <span className="font-medium tabular-nums">{slice.percent}%</span>
                     </li>
                   ))}
                 </ul>
@@ -507,7 +461,7 @@ export function Bento5({
                       <span
                         className={cn(
                           "h-full flex-1 origin-bottom transition-transform duration-500 ease-out",
-                          isWarning ? "bg-amber-400/20" : "bg-emerald-500/20"
+                          isWarning ? "bg-amber-400/20" : "bg-emerald-500/20",
                         )}
                         key={dayId}
                         style={{
@@ -518,22 +472,14 @@ export function Bento5({
                     );
                   })}
                 </div>
-                <p className="mt-3 text-muted-foreground text-xs">
-                  Last 90 Days
-                </p>
+                <p className="mt-3 text-muted-foreground text-xs">Last 90 Days</p>
                 <div className="mt-auto flex items-center justify-between border-border border-t pt-4 text-xs">
                   <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <span
-                      aria-hidden
-                      className="size-1.5 rounded-full bg-emerald-500"
-                    />
+                    <span aria-hidden className="size-1.5 rounded-full bg-emerald-500" />
                     Operational
                   </span>
                   <span className="text-muted-foreground">
-                    <span className="font-medium text-foreground tabular-nums">
-                      0
-                    </span>{" "}
-                    Incidents
+                    <span className="font-medium text-foreground tabular-nums">0</span> Incidents
                   </span>
                 </div>
               </div>
@@ -541,9 +487,7 @@ export function Bento5({
 
             <div className="bg-card p-6">
               <div className="relative flex h-full flex-col overflow-hidden">
-                <h3 className="font-heading font-medium text-sm">
-                  Secure By Default
-                </h3>
+                <h3 className="font-heading font-medium text-sm">Secure By Default</h3>
                 <p className="mt-1 text-muted-foreground text-xs">
                   Enterprise controls, on from day one.
                 </p>

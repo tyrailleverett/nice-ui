@@ -1,10 +1,4 @@
-import {
-  CircleAlert,
-  Clock3,
-  GitBranch,
-  RotateCcw,
-  Triangle,
-} from "lucide-react";
+import { CircleAlert, Clock3, GitBranch, RotateCcw, Triangle } from "lucide-react";
 import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -26,22 +20,10 @@ export interface Notification3Props {
   className?: string;
 }
 const builds = [
-  [
-    "Deploy Preview",
-    "feat/status-feed",
-    "Building a3f19c2",
-    "1m 05s",
-    "passed",
-  ],
+  ["Deploy Preview", "feat/status-feed", "Building a3f19c2", "1m 05s", "passed"],
   ["CI Passed", "main", "checks 14 of 14 6b0e441", "1m 42s", "passed"],
   ["Publish", "@acme/ui@3.14.2", "tarball 812 kB registry", "38s", "passed"],
-  [
-    "E2E Suite",
-    "release/3.14",
-    "2 of 96 specs failed d90b7ee",
-    "4m 05s",
-    "failed",
-  ],
+  ["E2E Suite", "release/3.14", "2 of 96 specs failed d90b7ee", "4m 05s", "failed"],
   ["CI Passed", "fix/contrast", "checks 14 of 14 77c1a08", "1m 12s", "passed"],
 ] as const;
 
@@ -52,7 +34,7 @@ export function Notification3({ className }: Notification3Props) {
     <section
       className={cn(
         "w-full max-w-[764px] overflow-hidden rounded-[24px] border border-border bg-background text-foreground",
-        className
+        className,
       )}
     >
       <header className="flex items-center justify-between border-border border-b px-8 py-6">
@@ -74,20 +56,17 @@ export function Notification3({ className }: Notification3Props) {
               </span>
               <div>
                 <h3 className="text-[23px]">
-                  {title}{" "}
-                  <span className="text-muted-foreground">{branch}</span>
+                  {title} <span className="text-muted-foreground">{branch}</span>
                 </h3>
                 <p className="mt-1 text-lg text-muted-foreground">{detail}</p>
                 {failed ? (
-                  <p className="mt-8 text-destructive text-lg">
-                    2 Specs Need Attention
-                  </p>
+                  <p className="mt-8 text-destructive text-lg">2 Specs Need Attention</p>
                 ) : null}
               </div>
               <div
                 className={cn(
                   "flex items-center gap-3 pt-1 text-xl",
-                  failed ? "text-destructive" : "text-success"
+                  failed ? "text-destructive" : "text-success",
                 )}
               >
                 <span className="size-4 rounded-full bg-current" />

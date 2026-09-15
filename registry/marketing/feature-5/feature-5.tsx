@@ -64,9 +64,7 @@ function AIInputIllustration() {
   return (
     <div aria-hidden className="absolute inset-8 z-1 m-auto h-fit scale-95">
       <div className="mt-auto h-fit rounded-3xl bg-card p-3 shadow-black/25 shadow-xl ring ring-foreground/15">
-        <div className="p-2 pb-3 text-muted-foreground text-sm">
-          Ask Nice UI what you need...
-        </div>
+        <div className="p-2 pb-3 text-muted-foreground text-sm">Ask Nice UI what you need...</div>
         <div className="flex justify-between gap-3">
           <div className="flex items-center gap-1">
             <div className="flex size-7 cursor-pointer rounded-full *:m-auto *:size-4 hover:bg-muted">
@@ -112,24 +110,16 @@ function DynamicIslandIllustration() {
                 />
               </div>
               <div className="py-1 pr-4">
-                <div className="font-medium text-black text-sm">
-                  Théo Balick
-                </div>
+                <div className="font-medium text-black text-sm">Théo Balick</div>
                 <div className="mt-1.5 flex items-center gap-3">
                   <div>
-                    <div className="text-muted-foreground text-xs">
-                      Expenses
-                    </div>
-                    <div className="mt-0.5 font-semibold text-black text-sm">
-                      $32.65k
-                    </div>
+                    <div className="text-muted-foreground text-xs">Expenses</div>
+                    <div className="mt-0.5 font-semibold text-black text-sm">$32.65k</div>
                   </div>
                   <div className="h-7 w-px bg-border" />
                   <div>
                     <div className="text-muted-foreground text-xs">Income</div>
-                    <div className="mt-0.5 font-semibold text-black text-sm">
-                      $2.65k
-                    </div>
+                    <div className="mt-0.5 font-semibold text-black text-sm">$2.65k</div>
                   </div>
                 </div>
               </div>
@@ -208,10 +198,7 @@ export function Feature5({
           </h2>
           <div className="mt-8 grid gap-x-3 gap-y-6 **:data-[slot=card]:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">
             {columns.map((column) => (
-              <div
-                className="row-span-2 grid grid-cols-subgrid gap-4"
-                key={column.title}
-              >
+              <div className="row-span-2 grid grid-cols-subgrid gap-4" key={column.title}>
                 {column.media}
                 <p className="text-balance text-muted-foreground">
                   <span className="text-foreground">{column.title} </span>

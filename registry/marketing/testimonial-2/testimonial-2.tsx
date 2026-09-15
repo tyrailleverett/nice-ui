@@ -27,11 +27,9 @@ export function MaskLine({
       aria-hidden="true"
       className={cn(
         "absolute bg-foreground/20",
-        orientation === "vertical" &&
-          "mask-t-from-80% mask-b-from-80% -inset-y-1/2 w-px",
-        orientation === "horizontal" &&
-          "mask-l-from-80% mask-r-from-80% -inset-x-1/2 h-px",
-        className
+        orientation === "vertical" && "mask-t-from-80% mask-b-from-80% -inset-y-1/2 w-px",
+        orientation === "horizontal" && "mask-l-from-80% mask-r-from-80% -inset-x-1/2 h-px",
+        className,
       )}
       {...props}
     />
@@ -40,8 +38,8 @@ export function MaskLine({
 
 const defaultQuote = (
   <>
-    &quot;<span className="font-medium text-foreground">Nice UI</span> is so
-    polished I might just retire. The ecosystem is in safe hands.&quot;
+    &quot;<span className="font-medium text-foreground">Nice UI</span> is so polished I might just
+    retire. The ecosystem is in safe hands.&quot;
   </>
 );
 
@@ -78,12 +76,8 @@ export function Testimonial2({
           </blockquote>
 
           <div>
-            <cite className="font-medium text-foreground text-xs not-italic">
-              {name}
-            </cite>
-            {role ? (
-              <div className="text-[10px] text-muted-foreground">{role}</div>
-            ) : null}
+            <cite className="font-medium text-foreground text-xs not-italic">{name}</cite>
+            {role ? <div className="text-[10px] text-muted-foreground">{role}</div> : null}
           </div>
         </figcaption>
       </figure>

@@ -1,10 +1,5 @@
 import { ExternalLinkIcon } from "lucide-react";
-import {
-  type ComponentProps,
-  type FormEvent,
-  type ReactNode,
-  useCallback,
-} from "react";
+import { type ComponentProps, type FormEvent, type ReactNode, useCallback } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,11 +26,7 @@ export function InstagramIcon(props: ComponentProps<"svg">) {
 export function LinkedinIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/linkedin.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/linkedin.svg" width="100%" />
     </svg>
   );
 }
@@ -91,10 +82,7 @@ function LinkGroup({ title, links }: Footer5LinkGroup) {
       <ul className="space-y-2.5">
         {links.map((link) => (
           <li key={link.label}>
-            <a
-              className="text-muted-foreground text-sm hover:text-foreground"
-              href={link.href}
-            >
+            <a className="text-muted-foreground text-sm hover:text-foreground" href={link.href}>
               {link.label}
             </a>
           </li>
@@ -129,7 +117,7 @@ export function Footer5({
       const email = String(formData.get("email") ?? "");
       onSubscribe?.(email);
     },
-    [onSubscribe]
+    [onSubscribe],
   );
 
   return (
@@ -139,13 +127,9 @@ export function Footer5({
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] lg:gap-16">
             <div className="flex max-w-sm flex-col gap-6">
               {logo ?? (
-                <span className="font-heading font-semibold text-lg tracking-tight">
-                  Nice UI
-                </span>
+                <span className="font-heading font-semibold text-lg tracking-tight">Nice UI</span>
               )}
-              <p className="text-pretty text-muted-foreground text-sm">
-                {description}
-              </p>
+              <p className="text-pretty text-muted-foreground text-sm">{description}</p>
               <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
                 <Label htmlFor="footer-5-email">{newsletterLabel}</Label>
                 <div className="flex gap-2">
@@ -209,11 +193,7 @@ export function Footer5({
                 <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
               </a>
               {legalLinks.map((link) => (
-                <a
-                  className="hover:text-foreground"
-                  href={link.href}
-                  key={link.label}
-                >
+                <a className="hover:text-foreground" href={link.href} key={link.label}>
                   {link.label}
                 </a>
               ))}

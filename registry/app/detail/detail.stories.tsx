@@ -15,13 +15,9 @@ type Story = StoryObj<typeof meta>;
 
 export const ExceptionInspector: Story = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("radio", { name: "People activity" })
-    );
+    await userEvent.click(canvas.getByRole("radio", { name: "People activity" }));
     await expect(canvas.getByText("Lena Hoffman")).toBeVisible();
-    await expect(
-      canvas.queryByText("Fulfillment autopilot")
-    ).not.toBeInTheDocument();
+    await expect(canvas.queryByText("Fulfillment autopilot")).not.toBeInTheDocument();
   },
   render: () => <Detail1 />,
 };
@@ -31,7 +27,7 @@ export const AccountWorkspace: Story = {
     await userEvent.click(canvas.getByRole("tab", { name: "Worklog" }));
     await expect(canvas.getByRole("tab", { name: "Worklog" })).toHaveAttribute(
       "data-state",
-      "active"
+      "active",
     );
     await expect(canvas.getByText("Client hours")).toBeVisible();
   },

@@ -1,9 +1,5 @@
 import type { FormEvent, ReactNode } from "react";
-import {
-  defaultLoginLegalLinks,
-  type LoginFormLink,
-  LoginLegalNav,
-} from "@/components/login-form";
+import { defaultLoginLegalLinks, type LoginFormLink, LoginLegalNav } from "@/components/login-form";
 import { TwoFactorForm } from "@/components/two-factor-form";
 import { cn } from "@/lib/utils";
 
@@ -41,9 +37,7 @@ export function TwoFactor3({
   useCodeLabel,
 }: TwoFactor3Props) {
   return (
-    <section
-      className={cn("min-h-svh bg-background text-foreground", className)}
-    >
+    <section className={cn("min-h-svh bg-background text-foreground", className)}>
       <div className="flex min-h-svh flex-col px-6 py-8 md:px-10">
         <div className="flex flex-1 items-center justify-center">
           <TwoFactorForm

@@ -57,12 +57,8 @@ export function Faq6({
           <p className="font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]">
             FAQ / 06
           </p>
-          <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">
-            {title}
-          </h2>
-          <p className="max-w-sm text-muted-foreground text-sm leading-6">
-            {description}
-          </p>
+          <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">{title}</h2>
+          <p className="max-w-sm text-muted-foreground text-sm leading-6">{description}</p>
         </header>
         <div className="divide-y border-y">
           {items.map((item) => (

@@ -10,13 +10,7 @@ import {
   Webhook,
   XCircle,
 } from "lucide-react";
-import {
-  type ChangeEvent,
-  type MouseEvent,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import { type ChangeEvent, type MouseEvent, useCallback, useMemo, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -141,31 +135,25 @@ export function WebhookDeliveries() {
 
   const handleQueryChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value),
-    []
+    [],
   );
-  const handleFilterChange = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const nextFilter = event.currentTarget.dataset.filter;
-      if (
-        nextFilter === "All" ||
-        nextFilter === "Success" ||
-        nextFilter === "Failed" ||
-        nextFilter === "Retrying"
-      ) {
-        setFilter(nextFilter);
-      }
-    },
-    []
-  );
-  const handleDeliverySelect = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { deliveryId } = event.currentTarget.dataset;
-      if (deliveryId) {
-        setSelectedId(deliveryId);
-      }
-    },
-    []
-  );
+  const handleFilterChange = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const nextFilter = event.currentTarget.dataset.filter;
+    if (
+      nextFilter === "All" ||
+      nextFilter === "Success" ||
+      nextFilter === "Failed" ||
+      nextFilter === "Retrying"
+    ) {
+      setFilter(nextFilter);
+    }
+  }, []);
+  const handleDeliverySelect = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { deliveryId } = event.currentTarget.dataset;
+    if (deliveryId) {
+      setSelectedId(deliveryId);
+    }
+  }, []);
 
   const visibleDeliveries = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -198,8 +186,7 @@ export function WebhookDeliveries() {
                 Webhook deliveries
               </h1>
               <p className="mt-1 text-muted-foreground text-sm">
-                Inspect, replay, and troubleshoot requests sent to your
-                endpoint.
+                Inspect, replay, and troubleshoot requests sent to your endpoint.
               </p>
             </div>
           </div>
@@ -233,9 +220,7 @@ export function WebhookDeliveries() {
           <div className="border-border border-b py-5 sm:border-r sm:border-b-0 sm:px-6">
             <p className="text-muted-foreground text-xs">Delivery health</p>
             <div className="mt-1 flex items-baseline gap-2">
-              <span className="font-semibold text-2xl tracking-tight">
-                99.82%
-              </span>
+              <span className="font-semibold text-2xl tracking-tight">99.82%</span>
               <span className="text-success text-xs">+0.14% this week</span>
             </div>
           </div>
@@ -244,9 +229,7 @@ export function WebhookDeliveries() {
             <p className="mt-1 truncate font-mono text-foreground/80 text-sm">
               api.northstar.dev/hooks/billing
             </p>
-            <p className="mt-1 text-muted-foreground text-xs">
-              Last checked 12 seconds ago
-            </p>
+            <p className="mt-1 text-muted-foreground text-xs">Last checked 12 seconds ago</p>
           </div>
         </section>
 
@@ -255,15 +238,11 @@ export function WebhookDeliveries() {
             <div className="flex flex-col gap-4 border-border border-b p-4 sm:p-5">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <h2
-                    className="font-heading font-semibold text-base"
-                    id="recent-deliveries"
-                  >
+                  <h2 className="font-heading font-semibold text-base" id="recent-deliveries">
                     Recent deliveries
                   </h2>
                   <p className="mt-1 text-muted-foreground text-xs">
-                    {visibleDeliveries.length} of {deliveries.length} deliveries
-                    shown
+                    {visibleDeliveries.length} of {deliveries.length} deliveries shown
                   </p>
                 </div>
                 <span className="flex items-center gap-1.5 text-muted-foreground text-xs">
@@ -286,25 +265,23 @@ export function WebhookDeliveries() {
                 </div>
                 <fieldset className="flex border border-border p-0.5">
                   <legend className="sr-only">Filter deliveries</legend>
-                  {(["All", "Success", "Failed", "Retrying"] as Filter[]).map(
-                    (option) => (
-                      <button
-                        aria-pressed={filter === option}
-                        className={cn(
-                          "px-2.5 py-1.5 text-xs transition-colors",
-                          filter === option
-                            ? "bg-primary text-primary-foreground"
-                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                        )}
-                        data-filter={option}
-                        key={option}
-                        onClick={handleFilterChange}
-                        type="button"
-                      >
-                        {option}
-                      </button>
-                    )
-                  )}
+                  {(["All", "Success", "Failed", "Retrying"] as Filter[]).map((option) => (
+                    <button
+                      aria-pressed={filter === option}
+                      className={cn(
+                        "px-2.5 py-1.5 text-xs transition-colors",
+                        filter === option
+                          ? "bg-primary text-primary-foreground"
+                          : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                      )}
+                      data-filter={option}
+                      key={option}
+                      onClick={handleFilterChange}
+                      type="button"
+                    >
+                      {option}
+                    </button>
+                  ))}
                 </fieldset>
               </div>
             </div>
@@ -322,20 +299,14 @@ export function WebhookDeliveries() {
                     <DeliveryStatusBadge status={delivery.status} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-mono text-foreground text-xs">
-                      {delivery.event}
-                    </p>
+                    <p className="truncate font-mono text-foreground text-xs">{delivery.event}</p>
                     <p className="mt-1 truncate text-muted-foreground text-xs">
                       {delivery.id} · {delivery.createdAt}
                     </p>
                   </div>
                   <div className="hidden text-right sm:block">
-                    <p className="font-mono text-foreground text-xs">
-                      {delivery.code}
-                    </p>
-                    <p className="mt-1 text-muted-foreground text-xs">
-                      {delivery.timing}
-                    </p>
+                    <p className="font-mono text-foreground text-xs">{delivery.code}</p>
+                    <p className="mt-1 text-muted-foreground text-xs">{delivery.timing}</p>
                   </div>
                   <ChevronRight
                     aria-hidden="true"
@@ -371,15 +342,11 @@ export function WebhookDeliveries() {
               <div className="grid grid-cols-3 gap-3 text-xs">
                 <div>
                   <p className="text-muted-foreground">Response</p>
-                  <p className="mt-1 font-medium font-mono">
-                    {selectedDelivery.code}
-                  </p>
+                  <p className="mt-1 font-medium font-mono">{selectedDelivery.code}</p>
                 </div>
                 <div>
                   <p className="text-muted-foreground">Timing</p>
-                  <p className="mt-1 font-medium font-mono">
-                    {selectedDelivery.timing}
-                  </p>
+                  <p className="mt-1 font-medium font-mono">{selectedDelivery.timing}</p>
                 </div>
                 <div>
                   <p className="text-muted-foreground">Attempt</p>
@@ -393,11 +360,7 @@ export function WebhookDeliveries() {
                 <Button className="flex-1" variant="outline">
                   <RotateCcw data-icon="inline-start" /> Retry delivery
                 </Button>
-                <Button
-                  aria-label="Open endpoint settings"
-                  size="icon"
-                  variant="outline"
-                >
+                <Button aria-label="Open endpoint settings" size="icon" variant="outline">
                   <Settings2 data-icon="inline-start" />
                 </Button>
               </div>

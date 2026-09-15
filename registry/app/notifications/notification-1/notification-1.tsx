@@ -1,12 +1,4 @@
-import {
-  Check,
-  CheckCheck,
-  Download,
-  Paperclip,
-  Smile,
-  UserRoundPlus,
-  X,
-} from "lucide-react";
+import { Check, CheckCheck, Download, Paperclip, Smile, UserRoundPlus, X } from "lucide-react";
 import { useCallback, useState } from "react";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -17,13 +9,7 @@ export interface Notification1Props {
   className?: string;
 }
 
-function InitialsAvatar({
-  children,
-  className,
-}: {
-  children: string;
-  className?: string;
-}) {
+function InitialsAvatar({ children, className }: { children: string; className?: string }) {
   return (
     <Avatar className={cn("size-9 border-2 border-background", className)}>
       <AvatarFallback className="bg-transparent font-semibold text-background text-xs">
@@ -58,25 +44,18 @@ export function Notification1({ className }: Notification1Props) {
       aria-label="Notifications"
       className={cn(
         "w-full max-w-[832px] overflow-hidden rounded-[28px] border border-border bg-background text-foreground shadow-2xl",
-        className
+        className,
       )}
     >
       <header className="flex items-center justify-between px-10 py-8">
         <div className="flex items-center gap-3">
-          <h2 className="font-medium text-[32px] tracking-[-0.04em]">
-            Notifications
-          </h2>
+          <h2 className="font-medium text-[32px] tracking-[-0.04em]">Notifications</h2>
           <span className="flex size-8 items-center justify-center rounded-full bg-primary font-medium text-primary-foreground text-sm">
             3
           </span>
         </div>
         <div className="flex items-center gap-7">
-          <Button
-            aria-label="Mark all as read"
-            size="icon"
-            type="button"
-            variant="ghost"
-          >
+          <Button aria-label="Mark all as read" size="icon" type="button" variant="ghost">
             <CheckCheck />
           </Button>
           <Button
@@ -97,13 +76,10 @@ export function Notification1({ className }: Notification1Props) {
             <InitialsAvatar className="bg-primary">S</InitialsAvatar>
             <div className="min-w-0 text-[24px] leading-[1.45]">
               <p>
-                <span className="text-muted-foreground">@sarah_smith</span>{" "}
-                mentioned you in{" "}
+                <span className="text-muted-foreground">@sarah_smith</span> mentioned you in{" "}
                 <span className="text-muted-foreground">#PR-1024</span>
               </p>
-              <p className="text-muted-foreground">
-                "Can you review the changes?"
-              </p>
+              <p className="text-muted-foreground">"Can you review the changes?"</p>
               <p className="mt-3 text-[20px] text-muted-foreground">2m ago</p>
             </div>
           </div>
@@ -122,30 +98,20 @@ export function Notification1({ className }: Notification1Props) {
                 </h3>
               </div>
               <p className="mt-2 text-[24px] text-muted-foreground leading-[1.35]">
-                Design System v2.0 release requires your approval before
-                deployment.
+                Design System v2.0 release requires your approval before deployment.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <Button
-                  className="rounded-xl text-[21px]"
-                  onClick={approve}
-                  type="button"
-                >
+                <Button className="rounded-xl text-[21px]" onClick={approve} type="button">
                   Approve
                 </Button>
-                <Button
-                  className="rounded-xl text-[21px]"
-                  type="button"
-                  variant="outline"
-                >
+                <Button className="rounded-xl text-[21px]" type="button" variant="outline">
                   Review
                 </Button>
               </div>
               <div className="mt-5 flex items-center gap-4 text-[20px] text-muted-foreground">
                 <span>5m ago</span>
                 <span className="rounded-xl border border-border bg-muted px-3 py-1">
-                  Priority{" "}
-                  <b className="ml-3 font-normal text-amber-700">High</b>
+                  Priority <b className="ml-3 font-normal text-amber-700">High</b>
                 </span>
               </div>
             </div>
@@ -160,9 +126,7 @@ export function Notification1({ className }: Notification1Props) {
               <h3 className="text-[25px]">
                 <span className="text-muted-foreground">@maverick</span> shared
               </h3>
-              <p className="mt-2 text-[24px] text-muted-foreground">
-                Project Timeline
-              </p>
+              <p className="mt-2 text-[24px] text-muted-foreground">Project Timeline</p>
               <Button
                 className="mt-5 h-auto rounded-full px-3 py-1 text-[21px]"
                 type="button"
@@ -191,8 +155,7 @@ export function Notification1({ className }: Notification1Props) {
               <div className="mt-5 flex items-center gap-4 text-[20px] text-muted-foreground">
                 <span>30m ago</span>
                 <span className="rounded-xl border border-border bg-muted px-3 py-1">
-                  Due{" "}
-                  <b className="ml-3 font-normal text-destructive">Tomorrow</b>
+                  Due <b className="ml-3 font-normal text-destructive">Tomorrow</b>
                 </span>
               </div>
             </div>
@@ -224,9 +187,7 @@ export function Notification1({ className }: Notification1Props) {
           <div className="flex items-center gap-4">
             <Smile className="text-violet-500" size={28} />
             <h3 className="text-[25px]">Reactions on your comment</h3>
-            <span className="ml-auto rounded-lg border border-border px-2">
-              +5
-            </span>
+            <span className="ml-auto rounded-lg border border-border px-2">+5</span>
           </div>
         </article>
         <div className="pointer-events-none absolute top-0 right-1 h-[390px] w-3 rounded-full bg-muted" />

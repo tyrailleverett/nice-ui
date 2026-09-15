@@ -9,10 +9,7 @@ function MembersIllustration() {
       <div className="absolute top-2 left-4 size-24 rotate-[-18deg] rounded-2xl border border-border bg-muted/10" />
       <div className="absolute top-5 left-10 size-24 rotate-[-9deg] rounded-2xl border border-border bg-muted/20" />
       <div className="absolute top-8 left-16 flex size-24 rotate-[-1deg] items-center justify-center rounded-2xl border-2 border-border bg-background shadow-sm">
-        <UserRoundPlusIcon
-          className="size-9 text-muted-foreground"
-          strokeWidth={1.5}
-        />
+        <UserRoundPlusIcon className="size-9 text-muted-foreground" strokeWidth={1.5} />
       </div>
     </div>
   );
@@ -24,16 +21,12 @@ export interface EmptyState4Props {
   onInviteMembers?: () => void;
 }
 
-export function EmptyState4({
-  className,
-  onCopyInviteLink,
-  onInviteMembers,
-}: EmptyState4Props) {
+export function EmptyState4({ className, onCopyInviteLink, onInviteMembers }: EmptyState4Props) {
   return (
     <section
       className={cn(
         "flex min-h-[34rem] w-full flex-col items-center justify-center bg-background px-6 py-16 text-center text-foreground",
-        className
+        className,
       )}
     >
       <MembersIllustration />
@@ -42,8 +35,8 @@ export function EmptyState4({
           Invite the first people in
         </h2>
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed sm:text-xl">
-          Bring owners, editors, and reviewers into the workspace with a fast
-          email invite or one secure share link.
+          Bring owners, editors, and reviewers into the workspace with a fast email invite or one
+          secure share link.
         </p>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-3">

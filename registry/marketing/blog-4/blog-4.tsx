@@ -74,9 +74,7 @@ export function Blog4({
               {title}
             </h2>
           </div>
-          <p className="text-muted-foreground text-sm leading-6">
-            {description}
-          </p>
+          <p className="text-muted-foreground text-sm leading-6">{description}</p>
         </header>
 
         <div className="grid md:grid-cols-[1.1fr_0.9fr]">
@@ -109,9 +107,7 @@ export function Blog4({
                 href={post.href}
                 key={post.title}
               >
-                <span className="font-mono text-muted-foreground text-xs">
-                  0{index + 2}
-                </span>
+                <span className="font-mono text-muted-foreground text-xs">0{index + 2}</span>
                 <span>
                   <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.16em]">
                     {post.category}
@@ -123,9 +119,7 @@ export function Blog4({
                     {post.description}
                   </span>
                 </span>
-                <span className="text-muted-foreground text-xs">
-                  {post.date}
-                </span>
+                <span className="text-muted-foreground text-xs">{post.date}</span>
               </a>
             ))}
           </div>

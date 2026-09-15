@@ -19,13 +19,7 @@ import {
   UsersIcon,
   ZapIcon,
 } from "lucide-react";
-import {
-  type ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -101,14 +95,9 @@ function DownloadIllustration() {
 
 function AIInputIllustration() {
   return (
-    <div
-      aria-hidden
-      className="absolute inset-8 z-1 m-auto h-fit max-w-sm scale-95"
-    >
+    <div aria-hidden className="absolute inset-8 z-1 m-auto h-fit max-w-sm scale-95">
       <div className="mt-auto h-fit rounded-3xl bg-card p-3 shadow-black/15 shadow-xl ring ring-foreground/15">
-        <div className="p-2 pb-3 text-muted-foreground text-sm">
-          Ask Nice UI what you need...
-        </div>
+        <div className="p-2 pb-3 text-muted-foreground text-sm">Ask Nice UI what you need...</div>
         <div className="flex justify-between gap-3">
           <div className="flex items-center gap-1">
             <div className="flex size-7 cursor-pointer rounded-full *:m-auto *:size-4 hover:bg-muted">
@@ -150,9 +139,7 @@ function DynamicIslandIllustration() {
                 <div className="font-medium text-sm">Théo Balick</div>
                 <div className="mt-1.5 flex items-center gap-3">
                   <div>
-                    <div className="text-muted-foreground text-xs">
-                      Expenses
-                    </div>
+                    <div className="text-muted-foreground text-xs">Expenses</div>
                     <div className="mt-0.5 font-semibold text-sm">$32.65k</div>
                   </div>
                   <div className="h-7 w-px bg-border" />
@@ -307,7 +294,7 @@ function FeatureSection({
     (element: HTMLDivElement | null) => {
       registerRef(item.id, element);
     },
-    [item.id, registerRef]
+    [item.id, registerRef],
   );
 
   return (
@@ -318,12 +305,9 @@ function FeatureSection({
     >
       <div className="flex flex-col justify-between pb-4 md:col-span-2">
         <div className="md:pr-6 lg:pr-0">
-          <h3 className="mb-6 font-medium text-muted-foreground text-sm">
-            {item.label}
-          </h3>
+          <h3 className="mb-6 font-medium text-muted-foreground text-sm">{item.label}</h3>
           <p className="text-balance font-medium text-lg text-muted-foreground">
-            <span className="text-foreground">{item.title}</span>{" "}
-            {item.description}
+            <span className="text-foreground">{item.title}</span> {item.description}
           </p>
         </div>
         <FeatureList items={item.highlights} />
@@ -331,7 +315,7 @@ function FeatureSection({
       <div
         className={cn(
           "relative flex aspect-square rounded-3xl border border-border/50 bg-foreground/2 p-3 md:col-span-3",
-          item.id === "integrations" && "bg-zinc-100 dark:bg-zinc-900"
+          item.id === "integrations" && "bg-zinc-100 dark:bg-zinc-900",
         )}
       >
         {item.visual}
@@ -351,9 +335,7 @@ export function Feature6({
   className,
 }: Feature6Props) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
-  const sectionRefs = useRef<Partial<Record<string, HTMLDivElement | null>>>(
-    {}
-  );
+  const sectionRefs = useRef<Partial<Record<string, HTMLDivElement | null>>>({});
 
   const scrollToFeature = useCallback((id: string) => {
     sectionRefs.current[id]?.scrollIntoView({
@@ -363,12 +345,9 @@ export function Feature6({
     setActiveId(id);
   }, []);
 
-  const registerRef = useCallback(
-    (id: string, element: HTMLDivElement | null) => {
-      sectionRefs.current[id] = element;
-    },
-    []
-  );
+  const registerRef = useCallback((id: string, element: HTMLDivElement | null) => {
+    sectionRefs.current[id] = element;
+  }, []);
 
   useEffect(() => {
     const sections = items
@@ -386,7 +365,7 @@ export function Feature6({
           setActiveId(nextId);
         }
       },
-      { rootMargin: "-25% 0px -55% 0px", threshold: [0.15, 0.35, 0.55, 0.75] }
+      { rootMargin: "-25% 0px -55% 0px", threshold: [0.15, 0.35, 0.55, 0.75] },
     );
 
     for (const section of sections) {
@@ -419,11 +398,7 @@ export function Feature6({
             </div>
             <div className="flex flex-col gap-16 md:gap-32">
               {items.map((item) => (
-                <FeatureSection
-                  item={item}
-                  key={item.id}
-                  registerRef={registerRef}
-                />
+                <FeatureSection item={item} key={item.id} registerRef={registerRef} />
               ))}
             </div>
           </div>

@@ -187,16 +187,13 @@ export function SupportInbox({ className }: SupportInboxProps) {
   const [sent, setSent] = useState<string[]>([]);
 
   const active =
-    conversations.find((conversation) => conversation.id === activeId) ??
-    conversations[0];
+    conversations.find((conversation) => conversation.id === activeId) ?? conversations[0];
   const visibleConversations = useMemo(
     () =>
       conversations.filter((conversation) =>
-        `${conversation.name} ${conversation.subject}`
-          .toLowerCase()
-          .includes(search.toLowerCase())
+        `${conversation.name} ${conversation.subject}`.toLowerCase().includes(search.toLowerCase()),
       ),
-    [search]
+    [search],
   );
 
   const sendMessage = () => {
@@ -209,12 +206,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
   };
 
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-muted/30 p-3 text-foreground sm:p-5",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-muted/30 p-3 text-foreground sm:p-5", className)}>
       <div className="mx-auto flex min-h-[720px] max-w-[1440px] flex-col overflow-hidden rounded-xl border bg-background shadow-sm">
         <header className="flex flex-col gap-4 border-b px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div className="flex items-center gap-3">
@@ -229,11 +221,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Button
-              aria-label="Open command menu"
-              size="icon-sm"
-              variant="ghost"
-            >
+            <Button aria-label="Open command menu" size="icon-sm" variant="ghost">
               <CommandIcon />
             </Button>
             <Button aria-label="Notifications" size="icon-sm" variant="ghost">
@@ -258,7 +246,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                 <button
                   className={cn(
                     "flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm transition-colors hover:bg-muted",
-                    filter === item && "bg-muted font-medium"
+                    filter === item && "bg-muted font-medium",
                   )}
                   key={item}
                   onClick={() => setFilter(item)}
@@ -269,9 +257,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                     {item}
                   </span>
                   {item === "All inboxes" && (
-                    <span className="font-mono text-muted-foreground text-xs">
-                      12
-                    </span>
+                    <span className="font-mono text-muted-foreground text-xs">12</span>
                   )}
                 </button>
               ))}
@@ -303,9 +289,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                   <UsersIcon className="size-4 text-primary" />
                   <span className="font-medium text-xs">Team status</span>
                 </div>
-                <p className="text-muted-foreground text-xs">
-                  4 teammates online
-                </p>
+                <p className="text-muted-foreground text-xs">4 teammates online</p>
                 <div className="mt-3 flex -space-x-1">
                   <Avatar size="sm">
                     <AvatarFallback>MC</AvatarFallback>
@@ -335,11 +319,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                   {visibleConversations.length} conversations
                 </p>
               </div>
-              <Button
-                aria-label="More inbox options"
-                size="icon-sm"
-                variant="ghost"
-              >
+              <Button aria-label="More inbox options" size="icon-sm" variant="ghost">
                 <MoreHorizontalIcon />
               </Button>
             </div>
@@ -362,12 +342,11 @@ export function SupportInbox({ className }: SupportInboxProps) {
             <div className="min-h-0 flex-1 overflow-y-auto p-2">
               {visibleConversations.map((conversation) => (
                 <button
-                  aria-current={
-                    activeId === conversation.id ? "true" : undefined
-                  }
+                  aria-current={activeId === conversation.id ? "true" : undefined}
+                  aria-label={conversation.subject}
                   className={cn(
                     "w-full rounded-lg border border-transparent p-3 text-left transition-colors hover:bg-muted/70",
-                    activeId === conversation.id && "border-border bg-muted"
+                    activeId === conversation.id && "border-border bg-muted",
                   )}
                   key={conversation.id}
                   onClick={() => {
@@ -382,9 +361,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                     </Avatar>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
-                        <p className="truncate font-medium text-sm">
-                          {conversation.name}
-                        </p>
+                        <p className="truncate font-medium text-sm">{conversation.name}</p>
                         <span className="shrink-0 text-[11px] text-muted-foreground">
                           {conversation.time}
                         </span>
@@ -396,16 +373,11 @@ export function SupportInbox({ className }: SupportInboxProps) {
                         <span
                           className={cn(
                             "size-1.5 rounded-full",
-                            conversation.status === "open"
-                              ? "bg-emerald-500"
-                              : "bg-amber-500"
+                            conversation.status === "open" ? "bg-emerald-500" : "bg-amber-500",
                           )}
                         />
                         {conversation.priority ? (
-                          <Badge
-                            className="h-4 px-1.5 text-[10px]"
-                            variant="destructive"
-                          >
+                          <Badge className="h-4 px-1.5 text-[10px]" variant="destructive">
                             Priority
                           </Badge>
                         ) : null}
@@ -427,9 +399,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
             <div className="flex items-center justify-between gap-3 border-b px-4 py-3 sm:px-5">
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <h2 className="truncate font-heading font-semibold text-sm">
-                    {active.subject}
-                  </h2>
+                  <h2 className="truncate font-heading font-semibold text-sm">{active.subject}</h2>
                   {resolved ? (
                     <Badge variant="secondary">
                       <CheckIcon />
@@ -442,25 +412,13 @@ export function SupportInbox({ className }: SupportInboxProps) {
                 </p>
               </div>
               <div className="flex shrink-0 gap-1">
-                <Button
-                  aria-label="Snooze conversation"
-                  size="icon-sm"
-                  variant="ghost"
-                >
+                <Button aria-label="Snooze conversation" size="icon-sm" variant="ghost">
                   <Clock3Icon />
                 </Button>
-                <Button
-                  aria-label="Archive conversation"
-                  size="icon-sm"
-                  variant="ghost"
-                >
+                <Button aria-label="Archive conversation" size="icon-sm" variant="ghost">
                   <ArchiveIcon />
                 </Button>
-                <Button
-                  aria-label="More conversation actions"
-                  size="icon-sm"
-                  variant="ghost"
-                >
+                <Button aria-label="More conversation actions" size="icon-sm" variant="ghost">
                   <MoreHorizontalIcon />
                 </Button>
               </div>
@@ -472,9 +430,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                 </Avatar>
                 <div>
                   <p className="font-medium text-sm">{active.name}</p>
-                  <p className="text-muted-foreground text-xs">
-                    {active.email}
-                  </p>
+                  <p className="text-muted-foreground text-xs">{active.email}</p>
                 </div>
               </div>
               <Button size="sm" variant="outline">
@@ -499,10 +455,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
                   })),
                 ].map((message) => (
                   <div
-                    className={cn(
-                      "flex gap-2.5",
-                      message.from === "agent" && "flex-row-reverse"
-                    )}
+                    className={cn("flex gap-2.5", message.from === "agent" && "flex-row-reverse")}
                     key={`${message.time}-${message.body}`}
                   >
                     <Avatar size="sm">
@@ -510,25 +463,18 @@ export function SupportInbox({ className }: SupportInboxProps) {
                         {message.from === "agent" ? "MC" : active.initials}
                       </AvatarFallback>
                     </Avatar>
-                    <div
-                      className={cn(
-                        "max-w-[78%]",
-                        message.from === "agent" && "text-right"
-                      )}
-                    >
+                    <div className={cn("max-w-[78%]", message.from === "agent" && "text-right")}>
                       <div
                         className={cn(
                           "rounded-xl px-3.5 py-3 text-sm leading-relaxed",
                           message.from === "agent"
                             ? "bg-primary text-primary-foreground"
-                            : "bg-muted"
+                            : "bg-muted",
                         )}
                       >
                         <p>{message.body}</p>
                       </div>
-                      <p className="mt-1 px-1 text-[10px] text-muted-foreground">
-                        {message.time}
-                      </p>
+                      <p className="mt-1 px-1 text-[10px] text-muted-foreground">{message.time}</p>
                     </div>
                   </div>
                 ))}
@@ -550,44 +496,28 @@ export function SupportInbox({ className }: SupportInboxProps) {
                 >
                   Private note
                 </Button>
-                <span className="ml-auto text-[10px] text-muted-foreground">
-                  ⌘ ↵ to send
-                </span>
+                <span className="ml-auto text-[10px] text-muted-foreground">⌘ ↵ to send</span>
               </div>
               <div
                 className={cn(
                   "rounded-lg border bg-background p-2",
                   mode === "note" &&
-                    "border-amber-300 bg-amber-50/40 dark:border-amber-800 dark:bg-amber-950/20"
+                    "border-amber-300 bg-amber-50/40 dark:border-amber-800 dark:bg-amber-950/20",
                 )}
               >
                 <Textarea
-                  aria-label={
-                    mode === "reply" ? "Reply message" : "Private note"
-                  }
+                  aria-label={mode === "reply" ? "Reply message" : "Private note"}
                   className="min-h-16 resize-none border-0 bg-transparent p-1 shadow-none focus-visible:ring-0"
                   onChange={(event) => setDraft(event.target.value)}
-                  placeholder={
-                    mode === "reply"
-                      ? "Write a reply…"
-                      : "Add a note for your team…"
-                  }
+                  placeholder={mode === "reply" ? "Write a reply…" : "Add a note for your team…"}
                   value={draft}
                 />
                 <div className="flex items-center justify-between pt-2">
                   <div className="flex gap-1">
-                    <Button
-                      aria-label="Attach file"
-                      size="icon-xs"
-                      variant="ghost"
-                    >
+                    <Button aria-label="Attach file" size="icon-xs" variant="ghost">
                       <PaperclipIcon />
                     </Button>
-                    <Button
-                      aria-label="Add emoji"
-                      size="icon-xs"
-                      variant="ghost"
-                    >
+                    <Button aria-label="Add emoji" size="icon-xs" variant="ghost">
                       <SmileIcon />
                     </Button>
                   </div>
@@ -604,32 +534,21 @@ export function SupportInbox({ className }: SupportInboxProps) {
             </div>
           </section>
 
-          <aside
-            aria-label="Customer context"
-            className="bg-muted/20 p-4 sm:p-5 lg:border-l-0"
-          >
+          <aside aria-label="Customer context" className="bg-muted/20 p-4 sm:p-5 lg:border-l-0">
             <div className="mb-5 flex items-center justify-between">
               <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
                 Customer context
               </p>
-              <Button
-                aria-label="More customer options"
-                size="icon-xs"
-                variant="ghost"
-              >
+              <Button aria-label="More customer options" size="icon-xs" variant="ghost">
                 <MoreHorizontalIcon />
               </Button>
             </div>
             <div className="flex flex-col items-center text-center">
               <Avatar className="mb-3 size-14">
-                <AvatarFallback className="text-lg">
-                  {active.initials}
-                </AvatarFallback>
+                <AvatarFallback className="text-lg">{active.initials}</AvatarFallback>
               </Avatar>
               <h2 className="font-heading font-semibold">{active.name}</h2>
-              <p className="mt-1 text-muted-foreground text-xs">
-                {active.company}
-              </p>
+              <p className="mt-1 text-muted-foreground text-xs">{active.company}</p>
               <Badge className="mt-3" variant="secondary">
                 {active.plan}
               </Badge>
@@ -646,9 +565,7 @@ export function SupportInbox({ className }: SupportInboxProps) {
               </div>
               <div className="flex justify-between gap-3">
                 <dt className="text-muted-foreground">Customer since</dt>
-                <dd className="font-medium">
-                  {active.joined.replace("Joined ", "")}
-                </dd>
+                <dd className="font-medium">{active.joined.replace("Joined ", "")}</dd>
               </div>
             </dl>
             <div className="mt-6">

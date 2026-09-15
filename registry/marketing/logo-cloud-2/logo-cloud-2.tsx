@@ -86,20 +86,14 @@ export function LogoCloud2({
           <h2 className="mb-5 text-center font-heading font-semibold text-primary text-xl md:text-3xl">
             {title ? <span>{title}</span> : null}
             {title && highlight ? <br /> : null}
-            {highlight ? (
-              <span className="font-semibold">{highlight}</span>
-            ) : null}
+            {highlight ? <span className="font-semibold">{highlight}</span> : null}
           </h2>
         ) : null}
         <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mx-auto my-5 h-px max-w-sm bg-border" />
         <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] overflow-hidden py-4">
           <div className="nice-ui-logo-cloud-2-track flex w-max">
             <LogoRow logos={logos} />
-            <LogoRow
-              aria-hidden
-              className="nice-ui-logo-cloud-2-clone"
-              logos={logos}
-            />
+            <LogoRow aria-hidden className="nice-ui-logo-cloud-2-clone" logos={logos} />
           </div>
         </div>
         <div className="mask-[linear-gradient(to_right,transparent,black,transparent)] mt-5 h-px bg-border" />
@@ -114,10 +108,7 @@ function LogoRow({
   ...props
 }: { logos: LogoCloud2Item[] } & ComponentProps<"div">) {
   return (
-    <div
-      className={cn("flex items-center gap-[42px] pr-[42px]", className)}
-      {...props}
-    >
+    <div className={cn("flex items-center gap-[42px] pr-[42px]", className)} {...props}>
       {logos.map((logo) => (
         <img
           alt={logo.alt}

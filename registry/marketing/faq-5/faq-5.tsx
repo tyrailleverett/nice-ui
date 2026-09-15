@@ -119,9 +119,7 @@ export function Faq5({
         <header className="mb-16 space-y-3 text-center">
           <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
           {description ? (
-            <p className="mx-auto max-w-xl text-pretty text-muted-foreground">
-              {description}
-            </p>
+            <p className="mx-auto max-w-xl text-pretty text-muted-foreground">{description}</p>
           ) : null}
         </header>
 
@@ -131,11 +129,7 @@ export function Faq5({
               <h3 className="mb-2 font-medium text-lg">{group.title}</h3>
               <Accordion className="border-t">
                 {group.items.map((item) => (
-                  <AccordionItem
-                    className="border-b"
-                    key={item.id}
-                    value={item.id}
-                  >
+                  <AccordionItem className="border-b" key={item.id} value={item.id}>
                     <AccordionTrigger className="py-4 text-base hover:no-underline focus-visible:underline focus-visible:ring-0">
                       {item.title}
                     </AccordionTrigger>

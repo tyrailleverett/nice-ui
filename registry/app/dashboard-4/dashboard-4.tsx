@@ -141,12 +141,7 @@ export interface Dashboard4Props {
 
 export function Dashboard4({ className }: Dashboard4Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-4">
         <header className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
           <Breadcrumb>
@@ -195,12 +190,8 @@ export function Dashboard4({ className }: Dashboard4Props) {
                 <div>
                   <p className="font-semibold text-2xl">{value}</p>
                   <div className="mt-2 flex items-center gap-2">
-                    <Badge variant={index === 0 ? "destructive" : "secondary"}>
-                      {delta}
-                    </Badge>
-                    <span className="text-muted-foreground text-sm">
-                      {detail}
-                    </span>
+                    <Badge variant={index === 0 ? "destructive" : "secondary"}>{delta}</Badge>
+                    <span className="text-muted-foreground text-sm">{detail}</span>
                   </div>
                 </div>
                 <ChartContainer className="h-12 w-full" config={sparkConfig}>
@@ -208,11 +199,7 @@ export function Dashboard4({ className }: Dashboard4Props) {
                     <Line
                       dataKey="value"
                       dot={false}
-                      stroke={
-                        index === 0
-                          ? "var(--destructive)"
-                          : "var(--color-value)"
-                      }
+                      stroke={index === 0 ? "var(--destructive)" : "var(--color-value)"}
                       strokeWidth={2}
                       type="natural"
                     />
@@ -236,32 +223,13 @@ export function Dashboard4({ className }: Dashboard4Props) {
               </CardAction>
             </CardHeader>
             <CardContent>
-              <ChartContainer
-                className="h-[270px] w-full"
-                config={vectorConfig}
-              >
+              <ChartContainer className="h-[270px] w-full" config={vectorConfig}>
                 <BarChart accessibilityLayer data={vectors}>
                   <CartesianGrid vertical={false} />
-                  <XAxis
-                    axisLine={false}
-                    dataKey="name"
-                    tickLine={false}
-                    tickMargin={10}
-                  />
-                  <ChartTooltip
-                    content={<ChartTooltipContent />}
-                    cursor={false}
-                  />
-                  <Bar
-                    dataKey="blocked"
-                    fill="var(--color-blocked)"
-                    radius={4}
-                  />
-                  <Bar
-                    dataKey="watched"
-                    fill="var(--color-watched)"
-                    radius={4}
-                  />
+                  <XAxis axisLine={false} dataKey="name" tickLine={false} tickMargin={10} />
+                  <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
+                  <Bar dataKey="blocked" fill="var(--color-blocked)" radius={4} />
+                  <Bar dataKey="watched" fill="var(--color-watched)" radius={4} />
                 </BarChart>
               </ChartContainer>
             </CardContent>
@@ -279,16 +247,8 @@ export function Dashboard4({ className }: Dashboard4Props) {
               <ChartContainer className="h-[270px] w-full" config={flowConfig}>
                 <AreaChart accessibilityLayer data={flowData}>
                   <CartesianGrid vertical={false} />
-                  <XAxis
-                    axisLine={false}
-                    dataKey="month"
-                    tickLine={false}
-                    tickMargin={10}
-                  />
-                  <ChartTooltip
-                    content={<ChartTooltipContent />}
-                    cursor={false}
-                  />
+                  <XAxis axisLine={false} dataKey="month" tickLine={false} tickMargin={10} />
+                  <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
                   <Area
                     dataKey="api"
                     fill="var(--color-api)"
@@ -315,9 +275,7 @@ export function Dashboard4({ className }: Dashboard4Props) {
           <Card>
             <CardHeader>
               <CardTitle>Cluster Load</CardTitle>
-              <CardDescription>
-                ● Normal &nbsp; ● Warm &nbsp; ● Critical
-              </CardDescription>
+              <CardDescription>● Normal &nbsp; ● Warm &nbsp; ● Critical</CardDescription>
               <CardAction>
                 <div className="flex gap-2">
                   <Badge variant="secondary">52 Nodes</Badge>
@@ -327,10 +285,7 @@ export function Dashboard4({ className }: Dashboard4Props) {
               </CardAction>
             </CardHeader>
             <CardContent>
-              <ChartContainer
-                className="h-[320px] w-full"
-                config={clusterConfig}
-              >
+              <ChartContainer className="h-[320px] w-full" config={clusterConfig}>
                 <BarChart accessibilityLayer data={clusterData}>
                   <CartesianGrid vertical={false} />
                   <XAxis
@@ -340,16 +295,10 @@ export function Dashboard4({ className }: Dashboard4Props) {
                     tickLine={false}
                     tickMargin={10}
                   />
-                  <ChartTooltip
-                    content={<ChartTooltipContent />}
-                    cursor={false}
-                  />
+                  <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
                   <Bar dataKey="load" radius={4}>
                     {clusterData.map((node) => (
-                      <Cell
-                        fill={`var(--color-${node.status})`}
-                        key={node.node}
-                      />
+                      <Cell fill={`var(--color-${node.status})`} key={node.node} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -369,9 +318,7 @@ export function Dashboard4({ className }: Dashboard4Props) {
                     <span className="font-medium">{lane.name}</span>
                     <strong>{lane.value}</strong>
                   </div>
-                  <span className="text-muted-foreground text-sm">
-                    {lane.detail}
-                  </span>
+                  <span className="text-muted-foreground text-sm">{lane.detail}</span>
                   <div className="flex items-center gap-3">
                     <Progress value={lane.progress} />
                     <Badge variant={lane.tone}>{lane.progress}%</Badge>

@@ -73,7 +73,7 @@ function ActionButton({
       <Button
         className={className}
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         size={size}
         variant={variant}
       >
@@ -136,9 +136,7 @@ export function Hero3({
                       action={secondaryCta}
                       className="pl-5"
                       size="lg"
-                      startIcon={
-                        <CirclePlayIcon className="fill-primary/25 stroke-primary" />
-                      }
+                      startIcon={<CirclePlayIcon className="fill-primary/25 stroke-primary" />}
                       variant="outline"
                     />
                   ) : null}
@@ -147,9 +145,7 @@ export function Hero3({
 
               {logos.length ? (
                 <div className="mt-10">
-                  {logosLabel ? (
-                    <p className="text-muted-foreground">{logosLabel}</p>
-                  ) : null}
+                  {logosLabel ? <p className="text-muted-foreground">{logosLabel}</p> : null}
                   <div className="mt-6 flex flex-wrap items-center gap-8">
                     {logos.map((logo) => (
                       <img

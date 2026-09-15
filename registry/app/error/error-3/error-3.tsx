@@ -25,12 +25,7 @@ export function Error3({
   requestId = "FUL-8F2C-19",
 }: Error3Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1100px] flex-col gap-5">
         <div className="flex flex-col gap-2">
           <Skeleton className="h-4 w-48" />
@@ -39,18 +34,14 @@ export function Error3({
 
         <Empty className="border border-dashed">
           <EmptyHeader className="max-w-lg">
-            <EmptyTitle className="text-xl">
-              Packing state did not load
-            </EmptyTitle>
+            <EmptyTitle className="text-xl">Packing state did not load</EmptyTitle>
             <EmptyDescription>
-              The fulfillment service stopped while reading NSC-84763. The queue
-              is still up; this record is not.
+              The fulfillment service stopped while reading NSC-84763. The queue is still up; this
+              record is not.
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent className="max-w-md">
-            <p className="font-mono text-muted-foreground text-xs">
-              Request {requestId}
-            </p>
+            <p className="font-mono text-muted-foreground text-xs">Request {requestId}</p>
             <div className="flex flex-wrap justify-center gap-2">
               <Button onClick={onRetry} type="button">
                 <RotateCcwIcon data-icon="inline-start" />

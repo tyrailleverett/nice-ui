@@ -19,10 +19,7 @@ export const CreateProject: Story = {
     await userEvent.click(canvas.getByRole("button", { name: "Continue" }));
     await expect(canvas.getByText("Add a name to continue.")).toBeVisible();
 
-    await userEvent.type(
-      canvas.getByRole("textbox", { name: projectNamePattern }),
-      "Signal room"
-    );
+    await userEvent.type(canvas.getByRole("textbox", { name: projectNamePattern }), "Signal room");
     await userEvent.click(canvas.getByRole("button", { name: "Continue" }));
     await expect(canvas.getByText("Where should we look?")).toBeVisible();
 
@@ -30,9 +27,7 @@ export const CreateProject: Story = {
     await userEvent.click(canvas.getByRole("button", { name: "Continue" }));
     await expect(canvas.getByText("Ready to make it real?")).toBeVisible();
 
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Create project" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Create project" }));
     await expect(canvas.getByText("Signal room is ready.")).toBeVisible();
   },
   render: () => <CreationWizard />,

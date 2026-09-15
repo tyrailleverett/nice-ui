@@ -182,16 +182,11 @@ function FilterSelect({
       <Select
         onValueChange={useCallback(
           (nextValue: string | null) => onValueChange(nextValue ?? options[0]),
-          [onValueChange, options]
+          [onValueChange, options],
         )}
         value={value}
       >
-        <SelectTrigger
-          aria-label={ariaLabel}
-          className="w-full bg-background"
-          id={id}
-          size="sm"
-        >
+        <SelectTrigger aria-label={ariaLabel} className="w-full bg-background" id={id} size="sm">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -245,45 +240,30 @@ export function AuditLog({
   const [search, setSearch] = useState("");
   const [user, setUser] = useState("All users");
   const handleSearchChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) =>
-      setSearch(event.target.value),
-    []
+    (event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value),
+    [],
   );
 
   const userOptions = useMemo(
     () => ["All users", ...new Set(events.map((event) => event.actor))],
-    [events]
+    [events],
   );
   const filteredEvents = useMemo(() => {
     const query = search.trim().toLowerCase();
     return events.filter((event) => {
       const matchesAction = action === "All actions" || event.action === action;
-      const matchesDate =
-        date !== "Today" || event.timestamp.startsWith("Today");
-      const matchesResource =
-        resource === "All resources" || event.resourceType === resource;
+      const matchesDate = date !== "Today" || event.timestamp.startsWith("Today");
+      const matchesResource = resource === "All resources" || event.resourceType === resource;
       const matchesUser = user === "All users" || event.actor === user;
       const matchesSearch =
-        !query ||
-        `${event.actor} ${event.resource} ${event.action}`
-          .toLowerCase()
-          .includes(query);
-      return (
-        matchesAction &&
-        matchesDate &&
-        matchesResource &&
-        matchesUser &&
-        matchesSearch
-      );
+        !query || `${event.actor} ${event.resource} ${event.action}`.toLowerCase().includes(query);
+      return matchesAction && matchesDate && matchesResource && matchesUser && matchesSearch;
     });
   }, [action, date, events, resource, search, user]);
 
   return (
     <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-10",
-        className
-      )}
+      className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-10", className)}
     >
       <Card className="mx-auto max-w-6xl">
         <CardHeader className="gap-4 border-border/70 border-b pb-5 sm:px-6">
@@ -293,9 +273,7 @@ export function AuditLog({
                 <SlidersHorizontalIcon aria-hidden="true" />
               </div>
               <div>
-                <CardTitle className="text-xl tracking-tight">
-                  Audit log
-                </CardTitle>
+                <CardTitle className="text-xl tracking-tight">Audit log</CardTitle>
                 <CardDescription className="mt-1 max-w-xl">
                   A running record of changes across your workspace.
                 </CardDescription>
@@ -306,11 +284,7 @@ export function AuditLog({
                 <DownloadIcon data-icon="inline-start" />
                 Export CSV
               </Button>
-              <Button
-                aria-label="More audit log actions"
-                size="icon-sm"
-                variant="ghost"
-              >
+              <Button aria-label="More audit log actions" size="icon-sm" variant="ghost">
                 <ChevronDownIcon aria-hidden="true" />
               </Button>
             </div>
@@ -363,10 +337,7 @@ export function AuditLog({
                 value={resource}
               />
               <Field>
-                <FieldLabel
-                  className="text-muted-foreground text-xs"
-                  htmlFor="audit-search"
-                >
+                <FieldLabel className="text-muted-foreground text-xs" htmlFor="audit-search">
                   Search events
                 </FieldLabel>
                 <div className="relative">
@@ -412,8 +383,7 @@ export function AuditLog({
                         </div>
                         <p className="font-medium">No matching activity</p>
                         <p className="text-muted-foreground text-sm">
-                          Try broadening your filters or searching for another
-                          resource.
+                          Try broadening your filters or searching for another resource.
                         </p>
                       </div>
                     </TableCell>
@@ -488,7 +458,7 @@ function AuditEventRow({
 }) {
   const handleToggle = useCallback(
     () => onToggle(isExpanded ? null : event.id),
-    [event.id, isExpanded, onToggle]
+    [event.id, isExpanded, onToggle],
   );
 
   return (
@@ -529,17 +499,12 @@ function AuditEventRow({
         <TableCell className="max-w-[17rem] align-top">
           <div className="flex min-w-0 items-center gap-2">
             <span className="truncate font-medium">{event.resource}</span>
-            <span className="shrink-0 text-muted-foreground text-xs">
-              {event.resourceType}
-            </span>
+            <span className="shrink-0 text-muted-foreground text-xs">{event.resourceType}</span>
           </div>
         </TableCell>
         <TableCell className="pr-5 text-right align-top">
           <div className="flex items-start justify-end gap-2">
-            <time
-              className="whitespace-nowrap text-muted-foreground text-xs"
-              dateTime={event.id}
-            >
+            <time className="whitespace-nowrap text-muted-foreground text-xs" dateTime={event.id}>
               {event.timestamp}
             </time>
             <Button
@@ -548,12 +513,7 @@ function AuditEventRow({
               size="icon-xs"
               variant="ghost"
             >
-              <ChevronRightIcon
-                className={cn(
-                  "transition-transform",
-                  isExpanded && "rotate-90"
-                )}
-              />
+              <ChevronRightIcon className={cn("transition-transform", isExpanded && "rotate-90")} />
             </Button>
           </div>
         </TableCell>
@@ -563,14 +523,9 @@ function AuditEventRow({
           <TableCell className="py-3 pl-16" colSpan={5}>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
               <span className="font-medium">Event details</span>
-              <Separator
-                className="hidden h-4 sm:block"
-                orientation="vertical"
-              />
+              <Separator className="hidden h-4 sm:block" orientation="vertical" />
               <span className="text-muted-foreground">{event.metadata}</span>
-              <span className="font-mono text-muted-foreground">
-                {event.id}
-              </span>
+              <span className="font-mono text-muted-foreground">{event.id}</span>
             </div>
           </TableCell>
         </TableRow>

@@ -13,14 +13,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Inspect Checkout flow event" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Inspect Checkout flow event" }));
     await expect(canvas.getByText("Version 2.4 · production")).toBeVisible();
-    await userEvent.type(
-      canvas.getByRole("textbox", { name: "Search events" }),
-      "Stripe"
-    );
+    await userEvent.type(canvas.getByRole("textbox", { name: "Search events" }), "Stripe");
     await expect(canvas.getByText("Stripe connection")).toBeVisible();
     await expect(canvas.queryByText("Checkout flow")).not.toBeInTheDocument();
   },

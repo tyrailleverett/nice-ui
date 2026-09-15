@@ -57,7 +57,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {content}
@@ -101,7 +101,7 @@ export function Hero2({
               className={cn(
                 "group flex w-fit items-center gap-3 rounded-sm border bg-card p-1 shadow-xs",
                 enter,
-                "delay-500"
+                "delay-500",
               )}
               href={announcement.href ?? "#"}
             >
@@ -122,7 +122,7 @@ export function Hero2({
             className={cn(
               "text-balance font-display-heading text-4xl text-foreground leading-tight md:text-5xl",
               enter,
-              "delay-100"
+              "delay-100",
             )}
           >
             {title}
@@ -133,7 +133,7 @@ export function Hero2({
               className={cn(
                 "text-muted-foreground text-sm tracking-wider sm:text-lg md:text-xl",
                 enter,
-                "delay-200"
+                "delay-200",
               )}
             >
               {description}
@@ -145,7 +145,7 @@ export function Hero2({
               className={cn(
                 "flex w-fit items-center justify-center gap-3 pt-2",
                 enter,
-                "delay-300"
+                "delay-300",
               )}
             >
               {secondaryCta ? (
@@ -170,13 +170,13 @@ export function Hero2({
             className={cn(
               "absolute -inset-x-20 inset-y-0 -translate-y-1/3 scale-120 rounded-full",
               "bg-[radial-gradient(ellipse_at_center,theme(--color-foreground/.1),transparent,transparent)]",
-              "blur-[50px]"
+              "blur-[50px]",
             )}
           />
           <div
             className={cn(
               "mask-b-from-60% relative mt-8 -mr-56 overflow-hidden px-2 sm:mt-12 sm:mr-0 md:mt-20",
-              "fade-in slide-in-from-bottom-5 animate-in fill-mode-backwards delay-100 duration-1000 ease-out motion-reduce:animate-none"
+              "fade-in slide-in-from-bottom-5 animate-in fill-mode-backwards delay-100 duration-1000 ease-out motion-reduce:animate-none",
             )}
           >
             <div className="relative inset-shadow-2xs inset-shadow-foreground/10 mx-auto max-w-5xl overflow-hidden rounded-lg border bg-background p-2 shadow-xl ring-1 ring-card dark:inset-shadow-foreground/20 dark:inset-shadow-xs">

@@ -11,6 +11,7 @@ export function useIsMobile(): boolean {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     };
     mql.addEventListener("change", onChange);
+    // eslint-disable-next-line react/set-state-in-effect -- intentional initial sync on mount
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     return () => mql.removeEventListener("change", onChange);
   }, []);

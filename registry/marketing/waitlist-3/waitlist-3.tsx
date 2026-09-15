@@ -22,13 +22,11 @@ export function Waitlist3({
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      const email = String(
-        new FormData(event.currentTarget).get("email") ?? ""
-      );
+      const email = String(new FormData(event.currentTarget).get("email") ?? "");
       onJoin?.(email);
       setSubmitted(true);
     },
-    [onJoin]
+    [onJoin],
   );
 
   return (
@@ -43,13 +41,10 @@ export function Waitlist3({
             <h2 className="max-w-lg text-balance font-display-heading text-3xl sm:text-4xl">
               {title}
             </h2>
-            <p className="max-w-md text-muted-foreground text-sm leading-6">
-              {description}
-            </p>
+            <p className="max-w-md text-muted-foreground text-sm leading-6">{description}</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 pt-2 text-muted-foreground text-xs">
               <span className="flex items-center gap-1.5">
-                <CheckIcon className="size-3.5 text-primary" /> First release
-                access
+                <CheckIcon className="size-3.5 text-primary" /> First release access
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckIcon className="size-3.5 text-primary" /> No spam
@@ -89,8 +84,7 @@ export function Waitlist3({
                 Join early access <ArrowUpRightIcon data-icon="inline-end" />
               </Button>
               <p className="text-muted-foreground text-xs">
-                By joining, you agree to receive product updates. Unsubscribe
-                anytime.
+                By joining, you agree to receive product updates. Unsubscribe anytime.
               </p>
             </form>
           )}

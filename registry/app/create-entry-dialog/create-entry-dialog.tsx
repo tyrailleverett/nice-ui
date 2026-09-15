@@ -1,10 +1,6 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Entry type tabs close over the selected value. */
 import { useState } from "react";
-import {
-  DialogFrame,
-  type DialogProps,
-  Footer,
-} from "@/components/app/dialogs-shared";
+import { DialogFrame, type DialogProps, Footer } from "@/components/app/dialogs-shared";
 import { Dialog } from "@/components/ui/dialog";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -48,10 +44,7 @@ export function CreateEntryDialog(props: DialogProps) {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="entry-title">Title</FieldLabel>
-              <Input
-                defaultValue="Close billing-event gaps before partner beta"
-                id="entry-title"
-              />
+              <Input defaultValue="Close billing-event gaps before partner beta" id="entry-title" />
             </Field>
             <Field>
               <FieldLabel htmlFor="entry-notes">Notes</FieldLabel>
@@ -64,10 +57,7 @@ export function CreateEntryDialog(props: DialogProps) {
               {entryFields.map(([label, value, display]) => (
                 <Field key={label}>
                   <FieldLabel htmlFor={`entry-${value}`}>{label}</FieldLabel>
-                  <Select
-                    defaultValue={value}
-                    items={[{ label: display, value }]}
-                  >
+                  <Select defaultValue={value} items={[{ label: display, value }]}>
                     <SelectTrigger className="w-full" id={`entry-${value}`}>
                       <SelectValue />
                     </SelectTrigger>

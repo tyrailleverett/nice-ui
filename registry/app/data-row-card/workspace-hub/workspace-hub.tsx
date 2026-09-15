@@ -14,13 +14,7 @@ import { type ChangeEvent, useCallback, useMemo, useState } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 
@@ -116,33 +110,20 @@ function WorkspaceCard({ workspace }: { workspace: Workspace }) {
               <FolderKanbanIcon aria-hidden="true" className="size-4" />
             </div>
             <div>
-              <CardTitle className="text-[15px] tracking-tight">
-                {workspace.name}
-              </CardTitle>
-              <CardDescription className="mt-1 text-xs">
-                {workspace.updated}
-              </CardDescription>
+              <CardTitle className="text-[15px] tracking-tight">{workspace.name}</CardTitle>
+              <CardDescription className="mt-1 text-xs">{workspace.updated}</CardDescription>
             </div>
           </div>
-          <Badge variant={statusVariant[workspace.status]}>
-            {workspace.status}
-          </Badge>
+          <Badge variant={statusVariant[workspace.status]}>{workspace.status}</Badge>
         </div>
-        <p className="min-h-10 text-muted-foreground text-sm leading-5">
-          {workspace.description}
-        </p>
+        <p className="min-h-10 text-muted-foreground text-sm leading-5">{workspace.description}</p>
       </CardHeader>
       <CardContent className="grid gap-4 pt-4">
         <div className="flex items-center justify-between text-muted-foreground text-xs">
           <span>Completion</span>
-          <span className="font-medium text-foreground tabular-nums">
-            {workspace.progress}%
-          </span>
+          <span className="font-medium text-foreground tabular-nums">{workspace.progress}%</span>
         </div>
-        <Progress
-          aria-label={`${workspace.name} completion`}
-          value={workspace.progress}
-        />
+        <Progress aria-label={`${workspace.name} completion`} value={workspace.progress} />
         <div className="flex items-center justify-between">
           <MemberStack members={workspace.members} />
           <Button
@@ -169,9 +150,7 @@ function WorkspaceList({ workspace }: { workspace: Workspace }) {
         </div>
         <div className="min-w-0">
           <p className="truncate font-medium text-sm">{workspace.name}</p>
-          <p className="truncate text-muted-foreground text-xs">
-            {workspace.description}
-          </p>
+          <p className="truncate text-muted-foreground text-xs">{workspace.description}</p>
         </div>
       </div>
       <Badge className="w-fit" variant={statusVariant[workspace.status]}>
@@ -194,7 +173,7 @@ export function WorkspaceHub() {
   const [view, setView] = useState<ViewMode>("cards");
   const handleSearchChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value),
-    []
+    [],
   );
   const showCards = useCallback(() => setView("cards"), []);
   const showList = useCallback(() => setView("list"), []);
@@ -204,9 +183,7 @@ export function WorkspaceHub() {
       return workspaces;
     }
     return workspaces.filter((workspace) =>
-      `${workspace.name} ${workspace.description}`
-        .toLowerCase()
-        .includes(normalizedQuery)
+      `${workspace.name} ${workspace.description}`.toLowerCase().includes(normalizedQuery),
     );
   }, [query]);
 
@@ -236,29 +213,19 @@ export function WorkspaceHub() {
             <Card className="gap-1 py-4 shadow-none">
               <CardContent className="flex items-center justify-between">
                 <div>
-                  <p className="text-muted-foreground text-xs">
-                    All workspaces
-                  </p>
+                  <p className="text-muted-foreground text-xs">All workspaces</p>
                   <p className="mt-1 font-semibold text-2xl">12</p>
                 </div>
-                <FolderKanbanIcon
-                  aria-hidden="true"
-                  className="size-5 text-muted-foreground"
-                />
+                <FolderKanbanIcon aria-hidden="true" className="size-5 text-muted-foreground" />
               </CardContent>
             </Card>
             <Card className="gap-1 py-4 shadow-none">
               <CardContent className="flex items-center justify-between">
                 <div>
-                  <p className="text-muted-foreground text-xs">
-                    Active this week
-                  </p>
+                  <p className="text-muted-foreground text-xs">Active this week</p>
                   <p className="mt-1 font-semibold text-2xl">8</p>
                 </div>
-                <ActivityIcon
-                  aria-hidden="true"
-                  className="size-5 text-chart-2"
-                />
+                <ActivityIcon aria-hidden="true" className="size-5 text-chart-2" />
               </CardContent>
             </Card>
             <Card className="gap-1 py-4 shadow-none">
@@ -267,10 +234,7 @@ export function WorkspaceHub() {
                   <p className="text-muted-foreground text-xs">On track</p>
                   <p className="mt-1 font-semibold text-2xl">67%</p>
                 </div>
-                <CheckCircle2Icon
-                  aria-hidden="true"
-                  className="size-5 text-chart-2"
-                />
+                <CheckCircle2Icon aria-hidden="true" className="size-5 text-chart-2" />
               </CardContent>
             </Card>
           </div>
@@ -315,26 +279,19 @@ export function WorkspaceHub() {
           </div>
 
           {filteredWorkspaces.length > 0 ? (
-            <div
-              className={
-                view === "cards" ? "grid gap-4 md:grid-cols-2" : "grid gap-3"
-              }
-            >
+            <div className={view === "cards" ? "grid gap-4 md:grid-cols-2" : "grid gap-3"}>
               {filteredWorkspaces.map((workspace) =>
                 view === "cards" ? (
                   <WorkspaceCard key={workspace.name} workspace={workspace} />
                 ) : (
                   <WorkspaceList key={workspace.name} workspace={workspace} />
-                )
+                ),
               )}
             </div>
           ) : (
             <Card className="border-dashed shadow-none">
               <CardContent className="flex flex-col items-center gap-2 py-14 text-center">
-                <SearchIcon
-                  aria-hidden="true"
-                  className="size-5 text-muted-foreground"
-                />
+                <SearchIcon aria-hidden="true" className="size-5 text-muted-foreground" />
                 <p className="font-medium text-sm">No workspaces found</p>
                 <p className="max-w-xs text-muted-foreground text-sm">
                   Try a different search or create a new workspace.
@@ -350,9 +307,7 @@ export function WorkspaceHub() {
               <p className="font-medium text-muted-foreground text-xs uppercase tracking-[0.18em]">
                 Workspace pulse
               </p>
-              <h2 className="mt-2 font-semibold text-lg tracking-tight">
-                Recent activity
-              </h2>
+              <h2 className="mt-2 font-semibold text-lg tracking-tight">Recent activity</h2>
               <p className="mt-1 text-muted-foreground text-sm">
                 Small changes worth keeping close.
               </p>
@@ -370,12 +325,9 @@ export function WorkspaceHub() {
                   </Avatar>
                   <div className="grid gap-1 text-sm">
                     <p>
-                      <span className="font-medium">{item.actor}</span>{" "}
-                      {item.detail}
+                      <span className="font-medium">{item.actor}</span> {item.detail}
                     </p>
-                    <span className="text-muted-foreground text-xs">
-                      {item.time}
-                    </span>
+                    <span className="text-muted-foreground text-xs">{item.time}</span>
                   </div>
                 </div>
               ))}

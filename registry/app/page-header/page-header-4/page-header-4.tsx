@@ -33,7 +33,7 @@ function HeaderAction({ action }: { action: PageHeader4Action }) {
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant="outline"
       >
         {content}
@@ -53,12 +53,7 @@ export function PageHeader4({
   title = "Workspace health",
 }: PageHeader4Props) {
   return (
-    <section
-      className={cn(
-        "w-full bg-background px-6 py-8 text-foreground",
-        className
-      )}
-    >
+    <section className={cn("w-full bg-background px-6 py-8 text-foreground", className)}>
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col gap-6 border-border border-b pb-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-2">
@@ -66,9 +61,7 @@ export function PageHeader4({
               {eyebrow}
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <h1 className="font-heading font-semibold text-title sm:text-3xl">
-                {title}
-              </h1>
+              <h1 className="font-heading font-semibold text-title sm:text-3xl">{title}</h1>
               {status ? <Badge variant="secondary">{status}</Badge> : null}
             </div>
           </div>
@@ -79,10 +72,7 @@ export function PageHeader4({
           </div>
         </div>
 
-        <nav
-          aria-label="Page sections"
-          className="flex gap-6 overflow-x-auto pt-4"
-        >
+        <nav aria-label="Page sections" className="flex gap-6 overflow-x-auto pt-4">
           {tabs.map((tab, index) => (
             <a
               aria-current={index === 0 ? "page" : undefined}
@@ -90,7 +80,7 @@ export function PageHeader4({
                 "flex shrink-0 items-center gap-1 border-b-2 pb-3 text-sm",
                 index === 0
                   ? "border-foreground font-medium text-foreground"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground",
               )}
               href={`#${tab.toLowerCase().replaceAll(" ", "-")}`}
               key={tab}

@@ -25,19 +25,10 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
 
-const primaryNavigation = [
-  "Overview",
-  "Projects",
-  "Team",
-  "Workspace",
-] as const;
+const primaryNavigation = ["Overview", "Projects", "Team", "Workspace"] as const;
 
 const workspaceViews: Array<{ icon: LucideIcon; label: string }> = [
   { icon: LayoutDashboardIcon, label: "Dashboard" },
@@ -74,13 +65,7 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
   return (
     <DropdownMenu onOpenChange={setOpen} open={open}>
       <DropdownMenuTrigger
-        render={
-          <Button
-            aria-label="Open user menu"
-            className="h-9 gap-2 px-1.5"
-            variant="ghost"
-          />
-        }
+        render={<Button aria-label="Open user menu" className="h-9 gap-2 px-1.5" variant="ghost" />}
       >
         <Avatar size="sm">
           <AvatarFallback>LV</AvatarFallback>
@@ -92,9 +77,7 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
         <DropdownMenuGroup>
           <DropdownMenuLabel className="flex flex-col">
             <span>Lena Voss</span>
-            <span className="font-normal text-muted-foreground">
-              lena@harbor.studio
-            </span>
+            <span className="font-normal text-muted-foreground">lena@harbor.studio</span>
           </DropdownMenuLabel>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
@@ -140,10 +123,7 @@ function NavigationButtons({
   onItemClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }) {
   return (
-    <nav
-      aria-label={ariaLabel}
-      className={cn("flex items-center gap-1", className)}
-    >
+    <nav aria-label={ariaLabel} className={cn("flex items-center gap-1", className)}>
       {items.map((item) => {
         const label = typeof item === "string" ? item : item.label;
         const Icon = typeof item === "string" ? null : item.icon;
@@ -172,32 +152,23 @@ export interface AppShell6Props {
   defaultUserMenuOpen?: boolean;
 }
 
-export function AppShell6({
-  children,
-  defaultUserMenuOpen = false,
-}: AppShell6Props) {
+export function AppShell6({ children, defaultUserMenuOpen = false }: AppShell6Props) {
   const [primaryItem, setPrimaryItem] = useState("Overview");
   const [viewItem, setViewItem] = useState("Dashboard");
 
-  const handlePrimaryClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setPrimaryItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handlePrimaryClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setPrimaryItem(navigationLabel);
+    }
+  }, []);
 
-  const handleViewClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setViewItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleViewClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setViewItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-svh flex-col bg-[#f7f9fb] text-[#17324d]">
@@ -221,11 +192,7 @@ export function AppShell6({
               <InputGroupAddon>
                 <SearchIcon />
               </InputGroupAddon>
-              <InputGroupInput
-                aria-label="Search Harbor"
-                placeholder="Search..."
-                type="search"
-              />
+              <InputGroupInput aria-label="Search Harbor" placeholder="Search..." type="search" />
             </InputGroup>
             <UserMenu defaultOpen={defaultUserMenuOpen} />
           </div>

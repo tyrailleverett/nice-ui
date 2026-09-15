@@ -22,7 +22,7 @@ export function AvatarStack({
   return (
     <div
       aria-label={`${count} participants`}
-      className="card-avatar-stack"
+      className="card-avatar-stack" // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- avatar stack is a composite image
       role="img"
     >
       {avatars.slice(0, 3).map((avatar) => (
@@ -33,9 +33,7 @@ export function AvatarStack({
           {avatar.initials}
         </span>
       ))}
-      {count > 3 ? (
-        <span className="card-avatar card-avatar-more">+{count - 3}</span>
-      ) : null}
+      {count > 3 ? <span className="card-avatar card-avatar-more">+{count - 3}</span> : null}
     </div>
   );
 }

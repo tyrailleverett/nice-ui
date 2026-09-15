@@ -36,10 +36,7 @@ const defaultFeatures: Feature2Item[] = [
 
 function DashedLine({ className, ...props }: ComponentProps<"div">) {
   return (
-    <div
-      className={cn("absolute border-collapse border border-dashed", className)}
-      {...props}
-    />
+    <div className={cn("absolute border-collapse border border-dashed", className)} {...props} />
   );
 }
 
@@ -50,9 +47,7 @@ export function Feature2({
 }: Feature2Props) {
   return (
     <MarketingSection className={className}>
-      <h2 className="mb-5 text-center font-heading font-semibold text-2xl md:text-3xl">
-        {title}
-      </h2>
+      <h2 className="mb-5 text-center font-heading font-semibold text-2xl md:text-3xl">{title}</h2>
 
       <div className="relative">
         <DashedLine className="-top-[1.5px] right-3 left-3" />
@@ -68,9 +63,7 @@ export function Feature2({
             >
               {feature.icon}
               <h3 className="mt-4 font-medium text-lg">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {feature.description}
-              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
               <DashedLine className="right-5 bottom-0 left-5 group-last:hidden md:top-5 md:right-0 md:bottom-5 md:left-full" />
             </div>
           ))}

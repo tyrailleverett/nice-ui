@@ -1,11 +1,5 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Calendar controls close over selected dates and availability slots. */
-import {
-  CalendarDaysIcon,
-  CheckIcon,
-  Clock3Icon,
-  Globe2Icon,
-  VideoIcon,
-} from "lucide-react";
+import { CalendarDaysIcon, CheckIcon, Clock3Icon, Globe2Icon, VideoIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
   buildTimeSlots,
@@ -150,9 +144,7 @@ export function Calendar6({ className }: Calendar6Props) {
           <div className="mb-4 flex items-start justify-between gap-3">
             <div>
               <p className="font-medium text-sm">Your day</p>
-              <p className="mt-1 text-muted-foreground text-sm">
-                {formatLongDate(selected)}
-              </p>
+              <p className="mt-1 text-muted-foreground text-sm">{formatLongDate(selected)}</p>
             </div>
             <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
               <Clock3Icon className="size-3.5" />
@@ -161,18 +153,12 @@ export function Calendar6({ className }: Calendar6Props) {
           </div>
           <div className="relative flex flex-col gap-2">
             {EVENTS.map((event) => (
-              <div
-                className="grid grid-cols-[3.25rem_minmax(0,1fr)] gap-3"
-                key={event.label}
-              >
+              <div className="grid grid-cols-[3.25rem_minmax(0,1fr)] gap-3" key={event.label}>
                 <span className="pt-2 text-right text-muted-foreground text-xs tabular-nums">
                   {formatClock(event.start)}
                 </span>
                 <div
-                  className={cn(
-                    "min-h-12 rounded-lg border px-3 py-2",
-                    TONE_CLASSES[event.tone]
-                  )}
+                  className={cn("min-h-12 rounded-lg border px-3 py-2", TONE_CLASSES[event.tone])}
                 >
                   <p className="font-medium text-sm">{event.label}</p>
                   <p className="mt-0.5 text-xs opacity-70">

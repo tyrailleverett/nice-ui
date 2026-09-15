@@ -9,12 +9,7 @@ import {
   WandSparklesIcon,
 } from "lucide-react";
 import type { ElementType } from "react";
-import {
-  MessageMark,
-  Panel,
-  SectionHeading,
-  SettingsTag,
-} from "@/components/app/settings-shared";
+import { MessageMark, Panel, SectionHeading, SettingsTag } from "@/components/app/settings-shared";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -105,12 +100,7 @@ function groupDescription(group: string) {
 export function AppConnections({ className }: { className?: string }) {
   const groups = [...new Set(connections.map((item) => item.category))];
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col gap-4 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-5xl flex-col gap-4 p-4 sm:p-8", className)}>
       <div className="flex items-start justify-between gap-4">
         <SectionHeading
           description="Manage third-party services for workflow automation."
@@ -128,30 +118,19 @@ export function AppConnections({ className }: { className?: string }) {
             {connections
               .filter((item) => item.category === group)
               .map(({ description, icon: Icon, name, status }) => (
-                <div
-                  className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"
-                  key={name}
-                >
+                <div className="flex items-center gap-4 py-4 first:pt-0 last:pb-0" key={name}>
                   <div className="flex size-12 items-center justify-center rounded-xl bg-muted text-xl ring-1 ring-foreground/10">
                     <Icon />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-medium text-lg">{name}</p>
-                    <p className="truncate text-muted-foreground">
-                      {description}
-                    </p>
+                    <p className="truncate text-muted-foreground">{description}</p>
                   </div>
-                  <SettingsTag
-                    tone={status === "Connected" ? "success" : "warning"}
-                  >
+                  <SettingsTag tone={status === "Connected" ? "success" : "warning"}>
                     <span className="size-2 rounded-full bg-current" />
                     {status}
                   </SettingsTag>
-                  <Button
-                    aria-label={`More options for ${name}`}
-                    size="icon"
-                    variant="outline"
-                  >
+                  <Button aria-label={`More options for ${name}`} size="icon" variant="outline">
                     <MoreVerticalIcon />
                   </Button>
                 </div>

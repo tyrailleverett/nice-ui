@@ -40,7 +40,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         size={size}
         variant={variant}
       >
@@ -70,15 +70,10 @@ export function Cta13({
         <div className="flex flex-col justify-center px-8 py-12 md:py-16">
           <div className="flex max-w-lg flex-col gap-3">
             <h2 className="text-balance font-heading font-semibold text-xl tracking-tight sm:text-2xl lg:text-3xl">
-              {title}{" "}
-              {highlight ? (
-                <span className="text-primary">{highlight}</span>
-              ) : null}
+              {title} {highlight ? <span className="text-primary">{highlight}</span> : null}
             </h2>
             {description ? (
-              <p className="text-balance text-base text-muted-foreground">
-                {description}
-              </p>
+              <p className="text-balance text-base text-muted-foreground">{description}</p>
             ) : null}
           </div>
         </div>

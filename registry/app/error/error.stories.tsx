@@ -15,6 +15,4 @@ export const MissingRecord: StoryFn = () => <MissingRecordBlock />;
 export const RestrictedRecord: StoryFn = () => <RestrictedRecordBlock />;
 export const InterruptedPage: StoryFn = () => <InterruptedPageBlock />;
 export const ScheduledFreeze: StoryFn = () => <ScheduledFreezeBlock />;
-export const DisconnectedWorkspace: StoryFn = () => (
-  <DisconnectedWorkspaceBlock />
-);
+export const DisconnectedWorkspace: StoryFn = () => <DisconnectedWorkspaceBlock />;

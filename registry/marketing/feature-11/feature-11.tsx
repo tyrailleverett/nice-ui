@@ -59,9 +59,7 @@ function MeetingIllustration() {
           ))}
         </div>
       </div>
-      <div className="font-medium text-muted-foreground text-sm">
-        ML Pipeline Discussion
-      </div>
+      <div className="font-medium text-muted-foreground text-sm">ML Pipeline Discussion</div>
     </Card>
   );
 }
@@ -80,9 +78,7 @@ function CodeReviewIllustration() {
               width={28}
             />
           </div>
-          <span className="font-medium text-muted-foreground text-sm">
-            Méschac Irung
-          </span>
+          <span className="font-medium text-muted-foreground text-sm">Méschac Irung</span>
           <span className="text-muted-foreground text-xs">2m</span>
         </div>
 
@@ -112,8 +108,7 @@ function AIAssistantIllustration() {
       <div className="w-fit">
         <SparklesIcon className="size-3.5 fill-purple-300 stroke-purple-300" />
         <p className="mt-2 line-clamp-2 text-sm">
-          How can I optimize my neural network to reduce inference time while
-          maintaining accuracy?
+          How can I optimize my neural network to reduce inference time while maintaining accuracy?
         </p>
       </div>
       <div className="mt-3 -mr-3 -mb-3 -ml-3 space-y-3 rounded-lg bg-foreground/5 p-3">
@@ -137,10 +132,7 @@ function AIAssistantIllustration() {
             </Button>
           </div>
 
-          <Button
-            className="size-7 rounded-2xl bg-black text-white"
-            size="icon"
-          >
+          <Button className="size-7 rounded-2xl bg-black text-white" size="icon">
             <ArrowUpIcon strokeWidth={3} />
           </Button>
         </div>
@@ -167,12 +159,10 @@ export function Feature11({
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card className="col-span-full overflow-hidden bg-muted/50 pt-6 pl-6 ring-0">
               <LayoutIcon className="size-5 text-primary" />
-              <h3 className="mt-5 font-semibold text-foreground text-lg">
-                AI Code Generation
-              </h3>
+              <h3 className="mt-5 font-semibold text-foreground text-lg">AI Code Generation</h3>
               <p className="mt-3 max-w-xl text-balance text-muted-foreground">
-                Transform natural language into production-ready code and
-                iterate faster across the whole workflow.
+                Transform natural language into production-ready code and iterate faster across the
+                whole workflow.
               </p>
               <div className="mask-b-from-95% -mt-2 mr-0.5 -ml-2 pt-2 pl-2">
                 <div className="relative mx-auto mt-8 h-96 overflow-hidden rounded-tl-xl border border-transparent bg-background shadow ring-1 ring-foreground/5">
@@ -195,9 +185,7 @@ export function Feature11({
             </Card>
             <Card className="overflow-hidden bg-muted/50 p-6 ring-0">
               <TargetIcon className="size-5 text-primary" />
-              <h3 className="mt-5 font-semibold text-foreground text-lg">
-                Team planning
-              </h3>
+              <h3 className="mt-5 font-semibold text-foreground text-lg">Team planning</h3>
               <p className="mt-3 text-balance text-muted-foreground">
                 Keep reviews, meetings, and owners on the same page.
               </p>
@@ -219,8 +207,7 @@ export function Feature11({
                 Contextual AI Assistant
               </h3>
               <p className="mt-3 text-balance text-muted-foreground">
-                A companion that understands your codebase and helps solve
-                complex problems.
+                A companion that understands your codebase and helps solve complex problems.
               </p>
               <div className="mask-b-from-50 -mx-2 -mt-2 px-2 pt-2">
                 <AIAssistantIllustration />

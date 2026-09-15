@@ -1,7 +1,0 @@
-{
-  "mcpServers": {
-    "nice-ui-sb-mcp": {
-      "url": "http://localhost:6006/mcp"
-    }
-  }
-}

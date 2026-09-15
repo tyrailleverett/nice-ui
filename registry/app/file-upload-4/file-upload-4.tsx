@@ -41,7 +41,7 @@ export function FileUpload4({
           "flex items-center gap-3 rounded-lg border border-dashed p-4 transition-colors",
           isDragging
             ? "border-primary bg-primary/5"
-            : "border-muted-foreground/25 hover:border-muted-foreground/50"
+            : "border-muted-foreground/25 hover:border-muted-foreground/50",
         )}
         onDragEnter={actions.handleDragEnter}
         onDragLeave={actions.handleDragLeave}
@@ -55,9 +55,7 @@ export function FileUpload4({
         </Button>
         <div className="flex min-w-0 flex-1 items-center gap-2">
           {files.length === 0 ? (
-            <p className="text-muted-foreground text-sm">
-              Drop files here or click to browse
-            </p>
+            <p className="text-muted-foreground text-sm">Drop files here or click to browse</p>
           ) : (
             files.map((item) => (
               <div className="group/item relative shrink-0" key={item.id}>

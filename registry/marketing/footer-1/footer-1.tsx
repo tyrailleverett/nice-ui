@@ -6,11 +6,7 @@ import { Button } from "@/components/ui/button";
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/github_light.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/github_light.svg" width="100%" />
     </svg>
   );
 }

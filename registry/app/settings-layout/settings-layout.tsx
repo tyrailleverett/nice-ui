@@ -34,7 +34,7 @@ function SettingsNavigation({
         onItemChange?.(itemId);
       }
     },
-    [onItemChange]
+    [onItemChange],
   );
 
   return (
@@ -43,7 +43,7 @@ function SettingsNavigation({
       className={cn(
         orientation === "sidebar"
           ? "flex flex-col gap-1"
-          : "flex min-w-max items-center gap-1 overflow-x-auto border-border border-b"
+          : "flex min-w-max items-center gap-1 overflow-x-auto border-border border-b",
       )}
     >
       {items.map((item) => {
@@ -61,7 +61,7 @@ function SettingsNavigation({
               isActive &&
                 (orientation === "sidebar"
                   ? "bg-muted text-foreground ring-1 ring-foreground/10"
-                  : "text-foreground after:scale-x-100")
+                  : "text-foreground after:scale-x-100"),
             )}
             data-item-id={item.id}
             key={item.id}
@@ -108,25 +108,19 @@ export function SettingsLayout({
     <section
       className={cn(
         "min-h-svh w-full bg-background px-4 py-8 text-foreground sm:px-8 sm:py-12 lg:px-12",
-        className
+        className,
       )}
     >
       <div className="mx-auto w-full max-w-6xl">
         <header className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-2xl">
-            <h1 className="font-heading font-semibold text-title sm:text-3xl">
-              {title}
-            </h1>
+            <h1 className="font-heading font-semibold text-title sm:text-3xl">{title}</h1>
             {description ? (
-              <p className="mt-1.5 text-muted-foreground text-sm sm:text-base">
-                {description}
-              </p>
+              <p className="mt-1.5 text-muted-foreground text-sm sm:text-base">{description}</p>
             ) : null}
           </div>
           {headerActions ? (
-            <div className="flex shrink-0 items-center gap-2">
-              {headerActions}
-            </div>
+            <div className="flex shrink-0 items-center gap-2">{headerActions}</div>
           ) : null}
         </header>
 
@@ -152,9 +146,7 @@ export function SettingsLayout({
                 orientation="sidebar"
               />
             ) : null}
-            <main className={cn(!hasNavigation && "lg:col-span-2")}>
-              {children}
-            </main>
+            <main className={cn(!hasNavigation && "lg:col-span-2")}>{children}</main>
           </div>
         )}
 
@@ -171,21 +163,12 @@ export interface SettingsPanelProps {
   title: string;
 }
 
-export function SettingsPanel({
-  children,
-  className,
-  description,
-  title,
-}: SettingsPanelProps) {
+export function SettingsPanel({ children, className, description, title }: SettingsPanelProps) {
   return (
     <section className={cn("space-y-4", className)}>
       <div>
-        <h2 className="font-heading font-semibold text-lg tracking-tight">
-          {title}
-        </h2>
-        {description ? (
-          <p className="mt-1 text-muted-foreground text-sm">{description}</p>
-        ) : null}
+        <h2 className="font-heading font-semibold text-lg tracking-tight">{title}</h2>
+        {description ? <p className="mt-1 text-muted-foreground text-sm">{description}</p> : null}
       </div>
       <div className="overflow-hidden rounded-xl bg-card text-card-foreground ring-1 ring-foreground/10">
         {children}
@@ -213,7 +196,7 @@ export function SettingsRow({
     <div
       className={cn(
         "grid gap-4 border-border border-b p-5 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_minmax(14rem,1fr)] sm:items-start sm:gap-8 sm:px-6",
-        className
+        className,
       )}
     >
       <div>
@@ -224,17 +207,17 @@ export function SettingsRow({
         ) : (
           <div className="font-medium text-sm">{label}</div>
         )}
-        {description ? (
-          <p className="mt-1 text-muted-foreground text-sm">{description}</p>
-        ) : null}
+        {description ? <p className="mt-1 text-muted-foreground text-sm">{description}</p> : null}
       </div>
       <div className="min-w-0">{children}</div>
     </div>
   );
 }
 
-export interface SettingsModalLayoutProps
-  extends Omit<SettingsLayoutProps, "className" | "footer" | "variant"> {
+export interface SettingsModalLayoutProps extends Omit<
+  SettingsLayoutProps,
+  "className" | "footer" | "variant"
+> {
   className?: string;
   onClose?: () => void;
 }
@@ -257,8 +240,9 @@ export function SettingsModalLayout({
         aria-modal="true"
         className={cn(
           "mx-auto flex min-h-[min(52rem,calc(100svh-2rem))] w-full max-w-6xl overflow-hidden rounded-2xl bg-card text-card-foreground shadow-2xl ring-1 ring-foreground/10",
-          className
+          className,
         )}
+        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- custom dialog without native <dialog> behavior
         role="dialog"
       >
         <aside className="hidden w-52 shrink-0 border-border border-r bg-muted/20 p-5 sm:block">
@@ -272,22 +256,13 @@ export function SettingsModalLayout({
         <div className="flex min-w-0 flex-1 flex-col">
           <div className="flex items-start justify-between gap-4 border-border border-b px-5 py-5 sm:px-8">
             <div>
-              <h2 className="font-heading font-semibold text-xl tracking-tight">
-                {title}
-              </h2>
+              <h2 className="font-heading font-semibold text-xl tracking-tight">{title}</h2>
               {description ? (
-                <p className="mt-1 text-muted-foreground text-sm">
-                  {description}
-                </p>
+                <p className="mt-1 text-muted-foreground text-sm">{description}</p>
               ) : null}
             </div>
             {onClose ? (
-              <Button
-                aria-label="Close settings"
-                onClick={onClose}
-                size="icon-sm"
-                variant="ghost"
-              >
+              <Button aria-label="Close settings" onClick={onClose} size="icon-sm" variant="ghost">
                 <XIcon />
               </Button>
             ) : null}
@@ -305,9 +280,7 @@ export function SettingsModalLayout({
               orientation="tabs"
             />
           </div>
-          <main className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-8">
-            {children}
-          </main>
+          <main className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-8">{children}</main>
         </div>
       </div>
     </div>

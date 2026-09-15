@@ -19,9 +19,7 @@ export interface ForgotPasswordFormProps {
   title?: string;
 }
 
-const defaultLogo = (
-  <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />
-);
+const defaultLogo = <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />;
 
 export function ForgotPasswordForm({
   className,
@@ -42,7 +40,7 @@ export function ForgotPasswordForm({
       event.preventDefault();
       onSubmit?.(event);
     },
-    [onSubmit]
+    [onSubmit],
   );
 
   return (
@@ -50,9 +48,7 @@ export function ForgotPasswordForm({
       {logo}
       <div className="space-y-1">
         <h1 className="font-semibold text-3xl tracking-tight">{title}</h1>
-        {description ? (
-          <p className="text-muted-foreground text-sm">{description}</p>
-        ) : null}
+        {description ? <p className="text-muted-foreground text-sm">{description}</p> : null}
       </div>
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -78,7 +74,7 @@ export function ForgotPasswordForm({
         <p className="text-center text-muted-foreground text-sm">
           <Button
             className="w-full"
-            render={<a href={signInHref} />}
+            render={<a aria-label={signInLabel} href={signInHref} />}
             variant="ghost"
           >
             {signInLabel}

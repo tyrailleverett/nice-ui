@@ -30,8 +30,7 @@ export interface Pricing4Props {
 
 const defaultPlans: Pricing4Plan[] = [
   {
-    description:
-      "Full product access for solo founders and small teams getting started.",
+    description: "Full product access for solo founders and small teams getting started.",
     features: [
       "All product features",
       "1 seat",
@@ -103,7 +102,7 @@ function BillingIntervalToggle({
         onChange(true);
       }
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -137,13 +136,9 @@ export function Pricing4({
     <MarketingSection className={className}>
       <div className="flex flex-col items-center px-8 py-12">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
+          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
           {description ? (
-            <p className="mt-4 text-pretty text-muted-foreground">
-              {description}
-            </p>
+            <p className="mt-4 text-pretty text-muted-foreground">{description}</p>
           ) : null}
         </div>
         <div className="mt-8 flex flex-col items-center gap-3">
@@ -163,7 +158,7 @@ export function Pricing4({
             <div
               className={cn(
                 "flex flex-col border-border border-b border-l lg:border-b-0",
-                index === plans.length - 1 && "border-r"
+                index === plans.length - 1 && "border-r",
               )}
               key={plan.key}
             >
@@ -176,15 +171,11 @@ export function Pricing4({
                     </Badge>
                   ) : null}
                 </div>
-                <p className="mt-2 text-muted-foreground text-sm">
-                  {plan.description}
-                </p>
+                <p className="mt-2 text-muted-foreground text-sm">{plan.description}</p>
                 <div className="mt-auto pt-5">
                   <div className="flex items-baseline gap-1">
                     <span className="font-semibold text-4xl">
-                      {formatPrice(
-                        isAnnual ? plan.prices.yearly : plan.prices.monthly
-                      )}
+                      {formatPrice(isAnnual ? plan.prices.yearly : plan.prices.monthly)}
                     </span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
@@ -218,7 +209,7 @@ export function Pricing4({
                 <Button
                   className="mt-8 w-full"
                   nativeButton={false}
-                  render={<a href={plan.ctaHref ?? "#"} />}
+                  render={<a aria-label={ctaLabel} href={plan.ctaHref ?? "#"} />}
                   size="lg"
                   variant={plan.popular ? "default" : "outline"}
                 >

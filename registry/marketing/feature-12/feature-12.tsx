@@ -51,9 +51,7 @@ function MeetingIllustration() {
           ))}
         </div>
       </div>
-      <div className="font-medium text-muted-foreground text-sm">
-        ML Pipeline Discussion
-      </div>
+      <div className="font-medium text-muted-foreground text-sm">ML Pipeline Discussion</div>
     </Card>
   );
 }
@@ -102,18 +100,14 @@ function AIAssistantIllustration() {
     <Card aria-hidden className="p-4">
       <div className="ml-auto w-fit max-w-3/4">
         <p className="mb-2 rounded-t-2xl rounded-l-2xl rounded-br border border-foreground/5 bg-foreground/5 p-4 text-sm">
-          Can you tighten this landing page copy without losing the product
-          story?
+          Can you tighten this landing page copy without losing the product story?
         </p>
-        <span className="block text-right text-muted-foreground text-xs">
-          Now
-        </span>
+        <span className="block text-right text-muted-foreground text-xs">Now</span>
       </div>
       <div className="w-fit">
         <SparklesIcon className="size-3.5 fill-purple-300 stroke-purple-300" />
         <p className="mt-2 line-clamp-2 text-sm">
-          How can I optimize my neural network to reduce inference time while
-          maintaining accuracy?
+          How can I optimize my neural network to reduce inference time while maintaining accuracy?
         </p>
       </div>
       <div className="mt-3 -mr-3 -mb-3 -ml-3 space-y-3 rounded-lg bg-foreground/5 p-3">
@@ -137,10 +131,7 @@ function AIAssistantIllustration() {
             </Button>
           </div>
 
-          <Button
-            className="size-7 rounded-2xl bg-black text-white"
-            size="icon"
-          >
+          <Button className="size-7 rounded-2xl bg-black text-white" size="icon">
             <ArrowUpIcon strokeWidth={3} />
           </Button>
         </div>
@@ -169,12 +160,9 @@ export function Feature12({
                 </div>
               </Card>
               <div className="max-w-md sm:col-span-3">
-                <h3 className="font-semibold text-foreground text-lg">
-                  Contextual AI Assistant
-                </h3>
+                <h3 className="font-semibold text-foreground text-lg">Contextual AI Assistant</h3>
                 <p className="mt-3 text-balance text-muted-foreground">
-                  A companion that understands your codebase and helps solve
-                  complex problems.
+                  A companion that understands your codebase and helps solve complex problems.
                 </p>
               </div>
             </div>
@@ -183,9 +171,7 @@ export function Feature12({
                 <MeetingIllustration />
               </Card>
               <div>
-                <h3 className="font-semibold text-foreground text-lg">
-                  AI Code Generation
-                </h3>
+                <h3 className="font-semibold text-foreground text-lg">AI Code Generation</h3>
                 <p className="mt-3 text-balance text-muted-foreground">
                   Transform natural language into production-ready code.
                 </p>
@@ -197,9 +183,7 @@ export function Feature12({
                 <CodeReviewIllustration />
               </Card>
               <div>
-                <h3 className="font-semibold text-foreground text-lg">
-                  Intelligent Code Review
-                </h3>
+                <h3 className="font-semibold text-foreground text-lg">Intelligent Code Review</h3>
                 <p className="mt-3 text-balance text-muted-foreground">
                   Catch bugs, security issues, and optimization opportunities.
                 </p>

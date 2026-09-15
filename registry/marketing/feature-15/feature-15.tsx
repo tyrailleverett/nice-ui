@@ -1,9 +1,4 @@
-import {
-  ArrowUpRightIcon,
-  CheckIcon,
-  CircleDotIcon,
-  GitBranchIcon,
-} from "lucide-react";
+import { ArrowUpRightIcon, CheckIcon, CircleDotIcon, GitBranchIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
@@ -50,31 +45,26 @@ function StepVisual({ index }: { index: number }) {
           <span className="font-mono text-[10px]">3 active</span>
         </div>
         <div className="space-y-3 py-6">
-          {["Priority signal", "Owner assigned", "Review window"].map(
-            (label, itemIndex) => (
-              <div className="flex items-center gap-3" key={label}>
-                <span
-                  className={cn(
-                    "flex size-6 items-center justify-center rounded-full border text-[10px]",
-                    itemIndex === 1
-                      ? "border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-400"
-                      : "border-border text-muted-foreground"
-                  )}
-                >
-                  {itemIndex + 1}
-                </span>
-                <span className="flex-1 border-border border-b border-dashed pb-2 text-sm">
-                  {label}
-                </span>
-                {itemIndex < 2 ? (
-                  <CheckIcon
-                    aria-hidden
-                    className="size-3 text-muted-foreground"
-                  />
-                ) : null}
-              </div>
-            )
-          )}
+          {["Priority signal", "Owner assigned", "Review window"].map((label, itemIndex) => (
+            <div className="flex items-center gap-3" key={label}>
+              <span
+                className={cn(
+                  "flex size-6 items-center justify-center rounded-full border text-[10px]",
+                  itemIndex === 1
+                    ? "border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-400"
+                    : "border-border text-muted-foreground",
+                )}
+              >
+                {itemIndex + 1}
+              </span>
+              <span className="flex-1 border-border border-b border-dashed pb-2 text-sm">
+                {label}
+              </span>
+              {itemIndex < 2 ? (
+                <CheckIcon aria-hidden className="size-3 text-muted-foreground" />
+              ) : null}
+            </div>
+          ))}
         </div>
         <div className="flex items-center gap-2 border-border border-t pt-4 text-muted-foreground text-xs">
           <CircleDotIcon aria-hidden className="size-3 text-blue-500" />
@@ -136,13 +126,10 @@ export function Feature15({
             </h2>
             <div className="flex items-end justify-between gap-6">
               <p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
-                Three deliberate moves for teams that want their work to feel
-                less like a queue and more like a practice.
+                Three deliberate moves for teams that want their work to feel less like a queue and
+                more like a practice.
               </p>
-              <ArrowUpRightIcon
-                aria-hidden
-                className="mb-1 size-5 shrink-0 text-blue-500"
-              />
+              <ArrowUpRightIcon aria-hidden className="mb-1 size-5 shrink-0 text-blue-500" />
             </div>
           </div>
 
@@ -153,9 +140,7 @@ export function Feature15({
                 key={step.title}
               >
                 <div className="flex items-center gap-3 text-muted-foreground text-xs md:block">
-                  <span className="font-mono text-foreground">
-                    {step.eyebrow}
-                  </span>
+                  <span className="font-mono text-foreground">{step.eyebrow}</span>
                   <span className="hidden h-16 w-px bg-border md:mx-1 md:mt-6 md:block" />
                 </div>
                 <div>
@@ -166,11 +151,7 @@ export function Feature15({
                     {step.description}
                   </p>
                 </div>
-                <div
-                  className={cn(
-                    index % 2 === 1 && "md:order-first md:col-start-2"
-                  )}
-                >
+                <div className={cn(index % 2 === 1 && "md:order-first md:col-start-2")}>
                   <StepVisual index={index} />
                 </div>
               </li>

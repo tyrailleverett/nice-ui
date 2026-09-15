@@ -1,9 +1,4 @@
-import {
-  ArrowRightIcon,
-  CircleUserRoundIcon,
-  ImagePlusIcon,
-  XIcon,
-} from "lucide-react";
+import { ArrowRightIcon, CircleUserRoundIcon, ImagePlusIcon, XIcon } from "lucide-react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import { useCallback } from "react";
 
@@ -40,12 +35,7 @@ export interface OnboardingFormProps {
 }
 
 export function BrandMark({ className }: { className?: string }) {
-  return (
-    <Logo
-      aria-label="Nice UI"
-      className={cn("h-8 w-auto text-foreground", className)}
-    />
-  );
+  return <Logo aria-label="Nice UI" className={cn("h-8 w-auto text-foreground", className)} />;
 }
 
 export function ProfileForm({
@@ -61,24 +51,19 @@ export function ProfileForm({
       event.preventDefault();
       onSubmit?.();
     },
-    [onSubmit]
+    [onSubmit],
   );
   const handleNameChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) =>
-      onNameChange?.(event.target.value),
-    [onNameChange]
+    (event: ChangeEvent<HTMLInputElement>) => onNameChange?.(event.target.value),
+    [onNameChange],
   );
   const handleJobTitleChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) =>
-      onJobTitleChange?.(event.target.value),
-    [onJobTitleChange]
+    (event: ChangeEvent<HTMLInputElement>) => onJobTitleChange?.(event.target.value),
+    [onJobTitleChange],
   );
 
   return (
-    <form
-      className={cn("flex flex-col", compact ? "gap-4" : "gap-5")}
-      onSubmit={handleSubmit}
-    >
+    <form className={cn("flex flex-col", compact ? "gap-4" : "gap-5")} onSubmit={handleSubmit}>
       <div className="flex items-center gap-4">
         <div className="grid size-16 shrink-0 place-items-center rounded-full border-2 border-border bg-muted/40 text-muted-foreground">
           <CircleUserRoundIcon size={29} strokeWidth={1.5} />
@@ -144,15 +129,9 @@ export function ProfileForm({
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="America/Chicago">
-                  Central Time (Chicago)
-                </SelectItem>
-                <SelectItem value="America/Los_Angeles">
-                  Pacific Time (Los Angeles)
-                </SelectItem>
-                <SelectItem value="America/New_York">
-                  Eastern Time (New York)
-                </SelectItem>
+                <SelectItem value="America/Chicago">Central Time (Chicago)</SelectItem>
+                <SelectItem value="America/Los_Angeles">Pacific Time (Los Angeles)</SelectItem>
+                <SelectItem value="America/New_York">Eastern Time (New York)</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -186,13 +165,7 @@ export function ContinueButton({
   );
 }
 
-export function StepRail({
-  current = 0,
-  dotted = false,
-}: {
-  current?: number;
-  dotted?: boolean;
-}) {
+export function StepRail({ current = 0, dotted = false }: { current?: number; dotted?: boolean }) {
   return (
     <nav aria-label="Onboarding steps" className="flex flex-col gap-6">
       {ONBOARDING_STEPS.map((step, index) => {
@@ -203,9 +176,7 @@ export function StepRail({
               <span
                 className={cn(
                   "absolute top-7 left-[13px] h-8 w-px",
-                  dotted
-                    ? "border-muted-foreground/40 border-l border-dashed"
-                    : "bg-border"
+                  dotted ? "border-muted-foreground/40 border-l border-dashed" : "bg-border",
                 )}
               />
             ) : null}
@@ -214,27 +185,21 @@ export function StepRail({
                 "relative z-10 grid size-7 shrink-0 place-items-center rounded-full border text-xs",
                 active
                   ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background text-muted-foreground"
+                  : "border-border bg-background text-muted-foreground",
               )}
             >
-              {dotted && active ? (
-                <span className="size-2 rounded-full bg-current" />
-              ) : (
-                index + 1
-              )}
+              {dotted && active ? <span className="size-2 rounded-full bg-current" /> : index + 1}
             </span>
             <span className="grid gap-0.5 pt-0.5">
               <span
                 className={cn(
                   "font-medium text-sm",
-                  active ? "text-foreground" : "text-muted-foreground"
+                  active ? "text-foreground" : "text-muted-foreground",
                 )}
               >
                 {step.label}
               </span>
-              <span className="text-muted-foreground text-xs">
-                {step.detail}
-              </span>
+              <span className="text-muted-foreground text-xs">{step.detail}</span>
             </span>
           </div>
         );
@@ -245,10 +210,7 @@ export function StepRail({
 
 export function ProductPreview() {
   return (
-    <div
-      aria-hidden="true"
-      className="relative h-full min-h-80 overflow-hidden bg-muted/20 p-8"
-    >
+    <div aria-hidden="true" className="relative h-full min-h-80 overflow-hidden bg-muted/20 p-8">
       <div className="absolute top-20 -right-20 h-96 w-[34rem] rotate-[-8deg] rounded-2xl border border-border bg-card shadow-2xl">
         <div className="flex h-16 items-center gap-4 border-border border-b px-5">
           <span className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground text-xs">
@@ -268,20 +230,16 @@ export function ProductPreview() {
           </div>
           <div className="space-y-5 p-5">
             <div className="h-10 rounded-lg border border-border bg-background" />
-            {["bg-primary/20", "bg-accent", "bg-muted", "bg-secondary"].map(
-              (color, index) => (
-                <div className="flex items-center gap-3" key={color}>
-                  <span className={cn("size-9 rounded-full", color)} />
-                  <span className="grid flex-1 gap-2">
-                    <span className="h-2 w-2/5 rounded-full bg-muted" />
-                    <span className="h-2 w-4/5 rounded-full bg-muted/70" />
-                  </span>
-                  <span className="text-muted-foreground text-xs">
-                    {index + 2}
-                  </span>
-                </div>
-              )
-            )}
+            {["bg-primary/20", "bg-accent", "bg-muted", "bg-secondary"].map((color, index) => (
+              <div className="flex items-center gap-3" key={color}>
+                <span className={cn("size-9 rounded-full", color)} />
+                <span className="grid flex-1 gap-2">
+                  <span className="h-2 w-2/5 rounded-full bg-muted" />
+                  <span className="h-2 w-4/5 rounded-full bg-muted/70" />
+                </span>
+                <span className="text-muted-foreground text-xs">{index + 2}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -291,13 +249,7 @@ export function ProductPreview() {
 
 export function CloseButton({ onClick }: { onClick?: () => void }) {
   return (
-    <Button
-      aria-label="Close"
-      onClick={onClick}
-      size="icon"
-      type="button"
-      variant="ghost"
-    >
+    <Button aria-label="Close" onClick={onClick} size="icon" type="button" variant="ghost">
       <XIcon />
     </Button>
   );

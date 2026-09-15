@@ -48,21 +48,15 @@ export function Footer8({
         <div className="flex flex-col justify-between gap-8 md:flex-row">
           <div className="max-w-xs space-y-5">
             <Logo />
-            <p className="text-primary-foreground/70 text-sm leading-6">
-              {tagline}
-            </p>
+            <p className="text-primary-foreground/70 text-sm leading-6">{tagline}</p>
             <a
               className="inline-flex items-center gap-1 text-sm underline-offset-4 hover:underline"
               href="/docs"
             >
-              Start building{" "}
-              <ArrowUpRightIcon aria-hidden="true" className="size-4" />
+              Start building <ArrowUpRightIcon aria-hidden="true" className="size-4" />
             </a>
           </div>
-          <nav
-            aria-label="Footer"
-            className="grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-3"
-          >
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-3">
             {groups.map((group) => (
               <div className="space-y-3" key={group.title}>
                 <h2 className="font-mono text-primary-foreground/50 text-xs uppercase tracking-[0.16em]">

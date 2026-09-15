@@ -43,12 +43,7 @@ export function DataRowCard({
         </div>
         <div>
           <span className="data-label">Email</span>
-          <Button
-            className="data-link h-auto p-0"
-            onClick={onPreview}
-            type="button"
-            variant="link"
-          >
+          <Button className="data-link h-auto p-0" onClick={onPreview} type="button" variant="link">
             <MailIcon data-icon="inline-start" />
             {email}
           </Button>

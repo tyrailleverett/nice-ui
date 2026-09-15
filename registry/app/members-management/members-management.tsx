@@ -119,12 +119,11 @@ const defaultInvites: PendingInvite[] = [
   },
 ];
 
-const statusVariant: Record<MemberStatus, "default" | "secondary" | "outline"> =
-  {
-    Active: "default",
-    Invited: "secondary",
-    Suspended: "outline",
-  };
+const statusVariant: Record<MemberStatus, "default" | "secondary" | "outline"> = {
+  Active: "default",
+  Invited: "secondary",
+  Suspended: "outline",
+};
 
 export interface MembersManagementProps {
   className?: string;
@@ -140,14 +139,12 @@ export function MembersManagement({
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("All statuses");
   const handleQueryChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) =>
-      setQuery(event.target.value),
-    []
+    (event: React.ChangeEvent<HTMLInputElement>) => setQuery(event.target.value),
+    [],
   );
   const handleStatusChange = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) =>
-      setStatus(event.target.value),
-    []
+    (event: React.ChangeEvent<HTMLSelectElement>) => setStatus(event.target.value),
+    [],
   );
 
   const filteredMembers = useMemo(() => {
@@ -156,38 +153,29 @@ export function MembersManagement({
       const matchesQuery = `${member.name} ${member.email} ${member.team}`
         .toLowerCase()
         .includes(normalizedQuery);
-      const matchesStatus =
-        status === "All statuses" || member.status === status;
+      const matchesStatus = status === "All statuses" || member.status === status;
       return matchesQuery && matchesStatus;
     });
   }, [members, query, status]);
 
-  const activeMembers = members.filter(
-    (member) => member.status === "Active"
-  ).length;
+  const activeMembers = members.filter((member) => member.status === "Active").length;
   const seatsUsed = activeMembers + invites.length;
   const seatPercentage = Math.min(100, Math.round((seatsUsed / 24) * 100));
 
   return (
-    <main
-      className={cn(
-        "min-h-svh w-full bg-background text-foreground",
-        className
-      )}
-    >
+    <main className={cn("min-h-svh w-full bg-background text-foreground", className)}>
       <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-8 sm:py-12">
         <header className="flex flex-col gap-6 border-border border-b pb-7 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-3 flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-[0.18em]">
-              <UsersIcon aria-hidden="true" className="size-3.5" /> Workspace
-              directory
+              <UsersIcon aria-hidden="true" className="size-3.5" /> Workspace directory
             </div>
             <h1 className="font-heading font-semibold text-3xl tracking-tight sm:text-4xl">
               Members & enrollment
             </h1>
             <p className="mt-2 max-w-xl text-muted-foreground text-sm leading-6">
-              Keep the right people close to the work. Manage access, roles, and
-              invitations from one place.
+              Keep the right people close to the work. Manage access, roles, and invitations from
+              one place.
             </p>
           </div>
           <Button className="w-full sm:w-auto">
@@ -218,10 +206,7 @@ export function MembersManagement({
               <p className="text-muted-foreground text-xs">Seats in use</p>
               <p className="mt-1 font-heading font-semibold text-2xl tabular-nums">
                 {seatsUsed}
-                <span className="font-normal text-muted-foreground text-sm">
-                  {" "}
-                  / 24
-                </span>
+                <span className="font-normal text-muted-foreground text-sm"> / 24</span>
               </p>
             </div>
           </div>
@@ -261,9 +246,7 @@ export function MembersManagement({
             <div className="min-w-44 sm:w-56">
               <div className="mb-2 flex justify-between text-xs">
                 <span className="text-muted-foreground">Seat utilization</span>
-                <span className="font-medium tabular-nums">
-                  {seatPercentage}%
-                </span>
+                <span className="font-medium tabular-nums">{seatPercentage}%</span>
               </div>
               <div className="h-1.5 overflow-hidden rounded-full bg-border">
                 <div
@@ -281,9 +264,7 @@ export function MembersManagement({
                   key={invite.id}
                 >
                   <div className="min-w-0">
-                    <p className="truncate font-medium text-sm">
-                      {invite.email}
-                    </p>
+                    <p className="truncate font-medium text-sm">{invite.email}</p>
                     <p className="mt-1 text-muted-foreground text-xs">
                       {invite.role} · Sent {invite.invited}
                     </p>
@@ -372,26 +353,18 @@ export function MembersManagement({
                             <AvatarFallback>{member.initials}</AvatarFallback>
                           </Avatar>
                           <div className="min-w-0">
-                            <p className="truncate font-medium text-sm">
-                              {member.name}
-                            </p>
-                            <p className="truncate text-muted-foreground text-xs">
-                              {member.email}
-                            </p>
+                            <p className="truncate font-medium text-sm">{member.name}</p>
+                            <p className="truncate text-muted-foreground text-xs">{member.email}</p>
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell className="text-muted-foreground text-sm">
-                        {member.team}
-                      </TableCell>
+                      <TableCell className="text-muted-foreground text-sm">{member.team}</TableCell>
                       <TableCell>
                         <Badge variant="outline">{member.role}</Badge>
                       </TableCell>
                       <TableCell>
                         <Badge variant={statusVariant[member.status]}>
-                          {member.status === "Active" && (
-                            <CheckIcon aria-hidden="true" />
-                          )}
+                          {member.status === "Active" && <CheckIcon aria-hidden="true" />}
                           {member.status}
                         </Badge>
                       </TableCell>
@@ -420,8 +393,8 @@ export function MembersManagement({
             </Table>
           </div>
           <p className="mt-3 flex items-center gap-1.5 text-muted-foreground text-xs">
-            <EllipsisIcon aria-hidden="true" className="size-3.5" /> Roles can
-            be changed by workspace admins.
+            <EllipsisIcon aria-hidden="true" className="size-3.5" /> Roles can be changed by
+            workspace admins.
           </p>
         </section>
       </div>

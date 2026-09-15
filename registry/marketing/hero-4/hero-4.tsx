@@ -34,7 +34,7 @@ function PrimaryCtaButton({ action }: { action: Hero4Action }) {
       <Button
         className="w-fit"
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
       >
         {action.label}
       </Button>
@@ -74,12 +74,8 @@ export function Hero4({
                   className="flex w-fit items-center gap-2 font-medium"
                   href={announcement.href ?? "#"}
                 >
-                  {announcement.eyebrow ? (
-                    <span>{announcement.eyebrow}</span>
-                  ) : null}
-                  <span className="text-muted-foreground">
-                    {announcement.label}
-                  </span>
+                  {announcement.eyebrow ? <span>{announcement.eyebrow}</span> : null}
+                  <span className="text-muted-foreground">{announcement.label}</span>
                   <ArrowRightIcon className="size-3.5" />
                 </a>
               ) : null}
@@ -90,9 +86,7 @@ export function Hero4({
                 </h1>
                 <div className="mx-auto flex max-w-md flex-col gap-6">
                   {description ? (
-                    <p className="text-balance text-lg text-muted-foreground">
-                      {description}
-                    </p>
+                    <p className="text-balance text-lg text-muted-foreground">{description}</p>
                   ) : null}
                   {primaryCta ? <PrimaryCtaButton action={primaryCta} /> : null}
                 </div>

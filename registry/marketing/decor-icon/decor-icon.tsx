@@ -15,17 +15,14 @@ const decorIconVariants = cva(
           "bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)]",
         "bottom-right":
           "right-0 bottom-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)]",
-        "top-left":
-          "top-0 left-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)]",
-        "top-right":
-          "top-0 right-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)]",
+        "top-left": "top-0 left-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)]",
+        "top-right": "top-0 right-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+0.5px)]",
       },
     },
-  }
+  },
 );
 
-export type DecorIconProps = ComponentProps<"svg"> &
-  VariantProps<typeof decorIconVariants>;
+export type DecorIconProps = ComponentProps<"svg"> & VariantProps<typeof decorIconVariants>;
 
 export function DecorIcon({ position, className, ...props }: DecorIconProps) {
   return (

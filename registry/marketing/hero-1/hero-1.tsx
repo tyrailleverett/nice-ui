@@ -58,7 +58,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {content}
@@ -101,7 +101,7 @@ export function Hero1({
             className={cn(
               "group mx-auto flex w-fit items-center gap-3 rounded-sm border bg-card p-1 shadow",
               enter,
-              "delay-500"
+              "delay-500",
             )}
             href={announcement.href ?? "#"}
           >
@@ -122,7 +122,7 @@ export function Hero1({
           className={cn(
             "max-w-2xl text-balance text-center font-display-heading text-3xl text-foreground md:text-5xl lg:text-6xl",
             enter,
-            "delay-100"
+            "delay-100",
           )}
         >
           {title}
@@ -133,7 +133,7 @@ export function Hero1({
             className={cn(
               "max-w-xl text-center text-muted-foreground text-sm tracking-wider sm:text-lg",
               enter,
-              "delay-200"
+              "delay-200",
             )}
           >
             {description}
@@ -142,11 +142,7 @@ export function Hero1({
 
         {primaryCta || secondaryCta ? (
           <div
-            className={cn(
-              "flex w-fit items-center justify-center gap-3 pt-2",
-              enter,
-              "delay-300"
-            )}
+            className={cn("flex w-fit items-center justify-center gap-3 pt-2", enter, "delay-300")}
           >
             {secondaryCta ? (
               <ActionButton

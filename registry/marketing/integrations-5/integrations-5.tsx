@@ -51,16 +51,13 @@ export function Integrations5({
           </p>
           <h2 className="font-display-heading text-3xl sm:text-4xl">{title}</h2>
           <p className="text-muted-foreground text-sm leading-6">
-            Bring your tools with you. These connections keep the handoff small
-            and the context intact.
+            Bring your tools with you. These connections keep the handoff small and the context
+            intact.
           </p>
         </header>
         <div className="grid gap-px bg-border sm:grid-cols-2">
           {integrations.map((item) => (
-            <article
-              className="group space-y-5 bg-background p-5"
-              key={item.name}
-            >
+            <article className="group space-y-5 bg-background p-5" key={item.name}>
               <div className="flex items-center justify-between">
                 <span className="flex size-9 items-center justify-center border bg-muted font-semibold text-sm">
                   {item.name.slice(0, 1)}
@@ -71,17 +68,12 @@ export function Integrations5({
                 />
               </div>
               <div>
-                <p className="font-mono text-muted-foreground text-xs uppercase">
-                  {item.category}
-                </p>
+                <p className="font-mono text-muted-foreground text-xs uppercase">{item.category}</p>
                 <h3 className="mt-1 font-medium">{item.name}</h3>
-                <p className="mt-2 text-muted-foreground text-sm leading-6">
-                  {item.description}
-                </p>
+                <p className="mt-2 text-muted-foreground text-sm leading-6">{item.description}</p>
               </div>
               <p className="flex items-center gap-1 text-muted-foreground text-xs">
-                <CheckIcon aria-hidden="true" className="size-3" /> Ready to
-                connect
+                <CheckIcon aria-hidden="true" className="size-3" /> Ready to connect
               </p>
             </article>
           ))}

@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    "src/components/ui/**",
+    "public/**",
+    "dist/**",
+    "storybook-static/**",
+    "build/**",
+    "public/r/**",
+    "registry/marketing/screenshot-assets/**"
+  ]
+}

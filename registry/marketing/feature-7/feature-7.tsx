@@ -1,9 +1,4 @@
-import {
-  ArrowLeftRightIcon,
-  BellIcon,
-  LineChartIcon,
-  UsersIcon,
-} from "lucide-react";
+import { ArrowLeftRightIcon, BellIcon, LineChartIcon, UsersIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 
@@ -119,10 +114,7 @@ export function Feature7({
           </div>
           <div className="mt-12 grid gap-3 *:max-w-xs max-sm:*:not-last:border-b max-sm:*:not-last:pb-3 sm:grid-cols-2 md:mt-16 md:gap-y-6 lg:mt-24 lg:grid-cols-4 lg:gap-6">
             {highlights.map((item) => (
-              <p
-                className="text-balance text-muted-foreground"
-                key={item.title}
-              >
+              <p className="text-balance text-muted-foreground" key={item.title}>
                 <span className="font-medium text-foreground">
                   {item.icon} {item.title}
                 </span>{" "}

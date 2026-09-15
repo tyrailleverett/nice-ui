@@ -1,10 +1,5 @@
 import { ExternalLinkIcon, MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
-import {
-  type ComponentProps,
-  type FormEvent,
-  type ReactNode,
-  useCallback,
-} from "react";
+import { type ComponentProps, type FormEvent, type ReactNode, useCallback } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,11 +8,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/github_light.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/github_light.svg" width="100%" />
     </svg>
   );
 }
@@ -33,11 +24,7 @@ export function XIcon(props: ComponentProps<"svg">) {
 export function LinkedinIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/linkedin.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/linkedin.svg" width="100%" />
     </svg>
   );
 }
@@ -94,7 +81,7 @@ function ThemeSwitcher({
         onThemeChange?.(value);
       }
     },
-    [onThemeChange]
+    [onThemeChange],
   );
 
   return (
@@ -139,7 +126,7 @@ export function Footer7({
       const formData = new FormData(event.currentTarget);
       onSubscribe?.(String(formData.get("email") ?? ""));
     },
-    [onSubscribe]
+    [onSubscribe],
   );
 
   return (
@@ -147,10 +134,7 @@ export function Footer7({
       <div className="bg-background text-foreground">
         <div className="grid border-t md:grid-cols-3 md:divide-x">
           {groups.map((group) => (
-            <div
-              className="border-b px-6 py-8 last:border-b-0 md:border-b-0"
-              key={group.title}
-            >
+            <div className="border-b px-6 py-8 last:border-b-0 md:border-b-0" key={group.title}>
               <h3 className="mb-4 font-semibold text-sm">{group.title}</h3>
               <ul className="space-y-2.5">
                 {group.links.map((link) => (
@@ -191,12 +175,7 @@ export function Footer7({
           <div className="flex flex-col justify-center gap-3 border-b px-6 py-8 md:border-b-0">
             <p className="font-semibold text-sm">{newsletterTitle}</p>
             <form className="flex gap-2" onSubmit={handleSubmit}>
-              <Input
-                className="h-9"
-                name="email"
-                placeholder={emailPlaceholder}
-                type="email"
-              />
+              <Input className="h-9" name="email" placeholder={emailPlaceholder} type="email" />
               <Button className="h-9" type="submit" variant="outline">
                 {subscribeLabel}
               </Button>

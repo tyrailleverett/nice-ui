@@ -79,7 +79,7 @@ function IntegrationCard({
     <div
       className={cn(
         "relative flex flex-col items-start gap-4 bg-background p-4 text-start md:p-6 md:even:bg-background/75",
-        className
+        className,
       )}
       {...props}
     >
@@ -87,7 +87,7 @@ function IntegrationCard({
         alt=""
         className={cn(
           "pointer-events-none size-8 shrink-0 select-none object-contain",
-          integration.isInvertable && "dark:invert"
+          integration.isInvertable && "dark:invert",
         )}
         height={32}
         src={integration.src}
@@ -95,9 +95,7 @@ function IntegrationCard({
       />
       <div className="space-y-1">
         <h3 className="font-semibold">{integration.name}</h3>
-        <p className="text-muted-foreground text-xs md:text-sm">
-          {integration.description}
-        </p>
+        <p className="text-muted-foreground text-xs md:text-sm">{integration.description}</p>
       </div>
     </div>
   );

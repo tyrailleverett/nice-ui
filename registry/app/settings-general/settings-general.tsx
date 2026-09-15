@@ -23,11 +23,7 @@ const accentColors = [
 const dateFormats = ["MM/DD/YYYY", "DD/MM/YYYY", "YYYY/MM/DD"] as const;
 
 const editorPreferences = [
-  [
-    "Enable keyboard shortcuts",
-    "Use shortcuts to speed up your workflow.",
-    true,
-  ],
+  ["Enable keyboard shortcuts", "Use shortcuts to speed up your workflow.", true],
   ["Auto spell-check", "Highlight spelling errors in text fields.", true],
   ["Compact mode", "Reduce spacing for a denser interface layout.", false],
   ["Reduce animations", "Minimize motion effects throughout the UI.", false],
@@ -35,16 +31,8 @@ const editorPreferences = [
 
 export function GeneralSettings({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-6xl flex-col gap-6 p-4 sm:p-8",
-        className
-      )}
-    >
-      <SectionHeading
-        description="Core app preferences."
-        title="General Settings"
-      />
+    <div className={cn("mx-auto flex w-full max-w-6xl flex-col gap-6 p-4 sm:p-8", className)}>
+      <SectionHeading description="Core app preferences." title="General Settings" />
       <Panel>
         <SettingsRow
           description="The display name for your project across the platform."
@@ -83,14 +71,8 @@ export function GeneralSettings({ className }: { className?: string }) {
             </Button>
           </div>
         </SettingsRow>
-        <SettingsRow
-          description="Select a color to represent your brand."
-          label="Accent color"
-        >
-          <ToggleGroup
-            className="justify-end gap-3"
-            defaultValue={[accentColors[0]]}
-          >
+        <SettingsRow description="Select a color to represent your brand." label="Accent color">
+          <ToggleGroup className="justify-end gap-3" defaultValue={[accentColors[0]]}>
             {accentColors.map((color, index) => (
               <ToggleGroupItem
                 aria-label={`Select accent color ${index + 1}`}
@@ -127,10 +109,7 @@ export function GeneralSettings({ className }: { className?: string }) {
         >
           <div className="flex flex-wrap justify-end gap-2">
             {dateFormats.map((format, index) => (
-              <Button
-                key={format}
-                variant={index === 0 ? "secondary" : "outline"}
-              >
+              <Button key={format} variant={index === 0 ? "secondary" : "outline"}>
                 {format}
               </Button>
             ))}
@@ -143,10 +122,7 @@ export function GeneralSettings({ className }: { className?: string }) {
         >
           <div className="flex flex-col gap-4">
             {editorPreferences.map(([label, description, checked]) => (
-              <div
-                className="flex items-start justify-between gap-4"
-                key={label}
-              >
+              <div className="flex items-start justify-between gap-4" key={label}>
                 <div>
                   <p className="font-medium text-sm">{label}</p>
                   <p className="text-muted-foreground text-xs">{description}</p>

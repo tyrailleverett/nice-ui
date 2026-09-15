@@ -74,20 +74,17 @@ const sourceOptions = [
 
 const stepTitles = [
   {
-    description:
-      "A clear name and a little context make every next decision easier.",
+    description: "A clear name and a little context make every next decision easier.",
     kicker: "A considered beginning",
     title: "Give your project a home.",
   },
   {
-    description:
-      "Connect a source so your team can start from a familiar foundation.",
+    description: "Connect a source so your team can start from a familiar foundation.",
     kicker: "Bring your work with you",
     title: "Where should we look?",
   },
   {
-    description:
-      "Review the details below. You can change anything before creating the project.",
+    description: "Review the details below. You can change anything before creating the project.",
     kicker: "One last look",
     title: "Ready to make it real?",
   },
@@ -174,20 +171,15 @@ export function CreationWizard() {
                 {steps.map((item, index) => {
                   const isComplete = hasSubmitted || index < step;
                   const isCurrent = index === step && !hasSubmitted;
-                  let markerClass =
-                    "border-border bg-background text-muted-foreground";
+                  let markerClass = "border-border bg-background text-muted-foreground";
                   if (isComplete) {
-                    markerClass =
-                      "border-primary bg-primary text-primary-foreground";
+                    markerClass = "border-primary bg-primary text-primary-foreground";
                   } else if (isCurrent) {
                     markerClass =
                       "border-primary bg-background text-primary ring-4 ring-primary/10";
                   }
                   return (
-                    <li
-                      className="relative flex gap-3 lg:min-h-24"
-                      key={item.label}
-                    >
+                    <li className="relative flex gap-3 lg:min-h-24" key={item.label}>
                       {index < steps.length - 1 ? (
                         <span
                           aria-hidden="true"
@@ -198,14 +190,10 @@ export function CreationWizard() {
                         aria-current={isCurrent ? "step" : undefined}
                         className={cn(
                           "relative z-10 grid size-6 shrink-0 place-items-center rounded-full border font-semibold text-[10px] transition-colors",
-                          markerClass
+                          markerClass,
                         )}
                       >
-                        {isComplete ? (
-                          <Check className="size-3.5" />
-                        ) : (
-                          item.eyebrow
-                        )}
+                        {isComplete ? <Check className="size-3.5" /> : item.eyebrow}
                       </span>
                       <span className="min-w-0">
                         <span
@@ -232,9 +220,7 @@ export function CreationWizard() {
             <div className="border-border border-b px-6 py-5 sm:px-10">
               <div className="flex items-center justify-between gap-4 text-muted-foreground text-xs">
                 <span>
-                  {hasSubmitted
-                    ? "Project created"
-                    : `Step ${Math.min(step + 1, 3)} of 3`}
+                  {hasSubmitted ? "Project created" : `Step ${Math.min(step + 1, 3)} of 3`}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <LockKeyhole className="size-3" /> Autosaved locally
@@ -284,9 +270,7 @@ export function CreationWizard() {
                         projectName={projectName}
                       />
                     ) : null}
-                    {step === 1 ? (
-                      <SourceStep onSourceChange={setSource} source={source} />
-                    ) : null}
+                    {step === 1 ? <SourceStep onSourceChange={setSource} source={source} /> : null}
                     {step === 2 ? (
                       <ReviewStep
                         description={description}
@@ -298,11 +282,7 @@ export function CreationWizard() {
                   </div>
 
                   <div className="mt-10 flex items-center justify-between border-border border-t pt-5">
-                    <Button
-                      disabled={step === 0}
-                      onClick={goBack}
-                      variant="ghost"
-                    >
+                    <Button disabled={step === 0} onClick={goBack} variant="ghost">
                       <ArrowLeft data-icon="inline-start" /> Back
                     </Button>
                     <Button onClick={goNext}>
@@ -344,9 +324,7 @@ function DetailsStep({
           Project name <span className="text-destructive">*</span>
         </Label>
         <Input
-          aria-describedby={
-            nameError ? "project-name-error" : "project-name-hint"
-          }
+          aria-describedby={nameError ? "project-name-error" : "project-name-hint"}
           aria-invalid={nameError}
           id="project-name"
           onChange={(event) => onNameChange(event.target.value)}
@@ -354,10 +332,7 @@ function DetailsStep({
           value={projectName}
         />
         {nameError ? (
-          <p
-            className="flex items-center gap-1.5 text-destructive text-xs"
-            id="project-name-error"
-          >
+          <p className="flex items-center gap-1.5 text-destructive text-xs" id="project-name-error">
             <CircleAlert className="size-3.5" /> Add a name to continue.
           </p>
         ) : (
@@ -385,10 +360,8 @@ function DetailsStep({
       <div className="flex items-start gap-3 border border-border border-dashed bg-muted/20 p-4 text-muted-foreground text-xs">
         <Globe2 className="mt-0.5 size-4 shrink-0 text-primary" />
         <p>
-          <span className="font-medium text-foreground">
-            Private by default.
-          </span>{" "}
-          Your project is only visible to people you invite.
+          <span className="font-medium text-foreground">Private by default.</span> Your project is
+          only visible to people you invite.
         </p>
       </div>
     </div>
@@ -424,13 +397,9 @@ function SourceStep({
             <span className="min-w-0 flex-1">
               <span className="flex flex-wrap items-center gap-2 font-medium text-sm">
                 {option.label}
-                {option.badge ? (
-                  <Badge variant="secondary">{option.badge}</Badge>
-                ) : null}
+                {option.badge ? <Badge variant="secondary">{option.badge}</Badge> : null}
               </span>
-              <span className="mt-1 block text-muted-foreground text-xs">
-                {option.description}
-              </span>
+              <span className="mt-1 block text-muted-foreground text-xs">{option.description}</span>
             </span>
           </Label>
         );
@@ -439,8 +408,7 @@ function SourceStep({
         <Cloud />
         <AlertTitle>Source access stays yours</AlertTitle>
         <AlertDescription>
-          We only request the permissions needed to read project files and
-          status.
+          We only request the permissions needed to read project files and status.
         </AlertDescription>
       </Alert>
     </RadioGroup>
@@ -464,11 +432,7 @@ function ReviewStep({
         <CardContent className="gap-0 p-0">
           <ReviewRow label="Project name" value={projectName} />
           <Separator />
-          <ReviewRow
-            label="Project URL"
-            mono
-            value={`northstar.dev/${projectSlug}`}
-          />
+          <ReviewRow label="Project URL" mono value={`northstar.dev/${projectSlug}`} />
           <Separator />
           <ReviewRow label="Source" value={sourceLabel} />
           {description ? (
@@ -482,29 +446,19 @@ function ReviewStep({
       <div className="mt-5 flex items-start gap-3 text-muted-foreground text-xs leading-5">
         <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-600" />
         <span>
-          Everything looks good. Creating a project will set up your workspace
-          and invite you to connect your first environment.
+          Everything looks good. Creating a project will set up your workspace and invite you to
+          connect your first environment.
         </span>
       </div>
     </div>
   );
 }
 
-function ReviewRow({
-  label,
-  mono,
-  value,
-}: {
-  label: string;
-  mono?: boolean;
-  value: string;
-}) {
+function ReviewRow({ label, mono, value }: { label: string; mono?: boolean; value: string }) {
   return (
     <div className="grid gap-1 px-5 py-4 sm:grid-cols-[140px_1fr] sm:items-center sm:gap-4">
       <span className="text-muted-foreground text-xs">{label}</span>
-      <span className={`text-sm ${mono ? "font-mono text-xs" : "font-medium"}`}>
-        {value}
-      </span>
+      <span className={`text-sm ${mono ? "font-mono text-xs" : "font-medium"}`}>{value}</span>
     </div>
   );
 }
@@ -530,15 +484,12 @@ function SuccessState({
         {projectName} is ready.
       </h2>
       <p className="mt-3 max-w-md text-muted-foreground text-sm leading-6">
-        Your new workspace is set up and connected to{" "}
-        {sourceLabel.toLowerCase()}.
+        Your new workspace is set up and connected to {sourceLabel.toLowerCase()}.
       </p>
       <div className="mt-8 grid w-full max-w-md gap-3 text-left sm:grid-cols-2">
         <div className="border border-border p-4">
           <p className="text-muted-foreground text-xs">Project URL</p>
-          <p className="mt-2 break-all font-mono text-xs">
-            northstar.dev/{projectSlug}
-          </p>
+          <p className="mt-2 break-all font-mono text-xs">northstar.dev/{projectSlug}</p>
         </div>
         <div className="border border-border p-4">
           <p className="text-muted-foreground text-xs">Next up</p>

@@ -37,13 +37,10 @@ const defaultTestimonials: Testimonial3Item[] = [
   },
 ];
 
-export function Testimonial3({
-  testimonials = defaultTestimonials,
-  className,
-}: Testimonial3Props) {
+export function Testimonial3({ testimonials = defaultTestimonials, className }: Testimonial3Props) {
   const [firstTestimonial, secondTestimonial, featured] = testimonials;
   const primary = [firstTestimonial, secondTestimonial].filter(
-    (testimonial): testimonial is Testimonial3Item => testimonial !== undefined
+    (testimonial): testimonial is Testimonial3Item => testimonial !== undefined,
   );
 
   return (
@@ -52,10 +49,7 @@ export function Testimonial3({
         <div className="grid md:grid-cols-[2fr_1px_1fr]">
           <div className="divide-y">
             {primary.map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.name}
-                testimonial={testimonial}
-              />
+              <TestimonialCard key={testimonial.name} testimonial={testimonial} />
             ))}
           </div>
           <div className="h-px bg-border md:h-auto" />
@@ -75,19 +69,14 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial3Item }) {
 
   return (
     <figure className="p-6 md:p-8">
-      <QuoteIcon
-        aria-hidden="true"
-        className="mb-4 size-12 stroke-1 text-muted-foreground"
-      />
+      <QuoteIcon aria-hidden="true" className="mb-4 size-12 stroke-1 text-muted-foreground" />
 
       <blockquote className="mb-6 font-normal text-base text-foreground md:text-lg">
         &quot;{quote}&quot;
       </blockquote>
 
       <figcaption className="flex flex-col gap-0.5">
-        <cite className="font-medium text-foreground text-lg not-italic">
-          {name}
-        </cite>
+        <cite className="font-medium text-foreground text-lg not-italic">{name}</cite>
         <p className="text-muted-foreground text-sm">
           {role}
           {company ? `, ${company}` : null}

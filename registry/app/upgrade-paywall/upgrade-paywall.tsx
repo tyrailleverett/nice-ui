@@ -93,27 +93,14 @@ export interface UpgradePaywallProps {
   className?: string;
 }
 
-function StateCard({
-  action,
-  description,
-  icon: Icon,
-  label,
-  status,
-  title,
-  tone,
-}: PaywallState) {
+function StateCard({ action, description, icon: Icon, label, status, title, tone }: PaywallState) {
   const styles = toneStyles[tone];
 
   return (
     <Card className="rounded-none border-0 shadow-none" size="sm">
       <CardHeader className="gap-4 pb-3">
         <div className="flex items-center justify-between gap-3">
-          <span
-            className={cn(
-              "grid size-8 place-items-center rounded-md",
-              styles.icon
-            )}
-          >
+          <span className={cn("grid size-8 place-items-center rounded-md", styles.icon)}>
             <Icon aria-hidden="true" />
           </span>
           <Badge className={styles.badge} variant="secondary">
@@ -125,9 +112,7 @@ function StateCard({
             {label}
           </p>
           <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <CardDescription className="mt-1 leading-relaxed">
-            {description}
-          </CardDescription>
+          <CardDescription className="mt-1 leading-relaxed">{description}</CardDescription>
         </div>
       </CardHeader>
       <CardFooter className="justify-between gap-3 border-t">
@@ -136,15 +121,9 @@ function StateCard({
           <ArrowUpRightIcon data-icon="inline-end" />
         </Button>
         {tone === "danger" ? (
-          <TriangleAlertIcon
-            aria-label="Payment attention needed"
-            className="text-destructive"
-          />
+          <TriangleAlertIcon aria-label="Payment attention needed" className="text-destructive" />
         ) : (
-          <ArrowUpRightIcon
-            aria-hidden="true"
-            className="text-muted-foreground"
-          />
+          <ArrowUpRightIcon aria-hidden="true" className="text-muted-foreground" />
         )}
       </CardFooter>
     </Card>
@@ -153,12 +132,7 @@ function StateCard({
 
 export function UpgradePaywall({ className }: UpgradePaywallProps) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1240px] flex-col gap-6">
         <header className="flex flex-col gap-4 border-b pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex max-w-2xl flex-col gap-2">
@@ -169,8 +143,8 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
               Upgrade &amp; paywall states
             </h1>
             <p className="text-muted-foreground">
-              See what is unavailable, what is at capacity, and the next action
-              that restores access.
+              See what is unavailable, what is at capacity, and the next action that restores
+              access.
             </p>
           </div>
           <Badge className="w-fit gap-1.5" variant="outline">
@@ -199,9 +173,8 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
                   Your workspace is ready to grow.
                 </CardTitle>
                 <CardDescription className="mt-2 max-w-lg leading-relaxed">
-                  Core workflows remain available. Scale unlocks advanced
-                  routing, larger limits, and priority support for the next
-                  stage of your team.
+                  Core workflows remain available. Scale unlocks advanced routing, larger limits,
+                  and priority support for the next stage of your team.
                 </CardDescription>
               </div>
             </CardHeader>
@@ -219,9 +192,7 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
                       </span>
                     </p>
                   </div>
-                  <span className="font-mono text-muted-foreground text-xs">
-                    100%
-                  </span>
+                  <span className="font-mono text-muted-foreground text-xs">100%</span>
                 </div>
                 <Progress
                   aria-label="Coordinator seats: 100% used"
@@ -236,9 +207,7 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="font-medium">Scale plan</p>
-                  <p className="text-muted-foreground text-sm">
-                    $249 / month · 25 seats included
-                  </p>
+                  <p className="text-muted-foreground text-sm">$249 / month · 25 seats included</p>
                 </div>
                 <Button className="w-full sm:w-auto" size="lg">
                   Upgrade to Scale
@@ -255,16 +224,10 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
           </div>
         </section>
 
-        <section
-          aria-labelledby="plan-comparison-title"
-          className="flex flex-col gap-3"
-        >
+        <section aria-labelledby="plan-comparison-title" className="flex flex-col gap-3">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
             <div>
-              <h2
-                className="font-heading font-semibold text-xl"
-                id="plan-comparison-title"
-              >
+              <h2 className="font-heading font-semibold text-xl" id="plan-comparison-title">
                 Plan comparison
               </h2>
               <p className="text-muted-foreground text-sm">
@@ -294,10 +257,7 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
                 price: "$499",
               },
             ].map(({ current, detail, name, price }) => (
-              <div
-                className="flex flex-col gap-5 bg-card p-5 sm:p-6"
-                key={name}
-              >
+              <div className="flex flex-col gap-5 bg-card p-5 sm:p-6" key={name}>
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="font-heading font-semibold text-lg">{name}</p>
@@ -324,8 +284,8 @@ export function UpgradePaywall({ className }: UpgradePaywallProps) {
           </div>
           <p className="flex items-center gap-2 text-muted-foreground text-xs">
             <CircleAlertIcon aria-hidden="true" />
-            Changes take effect immediately. Existing usage is retained through
-            the current billing cycle.
+            Changes take effect immediately. Existing usage is retained through the current billing
+            cycle.
           </p>
         </section>
       </div>

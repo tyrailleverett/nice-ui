@@ -1,18 +1,8 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Duration presets close over the selected value. */
 import { useState } from "react";
-import {
-  DialogFrame,
-  type DialogProps,
-  Footer,
-} from "@/components/app/dialogs-shared";
+import { DialogFrame, type DialogProps, Footer } from "@/components/app/dialogs-shared";
 import { Dialog } from "@/components/ui/dialog";
-import {
-  Field,
-  FieldGroup,
-  FieldLabel,
-  FieldLegend,
-  FieldSet,
-} from "@/components/ui/field";
+import { Field, FieldGroup, FieldLabel, FieldLegend, FieldSet } from "@/components/ui/field";
 import {
   Select,
   SelectContent,
@@ -23,14 +13,7 @@ import {
 } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-const durationPresets = [
-  "30 min",
-  "2 hours",
-  "4 hours",
-  "8 hours",
-  "12 hours",
-  "1 day",
-];
+const durationPresets = ["30 min", "2 hours", "4 hours", "8 hours", "12 hours", "1 day"];
 
 export function SelectDurationDialog(props: DialogProps) {
   const [duration, setDuration] = useState("30 min");
@@ -45,15 +28,9 @@ export function SelectDurationDialog(props: DialogProps) {
           <div className="grid gap-4 md:grid-cols-2">
             <Field>
               <FieldLabel htmlFor="start-time">
-                Start time{" "}
-                <span className="font-normal text-muted-foreground">
-                  (optional)
-                </span>
+                Start time <span className="font-normal text-muted-foreground">(optional)</span>
               </FieldLabel>
-              <Select
-                defaultValue="02:00 AM"
-                items={[{ label: "02:00 AM", value: "02:00 AM" }]}
-              >
+              <Select defaultValue="02:00 AM" items={[{ label: "02:00 AM", value: "02:00 AM" }]}>
                 <SelectTrigger className="w-full" id="start-time">
                   <SelectValue />
                 </SelectTrigger>
@@ -66,15 +43,9 @@ export function SelectDurationDialog(props: DialogProps) {
             </Field>
             <Field>
               <FieldLabel htmlFor="end-time">
-                End time{" "}
-                <span className="font-normal text-muted-foreground">
-                  (optional)
-                </span>
+                End time <span className="font-normal text-muted-foreground">(optional)</span>
               </FieldLabel>
-              <Select
-                defaultValue="02:30 AM"
-                items={[{ label: "02:30 AM", value: "02:30 AM" }]}
-              >
+              <Select defaultValue="02:30 AM" items={[{ label: "02:30 AM", value: "02:30 AM" }]}>
                 <SelectTrigger className="w-full" id="end-time">
                   <SelectValue />
                 </SelectTrigger>

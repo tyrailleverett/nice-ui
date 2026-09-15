@@ -24,8 +24,7 @@ const defaultFeatures: Feature14Item[] = [
     title: "Intelligent Automation",
   },
   {
-    description:
-      "Identify high-value audiences with precision using advanced predictive modeling.",
+    description: "Identify high-value audiences with precision using advanced predictive modeling.",
     title: "Predictive Targeting",
   },
 ];
@@ -47,9 +46,7 @@ export function Feature14({
           <ul className="flex flex-col gap-12">
             {features.map((feature) => (
               <li className="max-w-md" key={feature.title}>
-                <h3 className="font-semibold text-foreground text-lg">
-                  {feature.title}
-                </h3>
+                <h3 className="font-semibold text-foreground text-lg">{feature.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>

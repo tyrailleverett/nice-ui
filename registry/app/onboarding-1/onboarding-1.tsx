@@ -15,7 +15,7 @@ export function Onboarding1({ className }: Onboarding1Props) {
     <main
       className={cn(
         "min-h-screen bg-background px-5 py-6 text-foreground sm:px-10 lg:px-16",
-        className
+        className,
       )}
     >
       <header className="mx-auto flex max-w-[1460px] items-center justify-between">

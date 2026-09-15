@@ -54,14 +54,8 @@ function handleModalClose() {
 
 function ProfileContent() {
   return (
-    <SettingsPanel
-      description="Personal account information."
-      title="Profile details"
-    >
-      <SettingsRow
-        description="Shown in comments and mentions."
-        label="Profile photo"
-      >
+    <SettingsPanel description="Personal account information." title="Profile details">
+      <SettingsRow description="Shown in comments and mentions." label="Profile photo">
         <div className="flex items-center gap-3">
           <Avatar size="lg">
             <AvatarFallback>AC</AvatarFallback>
@@ -70,11 +64,7 @@ function ProfileContent() {
           <Button variant="ghost">Remove</Button>
         </div>
       </SettingsRow>
-      <SettingsRow
-        description="Used across your workspace."
-        htmlFor="full-name"
-        label="Full name"
-      >
+      <SettingsRow description="Used across your workspace." htmlFor="full-name" label="Full name">
         <Input defaultValue="Ava Chen" id="full-name" />
       </SettingsRow>
       <SettingsRow
@@ -84,11 +74,7 @@ function ProfileContent() {
       >
         <Input defaultValue="ava@example.com" id="email-address" type="email" />
       </SettingsRow>
-      <SettingsRow
-        description="Used in mentions and links."
-        htmlFor="username"
-        label="Username"
-      >
+      <SettingsRow description="Used in mentions and links." htmlFor="username" label="Username">
         <Input defaultValue="@avachen" id="username" />
       </SettingsRow>
       <SettingsRow description="Shown across your workspace." label="Role">
@@ -184,10 +170,7 @@ function AdminPreview() {
               <Button variant="outline">+ Add domain</Button>
             </div>
           </SettingsRow>
-          <SettingsRow
-            description="Use one color for key status and links."
-            label="Accent color"
-          >
+          <SettingsRow description="Use one color for key status and links." label="Accent color">
             <div className="flex gap-2">
               <span className="size-7 rounded-full bg-muted ring-2 ring-ring ring-offset-2 ring-offset-card" />
               <span className="size-7 rounded-full bg-chart-2" />

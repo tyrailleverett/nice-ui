@@ -19,8 +19,7 @@ export interface Blog1Props {
 const defaultPosts: Blog1Item[] = [
   {
     date: "May 20 2025",
-    description:
-      "What everyone new to the field should know, and how we can help.",
+    description: "What everyone new to the field should know, and how we can help.",
     href: "#",
     title: "The New Design",
   },
@@ -61,9 +60,7 @@ export function Blog1({
       <section className="flex flex-col justify-start">
         <div className="space-y-2 px-4 py-8 md:py-12">
           <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
-          {description ? (
-            <p className="text-muted-foreground text-sm">{description}</p>
-          ) : null}
+          {description ? <p className="text-muted-foreground text-sm">{description}</p> : null}
         </div>
 
         <div className="relative">
@@ -91,7 +88,7 @@ function BlogCard({
     <a
       className={cn(
         "group flex h-24 w-full flex-col justify-center gap-y-1 p-4 hover:cursor-pointer hover:bg-accent/30 focus-visible:bg-accent/30 focus-visible:outline-none active:bg-accent dark:active:bg-accent/50",
-        className
+        className,
       )}
       href={href}
       {...props}

@@ -49,7 +49,7 @@ export function Header4({
             className={cn(
               "absolute top-full right-0 left-0 z-10 hidden border-b bg-background p-6 shadow-lg",
               menuOpen && "flex flex-col gap-6",
-              "lg:hidden"
+              "lg:hidden",
             )}
             id="mobile-menu"
           >

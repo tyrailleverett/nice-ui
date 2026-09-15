@@ -15,7 +15,7 @@ export function Onboarding4({ className }: Onboarding4Props) {
     <main
       className={cn(
         "grid min-h-screen place-items-center bg-background p-5 text-foreground sm:p-10",
-        className
+        className,
       )}
     >
       <section className="w-full max-w-3xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
@@ -35,19 +35,21 @@ export function Onboarding4({ className }: Onboarding4Props) {
           <ProfileForm compact />
         </div>
         <div className="flex items-center justify-between border-border border-t bg-muted/10 px-8 py-5 sm:px-12">
-          <div aria-label="Step 1 of 6" className="flex gap-2" role="status">
-            {["one", "two", "three", "four", "five", "six"].map(
-              (step, index) => (
-                <span
-                  className={
-                    index === 0
-                      ? "size-2.5 rounded-full bg-foreground"
-                      : "size-2.5 rounded-full bg-muted"
-                  }
-                  key={step}
-                />
-              )
-            )}
+          <div
+            aria-label="Step 1 of 6"
+            className="flex gap-2" // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- step indicator live region
+            role="status"
+          >
+            {["one", "two", "three", "four", "five", "six"].map((step, index) => (
+              <span
+                className={
+                  index === 0
+                    ? "size-2.5 rounded-full bg-foreground"
+                    : "size-2.5 rounded-full bg-muted"
+                }
+                key={step}
+              />
+            ))}
           </div>
           <ContinueButton icon />
         </div>

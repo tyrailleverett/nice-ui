@@ -121,9 +121,7 @@ export function Register1({
   trustedBy = defaultTrustedBy,
 }: Register1Props) {
   return (
-    <section
-      className={cn("min-h-svh bg-background text-foreground", className)}
-    >
+    <section className={cn("min-h-svh bg-background text-foreground", className)}>
       <div className="grid min-h-svh lg:grid-cols-[3fr_2fr]">
         <div className="relative flex min-h-svh flex-col px-6 py-8 md:px-10">
           <div className="flex flex-1 items-center justify-center">
@@ -168,25 +166,16 @@ export function Register1({
                   <figcaption className="flex flex-col items-center gap-3">
                     {testimonial.avatar ? (
                       <Avatar className="size-10">
-                        <AvatarImage
-                          alt={testimonial.avatar.alt}
-                          src={testimonial.avatar.src}
-                        />
-                        <AvatarFallback>
-                          {testimonial.avatar.fallback}
-                        </AvatarFallback>
+                        <AvatarImage alt={testimonial.avatar.alt} src={testimonial.avatar.src} />
+                        <AvatarFallback>{testimonial.avatar.fallback}</AvatarFallback>
                       </Avatar>
                     ) : null}
                     <div className="space-y-0.5">
                       {testimonial.name ? (
-                        <cite className="block font-medium not-italic">
-                          {testimonial.name}
-                        </cite>
+                        <cite className="block font-medium not-italic">{testimonial.name}</cite>
                       ) : null}
                       {testimonial.role ? (
-                        <p className="text-sm text-white/70">
-                          {testimonial.role}
-                        </p>
+                        <p className="text-sm text-white/70">{testimonial.role}</p>
                       ) : null}
                     </div>
                   </figcaption>
@@ -196,20 +185,15 @@ export function Register1({
 
             {trustedBy ? (
               <div className="absolute inset-x-8 bottom-8 text-left md:inset-x-12 md:bottom-10">
-                <p className="mb-5 font-medium text-sm text-white/80">
-                  {trustedBy.title}
-                </p>
+                <p className="mb-5 font-medium text-sm text-white/80">{trustedBy.title}</p>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
                   {trustedBy.logos.map((trustedLogo) => (
-                    <span
-                      className="flex items-center gap-1.5 text-white"
-                      key={trustedLogo.alt}
-                    >
+                    <span className="flex items-center gap-1.5 text-white" key={trustedLogo.alt}>
                       <img
                         alt={trustedLogo.alt}
                         className={cn(
                           "h-5 w-auto object-contain",
-                          !trustedLogo.label && "max-w-24 brightness-0 invert"
+                          !trustedLogo.label && "max-w-24 brightness-0 invert",
                         )}
                         height={20}
                         loading="lazy"

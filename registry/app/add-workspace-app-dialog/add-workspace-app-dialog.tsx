@@ -3,11 +3,7 @@ import { Plus, Search } from "lucide-react";
 import { DialogFrame, type DialogProps } from "@/components/app/dialogs-shared";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Kbd } from "@/components/ui/kbd";
 
 const apps = [
@@ -58,9 +54,7 @@ export function AddWorkspaceAppDialog(props: DialogProps) {
                 </span>
                 <span className="flex flex-col gap-1">
                   <strong className="block">{name}</strong>
-                  <span className="block truncate text-muted-foreground text-sm">
-                    {copy}
-                  </span>
+                  <span className="block truncate text-muted-foreground text-sm">{copy}</span>
                 </span>
               </Button>
             ))}

@@ -156,7 +156,7 @@ function BillingIntervalToggle({
         onChange(true);
       }
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -178,12 +178,7 @@ function BillingIntervalToggle({
 
 function FeatureValue({ value }: { value: Pricing2Value | undefined }) {
   if (value === true) {
-    return (
-      <CheckIcon
-        aria-label="Included"
-        className="mx-auto size-4 text-primary"
-      />
-    );
+    return <CheckIcon aria-label="Included" className="mx-auto size-4 text-primary" />;
   }
 
   if (value === false || value === undefined) {
@@ -213,13 +208,9 @@ export function Pricing2({
     <MarketingSection className={className}>
       <div className="flex flex-col items-center px-8 py-12">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
+          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
           {description ? (
-            <p className="mt-4 text-pretty text-muted-foreground">
-              {description}
-            </p>
+            <p className="mt-4 text-pretty text-muted-foreground">{description}</p>
           ) : null}
         </div>
         <div className="mt-8 flex flex-col items-center gap-3">
@@ -247,18 +238,17 @@ export function Pricing2({
                 </th>
                 {plans.map((plan) => (
                   <th
+                    aria-label={plan.name}
                     className={cn(
                       "sticky top-0 z-20 min-w-40 border-border border-b border-l px-6 py-8 text-center align-bottom font-medium",
-                      plan.popular ? "bg-primary/5" : "bg-background"
+                      plan.popular ? "bg-primary/5" : "bg-background",
                     )}
                     key={plan.key}
                     scope="col"
                   >
                     <div className="flex flex-col items-center gap-4">
                       <div className="flex items-center justify-center gap-2">
-                        <span className="text-xl tracking-tight">
-                          {plan.name}
-                        </span>
+                        <span className="text-xl tracking-tight">{plan.name}</span>
                         {plan.popular ? (
                           <Badge className="border-primary/20 bg-primary/10 text-primary hover:bg-primary/10">
                             Popular
@@ -270,27 +260,17 @@ export function Pricing2({
                           <>
                             <div className="flex items-baseline justify-center gap-1">
                               <span className="font-semibold text-3xl">
-                                {formatPrice(
-                                  isAnnual
-                                    ? plan.prices.yearly
-                                    : plan.prices.monthly
-                                )}
+                                {formatPrice(isAnnual ? plan.prices.yearly : plan.prices.monthly)}
                               </span>
-                              <span className="text-muted-foreground">
-                                /month
-                              </span>
+                              <span className="text-muted-foreground">/month</span>
                             </div>
                             <p className="mt-1 text-muted-foreground text-xs">
-                              {isAnnual
-                                ? "Per seat, billed annually"
-                                : "Per seat, billed monthly"}
+                              {isAnnual ? "Per seat, billed annually" : "Per seat, billed monthly"}
                             </p>
                           </>
                         ) : (
                           <>
-                            <span className="font-semibold text-3xl tracking-tight">
-                              Custom
-                            </span>
+                            <span className="font-semibold text-3xl tracking-tight">Custom</span>
                             <p className="mt-1 text-muted-foreground text-xs">
                               Tailored to your team
                             </p>
@@ -300,7 +280,9 @@ export function Pricing2({
                       <Button
                         className="w-full"
                         nativeButton={false}
-                        render={<a href={plan.ctaHref ?? "#"} />}
+                        render={
+                          <a aria-label={plan.ctaLabel ?? ctaLabel} href={plan.ctaHref ?? "#"} />
+                        }
                         size="lg"
                         variant={plan.popular ? "default" : "outline"}
                       >
@@ -323,13 +305,7 @@ export function Pricing2({
   );
 }
 
-function GroupRows({
-  group,
-  plans,
-}: {
-  group: Pricing2Group;
-  plans: Pricing2Plan[];
-}) {
+function GroupRows({ group, plans }: { group: Pricing2Group; plans: Pricing2Plan[] }) {
   return (
     <>
       <tr>
@@ -338,18 +314,16 @@ function GroupRows({
           scope="colgroup"
         >
           <span className="inline-flex items-center gap-2">
-            <span
-              aria-hidden
-              className="size-1 rounded-full bg-muted-foreground"
-            />
+            <span aria-hidden className="size-1 rounded-full bg-muted-foreground" />
             {group.name}
           </span>
         </th>
         {plans.map((plan) => (
           <td
+            aria-hidden="true"
             className={cn(
               "border-border border-t border-l bg-muted/50 px-6 py-3",
-              plan.popular && "bg-primary/10"
+              plan.popular && "bg-primary/10",
             )}
             key={`${group.name}-${plan.key}-heading`}
           />
@@ -367,7 +341,7 @@ function GroupRows({
             <td
               className={cn(
                 "border-border border-t border-l px-6 py-4 text-center",
-                plan.popular && "bg-primary/5"
+                plan.popular && "bg-primary/5",
               )}
               key={`${feature.name}-${plan.key}`}
             >

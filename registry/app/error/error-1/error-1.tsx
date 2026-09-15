@@ -10,13 +10,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Empty,
   EmptyContent,
@@ -39,18 +33,9 @@ export interface Error1Props {
   onSearchExceptions?: () => void;
 }
 
-export function Error1({
-  className,
-  onBackToQueue,
-  onSearchExceptions,
-}: Error1Props) {
+export function Error1({ className, onBackToQueue, onSearchExceptions }: Error1Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1100px] flex-col gap-5">
         <Breadcrumb>
           <BreadcrumbList>
@@ -78,12 +63,10 @@ export function Error1({
 
         <Empty className="border border-dashed">
           <EmptyHeader className="max-w-lg">
-            <EmptyTitle className="text-xl">
-              This order is not in the workspace
-            </EmptyTitle>
+            <EmptyTitle className="text-xl">This order is not in the workspace</EmptyTitle>
             <EmptyDescription>
-              NSC-84901 is not in the live fulfillment queue. It may have been
-              archived, merged, or typed with the wrong prefix.
+              NSC-84901 is not in the live fulfillment queue. It may have been archived, merged, or
+              typed with the wrong prefix.
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent>

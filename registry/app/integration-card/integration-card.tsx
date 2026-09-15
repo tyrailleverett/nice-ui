@@ -24,12 +24,7 @@ export function IntegrationCard({
         <span className="card-status">
           <CheckIcon aria-hidden="true" /> Live
         </span>
-        <Button
-          aria-label="More integration options"
-          size="icon"
-          type="button"
-          variant="ghost"
-        >
+        <Button aria-label="More integration options" size="icon" type="button" variant="ghost">
           <MoreVerticalIcon />
         </Button>
         {icon ? <span className="integration-logo">{icon}</span> : null}

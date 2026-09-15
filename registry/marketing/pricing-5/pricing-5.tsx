@@ -23,22 +23,13 @@ export interface Pricing5Props {
 const plans: Pricing5Plan[] = [
   {
     description: "For independent makers shipping their first serious product.",
-    features: [
-      "Unlimited projects",
-      "Core Nice UI blocks",
-      "Community support",
-    ],
+    features: ["Unlimited projects", "Core Nice UI blocks", "Community support"],
     name: "Essentials",
     price: { monthly: 0, yearly: 0 },
   },
   {
-    description:
-      "For teams that need a shared, production-ready starting point.",
-    features: [
-      "Everything in Essentials",
-      "All premium blocks",
-      "Priority support",
-    ],
+    description: "For teams that need a shared, production-ready starting point.",
+    features: ["Everything in Essentials", "All premium blocks", "Priority support"],
     name: "Studio",
     price: { monthly: 24, yearly: 19 },
     recommended: true,
@@ -61,7 +52,7 @@ function BillingToggle({
         onChange(true);
       }
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -99,12 +90,8 @@ export function Pricing5({
           <p className="font-mono text-[11px] text-primary uppercase tracking-[0.2em]">
             Simple by design
           </p>
-          <h2 className="mt-3 text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
-          <p className="mt-4 max-w-xl text-pretty text-muted-foreground">
-            {description}
-          </p>
+          <h2 className="mt-3 text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
+          <p className="mt-4 max-w-xl text-pretty text-muted-foreground">{description}</p>
           <div className="mt-7 flex flex-col items-center gap-2">
             <BillingToggle annual={annual} onChange={setAnnual} />
             {annual ? (
@@ -135,9 +122,7 @@ export function Pricing5({
                 {plan.description}
               </p>
               <div className="mt-7 flex items-baseline gap-1">
-                <span className="font-semibold text-4xl">
-                  {priceFor(plan, annual)}
-                </span>
+                <span className="font-semibold text-4xl">{priceFor(plan, annual)}</span>
                 {plan.price.monthly > 0 ? (
                   <span className="text-muted-foreground text-sm">/month</span>
                 ) : null}
@@ -152,10 +137,7 @@ export function Pricing5({
               <ul className="mt-8 space-y-3 border-border border-t pt-6">
                 {plan.features.map((feature) => (
                   <li className="flex items-start gap-2 text-sm" key={feature}>
-                    <CheckIcon
-                      aria-hidden="true"
-                      className="mt-0.5 size-4 shrink-0 text-primary"
-                    />
+                    <CheckIcon aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-primary" />
                     {feature}
                   </li>
                 ))}

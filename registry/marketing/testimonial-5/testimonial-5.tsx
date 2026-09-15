@@ -131,9 +131,7 @@ export function Testimonial5({
             {title}
           </h2>
           {description ? (
-            <p className="text-muted-foreground text-sm md:text-base">
-              {description}
-            </p>
+            <p className="text-muted-foreground text-sm md:text-base">{description}</p>
           ) : null}
         </div>
         <div className="relative overflow-hidden">
@@ -171,13 +169,8 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial5Item }) {
   return (
     <figure className="flex w-80 shrink-0 flex-col justify-between gap-8 border-r p-6">
       <div className="flex items-start justify-between gap-4">
-        <QuoteIcon
-          aria-hidden="true"
-          className="size-5 text-muted-foreground"
-        />
-        {source ? (
-          <span className="text-muted-foreground text-xs">{source}</span>
-        ) : null}
+        <QuoteIcon aria-hidden="true" className="size-5 text-muted-foreground" />
+        {source ? <span className="text-muted-foreground text-xs">{source}</span> : null}
       </div>
       <blockquote className="text-pretty text-foreground text-sm leading-relaxed md:text-base">
         &quot;{quote}&quot;

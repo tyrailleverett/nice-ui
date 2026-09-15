@@ -1,11 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
@@ -46,12 +40,7 @@ function DangerZoneRow({
   );
 }
 
-export function DangerZone({
-  className,
-  onDeactivate,
-  onRemove,
-  onSuspend,
-}: DangerZoneProps) {
+export function DangerZone({ className, onDeactivate, onRemove, onSuspend }: DangerZoneProps) {
   return (
     <div className={cn("mx-auto w-full max-w-5xl p-4 sm:p-8", className)}>
       <Card className="gap-0 overflow-hidden border-destructive/40 py-0">

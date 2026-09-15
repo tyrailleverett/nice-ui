@@ -12,12 +12,7 @@ export interface Onboarding2Props {
 
 export function Onboarding2({ className }: Onboarding2Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-8", className)}>
       <div className="grid min-h-[calc(100vh-2rem)] grid-cols-1 overflow-hidden rounded-2xl border border-border bg-card sm:min-h-[calc(100vh-4rem)] lg:grid-cols-[320px_1fr]">
         <aside className="flex flex-col border-border border-r bg-muted/20 p-8 lg:p-10">
           <BrandMark />

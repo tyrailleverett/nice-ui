@@ -8,12 +8,7 @@ import {
   StarIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
-import {
-  FieldHint,
-  FormHeading,
-  FormPage,
-  StatusBadge,
-} from "@/components/app/forms-shared";
+import { FieldHint, FormHeading, FormPage, StatusBadge } from "@/components/app/forms-shared";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -85,9 +80,7 @@ export function Form4({ className }: Form4Props) {
             <div className="flex flex-col gap-3 p-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col gap-1">
                 <p className="font-medium">Cedar & Volt Studio LLC</p>
-                <p className="text-muted-foreground text-sm">
-                  Domain confirmed for review.
-                </p>
+                <p className="text-muted-foreground text-sm">Domain confirmed for review.</p>
               </div>
               <StatusBadge icon={ShieldCheckIcon} tone="success">
                 Verified domain
@@ -150,9 +143,7 @@ export function Form4({ className }: Form4Props) {
             <div className="flex flex-col gap-3 p-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col gap-1">
                 <p className="font-medium">Customer Support Information</p>
-                <p className="text-muted-foreground text-sm">
-                  Receipt and invoice profile.
-                </p>
+                <p className="text-muted-foreground text-sm">Receipt and invoice profile.</p>
               </div>
               <StatusBadge icon={EyeIcon} tone="accent">
                 Customer visible
@@ -202,9 +193,7 @@ export function Form4({ className }: Form4Props) {
       <Card>
         <CardHeader>
           <CardTitle>Management and Ownership</CardTitle>
-          <CardDescription>
-            People authorized to represent the business.
-          </CardDescription>
+          <CardDescription>People authorized to represent the business.</CardDescription>
           <CardAction className="flex items-center gap-2">
             <Button type="button" variant="outline">
               <PlusIcon data-icon="inline-start" />
@@ -220,9 +209,7 @@ export function Form4({ className }: Form4Props) {
           <div className="flex items-center justify-between gap-3 rounded-xl p-4 ring-1 ring-foreground/10">
             <div className="flex flex-col gap-1">
               <p className="font-medium">Mira Coleman</p>
-              <p className="text-muted-foreground text-sm">
-                Account representative
-              </p>
+              <p className="text-muted-foreground text-sm">Account representative</p>
             </div>
             <StatusBadge icon={StarIcon}>Primary</StatusBadge>
           </div>

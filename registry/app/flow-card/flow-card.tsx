@@ -11,13 +11,7 @@ export interface FlowCardProps {
   title: string;
 }
 
-export function FlowCard({
-  accent = "purple",
-  description,
-  label,
-  tier,
-  title,
-}: FlowCardProps) {
+export function FlowCard({ accent = "purple", description, label, tier, title }: FlowCardProps) {
   return (
     <article className="showcase-card flow-card">
       <div className="flow-visual">

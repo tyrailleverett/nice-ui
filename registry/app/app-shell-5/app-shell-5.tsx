@@ -133,12 +133,8 @@ function ReportsNavigation({
                   >
                     <Icon />
                     <span>{item.label}</span>
-                    {item.children ? (
-                      <ChevronDownIcon className="ml-auto" />
-                    ) : null}
-                    {item.nested ? (
-                      <ChevronRightIcon className="ml-auto" />
-                    ) : null}
+                    {item.children ? <ChevronDownIcon className="ml-auto" /> : null}
+                    {item.nested ? <ChevronRightIcon className="ml-auto" /> : null}
                   </SidebarMenuButton>
                   {item.children ? (
                     <SidebarMenuSub>
@@ -148,6 +144,7 @@ function ReportsNavigation({
                             isActive={activeItem === child}
                             render={
                               <button
+                                aria-label={child}
                                 data-navigation-label={child}
                                 onClick={onItemClick}
                                 type="button"
@@ -183,10 +180,7 @@ function ReportProjects() {
             <SidebarMenuItem key={project.label}>
               <SidebarMenuButton>
                 <span
-                  className={cn(
-                    "size-4 rounded-full border-2 border-r-muted",
-                    project.color
-                  )}
+                  className={cn("size-4 rounded-full border-2 border-r-muted", project.color)}
                 />
                 <span>{project.label}</span>
               </SidebarMenuButton>
@@ -205,10 +199,7 @@ function ReportsCanvas({ children }: { children?: ReactNode }) {
 
   return (
     <div className="grid min-h-0 flex-1 grid-rows-[auto_1fr] gap-4">
-      <section
-        aria-label="Report summary"
-        className="grid min-h-52 gap-4 md:grid-cols-3"
-      >
+      <section aria-label="Report summary" className="grid min-h-52 gap-4 md:grid-cols-3">
         {["Revenue", "Audience", "Retention"].map((label) => (
           <div className="rounded-xl border border-dashed bg-card" key={label}>
             <span className="sr-only">{label}</span>
@@ -229,15 +220,12 @@ export interface AppShell5Props {
 
 export function AppShell5({ children }: AppShell5Props) {
   const [activeItem, setActiveItem] = useState("Overview");
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <TooltipProvider>
@@ -253,10 +241,7 @@ export function AppShell5({ children }: AppShell5Props) {
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <ReportsNavigation
-              activeItem={activeItem}
-              onItemClick={handleItemClick}
-            />
+            <ReportsNavigation activeItem={activeItem} onItemClick={handleItemClick} />
             <ReportProjects />
           </SidebarContent>
           <SidebarFooter>
@@ -305,9 +290,7 @@ export function AppShell5({ children }: AppShell5Props) {
             <div className="flex flex-wrap items-center gap-3">
               <div>
                 <h1 className="font-semibold text-xl">Overview</h1>
-                <p className="text-muted-foreground text-sm">
-                  Your workspace at a glance.
-                </p>
+                <p className="text-muted-foreground text-sm">Your workspace at a glance.</p>
               </div>
               <div className="ml-auto flex gap-2">
                 <Button variant="outline">
@@ -327,13 +310,11 @@ export function AppShell5({ children }: AppShell5Props) {
               2026 © <strong className="text-foreground">ReUI</strong>
             </span>
             <nav aria-label="Footer" className="ml-auto flex flex-wrap gap-4">
-              {["Docs", "Changelog", "Support", "Privacy", "Status"].map(
-                (item) => (
-                  <a href={`/${item.toLowerCase()}`} key={item}>
-                    {item}
-                  </a>
-                )
-              )}
+              {["Docs", "Changelog", "Support", "Privacy", "Status"].map((item) => (
+                <a href={`/${item.toLowerCase()}`} key={item}>
+                  {item}
+                </a>
+              ))}
             </nav>
           </footer>
         </SidebarInset>

@@ -23,10 +23,7 @@ export function LogoCloud4({
 }: LogoCloud4Props) {
   return (
     <MarketingSection className={className}>
-      <section
-        aria-label="Customers"
-        className="space-y-8 p-4 text-center md:p-8"
-      >
+      <section aria-label="Customers" className="space-y-8 p-4 text-center md:p-8">
         <p className="font-mono text-muted-foreground text-xs uppercase tracking-[0.18em]">
           {title}
         </p>

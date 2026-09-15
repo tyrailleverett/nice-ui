@@ -1,8 +1,4 @@
-import {
-  BrandMark,
-  ContinueButton,
-  ProfileForm,
-} from "@/components/app/onboarding-shared";
+import { BrandMark, ContinueButton, ProfileForm } from "@/components/app/onboarding-shared";
 import { cn } from "@/lib/utils";
 
 export interface Onboarding5Props {
@@ -11,12 +7,7 @@ export interface Onboarding5Props {
 
 export function Onboarding5({ className }: Onboarding5Props) {
   return (
-    <main
-      className={cn(
-        "flex min-h-screen flex-col bg-background text-foreground",
-        className
-      )}
-    >
+    <main className={cn("flex min-h-screen flex-col bg-background text-foreground", className)}>
       <header className="flex h-20 items-center justify-between border-border border-b px-6 sm:px-10">
         <BrandMark />
         <div className="flex items-center gap-5">

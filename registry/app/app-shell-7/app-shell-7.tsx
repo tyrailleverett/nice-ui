@@ -26,11 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
 
 interface ModuleLink {
@@ -189,21 +185,15 @@ export interface AppShell7Props {
   defaultUserMenuOpen?: boolean;
 }
 
-export function AppShell7({
-  children,
-  defaultUserMenuOpen = false,
-}: AppShell7Props) {
+export function AppShell7({ children, defaultUserMenuOpen = false }: AppShell7Props) {
   const [activeItem, setActiveItem] = useState("Job List");
 
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-svh flex-col bg-background text-foreground">

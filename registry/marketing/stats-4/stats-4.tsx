@@ -45,9 +45,7 @@ export function Stats4({
               {title}
             </h2>
             {description ? (
-              <p className="mt-6 text-pretty text-lg text-muted-foreground">
-                {description}
-              </p>
+              <p className="mt-6 text-pretty text-lg text-muted-foreground">{description}</p>
             ) : null}
           </div>
 
@@ -61,9 +59,7 @@ export function Stats4({
                   <p className="font-semibold text-4xl tabular-nums tracking-tight sm:text-5xl">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-muted-foreground text-sm">
-                    {stat.label}
-                  </p>
+                  <p className="mt-2 text-muted-foreground text-sm">{stat.label}</p>
                 </div>
               ))}
             </div>

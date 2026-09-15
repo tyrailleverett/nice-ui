@@ -229,9 +229,7 @@ function startOfDay(date: Date) {
 
 function daysBetween(start: Date, end: Date) {
   const msPerDay = 86_400_000;
-  return Math.round(
-    (startOfDay(end).getTime() - startOfDay(start).getTime()) / msPerDay
-  );
+  return Math.round((startOfDay(end).getTime() - startOfDay(start).getTime()) / msPerDay);
 }
 
 function formatMeterValue(value: number, format: MeterFormat) {
@@ -290,10 +288,7 @@ export function BillingCycleStrip({
 }: BillingCycleStripProps) {
   const ticks = useMemo(() => {
     const totalDays = daysBetween(cycleStart, cycleEnd) + 1;
-    const elapsed = Math.min(
-      totalDays,
-      Math.max(0, daysBetween(cycleStart, today) + 1)
-    );
+    const elapsed = Math.min(totalDays, Math.max(0, daysBetween(cycleStart, today) + 1));
     return { elapsed, remaining: Math.max(0, totalDays - elapsed), totalDays };
   }, [cycleEnd, cycleStart, today]);
 
@@ -302,20 +297,18 @@ export function BillingCycleStrip({
       aria-label={`${planName} billing cycle, ${ticks.elapsed} of ${ticks.totalDays} days used`}
       className={cn(
         "overflow-hidden rounded-xl bg-card text-card-foreground ring-1 ring-foreground/10",
-        className
+        className,
       )}
     >
       <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-end sm:justify-between sm:px-6">
         <div>
           <p className="text-muted-foreground text-sm">This cycle</p>
           <p className="mt-1 font-heading font-semibold text-xl tracking-tight">
-            {rangeFormatter.format(cycleStart)} –{" "}
-            {dayFormatter.format(cycleEnd)}
+            {rangeFormatter.format(cycleStart)} – {dayFormatter.format(cycleEnd)}
           </p>
         </div>
         <p className="text-muted-foreground text-sm">
-          Next charge{" "}
-          {dayFormatter.format(new Date(cycleEnd.getTime() + 86_400_000))} ·{" "}
+          Next charge {dayFormatter.format(new Date(cycleEnd.getTime() + 86_400_000))} ·{" "}
           <span className="font-medium text-foreground tabular-nums">
             {currency.format(nextCharge)}
           </span>{" "}
@@ -334,7 +327,7 @@ export function BillingCycleStrip({
                   "min-w-0 flex-1 rounded-sm",
                   isToday && "bg-primary",
                   isPast && "bg-foreground/70",
-                  !(isToday || isPast) && "bg-muted"
+                  !(isToday || isPast) && "bg-muted",
                 )}
                 key={dayNumber}
                 style={{ height: tickHeight(isToday, isPast) }}
@@ -406,12 +399,8 @@ export function SubscriptionPlan({
       <CardContent className="p-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="font-heading font-semibold text-title">
-              {current.name}
-            </p>
-            <p className="mt-1 text-muted-foreground text-sm">
-              {current.description}
-            </p>
+            <p className="font-heading font-semibold text-title">{current.name}</p>
+            <p className="mt-1 text-muted-foreground text-sm">{current.description}</p>
           </div>
           <p className="font-heading text-title tabular-nums">
             {currency.format(current.monthly)}
@@ -437,17 +426,15 @@ export function SubscriptionPlan({
       </CardContent>
       <CardFooter className="flex flex-col gap-2 sm:flex-row sm:justify-end">
         <Dialog onOpenChange={setCancelOpen} open={cancelOpen}>
-          <DialogTrigger
-            render={<Button className="w-full sm:w-auto" variant="ghost" />}
-          >
+          <DialogTrigger render={<Button className="w-full sm:w-auto" variant="ghost" />}>
             Cancel plan
           </DialogTrigger>
           <DialogContent className="sm:max-w-md" showCloseButton>
             <DialogHeader>
               <DialogTitle>Cancel Harbor on Sep 1</DialogTitle>
               <DialogDescription>
-                Coordinators keep access through Aug 31. After that, exception
-                history stays readable and new dispatches pause.
+                Coordinators keep access through Aug 31. After that, exception history stays
+                readable and new dispatches pause.
               </DialogDescription>
             </DialogHeader>
             <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
@@ -468,8 +455,8 @@ export function SubscriptionPlan({
             <DialogHeader>
               <DialogTitle>Move Northline to a different plan</DialogTitle>
               <DialogDescription>
-                The new rate starts on the next charge. Unused Harbor days are
-                credited automatically.
+                The new rate starts on the next charge. Unused Harbor days are credited
+                automatically.
               </DialogDescription>
             </DialogHeader>
             <RadioGroup
@@ -485,26 +472,18 @@ export function SubscriptionPlan({
                 <Label
                   className={cn(
                     "flex cursor-pointer items-start gap-3 rounded-xl p-4 font-normal ring-1 ring-foreground/10",
-                    selected === plan.id && "ring-foreground/40"
+                    selected === plan.id && "ring-foreground/40",
                   )}
                   htmlFor={plan.id}
                   key={plan.id}
                 >
-                  <RadioGroupItem
-                    className="mt-0.5"
-                    id={plan.id}
-                    value={plan.id}
-                  />
+                  <RadioGroupItem className="mt-0.5" id={plan.id} value={plan.id} />
                   <span className="flex min-w-0 flex-1 flex-col gap-1">
                     <span className="flex items-baseline justify-between gap-3">
                       <span className="font-medium">{plan.name}</span>
-                      <span className="tabular-nums">
-                        {currency.format(plan.monthly)}
-                      </span>
+                      <span className="tabular-nums">{currency.format(plan.monthly)}</span>
                     </span>
-                    <span className="text-muted-foreground text-sm">
-                      {plan.description}
-                    </span>
+                    <span className="text-muted-foreground text-sm">{plan.description}</span>
                   </span>
                 </Label>
               ))}
@@ -527,17 +506,13 @@ export interface UsageMetersProps {
   meters?: UsageMeter[];
 }
 
-export function UsageMeters({
-  className,
-  meters = defaultMeters,
-}: UsageMetersProps) {
+export function UsageMeters({ className, meters = defaultMeters }: UsageMetersProps) {
   return (
     <Card className={cn("gap-0 py-0", className)}>
       <CardHeader className="border-b p-6">
         <CardTitle>Included this cycle</CardTitle>
         <CardDescription>
-          Allotments reset on Sep 1. Overage posts to the next invoice unless
-          you pause it below.
+          Allotments reset on Sep 1. Overage posts to the next invoice unless you pause it below.
         </CardDescription>
       </CardHeader>
       <CardContent className="px-2 pb-2">
@@ -553,13 +528,9 @@ export function UsageMeters({
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="font-medium">{meter.label}</p>
-                        {nearLimit ? (
-                          <Badge variant="destructive">Near limit</Badge>
-                        ) : null}
+                        {nearLimit ? <Badge variant="destructive">Near limit</Badge> : null}
                       </div>
-                      <p className="mt-1 text-muted-foreground text-sm">
-                        {meter.description}
-                      </p>
+                      <p className="mt-1 text-muted-foreground text-sm">{meter.description}</p>
                     </div>
                     <p className="font-medium text-sm tabular-nums">
                       {formatMeterValue(meter.used, meter.format)}
@@ -575,9 +546,7 @@ export function UsageMeters({
                     value={percent}
                   />
                   {nearLimit ? (
-                    <p className="text-muted-foreground text-xs">
-                      {meter.overage}
-                    </p>
+                    <p className="text-muted-foreground text-xs">{meter.overage}</p>
                   ) : null}
                 </div>
               </li>
@@ -609,7 +578,7 @@ export function PaymentMethods({
         onSetDefault?.(methodId);
       }
     },
-    [onSetDefault]
+    [onSetDefault],
   );
 
   return (
@@ -629,8 +598,7 @@ export function PaymentMethods({
       <CardContent className="px-2 pb-2">
         <ul className="flex flex-col">
           {methods.map((method, index) => {
-            const Icon =
-              method.brand === "ACH" ? Building2Icon : CreditCardIcon;
+            const Icon = method.brand === "ACH" ? Building2Icon : CreditCardIcon;
             return (
               <li key={method.id}>
                 {index > 0 ? <Separator /> : null}
@@ -642,9 +610,7 @@ export function PaymentMethods({
                     <p className="font-medium">
                       {method.brand} · {method.last4}
                     </p>
-                    <p className="mt-1 text-muted-foreground text-sm">
-                      {method.expiry}
-                    </p>
+                    <p className="mt-1 text-muted-foreground text-sm">{method.expiry}</p>
                   </div>
                   {method.default ? (
                     <Badge variant="secondary">Default</Badge>
@@ -686,7 +652,7 @@ export function InvoiceHistory({
         onDownload?.(invoiceId);
       }
     },
-    [onDownload]
+    [onDownload],
   );
 
   return (
@@ -705,9 +671,7 @@ export function InvoiceHistory({
                 <ReceiptTextIcon />
               </EmptyMedia>
               <EmptyTitle>No invoices yet</EmptyTitle>
-              <EmptyDescription>
-                The first Harbor receipt appears after Sep 1.
-              </EmptyDescription>
+              <EmptyDescription>The first Harbor receipt appears after Sep 1.</EmptyDescription>
             </EmptyHeader>
           </Empty>
         ) : (
@@ -726,14 +690,10 @@ export function InvoiceHistory({
             <TableBody>
               {invoices.map((invoice) => (
                 <TableRow key={invoice.id}>
-                  <TableCell className="px-6 font-medium">
-                    {invoice.id}
-                  </TableCell>
+                  <TableCell className="px-6 font-medium">{invoice.id}</TableCell>
                   <TableCell>{invoice.issued}</TableCell>
                   <TableCell>
-                    <Badge variant={invoiceTone(invoice.status)}>
-                      {invoice.status}
-                    </Badge>
+                    <Badge variant={invoiceTone(invoice.status)}>{invoice.status}</Badge>
                   </TableCell>
                   <TableCell className="text-right tabular-nums">
                     {currency.format(invoice.amount)}
@@ -753,10 +713,7 @@ export function InvoiceHistory({
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuGroup>
-                          <DropdownMenuItem
-                            data-invoice-id={invoice.id}
-                            onClick={handleDownload}
-                          >
+                          <DropdownMenuItem data-invoice-id={invoice.id} onClick={handleDownload}>
                             <DownloadIcon />
                             Download
                           </DropdownMenuItem>
@@ -799,7 +756,7 @@ export function SpendAlerts({
       setNotify(checked);
       onNotifyChange?.(checked);
     },
-    [onNotifyChange]
+    [onNotifyChange],
   );
 
   const handleCap = useCallback(
@@ -807,7 +764,7 @@ export function SpendAlerts({
       setCap(checked);
       onCapChange?.(checked);
     },
-    [onCapChange]
+    [onCapChange],
   );
 
   return (
@@ -873,16 +830,9 @@ export function BillingSettings({
   onSetDefaultPayment,
 }: BillingSettingsProps) {
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 sm:p-8", className)}>
       <header className="flex flex-col gap-1">
-        <h1 className="font-heading font-semibold text-title sm:text-3xl">
-          Billing
-        </h1>
+        <h1 className="font-heading font-semibold text-title sm:text-3xl">Billing</h1>
         <p className="text-muted-foreground text-sm sm:text-base">
           Plan, cycle usage, and receipts for the Northline workspace.
         </p>
@@ -891,10 +841,7 @@ export function BillingSettings({
       <SubscriptionPlan onCancel={onCancelPlan} onChangePlan={onChangePlan} />
       <UsageMeters />
       <div className="grid gap-6 lg:grid-cols-2">
-        <PaymentMethods
-          onAdd={onAddPayment}
-          onSetDefault={onSetDefaultPayment}
-        />
+        <PaymentMethods onAdd={onAddPayment} onSetDefault={onSetDefaultPayment} />
         <SpendAlerts />
       </div>
       <InvoiceHistory invoices={invoices} onDownload={onDownloadInvoice} />

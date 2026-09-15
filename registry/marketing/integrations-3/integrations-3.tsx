@@ -29,7 +29,11 @@ export interface Integrations3Props {
 function IntegrationsCta({ action }: { action: Integrations3Action }) {
   if (action.href) {
     return (
-      <Button nativeButton={false} render={<a href={action.href} />} size="sm">
+      <Button
+        nativeButton={false}
+        render={<a aria-label={action.label} href={action.href} />}
+        size="sm"
+      >
         {action.label}
       </Button>
     );
@@ -132,13 +136,9 @@ export function Integrations3({
       <section className="relative grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
         <div className="p-4 md:p-6">
           <div className="space-y-4">
-            <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">
-              {title}
-            </h2>
+            <h2 className="font-display-heading text-3xl text-foreground sm:text-4xl">{title}</h2>
             {description ? (
-              <p className="text-muted-foreground text-sm md:text-base">
-                {description}
-              </p>
+              <p className="text-muted-foreground text-sm md:text-base">{description}</p>
             ) : null}
             {cta ? <IntegrationsCta action={cta} /> : null}
           </div>
@@ -151,7 +151,7 @@ export function Integrations3({
                 "absolute inset-0 size-full",
                 "bg-[linear-gradient(to_right,theme(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,theme(--color-border)_1px,transparent_1px)]",
                 "bg-size-[64px_64px]",
-                "mask-[radial-gradient(ellipse_at_center,black,black,transparent)]"
+                "mask-[radial-gradient(ellipse_at_center,black,black,transparent)]",
               )}
             />
             {tiles.map((tile) => (
@@ -167,10 +167,7 @@ export function Integrations3({
 function IntegrationCard({ row, col, logo }: Integrations3Tile) {
   return (
     <div
-      className={cn(
-        "absolute flex size-16 items-center justify-center",
-        logo && "bg-secondary/40"
-      )}
+      className={cn("absolute flex size-16 items-center justify-center", logo && "bg-secondary/40")}
       style={{
         left: col * 64,
         top: row * 64,

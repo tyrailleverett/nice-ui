@@ -24,10 +24,7 @@ const defaultLogos: Feature13Logo[] = [
   { alt: "Firebase", src: "https://svgl.app/library/firebase.svg" },
 ];
 
-const DEVELOPER_BAR_IDS = Array.from(
-  { length: 32 },
-  (_, index) => `developer-bar-${index}`
-);
+const DEVELOPER_BAR_IDS = Array.from({ length: 32 }, (_, index) => `developer-bar-${index}`);
 
 function LogoPill({ src, alt }: Feature13Logo) {
   return (
@@ -56,30 +53,20 @@ export function Feature13({
       <section className="@container bg-background py-24">
         <div className="mx-auto max-w-2xl px-6">
           <div>
-            <h2 className="text-balance font-display-heading text-4xl">
-              {title}
-            </h2>
+            <h2 className="text-balance font-display-heading text-4xl">{title}</h2>
             {description ? (
-              <p className="mt-4 text-balance text-muted-foreground">
-                {description}
-              </p>
+              <p className="mt-4 text-balance text-muted-foreground">{description}</p>
             ) : null}
           </div>
           <div className="mt-12 grid @xl:grid-cols-2 gap-3 *:p-6">
             <Card className="row-span-2 grid grid-rows-subgrid shadow-sm">
               <div className="space-y-2">
-                <h3 className="font-medium text-foreground">
-                  Seamless Integrations
-                </h3>
+                <h3 className="font-medium text-foreground">Seamless Integrations</h3>
                 <p className="text-muted-foreground text-sm">
-                  Connect your favorite tools and services with just a few
-                  clicks.
+                  Connect your favorite tools and services with just a few clicks.
                 </p>
               </div>
-              <div
-                aria-hidden
-                className="flex h-44 flex-col justify-between pt-8"
-              >
+              <div aria-hidden className="flex h-44 flex-col justify-between pt-8">
                 <div className="relative flex h-10 items-center gap-12 px-6">
                   <div className="absolute inset-0 my-auto h-px bg-border" />
                   {vercel ? <LogoPill {...vercel} /> : null}
@@ -101,8 +88,7 @@ export function Feature13({
               <div className="space-y-2">
                 <h3 className="font-medium text-foreground">Real-time Sync</h3>
                 <p className="text-muted-foreground text-sm">
-                  Keep your data synchronized across all platforms
-                  automatically.
+                  Keep your data synchronized across all platforms automatically.
                 </p>
               </div>
               <div aria-hidden className="relative h-44 translate-y-6">
@@ -117,8 +103,7 @@ export function Feature13({
               <div className="space-y-2">
                 <h3 className="font-medium text-foreground">Developer First</h3>
                 <p className="mt-2 text-muted-foreground text-sm">
-                  Built with developers in mind, featuring comprehensive APIs
-                  and SDKs.
+                  Built with developers in mind, featuring comprehensive APIs and SDKs.
                 </p>
               </div>
               <div
@@ -127,9 +112,7 @@ export function Feature13({
               >
                 {DEVELOPER_BAR_IDS.map((barId, index) => (
                   <div
-                    className={cn(
-                      [4, 9, 13, 18, 23, 31].includes(index) && "bg-primary!"
-                    )}
+                    className={cn([4, 9, 13, 18, 23, 31].includes(index) && "bg-primary!")}
                     key={barId}
                   />
                 ))}
@@ -139,8 +122,7 @@ export function Feature13({
               <div className="space-y-2">
                 <h3 className="font-medium">Enterprise Ready</h3>
                 <p className="text-muted-foreground text-sm">
-                  Scale confidently with enterprise-grade security and
-                  reliability.
+                  Scale confidently with enterprise-grade security and reliability.
                 </p>
               </div>
 

@@ -10,20 +10,10 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-import {
-  FormHeading,
-  FormPage,
-  StatusBadge,
-} from "@/components/app/forms-shared";
+import { FormHeading, FormPage, StatusBadge } from "@/components/app/forms-shared";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -88,8 +78,7 @@ const initialKeys: ApiKey[] = [
   },
 ];
 
-const maskSecret = (secret: string) =>
-  `${secret.slice(0, 8)}${"•".repeat(12)}${secret.slice(-4)}`;
+const maskSecret = (secret: string) => `${secret.slice(0, 8)}${"•".repeat(12)}${secret.slice(-4)}`;
 
 function KeyRow({
   keyData,
@@ -154,9 +143,7 @@ function KeyRow({
             <EllipsisIcon />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => onRename(keyData)}>
-              Rename key
-            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => onRename(keyData)}>Rename key</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="text-destructive focus:text-destructive"
@@ -239,9 +226,7 @@ export interface ApiKeysProps {
 export function ApiKeys({ className }: ApiKeysProps) {
   const [keys, setKeys] = useState(initialKeys);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [dialog, setDialog] = useState<"create" | "rename" | "revoke" | null>(
-    null
-  );
+  const [dialog, setDialog] = useState<"create" | "rename" | "revoke" | null>(null);
   const [activeKey, setActiveKey] = useState<ApiKey | null>(null);
   const [name, setName] = useState("");
 
@@ -292,10 +277,8 @@ export function ApiKeys({ className }: ApiKeysProps) {
     } else if (activeKey) {
       setKeys((current) =>
         current.map((keyData) =>
-          keyData.id === activeKey.id
-            ? { ...keyData, name: trimmedName }
-            : keyData
-        )
+          keyData.id === activeKey.id ? { ...keyData, name: trimmedName } : keyData,
+        ),
       );
     }
     setDialog(null);
@@ -303,17 +286,13 @@ export function ApiKeys({ className }: ApiKeysProps) {
 
   const revokeKey = () => {
     if (activeKey) {
-      setKeys((current) =>
-        current.filter((keyData) => keyData.id !== activeKey.id)
-      );
+      setKeys((current) => current.filter((keyData) => keyData.id !== activeKey.id));
     }
     setDialog(null);
     setActiveKey(null);
   };
 
-  const productionKeys = keys.filter(
-    (keyData) => keyData.environment === "Production"
-  );
+  const productionKeys = keys.filter((keyData) => keyData.environment === "Production");
   const testKeys = keys.filter((keyData) => keyData.environment === "Test");
 
   return (
@@ -330,13 +309,10 @@ export function ApiKeys({ className }: ApiKeysProps) {
       />
 
       <div className="flex items-start gap-3 rounded-xl border border-amber-500/25 bg-amber-500/5 p-4 text-sm">
-        <ShieldAlertIcon
-          aria-hidden="true"
-          className="mt-0.5 size-4 shrink-0 text-amber-700"
-        />
+        <ShieldAlertIcon aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-amber-700" />
         <p className="text-muted-foreground">
-          Keep secret keys private. You can copy a key again later, but the full
-          secret is never shown after creation.
+          Keep secret keys private. You can copy a key again later, but the full secret is never
+          shown after creation.
         </p>
       </div>
 
@@ -359,23 +335,19 @@ export function ApiKeys({ className }: ApiKeysProps) {
         />
       </div>
 
-      <Dialog
-        onOpenChange={(open) => !open && setDialog(null)}
-        open={dialog !== null}
-      >
+      <Dialog onOpenChange={(open) => !open && setDialog(null)} open={dialog !== null}>
         <DialogContent className="sm:max-w-md" showCloseButton>
           {dialog === "revoke" ? (
             <>
               <DialogHeader>
                 <DialogTitle>Revoke “{activeKey?.name}”?</DialogTitle>
                 <DialogDescription>
-                  Any application using this key will lose access immediately.
-                  This action cannot be undone.
+                  Any application using this key will lose access immediately. This action cannot be
+                  undone.
                 </DialogDescription>
               </DialogHeader>
               <div className="rounded-lg border border-destructive/20 bg-destructive/5 p-3 text-destructive text-sm">
-                Revoke this key only if you have updated every integration that
-                uses it.
+                Revoke this key only if you have updated every integration that uses it.
               </div>
               <DialogFooter>
                 <Button onClick={() => setDialog(null)} variant="outline">
@@ -403,7 +375,6 @@ export function ApiKeys({ className }: ApiKeysProps) {
                   Key name
                 </label>
                 <Input
-                  autoFocus
                   id="api-key-name"
                   onChange={(event) => setName(event.target.value)}
                   onKeyDown={(event) => event.key === "Enter" && saveName()}

@@ -24,8 +24,8 @@ const defaultEntries: Changelog2Entry[] = [
         <div className="space-y-3">
           <h3 className="font-medium text-lg">Major update</h3>
           <p className="text-muted-foreground">
-            This release brings several highly requested features and important
-            improvements to the platform.
+            This release brings several highly requested features and important improvements to the
+            platform.
           </p>
         </div>
         <ChangelogGroup
@@ -59,8 +59,8 @@ const defaultEntries: Changelog2Entry[] = [
         <div className="space-y-3">
           <h3 className="font-medium text-lg">Security update</h3>
           <p className="text-muted-foreground">
-            Important security improvements and performance optimizations keep
-            your workspace dependable as it grows.
+            Important security improvements and performance optimizations keep your workspace
+            dependable as it grows.
           </p>
         </div>
         <ChangelogGroup
@@ -104,18 +104,13 @@ export function Changelog2({
             {title}
           </h2>
           {description ? (
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              {description}
-            </p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{description}</p>
           ) : null}
         </header>
 
         <div>
           {entries.map((entry) => (
-            <article
-              className="border-border border-b last:border-b-0"
-              key={entry.slug}
-            >
+            <article className="border-border border-b last:border-b-0" key={entry.slug}>
               <div className="grid grid-cols-1 md:grid-cols-12">
                 <aside className="border-border border-b bg-background px-6 py-8 md:col-span-4 md:border-r md:border-b-0 md:py-12 lg:col-span-3">
                   <div className="flex flex-col gap-2 md:sticky md:top-24">
@@ -133,9 +128,7 @@ export function Changelog2({
                   </div>
                 </aside>
                 <div className="px-6 py-8 md:col-span-8 md:py-12 lg:col-span-9">
-                  <h3 className="mb-6 text-2xl text-foreground">
-                    {entry.title}
-                  </h3>
+                  <h3 className="mb-6 text-2xl text-foreground">{entry.title}</h3>
                   {entry.content}
                 </div>
               </div>

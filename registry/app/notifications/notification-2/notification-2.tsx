@@ -9,14 +9,7 @@ import { cn } from "@/lib/utils";
 export interface Notification2Props {
   className?: string;
 }
-const items: readonly (readonly [
-  string,
-  string,
-  string,
-  string,
-  LucideIcon,
-  string,
-])[] = [
+const items: readonly (readonly [string, string, string, string, LucideIcon, string])[] = [
   [
     "Lena Fischer",
     "Approved Your Pull Request",
@@ -57,7 +50,7 @@ export function Notification2({ className }: Notification2Props) {
     <section
       className={cn(
         "w-full max-w-[896px] overflow-hidden border border-border bg-background text-foreground",
-        className
+        className,
       )}
     >
       <header className="flex items-center justify-between px-8 py-7">
@@ -73,8 +66,7 @@ export function Notification2({ className }: Notification2Props) {
             onClick={markRead}
             variant="ghost"
           >
-            <Check data-icon="inline-start" />{" "}
-            {read ? "All Read" : "Mark All Read"}
+            <Check data-icon="inline-start" /> {read ? "All Read" : "Mark All Read"}
           </Button>
           <Button aria-label="Close" size="icon" variant="ghost">
             <X />
@@ -97,36 +89,29 @@ export function Notification2({ className }: Notification2Props) {
         ))}
       </ToggleGroup>
       <div className="border-border border-t">
-        {[...items, ...items, items[0]].map(
-          ([name, action, body, tag, Icon, initials]) => (
-            <article
-              className="flex gap-6 border-border border-b px-8 py-6"
-              key={`${name}-${tag}`}
-            >
-              <Avatar className="size-[72px] rounded-2xl">
-                <AvatarFallback className="rounded-2xl bg-muted text-2xl text-muted-foreground">
-                  {initials}
-                </AvatarFallback>
-              </Avatar>
-              <div className="min-w-0 flex-1">
-                <h3 className="text-[23px]">
-                  <b className="font-medium">{name}</b>{" "}
-                  <span className="text-muted-foreground">{action}</span>
-                </h3>
-                <p className="mt-2 text-[22px] text-muted-foreground">{body}</p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="rounded-full bg-muted px-3 py-1 text-lg text-muted-foreground">
-                    <Icon className="mr-2 inline" size={15} />
-                    {tag}
-                  </span>
-                  <time className="text-lg text-muted-foreground">
-                    Just Now
-                  </time>
-                </div>
+        {[...items, ...items, items[0]].map(([name, action, body, tag, Icon, initials]) => (
+          <article className="flex gap-6 border-border border-b px-8 py-6" key={`${name}-${tag}`}>
+            <Avatar className="size-[72px] rounded-2xl">
+              <AvatarFallback className="rounded-2xl bg-muted text-2xl text-muted-foreground">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-[23px]">
+                <b className="font-medium">{name}</b>{" "}
+                <span className="text-muted-foreground">{action}</span>
+              </h3>
+              <p className="mt-2 text-[22px] text-muted-foreground">{body}</p>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="rounded-full bg-muted px-3 py-1 text-lg text-muted-foreground">
+                  <Icon className="mr-2 inline" size={15} />
+                  {tag}
+                </span>
+                <time className="text-lg text-muted-foreground">Just Now</time>
               </div>
-            </article>
-          )
-        )}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

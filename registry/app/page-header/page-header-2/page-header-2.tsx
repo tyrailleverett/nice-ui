@@ -31,20 +31,14 @@ export interface PageHeader2Props {
   title?: string;
 }
 
-function HeaderAction({
-  action,
-  variant,
-}: {
-  action: PageHeader2Action;
-  variant?: "outline";
-}) {
+function HeaderAction({ action, variant }: { action: PageHeader2Action; variant?: "outline" }) {
   const Icon = action.icon;
 
   if (action.href) {
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {Icon ? <Icon data-icon="inline-start" /> : null}
@@ -69,12 +63,7 @@ export function PageHeader2({
   title = "Acme App",
 }: PageHeader2Props) {
   return (
-    <section
-      className={cn(
-        "w-full bg-background px-6 py-12 text-foreground",
-        className
-      )}
-    >
+    <section className={cn("w-full bg-background px-6 py-12 text-foreground", className)}>
       <div className="mx-auto w-full max-w-5xl">
         <Breadcrumb className="mb-4">
           <BreadcrumbList>
@@ -94,26 +83,19 @@ export function PageHeader2({
 
         <div className="flex flex-col gap-4 border-border border-b pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex items-center gap-3">
-            <h1 className="font-heading font-semibold text-title sm:text-3xl">
-              {title}
-            </h1>
+            <h1 className="font-heading font-semibold text-title sm:text-3xl">{title}</h1>
             {badge ? <Badge variant="secondary">{badge}</Badge> : null}
           </div>
 
           <div className="flex items-center gap-2">
-            {secondaryAction ? (
-              <HeaderAction action={secondaryAction} variant="outline" />
-            ) : null}
+            {secondaryAction ? <HeaderAction action={secondaryAction} variant="outline" /> : null}
             {primaryAction ? <HeaderAction action={primaryAction} /> : null}
           </div>
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {PREVIEW_CELLS.map((cell) => (
-            <div
-              className="h-28 rounded-lg border border-border bg-muted/30"
-              key={cell}
-            />
+            <div className="h-28 rounded-lg border border-border bg-muted/30" key={cell} />
           ))}
         </div>
       </div>

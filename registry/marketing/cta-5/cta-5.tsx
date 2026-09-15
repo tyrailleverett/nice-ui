@@ -2,11 +2,7 @@ import { ArrowRightIcon, AtSignIcon } from "lucide-react";
 import { type FormEvent, type ReactNode, useCallback } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 
 export interface Cta5Avatar {
   alt: string;
@@ -51,9 +47,7 @@ export function Cta5({
   onSubscribe,
   attribution = (
     <>
-      Written by{" "}
-      <span className="font-medium text-foreground">real humans</span> (we
-      swear).
+      Written by <span className="font-medium text-foreground">real humans</span> (we swear).
     </>
   ),
   avatars = defaultAvatars,
@@ -66,32 +60,23 @@ export function Cta5({
       const email = String(formData.get("email") ?? "");
       onSubscribe?.(email);
     },
-    [onSubscribe]
+    [onSubscribe],
   );
 
   return (
     <MarketingSection className={className}>
       <section className="relative flex flex-col justify-between gap-y-6 px-2 py-8 md:px-4">
         <div className="space-y-1">
-          <h2 className="text-center font-display-heading text-2xl md:text-4xl">
-            {title}
-          </h2>
+          <h2 className="text-center font-display-heading text-2xl md:text-4xl">{title}</h2>
           {description ? (
             <p className="text-balance text-center text-muted-foreground text-sm md:text-base">
               {description}
             </p>
           ) : null}
         </div>
-        <form
-          className="flex items-center justify-center gap-2"
-          onSubmit={handleSubmit}
-        >
+        <form className="flex items-center justify-center gap-2" onSubmit={handleSubmit}>
           <InputGroup className="max-w-[280px] bg-card">
-            <InputGroupInput
-              name="email"
-              placeholder={emailPlaceholder}
-              type="email"
-            />
+            <InputGroupInput name="email" placeholder={emailPlaceholder} type="email" />
             <InputGroupAddon>
               <AtSignIcon data-icon="inline-start" />
             </InputGroupAddon>
@@ -103,19 +88,11 @@ export function Cta5({
         </form>
         {attribution || avatars.length ? (
           <div className="flex items-center justify-center gap-2">
-            {attribution ? (
-              <p className="text-muted-foreground text-sm">{attribution}</p>
-            ) : null}
+            {attribution ? <p className="text-muted-foreground text-sm">{attribution}</p> : null}
             {avatars.length ? (
               <div className="flex -space-x-[0.45rem] *:rounded-full *:ring-2 *:ring-background">
                 {avatars.map((avatar) => (
-                  <img
-                    alt={avatar.alt}
-                    height={24}
-                    key={avatar.src}
-                    src={avatar.src}
-                    width={24}
-                  />
+                  <img alt={avatar.alt} height={24} key={avatar.src} src={avatar.src} width={24} />
                 ))}
               </div>
             ) : null}

@@ -53,7 +53,7 @@ export function Cta6({
                 index % 3 !== 2 && "border-r",
                 index < 6 && "border-b",
                 index === 4 &&
-                  "flex flex-col items-center justify-center gap-4 px-4 py-10 text-center sm:px-8 sm:py-14"
+                  "flex flex-col items-center justify-center gap-4 px-4 py-10 text-center sm:px-8 sm:py-14",
               )}
               key={cellId}
             >
@@ -63,14 +63,10 @@ export function Cta6({
                     <p className="font-medium text-muted-foreground text-xl sm:text-2xl">
                       {eyebrow}
                     </p>
-                    <h2 className="font-heading font-semibold text-2xl sm:text-3xl">
-                      {title}
-                    </h2>
+                    <h2 className="font-heading font-semibold text-2xl sm:text-3xl">{title}</h2>
                   </div>
                   {description ? (
-                    <p className="text-muted-foreground text-sm">
-                      {description}
-                    </p>
+                    <p className="text-muted-foreground text-sm">{description}</p>
                   ) : null}
                   <Button
                     className="h-auto max-w-full gap-2 font-mono text-xs sm:text-sm"
@@ -79,9 +75,7 @@ export function Cta6({
                     variant="outline"
                   >
                     <span className="text-muted-foreground">$</span>
-                    <span className="truncate">
-                      {copied ? "Copied" : (command ?? "")}
-                    </span>
+                    <span className="truncate">{copied ? "Copied" : (command ?? "")}</span>
                   </Button>
                 </>
               ) : null}

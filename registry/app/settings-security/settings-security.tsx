@@ -10,12 +10,7 @@ import { cn } from "@/lib/utils";
 
 export function SecuritySettings({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8", className)}>
       <SectionHeading
         description="Define authentication rules and access boundaries for your workspace."
         title="Security"
@@ -32,10 +27,7 @@ export function SecuritySettings({ className }: { className?: string }) {
             <SettingsSwitch label="Toggle two-factor authentication" />
           </div>
         </SettingsRow>
-        <SettingsRow
-          description="Auto-logout after inactivity period."
-          label="Session timeout"
-        >
+        <SettingsRow description="Auto-logout after inactivity period." label="Session timeout">
           <SelectField
             defaultValue="4 hours"
             items={["1 hour", "4 hours", "8 hours", "Never"]}
@@ -60,10 +52,7 @@ export function SecuritySettings({ className }: { className?: string }) {
           label="Password authentication"
         >
           <div className="flex justify-end">
-            <SettingsSwitch
-              defaultChecked
-              label="Toggle password authentication"
-            />
+            <SettingsSwitch defaultChecked label="Toggle password authentication" />
           </div>
         </SettingsRow>
         <SettingsRow
@@ -87,34 +76,22 @@ export function SecuritySettings({ className }: { className?: string }) {
         description="Control which plan features are available to your workspace."
         title="Access Restrictions"
       >
-        <SettingsRow
-          description="Who can invite new members."
-          label="Member invitations"
-        >
+        <SettingsRow description="Who can invite new members." label="Member invitations">
           <div className="flex justify-end">
             <SettingsTag tone="success">Basic</SettingsTag>
           </div>
         </SettingsRow>
-        <SettingsRow
-          description="Who can create new projects."
-          label="Project creation"
-        >
+        <SettingsRow description="Who can create new projects." label="Project creation">
           <div className="flex justify-end">
             <SettingsTag tone="warning">Business</SettingsTag>
           </div>
         </SettingsRow>
-        <SettingsRow
-          description="Create and assign custom roles."
-          label="Custom roles"
-        >
+        <SettingsRow description="Create and assign custom roles." label="Custom roles">
           <div className="flex justify-end">
             <SettingsTag tone="warning">Business</SettingsTag>
           </div>
         </SettingsRow>
-        <SettingsRow
-          description="View and download workspace activity."
-          label="Audit log access"
-        >
+        <SettingsRow description="View and download workspace activity." label="Audit log access">
           <div className="flex justify-end">
             <SettingsTag tone="accent">Enterprise</SettingsTag>
           </div>

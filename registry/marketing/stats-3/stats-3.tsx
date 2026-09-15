@@ -16,19 +16,14 @@ export interface Stats3Props {
 const defaultTitle = (
   <>
     Building marketing pages that{" "}
-    <strong className="font-semibold text-foreground">
-      already look finished
-    </strong>
+    <strong className="font-semibold text-foreground">already look finished</strong>
   </>
 );
 
 const defaultDescription = (
   <>
     Drop in sections that share one type scale and one border language, so{" "}
-    <strong className="font-medium text-foreground">
-      dark mode is not an afterthought
-    </strong>
-    .
+    <strong className="font-medium text-foreground">dark mode is not an afterthought</strong>.
   </>
 );
 
@@ -36,11 +31,9 @@ const defaultStats: Stats3Item[] = [
   {
     description: (
       <>
-        <strong className="font-medium text-foreground">
-          Ready-to-copy sections
-        </strong>{" "}
-        for heroes, pricing, FAQs, and footers. Compose a landing page without
-        inventing a new layout for every block.
+        <strong className="font-medium text-foreground">Ready-to-copy sections</strong> for heroes,
+        pricing, FAQs, and footers. Compose a landing page without inventing a new layout for every
+        block.
       </>
     ),
     value: "40+",
@@ -48,9 +41,8 @@ const defaultStats: Stats3Item[] = [
   {
     description: (
       <>
-        <strong className="font-medium text-foreground">One token set</strong>{" "}
-        across every section. Change the theme once and the whole marketing
-        surface follows.
+        <strong className="font-medium text-foreground">One token set</strong> across every section.
+        Change the theme once and the whole marketing surface follows.
       </>
     ),
     value: "1",
@@ -72,9 +64,7 @@ export function Stats3({
               {title}
             </h2>
             {description ? (
-              <p className="text-pretty text-lg text-muted-foreground">
-                {description}
-              </p>
+              <p className="text-pretty text-lg text-muted-foreground">{description}</p>
             ) : null}
           </div>
           <ul className="space-y-8">

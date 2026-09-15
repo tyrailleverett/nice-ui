@@ -146,23 +146,15 @@ export interface Dashboard1Props {
 
 export function Dashboard1({ className }: Dashboard1Props) {
   const [query, setQuery] = useState("");
-  const handleQueryChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setQuery(event.target.value);
-    },
-    []
-  );
+  const handleQueryChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  }, []);
   const visibleRows = exceptionRows.filter((row) =>
-    `${row.order} ${row.customer}`.toLowerCase().includes(query.toLowerCase())
+    `${row.order} ${row.customer}`.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-4">
         <header className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
           <Breadcrumb>
@@ -196,31 +188,26 @@ export function Dashboard1({ className }: Dashboard1Props) {
           aria-label="Fulfillment summary"
           className="grid gap-px overflow-hidden rounded-xl bg-border p-px sm:grid-cols-2 xl:grid-cols-4"
         >
-          {headlineStats.map(
-            ({ icon: Icon, eyebrow, title, label, value, delta }) => (
-              <Card
-                className="rounded-none ring-0 first:rounded-t-xl last:rounded-b-xl sm:last:rounded-br-xl sm:last:rounded-bl-none sm:first:rounded-tl-xl sm:first:rounded-tr-none xl:last:rounded-r-xl xl:first:rounded-l-xl"
-                key={title}
-              >
-                <CardHeader className="grid grid-cols-[auto_1fr] items-center gap-x-3">
-                  <span className="row-span-2 grid size-10 place-items-center rounded-lg bg-muted">
-                    <Icon className="size-5" />
-                  </span>
-                  <CardDescription>{eyebrow}</CardDescription>
-                  <CardTitle>{title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col gap-1">
-                  <span className="text-muted-foreground">{label}</span>
-                  <p className="font-semibold text-2xl tracking-tight">
-                    {value}{" "}
-                    <span className="font-medium text-chart-2 text-sm">
-                      {delta}
-                    </span>
-                  </p>
-                </CardContent>
-              </Card>
-            )
-          )}
+          {headlineStats.map(({ icon: Icon, eyebrow, title, label, value, delta }) => (
+            <Card
+              className="rounded-none ring-0 first:rounded-t-xl last:rounded-b-xl sm:last:rounded-br-xl sm:last:rounded-bl-none sm:first:rounded-tl-xl sm:first:rounded-tr-none xl:last:rounded-r-xl xl:first:rounded-l-xl"
+              key={title}
+            >
+              <CardHeader className="grid grid-cols-[auto_1fr] items-center gap-x-3">
+                <span className="row-span-2 grid size-10 place-items-center rounded-lg bg-muted">
+                  <Icon className="size-5" />
+                </span>
+                <CardDescription>{eyebrow}</CardDescription>
+                <CardTitle>{title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-1">
+                <span className="text-muted-foreground">{label}</span>
+                <p className="font-semibold text-2xl tracking-tight">
+                  {value} <span className="font-medium text-chart-2 text-sm">{delta}</span>
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </section>
 
         <section className="grid gap-4 xl:grid-cols-2">
@@ -257,9 +244,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
                   <div className="flex flex-col gap-1" key={label}>
                     <strong className="text-2xl">{value}</strong>
                     <span className="text-muted-foreground">{label}</span>
-                    <span className="font-medium text-chart-2 text-xs">
-                      {delta}
-                    </span>
+                    <span className="font-medium text-chart-2 text-xs">{delta}</span>
                   </div>
                 ))}
               </div>
@@ -277,10 +262,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
                   ["Carrier mix repriced for zone 6", "Review"],
                   ["Inventory hold isolated to 3 SKUs", "Watch"],
                 ].map(([activity, status]) => (
-                  <div
-                    className="flex items-center justify-between gap-3"
-                    key={activity}
-                  >
+                  <div className="flex items-center justify-between gap-3" key={activity}>
                     <span className="text-sm">{activity}</span>
                     <Badge variant="secondary">{status}</Badge>
                   </div>
@@ -308,17 +290,13 @@ export function Dashboard1({ className }: Dashboard1Props) {
             </CardHeader>
             <CardContent className="flex flex-col gap-5">
               <p className="font-semibold text-3xl">
-                86%{" "}
-                <span className="font-medium text-chart-2 text-sm">+5.8%</span>{" "}
-                <span className="font-normal text-muted-foreground text-sm">
-                  vs labor plan
-                </span>
+                86% <span className="font-medium text-chart-2 text-sm">+5.8%</span>{" "}
+                <span className="font-normal text-muted-foreground text-sm">vs labor plan</span>
               </p>
               <Progress className="h-3" value={86} />
               <div className="flex items-center justify-between gap-4">
                 <span className="text-muted-foreground">
-                  Queued Orders:{" "}
-                  <strong className="text-foreground">3,840 orders</strong>
+                  Queued Orders: <strong className="text-foreground">3,840 orders</strong>
                 </span>
                 <div className="flex items-center gap-2">
                   <div className="flex -gap-2">
@@ -352,10 +330,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
               </CardAction>
             </CardHeader>
             <CardContent className="grid items-center gap-4 sm:grid-cols-[180px_1fr]">
-              <ChartContainer
-                className="mx-auto aspect-square h-[170px]"
-                config={decisionConfig}
-              >
+              <ChartContainer className="mx-auto aspect-square h-[170px]" config={decisionConfig}>
                 <PieChart accessibilityLayer>
                   <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                   <Pie
@@ -391,9 +366,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
         <Card>
           <CardHeader>
             <CardTitle>Exception Queue</CardTitle>
-            <CardDescription>
-              {visibleRows.length} active fulfillment records
-            </CardDescription>
+            <CardDescription>{visibleRows.length} active fulfillment records</CardDescription>
             <CardAction>
               <Button>
                 <PlusIcon data-icon="inline-start" />
@@ -403,10 +376,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
           </CardHeader>
           <CardContent className="flex flex-col gap-3 px-0">
             <div className="flex flex-col justify-between gap-2 px-4 sm:flex-row">
-              <Label
-                className="relative max-w-sm flex-1"
-                htmlFor="exception-search"
-              >
+              <Label className="relative max-w-sm flex-1" htmlFor="exception-search">
                 <SearchIcon className="absolute top-1/2 left-2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <span className="sr-only">Search orders</span>
                 <Input
@@ -438,9 +408,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
                   <TableRow key={row.order}>
                     <TableCell className="font-medium">{row.order}</TableCell>
                     <TableCell>{row.customer}</TableCell>
-                    <TableCell className="max-w-40 truncate">
-                      {row.lane}
-                    </TableCell>
+                    <TableCell className="max-w-40 truncate">{row.lane}</TableCell>
                     <TableCell>
                       <div className="flex min-w-32 flex-col gap-1">
                         <span>{row.stage}</span>
@@ -452,11 +420,7 @@ export function Dashboard1({ className }: Dashboard1Props) {
                     </TableCell>
                     <TableCell>{row.value}</TableCell>
                     <TableCell>
-                      <Badge
-                        variant={
-                          row.state === "Blocked" ? "destructive" : "outline"
-                        }
-                      >
+                      <Badge variant={row.state === "Blocked" ? "destructive" : "outline"}>
                         {row.state}
                       </Badge>
                     </TableCell>

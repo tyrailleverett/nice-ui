@@ -1,10 +1,4 @@
-import {
-  EllipsisIcon,
-  PackageIcon,
-  RouteIcon,
-  ShieldAlertIcon,
-  TruckIcon,
-} from "lucide-react";
+import { EllipsisIcon, PackageIcon, RouteIcon, ShieldAlertIcon, TruckIcon } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -112,11 +106,7 @@ export interface Detail1Props {
   onReleaseHold?: () => void;
 }
 
-export function Detail1({
-  className,
-  onChangeLane,
-  onReleaseHold,
-}: Detail1Props) {
+export function Detail1({ className, onChangeLane, onReleaseHold }: Detail1Props) {
   const [filter, setFilter] = useState<ActivityFilter>("all");
   const handleFilter = useCallback((values: string[]) => {
     const [value] = values;
@@ -126,16 +116,11 @@ export function Detail1({
   }, []);
   const visibleActivity = useMemo(
     () => activity.filter((item) => filter === "all" || item.kind === filter),
-    [filter]
+    [filter],
   );
 
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-5">
         <header className="flex flex-col gap-4">
           <Breadcrumb>
@@ -158,16 +143,14 @@ export function Detail1({
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
                 <h1 className="font-heading font-semibold text-title sm:text-3xl">
-                  <span className="font-mono text-[0.92em] tracking-tight">
-                    NSC-84763
-                  </span>
+                  <span className="font-mono text-[0.92em] tracking-tight">NSC-84763</span>
                 </h1>
                 <Badge variant="destructive">Blocked</Badge>
                 <Badge variant="outline">Northline Studio</Badge>
               </div>
               <p className="max-w-2xl text-muted-foreground text-sm sm:text-base">
-                Packing is paused because wrap SKU NL-WRAP-12 is missing from
-                dock B. The same-day promise is still inside cutoff.
+                Packing is paused because wrap SKU NL-WRAP-12 is missing from dock B. The same-day
+                promise is still inside cutoff.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">
@@ -181,13 +164,7 @@ export function Detail1({
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger
-                  render={
-                    <Button
-                      aria-label="More actions"
-                      size="icon"
-                      variant="outline"
-                    />
-                  }
+                  render={<Button aria-label="More actions" size="icon" variant="outline" />}
                 >
                   <EllipsisIcon />
                 </DropdownMenuTrigger>
@@ -195,9 +172,7 @@ export function Detail1({
                   <DropdownMenuGroup>
                     <DropdownMenuItem>Reassign owner</DropdownMenuItem>
                     <DropdownMenuItem>Print dock ticket</DropdownMenuItem>
-                    <DropdownMenuItem variant="destructive">
-                      Cancel order
-                    </DropdownMenuItem>
+                    <DropdownMenuItem variant="destructive">Cancel order</DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -210,13 +185,8 @@ export function Detail1({
           className="grid gap-px overflow-hidden rounded-xl bg-border p-px sm:grid-cols-2 xl:grid-cols-3"
         >
           {facts.map((fact) => (
-            <div
-              className="flex flex-col gap-1 bg-card px-4 py-3"
-              key={fact.label}
-            >
-              <span className="text-muted-foreground text-xs">
-                {fact.label}
-              </span>
+            <div className="flex flex-col gap-1 bg-card px-4 py-3" key={fact.label}>
+              <span className="text-muted-foreground text-xs">{fact.label}</span>
               <span className="font-medium text-sm">{fact.value}</span>
             </div>
           ))}
@@ -227,9 +197,7 @@ export function Detail1({
             <Card>
               <CardHeader className="border-b">
                 <CardTitle>Hold</CardTitle>
-                <CardDescription>
-                  Inventory isolated this carton set at 09:14.
-                </CardDescription>
+                <CardDescription>Inventory isolated this carton set at 09:14.</CardDescription>
                 <CardAction>
                   <Badge variant="secondary">
                     <ShieldAlertIcon data-icon="inline-start" />1 SKU blocking
@@ -250,18 +218,10 @@ export function Detail1({
                       className="grid grid-cols-[1fr_auto] gap-3 border-border border-b py-3 last:border-0 sm:grid-cols-[7rem_1fr_auto_auto]"
                       key={line.sku}
                     >
-                      <span className="font-mono text-muted-foreground text-xs">
-                        {line.bin}
-                      </span>
+                      <span className="font-mono text-muted-foreground text-xs">{line.bin}</span>
                       <span className="font-medium">{line.sku}</span>
-                      <span className="text-muted-foreground text-sm">
-                        {line.units}
-                      </span>
-                      <Badge
-                        variant={
-                          line.status === "Missing" ? "destructive" : "outline"
-                        }
-                      >
+                      <span className="text-muted-foreground text-sm">{line.units}</span>
+                      <Badge variant={line.status === "Missing" ? "destructive" : "outline"}>
                         {line.status}
                       </Badge>
                     </li>
@@ -280,16 +240,15 @@ export function Detail1({
               <CardHeader>
                 <CardTitle>Next move</CardTitle>
                 <CardDescription>
-                  Keep the Seattle promise without releasing an incomplete
-                  pallet.
+                  Keep the Seattle promise without releasing an incomplete pallet.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-3">
                 <div className="flex items-start gap-3 rounded-lg bg-muted/50 p-3">
                   <TruckIcon className="mt-0.5 size-4 text-muted-foreground" />
                   <p className="text-sm">
-                    If wrap stock lands before 13:10, autopilot can finish the
-                    wave. After that, split the carton set and retender zone 6.
+                    If wrap stock lands before 13:10, autopilot can finish the wave. After that,
+                    split the carton set and retender zone 6.
                   </p>
                 </div>
               </CardContent>
@@ -322,23 +281,15 @@ export function Detail1({
               {visibleActivity.map((item, index) => (
                 <article className="flex gap-3 px-4 py-4" key={item.id}>
                   <Avatar className="size-8">
-                    <AvatarFallback className="text-xs">
-                      {item.initials}
-                    </AvatarFallback>
+                    <AvatarFallback className="text-xs">{item.initials}</AvatarFallback>
                   </Avatar>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-baseline justify-between gap-2">
                       <h2 className="font-medium text-sm">{item.name}</h2>
-                      <time className="shrink-0 text-muted-foreground text-xs">
-                        {item.time}
-                      </time>
+                      <time className="shrink-0 text-muted-foreground text-xs">{item.time}</time>
                     </div>
-                    <p className="mt-1 text-muted-foreground text-sm">
-                      {item.body}
-                    </p>
-                    {index < visibleActivity.length - 1 ? (
-                      <Separator className="mt-4" />
-                    ) : null}
+                    <p className="mt-1 text-muted-foreground text-sm">{item.body}</p>
+                    {index < visibleActivity.length - 1 ? <Separator className="mt-4" /> : null}
                   </div>
                 </article>
               ))}

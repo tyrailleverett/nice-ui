@@ -84,20 +84,12 @@ export function TermsOfService1({
               <h1 className="font-display-heading text-4xl text-primary leading-tight tracking-tight md:text-5xl">
                 {title}
               </h1>
-              <p className="mt-4 text-muted-foreground text-sm">
-                Last updated {effectiveDate}
-              </p>
-              <p className="mt-8 text-base text-muted-foreground leading-7">
-                {intro}
-              </p>
+              <p className="mt-4 text-muted-foreground text-sm">Last updated {effectiveDate}</p>
+              <p className="mt-8 text-base text-muted-foreground leading-7">{intro}</p>
             </header>
             <div className="space-y-10 pt-10">
               {sections.map((section) => (
-                <section
-                  className="scroll-mt-8"
-                  id={section.id}
-                  key={section.id}
-                >
+                <section className="scroll-mt-8" id={section.id} key={section.id}>
                   <h2 className="font-semibold text-foreground text-xl tracking-tight">
                     {section.title}
                   </h2>
@@ -111,10 +103,7 @@ export function TermsOfService1({
             </div>
             <footer className="mt-12 border-border border-t pt-6 text-muted-foreground text-sm">
               Questions?{" "}
-              <a
-                className="text-foreground underline underline-offset-4"
-                href={contactHref}
-              >
+              <a className="text-foreground underline underline-offset-4" href={contactHref}>
                 Contact legal
               </a>
               .
@@ -144,15 +133,11 @@ export function TermsOfService1({
             <dl className="mx-auto mt-10 grid max-w-3xl border-border border-y py-5 text-center text-sm sm:grid-cols-3">
               <div className="border-border sm:border-r">
                 <dt className="text-muted-foreground">Effective date</dt>
-                <dd className="mt-1 font-medium text-foreground">
-                  {effectiveDate}
-                </dd>
+                <dd className="mt-1 font-medium text-foreground">{effectiveDate}</dd>
               </div>
               <div className="mt-4 border-border sm:mt-0 sm:border-r">
                 <dt className="text-muted-foreground">Applies to</dt>
-                <dd className="mt-1 font-medium text-foreground">
-                  {companyName}
-                </dd>
+                <dd className="mt-1 font-medium text-foreground">{companyName}</dd>
               </div>
               <div className="mt-4 sm:mt-0">
                 <dt className="text-muted-foreground">Questions</dt>
@@ -215,10 +200,7 @@ export function TermsOfService1({
                 <ol className="space-y-2 text-primary-foreground/60 text-sm">
                   {sections.map((section, index) => (
                     <li key={section.id}>
-                      <a
-                        className="hover:text-primary-foreground"
-                        href={`#${section.id}`}
-                      >
+                      <a className="hover:text-primary-foreground" href={`#${section.id}`}>
                         <span className="mr-3 font-mono text-xs">
                           {String(index + 1).padStart(2, "0")}
                         </span>
@@ -291,21 +273,15 @@ export function TermsOfService1({
             <h1 className="font-display-heading text-4xl text-primary leading-[1.05] tracking-tight md:text-6xl">
               {title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              {intro}
-            </p>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">{intro}</p>
             <dl className="mt-8 grid gap-5 text-sm sm:grid-cols-3">
               <div>
                 <dt className="text-muted-foreground">Effective date</dt>
-                <dd className="mt-1 font-medium text-foreground">
-                  {effectiveDate}
-                </dd>
+                <dd className="mt-1 font-medium text-foreground">{effectiveDate}</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Applies to</dt>
-                <dd className="mt-1 font-medium text-foreground">
-                  {companyName}
-                </dd>
+                <dd className="mt-1 font-medium text-foreground">{companyName}</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Questions</dt>
@@ -326,16 +302,11 @@ export function TermsOfService1({
               aria-label="Terms of Service contents"
               className="lg:sticky lg:top-8 lg:self-start"
             >
-              <p className="mb-4 font-medium text-foreground text-sm">
-                On this page
-              </p>
+              <p className="mb-4 font-medium text-foreground text-sm">On this page</p>
               <ol className="space-y-3 border-border border-l pl-4 text-muted-foreground text-sm">
                 {sections.map((section) => (
                   <li key={section.id}>
-                    <a
-                      className="hover:text-foreground"
-                      href={`#${section.id}`}
-                    >
+                    <a className="hover:text-foreground" href={`#${section.id}`}>
                       {section.title}
                     </a>
                   </li>
@@ -345,11 +316,7 @@ export function TermsOfService1({
 
             <div className="space-y-12">
               {sections.map((section) => (
-                <section
-                  className="scroll-mt-8"
-                  id={section.id}
-                  key={section.id}
-                >
+                <section className="scroll-mt-8" id={section.id} key={section.id}>
                   <h2 className="font-semibold text-foreground text-xl tracking-tight">
                     {section.title}
                   </h2>

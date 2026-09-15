@@ -10,18 +10,8 @@ import {
   Trash2Icon,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import {
-  FormHeading,
-  FormPage,
-  StatusBadge,
-  type StatusTone,
-} from "@/components/app/forms-shared";
-import {
-  Alert,
-  AlertAction,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert";
+import { FormHeading, FormPage, StatusBadge, type StatusTone } from "@/components/app/forms-shared";
+import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -131,9 +121,7 @@ export function Form3({ className }: Form3Props) {
   const secret = keys.find((key) => key.id === "sk-live");
 
   const envLines = useMemo(() => {
-    const pub = publishable
-      ? formatKey(publishable, true)
-      : "pk_live_unavailable";
+    const pub = publishable ? formatKey(publishable, true) : "pk_live_unavailable";
     const sec = secret
       ? `${secret.prefix}_${maskSecret(secret.secret, false)}`
       : "sk_live_unavailable";
@@ -189,9 +177,7 @@ export function Form3({ className }: Form3Props) {
       <Card>
         <CardHeader>
           <CardTitle>Quick Copy</CardTitle>
-          <CardDescription>
-            Choose a stack and paste the environment block.
-          </CardDescription>
+          <CardDescription>Choose a stack and paste the environment block.</CardDescription>
           <CardAction className="flex items-center gap-2">
             <Select
               items={STACKS.map((option) => ({
@@ -235,9 +221,7 @@ export function Form3({ className }: Form3Props) {
               const [name, value] = line.split("=");
               return (
                 <li className="flex gap-4" key={name}>
-                  <span className="w-4 text-right text-muted-foreground">
-                    {index + 1}
-                  </span>
+                  <span className="w-4 text-right text-muted-foreground">{index + 1}</span>
                   <span>
                     <span className="text-primary">{name}</span>
                     <span className="text-muted-foreground">=</span>
@@ -253,9 +237,7 @@ export function Form3({ className }: Form3Props) {
       <Card>
         <CardHeader>
           <CardTitle>Keys</CardTitle>
-          <CardDescription>
-            Copy, reveal, rotate, or revoke workspace keys.
-          </CardDescription>
+          <CardDescription>Copy, reveal, rotate, or revoke workspace keys.</CardDescription>
           <CardAction>
             <Button type="button" variant="outline">
               <PlusIcon data-icon="inline-start" />
@@ -275,9 +257,7 @@ export function Form3({ className }: Form3Props) {
                   <div className="flex min-w-0 flex-col gap-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="font-medium">{key.name}</p>
-                      <StatusBadge tone={statusTone[key.status]}>
-                        {key.status}
-                      </StatusBadge>
+                      <StatusBadge tone={statusTone[key.status]}>{key.status}</StatusBadge>
                     </div>
                     <p className="text-muted-foreground text-sm">{key.meta}</p>
                   </div>
@@ -285,16 +265,14 @@ export function Form3({ className }: Form3Props) {
                     <div className="flex flex-wrap items-center gap-2">
                       <code
                         className={cn(
-                          "rounded-md bg-muted px-2 py-1 font-mono text-xs ring-1 ring-foreground/10"
+                          "rounded-md bg-muted px-2 py-1 font-mono text-xs ring-1 ring-foreground/10",
                         )}
                       >
                         {display}
                       </code>
                       <Button
                         aria-label={`Copy ${key.name}`}
-                        onClick={() =>
-                          copyText(key.id, `${key.prefix}_${key.secret}`)
-                        }
+                        onClick={() => copyText(key.id, `${key.prefix}_${key.secret}`)}
                         size="icon-sm"
                         type="button"
                         variant="ghost"
@@ -303,16 +281,12 @@ export function Form3({ className }: Form3Props) {
                       </Button>
                       {key.revealable ? (
                         <Button
-                          aria-label={
-                            isRevealed
-                              ? `Hide ${key.name}`
-                              : `Reveal ${key.name}`
-                          }
+                          aria-label={isRevealed ? `Hide ${key.name}` : `Reveal ${key.name}`}
                           onClick={() =>
                             setRevealed((current) =>
                               current.includes(key.id)
                                 ? current.filter((id) => id !== key.id)
-                                : [...current, key.id]
+                                : [...current, key.id],
                             )
                           }
                           size="icon-sm"
@@ -327,10 +301,8 @@ export function Form3({ className }: Form3Props) {
                         onClick={() =>
                           setKeys((current) =>
                             current.map((item) =>
-                              item.id === key.id
-                                ? { ...item, status: "Rotating" }
-                                : item
-                            )
+                              item.id === key.id ? { ...item, status: "Rotating" } : item,
+                            ),
                           )
                         }
                         size="icon-sm"
@@ -342,9 +314,7 @@ export function Form3({ className }: Form3Props) {
                       <Button
                         aria-label={`Revoke ${key.name}`}
                         onClick={() =>
-                          setKeys((current) =>
-                            current.filter((item) => item.id !== key.id)
-                          )
+                          setKeys((current) => current.filter((item) => item.id !== key.id))
                         }
                         size="icon-sm"
                         type="button"
@@ -369,16 +339,10 @@ export function Form3({ className }: Form3Props) {
           <ShieldAlertIcon />
           <AlertTitle>Keep secret keys server-side</AlertTitle>
           <AlertDescription>
-            Rotate immediately if a key appears in client code, logs, or shared
-            screenshots.
+            Rotate immediately if a key appears in client code, logs, or shared screenshots.
           </AlertDescription>
           <AlertAction>
-            <Button
-              onClick={() => setShowAlert(false)}
-              size="sm"
-              type="button"
-              variant="ghost"
-            >
+            <Button onClick={() => setShowAlert(false)} size="sm" type="button" variant="ghost">
               Dismiss
             </Button>
           </AlertAction>

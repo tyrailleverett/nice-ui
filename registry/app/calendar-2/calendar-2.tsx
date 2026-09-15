@@ -111,9 +111,7 @@ const EVENTS: AgendaEvent[] = [
   },
 ];
 
-function markersFromEvents(
-  events: AgendaEvent[]
-): Record<string, CalendarCategory[]> {
+function markersFromEvents(events: AgendaEvent[]): Record<string, CalendarCategory[]> {
   const markers: Record<string, CalendarCategory[]> = {};
   for (const event of events) {
     const current = markers[event.date] ?? [];
@@ -157,12 +155,7 @@ export function Calendar2({ className }: Calendar2Props) {
           <h2 className="font-heading font-semibold">
             {formatMonthDay(selected)}, {selected.getFullYear()}
           </h2>
-          <Button
-            aria-label="Add event"
-            size="icon-sm"
-            type="button"
-            variant="ghost"
-          >
+          <Button aria-label="Add event" size="icon-sm" type="button" variant="ghost">
             <PlusIcon />
           </Button>
         </div>
@@ -201,14 +194,11 @@ export function Calendar2({ className }: Calendar2Props) {
             events.map((event) => (
               <article
                 className={cn(
-                  "flex items-center gap-3 overflow-hidden rounded-xl ring-1 ring-foreground/10"
+                  "flex items-center gap-3 overflow-hidden rounded-xl ring-1 ring-foreground/10",
                 )}
                 key={event.id}
               >
-                <span
-                  className="w-1.5 self-stretch"
-                  data-calendar-cat={event.category}
-                />
+                <span className="w-1.5 self-stretch" data-calendar-cat={event.category} />
                 <div className="flex min-w-0 flex-1 items-center justify-between gap-3 py-3 pr-3">
                   <div className="min-w-0">
                     <p className="truncate font-medium">{event.title}</p>

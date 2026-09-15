@@ -1,9 +1,4 @@
-import {
-  LayoutTemplateIcon,
-  PaletteIcon,
-  ShieldCheckIcon,
-  ZapIcon,
-} from "lucide-react";
+import { LayoutTemplateIcon, PaletteIcon, ShieldCheckIcon, ZapIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
@@ -59,13 +54,9 @@ export function Bento1({
       <section className="bg-background py-16 text-foreground md:py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-              {title}
-            </h2>
+            <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
             {description ? (
-              <p className="mt-4 text-pretty text-muted-foreground">
-                {description}
-              </p>
+              <p className="mt-4 text-pretty text-muted-foreground">{description}</p>
             ) : null}
           </div>
 
@@ -76,19 +67,13 @@ export function Bento1({
                   "flex flex-col gap-3 bg-card p-8",
                   index % 2 === 0 ? "md:border-r" : null,
                   index < items.length - 2 ? "border-b" : null,
-                  index === items.length - 2 ? "border-b md:border-b-0" : null
+                  index === items.length - 2 ? "border-b md:border-b-0" : null,
                 )}
                 key={item.title}
               >
-                <span className="text-muted-foreground [&_svg]:size-5">
-                  {item.icon}
-                </span>
-                <h3 className="font-heading font-semibold text-title-md">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {item.description}
-                </p>
+                <span className="text-muted-foreground [&_svg]:size-5">{item.icon}</span>
+                <h3 className="font-heading font-semibold text-title-md">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
               </li>
             ))}
           </ul>

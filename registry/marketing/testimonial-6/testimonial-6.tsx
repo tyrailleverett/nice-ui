@@ -35,8 +35,7 @@ const defaultTestimonials: Testimonial6Item[] = [
   {
     company: "Relay",
     name: "Priya Shah",
-    quote:
-      "Nice UI made the handoff between design and engineering refreshingly uneventful.",
+    quote: "Nice UI made the handoff between design and engineering refreshingly uneventful.",
     role: "Engineering lead",
   },
   {
@@ -75,9 +74,7 @@ export function Testimonial6({
             Customer notes
           </p>
           <h2 className="font-display-heading text-3xl sm:text-4xl">{title}</h2>
-          <p className="text-muted-foreground text-sm leading-6">
-            {description}
-          </p>
+          <p className="text-muted-foreground text-sm leading-6">{description}</p>
         </header>
         <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((item) => (
@@ -85,22 +82,12 @@ export function Testimonial6({
               className="flex min-h-56 flex-col justify-between gap-8 bg-background p-5"
               key={item.name}
             >
-              <QuoteIcon
-                aria-hidden="true"
-                className="size-6 text-muted-foreground"
-              />
-              <blockquote className="text-sm leading-6">
-                {item.quote}
-              </blockquote>
+              <QuoteIcon aria-hidden="true" className="size-6 text-muted-foreground" />
+              <blockquote className="text-sm leading-6">{item.quote}</blockquote>
               <figcaption className="flex items-center gap-3">
                 <Avatar className="size-8">
-                  <AvatarImage
-                    alt={`${item.name}'s profile`}
-                    src={item.image}
-                  />
-                  <AvatarFallback>
-                    {item.name.slice(0, 2).toUpperCase()}
-                  </AvatarFallback>
+                  <AvatarImage alt={`${item.name}'s profile`} src={item.image} />
+                  <AvatarFallback>{item.name.slice(0, 2).toUpperCase()}</AvatarFallback>
                 </Avatar>
                 <div>
                   <cite className="block text-sm not-italic">{item.name}</cite>

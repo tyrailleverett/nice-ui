@@ -99,7 +99,7 @@ export function Notification5({
         }
         return true;
       }),
-    [activeFilter, items]
+    [activeFilter, items],
   );
   const groupedItems = useMemo(() => {
     const groups = new Map<NotificationGroup, NotificationItem[]>();
@@ -111,34 +111,22 @@ export function Notification5({
     return groups;
   }, [visibleItems]);
   const markAllRead = useCallback(
-    () =>
-      setItems((current) =>
-        current.map((item) => ({ ...item, unread: false }))
-      ),
-    []
+    () => setItems((current) => current.map((item) => ({ ...item, unread: false }))),
+    [],
   );
   const markRead = useCallback(
     (id: string) =>
       setItems((current) =>
-        current.map((item) =>
-          item.id === id ? { ...item, unread: false } : item
-        )
+        current.map((item) => (item.id === id ? { ...item, unread: false } : item)),
       ),
-    []
+    [],
   );
-  const handleFilterChange = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      const nextFilter = event.currentTarget.dataset.filter;
-      if (
-        nextFilter === "all" ||
-        nextFilter === "unread" ||
-        nextFilter === "mentions"
-      ) {
-        setActiveFilter(nextFilter);
-      }
-    },
-    []
-  );
+  const handleFilterChange = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    const nextFilter = event.currentTarget.dataset.filter;
+    if (nextFilter === "all" || nextFilter === "unread" || nextFilter === "mentions") {
+      setActiveFilter(nextFilter);
+    }
+  }, []);
   const handleMarkRead = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       const { notificationId } = event.currentTarget.dataset;
@@ -146,13 +134,11 @@ export function Notification5({
         markRead(notificationId);
       }
     },
-    [markRead]
+    [markRead],
   );
 
   return (
-    <main
-      className={cn("min-h-screen bg-muted/20 px-4 py-8 sm:px-6", className)}
-    >
+    <main className={cn("min-h-screen bg-muted/20 px-4 py-8 sm:px-6", className)}>
       <section
         aria-label="Notification center"
         className="mx-auto w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-background text-foreground shadow-sm"
@@ -162,12 +148,8 @@ export function Notification5({
             <BellIcon aria-hidden="true" className="size-4" />
           </span>
           <div className="min-w-0 flex-1">
-            <h1 className="font-semibold text-lg tracking-tight">
-              Notifications
-            </h1>
-            <p className="mt-1 text-muted-foreground text-sm">
-              Updates from your workspace
-            </p>
+            <h1 className="font-semibold text-lg tracking-tight">Notifications</h1>
+            <p className="mt-1 text-muted-foreground text-sm">Updates from your workspace</p>
           </div>
           <Badge
             aria-label={`${unreadCount} unread notifications`}
@@ -212,24 +194,17 @@ export function Notification5({
         {visibleItems.length === 0 ? (
           <div className="flex min-h-64 flex-col items-center justify-center px-6 py-16 text-center">
             <span className="flex size-11 items-center justify-center rounded-full bg-muted">
-              <BellIcon
-                aria-hidden="true"
-                className="size-5 text-muted-foreground"
-              />
+              <BellIcon aria-hidden="true" className="size-5 text-muted-foreground" />
             </span>
             <h2 className="mt-4 font-medium text-base">You’re all caught up</h2>
             <p className="mt-1 max-w-xs text-muted-foreground text-sm">
-              No notifications match this filter. New activity will show up
-              here.
+              No notifications match this filter. New activity will show up here.
             </p>
           </div>
         ) : (
           <div>
             {[...groupedItems.entries()].map(([group, groupItems]) => (
-              <section
-                aria-labelledby={`notification-group-${group}`}
-                key={group}
-              >
+              <section aria-labelledby={`notification-group-${group}`} key={group}>
                 <h2
                   className="border-border border-b bg-muted/30 px-5 py-2.5 font-medium text-muted-foreground text-xs uppercase tracking-wider sm:px-6"
                   id={`notification-group-${group}`}
@@ -242,22 +217,17 @@ export function Notification5({
                     <article
                       className={cn(
                         "group flex gap-3 border-border border-b px-5 py-4 transition-colors last:border-0 hover:bg-muted/30 sm:px-6",
-                        item.unread && "bg-primary/[0.03]"
+                        item.unread && "bg-primary/[0.03]",
                       )}
                       key={item.id}
                     >
                       <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-muted">
-                        <Icon
-                          aria-hidden="true"
-                          className="size-4 text-muted-foreground"
-                        />
+                        <Icon aria-hidden="true" className="size-4 text-muted-foreground" />
                       </span>
                       <div className="min-w-0 flex-1">
                         <p className="text-sm leading-5">
                           <strong className="font-medium">{item.actor}</strong>{" "}
-                          <span className="text-muted-foreground">
-                            {item.message}
-                          </span>
+                          <span className="text-muted-foreground">{item.message}</span>
                         </p>
                         <time className="mt-1 block text-muted-foreground text-xs">
                           {item.time}

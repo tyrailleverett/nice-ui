@@ -85,8 +85,8 @@ export function FileUpload5({
               ...file,
               progress: 0,
               status: "uploading",
-            }
-        )
+            },
+        ),
       );
       onFilesChange?.(next);
     },
@@ -103,16 +103,13 @@ export function FileUpload5({
             if (file.status !== "uploading") {
               return file;
             }
-            const progress = Math.min(
-              100,
-              file.progress + Math.random() * 15 + 5
-            );
+            const progress = Math.min(100, file.progress + Math.random() * 15 + 5);
             return progress >= 100
               ? { ...file, progress: 100, status: "completed" }
               : { ...file, progress };
-          })
+          }),
         ),
-      500
+      500,
     );
     return () => window.clearInterval(interval);
   }, [simulateUpload]);
@@ -120,10 +117,8 @@ export function FileUpload5({
   const retryUpload = (id: string) =>
     setUploadFiles((current) =>
       current.map((file) =>
-        file.id === id
-          ? { ...file, error: undefined, progress: 0, status: "uploading" }
-          : file
-      )
+        file.id === id ? { ...file, error: undefined, progress: 0, status: "uploading" } : file,
+      ),
     );
   const iconFor = (file: File | FileMetadata) => {
     const { type } = file;
@@ -144,13 +139,9 @@ export function FileUpload5({
     }
     return <FileTextIcon />;
   };
-  const completed = uploadFiles.filter(
-    (file) => file.status === "completed"
-  ).length;
+  const completed = uploadFiles.filter((file) => file.status === "completed").length;
   const failed = uploadFiles.filter((file) => file.status === "error").length;
-  const uploading = uploadFiles.filter(
-    (file) => file.status === "uploading"
-  ).length;
+  const uploading = uploadFiles.filter((file) => file.status === "uploading").length;
 
   return (
     <div className={cn("w-full max-w-2xl", className)}>
@@ -160,7 +151,7 @@ export function FileUpload5({
           "rounded-lg border border-dashed p-8 text-center transition-colors",
           isDragging
             ? "border-primary bg-primary/5"
-            : "border-muted-foreground/25 hover:border-muted-foreground/50"
+            : "border-muted-foreground/25 hover:border-muted-foreground/50",
         )}
         onDragEnter={actions.handleDragEnter}
         onDragLeave={actions.handleDragLeave}
@@ -172,12 +163,10 @@ export function FileUpload5({
           <div
             className={cn(
               "flex size-16 items-center justify-center rounded-full",
-              isDragging ? "bg-primary/10" : "bg-muted"
+              isDragging ? "bg-primary/10" : "bg-muted",
             )}
           >
-            <UploadIcon
-              className={isDragging ? "text-primary" : "text-muted-foreground"}
-            />
+            <UploadIcon className={isDragging ? "text-primary" : "text-muted-foreground"} />
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="font-semibold text-lg">Upload your files</h3>
@@ -200,15 +189,9 @@ export function FileUpload5({
             <div className="flex items-center gap-2">
               <h4 className="font-medium text-sm">Upload progress</h4>
               <div className="flex items-center gap-2">
-                {completed > 0 && (
-                  <Badge variant="secondary">Completed: {completed}</Badge>
-                )}
-                {failed > 0 && (
-                  <Badge variant="destructive">Failed: {failed}</Badge>
-                )}
-                {uploading > 0 && (
-                  <Badge variant="outline">Uploading: {uploading}</Badge>
-                )}
+                {completed > 0 && <Badge variant="secondary">Completed: {completed}</Badge>}
+                {failed > 0 && <Badge variant="destructive">Failed: {failed}</Badge>}
+                {uploading > 0 && <Badge variant="outline">Uploading: {uploading}</Badge>}
               </div>
             </div>
             <Button onClick={actions.clearFiles} size="sm" variant="outline">
@@ -217,10 +200,7 @@ export function FileUpload5({
           </div>
           <div className="mt-4 flex flex-col gap-3">
             {uploadFiles.map((file) => (
-              <div
-                className="rounded-lg border border-border bg-card p-3"
-                key={file.id}
-              >
+              <div className="rounded-lg border border-border bg-card p-3" key={file.id}>
                 <div className="flex items-start gap-2.5">
                   <div className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border">
                     {file.preview && file.file.type.startsWith("image/") ? (
@@ -248,7 +228,7 @@ export function FileUpload5({
                         className="size-6 shrink-0"
                         onClick={() => {
                           setUploadFiles((current) =>
-                            current.filter((item) => item.id !== file.id)
+                            current.filter((item) => item.id !== file.id),
                           );
                           actions.removeFile(file.id);
                         }}

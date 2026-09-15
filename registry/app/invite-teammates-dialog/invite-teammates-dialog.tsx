@@ -1,8 +1,4 @@
-import {
-  DialogFrame,
-  type DialogProps,
-  Footer,
-} from "@/components/app/dialogs-shared";
+import { DialogFrame, type DialogProps, Footer } from "@/components/app/dialogs-shared";
 import { Dialog } from "@/components/ui/dialog";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";

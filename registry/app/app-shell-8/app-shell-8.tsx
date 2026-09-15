@@ -36,11 +36,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
@@ -114,11 +110,7 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
     <DropdownMenu defaultOpen={defaultOpen}>
       <DropdownMenuTrigger
         render={
-          <Button
-            aria-label="Open user menu"
-            className="h-10 gap-2 px-1.5"
-            variant="ghost"
-          />
+          <Button aria-label="Open user menu" className="h-10 gap-2 px-1.5" variant="ghost" />
         }
       >
         <Avatar className="rounded-md after:rounded-md">
@@ -160,21 +152,15 @@ export interface AppShell8Props {
   defaultUserMenuOpen?: boolean;
 }
 
-export function AppShell8({
-  children,
-  defaultUserMenuOpen = false,
-}: AppShell8Props) {
+export function AppShell8({ children, defaultUserMenuOpen = false }: AppShell8Props) {
   const [activeItem, setActiveItem] = useState("Booking");
 
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-svh flex-col bg-background text-foreground">
@@ -203,12 +189,7 @@ export function AppShell8({
             <Button aria-label="Bay activity" size="icon" variant="ghost">
               <ActivityIcon />
             </Button>
-            <Button
-              aria-label="Notifications"
-              className="relative"
-              size="icon"
-              variant="ghost"
-            >
+            <Button aria-label="Notifications" className="relative" size="icon" variant="ghost">
               <BellIcon />
               <span className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-destructive" />
             </Button>

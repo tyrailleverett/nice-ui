@@ -10,13 +10,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Empty,
   EmptyContent,
@@ -40,18 +34,9 @@ export interface Error2Props {
   onSwitchWorkspace?: () => void;
 }
 
-export function Error2({
-  className,
-  onRequestAccess,
-  onSwitchWorkspace,
-}: Error2Props) {
+export function Error2({ className, onRequestAccess, onSwitchWorkspace }: Error2Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1100px] flex-col gap-5">
         <Breadcrumb>
           <BreadcrumbList>
@@ -76,8 +61,7 @@ export function Error2({
             <Badge variant="outline">Northline Studio</Badge>
           </div>
           <p className="text-muted-foreground text-sm">
-            You can see this order exists. Packing notes and hold details are
-            limited to dock leads.
+            You can see this order exists. Packing notes and hold details are limited to dock leads.
           </p>
         </header>
 
@@ -86,13 +70,8 @@ export function Error2({
           className="grid gap-px overflow-hidden rounded-xl bg-border p-px sm:grid-cols-3"
         >
           {visibleFacts.map((fact) => (
-            <div
-              className="flex flex-col gap-1 bg-card px-4 py-3"
-              key={fact.label}
-            >
-              <span className="text-muted-foreground text-xs">
-                {fact.label}
-              </span>
+            <div className="flex flex-col gap-1 bg-card px-4 py-3" key={fact.label}>
+              <span className="text-muted-foreground text-xs">{fact.label}</span>
               <span className="font-medium text-sm">{fact.value}</span>
             </div>
           ))}
@@ -104,12 +83,9 @@ export function Error2({
               <EmptyMedia variant="icon">
                 <LockIcon />
               </EmptyMedia>
-              <EmptyTitle className="text-lg">
-                Hold details are locked
-              </EmptyTitle>
+              <EmptyTitle className="text-lg">Hold details are locked</EmptyTitle>
               <EmptyDescription>
-                Request dock-lead access to see the missing SKU, recount, and
-                release actions.
+                Request dock-lead access to see the missing SKU, recount, and release actions.
               </EmptyDescription>
             </EmptyHeader>
             <EmptyContent>
@@ -118,11 +94,7 @@ export function Error2({
                   <UserRoundPlusIcon data-icon="inline-start" />
                   Request access
                 </Button>
-                <Button
-                  onClick={onSwitchWorkspace}
-                  type="button"
-                  variant="outline"
-                >
+                <Button onClick={onSwitchWorkspace} type="button" variant="outline">
                   Switch workspace
                 </Button>
               </div>

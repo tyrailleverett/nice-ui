@@ -25,12 +25,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 const DURATION_OPTIONS = ["15 min", "30 min", "45 min", "1 hour"] as const;
-const RECURRENCE_OPTIONS = [
-  "Does not repeat",
-  "Every day",
-  "Every week",
-  "Every month",
-] as const;
+const RECURRENCE_OPTIONS = ["Does not repeat", "Every day", "Every week", "Every month"] as const;
 
 export interface Calendar1Props {
   className?: string;
@@ -50,9 +45,7 @@ export function Calendar1({ className }: Calendar1Props) {
     <CalendarShell className={cn("max-w-3xl", className)}>
       <div className="flex flex-col gap-5 p-6">
         <div className="flex flex-col gap-1">
-          <h2 className="font-heading font-semibold text-xl">
-            Schedule Meeting
-          </h2>
+          <h2 className="font-heading font-semibold text-xl">Schedule Meeting</h2>
           <p className="text-muted-foreground text-sm">America/Chicago</p>
         </div>
         <div className="grid gap-5 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
@@ -134,32 +127,21 @@ export function Calendar1({ className }: Calendar1Props) {
           </Field>
           <Field>
             <FieldLabel htmlFor="meeting-description">Description</FieldLabel>
-            <Textarea
-              id="meeting-description"
-              placeholder="Add agenda or notes..."
-            />
+            <Textarea id="meeting-description" placeholder="Add agenda or notes..." />
           </Field>
           <Field orientation="horizontal">
             <FieldLabel className="[&_svg]:size-4" htmlFor="waiting-room">
               <ShieldIcon />
               Waiting room
             </FieldLabel>
-            <Switch
-              checked={waitingRoom}
-              id="waiting-room"
-              onCheckedChange={setWaitingRoom}
-            />
+            <Switch checked={waitingRoom} id="waiting-room" onCheckedChange={setWaitingRoom} />
           </Field>
           <Field orientation="horizontal">
             <FieldLabel className="[&_svg]:size-4" htmlFor="auto-record">
               <CircleDotIcon />
               Auto-record
             </FieldLabel>
-            <Switch
-              checked={autoRecord}
-              id="auto-record"
-              onCheckedChange={setAutoRecord}
-            />
+            <Switch checked={autoRecord} id="auto-record" onCheckedChange={setAutoRecord} />
           </Field>
         </FieldGroup>
         <div className="grid grid-cols-2 gap-3">

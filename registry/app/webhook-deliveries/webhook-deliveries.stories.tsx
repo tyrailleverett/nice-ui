@@ -14,17 +14,13 @@ type Story = StoryObj<typeof meta>;
 export const IncidentConsole: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(
-      canvas.getByRole("button", { name: "Inspect customer.updated, Success" })
+      canvas.getByRole("button", { name: "Inspect customer.updated, Success" }),
     );
-    await expect(
-      canvas.getByRole("heading", { name: "customer.updated" })
-    ).toBeVisible();
+    await expect(canvas.getByRole("heading", { name: "customer.updated" })).toBeVisible();
 
     await userEvent.click(canvas.getByRole("button", { name: "Failed" }));
     await expect(canvas.getByText("invoice.payment_failed")).toBeVisible();
-    await expect(
-      canvas.queryByText("customer.updated")
-    ).not.toBeInTheDocument();
+    await expect(canvas.queryByText("customer.updated")).not.toBeInTheDocument();
   },
   render: () => <WebhookDeliveries />,
 };

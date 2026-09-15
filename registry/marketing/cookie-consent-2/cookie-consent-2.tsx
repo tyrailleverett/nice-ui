@@ -58,15 +58,13 @@ export function CookieConsent2({
       aria-labelledby="cookie-consent-2-title"
       className={cn(
         "fixed bottom-4 left-4 z-50 w-full max-w-sm rounded-4xl border bg-card p-5 shadow-sm dark:bg-card/50",
-        className
+        className,
       )}
+      // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- custom dialog without native <dialog> behavior
       role="dialog"
     >
       <div className="flex items-center gap-2">
-        <ShieldCheckIcon
-          aria-hidden="true"
-          className="size-5 text-foreground"
-        />
+        <ShieldCheckIcon aria-hidden="true" className="size-5 text-foreground" />
         <h2
           className="font-heading font-semibold text-foreground text-sm"
           id="cookie-consent-2-title"
@@ -74,10 +72,7 @@ export function CookieConsent2({
           {title}
         </h2>
       </div>
-      <p
-        className="mt-2 text-muted-foreground text-sm"
-        id="cookie-consent-2-description"
-      >
+      <p className="mt-2 text-muted-foreground text-sm" id="cookie-consent-2-description">
         {description}
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-2">

@@ -8,14 +8,8 @@ export default {
 
 export const PrivacyPolicy: StoryFn = () => <PrivacyPolicy1Block />;
 
-export const PrivacyPolicyStandard: StoryFn = () => (
-  <PrivacyPolicy1Block variant="standard" />
-);
+export const PrivacyPolicyStandard: StoryFn = () => <PrivacyPolicy1Block variant="standard" />;
 
-export const PrivacyPolicySectionGrid: StoryFn = () => (
-  <PrivacyPolicy1Block variant="compact" />
-);
+export const PrivacyPolicySectionGrid: StoryFn = () => <PrivacyPolicy1Block variant="compact" />;
 
-export const PrivacyPolicyFramedRail: StoryFn = () => (
-  <PrivacyPolicy1Block variant="wide" />
-);
+export const PrivacyPolicyFramedRail: StoryFn = () => <PrivacyPolicy1Block variant="wide" />;

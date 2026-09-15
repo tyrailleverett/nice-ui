@@ -24,31 +24,20 @@ export interface Error5Props {
   onRetry?: () => void;
 }
 
-export function Error5({
-  className,
-  lastSynced = "2 minutes ago",
-  onRetry,
-}: Error5Props) {
+export function Error5({ className, lastSynced = "2 minutes ago", onRetry }: Error5Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1100px] flex-col gap-5">
         <Empty className="border border-dashed">
           <EmptyHeader className="max-w-lg">
             <EmptyTitle className="text-xl">Workspace is offline</EmptyTitle>
             <EmptyDescription>
-              The last complete snapshot of NSC-84763 is still on this device.
-              New packing updates will not arrive until the connection returns.
+              The last complete snapshot of NSC-84763 is still on this device. New packing updates
+              will not arrive until the connection returns.
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent>
-            <p className="text-muted-foreground text-xs">
-              Last synced {lastSynced}
-            </p>
+            <p className="text-muted-foreground text-xs">Last synced {lastSynced}</p>
             <Button onClick={onRetry} type="button">
               <RotateCcwIcon data-icon="inline-start" />
               Retry connection
@@ -63,13 +52,8 @@ export function Error5({
           </div>
           <div className="grid gap-px overflow-hidden rounded-xl bg-border p-px sm:grid-cols-3">
             {staleFacts.map((fact) => (
-              <div
-                className="flex flex-col gap-1 bg-card px-4 py-3"
-                key={fact.label}
-              >
-                <span className="text-muted-foreground text-xs">
-                  {fact.label}
-                </span>
+              <div className="flex flex-col gap-1 bg-card px-4 py-3" key={fact.label}>
+                <span className="text-muted-foreground text-xs">{fact.label}</span>
                 <span className="font-medium text-sm">{fact.value}</span>
               </div>
             ))}

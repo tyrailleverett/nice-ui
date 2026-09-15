@@ -31,14 +31,12 @@ export interface Feature10Props {
 
 const defaultItems: Feature10Item[] = [
   {
-    description:
-      "Describe the code you want and generate it. From boilerplate to business logic.",
+    description: "Describe the code you want and generate it. From boilerplate to business logic.",
     icon: <TargetIcon className="size-5" />,
     title: "Code Generation",
   },
   {
-    description:
-      "Get instant feedback on best practices, performance, and maintainability.",
+    description: "Get instant feedback on best practices, performance, and maintainability.",
     icon: <CalendarCheckIcon className="size-5" />,
     title: "Code Review",
   },
@@ -57,7 +55,7 @@ function FeatureCta({ cta }: { cta: Feature10Action }) {
       <Button
         className="mt-8 pr-2"
         nativeButton={false}
-        render={<a href={cta.href} />}
+        render={<a aria-label={cta.label} href={cta.href} />}
         variant="outline"
       >
         {content}
@@ -93,9 +91,7 @@ export function Feature10({
           <div className="mx-auto w-full max-w-5xl px-6">
             <div className="grid gap-12 md:grid-cols-5">
               <div className="md:col-span-2">
-                <h2 className="text-balance font-display-heading text-4xl text-primary">
-                  {title}
-                </h2>
+                <h2 className="text-balance font-display-heading text-4xl text-primary">{title}</h2>
                 {cta ? <FeatureCta cta={cta} /> : null}
               </div>
 
@@ -104,13 +100,9 @@ export function Feature10({
                   <div key={item.title}>
                     <div className="flex items-center gap-2">
                       {item.icon}
-                      <h3 className="font-semibold text-foreground text-lg">
-                        {item.title}
-                      </h3>
+                      <h3 className="font-semibold text-foreground text-lg">{item.title}</h3>
                     </div>
-                    <p className="mt-3 text-balance text-muted-foreground">
-                      {item.description}
-                    </p>
+                    <p className="mt-3 text-balance text-muted-foreground">{item.description}</p>
                   </div>
                 ))}
               </div>

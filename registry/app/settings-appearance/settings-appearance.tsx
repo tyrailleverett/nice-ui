@@ -116,10 +116,8 @@ function WorkspaceStage({
         "overflow-hidden bg-background text-foreground ring-1",
         contrast ? "ring-foreground/40" : "ring-foreground/10",
         stageRadius(corners),
-        reducedMotion
-          ? "transition-none"
-          : "transition-[border-radius,box-shadow]",
-        className
+        reducedMotion ? "transition-none" : "transition-[border-radius,box-shadow]",
+        className,
       )}
       style={split ? undefined : tokenStyle(mode)}
     >
@@ -139,12 +137,7 @@ function WorkspaceStage({
           />
         </div>
       ) : (
-        <WorkspaceChrome
-          compact={compact}
-          contrast={contrast}
-          largeType={largeType}
-          mode={mode}
-        />
+        <WorkspaceChrome compact={compact} contrast={contrast} largeType={largeType} mode={mode} />
       )}
     </div>
   );
@@ -162,10 +155,7 @@ function WorkspaceChrome({
   mode: "light" | "dark";
 }) {
   return (
-    <div
-      className={cn("flex h-full min-h-36", mode === "dark" && "dark")}
-      style={tokenStyle(mode)}
-    >
+    <div className={cn("flex h-full min-h-36", mode === "dark" && "dark")} style={tokenStyle(mode)}>
       <aside className="flex w-8 shrink-0 flex-col items-center gap-1.5 bg-sidebar py-2.5">
         <span className="size-3 rounded-full bg-primary" />
         <span className="size-2.5 rounded-sm bg-muted-foreground/40" />
@@ -174,12 +164,7 @@ function WorkspaceChrome({
       </aside>
       <div className="flex min-w-0 flex-1 flex-col gap-2 bg-background p-2">
         <div className="flex items-center justify-between gap-2">
-          <span
-            className={cn(
-              "font-medium",
-              largeType ? "text-[11px]" : "text-[9px]"
-            )}
-          >
+          <span className={cn("font-medium", largeType ? "text-[11px]" : "text-[9px]")}>
             Exception queue
           </span>
           <span className="rounded-sm bg-primary px-1.5 py-0.5 text-[8px] text-primary-foreground">
@@ -189,25 +174,11 @@ function WorkspaceChrome({
         <div className="grid grid-cols-2 gap-1.5">
           <span className="rounded-sm bg-card px-1.5 py-1 ring-1 ring-foreground/10">
             <span className="block text-[8px] text-muted-foreground">Held</span>
-            <span
-              className={cn(
-                "font-medium",
-                largeType ? "text-xs" : "text-[10px]"
-              )}
-            >
-              12
-            </span>
+            <span className={cn("font-medium", largeType ? "text-xs" : "text-[10px]")}>12</span>
           </span>
           <span className="rounded-sm bg-card px-1.5 py-1 ring-1 ring-foreground/10">
             <span className="block text-[8px] text-muted-foreground">ETA</span>
-            <span
-              className={cn(
-                "font-medium",
-                largeType ? "text-xs" : "text-[10px]"
-              )}
-            >
-              18m
-            </span>
+            <span className={cn("font-medium", largeType ? "text-xs" : "text-[10px]")}>18m</span>
           </span>
         </div>
         <div className="flex flex-col gap-1">
@@ -216,23 +187,14 @@ function WorkspaceChrome({
               className={cn(
                 "flex items-center justify-between bg-card",
                 compact ? "px-1.5 py-0.5" : "px-1.5 py-1.5",
-                contrast
-                  ? "ring-1 ring-foreground/30"
-                  : "ring-1 ring-foreground/10"
+                contrast ? "ring-1 ring-foreground/30" : "ring-1 ring-foreground/10",
               )}
               key={row.label}
             >
-              <span
-                className={cn(
-                  "truncate",
-                  largeType ? "text-[10px]" : "text-[8px]"
-                )}
-              >
+              <span className={cn("truncate", largeType ? "text-[10px]" : "text-[8px]")}>
                 {row.label}
               </span>
-              <span className="text-[8px] text-muted-foreground">
-                {row.meta}
-              </span>
+              <span className="text-[8px] text-muted-foreground">{row.meta}</span>
             </div>
           ))}
         </div>
@@ -241,21 +203,11 @@ function WorkspaceChrome({
   );
 }
 
-function AppearanceHeading({
-  description,
-  title,
-}: {
-  description: string;
-  title: string;
-}) {
+function AppearanceHeading({ description, title }: { description: string; title: string }) {
   return (
     <header className="flex flex-col gap-1">
-      <h1 className="font-heading font-semibold text-title sm:text-3xl">
-        {title}
-      </h1>
-      <p className="text-base text-muted-foreground sm:text-lg">
-        {description}
-      </p>
+      <h1 className="font-heading font-semibold text-title sm:text-3xl">{title}</h1>
+      <p className="text-base text-muted-foreground sm:text-lg">{description}</p>
     </header>
   );
 }
@@ -271,7 +223,7 @@ function AppearancePanel({
     <section
       className={cn(
         "overflow-hidden rounded-2xl bg-card text-card-foreground ring-1 ring-foreground/10",
-        className
+        className,
       )}
     >
       {children}
@@ -318,8 +270,7 @@ export function ThemeStagePicker({
   textSize = "default",
   theme: themeProp,
 }: ThemeStagePickerProps) {
-  const [uncontrolledTheme, setUncontrolledTheme] =
-    useState<ThemeMode>("light");
+  const [uncontrolledTheme, setUncontrolledTheme] = useState<ThemeMode>("light");
   const theme = themeProp ?? uncontrolledTheme;
 
   const handleThemeChange = useCallback(
@@ -332,7 +283,7 @@ export function ThemeStagePicker({
         setUncontrolledTheme(value);
       }
     },
-    [onThemeChange, themeProp]
+    [onThemeChange, themeProp],
   );
 
   return (
@@ -350,7 +301,7 @@ export function ThemeStagePicker({
           <Label
             className={cn(
               "flex cursor-pointer flex-col gap-3 rounded-xl bg-card p-3 font-normal ring-1 ring-foreground/10",
-              selected && "ring-2 ring-ring"
+              selected && "ring-2 ring-ring",
             )}
             key={option.value}
           >
@@ -371,9 +322,7 @@ export function ThemeStagePicker({
                   <Icon className="size-3.5" />
                   {option.label}
                 </span>
-                <span className="text-muted-foreground text-xs">
-                  {option.description}
-                </span>
+                <span className="text-muted-foreground text-xs">{option.description}</span>
               </span>
             </span>
           </Label>
@@ -406,10 +355,8 @@ export function DisplayComfort({
   reducedMotion: motionProp,
   textSize: textSizeProp,
 }: DisplayComfortProps) {
-  const [uncontrolledDensity, setUncontrolledDensity] =
-    useState<Density>("comfortable");
-  const [uncontrolledTextSize, setUncontrolledTextSize] =
-    useState<TextSize>("default");
+  const [uncontrolledDensity, setUncontrolledDensity] = useState<Density>("comfortable");
+  const [uncontrolledTextSize, setUncontrolledTextSize] = useState<TextSize>("default");
   const [uncontrolledMotion, setUncontrolledMotion] = useState(false);
   const [uncontrolledContrast, setUncontrolledContrast] = useState(false);
 
@@ -429,7 +376,7 @@ export function DisplayComfort({
         setUncontrolledDensity(value);
       }
     },
-    [densityProp, onDensityChange]
+    [densityProp, onDensityChange],
   );
 
   const handleTextSizeChange = useCallback(
@@ -443,7 +390,7 @@ export function DisplayComfort({
         setUncontrolledTextSize(value);
       }
     },
-    [onTextSizeChange, textSizeProp]
+    [onTextSizeChange, textSizeProp],
   );
 
   const handleMotionChange = useCallback(
@@ -453,7 +400,7 @@ export function DisplayComfort({
         setUncontrolledMotion(checked);
       }
     },
-    [motionProp, onReducedMotionChange]
+    [motionProp, onReducedMotionChange],
   );
 
   const handleContrastChange = useCallback(
@@ -463,20 +410,13 @@ export function DisplayComfort({
         setUncontrolledContrast(checked);
       }
     },
-    [contrastProp, onContrastChange]
+    [contrastProp, onContrastChange],
   );
 
   return (
     <AppearancePanel className={className}>
-      <AppearanceRow
-        description="How much space sits between rows and controls."
-        label="Density"
-      >
-        <ToggleGroup
-          onValueChange={handleDensityChange}
-          value={[density]}
-          variant="outline"
-        >
+      <AppearanceRow description="How much space sits between rows and controls." label="Density">
+        <ToggleGroup onValueChange={handleDensityChange} value={[density]} variant="outline">
           <ToggleGroupItem value="comfortable">Comfortable</ToggleGroupItem>
           <ToggleGroupItem value="compact">Compact</ToggleGroupItem>
         </ToggleGroup>
@@ -485,19 +425,12 @@ export function DisplayComfort({
         description="Size of labels and body text across the workspace."
         label="Text size"
       >
-        <ToggleGroup
-          onValueChange={handleTextSizeChange}
-          value={[textSize]}
-          variant="outline"
-        >
+        <ToggleGroup onValueChange={handleTextSizeChange} value={[textSize]} variant="outline">
           <ToggleGroupItem value="default">Default</ToggleGroupItem>
           <ToggleGroupItem value="large">Large</ToggleGroupItem>
         </ToggleGroup>
       </AppearanceRow>
-      <AppearanceRow
-        description="Keep transitions to a minimum."
-        label="Reduce motion"
-      >
+      <AppearanceRow description="Keep transitions to a minimum." label="Reduce motion">
         <Switch
           aria-label="Reduce motion"
           checked={reducedMotion}
@@ -547,12 +480,7 @@ export function AppearanceSettings({ className }: AppearanceSettingsProps) {
   }, []);
 
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-6xl flex-col gap-6 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-6xl flex-col gap-6 p-4 sm:p-8", className)}>
       <AppearanceHeading
         description="Choose how the workspace looks while you work."
         title="Appearance"
@@ -561,8 +489,7 @@ export function AppearanceSettings({ className }: AppearanceSettingsProps) {
       <div className="flex flex-col gap-2">
         <h2 className="font-medium text-lg">Theme</h2>
         <p className="text-muted-foreground text-sm">
-          Pick a canvas. The stages follow density, type, and contrast as you
-          change them.
+          Pick a canvas. The stages follow density, type, and contrast as you change them.
         </p>
         <ThemeStagePicker
           contrast={contrast}
@@ -575,15 +502,8 @@ export function AppearanceSettings({ className }: AppearanceSettingsProps) {
       </div>
 
       <AppearancePanel>
-        <AppearanceRow
-          description="How sharp the workspace frames feel."
-          label="Corners"
-        >
-          <ToggleGroup
-            onValueChange={handleCornersChange}
-            value={[corners]}
-            variant="outline"
-          >
+        <AppearanceRow description="How sharp the workspace frames feel." label="Corners">
+          <ToggleGroup onValueChange={handleCornersChange} value={[corners]} variant="outline">
             <ToggleGroupItem value="square">Square</ToggleGroupItem>
             <ToggleGroupItem value="soft">Soft</ToggleGroupItem>
             <ToggleGroupItem value="round">Round</ToggleGroupItem>

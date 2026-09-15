@@ -22,7 +22,7 @@ jobs:
       - name: Validate registry
         run: bun run registry:build && git diff --exit-code -- public/r && bun run registry:validate
 
-      - name: Lint
+      - name: Lint & format
         run: bun run check
 
       - name: Typecheck

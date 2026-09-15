@@ -106,9 +106,7 @@ export function Blog2({
       <section className="py-4">
         <div className="space-y-2 px-4 py-8 md:py-12">
           <h2 className="font-display-heading text-2xl md:text-4xl">{title}</h2>
-          {description ? (
-            <p className="text-muted-foreground text-sm">{description}</p>
-          ) : null}
+          {description ? <p className="text-muted-foreground text-sm">{description}</p> : null}
         </div>
         <div className="relative grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3">
           <FullWidthDivider contained position="top" />
@@ -135,22 +133,18 @@ function BlogCard({
     <a
       className={cn(
         "group w-full bg-background px-6 py-12 text-muted-foreground hover:cursor-pointer hover:text-foreground focus-visible:text-foreground focus-visible:outline-none active:bg-accent md:px-8 active:dark:bg-accent/50",
-        className
+        className,
       )}
       href={href}
       {...props}
     >
-      <h3 className="mb-3 line-clamp-2 font-medium text-foreground text-lg md:text-xl">
-        {title}
-      </h3>
+      <h3 className="mb-3 line-clamp-2 font-medium text-foreground text-lg md:text-xl">{title}</h3>
       <div className="mb-3 flex items-center gap-2">
         <span className="text-muted-foreground text-xs group-hover:text-foreground">
           {category}
         </span>
         <div className="inline-flex size-1 rounded-full bg-muted-foreground" />
-        <span className="text-muted-foreground text-xs group-hover:text-foreground">
-          {date}
-        </span>
+        <span className="text-muted-foreground text-xs group-hover:text-foreground">{date}</span>
       </div>
       <p className="mb-8 line-clamp-3 text-muted-foreground text-sm tracking-wide group-hover:text-foreground">
         {description}

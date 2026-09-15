@@ -15,11 +15,7 @@ export function FacebookIcon(props: ComponentProps<"svg">) {
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/github_light.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/github_light.svg" width="100%" />
     </svg>
   );
 }
@@ -65,10 +61,7 @@ function LinksGroup({ title, links }: { title: string; links: Footer3Link[] }) {
       <ul>
         {links.map((link) => (
           <li key={link.title}>
-            <a
-              className="text-muted-foreground text-sm hover:text-foreground"
-              href={link.href}
-            >
+            <a className="text-muted-foreground text-sm hover:text-foreground" href={link.href}>
               {link.title}
             </a>
           </li>
@@ -91,7 +84,7 @@ function SocialCard({
     <a
       className={cn(
         "flex items-center justify-between border-y p-2 text-sm hover:bg-muted md:border-t-0 dark:hover:bg-muted/50",
-        className
+        className,
       )}
       href={href}
     >
@@ -126,10 +119,7 @@ export function Footer3({
               ) : (
                 <div
                   aria-hidden="true"
-                  className={cn(
-                    "hidden border-b md:block md:min-h-9",
-                    index === 0 && "border-t-0"
-                  )}
+                  className={cn("hidden border-b md:block md:min-h-9", index === 0 && "border-t-0")}
                 />
               )}
               <LinksGroup links={column.links} title={column.title} />
@@ -139,10 +129,7 @@ export function Footer3({
       </div>
       <div className="flex justify-center border-t p-3">
         <div className="flex flex-wrap items-center justify-center gap-3 text-muted-foreground text-xs">
-          <a
-            className="inline-flex items-center gap-1 hover:text-foreground"
-            href={contact.href}
-          >
+          <a className="inline-flex items-center gap-1 hover:text-foreground" href={contact.href}>
             {contact.title}
             <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
           </a>

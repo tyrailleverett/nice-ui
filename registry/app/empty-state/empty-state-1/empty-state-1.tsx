@@ -25,16 +25,12 @@ export interface EmptyState1Props {
   onUploadCsv?: () => void;
 }
 
-export function EmptyState1({
-  className,
-  onConnectSource,
-  onUploadCsv,
-}: EmptyState1Props) {
+export function EmptyState1({ className, onConnectSource, onUploadCsv }: EmptyState1Props) {
   return (
     <section
       className={cn(
         "flex min-h-[34rem] w-full flex-col items-center justify-center bg-background px-6 py-16 text-center text-foreground",
-        className
+        className,
       )}
     >
       <RecordIllustration />
@@ -43,8 +39,8 @@ export function EmptyState1({
           Your record space is empty
         </h2>
         <p className="mt-4 text-lg text-muted-foreground sm:text-xl">
-          Connect a live source or upload a CSV to start organizing people,
-          teams, and attributes in one place.
+          Connect a live source or upload a CSV to start organizing people, teams, and attributes in
+          one place.
         </p>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-3">

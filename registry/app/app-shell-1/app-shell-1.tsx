@@ -106,10 +106,7 @@ function AppShellContent({ children }: { children?: ReactNode }) {
 
   return (
     <div className="grid min-h-0 flex-1 grid-rows-[auto_1fr] gap-4">
-      <section
-        aria-label="Overview cards"
-        className="grid min-h-48 gap-4 md:grid-cols-3"
-      >
+      <section aria-label="Overview cards" className="grid min-h-48 gap-4 md:grid-cols-3">
         {["Build health", "Usage", "Latency"].map((label) => (
           <div className="rounded-xl border border-dashed bg-card" key={label}>
             <span className="sr-only">{label}</span>
@@ -129,10 +126,7 @@ interface ProductNavigationProps {
   onItemClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-function ProductNavigation({
-  activeItem,
-  onItemClick,
-}: ProductNavigationProps) {
+function ProductNavigation({ activeItem, onItemClick }: ProductNavigationProps) {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -149,16 +143,12 @@ function ProductNavigation({
                 >
                   <Icon />
                   <span>{item.label}</span>
-                  {item.children ? (
-                    <ChevronDownIcon className="ml-auto" />
-                  ) : null}
+                  {item.children ? <ChevronDownIcon className="ml-auto" /> : null}
                   {item.label === "Infrastructure" ? (
                     <ChevronRightIcon className="ml-auto" />
                   ) : null}
                 </SidebarMenuButton>
-                {item.badge ? (
-                  <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
-                ) : null}
+                {item.badge ? <SidebarMenuBadge>{item.badge}</SidebarMenuBadge> : null}
                 {item.children ? (
                   <SidebarMenuSub>
                     {item.children.map((child) => (
@@ -167,9 +157,8 @@ function ProductNavigation({
                           isActive={activeItem === child}
                           render={
                             <button
-                              aria-current={
-                                activeItem === child ? "page" : undefined
-                              }
+                              aria-current={activeItem === child ? "page" : undefined}
+                              aria-label={child}
                               data-navigation-label={child}
                               onClick={onItemClick}
                               type="button"
@@ -227,9 +216,7 @@ function WorkspaceMenu({ defaultOpen }: { defaultOpen: boolean }) {
       <SidebarMenuItem>
         <DropdownMenu onOpenChange={setOpen} open={open}>
           <DropdownMenuTrigger
-            render={
-              <SidebarMenuButton aria-label="Switch workspace" size="lg" />
-            }
+            render={<SidebarMenuButton aria-label="Switch workspace" size="lg" />}
           >
             <BrandMark />
             <span className="flex-1 font-semibold">ReUI</span>
@@ -264,9 +251,7 @@ function WorkspaceMenu({ defaultOpen }: { defaultOpen: boolean }) {
                 <PlusIcon />
                 <span className="flex flex-col">
                   <span>New Workspace</span>
-                  <span className="text-muted-foreground text-xs">
-                    Collaborate with others.
-                  </span>
+                  <span className="text-muted-foreground text-xs">Collaborate with others.</span>
                 </span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -285,20 +270,12 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
       <SidebarMenuItem>
         <DropdownMenu onOpenChange={setOpen} open={open}>
           <DropdownMenuTrigger
-            render={
-              <SidebarMenuButton
-                aria-label="Open user menu"
-                size="lg"
-                variant="outline"
-              />
-            }
+            render={<SidebarMenuButton aria-label="Open user menu" size="lg" variant="outline" />}
           >
             <Avatar size="sm">
               <AvatarFallback>NB</AvatarFallback>
             </Avatar>
-            <span className="min-w-0 flex-1 truncate font-medium">
-              Nick Bold
-            </span>
+            <span className="min-w-0 flex-1 truncate font-medium">Nick Bold</span>
             <EllipsisIcon className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-68" side="right">
@@ -308,12 +285,8 @@ function UserMenu({ defaultOpen }: { defaultOpen: boolean }) {
                   <AvatarFallback>NB</AvatarFallback>
                 </Avatar>
                 <span className="flex flex-col">
-                  <span className="font-medium text-foreground text-sm">
-                    Nick Bold
-                  </span>
-                  <span className="font-normal text-muted-foreground">
-                    nick@reui.io
-                  </span>
+                  <span className="font-medium text-foreground text-sm">Nick Bold</span>
+                  <span className="font-normal text-muted-foreground">nick@reui.io</span>
                 </span>
               </DropdownMenuLabel>
             </DropdownMenuGroup>
@@ -385,15 +358,12 @@ export function AppShell1({
   defaultWorkspaceMenuOpen = false,
 }: AppShell1Props) {
   const [activeItem, setActiveItem] = useState("Overview");
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <TooltipProvider>
@@ -403,10 +373,7 @@ export function AppShell1({
             <WorkspaceMenu defaultOpen={defaultWorkspaceMenuOpen} />
           </SidebarHeader>
           <SidebarContent>
-            <ProductNavigation
-              activeItem={activeItem}
-              onItemClick={handleItemClick}
-            />
+            <ProductNavigation activeItem={activeItem} onItemClick={handleItemClick} />
             <ResourceNavigation />
           </SidebarContent>
           <SidebarFooter>

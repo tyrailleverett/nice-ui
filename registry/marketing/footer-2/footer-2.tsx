@@ -7,11 +7,7 @@ import { cn } from "@/lib/utils";
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/github_light.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/github_light.svg" width="100%" />
     </svg>
   );
 }
@@ -58,24 +54,16 @@ function FullWidthDivider({ position }: { position?: "top" | "bottom" }) {
         "before:absolute before:top-0 before:right-full before:h-px before:w-screen before:bg-border",
         "after:absolute after:top-0 after:left-full after:h-px after:w-screen after:bg-border",
         position === "top" && "absolute inset-x-0 top-0",
-        position === "bottom" && "absolute inset-x-0 bottom-0"
+        position === "bottom" && "absolute inset-x-0 bottom-0",
       )}
     />
   );
 }
 
-function LinkColumn({
-  title,
-  links,
-}: {
-  title: string;
-  links: Footer2NavLink[];
-}) {
+function LinkColumn({ title, links }: { title: string; links: Footer2NavLink[] }) {
   return (
     <div className="col-span-3 w-full md:col-span-1">
-      <span className="font-semibold text-muted-foreground text-xs">
-        {title}
-      </span>
+      <span className="font-semibold text-muted-foreground text-xs">{title}</span>
       <div className="mt-2 flex flex-col gap-2">
         {links.map(({ href, title: label }) => (
           <a className="w-max text-sm hover:underline" href={href} key={label}>
@@ -107,14 +95,10 @@ export function Footer2({
           <div className="col-span-6 flex flex-col gap-4 pt-5 md:col-span-4">
             <a aria-label="Nice UI home" className="w-max" href={logoHref}>
               {logo ?? (
-                <span className="font-heading font-semibold text-sm tracking-tight">
-                  Nice UI
-                </span>
+                <span className="font-heading font-semibold text-sm tracking-tight">Nice UI</span>
               )}
             </a>
-            <p className="max-w-sm text-balance text-muted-foreground text-sm">
-              {description}
-            </p>
+            <p className="max-w-sm text-balance text-muted-foreground text-sm">{description}</p>
             {socialLinks?.length ? (
               <div className="flex gap-2">
                 {socialLinks.map((item) => (

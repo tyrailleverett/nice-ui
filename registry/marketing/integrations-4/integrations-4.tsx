@@ -115,9 +115,7 @@ export function Integrations4({
             {title}
           </h2>
           {description ? (
-            <p className="text-lg text-muted-foreground leading-8">
-              {description}
-            </p>
+            <p className="text-lg text-muted-foreground leading-8">{description}</p>
           ) : null}
         </div>
 
@@ -138,9 +136,7 @@ function IntegrationCard({ row, col, logo }: Integrations4Tile) {
     <div
       className={cn(
         "absolute flex size-18 items-center justify-center rounded-md border",
-        logo
-          ? "bg-card shadow-xs dark:bg-card/60"
-          : "bg-secondary/30 dark:bg-background"
+        logo ? "bg-card shadow-xs dark:bg-card/60" : "bg-secondary/30 dark:bg-background",
       )}
       style={{
         left: col * 72,
@@ -152,7 +148,7 @@ function IntegrationCard({ row, col, logo }: Integrations4Tile) {
           alt={logo.alt}
           className={cn(
             "pointer-events-none size-8 select-none object-contain p-1",
-            logo.isInvertable && "dark:invert"
+            logo.isInvertable && "dark:invert",
           )}
           height={40}
           src={logo.src}

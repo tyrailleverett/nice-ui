@@ -10,11 +10,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { useState } from "react";
-import {
-  DialogFrame,
-  type DialogProps,
-  Footer,
-} from "@/components/app/dialogs-shared";
+import { DialogFrame, type DialogProps, Footer } from "@/components/app/dialogs-shared";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
@@ -54,10 +50,7 @@ export function LaunchChecklistDialog(props: DialogProps) {
               <div className="flex flex-1 flex-col gap-2">
                 <div className="flex items-center gap-3">
                   <h3 className="font-medium">{heading}</h3>
-                  <Badge
-                    className="ml-auto"
-                    variant={index === 0 ? "secondary" : "outline"}
-                  >
+                  <Badge className="ml-auto" variant={index === 0 ? "secondary" : "outline"}>
                     {index === 0 ? "In progress" : "Pending"}
                   </Badge>
                   <Button
@@ -76,9 +69,7 @@ export function LaunchChecklistDialog(props: DialogProps) {
                     <span className="flex items-center gap-2">
                       <UserRound />
                       Launch owner{" "}
-                      <strong className="ml-auto font-normal text-foreground">
-                        Ari Mendoza
-                      </strong>
+                      <strong className="ml-auto font-normal text-foreground">Ari Mendoza</strong>
                     </span>
                     <span className="flex items-center gap-2">
                       <BriefcaseBusiness />

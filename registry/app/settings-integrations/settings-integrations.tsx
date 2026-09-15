@@ -65,10 +65,7 @@ function IntegrationCard({
                     <p className="font-medium">{label}</p>
                     <p className="text-muted-foreground text-sm">{detail}</p>
                   </div>
-                  <SettingsSwitch
-                    defaultChecked={enabled}
-                    label={`Toggle ${label}`}
-                  />
+                  <SettingsSwitch defaultChecked={enabled} label={`Toggle ${label}`} />
                 </div>
               ))}
             </div>
@@ -81,12 +78,7 @@ function IntegrationCard({
 
 export function Integrations({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8", className)}>
       <SectionHeading
         description="Connect your favorite apps to automate workflows and stay updated on events."
         title="Integrations"

@@ -16,7 +16,7 @@ export const CommandBarWorkspace: Story = {
     await userEvent.click(canvas.getByRole("button", { name: "Runs" }));
     await expect(canvas.getByRole("button", { name: "Runs" })).toHaveAttribute(
       "aria-current",
-      "page"
+      "page",
     );
   },
   render: () => <AppShell10 />,

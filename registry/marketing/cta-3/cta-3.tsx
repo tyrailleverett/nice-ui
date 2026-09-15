@@ -36,7 +36,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {content}
@@ -66,9 +66,7 @@ export function Cta3({
 
         <div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
 
-        <h2 className="text-center font-heading font-semibold text-xl md:text-3xl">
-          {title}
-        </h2>
+        <h2 className="text-center font-heading font-semibold text-xl md:text-3xl">{title}</h2>
         {description ? (
           <p className="text-balance text-center font-medium text-muted-foreground text-sm md:text-base">
             {description}
@@ -76,14 +74,9 @@ export function Cta3({
         ) : null}
 
         <div className="flex items-center justify-center gap-2">
-          {secondaryCta ? (
-            <ActionButton action={secondaryCta} variant="outline" />
-          ) : null}
+          {secondaryCta ? <ActionButton action={secondaryCta} variant="outline" /> : null}
           {primaryCta ? (
-            <ActionButton
-              action={primaryCta}
-              icon={<ArrowRightIcon data-icon="inline-end" />}
-            />
+            <ActionButton action={primaryCta} icon={<ArrowRightIcon data-icon="inline-end" />} />
           ) : null}
         </div>
       </section>

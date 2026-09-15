@@ -29,13 +29,11 @@ export function Waitlist2({
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      const email = String(
-        new FormData(event.currentTarget).get("email") ?? ""
-      );
+      const email = String(new FormData(event.currentTarget).get("email") ?? "");
       onJoin?.(email);
       setSubmitted(true);
     },
-    [onJoin]
+    [onJoin],
   );
 
   return (
@@ -65,9 +63,7 @@ export function Waitlist2({
               {title}
             </h2>
             {description ? (
-              <p className="max-w-lg text-muted-foreground text-sm leading-6">
-                {description}
-              </p>
+              <p className="max-w-lg text-muted-foreground text-sm leading-6">{description}</p>
             ) : null}
           </div>
 
@@ -79,10 +75,7 @@ export function Waitlist2({
               {successMessage}
             </div>
           ) : (
-            <form
-              className="flex max-w-xl flex-col gap-2 sm:flex-row"
-              onSubmit={handleSubmit}
-            >
+            <form className="flex max-w-xl flex-col gap-2 sm:flex-row" onSubmit={handleSubmit}>
               <label className="sr-only" htmlFor="waitlist-2-email">
                 Email address
               </label>

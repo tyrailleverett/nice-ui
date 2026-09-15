@@ -13,12 +13,8 @@ export default {
 
 export const CheckoutSetup: StoryObj = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("checkbox", { name: "Ask for company name" })
-    );
-    await expect(
-      canvas.getByRole("checkbox", { name: "Ask for company name" })
-    ).toBeChecked();
+    await userEvent.click(canvas.getByRole("checkbox", { name: "Ask for company name" }));
+    await expect(canvas.getByRole("checkbox", { name: "Ask for company name" })).toBeChecked();
   },
   render: () => <Form1 />,
 };
@@ -28,9 +24,7 @@ export const InvoiceDetails: StoryFn = () => <Form2 />;
 export const ApiKeys: StoryObj = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Dismiss" }));
-    await expect(
-      canvas.queryByText("Keep secret keys server-side")
-    ).not.toBeInTheDocument();
+    await expect(canvas.queryByText("Keep secret keys server-side")).not.toBeInTheDocument();
   },
   render: () => <Form3 />,
 };

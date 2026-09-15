@@ -84,12 +84,8 @@ export function Faq3({
       <section className="grid grid-cols-1 md:grid-cols-2">
         <div className="px-4 pt-12 pb-6">
           <div className="space-y-5">
-            <h2 className="text-balance font-display-heading text-4xl md:text-6xl">
-              {title}
-            </h2>
-            {description ? (
-              <p className="text-muted-foreground">{description}</p>
-            ) : null}
+            <h2 className="text-balance font-display-heading text-4xl md:text-6xl">{title}</h2>
+            {description ? <p className="text-muted-foreground">{description}</p> : null}
             {contact ? (
               <p className="text-muted-foreground">
                 {contactPrompt}{" "}
@@ -108,11 +104,7 @@ export function Faq3({
 
           <Accordion className="rounded-none border-x-0 border-y">
             {questions.map((item) => (
-              <AccordionItem
-                className="group relative pl-5"
-                key={item.id}
-                value={item.id}
-              >
+              <AccordionItem className="group relative pl-5" key={item.id} value={item.id}>
                 <AccordionTrigger className="px-4 py-4 hover:no-underline focus-visible:underline focus-visible:ring-0">
                   {item.title}
                 </AccordionTrigger>

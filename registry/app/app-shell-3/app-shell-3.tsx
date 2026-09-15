@@ -103,9 +103,7 @@ function ProjectNavigation({
                 >
                   <Icon />
                   <span>{item.label}</span>
-                  {item.nested ? (
-                    <ChevronRightIcon className="ml-auto" />
-                  ) : null}
+                  {item.nested ? <ChevronRightIcon className="ml-auto" /> : null}
                 </SidebarMenuButton>
               </SidebarMenuItem>
             );
@@ -129,10 +127,7 @@ function ActiveProjects() {
             <SidebarMenuItem key={project.label}>
               <SidebarMenuButton>
                 <span
-                  className={cn(
-                    "size-4 rounded-full border-2 border-r-muted",
-                    project.color
-                  )}
+                  className={cn("size-4 rounded-full border-2 border-r-muted", project.color)}
                 />
                 <span>{project.label}</span>
               </SidebarMenuButton>
@@ -149,9 +144,7 @@ function SpendingLimitCard() {
     <Card>
       <CardHeader>
         <CardTitle>Spending Limit</CardTitle>
-        <CardDescription>
-          Consumption and balance reset at the end of the month.
-        </CardDescription>
+        <CardDescription>Consumption and balance reset at the end of the month.</CardDescription>
       </CardHeader>
       <CardContent>
         <Progress aria-label="Monthly spending used" value={82} />
@@ -175,10 +168,7 @@ function DashboardCanvas({ children }: { children?: ReactNode }) {
 
   return (
     <div className="grid min-h-0 flex-1 grid-rows-[auto_1fr] gap-4">
-      <section
-        aria-label="Dashboard summary"
-        className="grid min-h-48 gap-4 md:grid-cols-3"
-      >
+      <section aria-label="Dashboard summary" className="grid min-h-48 gap-4 md:grid-cols-3">
         {["Milestones", "Tasks", "Issues"].map((label) => (
           <div className="rounded-xl border border-dashed bg-card" key={label}>
             <span className="sr-only">{label}</span>
@@ -199,15 +189,12 @@ export interface AppShell3Props {
 
 export function AppShell3({ children }: AppShell3Props) {
   const [activeItem, setActiveItem] = useState("Dashboard");
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <TooltipProvider>
@@ -217,33 +204,19 @@ export function AppShell3({ children }: AppShell3Props) {
             <div className="flex h-10 items-center gap-2 px-1">
               <ProductMark />
               <span className="font-semibold">ReUI</span>
-              <Button
-                aria-label="Notifications"
-                className="ml-auto"
-                size="icon-sm"
-                variant="ghost"
-              >
+              <Button aria-label="Notifications" className="ml-auto" size="icon-sm" variant="ghost">
                 <BellIcon />
               </Button>
               <SidebarTrigger aria-label="Collapse sidebar" />
             </div>
             <div className="relative">
               <SearchIcon className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground" />
-              <SidebarInput
-                aria-label="Search projects"
-                className="px-8"
-                placeholder="Search..."
-              />
-              <Kbd className="absolute top-1/2 right-2 -translate-y-1/2">
-                ⌘K
-              </Kbd>
+              <SidebarInput aria-label="Search projects" className="px-8" placeholder="Search..." />
+              <Kbd className="absolute top-1/2 right-2 -translate-y-1/2">⌘K</Kbd>
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <ProjectNavigation
-              activeItem={activeItem}
-              onItemClick={handleItemClick}
-            />
+            <ProjectNavigation activeItem={activeItem} onItemClick={handleItemClick} />
             <ActiveProjects />
           </SidebarContent>
           <SidebarFooter>

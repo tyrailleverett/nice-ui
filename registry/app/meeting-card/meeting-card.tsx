@@ -27,12 +27,7 @@ export function MeetingCard({
     <article className="showcase-card meeting-card">
       <div className="card-heading">
         <span>Meeting</span>
-        <Button
-          aria-label="More meeting options"
-          size="icon"
-          type="button"
-          variant="ghost"
-        >
+        <Button aria-label="More meeting options" size="icon" type="button" variant="ghost">
           <MoreVerticalIcon />
         </Button>
       </div>

@@ -153,13 +153,7 @@ const priorityClass: Record<Priority, string> = {
   Urgent: "border-destructive/40 bg-destructive/10 text-destructive",
 };
 
-function SortMark({
-  active,
-  direction,
-}: {
-  active: boolean;
-  direction: "asc" | "desc";
-}) {
+function SortMark({ active, direction }: { active: boolean; direction: "asc" | "desc" }) {
   if (!active) {
     return <ChevronsUpDownIcon aria-hidden="true" />;
   }
@@ -173,10 +167,7 @@ function SortMark({
 function TaskStatusBadge({ status }: { status: TaskStatus }) {
   return (
     <Badge className="gap-1.5 bg-muted/40 font-normal" variant="outline">
-      <span
-        aria-hidden="true"
-        className={cn("size-1.5 rounded-full", statusDot[status])}
-      />
+      <span aria-hidden="true" className={cn("size-1.5 rounded-full", statusDot[status])} />
       {status}
     </Badge>
   );
@@ -188,28 +179,20 @@ export interface Table3Props {
 
 export function Table3({ className }: Table3Props) {
   const [query, setQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<"all" | "active" | "backlog">(
-    "all"
-  );
+  const [activeTab, setActiveTab] = useState<"all" | "active" | "backlog">("all");
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [sortDescending, setSortDescending] = useState(true);
   const [page, setPage] = useState(0);
   const pageSize = 5;
   const visibleTasks = useMemo(() => {
     const filtered = tasks.filter((task) => {
-      const matchesQuery = task.title
-        .toLowerCase()
-        .includes(query.toLowerCase());
+      const matchesQuery = task.title.toLowerCase().includes(query.toLowerCase());
       const matchesTab =
         activeTab === "all" ||
-        (activeTab === "active"
-          ? task.status !== "Done"
-          : task.status === "Todo");
+        (activeTab === "active" ? task.status !== "Done" : task.status === "Todo");
       return matchesQuery && matchesTab;
     });
-    const result = [...filtered].sort((a, b) =>
-      a.priority.localeCompare(b.priority)
-    );
+    const result = [...filtered].sort((a, b) => a.priority.localeCompare(b.priority));
     return sortDescending ? result.reverse() : result;
   }, [activeTab, query, sortDescending]);
   const pageCount = Math.max(1, Math.ceil(visibleTasks.length / pageSize));
@@ -231,21 +214,12 @@ export function Table3({ className }: Table3Props) {
     });
 
   return (
-    <section
-      className={cn(
-        "min-h-svh w-full bg-background px-6 py-12 text-foreground",
-        className
-      )}
-    >
+    <section className={cn("min-h-svh w-full bg-background px-6 py-12 text-foreground", className)}>
       <div className="mx-auto w-full max-w-7xl overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
         <header className="flex items-start justify-between gap-4 border-border border-b px-6 py-4">
           <div>
-            <h1 className="font-heading font-semibold text-xl tracking-tight">
-              Task Delivery
-            </h1>
-            <p className="mt-1 text-muted-foreground text-sm">
-              16 tasks / Sub-tasks on
-            </p>
+            <h1 className="font-heading font-semibold text-xl tracking-tight">Task Delivery</h1>
+            <p className="mt-1 text-muted-foreground text-sm">16 tasks / Sub-tasks on</p>
           </div>
           <Button>
             <PlusIcon data-icon="inline-start" />
@@ -346,11 +320,7 @@ export function Table3({ className }: Table3Props) {
                   onClick={() => setSortDescending((value) => !value)}
                   variant="ghost"
                 >
-                  Priority{" "}
-                  <SortMark
-                    active={true}
-                    direction={sortDescending ? "desc" : "asc"}
-                  />
+                  Priority <SortMark active={true} direction={sortDescending ? "desc" : "asc"} />
                 </Button>
               </TableHead>
               <TableHead>Project</TableHead>
@@ -363,12 +333,7 @@ export function Table3({ className }: Table3Props) {
             {pageRows.map((task) => (
               <TableRow className="group" key={task.id}>
                 <TableCell>
-                  <div
-                    className={cn(
-                      "flex items-center gap-3",
-                      task.isChild && "pl-7"
-                    )}
-                  >
+                  <div className={cn("flex items-center gap-3", task.isChild && "pl-7")}>
                     <span className="flex size-5 shrink-0 items-center justify-center text-muted-foreground">
                       {task.isChild ? (
                         <span className="size-3.5 rounded-full border border-input" />
@@ -379,28 +344,21 @@ export function Table3({ className }: Table3Props) {
                           size="icon-xs"
                           variant="ghost"
                         >
-                          {collapsed.has(task.id) ? (
-                            <ChevronRightIcon />
-                          ) : (
-                            <ChevronDownIcon />
-                          )}
+                          {collapsed.has(task.id) ? <ChevronRightIcon /> : <ChevronDownIcon />}
                         </Button>
                       )}
                     </span>
                     <span
                       className={cn(
                         "size-3.5 shrink-0 rounded-full border border-input",
-                        task.status === "Done" && "border-primary bg-primary"
+                        task.status === "Done" && "border-primary bg-primary",
                       )}
                     />
-                    {task.status === "Done" && (
-                      <span className="sr-only">Completed</span>
-                    )}
+                    {task.status === "Done" && <span className="sr-only">Completed</span>}
                     <span
                       className={cn(
                         "truncate text-sm",
-                        task.status === "Done" &&
-                          "text-muted-foreground line-through"
+                        task.status === "Done" && "text-muted-foreground line-through",
                       )}
                     >
                       {task.title}
@@ -413,10 +371,7 @@ export function Table3({ className }: Table3Props) {
                 <TableCell>
                   <div className="flex items-center gap-2">
                     <Avatar size="sm">
-                      <AvatarImage
-                        alt=""
-                        src={`https://i.pravatar.cc/80?img=${task.avatar}`}
-                      />
+                      <AvatarImage alt="" src={`https://i.pravatar.cc/80?img=${task.avatar}`} />
                       <AvatarFallback>
                         {task.assignee
                           .split(" ")
@@ -424,9 +379,7 @@ export function Table3({ className }: Table3Props) {
                           .join("")}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="whitespace-nowrap text-sm">
-                      {task.assignee}
-                    </span>
+                    <span className="whitespace-nowrap text-sm">{task.assignee}</span>
                   </div>
                 </TableCell>
                 <TableCell>
@@ -458,9 +411,7 @@ export function Table3({ className }: Table3Props) {
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem>Open task</DropdownMenuItem>
                       <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                      <DropdownMenuItem variant="destructive">
-                        Delete
-                      </DropdownMenuItem>
+                      <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
@@ -477,8 +428,7 @@ export function Table3({ className }: Table3Props) {
           </span>
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
             <span>
-              {page * pageSize + 1}–{Math.min((page + 1) * pageSize, taskCount)}{" "}
-              of {taskCount}
+              {page * pageSize + 1}–{Math.min((page + 1) * pageSize, taskCount)} of {taskCount}
             </span>
             <Button
               aria-label="Previous page"
@@ -489,15 +439,11 @@ export function Table3({ className }: Table3Props) {
             >
               <ChevronLeftIcon />
             </Button>
-            <span className="rounded-md bg-muted px-3 py-1 text-foreground">
-              {page + 1}
-            </span>
+            <span className="rounded-md bg-muted px-3 py-1 text-foreground">{page + 1}</span>
             <Button
               aria-label="Next page"
               disabled={page >= pageCount - 1}
-              onClick={() =>
-                setPage((value) => Math.min(pageCount - 1, value + 1))
-              }
+              onClick={() => setPage((value) => Math.min(pageCount - 1, value + 1))}
               size="icon-sm"
               variant="ghost"
             >

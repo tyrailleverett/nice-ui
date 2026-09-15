@@ -1,11 +1,6 @@
 import type { Meta, StoryFn } from "@storybook/react-vite";
 
-import {
-  FacebookIcon,
-  Footer3 as Footer3Block,
-  GithubIcon,
-  XIcon,
-} from "./footer-3";
+import { FacebookIcon, Footer3 as Footer3Block, GithubIcon, XIcon } from "./footer-3";
 
 export default {
   title: "Marketing/Footer",

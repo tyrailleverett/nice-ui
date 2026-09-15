@@ -3,11 +3,7 @@ import { LayoutGridIcon, ListIcon, PlusIcon, SearchIcon } from "lucide-react";
 import { useCallback, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import {
   Select,
   SelectContent,
@@ -29,11 +25,7 @@ export interface PageHeader3Props {
 
 type ViewMode = "grid" | "list";
 
-function HeaderAction({
-  action,
-}: {
-  action: NonNullable<PageHeader3Props["primaryAction"]>;
-}) {
+function HeaderAction({ action }: { action: NonNullable<PageHeader3Props["primaryAction"]> }) {
   const ActionIcon = action.icon;
   const content = (
     <>
@@ -47,7 +39,7 @@ function HeaderAction({
       <Button
         className="w-full sm:w-auto"
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
       >
         {content}
       </Button>
@@ -73,19 +65,12 @@ export function PageHeader3({
   }, []);
 
   return (
-    <section
-      className={cn(
-        "w-full bg-background px-6 py-10 text-foreground",
-        className
-      )}
-    >
+    <section className={cn("w-full bg-background px-6 py-10 text-foreground", className)}>
       <div className="mx-auto w-full max-w-4xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex flex-col gap-1">
             <h1 className="font-heading font-semibold text-title">{title}</h1>
-            {description ? (
-              <p className="text-muted-foreground text-sm">{description}</p>
-            ) : null}
+            {description ? <p className="text-muted-foreground text-sm">{description}</p> : null}
           </div>
           {primaryAction ? <HeaderAction action={primaryAction} /> : null}
         </div>
@@ -149,18 +134,10 @@ export function PageHeader3({
               spacing={0}
               value={[view]}
             >
-              <ToggleGroupItem
-                aria-label="List view"
-                className="size-8 rounded-none"
-                value="list"
-              >
+              <ToggleGroupItem aria-label="List view" className="size-8 rounded-none" value="list">
                 <ListIcon />
               </ToggleGroupItem>
-              <ToggleGroupItem
-                aria-label="Grid view"
-                className="size-8 rounded-none"
-                value="grid"
-              >
+              <ToggleGroupItem aria-label="Grid view" className="size-8 rounded-none" value="grid">
                 <LayoutGridIcon />
               </ToggleGroupItem>
             </ToggleGroup>

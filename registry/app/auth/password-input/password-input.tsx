@@ -96,9 +96,7 @@ export function PasswordInput({
   const descriptionId = `${id}-description`;
   const requirementsId = `${id}-requirements`;
   const strength = useMemo(() => getPasswordStrength(password), [password]);
-  const strengthScore = strength.filter(
-    (requirement) => requirement.met
-  ).length;
+  const strengthScore = strength.filter((requirement) => requirement.met).length;
   const showIndicator = showStrengthIndicator && isFocused;
 
   const handleFocus = useCallback(() => {
@@ -107,32 +105,23 @@ export function PasswordInput({
 
   const handleBlur = useCallback((event: FocusEvent<HTMLElement>) => {
     const nextFocused = event.relatedTarget;
-    if (
-      nextFocused instanceof Node &&
-      event.currentTarget.parentElement?.contains(nextFocused)
-    ) {
+    if (nextFocused instanceof Node && event.currentTarget.parentElement?.contains(nextFocused)) {
       return;
     }
     setIsFocused(false);
   }, []);
 
-  const handlePasswordChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setPassword(event.target.value);
-    },
-    []
-  );
+  const handlePasswordChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  }, []);
 
   const toggleVisibility = useCallback(() => {
     setIsVisible((visible) => !visible);
   }, []);
 
-  const preventInputBlur = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-    },
-    []
-  );
+  const preventInputBlur = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  }, []);
 
   return (
     <div className={cn("space-y-2", className)}>
@@ -161,7 +150,7 @@ export function PasswordInput({
             autoCorrect="off"
             className={cn(
               "h-10",
-              !isVisible && "[-webkit-text-security:disc] [text-security:disc]"
+              !isVisible && "[-webkit-text-security:disc] [text-security:disc]",
             )}
             id={id}
             name={name}
@@ -184,11 +173,7 @@ export function PasswordInput({
               onMouseDown={preventInputBlur}
               size="icon-sm"
             >
-              {isVisible ? (
-                <EyeOffIcon aria-hidden="true" />
-              ) : (
-                <EyeIcon aria-hidden="true" />
-              )}
+              {isVisible ? <EyeOffIcon aria-hidden="true" /> : <EyeIcon aria-hidden="true" />}
             </InputGroupButton>
           </InputGroupAddon>
         </InputGroup>
@@ -198,66 +183,42 @@ export function PasswordInput({
             aria-hidden={!showIndicator}
             className={cn(
               "grid transition-[grid-template-rows,opacity] duration-200 ease-out motion-reduce:transition-none",
-              showIndicator
-                ? "grid-rows-[1fr] opacity-100"
-                : "grid-rows-[0fr] opacity-0"
+              showIndicator ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
             )}
             inert={!showIndicator}
           >
             <div className="overflow-hidden">
-              <div
-                className={cn(
-                  "space-y-2 pt-3",
-                  !showIndicator && "pointer-events-none"
-                )}
-              >
+              <div className={cn("space-y-2 pt-3", !showIndicator && "pointer-events-none")}>
                 <Progress
                   aria-label="Password strength"
                   className="bg-border"
                   indicatorClassName={cn(
                     getPasswordStrengthColor(strengthScore),
-                    "duration-500 ease-out"
+                    "duration-500 ease-out",
                   )}
                   value={(strengthScore / maxPasswordStrength) * 100}
                 />
                 <p className="font-medium text-sm" id={descriptionId}>
                   {getPasswordStrengthText(strengthScore)}. Must contain:
                 </p>
-                <ul
-                  aria-label="Password requirements"
-                  className="space-y-1.5"
-                  id={requirementsId}
-                >
+                <ul aria-label="Password requirements" className="space-y-1.5" id={requirementsId}>
                   {strength.map((requirement) => (
-                    <li
-                      className="flex items-center gap-2"
-                      key={requirement.text}
-                    >
+                    <li className="flex items-center gap-2" key={requirement.text}>
                       {requirement.met ? (
-                        <CheckIcon
-                          aria-hidden="true"
-                          className="size-4 text-emerald-500"
-                        />
+                        <CheckIcon aria-hidden="true" className="size-4 text-emerald-500" />
                       ) : (
-                        <XIcon
-                          aria-hidden="true"
-                          className="size-4 text-muted-foreground/80"
-                        />
+                        <XIcon aria-hidden="true" className="size-4 text-muted-foreground/80" />
                       )}
                       <span
                         className={cn(
                           "text-xs",
-                          requirement.met
-                            ? "text-emerald-500"
-                            : "text-muted-foreground/80"
+                          requirement.met ? "text-emerald-500" : "text-muted-foreground/80",
                         )}
                       >
                         {requirement.text}
                       </span>
                       <span className="sr-only">
-                        {requirement.met
-                          ? "- Requirement met"
-                          : "- Requirement not met"}
+                        {requirement.met ? "- Requirement met" : "- Requirement not met"}
                       </span>
                     </li>
                   ))}

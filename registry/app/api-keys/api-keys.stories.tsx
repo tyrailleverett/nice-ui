@@ -15,29 +15,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Management: Story = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Copy Frontend production" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Copy Frontend production" }));
     await expect(
-      canvas.getByRole("button", { name: "Copy Frontend production" })
+      canvas.getByRole("button", { name: "Copy Frontend production" }),
     ).toHaveTextContent("Copied");
 
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Actions for Backend production" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Actions for Backend production" }));
     await userEvent.click(canvas.getByRole("menuitem", { name: "Revoke key" }));
     await expect(canvas.getByRole("dialog")).toBeVisible();
-    await expect(
-      canvas.getByRole("heading", { name: backendRevokeHeading })
-    ).toBeVisible();
+    await expect(canvas.getByRole("heading", { name: backendRevokeHeading })).toBeVisible();
     await userEvent.click(
       within(canvas.getByRole("dialog")).getByRole("button", {
         name: "Revoke key",
-      })
+      }),
     );
-    await expect(
-      canvas.queryByText("Backend production")
-    ).not.toBeInTheDocument();
+    await expect(canvas.queryByText("Backend production")).not.toBeInTheDocument();
   },
   render: () => <ApiKeys />,
 };

@@ -57,9 +57,7 @@ export function Changelog3({
               className="grid gap-4 py-6 sm:grid-cols-[5rem_1fr_auto] sm:items-start"
               key={entry.version}
             >
-              <p className="font-mono text-muted-foreground text-xs">
-                {entry.version}
-              </p>
+              <p className="font-mono text-muted-foreground text-xs">{entry.version}</p>
               <div>
                 <p className="font-medium">{entry.title}</p>
                 <p className="mt-2 max-w-xl text-muted-foreground text-sm leading-6">
@@ -67,16 +65,10 @@ export function Changelog3({
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <time
-                  className="text-muted-foreground text-xs"
-                  dateTime={entry.date}
-                >
+                <time className="text-muted-foreground text-xs" dateTime={entry.date}>
                   {entry.date}
                 </time>
-                <ArrowUpRightIcon
-                  aria-hidden="true"
-                  className="size-4 text-muted-foreground"
-                />
+                <ArrowUpRightIcon aria-hidden="true" className="size-4 text-muted-foreground" />
               </div>
             </article>
           ))}

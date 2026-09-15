@@ -13,9 +13,7 @@ export function Form5() {
       <div className="mx-auto max-w-5xl overflow-hidden rounded-xl border border-border bg-background">
         <header className="flex items-center gap-3 border-border border-b p-5">
           <div className="flex-1">
-            <p className="text-muted-foreground text-xs">
-              Forms / Project intake
-            </p>
+            <p className="text-muted-foreground text-xs">Forms / Project intake</p>
             <h1 className="mt-1 font-semibold text-lg">Edit form</h1>
           </div>
           <span className="flex items-center gap-1.5 text-muted-foreground text-xs">
@@ -41,15 +39,10 @@ export function Form5() {
             </div>
             <div className="mt-5 grid gap-4">
               {fields.map((field) => (
-                <div
-                  className="rounded-lg border border-border p-4"
-                  key={field.label}
-                >
+                <div className="rounded-lg border border-border p-4" key={field.label}>
                   <Label>{field.label}</Label>
                   <Input className="mt-2" defaultValue={field.value} />
-                  <p className="mt-2 text-muted-foreground text-xs">
-                    Required · Single line
-                  </p>
+                  <p className="mt-2 text-muted-foreground text-xs">Required · Single line</p>
                 </div>
               ))}
             </div>
@@ -59,9 +52,7 @@ export function Form5() {
               Live preview
             </p>
             <div className="mx-auto mt-5 max-w-sm rounded-xl border border-border bg-background p-5">
-              <h2 className="font-semibold text-xl">
-                Tell us about your project
-              </h2>
+              <h2 className="font-semibold text-xl">Tell us about your project</h2>
               <p className="mt-2 text-muted-foreground text-sm">
                 A short form helps us route your request.
               </p>

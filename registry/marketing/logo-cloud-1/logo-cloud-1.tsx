@@ -59,9 +59,7 @@ export function LogoCloud1({
         {title || highlight ? (
           <h2 className="text-center font-heading font-semibold text-lg text-primary md:text-2xl">
             {title ? <span>{title}</span> : null}{" "}
-            {highlight ? (
-              <span className="text-primary">{highlight}</span>
-            ) : null}
+            {highlight ? <span className="text-primary">{highlight}</span> : null}
           </h2>
         ) : null}
         <div className="grid grid-cols-2 rounded-lg bg-border shadow md:grid-cols-4">

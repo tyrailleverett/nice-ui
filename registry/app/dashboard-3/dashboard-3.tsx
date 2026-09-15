@@ -93,12 +93,7 @@ export interface Dashboard3Props {
 
 export function Dashboard3({ className }: Dashboard3Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1280px] flex-col gap-4">
         <header className="flex flex-col gap-4">
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
@@ -198,16 +193,13 @@ export function Dashboard3({ className }: Dashboard3Props) {
               >
                 <span className="text-muted-foreground text-sm">{label}</span>
                 <strong>{value}</strong>
-                {index === 0 ? (
-                  <span className="mt-auto h-0.5 w-full bg-primary" />
-                ) : null}
+                {index === 0 ? <span className="mt-auto h-0.5 w-full bg-primary" /> : null}
               </Button>
             ))}
           </CardHeader>
           <CardContent className="p-4 sm:p-6">
             <div className="mb-2 text-right text-muted-foreground text-sm">
-              Min <strong className="text-foreground">71,800</strong>{" "}
-              &nbsp;•&nbsp; Max{" "}
+              Min <strong className="text-foreground">71,800</strong> &nbsp;•&nbsp; Max{" "}
               <strong className="text-foreground">82,300</strong>
             </div>
             <ChartContainer className="h-[420px] w-full" config={callConfig}>
@@ -217,17 +209,9 @@ export function Dashboard3({ className }: Dashboard3Props) {
                 margin={{ left: 12, right: 12, top: 12 }}
               >
                 <CartesianGrid vertical={false} />
-                <XAxis
-                  axisLine={false}
-                  dataKey="date"
-                  tickLine={false}
-                  tickMargin={12}
-                />
+                <XAxis axisLine={false} dataKey="date" tickLine={false} tickMargin={12} />
                 <YAxis domain={[70_000, 84_000]} hide />
-                <ChartTooltip
-                  content={<ChartTooltipContent />}
-                  cursor={false}
-                />
+                <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
                 <Area
                   dataKey="calls"
                   fill="var(--color-calls)"
@@ -274,10 +258,7 @@ export function Dashboard3({ className }: Dashboard3Props) {
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
               {agentData.map((agent, index) => (
-                <div
-                  className="grid grid-cols-[1fr_auto] items-center gap-4"
-                  key={agent.name}
-                >
+                <div className="grid grid-cols-[1fr_auto] items-center gap-4" key={agent.name}>
                   <div className="relative overflow-hidden rounded-full bg-muted px-4 py-2">
                     <span
                       className="absolute inset-y-0 left-0 bg-chart-2/25"
@@ -288,9 +269,7 @@ export function Dashboard3({ className }: Dashboard3Props) {
                       {agent.name}
                     </span>
                   </div>
-                  <strong
-                    className={index === 0 ? "text-chart-2" : "text-foreground"}
-                  >
+                  <strong className={index === 0 ? "text-chart-2" : "text-foreground"}>
                     {agent.calls}
                   </strong>
                 </div>
@@ -320,13 +299,9 @@ export function Dashboard3({ className }: Dashboard3Props) {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="font-medium">{name}</p>
-                    <p className="truncate text-muted-foreground text-sm">
-                      {detail}
-                    </p>
+                    <p className="truncate text-muted-foreground text-sm">{detail}</p>
                   </div>
-                  <Badge variant={state === "Live" ? "secondary" : "outline"}>
-                    {state}
-                  </Badge>
+                  <Badge variant={state === "Live" ? "secondary" : "outline"}>{state}</Badge>
                   <Button size="sm" variant="outline">
                     Connect
                   </Button>

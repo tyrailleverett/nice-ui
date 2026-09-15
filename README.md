@@ -37,10 +37,10 @@ bunx shadcn@latest add tyrailleverett/nice-ui/hero-1 --dry-run
 
 Standalone design-system items:
 
-| Item | Type | What it installs |
-|---|---|---|
-| `tyrailleverett/nice-ui/font` | `registry:font` | Inter Variable (`@fontsource-variable/inter`) |
-| `tyrailleverett/nice-ui/theme` | `registry:theme` | Canvas, ink, semantic hues, radius ladder |
+| Item                           | Type             | What it installs                              |
+| ------------------------------ | ---------------- | --------------------------------------------- |
+| `tyrailleverett/nice-ui/font`  | `registry:font`  | Inter Variable (`@fontsource-variable/inter`) |
+| `tyrailleverett/nice-ui/theme` | `registry:theme` | Canvas, ink, semantic hues, radius ladder     |
 | `tyrailleverett/nice-ui/style` | `registry:style` | Font + theme + `font-display-heading` utility |
 
 ## Registry structure
@@ -72,12 +72,12 @@ Slugs stay `{category}-{n}` (install IDs, folder names, and component exports). 
 
 ## Scripts
 
-| Script | Description |
-|---|---|
-| `bun run dev` | Start the Storybook playground |
-| `bun run build:storybook` | Build a static Storybook site |
-| `bun run registry:validate` | Validate the registry manifest |
-| `bun run registry:build` | Export registry items and text-safe screenshot assets to `public/r` |
+| Script                      | Description                                                         |
+| --------------------------- | ------------------------------------------------------------------- |
+| `bun run dev`               | Start the Storybook playground                                      |
+| `bun run build:storybook`   | Build a static Storybook site                                       |
+| `bun run registry:validate` | Validate the registry manifest                                      |
+| `bun run registry:build`    | Export registry items and text-safe screenshot assets to `public/r` |
 
 ## Tech stack
 

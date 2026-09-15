@@ -33,9 +33,7 @@ export function Bento6({
             <h2 className="max-w-2xl text-balance font-display-heading text-4xl leading-[1.08] tracking-tight md:text-6xl">
               {title}
             </h2>
-            <p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
-              {description}
-            </p>
+            <p className="max-w-xs text-muted-foreground text-sm leading-relaxed">{description}</p>
           </div>
 
           <div className="grid gap-3 md:grid-cols-12 md:grid-rows-[auto_auto]">
@@ -47,9 +45,7 @@ export function Bento6({
                   <SparklesIcon aria-hidden className="size-4 text-blue-300" />
                 </div>
                 <div className="relative py-12">
-                  <p className="font-mono text-6xl tracking-tighter md:text-8xl">
-                    84%
-                  </p>
+                  <p className="font-mono text-6xl tracking-tighter md:text-8xl">84%</p>
                   <p className="mt-3 max-w-xs text-background/65 text-sm">
                     of open work has a clear owner and a next step.
                   </p>
@@ -64,8 +60,7 @@ export function Bento6({
                   </div>
                 </div>
                 <div className="flex items-center gap-2 border-background/15 border-t pt-4 text-background/65 text-xs">
-                  <span className="size-1.5 rounded-full bg-blue-300" /> Updated
-                  just now
+                  <span className="size-1.5 rounded-full bg-blue-300" /> Updated just now
                 </div>
               </div>
             </article>
@@ -78,10 +73,7 @@ export function Bento6({
                     Review pricing brief
                   </h3>
                 </div>
-                <ArrowUpRightIcon
-                  aria-hidden
-                  className="size-4 text-blue-500"
-                />
+                <ArrowUpRightIcon aria-hidden className="size-4 text-blue-500" />
               </div>
               <div className="mt-10 flex items-center gap-3 border-border border-t pt-4 text-muted-foreground text-xs">
                 <span className="font-mono text-foreground">Today</span>
@@ -93,18 +85,16 @@ export function Bento6({
             <article className="rounded-xl border border-border bg-muted/35 p-6 md:col-span-5 md:p-7">
               <p className="text-muted-foreground text-xs">Quiet confidence</p>
               <div className="mt-5 space-y-3">
-                {[
-                  "Context is attached",
-                  "Owner is notified",
-                  "Decision is searchable",
-                ].map((item) => (
-                  <div className="flex items-center gap-3 text-sm" key={item}>
-                    <span className="flex size-5 items-center justify-center rounded-full bg-background text-blue-500 ring-1 ring-border">
-                      <CheckIcon aria-hidden className="size-3" />
-                    </span>
-                    {item}
-                  </div>
-                ))}
+                {["Context is attached", "Owner is notified", "Decision is searchable"].map(
+                  (item) => (
+                    <div className="flex items-center gap-3 text-sm" key={item}>
+                      <span className="flex size-5 items-center justify-center rounded-full bg-background text-blue-500 ring-1 ring-border">
+                        <CheckIcon aria-hidden className="size-3" />
+                      </span>
+                      {item}
+                    </div>
+                  ),
+                )}
               </div>
             </article>
           </div>

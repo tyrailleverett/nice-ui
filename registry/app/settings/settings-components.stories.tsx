@@ -46,13 +46,12 @@ const coastPlanName = /Coast/;
 export const Appearance: StoryObj = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("radio", { name: darkThemeName }));
-    await expect(
-      canvas.getByRole("radio", { name: darkThemeName })
-    ).toBeChecked();
+    await expect(canvas.getByRole("radio", { name: darkThemeName })).toBeChecked();
     await userEvent.click(canvas.getByRole("button", { name: "Compact" }));
-    await expect(
-      canvas.getByRole("button", { name: "Compact" })
-    ).toHaveAttribute("data-state", "on");
+    await expect(canvas.getByRole("button", { name: "Compact" })).toHaveAttribute(
+      "data-state",
+      "on",
+    );
   },
   render: () => <AppearanceSettings />,
 };
@@ -73,9 +72,7 @@ const onResendInvite = fn();
 
 export const MemberSecurityDetails: StoryObj = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Resend invite" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Resend invite" }));
     await expect(onResendInvite).toHaveBeenCalled();
   },
   render: () => <MemberSecurity onResendInvite={onResendInvite} />,
@@ -124,9 +121,7 @@ export const BillingPlan: StoryObj = {
   play: async ({ canvas, canvasElement }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Cancel plan" }));
     const dialog = within(canvasElement.ownerDocument.body).getByRole("dialog");
-    await userEvent.click(
-      within(dialog).getByRole("button", { name: "Cancel plan" })
-    );
+    await userEvent.click(within(dialog).getByRole("button", { name: "Cancel plan" }));
     await expect(onCancelPlan).toHaveBeenCalled();
   },
   render: () => (
@@ -144,9 +139,7 @@ export const BillingUsage: StoryFn = () => (
 
 export const BillingPayment: StoryObj = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Set as default" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Set as default" }));
     await expect(onSetDefaultPayment).toHaveBeenCalledWith("ach-9912");
   },
   render: () => (
@@ -158,9 +151,7 @@ export const BillingPayment: StoryObj = {
 
 export const BillingInvoices: StoryObj = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Actions for INV-2408" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Actions for INV-2408" }));
     await userEvent.click(canvas.getByRole("menuitem", { name: "Download" }));
     await expect(onDownloadInvoice).toHaveBeenCalledWith("INV-2408");
   },
@@ -182,7 +173,7 @@ export const BillingAlerts: StoryObj = {
     await userEvent.click(
       canvas.getByRole("switch", {
         name: "Pause overages at the included cap",
-      })
+      }),
     );
     await expect(onCapChange).toHaveBeenCalledWith(true);
   },

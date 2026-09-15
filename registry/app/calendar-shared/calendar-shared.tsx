@@ -2,12 +2,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { type ReactNode, useMemo } from "react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-} from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -20,15 +15,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
-export const WEEKDAYS = [
-  "SUN",
-  "MON",
-  "TUE",
-  "WED",
-  "THU",
-  "FRI",
-  "SAT",
-] as const;
+export const WEEKDAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"] as const;
 
 export const MONTHS = [
   "January",
@@ -47,12 +34,7 @@ export const MONTHS = [
 
 export const YEAR_OPTIONS = ["2024", "2025", "2026", "2027", "2028"] as const;
 
-export type CalendarCategory =
-  | "sprint"
-  | "standup"
-  | "review"
-  | "deadline"
-  | "workshop";
+export type CalendarCategory = "sprint" | "standup" | "review" | "deadline" | "workshop";
 
 export interface CalendarAttendee {
   initials: string;
@@ -103,11 +85,7 @@ export function formatWeekdayDay(date: Date): string {
   return `${date.toLocaleDateString("en-US", { weekday: "long" })}, ${date.getDate()}`;
 }
 
-export function formatCompactRange(
-  date: Date,
-  start: string,
-  end: string
-): string {
+export function formatCompactRange(date: Date, start: string, end: string): string {
   const month = date.toLocaleDateString("en-US", { month: "short" });
   return `${month} ${date.getDate()}, ${formatClock(start)} - ${formatClock(end)}`;
 }
@@ -129,22 +107,12 @@ export function formatMeridiem(value: string): string {
   return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")} ${suffix}`;
 }
 
-export function buildTimeSlots(
-  startHour = 8,
-  endHour = 18,
-  stepMinutes = 30
-): string[] {
+export function buildTimeSlots(startHour = 8, endHour = 18, stepMinutes = 30): string[] {
   const slots: string[] = [];
-  for (
-    let minutes = startHour * 60;
-    minutes < endHour * 60;
-    minutes += stepMinutes
-  ) {
+  for (let minutes = startHour * 60; minutes < endHour * 60; minutes += stepMinutes) {
     const hour = Math.floor(minutes / 60);
     const minute = minutes % 60;
-    slots.push(
-      `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`
-    );
+    slots.push(`${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`);
   }
   return slots;
 }
@@ -225,11 +193,7 @@ export function MonthCalendar({
           }}
           value={monthValue}
         >
-          <SelectTrigger
-            aria-label="Month"
-            className="min-w-28 flex-1 rounded-full"
-            size="sm"
-          >
+          <SelectTrigger aria-label="Month" className="min-w-28 flex-1 rounded-full" size="sm">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -255,11 +219,7 @@ export function MonthCalendar({
           }}
           value={yearValue}
         >
-          <SelectTrigger
-            aria-label="Year"
-            className="min-w-20 rounded-full"
-            size="sm"
-          >
+          <SelectTrigger aria-label="Year" className="min-w-20 rounded-full" size="sm">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -287,7 +247,7 @@ export function MonthCalendar({
           <div
             className={cn(
               "flex h-7 items-center justify-center rounded-full font-medium text-[0.65rem] text-muted-foreground tracking-wide",
-              index === selectedWeekday && "bg-muted text-foreground"
+              index === selectedWeekday && "bg-muted text-foreground",
             )}
             key={weekday}
           >
@@ -298,15 +258,14 @@ export function MonthCalendar({
           const key = toDateKey(cell.date);
           const isSelected = isSameDay(cell.date, selected);
           const dayMarkers = markers?.[key] ?? [];
-          const showPlainDot =
-            Boolean(dottedDates?.has(key)) && dayMarkers.length === 0;
+          const showPlainDot = Boolean(dottedDates?.has(key)) && dayMarkers.length === 0;
           const markerRow = (dayMarkers.length > 0 || showPlainDot) && (
             <span className="flex h-1.5 items-center justify-center gap-0.5">
               {showPlainDot ? (
                 <span
                   className={cn(
                     "size-1 rounded-full",
-                    isSelected ? "bg-primary-foreground" : "bg-primary"
+                    isSelected ? "bg-primary-foreground" : "bg-primary",
                   )}
                 />
               ) : (
@@ -316,7 +275,7 @@ export function MonthCalendar({
                     <span
                       className={cn(
                         "size-1 rounded-full",
-                        isSelected ? "bg-primary-foreground" : "bg-primary"
+                        isSelected ? "bg-primary-foreground" : "bg-primary",
                       )}
                       data-calendar-cat={category}
                       key={`${key}-${category}`}
@@ -332,9 +291,7 @@ export function MonthCalendar({
               className={cn(
                 "flex aspect-square min-h-9 flex-col items-center justify-center rounded-lg text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
                 cell.inMonth ? "text-foreground" : "text-muted-foreground",
-                isSelected
-                  ? "bg-primary text-primary-foreground"
-                  : "hover:bg-muted"
+                isSelected ? "bg-primary text-primary-foreground" : "hover:bg-muted",
               )}
               key={key}
               onClick={() => onSelect(cell.date)}
@@ -416,7 +373,7 @@ export function CalendarShell({
       <div
         className={cn(
           "w-full rounded-2xl bg-card text-card-foreground ring-1 ring-foreground/10",
-          className
+          className,
         )}
       >
         {children}

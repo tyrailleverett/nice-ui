@@ -56,18 +56,9 @@ export interface Detail2Props {
   onScheduleReview?: () => void;
 }
 
-export function Detail2({
-  className,
-  onLogHours,
-  onScheduleReview,
-}: Detail2Props) {
+export function Detail2({ className, onLogHours, onScheduleReview }: Detail2Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1200px] flex-col gap-5">
         <header className="flex flex-col gap-4 border-border border-b pb-4">
           <Breadcrumb>
@@ -89,14 +80,12 @@ export function Detail2({
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="font-heading font-semibold text-title sm:text-3xl">
-                  Avery Outdoor
-                </h1>
+                <h1 className="font-heading font-semibold text-title sm:text-3xl">Avery Outdoor</h1>
                 <Badge variant="secondary">At risk</Badge>
               </div>
               <p className="text-muted-foreground text-sm sm:text-base">
-                Q2 platform rollout. Next client review is Thursday with Amara
-                owning the remaining cutover work.
+                Q2 platform rollout. Next client review is Thursday with Amara owning the remaining
+                cutover work.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -125,28 +114,20 @@ export function Detail2({
               <Card>
                 <CardHeader>
                   <CardTitle>This week</CardTitle>
-                  <CardDescription>
-                    29h 30m logged against a 32h plan.
-                  </CardDescription>
+                  <CardDescription>29h 30m logged against a 32h plan.</CardDescription>
                   <CardAction>
-                    <span className="font-semibold text-xl tabular-nums">
-                      92%
-                    </span>
+                    <span className="font-semibold text-xl tabular-nums">92%</span>
                   </CardAction>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-4">
                   <Progress value={92} />
                   <dl className="grid gap-3 sm:grid-cols-3">
                     <div className="flex flex-col gap-1">
-                      <dt className="text-muted-foreground text-xs">
-                        Next review
-                      </dt>
+                      <dt className="text-muted-foreground text-xs">Next review</dt>
                       <dd className="font-medium">Thu, Mar 26 · 10:00</dd>
                     </div>
                     <div className="flex flex-col gap-1">
-                      <dt className="text-muted-foreground text-xs">
-                        Open work
-                      </dt>
+                      <dt className="text-muted-foreground text-xs">Open work</dt>
                       <dd className="font-medium">3 cutover tasks</dd>
                     </div>
                     <div className="flex flex-col gap-1">
@@ -165,15 +146,11 @@ export function Detail2({
                   {team.map((person) => (
                     <div className="flex items-center gap-3" key={person.name}>
                       <Avatar className="size-8">
-                        <AvatarFallback className="text-xs">
-                          {person.initials}
-                        </AvatarFallback>
+                        <AvatarFallback className="text-xs">{person.initials}</AvatarFallback>
                       </Avatar>
                       <div className="min-w-0">
                         <p className="font-medium text-sm">{person.name}</p>
-                        <p className="text-muted-foreground text-xs">
-                          {person.role}
-                        </p>
+                        <p className="text-muted-foreground text-xs">{person.role}</p>
                       </div>
                     </div>
                   ))}
@@ -190,8 +167,8 @@ export function Detail2({
               </CardHeader>
               <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-sm">
-                  Send the revised invoice mapping to Avery finance before
-                  Thursday, or slip the go-live to April 2.
+                  Send the revised invoice mapping to Avery finance before Thursday, or slip the
+                  go-live to April 2.
                 </p>
                 <Button type="button" variant="outline">
                   <MailIcon data-icon="inline-start" />
@@ -205,9 +182,7 @@ export function Detail2({
             <Card>
               <CardHeader>
                 <CardTitle>Client hours</CardTitle>
-                <CardDescription>
-                  Hours billed to Avery Outdoor this week.
-                </CardDescription>
+                <CardDescription>Hours billed to Avery Outdoor this week.</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-5 gap-2">
@@ -216,14 +191,10 @@ export function Detail2({
                       className="flex flex-col gap-2 rounded-lg border border-border p-3"
                       key={entry.day}
                     >
-                      <span className="text-muted-foreground text-xs">
-                        {entry.day}
-                      </span>
+                      <span className="text-muted-foreground text-xs">{entry.day}</span>
                       <span className="font-semibold text-lg tabular-nums">
                         {entry.hours}
-                        <span className="font-normal text-muted-foreground text-xs">
-                          h
-                        </span>
+                        <span className="font-normal text-muted-foreground text-xs">h</span>
                       </span>
                       <Badge variant="outline">{entry.kind}</Badge>
                     </div>
@@ -243,11 +214,7 @@ export function Detail2({
                   <div key={item.name}>
                     <div className="flex items-center justify-between gap-3 py-3">
                       <span className="font-medium text-sm">{item.name}</span>
-                      <Badge
-                        variant={
-                          item.state === "Watch" ? "secondary" : "outline"
-                        }
-                      >
+                      <Badge variant={item.state === "Watch" ? "secondary" : "outline"}>
                         {item.state}
                       </Badge>
                     </div>
@@ -268,9 +235,7 @@ export function Detail2({
                   <div key={file.name}>
                     <div className="flex items-center justify-between gap-3 py-3">
                       <span className="font-medium text-sm">{file.name}</span>
-                      <span className="text-muted-foreground text-xs">
-                        Updated {file.updated}
-                      </span>
+                      <span className="text-muted-foreground text-xs">Updated {file.updated}</span>
                     </div>
                     {index < files.length - 1 ? <Separator /> : null}
                   </div>

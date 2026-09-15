@@ -18,12 +18,7 @@ export function MarketingSection({
 
   return (
     <Comp className={cn(className)} {...props}>
-      <div
-        className={cn(
-          "mx-auto max-w-6xl",
-          padded && "py-12 pr-8 pl-8 md:py-16"
-        )}
-      >
+      <div className={cn("mx-auto max-w-6xl", padded && "py-12 pr-8 pl-8 md:py-16")}>
         {children}
       </div>
     </Comp>

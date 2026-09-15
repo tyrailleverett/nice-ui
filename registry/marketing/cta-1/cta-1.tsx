@@ -24,7 +24,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {action.label}
@@ -54,9 +54,7 @@ export function Cta1({
           </h2>
         </div>
         <div className="flex items-center justify-center gap-2 p-4 md:border-l">
-          {secondaryCta ? (
-            <ActionButton action={secondaryCta} variant="secondary" />
-          ) : null}
+          {secondaryCta ? <ActionButton action={secondaryCta} variant="secondary" /> : null}
           {primaryCta ? <ActionButton action={primaryCta} /> : null}
         </div>
       </section>

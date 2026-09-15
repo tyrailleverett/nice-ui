@@ -117,12 +117,7 @@ export interface Dashboard2Props {
 
 export function Dashboard2({ className }: Dashboard2Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-5">
         <header className="flex flex-col gap-4 border-b pb-4">
           <div className="flex items-center justify-between">
@@ -248,29 +243,20 @@ export function Dashboard2({ className }: Dashboard2Props) {
                     ]}
                     key={value}
                   >
-                    <SelectTrigger
-                      aria-label={label}
-                      className="w-full sm:w-48"
-                    >
+                    <SelectTrigger aria-label={label} className="w-full sm:w-48">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
                         <SelectItem value={value}>{label}</SelectItem>
-                        <SelectItem value={`${value}-all`}>
-                          All {label.toLowerCase()}
-                        </SelectItem>
+                        <SelectItem value={`${value}-all`}>All {label.toLowerCase()}</SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>
                 ))}
               </div>
               <div className="flex items-center">
-                <Button
-                  aria-label="Previous week"
-                  size="icon"
-                  variant="outline"
-                >
+                <Button aria-label="Previous week" size="icon" variant="outline">
                   <ChevronLeftIcon />
                 </Button>
                 <Button className="mx-1" variant="outline">
@@ -304,17 +290,12 @@ export function Dashboard2({ className }: Dashboard2Props) {
                         </Avatar>
                         <div>
                           <p className="font-medium">{person.name}</p>
-                          <p className="text-muted-foreground text-xs">
-                            {person.role}
-                          </p>
+                          <p className="text-muted-foreground text-xs">{person.role}</p>
                         </div>
                       </div>
                     </TableCell>
                     {person.hours.map((hours, index) => (
-                      <TableCell
-                        className="text-center"
-                        key={`${person.name}-${days[index]}`}
-                      >
+                      <TableCell className="text-center" key={`${person.name}-${days[index]}`}>
                         <p className="font-medium">{hours}</p>
                         <Progress
                           className="mx-auto mt-2 max-w-16"
@@ -327,26 +308,17 @@ export function Dashboard2({ className }: Dashboard2Props) {
                     ))}
                     <TableCell className="text-right">
                       <p className="font-medium">{person.total}</p>
-                      <p className="text-chart-2 text-xs">
-                        ↗ {person.utilization}%
-                      </p>
+                      <p className="text-chart-2 text-xs">↗ {person.utilization}%</p>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
             <div className="flex items-center justify-between px-4">
-              <span className="text-muted-foreground text-sm">
-                Rows per page: 5
-              </span>
+              <span className="text-muted-foreground text-sm">Rows per page: 5</span>
               <div className="flex items-center gap-2">
                 <span className="text-muted-foreground text-sm">1–5 of 9</span>
-                <Button
-                  aria-label="Previous page"
-                  disabled
-                  size="icon-sm"
-                  variant="ghost"
-                >
+                <Button aria-label="Previous page" disabled size="icon-sm" variant="ghost">
                   <ChevronLeftIcon />
                 </Button>
                 <Button size="icon-sm">1</Button>
@@ -388,19 +360,12 @@ export function Dashboard2({ className }: Dashboard2Props) {
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
               {["Data Audit", "Risk Queue", "Scope Review"].map((flow) => (
-                <div
-                  className="flex items-center gap-3 border-b pb-3 last:border-0"
-                  key={flow}
-                >
+                <div className="flex items-center gap-3 border-b pb-3 last:border-0" key={flow}>
                   <span className="grid size-9 place-items-center rounded-lg bg-muted">
                     <Code2Icon className="size-4" />
                   </span>
                   <span className="flex-1 font-medium">{flow}</span>
-                  <Button
-                    aria-label={`Add ${flow}`}
-                    size="icon-sm"
-                    variant="outline"
-                  >
+                  <Button aria-label={`Add ${flow}`} size="icon-sm" variant="outline">
                     <PlusIcon />
                   </Button>
                 </div>
@@ -413,19 +378,17 @@ export function Dashboard2({ className }: Dashboard2Props) {
               <CardDescription>Launch readiness tasks</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
-              {["Scope Check", "QA Handoff", "Security Review"].map(
-                (check, index) => (
-                  <div
-                    className="flex items-center justify-between border-b pb-3 last:border-0"
-                    key={check}
-                  >
-                    <span className="font-medium">{check}</span>
-                    <Badge variant={index === 2 ? "outline" : "secondary"}>
-                      {index === 2 ? "Pending" : "Ready"}
-                    </Badge>
-                  </div>
-                )
-              )}
+              {["Scope Check", "QA Handoff", "Security Review"].map((check, index) => (
+                <div
+                  className="flex items-center justify-between border-b pb-3 last:border-0"
+                  key={check}
+                >
+                  <span className="font-medium">{check}</span>
+                  <Badge variant={index === 2 ? "outline" : "secondary"}>
+                    {index === 2 ? "Pending" : "Ready"}
+                  </Badge>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </section>

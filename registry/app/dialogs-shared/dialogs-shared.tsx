@@ -47,18 +47,13 @@ export function DialogFrame({
 }) {
   return (
     <DialogContent
-      className={cn(
-        "max-h-[min(90vh,860px)] overflow-y-auto sm:max-w-3xl",
-        className
-      )}
+      className={cn("max-h-[min(90vh,860px)] overflow-y-auto sm:max-w-3xl", className)}
       showCloseButton={false}
       {...props}
     >
       <DialogHeader>
         <DialogTitle>{title}</DialogTitle>
-        {description ? (
-          <DialogDescription>{description}</DialogDescription>
-        ) : null}
+        {description ? <DialogDescription>{description}</DialogDescription> : null}
         <CloseButton />
       </DialogHeader>
       {children}

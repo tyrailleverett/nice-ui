@@ -1,9 +1,4 @@
-import {
-  type ComponentProps,
-  type FormEvent,
-  type ReactNode,
-  useCallback,
-} from "react";
+import { type ComponentProps, type FormEvent, type ReactNode, useCallback } from "react";
 
 import { LogoIcon } from "@/components/logo";
 import { PasswordInput } from "@/components/password-input";
@@ -44,9 +39,7 @@ export const defaultLoginLegalLinks: LoginFormLink[] = [
   { href: "#", label: "Help" },
 ];
 
-const defaultLogo = (
-  <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />
-);
+const defaultLogo = <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />;
 
 function GoogleIcon(props: ComponentProps<"svg">) {
   return (
@@ -102,7 +95,7 @@ export function LoginLegalNav({
       aria-label="Support and legal"
       className={cn(
         "flex items-center justify-center gap-5 pt-8 text-muted-foreground text-sm",
-        className
+        className,
       )}
     >
       {links.map((link) => (
@@ -142,7 +135,7 @@ export function LoginForm({
       event.preventDefault();
       onSubmit?.(event);
     },
-    [onSubmit]
+    [onSubmit],
   );
 
   return (
@@ -164,12 +157,7 @@ export function LoginForm({
       </div>
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <Button
-          className="h-10 w-full"
-          onClick={onGoogleContinue}
-          type="button"
-          variant="outline"
-        >
+        <Button className="h-10 w-full" onClick={onGoogleContinue} type="button" variant="outline">
           <GoogleIcon className="size-4" />
           {googleLabel}
         </Button>

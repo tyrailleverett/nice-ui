@@ -166,9 +166,7 @@ function AccountMenu({ defaultOpen }: { defaultOpen: boolean }) {
   return (
     <DropdownMenu defaultOpen={defaultOpen}>
       <DropdownMenuTrigger
-        render={
-          <Button aria-label="Open account menu" size="icon" variant="ghost" />
-        }
+        render={<Button aria-label="Open account menu" size="icon" variant="ghost" />}
       >
         <Avatar size="sm">
           <AvatarFallback>AM</AvatarFallback>
@@ -200,21 +198,15 @@ export interface AppShell9Props {
   defaultUserMenuOpen?: boolean;
 }
 
-export function AppShell9({
-  children,
-  defaultUserMenuOpen = false,
-}: AppShell9Props) {
+export function AppShell9({ children, defaultUserMenuOpen = false }: AppShell9Props) {
   const [activeItem, setActiveItem] = useState("Dashboard");
 
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-svh flex-col bg-background text-foreground">
@@ -225,11 +217,7 @@ export function AppShell9({
             Lumen
           </a>
 
-          <MarketNav
-            activeItem={activeItem}
-            className="flex-wrap"
-            onItemClick={handleItemClick}
-          />
+          <MarketNav activeItem={activeItem} className="flex-wrap" onItemClick={handleItemClick} />
 
           <div className="ml-auto flex items-center gap-1">
             <Button aria-label="Saved items" size="icon" variant="ghost">
@@ -256,24 +244,15 @@ export function AppShell9({
                   <span className="sr-only">Home</span>
                 </BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-muted-foreground/40">
-                /
-              </BreadcrumbSeparator>
+              <BreadcrumbSeparator className="text-muted-foreground/40">/</BreadcrumbSeparator>
               <BreadcrumbItem>
-                <BreadcrumbLink
-                  className="hover:text-foreground"
-                  href="#dashboards"
-                >
+                <BreadcrumbLink className="hover:text-foreground" href="#dashboards">
                   Dashboards
                 </BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-muted-foreground/40">
-                /
-              </BreadcrumbSeparator>
+              <BreadcrumbSeparator className="text-muted-foreground/40">/</BreadcrumbSeparator>
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-foreground">
-                  Lumen
-                </BreadcrumbPage>
+                <BreadcrumbPage className="text-foreground">Lumen</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -284,9 +263,7 @@ export function AppShell9({
                 <RefreshCwIcon />
               </span>
               <div className="flex flex-col">
-                <h1 className="font-heading font-semibold text-title">
-                  Market Dashboard
-                </h1>
+                <h1 className="font-heading font-semibold text-title">Market Dashboard</h1>
                 <p className="text-muted-foreground text-sm">Earning reports</p>
               </div>
             </div>
@@ -294,12 +271,8 @@ export function AppShell9({
             <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
               {earningStats.map((stat) => (
                 <div className="flex flex-col gap-1" key={stat.label}>
-                  <dt className="order-2 text-muted-foreground text-sm">
-                    {stat.label}
-                  </dt>
-                  <dd className="order-1 font-heading font-semibold text-title">
-                    {stat.value}
-                  </dd>
+                  <dt className="order-2 text-muted-foreground text-sm">{stat.label}</dt>
+                  <dd className="order-1 font-heading font-semibold text-title">{stat.value}</dd>
                 </div>
               ))}
             </dl>

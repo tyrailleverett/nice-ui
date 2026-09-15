@@ -1,9 +1,4 @@
-import {
-  BanknoteIcon,
-  Laptop2Icon,
-  MapPinIcon,
-  SparklesIcon,
-} from "lucide-react";
+import { BanknoteIcon, Laptop2Icon, MapPinIcon, SparklesIcon } from "lucide-react";
 
 import "@/components/app/cards-shared";
 import { Button } from "@/components/ui/button";
@@ -32,8 +27,7 @@ export function RecommendedRoleCard({
   return (
     <article className="showcase-card role-card">
       <div className="role-label">
-        <SparklesIcon aria-hidden="true" /> Recommended role, based on your
-        profile
+        <SparklesIcon aria-hidden="true" /> Recommended role, based on your profile
       </div>
       <div className="role-body">
         <div className="role-intro">

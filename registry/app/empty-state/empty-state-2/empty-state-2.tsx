@@ -5,11 +5,7 @@ import { cn } from "@/lib/utils";
 
 function ProjectIllustration() {
   return (
-    <svg
-      aria-hidden="true"
-      className="h-32 w-80 max-w-full"
-      viewBox="0 0 320 128"
-    >
+    <svg aria-hidden="true" className="h-32 w-80 max-w-full" viewBox="0 0 320 128">
       <path
         className="fill-none stroke-border"
         d="M32 96h256M32 64h256M32 32h256M80 16v96M160 16v96M240 16v96"
@@ -35,16 +31,12 @@ export interface EmptyState2Props {
   onNewProject?: () => void;
 }
 
-export function EmptyState2({
-  className,
-  onExploreTemplates,
-  onNewProject,
-}: EmptyState2Props) {
+export function EmptyState2({ className, onExploreTemplates, onNewProject }: EmptyState2Props) {
   return (
     <section
       className={cn(
         "flex min-h-[34rem] w-full flex-col items-center justify-center bg-background px-6 py-16 text-center text-foreground",
-        className
+        className,
       )}
     >
       <ProjectIllustration />
@@ -53,8 +45,8 @@ export function EmptyState2({
           No projects to show
         </h2>
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed sm:text-xl">
-          Start a project from scratch or pick a template to launch your first
-          workspace and begin tracking tasks, goals, and progress.
+          Start a project from scratch or pick a template to launch your first workspace and begin
+          tracking tasks, goals, and progress.
         </p>
       </div>
       <div className="mt-8 flex flex-wrap justify-center gap-3">

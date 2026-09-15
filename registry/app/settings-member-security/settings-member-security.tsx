@@ -1,9 +1,4 @@
-import {
-  KeyRoundIcon,
-  MailIcon,
-  RefreshCcwIcon,
-  SmartphoneIcon,
-} from "lucide-react";
+import { KeyRoundIcon, MailIcon, RefreshCcwIcon, SmartphoneIcon } from "lucide-react";
 import type { ComponentType } from "react";
 import { SettingsTag } from "@/components/app/settings-shared";
 import { Badge } from "@/components/ui/badge";
@@ -73,9 +68,7 @@ function SignInSecurityRow({
         <p className="mt-1 text-muted-foreground text-sm">{description}</p>
       </div>
       <div className="sm:pt-1">
-        <SettingsTag tone={status === "Enforced" ? "accent" : "success"}>
-          {status}
-        </SettingsTag>
+        <SettingsTag tone={status === "Enforced" ? "accent" : "success"}>{status}</SettingsTag>
       </div>
     </div>
   );
@@ -87,12 +80,7 @@ export function MemberSecurity({
   onResetTwoFactor,
 }: MemberSecurityProps) {
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 sm:p-8", className)}>
       <Card className="gap-0 overflow-hidden py-0">
         <CardHeader className="gap-1 p-6">
           <CardTitle>Authentication factors</CardTitle>
@@ -123,19 +111,11 @@ export function MemberSecurity({
           </div>
         </CardContent>
         <CardFooter className="flex flex-col justify-end gap-2 p-4 sm:flex-row">
-          <Button
-            className="w-full sm:w-auto"
-            onClick={onResendInvite}
-            variant="outline"
-          >
+          <Button className="w-full sm:w-auto" onClick={onResendInvite} variant="outline">
             <MailIcon data-icon="inline-start" />
             Resend invite
           </Button>
-          <Button
-            className="w-full sm:w-auto"
-            onClick={onResetTwoFactor}
-            variant="secondary"
-          >
+          <Button className="w-full sm:w-auto" onClick={onResetTwoFactor} variant="secondary">
             <RefreshCcwIcon data-icon="inline-start" />
             Reset 2FA
           </Button>

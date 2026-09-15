@@ -3,23 +3,12 @@
 /* biome-ignore-all lint/a11y/noStaticElementInteractions: Drop zone is a mouse target; the Browse button is the keyboard control. */
 /* biome-ignore-all lint/a11y/useKeyWithClickEvents: Drop zone is a mouse target; the Browse button is the keyboard control. */
 /* biome-ignore-all lint/performance/noJsxPropsBind: Upload controls close over file ids and the hidden input. */
-import {
-  CheckIcon,
-  CloudUploadIcon,
-  TriangleAlertIcon,
-  XIcon,
-} from "lucide-react";
+import { CheckIcon, CloudUploadIcon, TriangleAlertIcon, XIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
 import {
   type FileMetadata,
@@ -61,9 +50,7 @@ function UploadStatusGlyph({ status }: { status: UploadStatus }) {
   if (status === "done") {
     return <CheckIcon aria-hidden="true" />;
   }
-  return (
-    <Spinner aria-label="Uploading" className="size-3 text-muted-foreground" />
-  );
+  return <Spinner aria-label="Uploading" className="size-3 text-muted-foreground" />;
 }
 
 function uploadStatusLabel(item: UploadItem) {
@@ -97,7 +84,7 @@ export function FileUpload1({
       preview: file.url,
       progress: index === 0 ? 100 : 64,
       status: index === 0 ? "done" : "uploading",
-    }))
+    })),
   );
   const [{ isDragging, errors }, actions] = useFileUpload({
     accept,
@@ -112,15 +99,13 @@ export function FileUpload1({
               ...file,
               progress: 0,
               status: "uploading",
-            }
-        )
+            },
+        ),
       );
       onFilesChange?.(next);
     },
   });
-  const hasActiveUploads = uploadFiles.some(
-    (item) => item.status === "uploading"
-  );
+  const hasActiveUploads = uploadFiles.some((item) => item.status === "uploading");
 
   useEffect(() => {
     if (!hasActiveUploads) {
@@ -133,16 +118,13 @@ export function FileUpload1({
             if (item.status !== "uploading") {
               return item;
             }
-            const progress = Math.min(
-              100,
-              item.progress + Math.random() * 18 + 6
-            );
+            const progress = Math.min(100, item.progress + Math.random() * 18 + 6);
             return progress >= 100
               ? { ...item, progress: 100, status: "done" }
               : { ...item, progress };
-          })
+          }),
         ),
-      600
+      600,
     );
     return () => window.clearInterval(timer);
   }, [hasActiveUploads]);
@@ -160,7 +142,7 @@ export function FileUpload1({
     <section
       className={cn(
         "flex min-h-[34rem] w-full items-center justify-center bg-muted/30 px-6 py-16",
-        className
+        className,
       )}
     >
       <Card className="w-full max-w-xl">
@@ -176,13 +158,22 @@ export function FileUpload1({
               "flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed px-6 py-12 text-center outline-none transition-colors",
               isDragging
                 ? "border-primary bg-primary/5"
-                : "border-border bg-muted/40 hover:bg-muted/60"
+                : "border-border bg-muted/40 hover:bg-muted/60",
             )}
             onClick={actions.openFileDialog}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                actions.openFileDialog();
+              }
+            }}
             onDragEnter={actions.handleDragEnter}
             onDragLeave={actions.handleDragLeave}
             onDragOver={actions.handleDragOver}
             onDrop={actions.handleDrop}
+            // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- div needed for drag-and-drop events
+            role="button"
+            tabIndex={0}
           >
             <input {...actions.getInputProps()} className="sr-only" />
             <div className="flex size-12 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground">
@@ -190,9 +181,7 @@ export function FileUpload1({
             </div>
             <div className="flex flex-col gap-1">
               <p className="font-medium text-sm">
-                {isDragging
-                  ? "Release to upload"
-                  : "Drag & drop files or click to browse"}
+                {isDragging ? "Release to upload" : "Drag & drop files or click to browse"}
               </p>
               <p className="text-muted-foreground text-xs">
                 Supports PDF, PNG, JPG up to {formatBytes(maxSize)}
@@ -218,17 +207,10 @@ export function FileUpload1({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <p className="text-muted-foreground text-xs">
-                  <span className="font-medium text-foreground">
-                    {uploadFiles.length}
-                  </span>{" "}
+                  <span className="font-medium text-foreground">{uploadFiles.length}</span>{" "}
                   {uploadFiles.length === 1 ? "file" : "files"}
                 </p>
-                <Button
-                  onClick={actions.clearFiles}
-                  size="sm"
-                  type="button"
-                  variant="ghost"
-                >
+                <Button onClick={actions.clearFiles} size="sm" type="button" variant="ghost">
                   Clear all
                 </Button>
               </div>
@@ -242,18 +224,14 @@ export function FileUpload1({
                       className={cn(
                         "flex size-8 shrink-0 items-center justify-center rounded-md bg-muted",
                         item.status === "error" && "text-destructive",
-                        item.status === "done" && "text-primary"
+                        item.status === "done" && "text-primary",
                       )}
                     >
                       <UploadStatusGlyph status={item.status} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-medium text-sm">
-                        {item.file.name}
-                      </p>
-                      <p className="text-muted-foreground text-xs">
-                        {uploadStatusLabel(item)}
-                      </p>
+                      <p className="truncate font-medium text-sm">{item.file.name}</p>
+                      <p className="text-muted-foreground text-xs">{uploadStatusLabel(item)}</p>
                     </div>
                     <Button
                       aria-label={`Remove ${item.file.name}`}

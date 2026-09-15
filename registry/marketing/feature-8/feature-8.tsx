@@ -45,11 +45,7 @@ function FeatureMap() {
   }
 
   return (
-    <svg
-      aria-hidden="true"
-      className="size-full text-foreground"
-      viewBox={`0 0 ${cols} ${rows}`}
-    >
+    <svg aria-hidden="true" className="size-full text-foreground" viewBox={`0 0 ${cols} ${rows}`}>
       <title>World map</title>
       {dots.map((point) => (
         <circle
@@ -64,12 +60,7 @@ function FeatureMap() {
   );
 }
 
-function stepPath(
-  values: number[],
-  width: number,
-  height: number,
-  max: number
-) {
+function stepPath(values: number[], width: number, height: number, max: number) {
   if (values.length === 0) {
     return "";
   }
@@ -85,21 +76,12 @@ function stepPath(
   return d;
 }
 
-const CHART_GRID_LINE_IDS = [
-  "grid-0",
-  "grid-1",
-  "grid-2",
-  "grid-3",
-  "grid-4",
-  "grid-5",
-] as const;
+const CHART_GRID_LINE_IDS = ["grid-0", "grid-1", "grid-2", "grid-3", "grid-4", "grid-5"] as const;
 
 function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
   const width = 960;
   const height = 320;
-  const max = Math.max(
-    ...data.flatMap((point) => [point.desktop + point.mobile, 1])
-  );
+  const max = Math.max(...data.flatMap((point) => [point.desktop + point.mobile, 1]));
   const mobile = data.map((point) => point.mobile);
   const stacked = data.map((point) => point.desktop + point.mobile);
   const mobileLine = stepPath(mobile, width, height, max);
@@ -116,28 +98,12 @@ function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
         <title>Usage chart</title>
         <defs>
           <linearGradient id="feature-8-mobile" x1="0" x2="0" y1="0" y2="1">
-            <stop
-              offset="0%"
-              stopColor="var(--color-chart-2)"
-              stopOpacity="0.8"
-            />
-            <stop
-              offset="55%"
-              stopColor="var(--color-chart-2)"
-              stopOpacity="0.1"
-            />
+            <stop offset="0%" stopColor="var(--color-chart-2)" stopOpacity="0.8" />
+            <stop offset="55%" stopColor="var(--color-chart-2)" stopOpacity="0.1" />
           </linearGradient>
           <linearGradient id="feature-8-desktop" x1="0" x2="0" y1="0" y2="1">
-            <stop
-              offset="0%"
-              stopColor="var(--color-chart-1)"
-              stopOpacity="0.8"
-            />
-            <stop
-              offset="55%"
-              stopColor="var(--color-chart-1)"
-              stopOpacity="0.1"
-            />
+            <stop offset="0%" stopColor="var(--color-chart-1)" stopOpacity="0.8" />
+            <stop offset="55%" stopColor="var(--color-chart-1)" stopOpacity="0.1" />
           </linearGradient>
         </defs>
         {CHART_GRID_LINE_IDS.map((lineId, index) => (
@@ -161,18 +127,8 @@ function MonitoringChart({ data }: { data: Feature8ChartPoint[] }) {
           fill="url(#feature-8-desktop)"
           fillOpacity="0.2"
         />
-        <path
-          d={mobileLine}
-          fill="none"
-          stroke="var(--color-chart-2)"
-          strokeWidth="3"
-        />
-        <path
-          d={stackedLine}
-          fill="none"
-          stroke="var(--color-chart-1)"
-          strokeWidth="3"
-        />
+        <path d={mobileLine} fill="none" stroke="var(--color-chart-2)" strokeWidth="3" />
+        <path d={stackedLine} fill="none" stroke="var(--color-chart-1)" strokeWidth="3" />
       </svg>
     </div>
   );
@@ -213,8 +169,7 @@ export function Feature8({
             <div className="row-span-2 grid grid-rows-subgrid gap-6 md:gap-0">
               <div className="p-6 sm:p-12">
                 <p className="text-balance font-medium text-lg text-muted-foreground">
-                  <span className="text-foreground">{mapTitle}</span>{" "}
-                  {mapDescription}
+                  <span className="text-foreground">{mapTitle}</span> {mapDescription}
                 </p>
               </div>
 
@@ -234,8 +189,7 @@ export function Feature8({
             <div className="row-span-2 grid grid-rows-subgrid gap-6 overflow-hidden border-t p-6 sm:p-12 md:gap-0 md:border-0 md:border-l dark:bg-transparent">
               <div className="relative z-10">
                 <p className="text-balance font-medium text-lg text-muted-foreground">
-                  <span className="text-foreground">{threadTitle}</span>{" "}
-                  {threadDescription}
+                  <span className="text-foreground">{threadTitle}</span> {threadDescription}
                 </p>
               </div>
               <div
@@ -255,17 +209,13 @@ export function Feature8({
             </div>
             <div className="col-span-full border-y p-12 lg:py-20">
               <p className="text-center font-semibold text-4xl lg:text-7xl">
-                {uptime}{" "}
-                <span className="text-muted-foreground">{uptimeLabel}</span>
+                {uptime} <span className="text-muted-foreground">{uptimeLabel}</span>
               </p>
             </div>
             <div className="relative col-span-full">
               <div className="absolute z-10 max-w-lg px-6 pt-6 pr-12 md:px-12 md:pt-12">
                 <p className="mb-8 text-balance font-medium text-lg">
-                  {chartTitle}{" "}
-                  <span className="text-muted-foreground">
-                    {chartDescription}
-                  </span>
+                  {chartTitle} <span className="text-muted-foreground">{chartDescription}</span>
                 </p>
               </div>
               <MonitoringChart data={chartData} />

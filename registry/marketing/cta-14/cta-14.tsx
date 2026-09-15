@@ -33,7 +33,7 @@ function ActionButton({
       <Button
         className={className}
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {children}
@@ -72,9 +72,7 @@ export function Cta14({
             <h2 className="text-balance font-display-heading text-4xl leading-tight sm:text-5xl">
               {title}
             </h2>
-            <p className="max-w-xl text-background/70 text-base leading-7">
-              {description}
-            </p>
+            <p className="max-w-xl text-background/70 text-base leading-7">{description}</p>
           </div>
 
           <div className="flex flex-col items-start gap-5 lg:items-end">
@@ -93,16 +91,9 @@ export function Cta14({
               </ActionButton>
             </div>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 text-background/65 text-xs">
-              {[
-                "No credit card",
-                "Accessible by default",
-                "Ships with tokens",
-              ].map((item) => (
+              {["No credit card", "Accessible by default", "Ships with tokens"].map((item) => (
                 <li className="flex items-center gap-1.5" key={item}>
-                  <CheckIcon
-                    aria-hidden="true"
-                    className="size-3.5 text-primary"
-                  />
+                  <CheckIcon aria-hidden="true" className="size-3.5 text-primary" />
                   {item}
                 </li>
               ))}

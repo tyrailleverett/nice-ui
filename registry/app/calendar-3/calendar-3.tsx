@@ -48,9 +48,7 @@ export function Calendar3({ className }: Calendar3Props) {
   const slots = useMemo(() => buildTimeSlots(7, 20, 30), []);
   const [start, setStart] = useState("09:00");
   const [durationMinutes, setDurationMinutes] = useState(60);
-  const selectedPreset = DURATION_PRESETS.find(
-    (preset) => preset.minutes === durationMinutes
-  );
+  const selectedPreset = DURATION_PRESETS.find((preset) => preset.minutes === durationMinutes);
   const durationLabel = selectedPreset?.label ?? `${durationMinutes} min`;
   const end = addMinutesToTime(start, durationMinutes);
 
@@ -70,12 +68,7 @@ export function Calendar3({ className }: Calendar3Props) {
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <Button
-                  aria-label="More options"
-                  size="icon"
-                  type="button"
-                  variant="ghost"
-                />
+                <Button aria-label="More options" size="icon" type="button" variant="ghost" />
               }
             >
               <EllipsisIcon />
@@ -130,12 +123,9 @@ export function Calendar3({ className }: Calendar3Props) {
                     if (!value) {
                       return;
                     }
-                    const [startHour, startMinute] = start
-                      .split(":")
-                      .map(Number);
+                    const [startHour, startMinute] = start.split(":").map(Number);
                     const [endHour, endMinute] = value.split(":").map(Number);
-                    const minutes =
-                      endHour * 60 + endMinute - (startHour * 60 + startMinute);
+                    const minutes = endHour * 60 + endMinute - (startHour * 60 + startMinute);
                     if (minutes > 0) {
                       setDurationMinutes(minutes);
                     }
@@ -167,9 +157,7 @@ export function Calendar3({ className }: Calendar3Props) {
                     onClick={() => setDurationMinutes(preset.minutes)}
                     size="sm"
                     type="button"
-                    variant={
-                      durationMinutes === preset.minutes ? "default" : "outline"
-                    }
+                    variant={durationMinutes === preset.minutes ? "default" : "outline"}
                   >
                     {preset.label}
                   </Button>
@@ -181,8 +169,7 @@ export function Calendar3({ className }: Calendar3Props) {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="flex items-center gap-2 text-muted-foreground text-sm [&_svg]:size-4">
             <InfoIcon />
-            Selected duration:{" "}
-            <span className="font-medium text-foreground">{durationLabel}</span>
+            Selected duration: <span className="font-medium text-foreground">{durationLabel}</span>
           </p>
           <div className="flex gap-2">
             <Button type="button" variant="outline">

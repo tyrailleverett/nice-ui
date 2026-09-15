@@ -6,11 +6,7 @@ import { Button } from "@/components/ui/button";
 export function LinkedinIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/linkedin.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/linkedin.svg" width="100%" />
     </svg>
   );
 }
@@ -26,11 +22,7 @@ export function XIcon(props: ComponentProps<"svg">) {
 export function DiscordIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/discord.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/discord.svg" width="100%" />
     </svg>
   );
 }
@@ -143,11 +135,7 @@ export function Footer6({
                 <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
               </a>
               {legalLinks.map((link) => (
-                <a
-                  className="hover:text-foreground"
-                  href={link.href}
-                  key={link.label}
-                >
+                <a className="hover:text-foreground" href={link.href} key={link.label}>
                   {link.label}
                 </a>
               ))}

@@ -1,11 +1,7 @@
 import type { ReactNode } from "react";
 
 import { CheckEmail } from "@/components/check-email";
-import {
-  defaultLoginLegalLinks,
-  type LoginFormLink,
-  LoginLegalNav,
-} from "@/components/login-form";
+import { defaultLoginLegalLinks, type LoginFormLink, LoginLegalNav } from "@/components/login-form";
 import { cn } from "@/lib/utils";
 
 export interface CheckEmail3Props {
@@ -34,9 +30,7 @@ export function CheckEmail3({
   title,
 }: CheckEmail3Props) {
   return (
-    <section
-      className={cn("min-h-svh bg-background text-foreground", className)}
-    >
+    <section className={cn("min-h-svh bg-background text-foreground", className)}>
       <div className="flex min-h-svh flex-col px-6 py-8 md:px-10">
         <div className="flex flex-1 items-center justify-center">
           <CheckEmail

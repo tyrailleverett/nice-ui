@@ -6,13 +6,9 @@ export default {
   title: "Marketing/Logo",
 } satisfies Meta;
 
-export const Wordmark: StoryFn = () => (
-  <Logo aria-label="Nice UI" className="h-6 w-auto" />
-);
+export const Wordmark: StoryFn = () => <Logo aria-label="Nice UI" className="h-6 w-auto" />;
 
-export const Icon: StoryFn = () => (
-  <LogoIcon aria-label="Nice UI" className="size-8" />
-);
+export const Icon: StoryFn = () => <LogoIcon aria-label="Nice UI" className="size-8" />;
 
 export const Sizes: StoryFn = () => (
   <div className="flex flex-col gap-8">

@@ -9,11 +9,7 @@ import {
   UsersRoundIcon,
 } from "lucide-react";
 import type { ElementType, ReactNode } from "react";
-import {
-  Panel,
-  SettingsSwitch,
-  SettingsTag,
-} from "@/components/app/settings-shared";
+import { Panel, SettingsSwitch, SettingsTag } from "@/components/app/settings-shared";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -47,13 +43,7 @@ function FeatureRow({
   );
 }
 
-function FeatureGroup({
-  children,
-  title,
-}: {
-  children: ReactNode;
-  title: string;
-}) {
+function FeatureGroup({ children, title }: { children: ReactNode; title: string }) {
   return (
     <section className="flex flex-col gap-3">
       <h2 className="px-1 font-semibold text-lg">{title}</h2>
@@ -64,20 +54,13 @@ function FeatureGroup({
 
 export function WorkspaceFeatures({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8",
-        className
-      )}
-    >
+    <div className={cn("mx-auto flex w-full max-w-5xl flex-col gap-8 p-4 sm:p-8", className)}>
       <FeatureGroup title="AI features">
         <FeatureRow
           description="Find content by meaning, not exact wording."
           icon={BotIcon}
           label="Enable AI semantic search"
-          trailing={
-            <SettingsSwitch defaultChecked label="Toggle semantic search" />
-          }
+          trailing={<SettingsSwitch defaultChecked label="Toggle semantic search" />}
         >
           <SettingsTag>Smart</SettingsTag>
         </FeatureRow>
@@ -142,9 +125,7 @@ export function WorkspaceFeatures({ className }: { className?: string }) {
           description="Weekly summary of activity and mentions in this workspace."
           icon={MailIcon}
           label="Email digest"
-          trailing={
-            <SettingsSwitch defaultChecked label="Toggle email digest" />
-          }
+          trailing={<SettingsSwitch defaultChecked label="Toggle email digest" />}
         >
           <SettingsTag>Weekly</SettingsTag>
         </FeatureRow>
@@ -152,9 +133,7 @@ export function WorkspaceFeatures({ className }: { className?: string }) {
           description="Show real-time notifications while you are working here."
           icon={BellIcon}
           label="In-app alerts"
-          trailing={
-            <SettingsSwitch defaultChecked label="Toggle in-app alerts" />
-          }
+          trailing={<SettingsSwitch defaultChecked label="Toggle in-app alerts" />}
         >
           <SettingsTag tone="accent">Instant</SettingsTag>
         </FeatureRow>

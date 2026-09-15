@@ -71,9 +71,7 @@ export function LogoCloud3({
         {title || highlight ? (
           <h2 className="mb-5 text-center text-lg text-primary">
             {title ? <>{title} </> : null}
-            {highlight ? (
-              <span className="font-medium text-primary">{highlight}</span>
-            ) : null}
+            {highlight ? <span className="font-medium text-primary">{highlight}</span> : null}
           </h2>
         ) : null}
         <div className="relative mx-auto max-w-3xl">

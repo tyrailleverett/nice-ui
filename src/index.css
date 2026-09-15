@@ -12,8 +12,8 @@
   --font-heading: var(--font-sans);
   --font-sans: "Inter Variable", sans-serif;
   --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
   --font-weight-display: 900;
   --tracking-display: -0.025em;
   --color-sidebar-ring: var(--sidebar-ring);

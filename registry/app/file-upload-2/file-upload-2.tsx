@@ -9,8 +9,11 @@ export interface FileUpload2Props {
 }
 
 export function FileUpload2({ className }: FileUpload2Props) {
-  const [{ files }, { removeFile, openFileDialog, getInputProps }] =
-    useFileUpload({ accept: "image/*", maxFiles: 1, multiple: false });
+  const [{ files }, { removeFile, openFileDialog, getInputProps }] = useFileUpload({
+    accept: "image/*",
+    maxFiles: 1,
+    multiple: false,
+  });
   const [file] = files;
   return (
     <div className={cn("flex flex-col items-center gap-2", className)}>
@@ -32,9 +35,7 @@ export function FileUpload2({ className }: FileUpload2Props) {
           )}
         </div>
         <div>
-          <Button onClick={openFileDialog}>
-            {file ? "Change image" : "Upload image"}
-          </Button>
+          <Button onClick={openFileDialog}>{file ? "Change image" : "Upload image"}</Button>
           <input
             {...getInputProps()}
             aria-label="Upload image file"
@@ -46,10 +47,7 @@ export function FileUpload2({ className }: FileUpload2Props) {
       <div className="inline-flex gap-2 text-xs">
         {file ? (
           <>
-            <p
-              aria-live="polite"
-              className="max-w-48 truncate text-muted-foreground"
-            >
+            <p aria-live="polite" className="max-w-48 truncate text-muted-foreground">
               {file.file.name}
             </p>
             <Button

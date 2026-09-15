@@ -89,9 +89,7 @@ function AccountMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button aria-label="Open account menu" size="icon" variant="ghost" />
-        }
+        render={<Button aria-label="Open account menu" size="icon" variant="ghost" />}
       >
         <Avatar size="sm">
           <AvatarFallback>AR</AvatarFallback>
@@ -121,10 +119,7 @@ function TopNavigation({
   onItemClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }) {
   return (
-    <nav
-      aria-label="Primary"
-      className="flex items-center gap-1 overflow-x-auto"
-    >
+    <nav aria-label="Primary" className="flex items-center gap-1 overflow-x-auto">
       {topNavigation.map((item) => {
         const Icon = item.icon;
         const isActive = item.label === activeItem;
@@ -134,7 +129,7 @@ function TopNavigation({
             aria-current={isActive ? "page" : undefined}
             className={cn(
               "shrink-0 gap-2 text-white/60 hover:bg-white/10 hover:text-white",
-              isActive && "bg-white/10 text-white"
+              isActive && "bg-white/10 text-white",
             )}
             data-navigation-label={item.label}
             key={item.label}
@@ -157,14 +152,8 @@ function WorkspaceCanvas({ children }: { children?: ReactNode }) {
 
   return (
     <div className="grid min-h-112 gap-4 lg:grid-cols-[1.4fr_0.6fr]">
-      <section
-        aria-label="Activity feed"
-        className="rounded-lg border border-border bg-card"
-      />
-      <section
-        aria-label="Workspace summary"
-        className="rounded-lg border border-border bg-card"
-      />
+      <section aria-label="Activity feed" className="rounded-lg border border-border bg-card" />
+      <section aria-label="Workspace summary" className="rounded-lg border border-border bg-card" />
     </div>
   );
 }
@@ -174,21 +163,15 @@ export interface AppShell10Props {
   defaultWorkspaceMenuOpen?: boolean;
 }
 
-export function AppShell10({
-  children,
-  defaultWorkspaceMenuOpen = false,
-}: AppShell10Props) {
+export function AppShell10({ children, defaultWorkspaceMenuOpen = false }: AppShell10Props) {
   const [activeItem, setActiveItem] = useState("Overview");
 
-  const handleNavigationClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleNavigationClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-svh flex-col bg-[#111110] text-foreground">
@@ -196,10 +179,7 @@ export function AppShell10({
         <div className="mx-auto flex min-h-16 max-w-7xl items-center gap-2 px-4 py-2 lg:gap-6 lg:px-6">
           <WorkspaceMenu defaultOpen={defaultWorkspaceMenuOpen} />
           <div className="hidden h-6 w-px bg-white/10 lg:block" />
-          <TopNavigation
-            activeItem={activeItem}
-            onItemClick={handleNavigationClick}
-          />
+          <TopNavigation activeItem={activeItem} onItemClick={handleNavigationClick} />
           <div className="ml-auto flex items-center gap-1">
             <div className="relative hidden xl:block">
               <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-white/40" />

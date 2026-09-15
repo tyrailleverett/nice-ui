@@ -1,9 +1,4 @@
-import {
-  ArrowLeftRightIcon,
-  BellIcon,
-  LineChartIcon,
-  UsersIcon,
-} from "lucide-react";
+import { ArrowLeftRightIcon, BellIcon, LineChartIcon, UsersIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Card } from "@/components/ui/card";
@@ -71,8 +66,7 @@ export function Feature4({
           <div className="mt-8 grid gap-3 *:bg-background md:mt-16 md:grid-cols-2 lg:grid-cols-3">
             <Card className="p-8">
               <p className="max-w-xs font-medium text-lg text-muted-foreground">
-                <span className="text-foreground">{pipelineTitle}</span>{" "}
-                {pipelineDescription}
+                <span className="text-foreground">{pipelineTitle}</span> {pipelineDescription}
               </p>
 
               <div className="my-16">
@@ -87,8 +81,7 @@ export function Feature4({
             <Card className="lg:col-span-2">
               <div className="p-8">
                 <p className="max-w-xs font-medium text-lg text-muted-foreground">
-                  <span className="text-foreground">{signalsTitle}</span>{" "}
-                  {signalsDescription}
+                  <span className="text-foreground">{signalsTitle}</span> {signalsDescription}
                 </p>
               </div>
 
@@ -103,10 +96,7 @@ export function Feature4({
 
           <div className="mt-12 grid gap-3 *:max-w-xs max-sm:*:not-last:border-b max-sm:*:not-last:pb-3 sm:grid-cols-2 md:mt-16 md:gap-y-6 lg:mt-24 lg:grid-cols-4 lg:gap-6">
             {highlights.map((item) => (
-              <p
-                className="text-balance text-muted-foreground"
-                key={item.title}
-              >
+              <p className="text-balance text-muted-foreground" key={item.title}>
                 <span className="font-medium text-foreground">
                   {item.icon} {item.title}
                 </span>{" "}

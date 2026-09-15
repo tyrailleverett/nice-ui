@@ -3,11 +3,7 @@ import { type FormEvent, type ReactNode, useCallback, useState } from "react";
 import { LogoIcon } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-} from "@/components/ui/input-otp";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
@@ -28,9 +24,7 @@ export interface TwoFactorFormProps {
   useCodeLabel?: string;
 }
 
-const defaultLogo = (
-  <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />
-);
+const defaultLogo = <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />;
 const otpSlots = ["slot-0", "slot-1", "slot-2", "slot-3", "slot-4", "slot-5"];
 
 type TwoFactorMode = "code" | "recovery";
@@ -59,7 +53,7 @@ export function TwoFactorForm({
       event.preventDefault();
       onSubmit?.(event);
     },
-    [onSubmit]
+    [onSubmit],
   );
 
   const toggleMode = useCallback(() => {
@@ -73,9 +67,7 @@ export function TwoFactorForm({
       {logo}
       <div className="space-y-1">
         <h1 className="font-semibold text-3xl tracking-tight">{title}</h1>
-        {description ? (
-          <p className="text-muted-foreground text-sm">{description}</p>
-        ) : null}
+        {description ? <p className="text-muted-foreground text-sm">{description}</p> : null}
       </div>
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -99,9 +91,7 @@ export function TwoFactorForm({
           </div>
         ) : (
           <div className="space-y-2">
-            <Label htmlFor={`${idPrefix}-recovery-code`}>
-              {recoveryCodeLabel}
-            </Label>
+            <Label htmlFor={`${idPrefix}-recovery-code`}>{recoveryCodeLabel}</Label>
             <Input
               autoComplete="off"
               className="h-10"
@@ -127,7 +117,7 @@ export function TwoFactorForm({
         <p className="text-center text-muted-foreground text-sm">
           <Button
             className="w-full"
-            render={<a href={signInHref} />}
+            render={<a aria-label={signInLabel} href={signInHref} />}
             variant="ghost"
           >
             {signInLabel}

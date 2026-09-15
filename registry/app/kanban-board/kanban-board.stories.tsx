@@ -13,15 +13,9 @@ type Story = StoryObj<typeof meta>;
 
 export const PipelineBoard: Story = {
   play: async ({ canvas }) => {
-    await expect(
-      canvas.getByRole("heading", { name: "Pipeline board" })
-    ).toBeVisible();
-    await expect(
-      canvas.getByRole("button", { name: "Add task" })
-    ).toBeVisible();
-    await expect(
-      canvas.getByRole("heading", { name: "In progress" })
-    ).toBeVisible();
+    await expect(canvas.getByRole("heading", { name: "Pipeline board" })).toBeVisible();
+    await expect(canvas.getByRole("button", { name: "Add task" })).toBeVisible();
+    await expect(canvas.getByRole("heading", { name: "In progress" })).toBeVisible();
   },
   render: () => <KanbanBoard />,
 };

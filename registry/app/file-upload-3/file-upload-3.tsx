@@ -1,11 +1,7 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Remove action closes over the selected file id. */
 import { CircleAlertIcon, UserIcon, XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  type FileWithPreview,
-  formatBytes,
-  useFileUpload,
-} from "@/hooks/use-file-upload";
+import { type FileWithPreview, formatBytes, useFileUpload } from "@/hooks/use-file-upload";
 import { cn } from "@/lib/utils";
 
 export interface AvatarUploadProps {
@@ -39,7 +35,7 @@ export function FileUpload3({
             isDragging
               ? "border-primary bg-primary/5"
               : "border-muted-foreground/25 hover:border-muted-foreground/50",
-            preview && "border-solid"
+            preview && "border-solid",
           )}
           onClick={actions.openFileDialog}
           onDragEnter={actions.handleDragEnter}
@@ -60,11 +56,7 @@ export function FileUpload3({
             <UserIcon aria-hidden="true" className="text-muted-foreground" />
           )}
         </button>
-        <input
-          {...actions.getInputProps()}
-          aria-label="Upload avatar image"
-          className="sr-only"
-        />
+        <input {...actions.getInputProps()} aria-label="Upload avatar image" className="sr-only" />
         {file ? (
           <Button
             aria-label="Remove avatar"
@@ -78,12 +70,8 @@ export function FileUpload3({
         ) : null}
       </div>
       <div className="flex flex-col gap-0.5 text-center">
-        <p className="font-medium text-sm">
-          {file ? "Avatar uploaded" : "Upload avatar"}
-        </p>
-        <p className="text-muted-foreground text-xs">
-          PNG, JPG up to {formatBytes(maxSize)}
-        </p>
+        <p className="font-medium text-sm">{file ? "Avatar uploaded" : "Upload avatar"}</p>
+        <p className="text-muted-foreground text-xs">PNG, JPG up to {formatBytes(maxSize)}</p>
       </div>
       {errors.length > 0 && (
         <div className="flex w-full items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-destructive text-sm">

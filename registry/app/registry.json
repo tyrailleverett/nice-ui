@@ -49,12 +49,7 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "badge",
-        "button",
-        "tooltip"
-      ]
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "badge", "button", "tooltip"]
     },
     {
       "name": "onboarding-shared",
@@ -69,10 +64,7 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/logo"
-      ]
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "tyrailleverett/nice-ui/logo"]
     },
     {
       "name": "settings-shared",
@@ -87,12 +79,7 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "badge",
-        "select",
-        "switch"
-      ]
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "badge", "select", "switch"]
     },
     {
       "name": "app-shell-1",
@@ -673,12 +660,7 @@
       "title": "Password Input",
       "description": "Password field with visibility toggle and an optional focus-revealed strength indicator.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "input-group",
-        "label",
-        "progress"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "input-group", "label", "progress"],
       "files": [
         {
           "path": "auth/password-input/password-input.tsx",
@@ -732,10 +714,7 @@
       "type": "registry:block",
       "title": "Simple",
       "description": "Centered signup with a Google button and email and password fields.",
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "tyrailleverett/nice-ui/login-form"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "tyrailleverett/nice-ui/login-form"],
       "files": [
         {
           "path": "auth/login-3/login-3.tsx",
@@ -968,12 +947,7 @@
       "title": "Breadcrumb",
       "description": "Page header with breadcrumb navigation, a status badge, and action buttons.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "badge",
-        "breadcrumb"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button", "badge", "breadcrumb"],
       "files": [
         {
           "path": "page-header/page-header-2/page-header-2.tsx",
@@ -1029,11 +1003,7 @@
       "title": "Context Tabs Page Header",
       "description": "Workspace eyebrow, status badge, inline actions, and horizontal section tabs for command-center pages.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "badge",
-        "button"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "badge", "button"],
       "files": [
         {
           "path": "page-header/page-header-4/page-header-4.tsx",
@@ -1198,12 +1168,7 @@
       "title": "Split Form Editor",
       "description": "Form builder with editable field rows, live preview, validation status, and publish actions.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "input",
-        "label"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button", "input", "label"],
       "files": [
         {
           "path": "form-5/form-5.tsx",
@@ -1218,11 +1183,7 @@
       "title": "Notification Center",
       "description": "Grouped workspace notifications with unread signals, filters, and mark-all-read action.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "badge",
-        "button"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "badge", "button"],
       "files": [
         {
           "path": "notifications/notification-5/notification-5.tsx",
@@ -1256,12 +1217,7 @@
       "title": "Quick Actions Command Palette",
       "description": "Grouped quick actions opened from a lightweight button trigger.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "command",
-        "dialog"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button", "command", "dialog"],
       "files": [
         {
           "path": "command-palette-1/command-palette-1.tsx",
@@ -1319,13 +1275,7 @@
       "title": "Command Palette With Preview",
       "description": "Searchable command palette with a responsive result preview pane.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "badge",
-        "button",
-        "command",
-        "kbd"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "badge", "button", "command", "kbd"],
       "files": [
         {
           "path": "command-palette-4/command-palette-4.tsx",
@@ -1486,12 +1436,7 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "card",
-        "separator"
-      ]
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button", "card", "separator"]
     },
     {
       "name": "settings-notifications",
@@ -1567,6 +1512,56 @@
           "path": "settings-appearance/settings-appearance.tsx",
           "type": "registry:component",
           "target": "~/components/app/settings-appearance.tsx"
+        }
+      ]
+    },
+    {
+      "name": "billing-plans",
+      "type": "registry:block",
+      "title": "Billing Plans & Settings",
+      "description": "A polished plan picker with annual savings and a billing settings summary for current plan, renewal, usage, payment method, and invoices.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "badge", "button", "card"],
+      "files": [
+        {
+          "path": "billing-plans/plan-1/plan-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/plan-1.tsx"
+        },
+        {
+          "path": "billing-plans/plan-2/plan-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/plan-2.tsx"
+        },
+        {
+          "path": "billing-plans/plan-3/plan-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/plan-3.tsx"
+        },
+        {
+          "path": "billing-plans/plan-4/plan-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/plan-4.tsx"
+        },
+        {
+          "path": "billing-plans/settings-1/settings-1.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/settings-1.tsx"
+        },
+        {
+          "path": "billing-plans/settings-2/settings-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/settings-2.tsx"
+        },
+        {
+          "path": "billing-plans/settings-3/settings-3.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/settings-3.tsx"
+        },
+        {
+          "path": "billing-plans/settings-4/settings-4.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/billing-plans/settings-4.tsx"
         }
       ]
     },
@@ -1725,12 +1720,7 @@
       "title": "Interrupted Page",
       "description": "500-style failed record load with a request ID, retry, and ghosted inspector layout.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "empty",
-        "skeleton"
-      ],
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button", "empty", "skeleton"],
       "files": [
         {
           "path": "error/error-3/error-3.tsx",
@@ -2208,11 +2198,7 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "button",
-        "dialog"
-      ]
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "button", "dialog"]
     },
     {
       "name": "select-duration-dialog",
@@ -2488,13 +2474,7 @@
         }
       ],
       "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "tyrailleverett/nice-ui/style",
-        "avatar",
-        "badge",
-        "button",
-        "input"
-      ]
+      "registryDependencies": ["tyrailleverett/nice-ui/style", "avatar", "badge", "button", "input"]
     },
     {
       "name": "creation-wizard",

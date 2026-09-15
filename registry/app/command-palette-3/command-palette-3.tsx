@@ -118,10 +118,7 @@ export default function CommandPalette3() {
             <Kbd>K</Kbd>
           </KbdGroup>
         </DialogTrigger>
-        <DialogContent
-          className="overflow-hidden p-0 sm:max-w-lg"
-          showCloseButton={false}
-        >
+        <DialogContent className="overflow-hidden p-0 sm:max-w-lg" showCloseButton={false}>
           <DialogTitle className="sr-only">Command palette</DialogTitle>
           <DialogDescription className="sr-only">
             Search recent items and results.
@@ -162,8 +159,7 @@ export default function CommandPalette3() {
       </Dialog>
       {ranLabel ? (
         <p className="text-muted-foreground text-xs">
-          Opened:{" "}
-          <span className="font-medium text-foreground">{ranLabel}</span>
+          Opened: <span className="font-medium text-foreground">{ranLabel}</span>
         </p>
       ) : null}
     </section>

@@ -58,10 +58,7 @@ export function formatBytes(bytes: number) {
     return "0 B";
   }
   const units = ["B", "KB", "MB", "GB"];
-  const index = Math.min(
-    Math.floor(Math.log(bytes) / Math.log(1024)),
-    units.length - 1
-  );
+  const index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
   return `${Number((bytes / 1024 ** index).toFixed(index === 0 ? 0 : 1))} ${units[index]}`;
 }
 
@@ -84,7 +81,9 @@ export function useFileUpload({
   }));
   const inputRef = useRef<HTMLInputElement>(null);
   const filesRef = useRef(state.files);
-  filesRef.current = state.files;
+  useEffect(() => {
+    filesRef.current = state.files;
+  }, [state.files]);
 
   const updateFiles = useCallback(
     (files: FileWithPreview[], errors: string[] = []) => {
@@ -92,7 +91,7 @@ export function useFileUpload({
       setState((current) => ({ ...current, errors, files }));
       onFilesChange?.(files);
     },
-    [onFilesChange]
+    [onFilesChange],
   );
 
   const addFiles = useCallback(
@@ -114,21 +113,16 @@ export function useFileUpload({
         validFiles.push({
           file,
           id: `${file.name}-${file.size}-${Date.now()}-${Math.random()}`,
-          preview: file.type.startsWith("image/")
-            ? URL.createObjectURL(file)
-            : undefined,
+          preview: file.type.startsWith("image/") ? URL.createObjectURL(file) : undefined,
         });
       }
 
       if (selected.length > available && multiple) {
         errors.push(`You can upload up to ${maxFiles} files`);
       }
-      updateFiles(
-        multiple ? [...filesRef.current, ...validFiles] : validFiles,
-        errors
-      );
+      updateFiles(multiple ? [...filesRef.current, ...validFiles] : validFiles, errors);
     },
-    [accept, maxFiles, maxSize, multiple, updateFiles]
+    [accept, maxFiles, maxSize, multiple, updateFiles],
   );
 
   const removeFile = useCallback(
@@ -143,7 +137,7 @@ export function useFileUpload({
       }
       updateFiles(next);
     },
-    [updateFiles]
+    [updateFiles],
   );
 
   const clearFiles = useCallback(() => {
@@ -173,7 +167,7 @@ export function useFileUpload({
       setState((current) => ({ ...current, isDragging: false }));
       addFiles(event.dataTransfer.files);
     },
-    [addFiles]
+    [addFiles],
   );
 
   useEffect(
@@ -184,7 +178,7 @@ export function useFileUpload({
         }
       }
     },
-    []
+    [],
   );
 
   return [

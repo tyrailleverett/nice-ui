@@ -110,9 +110,7 @@ export default function CommandPalette2() {
         </DialogTrigger>
         <DialogContent className="overflow-hidden p-0" showCloseButton={false}>
           <DialogTitle className="sr-only">Command palette</DialogTitle>
-          <DialogDescription className="sr-only">
-            Search for a command to run.
-          </DialogDescription>
+          <DialogDescription className="sr-only">Search for a command to run.</DialogDescription>
           <Command>
             <CommandInput
               aria-label="Search commands"
@@ -120,9 +118,7 @@ export default function CommandPalette2() {
               placeholder="Search commands…"
             />
             <CommandList>
-              <CommandEmpty className="text-sm">
-                No commands found.
-              </CommandEmpty>
+              <CommandEmpty className="text-sm">No commands found.</CommandEmpty>
               {renderGroup("Navigation", navigation)}
               <CommandSeparator />
               {renderGroup("Actions", actions)}
@@ -132,8 +128,7 @@ export default function CommandPalette2() {
       </Dialog>
       {ranLabel ? (
         <p className="text-muted-foreground text-xs">
-          Last action:{" "}
-          <span className="font-medium text-foreground">{ranLabel}</span>
+          Last action: <span className="font-medium text-foreground">{ranLabel}</span>
         </p>
       ) : null}
     </section>

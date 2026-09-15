@@ -11,13 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
@@ -60,12 +54,7 @@ export interface Detail3Props {
 
 export function Detail3({ className, onContain, onRestore }: Detail3Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-6 lg:p-8", className)}>
       <div className="mx-auto flex max-w-3xl flex-col gap-5">
         <Breadcrumb>
           <BreadcrumbList>
@@ -93,8 +82,8 @@ export function Detail3({ className, onContain, onRestore }: Detail3Props) {
               Beacon on N11 still needs a contain-or-restore call
             </CardTitle>
             <CardDescription>
-              Public webhooks are already isolated. Internal API traffic is
-              still flowing through the node.
+              Public webhooks are already isolated. Internal API traffic is still flowing through
+              the node.
             </CardDescription>
           </CardHeader>
           <CardFooter className="gap-2">
@@ -123,16 +112,12 @@ export function Detail3({ className, onContain, onRestore }: Detail3Props) {
               <article className="pb-8">
                 <div className="flex items-center gap-2">
                   <Avatar className="size-7">
-                    <AvatarFallback className="text-[10px]">
-                      {event.initials}
-                    </AvatarFallback>
+                    <AvatarFallback className="text-[10px]">{event.initials}</AvatarFallback>
                   </Avatar>
                   <h2 className="font-medium text-sm">{event.name}</h2>
                 </div>
                 <p className="mt-2 text-sm">{event.body}</p>
-                {index < events.length - 1 ? (
-                  <Separator className="mt-6 lg:hidden" />
-                ) : null}
+                {index < events.length - 1 ? <Separator className="mt-6 lg:hidden" /> : null}
               </article>
             </li>
           ))}

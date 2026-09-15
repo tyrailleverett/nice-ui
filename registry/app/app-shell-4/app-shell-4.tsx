@@ -123,12 +123,8 @@ function ConsoleNavigation({
                 >
                   <Icon />
                   <span>{item.label}</span>
-                  {item.children ? (
-                    <ChevronDownIcon className="ml-auto" />
-                  ) : null}
-                  {item.nested ? (
-                    <ChevronRightIcon className="ml-auto" />
-                  ) : null}
+                  {item.children ? <ChevronDownIcon className="ml-auto" /> : null}
+                  {item.nested ? <ChevronRightIcon className="ml-auto" /> : null}
                 </SidebarMenuButton>
                 {item.children ? (
                   <SidebarMenuSub>
@@ -138,6 +134,7 @@ function ConsoleNavigation({
                           isActive={activeItem === child}
                           render={
                             <button
+                              aria-label={child}
                               data-navigation-label={child}
                               onClick={onItemClick}
                               type="button"
@@ -164,9 +161,7 @@ function ThemeAnnouncement() {
     <Card>
       <CardHeader>
         <CardTitle>Multi-theme support is here</CardTitle>
-        <CardDescription>
-          Switch between Vega, Nova, Maia, Lyra, and Mira themes.
-        </CardDescription>
+        <CardDescription>Switch between Vega, Nova, Maia, Lyra, and Mira themes.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="relative h-28 overflow-hidden rounded-lg bg-chart-4/20">
@@ -194,10 +189,7 @@ function ConsoleCanvas({ children }: { children?: ReactNode }) {
 
   return (
     <div className="grid min-h-0 flex-1 grid-rows-[auto_1fr] gap-4 p-4">
-      <section
-        aria-label="Environment summary"
-        className="grid min-h-48 gap-4 md:grid-cols-3"
-      >
+      <section aria-label="Environment summary" className="grid min-h-48 gap-4 md:grid-cols-3">
         {["Users", "Organizations", "Requests"].map((label) => (
           <div className="rounded-xl border border-dashed bg-card" key={label}>
             <span className="sr-only">{label}</span>
@@ -218,15 +210,12 @@ export interface AppShell4Props {
 
 export function AppShell4({ children }: AppShell4Props) {
   const [activeItem, setActiveItem] = useState("Overview");
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <TooltipProvider>
@@ -235,28 +224,16 @@ export function AppShell4({ children }: AppShell4Props) {
           <SidebarHeader>
             <div className="flex h-10 items-center px-1">
               <ProductMark />
-              <SidebarTrigger
-                aria-label="Collapse sidebar"
-                className="ml-auto"
-              />
+              <SidebarTrigger aria-label="Collapse sidebar" className="ml-auto" />
             </div>
             <div className="relative">
               <SearchIcon className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground" />
-              <SidebarInput
-                aria-label="Search console"
-                className="px-8"
-                placeholder="Search..."
-              />
-              <Kbd className="absolute top-1/2 right-2 -translate-y-1/2">
-                ⌘K
-              </Kbd>
+              <SidebarInput aria-label="Search console" className="px-8" placeholder="Search..." />
+              <Kbd className="absolute top-1/2 right-2 -translate-y-1/2">⌘K</Kbd>
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <ConsoleNavigation
-              activeItem={activeItem}
-              onItemClick={handleItemClick}
-            />
+            <ConsoleNavigation activeItem={activeItem} onItemClick={handleItemClick} />
           </SidebarContent>
           <SidebarFooter>
             <ThemeAnnouncement />
@@ -268,9 +245,7 @@ export function AppShell4({ children }: AppShell4Props) {
                   </Avatar>
                   <span className="flex flex-1 flex-col text-left leading-tight">
                     <span className="font-medium">Nick Bold</span>
-                    <span className="text-muted-foreground text-xs">
-                      nick@reui.io
-                    </span>
+                    <span className="text-muted-foreground text-xs">nick@reui.io</span>
                   </span>
                   <ChevronDownIcon />
                 </SidebarMenuButton>

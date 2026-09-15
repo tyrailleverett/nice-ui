@@ -12,12 +12,7 @@ export interface Onboarding3Props {
 
 export function Onboarding3({ className }: Onboarding3Props) {
   return (
-    <main
-      className={cn(
-        "min-h-screen bg-background p-4 text-foreground sm:p-8",
-        className
-      )}
-    >
+    <main className={cn("min-h-screen bg-background p-4 text-foreground sm:p-8", className)}>
       <div className="grid min-h-[calc(100vh-2rem)] grid-cols-1 overflow-hidden rounded-2xl border border-border sm:min-h-[calc(100vh-4rem)] lg:grid-cols-[420px_1fr]">
         <aside className="relative flex flex-col overflow-hidden bg-muted/10 p-8 lg:p-10">
           <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_1px_1px,color-mix(in_oklch,var(--primary)_35%,transparent)_1px,transparent_0)] [background-size:28px_28px]" />

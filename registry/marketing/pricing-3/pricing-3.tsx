@@ -28,8 +28,7 @@ export interface Pricing3Props {
 
 const defaultPlan: Pricing3Plan = {
   badge: "Simple pricing",
-  description:
-    "Everything you need to ship. One plan, no seat math, no feature gates.",
+  description: "Everything you need to ship. One plan, no seat math, no feature gates.",
   features: [
     "All product features",
     "Unlimited seats",
@@ -80,7 +79,7 @@ function BillingIntervalToggle({
         onChange(true);
       }
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -115,13 +114,9 @@ export function Pricing3({
     <MarketingSection className={className}>
       <div className="flex flex-col items-center px-8 py-12">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-            {title}
-          </h2>
+          <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
           {description ? (
-            <p className="mt-4 text-pretty text-muted-foreground">
-              {description}
-            </p>
+            <p className="mt-4 text-pretty text-muted-foreground">{description}</p>
           ) : null}
         </div>
         <div className="mt-8 flex flex-col items-center gap-3">
@@ -146,15 +141,11 @@ export function Pricing3({
                 </Badge>
               ) : null}
             </div>
-            <p className="mt-2 max-w-sm text-muted-foreground text-sm">
-              {plan.description}
-            </p>
+            <p className="mt-2 max-w-sm text-muted-foreground text-sm">{plan.description}</p>
             <div className="mt-auto pt-8">
               <div className="flex items-baseline gap-1">
                 <span className="font-semibold text-5xl tracking-tight">
-                  {formatPrice(
-                    isAnnual ? plan.prices.yearly : plan.prices.monthly
-                  )}
+                  {formatPrice(isAnnual ? plan.prices.yearly : plan.prices.monthly)}
                 </span>
                 <span className="text-muted-foreground">/month</span>
               </div>
@@ -167,14 +158,12 @@ export function Pricing3({
             <Button
               className="mt-8 w-full sm:w-auto"
               nativeButton={false}
-              render={<a href={plan.ctaHref ?? "#"} />}
+              render={<a aria-label={ctaLabel} href={plan.ctaHref ?? "#"} />}
               size="lg"
             >
               {ctaLabel}
             </Button>
-            {footnote ? (
-              <p className="mt-3 text-muted-foreground text-xs">{footnote}</p>
-            ) : null}
+            {footnote ? <p className="mt-3 text-muted-foreground text-xs">{footnote}</p> : null}
           </div>
 
           <div className="flex flex-col justify-center border-border px-8 py-10 md:border-l">

@@ -3,11 +3,7 @@
 .showcase-card,
 .flow-grid {
   --cards-surface: var(--card);
-  --cards-surface-raised: color-mix(
-    in srgb,
-    var(--card) 88%,
-    var(--foreground)
-  );
+  --cards-surface-raised: color-mix(in srgb, var(--card) 88%, var(--foreground));
   --cards-ink: var(--card-foreground);
   --cards-muted: var(--muted-foreground);
   --cards-line: color-mix(in srgb, var(--border) 82%, var(--foreground));

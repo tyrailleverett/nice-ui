@@ -8,14 +8,8 @@ export default {
 
 export const TermsOfService: StoryFn = () => <TermsOfService1Block />;
 
-export const TermsOfServiceStandard: StoryFn = () => (
-  <TermsOfService1Block variant="standard" />
-);
+export const TermsOfServiceStandard: StoryFn = () => <TermsOfService1Block variant="standard" />;
 
-export const TermsOfServiceSectionGrid: StoryFn = () => (
-  <TermsOfService1Block variant="compact" />
-);
+export const TermsOfServiceSectionGrid: StoryFn = () => <TermsOfService1Block variant="compact" />;
 
-export const TermsOfServiceFramedRail: StoryFn = () => (
-  <TermsOfService1Block variant="wide" />
-);
+export const TermsOfServiceFramedRail: StoryFn = () => <TermsOfService1Block variant="wide" />;

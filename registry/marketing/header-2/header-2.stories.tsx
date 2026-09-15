@@ -19,9 +19,7 @@ export const NavCenter: StoryObj = {
   play: async ({ canvas }) => {
     await expect(canvas.getByRole("link", { name: "Features" })).toBeVisible();
     await expect(canvas.getByRole("link", { name: "Login" })).toBeVisible();
-    await expect(
-      canvas.getByRole("link", { name: "Get started" })
-    ).toBeVisible();
+    await expect(canvas.getByRole("link", { name: "Get started" })).toBeVisible();
   },
   render: () => (
     <div className="min-h-[150vh]">
@@ -32,8 +30,8 @@ export const NavCenter: StoryObj = {
         signIn={{ href: "#", label: "Login" }}
       />
       <p className="mx-auto max-w-4xl px-6 pt-28 text-muted-foreground text-sm">
-        Scroll to see the header tighten into a floating island. Nav links stay
-        centered between the logo and actions.
+        Scroll to see the header tighten into a floating island. Nav links stay centered between the
+        logo and actions.
       </p>
     </div>
   ),

@@ -57,13 +57,9 @@ export function Bento3({
       <section className="bg-background py-16 text-foreground md:py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">
-              {title}
-            </h2>
+            <h2 className="text-balance font-display-heading text-3xl sm:text-4xl">{title}</h2>
             {description ? (
-              <p className="mt-4 text-pretty text-muted-foreground">
-                {description}
-              </p>
+              <p className="mt-4 text-pretty text-muted-foreground">{description}</p>
             ) : null}
           </div>
 
@@ -71,33 +67,22 @@ export function Bento3({
             <div className="mt-12 grid grid-cols-1 border-y md:grid-cols-3">
               <article className="flex flex-col justify-between gap-6 border-b p-8 md:col-span-2 md:row-span-2 md:border-r md:border-b-0 md:p-10">
                 <div className="flex flex-col gap-3">
-                  <h3 className="font-heading font-semibold text-title">
-                    {featured.title}
-                  </h3>
-                  <p className="max-w-md text-muted-foreground text-sm">
-                    {featured.description}
-                  </p>
+                  <h3 className="font-heading font-semibold text-title">{featured.title}</h3>
+                  <p className="max-w-md text-muted-foreground text-sm">{featured.description}</p>
                 </div>
-                <div
-                  aria-hidden
-                  className="aspect-video w-full border border-border bg-muted"
-                />
+                <div aria-hidden className="aspect-video w-full border border-border bg-muted" />
               </article>
 
               {tiles.map((tile, index) => (
                 <article
                   className={cn(
                     "flex flex-col gap-2 border-b p-6 last:border-b-0 md:border-b md:last:border-b-0",
-                    index % 2 === 0 ? "md:border-r" : null
+                    index % 2 === 0 ? "md:border-r" : null,
                   )}
                   key={tile.title}
                 >
-                  <h3 className="font-heading font-semibold text-title-md">
-                    {tile.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {tile.description}
-                  </p>
+                  <h3 className="font-heading font-semibold text-title-md">{tile.title}</h3>
+                  <p className="text-muted-foreground text-sm">{tile.description}</p>
                 </article>
               ))}
             </div>

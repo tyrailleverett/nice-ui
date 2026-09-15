@@ -20,11 +20,7 @@ export interface Testimonial1Props {
 export function VercelIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/vercel.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/vercel.svg" width="100%" />
     </svg>
   );
 }
@@ -38,8 +34,8 @@ const defaultCompany = (
 
 const defaultQuote = (
   <>
-    &quot;<span className="font-medium">Nice UI</span> is why I still have hair.
-    No more worrying about UI blocks.&quot;
+    &quot;<span className="font-medium">Nice UI</span> is why I still have hair. No more worrying
+    about UI blocks.&quot;
   </>
 );
 
@@ -60,9 +56,7 @@ export function Testimonial1({
   return (
     <MarketingSection className={className} padded>
       <figure className="flex flex-col items-center justify-center">
-        {company ? (
-          <div className="mb-8 flex items-center gap-1">{company}</div>
-        ) : null}
+        {company ? <div className="mb-8 flex items-center gap-1">{company}</div> : null}
 
         <blockquote className="text-center text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl">
           {quote}
@@ -72,12 +66,8 @@ export function Testimonial1({
 
         <figcaption className="flex flex-col items-center gap-5">
           <div className="space-y-0.5 text-center">
-            <cite className="font-medium text-foreground text-xl not-italic">
-              {name}
-            </cite>
-            {role ? (
-              <div className="text-lg text-muted-foreground">{role}</div>
-            ) : null}
+            <cite className="font-medium text-foreground text-xl not-italic">{name}</cite>
+            {role ? <div className="text-lg text-muted-foreground">{role}</div> : null}
           </div>
 
           <Avatar className="size-12 rounded-full border object-cover">

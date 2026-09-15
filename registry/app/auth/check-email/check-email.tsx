@@ -16,9 +16,7 @@ export interface CheckEmailProps {
   title?: string;
 }
 
-const defaultLogo = (
-  <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />
-);
+const defaultLogo = <LogoIcon aria-hidden="true" className="mb-8 size-8 text-foreground" />;
 
 export function CheckEmail({
   className,
@@ -33,9 +31,8 @@ export function CheckEmail({
 }: CheckEmailProps) {
   const resolvedDescription = description ?? (
     <>
-      We sent a verification link to{" "}
-      <span className="font-semibold text-foreground">{email}</span>. Click the
-      link to verify your account.
+      We sent a verification link to <span className="font-semibold text-foreground">{email}</span>.
+      Click the link to verify your account.
     </>
   );
 
@@ -48,19 +45,14 @@ export function CheckEmail({
       </div>
 
       <div className="mt-8 space-y-6">
-        <Button
-          className="h-10 w-full"
-          onClick={onResend}
-          type="button"
-          variant="outline"
-        >
+        <Button className="h-10 w-full" onClick={onResend} type="button" variant="outline">
           {resendLabel}
         </Button>
 
         <p className="text-center text-muted-foreground text-sm">
           <Button
             className="w-full"
-            render={<a href={signInHref} />}
+            render={<a aria-label={signInLabel} href={signInHref} />}
             variant="ghost"
           >
             {signInLabel}

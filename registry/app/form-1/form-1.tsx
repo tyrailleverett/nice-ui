@@ -8,12 +8,7 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 import { useState } from "react";
-import {
-  FieldHint,
-  FormPage,
-  FormRow,
-  StatusBadge,
-} from "@/components/app/forms-shared";
+import { FieldHint, FormPage, FormRow, StatusBadge } from "@/components/app/forms-shared";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -26,11 +21,7 @@ import {
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import {
   Select,
   SelectContent,
@@ -41,17 +32,9 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
-const OFFER_TYPES = [
-  "Product bundle",
-  "Single product",
-  "Subscription",
-] as const;
+const OFFER_TYPES = ["Product bundle", "Single product", "Subscription"] as const;
 const BUTTON_COPY = ["Reserve access", "Pay now", "Complete purchase"] as const;
-const HANDOFFS = [
-  "Show confirmation",
-  "Redirect immediately",
-  "Start onboarding",
-] as const;
+const HANDOFFS = ["Show confirmation", "Redirect immediately", "Start onboarding"] as const;
 
 const checkoutStatusLabel = {
   draft: "Draft",
@@ -67,12 +50,8 @@ export function Form1({ className }: Form1Props) {
   const [offerType, setOfferType] = useState<string>("Product bundle");
   const [buttonCopy, setButtonCopy] = useState<string>("Reserve access");
   const [handoff, setHandoff] = useState<string>("Show confirmation");
-  const [returnUrl, setReturnUrl] = useState(
-    "https://northstar.studio/welcome"
-  );
-  const [status, setStatus] = useState<"draft" | "ready" | "published">(
-    "ready"
-  );
+  const [returnUrl, setReturnUrl] = useState("https://northstar.studio/welcome");
+  const [status, setStatus] = useState<"draft" | "ready" | "published">("ready");
   const [customer, setCustomer] = useState({
     address: false,
     company: false,
@@ -206,10 +185,7 @@ export function Form1({ className }: Form1Props) {
                         }))
                       }
                     />
-                    <FieldLabel
-                      className="font-normal"
-                      htmlFor="delivery-address"
-                    >
+                    <FieldLabel className="font-normal" htmlFor="delivery-address">
                       Collect delivery address
                     </FieldLabel>
                   </Field>
@@ -248,10 +224,7 @@ export function Form1({ className }: Form1Props) {
                         }))
                       }
                     />
-                    <FieldLabel
-                      className="font-normal"
-                      htmlFor="purchase-limit"
-                    >
+                    <FieldLabel className="font-normal" htmlFor="purchase-limit">
                       Limit completed purchases
                     </FieldLabel>
                   </Field>
@@ -266,10 +239,7 @@ export function Form1({ className }: Form1Props) {
                         }))
                       }
                     />
-                    <FieldLabel
-                      className="font-normal"
-                      htmlFor="phone-verification"
-                    >
+                    <FieldLabel className="font-normal" htmlFor="phone-verification">
                       Require phone verification
                     </FieldLabel>
                   </Field>
@@ -369,10 +339,7 @@ export function Form1({ className }: Form1Props) {
                         }))
                       }
                     />
-                    <FieldLabel
-                      className="font-normal"
-                      htmlFor="branded-receipt"
-                    >
+                    <FieldLabel className="font-normal" htmlFor="branded-receipt">
                       Send branded receipt
                     </FieldLabel>
                   </Field>
@@ -393,10 +360,7 @@ export function Form1({ className }: Form1Props) {
                   </Field>
                   <Field data-disabled orientation="horizontal">
                     <Checkbox disabled id="terms-acceptance" />
-                    <FieldLabel
-                      className="font-normal"
-                      htmlFor="terms-acceptance"
-                    >
+                    <FieldLabel className="font-normal" htmlFor="terms-acceptance">
                       Require terms acceptance
                       <FieldHint label="Enable this after legal review of the hosted terms." />
                     </FieldLabel>
@@ -408,16 +372,10 @@ export function Form1({ className }: Form1Props) {
         </CardContent>
         <CardFooter className="justify-between gap-3">
           <p className="text-muted-foreground text-sm">
-            {status === "published"
-              ? "Checkout is live for new buyers."
-              : "Draft stays private."}
+            {status === "published" ? "Checkout is live for new buyers." : "Draft stays private."}
           </p>
           <div className="flex flex-wrap justify-end gap-2">
-            <Button
-              onClick={() => setStatus("draft")}
-              type="button"
-              variant="outline"
-            >
+            <Button onClick={() => setStatus("draft")} type="button" variant="outline">
               <SaveIcon data-icon="inline-start" />
               Save draft
             </Button>

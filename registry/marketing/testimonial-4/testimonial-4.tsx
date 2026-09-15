@@ -122,17 +122,12 @@ export function Testimonial4({
             {title}
           </h2>
           {description ? (
-            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              {description}
-            </p>
+            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">{description}</p>
           ) : null}
         </div>
         <div className="relative grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <TestimonialsCard
-              key={testimonial.name}
-              testimonial={testimonial}
-            />
+            <TestimonialsCard key={testimonial.name} testimonial={testimonial} />
           ))}
         </div>
       </section>
@@ -151,10 +146,7 @@ function TestimonialsCard({
 
   return (
     <figure
-      className={cn(
-        "relative grid grid-cols-[auto_1fr] gap-x-3 bg-background p-4",
-        className
-      )}
+      className={cn("relative grid grid-cols-[auto_1fr] gap-x-3 bg-background p-4", className)}
       {...props}
     >
       <Avatar className="size-8 rounded-full">

@@ -28,7 +28,7 @@ function PrimaryCtaButton({ action }: { action: Cta12Action }) {
       <Button
         className="rounded-full"
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant="outline"
       >
         {content}
@@ -57,7 +57,7 @@ function ActionLink({
       <Button
         className={className}
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant="link"
       >
         {children}
@@ -93,10 +93,7 @@ export function Cta12({
             </h2>
             <div className="flex items-center gap-4">
               {secondaryCta ? (
-                <ActionLink
-                  action={secondaryCta}
-                  className="font-medium text-sm hover:underline"
-                >
+                <ActionLink action={secondaryCta} className="font-medium text-sm hover:underline">
                   {secondaryCta.label}
                 </ActionLink>
               ) : null}

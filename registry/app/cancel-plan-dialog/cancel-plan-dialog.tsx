@@ -1,16 +1,7 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Dialog controls close over preset, section, and scope values. */
 import { CircleHelp } from "lucide-react";
-import {
-  DialogFrame,
-  type DialogProps,
-  Footer,
-} from "@/components/app/dialogs-shared";
-import {
-  Alert,
-  AlertAction,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert";
+import { DialogFrame, type DialogProps, Footer } from "@/components/app/dialogs-shared";
+import { Alert, AlertAction, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog } from "@/components/ui/dialog";
@@ -39,9 +30,7 @@ export function CancelPlanDialog(props: DialogProps) {
           <Alert>
             <CircleHelp />
             <AlertTitle>Shared access pauses after expiry.</AlertTitle>
-            <AlertDescription>
-              Team access stays on until the current period ends.
-            </AlertDescription>
+            <AlertDescription>Team access stays on until the current period ends.</AlertDescription>
             <AlertAction>
               <Button type="button" variant="outline">
                 Manage
@@ -77,11 +66,7 @@ export function CancelPlanDialog(props: DialogProps) {
             />
           </Field>
         </div>
-        <Footer
-          action="Cancel plan"
-          cancel="Keep plan"
-          note="Billing stays active"
-        />
+        <Footer action="Cancel plan" cancel="Keep plan" note="Billing stays active" />
       </DialogFrame>
     </Dialog>
   );

@@ -86,10 +86,7 @@ function OpenDialogButton({
   Component,
   name,
 }: {
-  Component: (props: {
-    open: boolean;
-    onOpenChange: (open: boolean) => void;
-  }) => React.ReactNode;
+  Component: (props: { open: boolean; onOpenChange: (open: boolean) => void }) => React.ReactNode;
   name: string;
 }) {
   const [open, setOpen] = useState(false);

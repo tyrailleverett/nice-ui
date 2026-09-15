@@ -115,9 +115,7 @@ const EVENTS: DayEvent[] = [
   },
 ];
 
-function markersFromEvents(
-  events: DayEvent[]
-): Record<string, CalendarCategory[]> {
+function markersFromEvents(events: DayEvent[]): Record<string, CalendarCategory[]> {
   const markers: Record<string, CalendarCategory[]> = {};
   for (const event of events) {
     markers[event.date] = markers[event.date] ?? [event.category];
@@ -171,9 +169,7 @@ export function Calendar4({ className }: Calendar4Props) {
         <div className="flex min-h-0 flex-col gap-4 border-border p-5 lg:border-l">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h2 className="font-heading font-semibold text-xl">
-                {formatLongDate(selected)}
-              </h2>
+              <h2 className="font-heading font-semibold text-xl">{formatLongDate(selected)}</h2>
               <p className="text-muted-foreground text-sm">
                 {events.length} {events.length === 1 ? "event" : "events"}
               </p>
@@ -214,9 +210,7 @@ export function Calendar4({ className }: Calendar4Props) {
           <div className="flex max-h-[28rem] flex-col gap-3 overflow-y-auto p-px">
             {events.length === 0 ? (
               <Empty className="min-h-40 border border-dashed">
-                <EmptyDescription>
-                  Nothing scheduled. Add an event for this day.
-                </EmptyDescription>
+                <EmptyDescription>Nothing scheduled. Add an event for this day.</EmptyDescription>
               </Empty>
             ) : (
               events.map((event) => (
@@ -226,11 +220,7 @@ export function Calendar4({ className }: Calendar4Props) {
                 >
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-medium">{event.title}</h3>
-                    <Badge
-                      variant={
-                        event.status === "Upcoming" ? "default" : "secondary"
-                      }
-                    >
+                    <Badge variant={event.status === "Upcoming" ? "default" : "secondary"}>
                       {event.status}
                     </Badge>
                   </div>

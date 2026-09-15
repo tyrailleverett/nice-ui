@@ -59,11 +59,7 @@ const StoryFrame = ({
 }: {
   children: ReactNode;
   size?: "compact" | "full" | "large" | "medium" | "wide";
-}) => (
-  <main className={`card-story-frame card-story-frame-${size}`}>
-    {children}
-  </main>
-);
+}) => <main className={`card-story-frame card-story-frame-${size}`}>{children}</main>;
 
 export const Meeting: StoryFn = () => (
   <StoryFrame>

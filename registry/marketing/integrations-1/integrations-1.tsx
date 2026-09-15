@@ -63,7 +63,7 @@ export function Integrations1({
               alt=""
               className={cn(
                 "pointer-events-none size-8 shrink-0 select-none object-contain",
-                item.isInvertable && "dark:invert"
+                item.isInvertable && "dark:invert",
               )}
               height={32}
               src={item.src}
@@ -71,9 +71,7 @@ export function Integrations1({
             />
             <div className="space-y-1">
               <h3 className="font-semibold">{item.name}</h3>
-              <p className="text-muted-foreground text-xs md:text-sm">
-                {item.description}
-              </p>
+              <p className="text-muted-foreground text-xs md:text-sm">{item.description}</p>
             </div>
           </div>
         ))}
@@ -83,7 +81,7 @@ export function Integrations1({
               <Button
                 className="text-xs"
                 nativeButton={false}
-                render={<a href={viewAll.href} />}
+                render={<a aria-label={viewAll.label} href={viewAll.href} />}
                 size="sm"
                 variant="link"
               >
@@ -91,12 +89,7 @@ export function Integrations1({
                 <ArrowUpRightIcon data-icon="inline-end" />
               </Button>
             ) : (
-              <Button
-                className="text-xs"
-                size="sm"
-                type="button"
-                variant="link"
-              >
+              <Button className="text-xs" size="sm" type="button" variant="link">
                 {viewAll.label}
                 <ArrowUpRightIcon data-icon="inline-end" />
               </Button>

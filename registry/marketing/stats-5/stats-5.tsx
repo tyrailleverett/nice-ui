@@ -33,14 +33,10 @@ export function Stats5({
               className="space-y-3 border-border border-b p-5 last:border-b-0 sm:border-r lg:border-b-0 lg:last:border-r-0"
               key={stat.label}
             >
-              <p className="font-bold text-4xl tabular-nums tracking-tight">
-                {stat.value}
-              </p>
+              <p className="font-bold text-4xl tabular-nums tracking-tight">{stat.value}</p>
               <p className="text-sm">{stat.label}</p>
               {stat.note ? (
-                <p className="font-mono text-muted-foreground text-xs uppercase">
-                  {stat.note}
-                </p>
+                <p className="font-mono text-muted-foreground text-xs uppercase">{stat.note}</p>
               ) : null}
             </article>
           ))}

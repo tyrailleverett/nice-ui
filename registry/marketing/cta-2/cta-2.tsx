@@ -36,7 +36,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {content}
@@ -62,9 +62,7 @@ export function Cta2({
     <MarketingSection className={className}>
       <section className="relative flex flex-col justify-between">
         <div className="border-b px-2 py-8">
-          <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">
-            {title}
-          </h2>
+          <h2 className="text-center font-heading font-semibold text-lg md:text-2xl">{title}</h2>
           {description ? (
             <p className="text-balance text-center text-muted-foreground text-sm md:text-base">
               {description}
@@ -72,14 +70,9 @@ export function Cta2({
           ) : null}
         </div>
         <div className="flex items-center justify-center gap-2 p-4">
-          {secondaryCta ? (
-            <ActionButton action={secondaryCta} variant="outline" />
-          ) : null}
+          {secondaryCta ? <ActionButton action={secondaryCta} variant="outline" /> : null}
           {primaryCta ? (
-            <ActionButton
-              action={primaryCta}
-              icon={<ArrowRightIcon data-icon="inline-end" />}
-            />
+            <ActionButton action={primaryCta} icon={<ArrowRightIcon data-icon="inline-end" />} />
           ) : null}
         </div>
       </section>

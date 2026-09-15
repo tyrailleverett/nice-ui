@@ -29,7 +29,7 @@ export const DeliveryWorklogs: Story = {
     await userEvent.click(canvas.getByRole("tab", { name: "Worklog" }));
     await expect(canvas.getByRole("tab", { name: "Worklog" })).toHaveAttribute(
       "data-state",
-      "active"
+      "active",
     );
   },
   render: () => <Dashboard2 />,

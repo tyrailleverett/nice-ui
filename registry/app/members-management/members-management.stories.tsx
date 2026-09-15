@@ -13,10 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   play: async ({ canvas }) => {
-    await userEvent.type(
-      canvas.getByRole("searchbox", { name: "Search members" }),
-      "Maya"
-    );
+    await userEvent.type(canvas.getByRole("searchbox", { name: "Search members" }), "Maya");
     await expect(canvas.getByText("Maya Chen")).toBeVisible();
     await expect(canvas.queryByText("Jon Bell")).not.toBeInTheDocument();
   },

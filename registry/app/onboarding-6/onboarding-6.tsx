@@ -106,24 +106,19 @@ export function Onboarding6({
 
         <section className="px-5 py-8 sm:px-10 sm:py-12" id="setup">
           <div className="mx-auto max-w-3xl">
-            <p className="font-medium text-primary text-sm">
-              Welcome to Nice UI
-            </p>
+            <p className="font-medium text-primary text-sm">Welcome to Nice UI</p>
             <h1 className="mt-2 font-semibold text-3xl tracking-[-0.04em] sm:text-4xl">
               Let’s get your workspace ready.
             </h1>
             <p className="mt-3 max-w-xl text-muted-foreground">
-              A few small steps now will make your first project easier to find
-              and share.
+              A few small steps now will make your first project easier to find and share.
             </p>
 
             <div className="mt-8 rounded-xl border border-border bg-background p-5 sm:p-6">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <h2 className="font-medium">Your setup checklist</h2>
-                  <p className="mt-1 text-muted-foreground text-sm">
-                    1 of 3 complete
-                  </p>
+                  <p className="mt-1 text-muted-foreground text-sm">1 of 3 complete</p>
                 </div>
                 <span className="text-muted-foreground text-sm">33%</span>
               </div>
@@ -141,7 +136,7 @@ export function Onboarding6({
                         "grid size-7 shrink-0 place-items-center rounded-full border",
                         step.complete
                           ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border text-muted-foreground"
+                          : "border-border text-muted-foreground",
                       )}
                     >
                       {step.complete ? (
@@ -154,21 +149,15 @@ export function Onboarding6({
                       <span
                         className={cn(
                           "block font-medium text-sm",
-                          step.complete && "text-muted-foreground line-through"
+                          step.complete && "text-muted-foreground line-through",
                         )}
                       >
                         {step.label}
                       </span>
-                      <span className="block text-muted-foreground text-xs">
-                        {step.detail}
-                      </span>
+                      <span className="block text-muted-foreground text-xs">{step.detail}</span>
                     </span>
                     {!step.complete && step.id === "invite-teammates" ? (
-                      <Button
-                        onClick={onInviteTeammates}
-                        size="sm"
-                        variant="outline"
-                      >
+                      <Button onClick={onInviteTeammates} size="sm" variant="outline">
                         Invite
                       </Button>
                     ) : null}
@@ -186,8 +175,7 @@ export function Onboarding6({
               </div>
               <h2 className="mt-4 font-medium text-lg">No projects yet</h2>
               <p className="mx-auto mt-2 max-w-sm text-muted-foreground text-sm">
-                Create your first project to start turning ideas into work your
-                team can see.
+                Create your first project to start turning ideas into work your team can see.
               </p>
               <Button className="mt-5" onClick={onCreateProject} type="button">
                 <PlusIcon data-icon="inline-start" />
@@ -205,11 +193,7 @@ export function Onboarding6({
             <p className="mt-2 text-muted-foreground text-sm">
               Learn how teams organize projects and keep everyone aligned.
             </p>
-            <Button
-              className="mt-4 w-full"
-              onClick={onOpenHelp}
-              variant="outline"
-            >
+            <Button className="mt-4 w-full" onClick={onOpenHelp} variant="outline">
               Read the quickstart
             </Button>
           </div>

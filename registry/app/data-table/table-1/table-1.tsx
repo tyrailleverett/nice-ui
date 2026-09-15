@@ -61,234 +61,34 @@ type SortKey = "name" | "role" | "joined";
 export const defaultMembers: Member[] = [
   ["Ada Lovelace", "AL", "47", "ada@acme.io", "Active", "Admin", "2026-06-12"],
   ["Alan Turing", "AT", "11", "alan@acme.io", "Active", "Editor", "2026-06-10"],
-  [
-    "Grace Hopper",
-    "GH",
-    "45",
-    "grace@acme.io",
-    "Invited",
-    "Editor",
-    "2026-06-08",
-  ],
-  [
-    "Linus Pauling",
-    "LP",
-    "12",
-    "linus@acme.io",
-    "Inactive",
-    "Viewer",
-    "2026-05-29",
-  ],
-  [
-    "Katherine Johnson",
-    "KJ",
-    "49",
-    "katherine@acme.io",
-    "Active",
-    "Viewer",
-    "2026-05-21",
-  ],
-  [
-    "Edsger Dijkstra",
-    "ED",
-    "13",
-    "edsger@acme.io",
-    "Active",
-    "Admin",
-    "2026-05-18",
-  ],
-  [
-    "Barbara Liskov",
-    "BL",
-    "44",
-    "barbara@acme.io",
-    "Active",
-    "Editor",
-    "2026-05-14",
-  ],
-  [
-    "Tim Berners-Lee",
-    "TB",
-    "14",
-    "tim@acme.io",
-    "Invited",
-    "Viewer",
-    "2026-05-09",
-  ],
-  [
-    "Margaret Hamilton",
-    "MH",
-    "48",
-    "margaret@acme.io",
-    "Active",
-    "Editor",
-    "2026-05-04",
-  ],
-  [
-    "Donald Knuth",
-    "DK",
-    "15",
-    "donald@acme.io",
-    "Inactive",
-    "Viewer",
-    "2026-04-28",
-  ],
-  [
-    "Radia Perlman",
-    "RP",
-    "43",
-    "radia@acme.io",
-    "Active",
-    "Admin",
-    "2026-04-22",
-  ],
+  ["Grace Hopper", "GH", "45", "grace@acme.io", "Invited", "Editor", "2026-06-08"],
+  ["Linus Pauling", "LP", "12", "linus@acme.io", "Inactive", "Viewer", "2026-05-29"],
+  ["Katherine Johnson", "KJ", "49", "katherine@acme.io", "Active", "Viewer", "2026-05-21"],
+  ["Edsger Dijkstra", "ED", "13", "edsger@acme.io", "Active", "Admin", "2026-05-18"],
+  ["Barbara Liskov", "BL", "44", "barbara@acme.io", "Active", "Editor", "2026-05-14"],
+  ["Tim Berners-Lee", "TB", "14", "tim@acme.io", "Invited", "Viewer", "2026-05-09"],
+  ["Margaret Hamilton", "MH", "48", "margaret@acme.io", "Active", "Editor", "2026-05-04"],
+  ["Donald Knuth", "DK", "15", "donald@acme.io", "Inactive", "Viewer", "2026-04-28"],
+  ["Radia Perlman", "RP", "43", "radia@acme.io", "Active", "Admin", "2026-04-22"],
   ["Ken Thompson", "KT", "16", "ken@acme.io", "Active", "Editor", "2026-04-19"],
-  [
-    "Hedy Lamarr",
-    "HL",
-    "41",
-    "hedy@acme.io",
-    "Invited",
-    "Viewer",
-    "2026-04-15",
-  ],
-  [
-    "Dennis Ritchie",
-    "DR",
-    "17",
-    "dennis@acme.io",
-    "Active",
-    "Editor",
-    "2026-04-11",
-  ],
-  [
-    "Shafi Goldwasser",
-    "SG",
-    "40",
-    "shafi@acme.io",
-    "Active",
-    "Viewer",
-    "2026-04-07",
-  ],
-  [
-    "John McCarthy",
-    "JM",
-    "18",
-    "john@acme.io",
-    "Inactive",
-    "Viewer",
-    "2026-04-02",
-  ],
-  [
-    "Frances Allen",
-    "FA",
-    "39",
-    "frances@acme.io",
-    "Active",
-    "Admin",
-    "2026-03-29",
-  ],
+  ["Hedy Lamarr", "HL", "41", "hedy@acme.io", "Invited", "Viewer", "2026-04-15"],
+  ["Dennis Ritchie", "DR", "17", "dennis@acme.io", "Active", "Editor", "2026-04-11"],
+  ["Shafi Goldwasser", "SG", "40", "shafi@acme.io", "Active", "Viewer", "2026-04-07"],
+  ["John McCarthy", "JM", "18", "john@acme.io", "Inactive", "Viewer", "2026-04-02"],
+  ["Frances Allen", "FA", "39", "frances@acme.io", "Active", "Admin", "2026-03-29"],
   ["Vint Cerf", "VC", "19", "vint@acme.io", "Active", "Editor", "2026-03-24"],
-  [
-    "Adele Goldberg",
-    "AG",
-    "38",
-    "adele@acme.io",
-    "Invited",
-    "Viewer",
-    "2026-03-20",
-  ],
-  [
-    "Bjarne Stroustrup",
-    "BS",
-    "20",
-    "bjarne@acme.io",
-    "Active",
-    "Editor",
-    "2026-03-16",
-  ],
-  [
-    "Karen Spärck Jones",
-    "KS",
-    "36",
-    "karen@acme.io",
-    "Active",
-    "Viewer",
-    "2026-03-11",
-  ],
-  [
-    "Brian Kernighan",
-    "BK",
-    "51",
-    "brian@acme.io",
-    "Inactive",
-    "Viewer",
-    "2026-03-06",
-  ],
-  [
-    "Sophie Wilson",
-    "SW",
-    "35",
-    "sophie@acme.io",
-    "Active",
-    "Editor",
-    "2026-03-01",
-  ],
-  [
-    "Guido van Rossum",
-    "GR",
-    "52",
-    "guido@acme.io",
-    "Active",
-    "Admin",
-    "2026-02-24",
-  ],
-  [
-    "Lynn Conway",
-    "LC",
-    "34",
-    "lynn@acme.io",
-    "Invited",
-    "Viewer",
-    "2026-02-19",
-  ],
-  [
-    "Ralph Merkle",
-    "RM",
-    "53",
-    "ralph@acme.io",
-    "Active",
-    "Editor",
-    "2026-02-13",
-  ],
+  ["Adele Goldberg", "AG", "38", "adele@acme.io", "Invited", "Viewer", "2026-03-20"],
+  ["Bjarne Stroustrup", "BS", "20", "bjarne@acme.io", "Active", "Editor", "2026-03-16"],
+  ["Karen Spärck Jones", "KS", "36", "karen@acme.io", "Active", "Viewer", "2026-03-11"],
+  ["Brian Kernighan", "BK", "51", "brian@acme.io", "Inactive", "Viewer", "2026-03-06"],
+  ["Sophie Wilson", "SW", "35", "sophie@acme.io", "Active", "Editor", "2026-03-01"],
+  ["Guido van Rossum", "GR", "52", "guido@acme.io", "Active", "Admin", "2026-02-24"],
+  ["Lynn Conway", "LC", "34", "lynn@acme.io", "Invited", "Viewer", "2026-02-19"],
+  ["Ralph Merkle", "RM", "53", "ralph@acme.io", "Active", "Editor", "2026-02-13"],
   ["Carol Shaw", "CS", "32", "carol@acme.io", "Active", "Viewer", "2026-02-08"],
-  [
-    "Niklaus Wirth",
-    "NW",
-    "54",
-    "niklaus@acme.io",
-    "Inactive",
-    "Viewer",
-    "2026-02-02",
-  ],
-  [
-    "Mary Allen Wilkes",
-    "MW",
-    "31",
-    "mary@acme.io",
-    "Active",
-    "Admin",
-    "2026-01-27",
-  ],
-  [
-    "Leslie Lamport",
-    "LL",
-    "55",
-    "leslie@acme.io",
-    "Active",
-    "Editor",
-    "2026-01-21",
-  ],
+  ["Niklaus Wirth", "NW", "54", "niklaus@acme.io", "Inactive", "Viewer", "2026-02-02"],
+  ["Mary Allen Wilkes", "MW", "31", "mary@acme.io", "Active", "Admin", "2026-01-27"],
+  ["Leslie Lamport", "LL", "55", "leslie@acme.io", "Active", "Editor", "2026-01-21"],
 ].map(([name, initials, avatar, email, status, role, joined], index) => ({
   avatar: `https://i.pravatar.cc/80?img=${avatar}`,
   email,
@@ -323,9 +123,7 @@ function SortIcon({ direction }: { direction: "asc" | "desc" | undefined }) {
   if (direction === "desc") {
     return <ArrowDownIcon aria-hidden="true" />;
   }
-  return (
-    <ArrowUpDownIcon aria-hidden="true" className="text-muted-foreground/60" />
-  );
+  return <ArrowUpDownIcon aria-hidden="true" className="text-muted-foreground/60" />;
 }
 
 export interface Table1Props {
@@ -336,9 +134,10 @@ export interface Table1Props {
 export function Table1({ className, members = defaultMembers }: Table1Props) {
   const [data, setData] = useState(members);
   const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<{ key: SortKey; direction: "asc" | "desc" }>(
-    { direction: "desc", key: "joined" }
-  );
+  const [sort, setSort] = useState<{ key: SortKey; direction: "asc" | "desc" }>({
+    direction: "desc",
+    key: "joined",
+  });
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [hiddenColumns, setHiddenColumns] = useState<Set<string>>(new Set());
@@ -347,33 +146,25 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
     () =>
       data
         .filter((member) =>
-          `${member.name} ${member.email}`
-            .toLowerCase()
-            .includes(query.toLowerCase())
+          `${member.name} ${member.email}`.toLowerCase().includes(query.toLowerCase()),
         )
         .sort((a, b) => {
           const left = a[sort.key];
           const right = b[sort.key];
           const result =
-            sort.key === "joined"
-              ? left.localeCompare(right)
-              : left.localeCompare(right);
+            sort.key === "joined" ? left.localeCompare(right) : left.localeCompare(right);
           return sort.direction === "asc" ? result : -result;
         }),
-    [data, query, sort]
+    [data, query, sort],
   );
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
   const visibleRows = filtered.slice(page * pageSize, (page + 1) * pageSize);
   const pageIds = visibleRows.map((member) => member.id);
-  const allPageSelected =
-    pageIds.length > 0 && pageIds.every((id) => selected.has(id));
-  const selectedCount = filtered.filter((member) =>
-    selected.has(member.id)
-  ).length;
+  const allPageSelected = pageIds.length > 0 && pageIds.every((id) => selected.has(id));
+  const selectedCount = filtered.filter((member) => selected.has(member.id)).length;
   const toggleSort = (key: SortKey) =>
     setSort((current) => ({
-      direction:
-        current.key === key && current.direction === "asc" ? "desc" : "asc",
+      direction: current.key === key && current.direction === "asc" ? "desc" : "asc",
       key,
     }));
   const togglePageSelection = (checked: boolean) =>
@@ -424,7 +215,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
     <section
       className={cn(
         "flex min-h-svh w-full justify-center bg-background px-4 py-10 text-foreground sm:py-16 [&_svg]:size-3.5",
-        className
+        className,
       )}
     >
       <div className="w-full max-w-4xl">
@@ -434,9 +225,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
               <ShieldUserIcon aria-hidden="true" />
             </div>
             <div>
-              <h1 className="font-heading font-semibold text-lg tracking-tight">
-                Team Members
-              </h1>
+              <h1 className="font-heading font-semibold text-lg tracking-tight">Team Members</h1>
               <p className="text-muted-foreground text-sm">
                 {data.length} members across 3 workspaces
               </p>
@@ -461,9 +250,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
               />
             </div>
             <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button size="sm" variant="outline" />}
-              >
+              <DropdownMenuTrigger render={<Button size="sm" variant="outline" />}>
                 <Columns3Icon data-icon="inline-start" />
                 View
               </DropdownMenuTrigger>
@@ -489,9 +276,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
         </div>
         {selectedCount > 0 && (
           <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border bg-muted/40 px-4 py-2.5">
-            <span className="font-medium text-sm">
-              {selectedCount} Selected
-            </span>
+            <span className="font-medium text-sm">{selectedCount} Selected</span>
             <div className="flex flex-wrap gap-2">
               <Button
                 onClick={() =>
@@ -538,9 +323,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                     aria-label="Select all members on this page"
                     checked={pageSelectionState === true}
                     indeterminate={pageSelectionState === "indeterminate"}
-                    onCheckedChange={(checked) =>
-                      togglePageSelection(checked === true)
-                    }
+                    onCheckedChange={(checked) => togglePageSelection(checked === true)}
                   />
                 </TableHead>
                 {columnVisible("name") && (
@@ -551,11 +334,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                       variant="ghost"
                     >
                       Member{" "}
-                      <SortIcon
-                        direction={
-                          sort.key === "name" ? sort.direction : undefined
-                        }
-                      />
+                      <SortIcon direction={sort.key === "name" ? sort.direction : undefined} />
                     </Button>
                   </TableHead>
                 )}
@@ -571,12 +350,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                       onClick={() => toggleSort("role")}
                       variant="ghost"
                     >
-                      Role{" "}
-                      <SortIcon
-                        direction={
-                          sort.key === "role" ? sort.direction : undefined
-                        }
-                      />
+                      Role <SortIcon direction={sort.key === "role" ? sort.direction : undefined} />
                     </Button>
                   </TableHead>
                 )}
@@ -588,11 +362,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                       variant="ghost"
                     >
                       Joined{" "}
-                      <SortIcon
-                        direction={
-                          sort.key === "joined" ? sort.direction : undefined
-                        }
-                      />
+                      <SortIcon direction={sort.key === "joined" ? sort.direction : undefined} />
                     </Button>
                   </TableHead>
                 )}
@@ -606,9 +376,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                 visibleRows.map((member) => (
                   <TableRow
                     className="border-border transition-colors hover:bg-muted/30"
-                    data-state={
-                      selected.has(member.id) ? "selected" : undefined
-                    }
+                    data-state={selected.has(member.id) ? "selected" : undefined}
                     key={member.id}
                   >
                     <TableCell className="pl-4">
@@ -631,10 +399,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                     {columnVisible("name") && (
                       <TableCell>
                         <div className="flex min-w-0 items-center gap-3">
-                          <Avatar
-                            className="shrink-0 border border-border"
-                            size="sm"
-                          >
+                          <Avatar className="shrink-0 border border-border" size="sm">
                             <AvatarImage
                               alt={member.name}
                               className="grayscale"
@@ -643,30 +408,22 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                             <AvatarFallback>{member.initials}</AvatarFallback>
                           </Avatar>
                           <div className="min-w-0">
-                            <p className="truncate font-medium text-sm">
-                              {member.name}
-                            </p>
-                            <p className="truncate text-muted-foreground text-xs">
-                              {member.email}
-                            </p>
+                            <p className="truncate font-medium text-sm">{member.name}</p>
+                            <p className="truncate text-muted-foreground text-xs">{member.email}</p>
                           </div>
                         </div>
                       </TableCell>
                     )}
                     {columnVisible("status") && (
                       <TableCell>
-                        <Badge variant={statusVariant[member.status]}>
-                          {member.status}
-                        </Badge>
+                        <Badge variant={statusVariant[member.status]}>{member.status}</Badge>
                       </TableCell>
                     )}
                     {columnVisible("role") && (
                       <TableCell
                         className={cn(
                           "text-sm",
-                          member.role === "Admin"
-                            ? "font-medium"
-                            : "text-muted-foreground"
+                          member.role === "Admin" ? "font-medium" : "text-muted-foreground",
                         )}
                       >
                         {member.role}
@@ -718,10 +475,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                 ))
               ) : (
                 <TableRow>
-                  <TableCell
-                    className="h-24 text-center text-muted-foreground text-sm"
-                    colSpan={6}
-                  >
+                  <TableCell className="h-24 text-center text-muted-foreground text-sm" colSpan={6}>
                     No members match your search.
                   </TableCell>
                 </TableRow>
@@ -730,9 +484,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
           </Table>
           <div className="flex items-center justify-between border-border border-t bg-muted/20 px-4 py-2.5">
             <p className="text-muted-foreground text-xs">
-              <span className="font-medium text-foreground">
-                {filtered.length}
-              </span>{" "}
+              <span className="font-medium text-foreground">{filtered.length}</span>{" "}
               {filtered.length === 1 ? "Result" : "Results"}
             </p>
             <div className="flex items-center gap-1.5">
@@ -753,9 +505,7 @@ export function Table1({ className, members = defaultMembers }: Table1Props) {
                 aria-label="Next page"
                 className="size-7"
                 disabled={page >= pageCount - 1}
-                onClick={() =>
-                  setPage((current) => Math.min(pageCount - 1, current + 1))
-                }
+                onClick={() => setPage((current) => Math.min(pageCount - 1, current + 1))}
                 size="icon"
                 variant="outline"
               >

@@ -84,9 +84,7 @@ export function Faq1({
       <section className="space-y-7 px-4">
         <div className="space-y-2">
           <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
-          {description ? (
-            <p className="max-w-2xl text-muted-foreground">{description}</p>
-          ) : null}
+          {description ? <p className="max-w-2xl text-muted-foreground">{description}</p> : null}
         </div>
         <Accordion className="mx-auto w-full max-w-3xl overflow-hidden rounded-lg border">
           {questions.map((item) => (

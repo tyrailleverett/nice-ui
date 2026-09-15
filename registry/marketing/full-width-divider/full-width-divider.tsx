@@ -20,9 +20,8 @@ export function FullWidthDivider({
         "pointer-events-none absolute h-px bg-border",
         "data-[contained=false]:left-1/2 data-[contained=false]:w-screen data-[contained=false]:-translate-x-1/2",
         "data-[contained=true]:inset-x-0 data-[contained=true]:w-full",
-        position &&
-          "data-[position=top]:-top-px data-[position=bottom]:-bottom-px",
-        className
+        position && "data-[position=top]:-top-px data-[position=bottom]:-bottom-px",
+        className,
       )}
       data-contained={contained}
       data-position={position}

@@ -22,9 +22,10 @@ type Story = StoryObj<typeof meta>;
 export const ProductSidebar: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Deployments" }));
-    await expect(
-      canvas.getByRole("button", { name: "Deployments" })
-    ).toHaveAttribute("aria-current", "page");
+    await expect(canvas.getByRole("button", { name: "Deployments" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   },
   render: () => <AppShell1 />,
 };
@@ -32,9 +33,10 @@ export const ProductSidebar: Story = {
 export const OrganizationSidebar: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Accounts" }));
-    await expect(
-      canvas.getByRole("button", { name: "Accounts" })
-    ).toHaveAttribute("aria-current", "page");
+    await expect(canvas.getByRole("button", { name: "Accounts" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   },
   render: () => <AppShell2 />,
 };
@@ -42,9 +44,10 @@ export const OrganizationSidebar: Story = {
 export const ProjectDashboardShell: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Projects" }));
-    await expect(
-      canvas.getByRole("button", { name: "Projects" })
-    ).toHaveAttribute("data-active", "true");
+    await expect(canvas.getByRole("button", { name: "Projects" })).toHaveAttribute(
+      "data-active",
+      "true",
+    );
   },
   render: () => <AppShell3 />,
 };
@@ -54,7 +57,7 @@ export const OperationsConsoleShell: Story = {
     await userEvent.click(canvas.getByRole("button", { name: "Roles" }));
     await expect(canvas.getByRole("button", { name: "Roles" })).toHaveAttribute(
       "data-active",
-      "true"
+      "true",
     );
   },
   render: () => <AppShell4 />,
@@ -63,9 +66,10 @@ export const OperationsConsoleShell: Story = {
 export const ReportingDashboardShell: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Billing" }));
-    await expect(
-      canvas.getByRole("button", { name: "Billing" })
-    ).toHaveAttribute("data-active", "true");
+    await expect(canvas.getByRole("button", { name: "Billing" })).toHaveAttribute(
+      "data-active",
+      "true",
+    );
   },
   render: () => <AppShell5 />,
 };
@@ -73,9 +77,10 @@ export const ReportingDashboardShell: Story = {
 export const DualTierWorkspaceShell: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Projects" }));
-    await expect(
-      canvas.getByRole("button", { name: "Projects" })
-    ).toHaveAttribute("aria-current", "page");
+    await expect(canvas.getByRole("button", { name: "Projects" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   },
   render: () => <AppShell6 />,
 };
@@ -83,9 +88,10 @@ export const DualTierWorkspaceShell: Story = {
 export const InvertedDispatchShell: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Settings" }));
-    await expect(
-      canvas.getByRole("button", { name: "Settings" })
-    ).toHaveAttribute("aria-current", "page");
+    await expect(canvas.getByRole("button", { name: "Settings" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   },
   render: () => <AppShell7 />,
 };
@@ -93,9 +99,10 @@ export const InvertedDispatchShell: Story = {
 export const ServiceConsoleShell: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Services" }));
-    await expect(
-      canvas.getByRole("button", { name: "Services" })
-    ).toHaveAttribute("aria-current", "page");
+    await expect(canvas.getByRole("button", { name: "Services" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   },
   render: () => <AppShell8 />,
 };
@@ -103,9 +110,10 @@ export const ServiceConsoleShell: Story = {
 export const MarketDashboardShell: Story = {
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Orders" }));
-    await expect(
-      canvas.getByRole("button", { name: "Orders" })
-    ).toHaveAttribute("aria-current", "page");
+    await expect(canvas.getByRole("button", { name: "Orders" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   },
   render: () => <AppShell9 />,
 };

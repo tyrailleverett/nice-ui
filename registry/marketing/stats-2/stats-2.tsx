@@ -34,9 +34,7 @@ export function Stats2({
             <p className="font-mono text-muted-foreground text-xs uppercase tracking-wider">
               {eyebrow}
             </p>
-            <h2 className="font-display-heading text-3xl text-primary sm:text-4xl">
-              {title}
-            </h2>
+            <h2 className="font-display-heading text-3xl text-primary sm:text-4xl">{title}</h2>
           </div>
 
           <ul className="mt-12 grid grid-cols-2 border-y md:grid-cols-4">
@@ -46,13 +44,11 @@ export function Stats2({
                   "flex flex-col gap-1 px-0 py-8 md:px-8 md:py-10",
                   index > 0 && "md:border-l",
                   index % 2 === 1 && "pl-6 md:pl-8",
-                  index >= 2 && "border-t md:border-t-0"
+                  index >= 2 && "border-t md:border-t-0",
                 )}
                 key={stat.label}
               >
-                <p className="font-semibold text-4xl tabular-nums tracking-tight">
-                  {stat.value}
-                </p>
+                <p className="font-semibold text-4xl tabular-nums tracking-tight">{stat.value}</p>
                 <p className="text-muted-foreground text-sm">{stat.label}</p>
               </li>
             ))}

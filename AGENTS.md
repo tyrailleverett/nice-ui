@@ -1,14 +1,15 @@
-# Ultracite Code Standards
+# Oxlint + Oxfmt Code Standards
 
-This project uses **Ultracite**, a zero-config preset that enforces strict code quality standards through automated formatting and linting.
+This project uses **Oxlint** for linting and **Oxfmt** for formatting, enforced through automated checks and git hooks.
 
 ## Quick Reference
 
-- **Format code**: `bun x ultracite fix`
-- **Check for issues**: `bun x ultracite check`
-- **Diagnose setup**: `bun x ultracite doctor`
+- **Format code**: `bun run format`
+- **Lint code**: `bun run lint`
+- **Fix everything**: `bun run fix`
+- **Check (CI)**: `bun run check`
 
-Biome (the underlying engine) provides robust linting and formatting. Most issues are automatically fixable.
+Oxlint provides fast linting (unicorn, typescript, react, import, jsx-a11y, and more). Oxfmt handles formatting. Most issues are automatically fixable.
 
 ---
 
@@ -104,14 +105,17 @@ Write code that is **accessible, performant, type-safe, and maintainable**. Focu
 ### Framework-Specific Guidance
 
 **Next.js:**
+
 - Use Next.js `<Image>` component for images
 - Use `next/head` or App Router metadata API for head elements
 - Use Server Components for async data fetching instead of async Client Components
 
 **React 19+:**
+
 - Use ref as a prop instead of `React.forwardRef`
 
 **Solid/Svelte/Vue/Qwik:**
+
 - Use `class` and `for` attributes (not `className` or `htmlFor`)
 
 ---
@@ -123,11 +127,11 @@ Write code that is **accessible, performant, type-safe, and maintainable**. Focu
 - Don't use `.only` or `.skip` in committed code
 - Keep test suites reasonably flat - avoid excessive `describe` nesting
 
-## When Biome Can't Help
+## When Oxlint Can't Help
 
-Biome's linter will catch most issues automatically. Focus your attention on:
+Oxlint's linter will catch most issues automatically. Focus your attention on:
 
-1. **Business logic correctness** - Biome can't validate your algorithms
+1. **Business logic correctness** - Oxlint can't validate your algorithms
 2. **Meaningful naming** - Use descriptive names for functions, variables, and types
 3. **Architecture decisions** - Component structure, data flow, and API design
 4. **Edge cases** - Handle boundary conditions and error states
@@ -136,4 +140,4 @@ Biome's linter will catch most issues automatically. Focus your attention on:
 
 ---
 
-Most formatting and common issues are automatically fixed by Biome. Run `bun x ultracite fix` before committing to ensure compliance.
+Most formatting and common issues are automatically fixed by Oxlint and Oxfmt. Run `bun run fix` before committing to ensure compliance.

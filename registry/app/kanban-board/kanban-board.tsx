@@ -16,13 +16,7 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import {
   Select,
@@ -212,10 +206,7 @@ export function KanbanBoard() {
           </div>
         </header>
 
-        <section
-          aria-label="Pipeline summary"
-          className="grid gap-3 sm:grid-cols-3"
-        >
+        <section aria-label="Pipeline summary" className="grid gap-3 sm:grid-cols-3">
           <Card className="shadow-none ring-border/70">
             <CardHeader className="gap-0 pb-2">
               <CardDescription>Open work</CardDescription>
@@ -272,10 +263,7 @@ export function KanbanBoard() {
           <div className="-mx-4 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
             <div className="grid min-w-[1120px] grid-cols-4 gap-3">
               {columns.map(({ accent, cards, count, icon: Icon, name }) => (
-                <section
-                  className="flex min-h-[560px] flex-col gap-3"
-                  key={name}
-                >
+                <section className="flex min-h-[560px] flex-col gap-3" key={name}>
                   <div className="flex items-center justify-between border-border border-b px-1 pb-3">
                     <div className="flex items-center gap-2">
                       <Icon className="size-4 text-muted-foreground" />
@@ -284,11 +272,7 @@ export function KanbanBoard() {
                         {count}
                       </span>
                     </div>
-                    <Button
-                      aria-label={`More options for ${name}`}
-                      size="icon-xs"
-                      variant="ghost"
-                    >
+                    <Button aria-label={`More options for ${name}`} size="icon-xs" variant="ghost">
                       <EllipsisIcon />
                     </Button>
                   </div>
@@ -312,9 +296,7 @@ export function KanbanBoard() {
                               <MoreHorizontalIcon />
                             </Button>
                           </div>
-                          <CardTitle className="text-[15px] leading-5">
-                            {card.title}
-                          </CardTitle>
+                          <CardTitle className="text-[15px] leading-5">{card.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="gap-4">
                           <div className="flex flex-wrap gap-1.5">
@@ -348,10 +330,7 @@ export function KanbanBoard() {
                         </CardContent>
                       </Card>
                     ))}
-                    <Button
-                      className="mt-auto w-full border-dashed"
-                      variant="outline"
-                    >
+                    <Button className="mt-auto w-full border-dashed" variant="outline">
                       <PlusIcon data-icon="inline-start" />
                       Add card
                     </Button>

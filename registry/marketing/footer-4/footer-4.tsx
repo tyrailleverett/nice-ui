@@ -26,11 +26,7 @@ export function InstagramIcon(props: ComponentProps<"svg">) {
 export function LinkedinIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/linkedin.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/linkedin.svg" width="100%" />
     </svg>
   );
 }

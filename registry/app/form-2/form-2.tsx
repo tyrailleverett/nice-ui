@@ -8,11 +8,7 @@ import {
   XIcon,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import {
-  FieldHint,
-  FormPage,
-  StatusBadge,
-} from "@/components/app/forms-shared";
+import { FieldHint, FormPage, StatusBadge } from "@/components/app/forms-shared";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -85,9 +81,7 @@ export function Form2({ className }: Form2Props) {
   const [currency, setCurrency] = useState("USD");
   const [terms, setTerms] = useState("Net 14");
   const [collection, setCollection] = useState("ACH transfer");
-  const [address, setAddress] = useState(
-    "14 Warren Street, Suite 620, New York, NY"
-  );
+  const [address, setAddress] = useState("14 Warren Street, Suite 620, New York, NY");
   const [lines, setLines] = useState<LineItem[]>([
     {
       id: "line-1",
@@ -106,15 +100,13 @@ export function Form2({ className }: Form2Props) {
   ]);
 
   const updateLine = (id: string, patch: Partial<LineItem>) => {
-    setLines((current) =>
-      current.map((row) => (row.id === id ? { ...row, ...patch } : row))
-    );
+    setLines((current) => current.map((row) => (row.id === id ? { ...row, ...patch } : row)));
   };
 
   const itemCount = lines.length;
   const itemLabel = useMemo(
     () => `${itemCount} ${itemCount === 1 ? "item" : "items"}`,
-    [itemCount]
+    [itemCount],
   );
 
   return (
@@ -122,9 +114,7 @@ export function Form2({ className }: Form2Props) {
       <Card>
         <CardHeader className="border-b">
           <CardTitle className="text-title">Invoice Details</CardTitle>
-          <CardDescription>
-            Customer, terms, items, and payment notes.
-          </CardDescription>
+          <CardDescription>Customer, terms, items, and payment notes.</CardDescription>
           <CardAction className="flex items-center gap-2">
             <StatusBadge icon={CircleAlertIcon} tone="warning">
               Draft
@@ -329,9 +319,7 @@ export function Form2({ className }: Form2Props) {
                   </Select>
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="billing-address">
-                    Billing Address
-                  </FieldLabel>
+                  <FieldLabel htmlFor="billing-address">Billing Address</FieldLabel>
                   <InputGroup>
                     <InputGroupInput
                       id="billing-address"
@@ -350,9 +338,7 @@ export function Form2({ className }: Form2Props) {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex flex-col gap-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="font-heading font-semibold text-lg">
-                    Line Items
-                  </h2>
+                  <h2 className="font-heading font-semibold text-lg">Line Items</h2>
                   <StatusBadge>{itemLabel}</StatusBadge>
                 </div>
                 <p className="text-muted-foreground text-sm">
@@ -396,10 +382,7 @@ export function Form2({ className }: Form2Props) {
                   key={row.id}
                 >
                   <Field>
-                    <FieldLabel
-                      className="md:sr-only"
-                      htmlFor={`${row.id}-item`}
-                    >
+                    <FieldLabel className="md:sr-only" htmlFor={`${row.id}-item`}>
                       Item
                     </FieldLabel>
                     <div className="flex items-center gap-1">
@@ -433,10 +416,7 @@ export function Form2({ className }: Form2Props) {
                     </div>
                   </Field>
                   <Field>
-                    <FieldLabel
-                      className="md:sr-only"
-                      htmlFor={`${row.id}-qty`}
-                    >
+                    <FieldLabel className="md:sr-only" htmlFor={`${row.id}-qty`}>
                       Qty
                     </FieldLabel>
                     <InputGroup>
@@ -454,10 +434,7 @@ export function Form2({ className }: Form2Props) {
                     </InputGroup>
                   </Field>
                   <Field>
-                    <FieldLabel
-                      className="md:sr-only"
-                      htmlFor={`${row.id}-rate`}
-                    >
+                    <FieldLabel className="md:sr-only" htmlFor={`${row.id}-rate`}>
                       Rate
                     </FieldLabel>
                     <InputGroup>
@@ -480,10 +457,7 @@ export function Form2({ className }: Form2Props) {
                     </InputGroup>
                   </Field>
                   <Field>
-                    <FieldLabel
-                      className="md:sr-only"
-                      htmlFor={`${row.id}-tax`}
-                    >
+                    <FieldLabel className="md:sr-only" htmlFor={`${row.id}-tax`}>
                       Tax
                     </FieldLabel>
                     <Select
@@ -513,17 +487,13 @@ export function Form2({ className }: Form2Props) {
                       </SelectContent>
                     </Select>
                   </Field>
-                  <p className="pb-2 font-medium">
-                    {money.format(lineAmount(row))}
-                  </p>
+                  <p className="pb-2 font-medium">{money.format(lineAmount(row))}</p>
                   <Button
                     aria-label={`Remove ${row.item}`}
                     className="mb-1"
                     disabled={lines.length === 1}
                     onClick={() =>
-                      setLines((current) =>
-                        current.filter((item) => item.id !== row.id)
-                      )
+                      setLines((current) => current.filter((item) => item.id !== row.id))
                     }
                     size="icon"
                     type="button"

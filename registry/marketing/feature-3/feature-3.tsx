@@ -30,8 +30,7 @@ const defaultFeatures: Feature3Item[] = [
     title: "Fast",
   },
   {
-    description:
-      "Compose sections that scale from landing pages to product sites.",
+    description: "Compose sections that scale from landing pages to product sites.",
     icon: <CpuIcon />,
     title: "Powerful",
   },
@@ -97,13 +96,8 @@ export function FeatureCard({
   feature: Feature3Item;
 }) {
   return (
-    <div
-      className={cn("relative overflow-hidden bg-background p-6", className)}
-      {...props}
-    >
-      <div className="[&_svg]:size-6 [&_svg]:text-foreground/75">
-        {feature.icon}
-      </div>
+    <div className={cn("relative overflow-hidden bg-background p-6", className)} {...props}>
+      <div className="[&_svg]:size-6 [&_svg]:text-foreground/75">{feature.icon}</div>
       <h3 className="mt-10 text-sm md:text-base">{feature.title}</h3>
       <p className="relative z-20 mt-2 font-light text-muted-foreground text-xs">
         {feature.description}

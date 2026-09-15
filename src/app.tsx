@@ -20,20 +20,8 @@ function App() {
       <section id="center">
         <div className="hero">
           <img alt="" className="base" height="179" src={heroImg} width="170" />
-          <img
-            alt="React logo"
-            className="framework"
-            height={48}
-            src={reactLogo}
-            width={48}
-          />
-          <img
-            alt="Vite logo"
-            className="vite"
-            height={48}
-            src={viteLogo}
-            width={48}
-          />
+          <img alt="React logo" className="framework" height={48} src={reactLogo} width={48} />
+          <img alt="Vite logo" className="vite" height={48} src={viteLogo} width={48} />
         </div>
         <div>
           <h1>Get started</h1>
@@ -59,25 +47,13 @@ function App() {
           <ul>
             <li>
               <a href="https://vite.dev/" rel="noopener" target="_blank">
-                <img
-                  alt=""
-                  className="logo"
-                  height={16}
-                  src={viteLogo}
-                  width={16}
-                />
+                <img alt="" className="logo" height={16} src={viteLogo} width={16} />
                 Explore Vite
               </a>
             </li>
             <li>
               <a href="https://react.dev/" rel="noopener" target="_blank">
-                <img
-                  alt=""
-                  className="button-icon"
-                  height={16}
-                  src={reactLogo}
-                  width={16}
-                />
+                <img alt="" className="button-icon" height={16} src={reactLogo} width={16} />
                 Learn React
               </a>
             </li>
@@ -92,11 +68,7 @@ function App() {
           <p>Join the Vite community</p>
           <ul>
             <li>
-              <a
-                href="https://github.com/vitejs/vite"
-                rel="noopener"
-                target="_blank"
-              >
+              <a href="https://github.com/vitejs/vite" rel="noopener" target="_blank">
                 <img
                   alt=""
                   aria-hidden="true"
@@ -135,11 +107,7 @@ function App() {
               </a>
             </li>
             <li>
-              <a
-                href="https://bsky.app/profile/vite.dev"
-                rel="noopener"
-                target="_blank"
-              >
+              <a href="https://bsky.app/profile/vite.dev" rel="noopener" target="_blank">
                 <img
                   alt=""
                   aria-hidden="true"

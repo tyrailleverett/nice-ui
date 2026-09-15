@@ -31,7 +31,7 @@ function ActionButton({
     return (
       <Button
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {children}
@@ -117,6 +117,7 @@ export function Hero5({
           <div
             aria-label="A live monitoring dashboard showing healthy system signals"
             className="relative mt-16 border border-white/15 bg-[#0f172a] shadow-2xl shadow-black/30 lg:mt-24"
+            // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- composite dashboard mockup
             role="img"
           >
             <div className="flex items-center justify-between border-white/10 border-b px-4 py-3 font-mono text-[#a7babe] text-[11px] sm:px-6">
@@ -131,25 +132,16 @@ export function Hero5({
                 <p className="font-mono text-[#64748b] text-[10px] uppercase tracking-[0.16em]">
                   System health
                 </p>
-                <p className="mt-4 font-display-heading text-4xl tracking-[-0.04em]">
-                  98.7
-                </p>
-                <p className="mt-1 font-mono text-[#4ade80] text-xs">
-                  +2.4% this week
-                </p>
-                <div
-                  aria-hidden="true"
-                  className="mt-8 flex h-16 items-end gap-1"
-                >
-                  {[35, 48, 42, 66, 54, 72, 61, 84, 74, 92, 88, 100].map(
-                    (height) => (
-                      <span
-                        className="flex-1 bg-[#0075ff]/70"
-                        key={height}
-                        style={{ height: `${height}%` }}
-                      />
-                    )
-                  )}
+                <p className="mt-4 font-display-heading text-4xl tracking-[-0.04em]">98.7</p>
+                <p className="mt-1 font-mono text-[#4ade80] text-xs">+2.4% this week</p>
+                <div aria-hidden="true" className="mt-8 flex h-16 items-end gap-1">
+                  {[35, 48, 42, 66, 54, 72, 61, 84, 74, 92, 88, 100].map((height) => (
+                    <span
+                      className="flex-1 bg-[#0075ff]/70"
+                      key={height}
+                      style={{ height: `${height}%` }}
+                    />
+                  ))}
                 </div>
               </div>
               <div className="min-w-0 border-white/10 border-b p-5 sm:p-6 lg:border-r lg:border-b-0">
@@ -196,15 +188,9 @@ export function Hero5({
                       className="flex items-center justify-between gap-3 py-3 font-mono text-xs"
                       key={row.label}
                     >
-                      <span className="truncate text-[#a7babe]">
-                        {row.label}
-                      </span>
+                      <span className="truncate text-[#a7babe]">{row.label}</span>
                       <span
-                        className={
-                          row.status === "watch"
-                            ? "text-[#fbbf24]"
-                            : "text-[#4ade80]"
-                        }
+                        className={row.status === "watch" ? "text-[#fbbf24]" : "text-[#4ade80]"}
                       >
                         {row.value}
                       </span>

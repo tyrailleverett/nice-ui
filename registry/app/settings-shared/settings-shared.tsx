@@ -19,39 +19,23 @@ export function MessageMark() {
   return <span className="font-bold text-success">✣</span>;
 }
 
-export function SectionHeading({
-  description,
-  title,
-}: {
-  description?: string;
-  title: string;
-}) {
+export function SectionHeading({ description, title }: { description?: string; title: string }) {
   return (
     <header className="flex flex-col gap-1">
-      <h1 className="font-heading font-semibold text-title sm:text-3xl">
-        {title}
-      </h1>
+      <h1 className="font-heading font-semibold text-title sm:text-3xl">{title}</h1>
       {description ? (
-        <p className="text-base text-muted-foreground sm:text-lg">
-          {description}
-        </p>
+        <p className="text-base text-muted-foreground sm:text-lg">{description}</p>
       ) : null}
     </header>
   );
 }
 
-export function Panel({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function Panel({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <section
       className={cn(
         "overflow-hidden rounded-2xl bg-card text-card-foreground ring-1 ring-foreground/10",
-        className
+        className,
       )}
     >
       {children}
@@ -79,10 +63,7 @@ export function SelectField({
   label: string;
 }) {
   return (
-    <Select
-      defaultValue={defaultValue}
-      items={items.map((item) => ({ label: item, value: item }))}
-    >
+    <Select defaultValue={defaultValue} items={items.map((item) => ({ label: item, value: item }))}>
       <SelectTrigger aria-label={label} className="w-full">
         <SelectValue />
       </SelectTrigger>
@@ -99,21 +80,13 @@ export function SelectField({
   );
 }
 
-export function SettingsTag({
-  children,
-  tone = "default",
-}: {
-  children: ReactNode;
-  tone?: Tone;
-}) {
+export function SettingsTag({ children, tone = "default" }: { children: ReactNode; tone?: Tone }) {
   return (
     <Badge
       className={cn(
         tone === "success" && "border-success/40 bg-success/10 text-success",
-        tone === "warning" &&
-          "border-amber-700/40 bg-amber-700/10 text-amber-700",
-        tone === "accent" &&
-          "border-violet-700/40 bg-violet-700/10 text-violet-700"
+        tone === "warning" && "border-amber-700/40 bg-amber-700/10 text-amber-700",
+        tone === "accent" && "border-violet-700/40 bg-violet-700/10 text-violet-700",
       )}
       variant="outline"
     >
@@ -122,13 +95,7 @@ export function SettingsTag({
   );
 }
 
-export function PreferenceSection({
-  children,
-  title,
-}: {
-  children: ReactNode;
-  title: string;
-}) {
+export function PreferenceSection({ children, title }: { children: ReactNode; title: string }) {
   return (
     <section className="flex flex-col gap-0">
       <div className="flex items-center justify-between rounded-t-2xl bg-card px-6 py-5 font-semibold text-lg ring-1 ring-foreground/10">

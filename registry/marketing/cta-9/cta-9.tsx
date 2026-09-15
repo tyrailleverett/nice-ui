@@ -2,11 +2,7 @@ import { ArrowUpRightIcon, AtSignIcon, CreditCardIcon } from "lucide-react";
 import { type FormEvent, type ReactNode, useCallback } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { Button } from "@/components/ui/button";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 
 export interface Cta9Props {
   className?: string;
@@ -30,8 +26,8 @@ export function Cta9({
   onSubscribe,
   footnote = (
     <>
-      No credit card <CreditCardIcon className="inline-block size-3.5" />{" "}
-      required • 7-days free trial
+      No credit card <CreditCardIcon className="inline-block size-3.5" /> required • 7-days free
+      trial
     </>
   ),
   className,
@@ -43,7 +39,7 @@ export function Cta9({
       const email = String(formData.get("email") ?? "");
       onSubscribe?.(email);
     },
-    [onSubscribe]
+    [onSubscribe],
   );
 
   return (
@@ -56,28 +52,16 @@ export function Cta9({
             onSubmit={handleSubmit}
           >
             <InputGroup className="min-w-0 flex-1 border-0 bg-transparent shadow-none dark:bg-transparent">
-              <InputGroupInput
-                name="email"
-                placeholder={emailPlaceholder}
-                type="email"
-              />
+              <InputGroupInput name="email" placeholder={emailPlaceholder} type="email" />
               <InputGroupAddon>
                 <AtSignIcon data-icon="inline-start" />
               </InputGroupAddon>
             </InputGroup>
-            <Button
-              className="rounded-none border-l"
-              type="submit"
-              variant="ghost"
-            >
+            <Button className="rounded-none border-l" type="submit" variant="ghost">
               {submitLabel} <ArrowUpRightIcon data-icon="inline-end" />
             </Button>
           </form>
-          {footnote ? (
-            <p className="text-muted-foreground text-xs md:text-sm">
-              {footnote}
-            </p>
-          ) : null}
+          {footnote ? <p className="text-muted-foreground text-xs md:text-sm">{footnote}</p> : null}
         </div>
       </section>
     </MarketingSection>

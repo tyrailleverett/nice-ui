@@ -58,7 +58,7 @@ function ActionButton({
       <Button
         className={className}
         nativeButton={false}
-        render={<a href={action.href} />}
+        render={<a aria-label={action.label} href={action.href} />}
         variant={variant}
       >
         {content}
@@ -78,7 +78,7 @@ function FloatingIcon({ className, icon }: Cta8Icon) {
     <div
       className={cn(
         "absolute hidden size-11 items-center justify-center rounded-xl border bg-card text-foreground shadow-sm md:flex",
-        className
+        className,
       )}
     >
       {icon}
@@ -140,7 +140,7 @@ export function Cta8({
       <section
         className={cn(
           "relative mx-auto flex min-h-96 w-full max-w-4xl flex-col items-center justify-center gap-4 overflow-hidden px-6 py-16 text-center",
-          "bg-[radial-gradient(45%_70%_at_50%_0%,--theme(--color-foreground/.08),transparent)]"
+          "bg-[radial-gradient(45%_70%_at_50%_0%,--theme(--color-foreground/.08),transparent)]",
         )}
       >
         {icons.map((item) => (
@@ -151,9 +151,7 @@ export function Cta8({
           {title}
         </h2>
         {description ? (
-          <p className="text-muted-foreground text-sm md:text-base">
-            {description}
-          </p>
+          <p className="text-muted-foreground text-sm md:text-base">{description}</p>
         ) : null}
         <div className="flex flex-wrap items-center justify-center gap-2">
           {primaryCta ? (
@@ -164,11 +162,7 @@ export function Cta8({
             />
           ) : null}
           {secondaryCta ? (
-            <ActionButton
-              action={secondaryCta}
-              className="rounded-full"
-              variant="outline"
-            />
+            <ActionButton action={secondaryCta} className="rounded-full" variant="outline" />
           ) : null}
         </div>
       </section>

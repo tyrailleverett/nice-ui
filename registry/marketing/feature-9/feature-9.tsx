@@ -30,10 +30,7 @@ interface IllustrationProps {
   variant?: "elevated" | "outlined" | "mixed";
 }
 
-export function ScheduleIllustration({
-  className,
-  variant = "elevated",
-}: IllustrationProps) {
+export function ScheduleIllustration({ className, variant = "elevated" }: IllustrationProps) {
   return (
     <div className={cn("relative", className)}>
       <div
@@ -41,10 +38,9 @@ export function ScheduleIllustration({
           "absolute flex -translate-x-1/8 translate-y-[-110%] items-center gap-2 rounded-lg bg-background p-1",
           {
             "border border-foreground/10": variant === "outlined",
-            "border border-foreground/10 shadow-black/5 shadow-md":
-              variant === "mixed",
+            "border border-foreground/10 shadow-black/5 shadow-md": variant === "mixed",
             "shadow-black/10 shadow-lg": variant === "elevated",
-          }
+          },
         )}
       >
         <Button className="rounded-sm" size="sm">
@@ -62,29 +58,18 @@ export function ScheduleIllustration({
           <Button aria-label="Toggle underline" size="icon-sm" variant="ghost">
             <UnderlineIcon className="size-4" />
           </Button>
-          <Button
-            aria-label="Toggle strikethrough"
-            size="icon-sm"
-            variant="ghost"
-          >
+          <Button aria-label="Toggle strikethrough" size="icon-sm" variant="ghost">
             <StrikethroughIcon className="size-4" />
           </Button>
         </div>
         <span className="block h-4 w-px bg-border" />
-        <Button
-          aria-label="More actions"
-          className="size-8"
-          size="icon"
-          variant="ghost"
-        >
+        <Button aria-label="More actions" className="size-8" size="icon" variant="ghost">
           <EllipsisIcon className="size-3" />
         </Button>
       </div>
       <span>
-        <span className="bg-secondary py-1 text-secondary-foreground">
-          Tomorrow 8:30 pm
-        </span>{" "}
-        is our priority.
+        <span className="bg-secondary py-1 text-secondary-foreground">Tomorrow 8:30 pm</span> is our
+        priority.
       </span>
     </div>
   );
@@ -95,23 +80,21 @@ export function CodeIllustration({ className }: { className?: string }) {
     <div
       className={cn(
         "mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_50%,transparent_100%)]",
-        className
+        className,
       )}
     >
       <ul className="mx-auto w-fit font-medium font-mono text-2xl text-muted-foreground">
-        {["Images", "Variables", "Pages", "Components", "Styles"].map(
-          (item, index) => (
-            <li
-              className={cn(
-                index === 2 &&
-                  "relative text-foreground before:absolute before:translate-x-[-110%] before:text-orange-500 before:content-['Import']"
-              )}
-              key={item}
-            >
-              {item}
-            </li>
-          )
-        )}
+        {["Images", "Variables", "Pages", "Components", "Styles"].map((item, index) => (
+          <li
+            className={cn(
+              index === 2 &&
+                "relative text-foreground before:absolute before:translate-x-[-110%] before:text-orange-500 before:content-['Import']",
+            )}
+            key={item}
+          >
+            {item}
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -141,13 +124,9 @@ export function Feature9({
       <div className="py-24">
         <div className="mx-auto w-full max-w-5xl px-6">
           <div>
-            <h2 className="mt-4 font-display-heading text-4xl text-foreground">
-              {title}
-            </h2>
+            <h2 className="mt-4 font-display-heading text-4xl text-foreground">{title}</h2>
             {description ? (
-              <p className="mt-4 mb-12 text-balance text-lg text-muted-foreground">
-                {description}
-              </p>
+              <p className="mt-4 mb-12 text-balance text-lg text-muted-foreground">{description}</p>
             ) : null}
           </div>
 
@@ -158,9 +137,7 @@ export function Feature9({
                   {card.illustration}
                 </div>
                 <div className="text-center">
-                  <h3 className="font-semibold text-foreground text-xl">
-                    {card.title}
-                  </h3>
+                  <h3 className="font-semibold text-foreground text-xl">{card.title}</h3>
                   <p className="mt-4 text-balance text-lg text-muted-foreground">
                     {card.description}
                   </p>

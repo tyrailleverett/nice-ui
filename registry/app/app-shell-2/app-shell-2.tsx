@@ -115,10 +115,7 @@ interface OrganizationNavigationProps {
   onItemClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-function OrganizationNavigation({
-  activeItem,
-  onItemClick,
-}: OrganizationNavigationProps) {
+function OrganizationNavigation({ activeItem, onItemClick }: OrganizationNavigationProps) {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -139,12 +136,8 @@ function OrganizationNavigation({
                   {item.status ? (
                     <span className="ml-auto size-2 rounded-full bg-chart-2 group-data-[collapsible=icon]:hidden" />
                   ) : null}
-                  {item.children ? (
-                    <ChevronDownIcon className="ml-auto" />
-                  ) : null}
-                  {item.label === "Subscriptions" ? (
-                    <ChevronRightIcon className="ml-auto" />
-                  ) : null}
+                  {item.children ? <ChevronDownIcon className="ml-auto" /> : null}
+                  {item.label === "Subscriptions" ? <ChevronRightIcon className="ml-auto" /> : null}
                 </SidebarMenuButton>
                 {item.children ? (
                   <SidebarMenuSub>
@@ -154,9 +147,8 @@ function OrganizationNavigation({
                           isActive={activeItem === child}
                           render={
                             <button
-                              aria-current={
-                                activeItem === child ? "page" : undefined
-                              }
+                              aria-current={activeItem === child ? "page" : undefined}
+                              aria-label={child}
                               data-navigation-label={child}
                               onClick={onItemClick}
                               type="button"
@@ -197,9 +189,7 @@ function OrganizationMenu({ defaultOpen }: { defaultOpen: boolean }) {
             }
           >
             <OrganizationMark />
-            <span className="flex-1 font-medium group-data-[collapsible=icon]:hidden">
-              Vercel
-            </span>
+            <span className="flex-1 font-medium group-data-[collapsible=icon]:hidden">Vercel</span>
             <EllipsisVerticalIcon className="ml-auto group-data-[collapsible=icon]:hidden" />
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -254,22 +244,16 @@ export function AppShell2({
   defaultOrganizationMenuOpen = false,
 }: AppShell2Props) {
   const [activeItem, setActiveItem] = useState("Overview");
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      const { navigationLabel } = event.currentTarget.dataset;
-      if (navigationLabel) {
-        setActiveItem(navigationLabel);
-      }
-    },
-    []
-  );
+  const handleItemClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    const { navigationLabel } = event.currentTarget.dataset;
+    if (navigationLabel) {
+      setActiveItem(navigationLabel);
+    }
+  }, []);
 
   return (
     <TooltipProvider>
-      <SidebarProvider
-        defaultOpen={!defaultCollapsed}
-        style={organizationSidebarStyle}
-      >
+      <SidebarProvider defaultOpen={!defaultCollapsed} style={organizationSidebarStyle}>
         <Sidebar
           className="[&>[data-sidebar=sidebar]]:rounded-lg [&>[data-sidebar=sidebar]]:ring-1 [&>[data-sidebar=sidebar]]:ring-sidebar-border"
           collapsible="icon"
@@ -302,10 +286,7 @@ export function AppShell2({
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <OrganizationNavigation
-              activeItem={activeItem}
-              onItemClick={handleItemClick}
-            />
+            <OrganizationNavigation activeItem={activeItem} onItemClick={handleItemClick} />
           </SidebarContent>
           <SidebarFooter>
             <SidebarMenu>
@@ -345,15 +326,9 @@ export function AppShell2({
             children
           ) : (
             <div className="grid min-h-0 flex-1 grid-rows-[auto_1fr] gap-4">
-              <section
-                aria-label="Project summary"
-                className="grid min-h-56 gap-4 md:grid-cols-3"
-              >
+              <section aria-label="Project summary" className="grid min-h-56 gap-4 md:grid-cols-3">
                 {["Projects", "Deployments", "Usage"].map((label) => (
-                  <div
-                    className="rounded-xl border border-dashed bg-card"
-                    key={label}
-                  >
+                  <div className="rounded-xl border border-dashed bg-card" key={label}>
                     <span className="sr-only">{label}</span>
                   </div>
                 ))}

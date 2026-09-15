@@ -1,11 +1,7 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Dialog controls close over preset, section, and scope values. */
 import { ExternalLink, ShieldCheck } from "lucide-react";
 import { type ComponentProps, useState } from "react";
-import {
-  DialogFrame,
-  type DialogProps,
-  Footer,
-} from "@/components/app/dialogs-shared";
+import { DialogFrame, type DialogProps, Footer } from "@/components/app/dialogs-shared";
 import { Badge } from "@/components/ui/badge";
 import { Dialog } from "@/components/ui/dialog";
 import {
@@ -88,18 +84,14 @@ export function ConnectGmailDialog(props: DialogProps) {
           <Separator />
           <FieldSet>
             <FieldLegend>Sync Scope</FieldLegend>
-            <RadioGroup
-              className="gap-3"
-              onValueChange={setScope}
-              value={scope}
-            >
+            <RadioGroup className="gap-3" onValueChange={setScope} value={scope}>
               {gmailScopes.map(([heading, copy, badge]) => {
                 const id = `gmail-scope-${heading.toLowerCase().replace(" ", "-")}`;
                 return (
                   <Field
                     className={cn(
                       "rounded-xl border p-4",
-                      scope === heading && "border-foreground"
+                      scope === heading && "border-foreground",
                     )}
                     key={heading}
                     orientation="horizontal"

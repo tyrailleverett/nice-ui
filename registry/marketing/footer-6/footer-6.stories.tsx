@@ -1,13 +1,7 @@
 import type { Meta, StoryFn } from "@storybook/react-vite";
 import { expect } from "storybook/test";
 
-import {
-  DiscordIcon,
-  Footer6 as Footer6Block,
-  LinkedinIcon,
-  XIcon,
-  YoutubeIcon,
-} from "./footer-6";
+import { DiscordIcon, Footer6 as Footer6Block, LinkedinIcon, XIcon, YoutubeIcon } from "./footer-6";
 
 export default {
   title: "Marketing/Footer",
@@ -68,10 +62,6 @@ export const WatermarkCard: StoryFn = () => (
 WatermarkCard.play = async ({ canvas, canvasElement }) => {
   await expect(canvas.getByRole("link", { name: "Blocks" })).toBeVisible();
   await expect(canvas.getByRole("link", { name: "LinkedIn" })).toBeVisible();
-  await expect(
-    canvas.getByRole("link", { name: "Terms of Service" })
-  ).toBeVisible();
-  await expect(
-    canvasElement.querySelector("[data-slot='footer-watermark-space']")
-  ).toBeTruthy();
+  await expect(canvas.getByRole("link", { name: "Terms of Service" })).toBeVisible();
+  await expect(canvasElement.querySelector("[data-slot='footer-watermark-space']")).toBeTruthy();
 };

@@ -8,18 +8,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import {
-  Empty,
-  EmptyContent,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export interface Faq4Category {
@@ -139,29 +129,22 @@ export function Faq4({
   className,
 }: Faq4Props) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState(
-    categories[0]?.id ?? "all"
-  );
+  const [activeCategory, setActiveCategory] = useState(categories[0]?.id ?? "all");
 
   const filtered = useMemo(() => {
     const query = searchTerm.toLowerCase();
 
     return questions.filter((faq) => {
-      const matchesCategory =
-        activeCategory === "all" || faq.category === activeCategory;
+      const matchesCategory = activeCategory === "all" || faq.category === activeCategory;
       const matchesSearch =
-        faq.title.toLowerCase().includes(query) ||
-        faq.content.toLowerCase().includes(query);
+        faq.title.toLowerCase().includes(query) || faq.content.toLowerCase().includes(query);
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, questions, searchTerm]);
 
-  const handleSearchChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setSearchTerm(event.target.value);
-    },
-    []
-  );
+  const handleSearchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  }, []);
 
   const handleCategoryChange = useCallback((value: string) => {
     if (value) {
@@ -176,12 +159,8 @@ export function Faq4({
   return (
     <MarketingSection className={className}>
       <div className="px-4 py-16 lg:px-6">
-        <h2 className="mb-4 font-display-heading text-3xl md:text-4xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="mb-8 max-w-2xl text-muted-foreground">{description}</p>
-        ) : null}
+        <h2 className="mb-4 font-display-heading text-3xl md:text-4xl">{title}</h2>
+        {description ? <p className="mb-8 max-w-2xl text-muted-foreground">{description}</p> : null}
 
         <InputGroup className="max-w-sm">
           <InputGroupInput
@@ -196,11 +175,7 @@ export function Faq4({
         </InputGroup>
       </div>
 
-      <Tabs
-        className="gap-0"
-        onValueChange={handleCategoryChange}
-        value={activeCategory}
-      >
+      <Tabs className="gap-0" onValueChange={handleCategoryChange} value={activeCategory}>
         <TabsList
           className="h-auto w-full justify-start rounded-none border-y bg-transparent px-4 py-0 md:gap-3"
           variant="line"
@@ -220,14 +195,8 @@ export function Faq4({
       {filtered.length > 0 ? (
         <Accordion className="space-y-2 border-0! px-4 py-12 lg:px-6">
           {filtered.map((faq) => (
-            <AccordionItem
-              className="rounded-lg border px-4 shadow-xs"
-              key={faq.id}
-              value={faq.id}
-            >
-              <AccordionTrigger className="hover:no-underline">
-                {faq.title}
-              </AccordionTrigger>
+            <AccordionItem className="rounded-lg border px-4 shadow-xs" key={faq.id} value={faq.id}>
+              <AccordionTrigger className="hover:no-underline">{faq.title}</AccordionTrigger>
               <AccordionContent className="pt-2 pb-4 text-muted-foreground">
                 {faq.content}
               </AccordionContent>

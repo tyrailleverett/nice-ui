@@ -61,8 +61,7 @@ const entries: Entry[] = [
   },
   {
     category: "Page",
-    description:
-      "Traffic, conversion, and retention dashboards for the current billing period.",
+    description: "Traffic, conversion, and retention dashboards for the current billing period.",
     group: "Navigation",
     icon: BarChartIcon,
     id: "analytics",
@@ -74,8 +73,7 @@ const entries: Entry[] = [
   },
   {
     category: "Page",
-    description:
-      "The full team directory with roles, status, and their most recent activity.",
+    description: "The full team directory with roles, status, and their most recent activity.",
     group: "Navigation",
     icon: UsersIcon,
     id: "members",
@@ -87,8 +85,7 @@ const entries: Entry[] = [
   },
   {
     category: "Action",
-    description:
-      "Update your display name, avatar, and the notifications you receive.",
+    description: "Update your display name, avatar, and the notifications you receive.",
     group: "Actions",
     icon: UserIcon,
     id: "profile",
@@ -97,8 +94,7 @@ const entries: Entry[] = [
   },
   {
     category: "Action",
-    description:
-      "Workspace preferences, billing, integrations, and security controls.",
+    description: "Workspace preferences, billing, integrations, and security controls.",
     group: "Actions",
     icon: SettingsIcon,
     id: "settings",
@@ -127,9 +123,7 @@ function PreviewPane({ entry }: { entry: Entry | undefined }) {
         <h3 className="font-heading font-semibold text-sm">{entry.title}</h3>
         <Badge variant="secondary">{entry.category}</Badge>
       </div>
-      <p className="mt-2 text-pretty text-muted-foreground text-sm">
-        {entry.description}
-      </p>
+      <p className="mt-2 text-pretty text-muted-foreground text-sm">{entry.description}</p>
       <dl className="mt-5 flex flex-col gap-2 border-border border-t pt-4">
         {entry.meta.map((row) => (
           <div className="flex items-center justify-between" key={row.label}>
@@ -156,11 +150,7 @@ export default function CommandPalette4() {
   return (
     <section className="flex min-h-svh w-full items-center justify-center bg-background px-6 py-16 text-foreground">
       <div className="grid h-[420px] w-full max-w-2xl grid-cols-1 overflow-hidden rounded-lg border border-border bg-popover sm:grid-cols-[1fr_260px]">
-        <Command
-          className="bg-transparent"
-          onValueChange={setValue}
-          value={value}
-        >
+        <Command className="bg-transparent" onValueChange={setValue} value={value}>
           <CommandInput
             aria-label="Search everything"
             className="text-sm"

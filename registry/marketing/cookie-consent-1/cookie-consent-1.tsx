@@ -51,20 +51,13 @@ export function CookieConsent1({
     <section
       aria-describedby="cookie-consent-1-description"
       aria-label="Cookie consent"
-      className={cn(
-        "fixed inset-x-0 bottom-0 z-50 border-t bg-background",
-        className
-      )}
+      className={cn("fixed inset-x-0 bottom-0 z-50 border-t bg-background", className)}
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <p
-          className="text-muted-foreground text-sm"
-          id="cookie-consent-1-description"
-        >
+        <p className="text-muted-foreground text-sm" id="cookie-consent-1-description">
           {description ?? (
             <>
-              We use cookies to improve your experience and analyze traffic.
-              Read our{" "}
+              We use cookies to improve your experience and analyze traffic. Read our{" "}
               <a
                 className="font-medium text-foreground underline underline-offset-4 hover:text-foreground/80"
                 href={policy.href}
@@ -84,11 +77,7 @@ export function CookieConsent1({
           >
             {decline.label}
           </Button>
-          <Button
-            className="flex-1 sm:flex-none"
-            onClick={handleAccept}
-            type="button"
-          >
+          <Button className="flex-1 sm:flex-none" onClick={handleAccept} type="button">
             {accept.label}
           </Button>
         </div>

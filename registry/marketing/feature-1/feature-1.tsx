@@ -1,9 +1,4 @@
-import {
-  ActivityIcon,
-  GlobeIcon,
-  ShieldCheckIcon,
-  ZapIcon,
-} from "lucide-react";
+import { ActivityIcon, GlobeIcon, ShieldCheckIcon, ZapIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { MarketingSection } from "@/components/marketing-section";
 import { cn } from "@/lib/utils";
@@ -42,10 +37,7 @@ const defaultFeatures: Feature1Item[] = [
   },
 ];
 
-export function Feature1({
-  features = defaultFeatures,
-  className,
-}: Feature1Props) {
+export function Feature1({ features = defaultFeatures, className }: Feature1Props) {
   return (
     <MarketingSection className={className}>
       <section className="grid grid-cols-2 gap-4 py-4 md:grid-cols-4">
@@ -58,7 +50,7 @@ export function Feature1({
               {
                 "after:hidden": index === features.length - 1,
                 "after:hidden after:md:block": index === 1,
-              }
+              },
             )}
             key={feature.title}
           >

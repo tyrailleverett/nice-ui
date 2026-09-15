@@ -20,24 +20,20 @@ export const CustomerRoadmap: Story = {
     await expect(voteButton).toHaveAttribute("aria-pressed", "true");
     await expect(voteButton).toHaveTextContent("Voted");
 
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Submit feedback" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Submit feedback" }));
     await userEvent.type(
       canvas.getByRole("textbox", { name: "Request title" }),
-      "Bring saved views to the mobile app"
+      "Bring saved views to the mobile app",
     );
     await userEvent.type(
       canvas.getByRole("textbox", { name: "How would this help?" }),
-      "Our team checks key metrics on the go and needs the same saved filters."
+      "Our team checks key metrics on the go and needs the same saved filters.",
     );
-    await userEvent.click(
-      canvas.getByRole("button", { name: "Send feedback" })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: "Send feedback" }));
     await expect(
       canvas.getByRole("heading", {
         name: "Thanks for the thoughtful feedback",
-      })
+      }),
     ).toBeVisible();
   },
   render: () => <FeedbackRoadmap />,

@@ -104,9 +104,7 @@ export function Changelog1({
               {badge}
             </Badge>
             <h2 className="font-heading font-semibold text-3xl">{title}</h2>
-            {description ? (
-              <p className="mt-3 text-muted-foreground">{description}</p>
-            ) : null}
+            {description ? <p className="mt-3 text-muted-foreground">{description}</p> : null}
           </div>
 
           <div className="flex flex-col gap-10">
@@ -115,10 +113,7 @@ export function Changelog1({
                 {index > 0 ? <Separator className="mb-10" /> : null}
                 <div className="grid gap-x-8 gap-y-5 md:grid-cols-[180px_1fr]">
                   <div className="flex flex-col items-start gap-1.5">
-                    <Badge
-                      className="font-mono tabular-nums"
-                      variant="secondary"
-                    >
+                    <Badge className="font-mono tabular-nums" variant="secondary">
                       {release.version}
                     </Badge>
                     <span className="text-muted-foreground text-xs tabular-nums">
@@ -132,9 +127,7 @@ export function Changelog1({
                   <div className="flex flex-col gap-5">
                     {release.groups.map((group) => (
                       <div className="flex flex-col gap-2" key={group.type}>
-                        <h3 className="font-heading font-semibold text-sm">
-                          {group.type}
-                        </h3>
+                        <h3 className="font-heading font-semibold text-sm">{group.type}</h3>
                         <ul className="flex flex-col gap-1.5 pl-4.5">
                           {group.items.map((item) => (
                             <li

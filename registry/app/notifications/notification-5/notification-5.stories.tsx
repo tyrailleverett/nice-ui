@@ -15,19 +15,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Center: Story = {
   play: async ({ canvas }) => {
-    await userEvent.click(
-      canvas.getByRole("button", { name: unreadFilterName })
-    );
+    await userEvent.click(canvas.getByRole("button", { name: unreadFilterName }));
     await expect(canvas.getByText("Maya Chen")).toBeVisible();
     await userEvent.click(
       canvas.getByRole("button", {
         name: "Mark notification from Maya Chen as read",
-      })
+      }),
     );
     await expect(
       canvas.queryByRole("button", {
         name: "Mark notification from Maya Chen as read",
-      })
+      }),
     ).not.toBeInTheDocument();
   },
   render: () => <Notification5 />,

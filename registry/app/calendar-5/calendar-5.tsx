@@ -1,11 +1,5 @@
 /* biome-ignore-all lint/performance/noJsxPropsBind: Booking date selection also clears unavailable times. */
-import {
-  CheckCircle2Icon,
-  Clock3Icon,
-  GlobeIcon,
-  LayoutGridIcon,
-  VideoIcon,
-} from "lucide-react";
+import { CheckCircle2Icon, Clock3Icon, GlobeIcon, LayoutGridIcon, VideoIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
   buildTimeSlots,

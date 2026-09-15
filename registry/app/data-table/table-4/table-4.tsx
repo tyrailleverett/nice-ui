@@ -25,11 +25,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-} from "@/components/ui/pagination";
+import { Pagination, PaginationContent, PaginationItem } from "@/components/ui/pagination";
 import {
   Table,
   TableBody,
@@ -283,11 +279,8 @@ export function Table4({ className }: Table4Props) {
   const [page, setPage] = useState(0);
   const pageSize = 9;
   const filtered = useMemo(
-    () =>
-      roadmap.filter((item) =>
-        item.title.toLowerCase().includes(query.toLowerCase())
-      ),
-    [query]
+    () => roadmap.filter((item) => item.title.toLowerCase().includes(query.toLowerCase())),
+    [query],
   );
   const pageRows = filtered.slice(page * pageSize, (page + 1) * pageSize);
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
@@ -307,22 +300,14 @@ export function Table4({ className }: Table4Props) {
       }
       return next;
     });
-  const countFor = (stage: Stage) =>
-    roadmap.filter((item) => item.stage === stage).length;
+  const countFor = (stage: Stage) => roadmap.filter((item) => item.stage === stage).length;
 
   return (
-    <section
-      className={cn(
-        "min-h-svh w-full bg-background px-6 py-12 text-foreground",
-        className
-      )}
-    >
+    <section className={cn("min-h-svh w-full bg-background px-6 py-12 text-foreground", className)}>
       <div className="mx-auto w-full max-w-7xl">
         <header className="flex flex-wrap items-end justify-between gap-6 pb-7">
           <div>
-            <h1 className="font-heading font-semibold text-title">
-              Roadmap Queue
-            </h1>
+            <h1 className="font-heading font-semibold text-title">Roadmap Queue</h1>
             <p className="mt-2 text-muted-foreground text-sm">
               Track work by stage, owner, and signal.
             </p>
@@ -330,23 +315,14 @@ export function Table4({ className }: Table4Props) {
           <div className="flex items-center gap-5 text-muted-foreground text-sm">
             {[
               ["Tasks", roadmap.length],
-              [
-                "Blocked",
-                roadmap.filter((item) => item.signal === "Blocked").length,
-              ],
-              [
-                "At risk",
-                roadmap.filter((item) => item.signal === "At risk").length,
-              ],
-              [
-                "Unassigned",
-                roadmap.filter((item) => item.owner === "Unassigned").length,
-              ],
+              ["Blocked", roadmap.filter((item) => item.signal === "Blocked").length],
+              ["At risk", roadmap.filter((item) => item.signal === "At risk").length],
+              ["Unassigned", roadmap.filter((item) => item.owner === "Unassigned").length],
             ].map(([label, count], index) => (
               <div
                 className={cn(
                   "flex items-center gap-2",
-                  index > 0 && "border-border border-l pl-5"
+                  index > 0 && "border-border border-l pl-5",
                 )}
                 key={String(label)}
               >
@@ -409,27 +385,15 @@ export function Table4({ className }: Table4Props) {
           <TableBody>
             {grouped.map(({ stage, items }) => (
               <>
-                <TableRow
-                  className="bg-muted/40 hover:bg-muted/40"
-                  key={`${stage}-group`}
-                >
+                <TableRow className="bg-muted/40 hover:bg-muted/40" key={`${stage}-group`}>
                   <TableCell colSpan={7}>
                     <Button
                       className="h-auto w-full justify-start gap-3"
                       onClick={() => toggleStage(stage)}
                       variant="ghost"
                     >
-                      <span
-                        className={cn(
-                          "size-2.5 rounded-full",
-                          stageColor[stage]
-                        )}
-                      />
-                      {collapsed.has(stage) ? (
-                        <ChevronRightIcon />
-                      ) : (
-                        <ChevronDownIcon />
-                      )}
+                      <span className={cn("size-2.5 rounded-full", stageColor[stage])} />
+                      {collapsed.has(stage) ? <ChevronRightIcon /> : <ChevronDownIcon />}
                       <span className="font-medium">{stage}</span>
                       <Badge variant="secondary">{countFor(stage)}</Badge>
                       <span className="ml-auto text-muted-foreground text-sm">
@@ -455,24 +419,13 @@ export function Table4({ className }: Table4Props) {
                         <OwnerStack owners={item.owners} />
                       </TableCell>
                       <TableCell>
-                        <Badge
-                          className="gap-1.5 font-normal"
-                          variant="outline"
-                        >
-                          <span
-                            className={cn(
-                              "size-1.5 rounded-full",
-                              tagColor[item.tag]
-                            )}
-                          />
+                        <Badge className="gap-1.5 font-normal" variant="outline">
+                          <span className={cn("size-1.5 rounded-full", tagColor[item.tag])} />
                           {item.tag}
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <Badge
-                          className="gap-1.5 font-normal"
-                          variant="outline"
-                        >
+                        <Badge className="gap-1.5 font-normal" variant="outline">
                           <CalendarDaysIcon />
                           {item.date}
                         </Badge>
@@ -482,10 +435,7 @@ export function Table4({ className }: Table4Props) {
                       </TableCell>
                       <TableCell>
                         <Badge
-                          className={cn(
-                            "font-normal",
-                            signalClass[item.signal]
-                          )}
+                          className={cn("font-normal", signalClass[item.signal])}
                           variant="outline"
                         >
                           {item.signal}
@@ -522,8 +472,7 @@ export function Table4({ className }: Table4Props) {
             <PaginationContent>
               <PaginationItem>
                 <span className="px-2">
-                  {page * pageSize + 1}–
-                  {Math.min((page + 1) * pageSize, filtered.length)} of{" "}
+                  {page * pageSize + 1}–{Math.min((page + 1) * pageSize, filtered.length)} of{" "}
                   {filtered.length}
                 </span>
               </PaginationItem>
@@ -539,17 +488,13 @@ export function Table4({ className }: Table4Props) {
                 </Button>
               </PaginationItem>
               <PaginationItem>
-                <span className="rounded-md bg-muted px-3 py-1 text-foreground">
-                  {page + 1}
-                </span>
+                <span className="rounded-md bg-muted px-3 py-1 text-foreground">{page + 1}</span>
               </PaginationItem>
               <PaginationItem>
                 <Button
                   aria-label="Next page"
                   disabled={page >= pageCount - 1}
-                  onClick={() =>
-                    setPage((value) => Math.min(pageCount - 1, value + 1))
-                  }
+                  onClick={() => setPage((value) => Math.min(pageCount - 1, value + 1))}
                   size="icon-sm"
                   variant="ghost"
                 >

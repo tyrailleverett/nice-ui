@@ -12,11 +12,7 @@ import { cn } from "@/lib/utils";
 export function GithubIcon(props: ComponentProps<"svg">) {
   return (
     <svg aria-hidden="true" {...props}>
-      <image
-        height="100%"
-        href="https://svgl.app/library/github_light.svg"
-        width="100%"
-      />
+      <image height="100%" href="https://svgl.app/library/github_light.svg" width="100%" />
     </svg>
   );
 }
@@ -44,7 +40,7 @@ function ActivityCard({ className, content }: Cta7Activity) {
     <div
       className={cn(
         "absolute hidden max-w-64 rounded-xl border bg-card px-3 py-2 text-left shadow-sm md:block",
-        className
+        className,
       )}
     >
       {content}
@@ -116,7 +112,7 @@ export function Cta7({
       <section
         className={cn(
           "relative mx-auto flex min-h-80 w-full max-w-4xl flex-col items-center justify-center gap-4 overflow-hidden px-6 py-16 text-center md:min-h-96",
-          "bg-[radial-gradient(40%_70%_at_50%_20%,--theme(--color-foreground/.08),transparent)]"
+          "bg-[radial-gradient(40%_70%_at_50%_20%,--theme(--color-foreground/.08),transparent)]",
         )}
       >
         {activities.map((activity) => (
@@ -125,16 +121,19 @@ export function Cta7({
 
         <h2 className="font-display-heading text-3xl md:text-4xl">{title}</h2>
         {description ? (
-          <p className="text-muted-foreground text-sm md:text-base">
-            {description}
-          </p>
+          <p className="text-muted-foreground text-sm md:text-base">{description}</p>
         ) : null}
         {primaryCta.href ? (
           <Button
             className="rounded-full"
             nativeButton={false}
             render={
-              <a href={primaryCta.href} rel="noreferrer" target="_blank" />
+              <a
+                aria-label={primaryCta.label}
+                href={primaryCta.href}
+                rel="noreferrer"
+                target="_blank"
+              />
             }
             size="lg"
           >

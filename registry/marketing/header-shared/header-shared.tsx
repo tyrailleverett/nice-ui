@@ -40,7 +40,7 @@ export function HeaderCtaButton({
       <Button
         className={className}
         nativeButton={false}
-        render={<a href={cta.href} />}
+        render={<a aria-label={cta.label} href={cta.href} />}
         size="sm"
         variant={variant}
       >
@@ -56,23 +56,11 @@ export function HeaderCtaButton({
   );
 }
 
-export function HeaderLogo({
-  logo,
-  logoHref,
-}: {
-  logo?: ReactNode;
-  logoHref: string;
-}) {
+export function HeaderLogo({ logo, logoHref }: { logo?: ReactNode; logoHref: string }) {
   return (
-    <a
-      aria-label="Nice UI home"
-      className="flex items-center gap-2"
-      href={logoHref}
-    >
+    <a aria-label="Nice UI home" className="flex items-center gap-2" href={logoHref}>
       {logo ?? (
-        <span className="h-4 font-heading font-semibold text-sm tracking-tight">
-          Nice UI
-        </span>
+        <span className="h-4 font-heading font-semibold text-sm tracking-tight">Nice UI</span>
       )}
     </a>
   );
@@ -94,9 +82,7 @@ export function HeaderNavLinks({
           <a
             className={cn(
               "relative text-muted-foreground transition-colors duration-150 after:absolute after:bottom-0 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:text-foreground hover:after:w-full",
-              underline === "center"
-                ? "after:left-1/2 after:-translate-x-1/2"
-                : "after:left-0"
+              underline === "center" ? "after:left-1/2 after:-translate-x-1/2" : "after:left-0",
             )}
             href={item.href}
           >
@@ -157,7 +143,7 @@ export function HeaderActions({
         "mb-6 hidden w-full flex-wrap items-center justify-end gap-6 bg-background/95 p-6",
         "data-[state=active]:flex",
         "supports-backdrop-filter:bg-background/80 supports-backdrop-filter:backdrop-blur-xl",
-        "lg:m-0 lg:flex lg:w-fit lg:bg-transparent lg:p-0 lg:supports-backdrop-filter:bg-transparent lg:supports-backdrop-filter:backdrop-blur-none"
+        "lg:m-0 lg:flex lg:w-fit lg:bg-transparent lg:p-0 lg:supports-backdrop-filter:bg-transparent lg:supports-backdrop-filter:backdrop-blur-none",
       )}
       data-state={menuOpen ? "active" : "inactive"}
       id="mobile-menu"
@@ -191,15 +177,12 @@ export function HeaderFrame({
 
   return (
     <header className={className}>
-      <nav
-        className="fixed z-50 w-full px-2"
-        data-state={menuOpen ? "active" : "inactive"}
-      >
+      <nav className="fixed z-50 w-full px-2" data-state={menuOpen ? "active" : "inactive"}>
         <div
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
             scrolled &&
-              "max-w-4xl rounded-2xl border border-border/70 bg-background/90 shadow-foreground/5 shadow-lg ring-1 ring-background/80 supports-backdrop-filter:bg-background/60 supports-backdrop-filter:backdrop-blur-2xl supports-backdrop-filter:backdrop-saturate-150 lg:px-5"
+              "max-w-4xl rounded-2xl border border-border/70 bg-background/90 shadow-foreground/5 shadow-lg ring-1 ring-background/80 supports-backdrop-filter:bg-background/60 supports-backdrop-filter:backdrop-blur-2xl supports-backdrop-filter:backdrop-saturate-150 lg:px-5",
           )}
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
