@@ -724,6 +724,28 @@
       ]
     },
     {
+      "name": "login-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Card signup with Google and GitHub buttons and email and password fields.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "card",
+        "input-group",
+        "label",
+        "separator",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/password-input"
+      ],
+      "files": [
+        {
+          "path": "auth/login-2/login-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/login-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "register-form",
       "type": "registry:component",
       "title": "Register Form",
@@ -777,6 +799,28 @@
           "path": "auth/register-3/register-3.tsx",
           "type": "registry:component",
           "target": "~/components/app/register-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "register-2",
+      "type": "registry:block",
+      "title": "Card",
+      "description": "Card signup with Google and GitHub buttons and name, email and password fields.",
+      "registryDependencies": [
+        "tyrailleverett/nice-ui/style",
+        "card",
+        "input-group",
+        "label",
+        "separator",
+        "tyrailleverett/nice-ui/logo",
+        "tyrailleverett/nice-ui/password-input"
+      ],
+      "files": [
+        {
+          "path": "auth/register-2/register-2.tsx",
+          "type": "registry:component",
+          "target": "~/components/app/register-2.tsx"
         }
       ]
     },
