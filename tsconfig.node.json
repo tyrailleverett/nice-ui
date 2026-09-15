@@ -20,5 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": true
   },
-  "include": ["vite.config.ts", ".storybook/main.ts", ".storybook/manager.ts"]
+  "include": ["rsbuild.config.ts", ".storybook/main.ts", ".storybook/manager.ts"]
 }
